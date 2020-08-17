@@ -1,0 +1,419 @@
+// Copyright (c) 2020 Arista Networks, Inc.
+// Use of this source code is governed by the Apache License 2.0
+// that can be found in the COPYING file.
+
+syntax = "proto3";
+
+import "notification.proto";
+import "sharding.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "gen";
+
+// Path defines a path matcher for a Query.
+message Path {
+	// V2: DEPRECATED
+	enum Type {
+		// EXACT means that the "path" will be matched exactly
+		EXACT = 0;
+		// REGEXP means that the "path" will be treated as regexp
+		REGEXP = 1;
+	}
+	// V2: DEPRECATED
+	Type type = 1;
+	// V2: DEPRECATED
+	string path = 2;
+    // Keys (V1: BSDN, V2: NEAT) can be optionally provided to narrow the set
+    // of notification keys included in the result.
+    repeated bytes keys = 3;
+    // PathElements (V2: NEAT) are a list of keys representing a path.
+    repeated bytes path_elements = 4;
+}
+
+message Query {
+   Dataset dataset = 1;
+   repeated Path paths = 2;
+}
+
+// SubscribeRequest defines the stream subset the client is subscribing to.
+//
+// V1:
+//
+// The filtering is done first by dataset:
+//   - if Query.Dataset.Name == "<name>" and Query.Dataset.Typ == "<type>",
+//     matching notificaitons from dataset "<type>:<name>" that are returned.
+//   - if Query.Dataset.Name == "" and Query.Dataset.Typ == "<type>",
+//     matching notifications from datasets with type "<type>" are returned.
+//   - if Query.Dataset.Name == "" and Query.Dataset.Typ == "",
+//     matching notifications from all datasets are returned.
+// TODO: for now the above rules only work if Path.regexp_path is specified.
+//       Path.exact_path expects Query.Dataset.Name and Query.Dataset.Typ to be non-empty
+// If a notification matches any of the rules above, next it's matched against Query.Paths.
+// The shardedsub field contains the information relative to horizontal scaling
+// (number of instances, ID of the subscribing instance, and dispatching method)
+//
+// V2:
+//
+// If path elements are not provided:
+//
+// Uses V1 logic.
+//
+// If path elements are provided:
+//
+// Notification filtering is done by queries. For each query, the dataset name and
+// type must be non-empty. Notifications that match the query paths are streamed to
+// the client. The sharded sub field contains information relating to horizontal
+// scaling (i.e. number of instances, ID of the subscribing instance, and dispatching
+// method).
+message SubscribeRequest {
+   repeated Query query = 1;
+   Sharding sharded_sub = 2;
+}
+
+enum PathWildCardExpandType {
+   // WILDCARD_EXPAND_LEGACY falls back to default behavior
+   WILDCARD_EXPAND_LEGACY = 0;
+   // WILDCARD_EXPAND_LATEST means that only latest path pointers will be considered
+   WILDCARD_EXPAND_LATEST = 1;
+   // WILDCARD_EXPAND_EXACT_RANGE means that path pointers satisfying given start/end will be considered
+   WILDCARD_EXPAND_EXACT_RANGE = 2;
+   // WILDCARD_EXPAND_RELAXED_RANGE means that path pointers satisfying 0 to end will be considered
+   WILDCARD_EXPAND_RELAXED_RANGE = 3;
+}
+
+message GetRequest {
+   // V1:
+   //
+   // NOTE: Query.Path.Type = REGEXP is not supported for GetRequest.
+   repeated Query query = 1;
+
+   // (Optional) Lower bound (inclusive) of time range to retrieve, in nanoseconds since the Epoch.
+   // If `start` is set, the returned results will correspond to a time range query (from `start` to
+   // `end` or now, depending on whether `end` is set or not).
+   // If `start` is not set, this request will execute a "limit" query based on `versions`.
+   // The value 0 corresponds to an unset field.
+   uint64 start = 4;
+
+   // (Optional) Maximum number of versions to retrieve.
+   // If `start` is set, this value is ignored. Otherwise, will return at most (`versions` + 1) past
+   // versions.
+   uint32 versions = 5;
+
+   // (Optional) Upper bound (inclusive) of time range to retrieve, in nanoseconds since the Epoch.
+   // The value 0 corresponds to an unset field.  Defaults to the largest valid timestamp.
+   uint64 end = 3;
+
+   // (Optional) Whether to return the initial state of the requested paths at time `start`.
+   // The "initial state" is the set of notifications that fully specify the state of the path at
+   // that time. It includes all relevant notifications before (and up to) `start`.
+   // If `start` is not set, this is ignored.
+   bool exact_range = 6;
+
+   // (Optional) Number of client instances, id of the client making the request, and sharding
+   // method for the implementation of horizontal scaling. If not set, no filtering will happen.
+   Sharding sharded_sub = 7;
+
+   // (Optional) Specifies wildcard expansion strategy when time range is specified.
+   // This option has no effect when time range (start/end) is not used.
+   PathWildCardExpandType wildcard_expand_type = 8;
+
+   // Next tag: 9
+   reserved 2;
+   reserved "count";
+}
+
+message GetAndSubscribeRequest {
+   repeated Query query = 1;
+
+   // (Optional) Lower bound (inclusive) of time range to retrieve, in nanoseconds since the Epoch.
+   // If `start` is set, the returned results will correspond to a time range query (from `start` to
+   // `end` or now, depending on whether `end` is set or not).
+   // If `start` is not set, this request will execute a "limit" query based on `versions`.
+   // The value 0 corresponds to an unset field.
+   uint64 start = 2;
+
+   // (Optional) Maximum number of versions to retrieve.
+   // If `start` is set, this value is ignored. Otherwise, will return at most (`versions` + 1) past
+   // versions.
+   uint32 versions = 3;
+
+   // (Optional) Whether to return the initial state of the requested paths at time `start`.
+   // The "initial state" is the set of notifications that fully specify the state of the path at
+   // that time. It includes all relevant notifications before (and up to) `start`.
+   // If `start` is not set, this is ignored.
+   bool exact_range = 4;
+
+   // (Optional) Number of client instances, id of the client making the request, and sharding
+   // method for the implementation of horizontal scaling. If not set, no filtering will happen.
+   Sharding sharded_sub = 5;
+}
+
+
+message SearchRequest {
+    enum Type {
+      // STRING means that Key/Value string fields will be searched
+      STRING = 0;
+      // MAC means that Key/Value mac fields will be searched
+      MAC = 1;
+      // IP means that Key/Value ip fields will be searched
+      IP = 2;
+      // COMPLEX means that a complex key or value will be searched
+      COMPLEX = 3;
+    }
+    // A search string
+    string search = 1;
+    // The type of value that's being searched.
+    Type search_type = 2;
+    // Filter on specific datasets and paths.
+    repeated Query query = 3;
+    // Start and end time of the notifications returned, inclusive.
+    uint64 start = 4;
+    uint64 end = 5;
+
+    // Return only the number of results
+    bool count_only = 6;
+
+    // Complex fields search
+    repeated Filter key_filters = 7;
+    repeated Filter value_filters = 8;
+}
+
+// field name and filter value
+message Filter {
+    enum Operator {
+        EQ = 0;     // equal to
+        NEQ = 1;    // not equal to
+        GT = 2;     // greater than
+        GE = 3;     // greater than or equal to
+        LT = 4;     // less than
+        LE = 5;     // less than or equal to
+        RE = 6;     // regex
+        NRE = 7;    // not regex
+        IN = 8;     // in
+        NIN = 9;    // not in
+        SUB = 10;   // substring
+    }
+    // Value, normalized
+    message Value {
+        oneof kind {
+            string str = 1;
+            sint64 int = 2;
+            uint64 uint = 3;
+            double float = 4;
+            bool b = 5;
+            string ip = 6;
+            string mac = 7;
+            ComponentValue comp = 8;
+            MultiValue multi = 9;
+        }
+    }
+    message ComponentValue {
+        map<string,string> value = 1;
+    }
+    message MultiValue {
+        repeated Value values = 1;
+    }
+    string field = 1;
+    Operator op = 2;
+    Value value = 3;
+}
+
+// PublishRequest
+message PublishRequest {
+   // The batch of notification sent to CloudVision
+   NotificationBatch batch = 1;
+   // Used to have a synchronous or asynchronous write to the CloudVision storage
+   bool sync = 2;
+   // If provided, the batch notification will be stored only if one of the
+   // following conditions are true:
+   // a) compare.value matches the current value stored for field compare.key
+   // b) compare.value is not provided and the compare.key field does not exist
+   //    in the specified dataset path
+   // The comparison and storage operations are guaranteed to occur atomically
+   // per notification, so only one notification is expected in the batch.
+   // This parameter can be encoded using EncodeNotificationUpdate or
+   // EncodeNotificationUpdateKey for conditions a) and b), respectively.
+   Notification.Update compare = 3;
+}
+
+// DatasetsRequest
+message DatasetsRequest {
+   repeated string types = 1;
+}
+
+message DatasetsResponse {
+   repeated Dataset datasets = 1;
+}
+
+message CreateDatasetRequest {
+    Dataset dataset = 1;
+}
+
+// SetPermissionRequest encompasses requests to create/update/delete permissions of each type.
+// A PATH_PERMISSION must contain a set of path<->permission tuples.
+// The INHERIT_PERMISSION only requires the @dataset and @other args.
+// ADMIN_PERMISSION reuses @path but only looks at the @perm field of the first element.
+// Updates require the the client to pass `oldPerm` to avoid race conditions.
+message SetPermissionRequest {
+    enum Type {
+        PATH_PERMISSION = 0;
+        INHERIT_PERMISSION = 1;
+        UNINHERIT_PERMISSION = 2;
+        ADMIN_PERMISSION = 3;
+    }
+    message PathPerm {
+        enum Perm {
+            NULL_PERM_VALUE = 0;
+            READ_PERM = 1;
+            WRITE_PERM = 2;
+            READ_WRITE_PERM = 3;
+        }
+        Path path = 1;
+        Perm newPerm = 2;
+        Perm currentPerm = 3;
+        bool exactMatch = 4;
+    }
+    Type type = 1;
+    Dataset dataset = 2;
+    Dataset other = 3;
+    repeated PathPerm pathPerms = 6;
+}
+
+// A PermissionSet can be represented as a list of SetPermissionRequests
+message PermissionSet {
+    repeated SetPermissionRequest permissions = 1;
+}
+
+message ClusterDescription {
+   // timestamp represent the server's current time.
+   google.protobuf.Timestamp timestamp = 1;
+   string clusterName = 2;
+   uint32 epoch = 3;
+}
+
+// SetPasswordRequest is used to set the password for a dataset.
+message SetPasswordRequest {
+   Dataset dataset = 1;
+   string password = 2;
+}
+
+// CreateSessionRequest is used to create session for user
+message CreateSessionRequest {
+    Dataset dataset = 1;
+}
+
+// CreateSessionResponse returns the issued JWT token
+message CreateSessionResponse {
+    string jwtToken = 1;
+    int64 expiry = 2;
+}
+
+service RouterV1 {
+   // Publish is used to send notifications to CloudVision.
+   // They will be saved into the storage and sent to all
+   // the clients subscribing to the same device/path.
+   //
+   // * Publish guarantees atomicity of the data saved per {timestamp+path+key}.
+   // For Notification => For one Notification having multiple keys,
+   // each key is ensured to be saved atomically
+   // but atomicity is not guaranteed for the entire notification.
+   // For NotificationBatch =>  if Notif[1] and Notif[5]
+   // both have updates for a {timestamp+path+key}
+   // either the update of Notif[1] will be saved, or the update of Notif[5] will be saved.
+   // The value will be one or the other, not a corrupted combination of both requests.
+   //
+   // * There is no guarantee for write order within a single publish request.
+   // When sending multiple notifications where multiple notification will have
+   // the same timestamp, path and keys,
+   // Publish does not guarantee that Notif[1] will be processed before Notif[5]
+   // This means that for two notifications in the same Publish call having the
+   // same {timestamp+path+key}, the result is undefined and will randomly vary
+   // (i.e. the first notif data will be saved, or the second one).
+   // The client must send two synchronous Publish requests to guarantee
+   // the write order at which the requests are processed.
+   //
+   // * Publish is asynchronous by default:
+   // When the call to Publish ends without error, it means the data has been
+   // correctly received by CloudVision but not stored yet.
+   // So, if a "get" call is done right after the Publish call, the get might
+   // not return the data just published.
+   // When the "sync" field is set to true in PublishRequest, the Publish
+   // will be synchronous:
+   // When the call to Publish ends without error, it means the data has been
+   // correctly received AND stored by CloudVision.
+   // So, if a "get" call is done right after the synchronous Publish call, the get will
+   // return the data just published (unless someone else stored more recent data of course).
+   //
+   // * Client-side and Server-side timestamping:
+   // The notification object has a timestamp that can be populated by the client.
+   // In case the Client sends a notification with a "null" timestamp as the
+   // Notification.timestamp field, the server will populate the timestamp with
+   // the current time of the node with the server process is running.
+   // This "current time" will be queried once at the beginning of the Publish request
+   // and will be used as the Notification.timestamp for all the notification having this field
+   // as null.
+   rpc Publish (PublishRequest) returns (google.protobuf.Empty);
+
+   // Subscribe allows the client to request a live stream of updates
+   // (V1: either based on regexp or exact match, V2: based on exact match)
+   //
+   // There is no order guarantee for batches received by subscribers.
+   // It means that two batches A and B published synchronously (B is published after A)
+   // the subscribers can receive batch A first or B second, OR batch B first and A second.
+   // This is also true for notifications within a batch.
+   // The backend can decide to split a batch and reorder notifications so subscribers
+   // might receive notifications within a batch in a different order that they were published.
+   rpc Subscribe (SubscribeRequest) returns (stream NotificationBatch);
+
+   // Get is used to request notifications for a given path over a specified time range.
+   // Wildcards are supported with Get requests, but when given a range of time the server
+   // will resolve all wildcard paths at the starting timestamp of the given range, so any
+   // pointers and/or paths that are created after the given start timestamp will not be
+   // accounted for during wildcard resolution.
+   rpc Get (GetRequest) returns (stream NotificationBatch);
+
+   // GetAndSubscribe allows the client to issue one request to do both Get and Subscribe requests.
+   // The server will first send a mix of subscribe and get batches, and there's no distinction
+   // between which batches are subscribe or get batches. Then the server will send a sync signal
+   // signaling that the Get stream has finished. After that, server will stream out only subscribe
+   // batches. There's no order guarantee for batches received by client.
+   rpc GetAndSubscribe (GetAndSubscribeRequest) returns (stream NotificationBatch);
+
+   rpc GetDatasets (DatasetsRequest) returns (stream DatasetsResponse);
+}
+
+service Auth {
+   // CreateDataset from a given Dataset wrapped in a CreateDatasetRequest
+   rpc CreateDataset (CreateDatasetRequest) returns (google.protobuf.Empty);
+
+   // SetPermission sets a permission for a dataset using a SetPermissionRequest.
+   rpc SetPermission (SetPermissionRequest) returns (google.protobuf.Empty);
+
+   // GetPermissionSet returns the set of all permissions present for the datasets specified
+   // in the 'query'(s) of the GetRequest.
+   rpc GetPermissionSet (GetRequest) returns (stream PermissionSet);
+
+   // SetPassword sets the password for a user.
+   rpc SetPassword (SetPasswordRequest) returns (google.protobuf.Empty);
+
+   // CreateSession creates session for user
+   rpc CreateSession (CreateSessionRequest) returns (stream CreateSessionResponse);
+}
+
+// Alpha services are services which are not supported and
+// can be added/removed/changed anytime, without notice.
+// Clients should not user them and build applications on top of this service
+service Alpha {
+   // you know, for search...
+   rpc Search (SearchRequest) returns (stream NotificationBatch);
+   // SearchSubscribe allows the client to request a live stream of updates
+   // based on client search request
+   rpc SearchSubscribe (SearchRequest) returns (stream NotificationBatch);
+}
+
+// Cluster service gives some descriptions about the cluster where the service
+// is running.
+service Cluster {
+       rpc ClusterInfo(google.protobuf.Empty) returns (stream ClusterDescription);
+}

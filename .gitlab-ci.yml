@@ -1,0 +1,13 @@
+stages:
+  - test
+
+image: debian:latest
+
+test:
+  stage: test
+  script:
+    - apt-get update -qy
+    - apt-get install -y python3 python3-pip
+    - ./install.sh
+    - pip3 install -r requirements-dev.txt
+    - py.test

@@ -1,0 +1,6 @@
+-r requirements.txt
+mypy-protobuf
+mypy
+pytest>=4.6.9
+numpy>=1.17.4
+pyyaml>=5.3.1

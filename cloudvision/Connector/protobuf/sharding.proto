@@ -1,0 +1,24 @@
+// Copyright (c) 2020 Arista Networks, Inc.
+// Use of this source code is governed by the Apache License 2.0
+// that can be found in the COPYING file.
+
+syntax = "proto3";
+
+option go_package = "gen";
+
+enum ShardingFunction {
+    // DATASETANDPATH shards by the association of dataset and path
+    DATASETANDPATH = 0;
+    // DATASET shards by dataset
+    DATASET = 1;
+}
+
+// Sharding contains the information for horizontal scaling of subscriptions and get requests
+message Sharding {
+    // shard is the unique ID of the client instance for horizontal scaling
+    uint32 shard = 1;
+    // numShards is the number of instances of the client for horizontal scaling
+    uint32 numShards = 2;
+    // shardingFunc defines which sharding function to use for horizontal scaling
+    ShardingFunction shardingFunc = 3;
+}
