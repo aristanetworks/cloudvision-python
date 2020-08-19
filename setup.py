@@ -18,6 +18,7 @@ setuptools.setup(
     url="https://github.com/aristanetworks/cloudvision-python",
     packages=setuptools.find_packages(),
     classifiers=[
+        "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
