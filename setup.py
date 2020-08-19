@@ -8,6 +8,11 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+install_requires = []
+with open("requirements.txt", "r") as fh:
+    for dep in fh:
+        install_requires.append(dep.strip())
+
 setuptools.setup(
     name="cloudvision",
     version="1.0.0",
@@ -17,6 +22,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/aristanetworks/cloudvision-python",
     packages=setuptools.find_packages(),
+    install_requires=install_requires,
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python :: 3",
