@@ -12,9 +12,9 @@ import argparse
 
 import grpc
 
-import arista.tag.v1.tag_pb2 as models
-import arista.tag.v1.services.gen_pb2 as messages
-import arista.tag.v1.services.gen_pb2_grpc as service
+# import the tags models and services
+from arista.tag.v1 import models
+from arista.tag.v1 import services
 from google.protobuf import wrappers_pb2 as wrappers
 
 RPC_TIMEOUT = 30  # in seconds
@@ -42,9 +42,9 @@ def main(args):
         tag_name = args.tag_name
     # initialize a connection to the server using our connection settings (auth + TLS)
     with grpc.secure_channel(args.server, connCreds) as channel:
-        tag_stub = service.InterfaceTagConfigServiceStub(channel)
+        tag_stub = services.InterfaceTagConfigServiceStub(channel)
 
-        req = messages.InterfaceTagConfigSetRequest(
+        req = services.InterfaceTagConfigSetRequest(
             value=models.InterfaceTagConfig(
                 key=models.TagKey(
                     label=wrappers.StringValue(value=tag_name),

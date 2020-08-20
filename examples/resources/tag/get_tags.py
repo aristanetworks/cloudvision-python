@@ -32,9 +32,9 @@ import argparse
 
 import grpc
 
-import arista.tag.v1.tag_pb2 as models
-import arista.tag.v1.services.gen_pb2 as messages
-import arista.tag.v1.services.gen_pb2_grpc as service
+# import the tags models and services
+from arista.tag.v1 import models
+from arista.tag.v1 import services
 
 RPC_TIMEOUT = 30  # in seconds
 
@@ -56,7 +56,7 @@ def main(args):
     connCreds = grpc.composite_channel_credentials(channelCreds, callCreds)
 
     # create a stream request
-    get_all_req = messages.InterfaceTagAssignmentConfigStreamRequest()
+    get_all_req = services.InterfaceTagAssignmentConfigStreamRequest()
 
     tag_filter = models.InterfaceTagAssignmentConfig()
 
@@ -74,7 +74,7 @@ def main(args):
 
     # initialize a connection to the server using our connection settings (auth + TLS)
     with grpc.secure_channel(args.server, connCreds) as channel:
-        tag_stub = service.InterfaceTagAssignmentConfigServiceStub(channel)
+        tag_stub = services.InterfaceTagAssignmentConfigServiceStub(channel)
         print("Printing all tag assignments based on the filters:")
         for resp in tag_stub.GetAll(get_all_req, timeout=RPC_TIMEOUT):
             print(resp.value)

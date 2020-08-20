@@ -27,9 +27,9 @@ import argparse
 
 import grpc
 
-import arista.event.v1.event_pb2 as models
-import arista.event.v1.services.gen_pb2 as messages
-import arista.event.v1.services.gen_pb2_grpc as service
+# import the events models and services
+from arista.event.v1 import models
+from arista.event.v1 import services
 
 RPC_TIMEOUT = 30  # in seconds
 SEVERITIES = ["INFO", "WARNING", "ERROR", "CRITICAL"]
@@ -46,7 +46,7 @@ def main(args):
         channelCreds = grpc.ssl_channel_credentials()
     connCreds = grpc.composite_channel_credentials(channelCreds, callCreds)
 
-    get_all_req = messages.EventStreamRequest()
+    get_all_req = services.EventStreamRequest()
 
     if args.end and not args.start:
         raise ValueError("--start must be specified when --end is specified")
@@ -78,13 +78,13 @@ def main(args):
     print(f"selecting events that match the filter {get_all_req}")
 
     with grpc.secure_channel(args.server, connCreds) as channel:
-        event_stub = service.EventServiceStub(channel)
-        event_ack_stub = service.EventAnnotationConfigServiceStub(channel)
+        event_stub = services.EventServiceStub(channel)
+        event_ack_stub = services.EventAnnotationConfigServiceStub(channel)
         for resp in event_stub.GetAll(get_all_req, timeout=RPC_TIMEOUT):
             print(f"{resp}")
             if args.ack and not resp.value.ack.ack.value:
                 print("acking event")
-                req = messages.EventAnnotationConfigSetRequest(
+                req = services.EventAnnotationConfigSetRequest(
                     value=models.EventAnnotationConfig(
                         key=resp.value.key,
                     )
