@@ -115,24 +115,24 @@ class GRPCClient(object):
         else:
             tokCreds = None
             if token:
-                with open(token, 'rb') as f:
+                with open(token, 'r') as f:
                     tokData = f.read()
                     tokCreds = grpc.access_token_call_credentials(tokData)
                     self.metadata = ((self.AUTH_KEY_PATH,
-                                      tokData.decode("ASCII").replace("\n", "")),)
+                                      tokData),)
 
             certData = None
             if certs:
-                with open(certs, 'rb') as f:
-                    certData = f.read()
+                with open(certs, 'rb') as cf:
+                    certData = cf.read()
             keyData = None
             if key:
-                with open(key, 'rb') as f:
-                    keyData = f.read()
+                with open(key, 'rb') as kf:
+                    keyData = kf.read()
             caData = None
             if ca:
-                with open(ca, 'rb') as f:
-                    caData = f.read()
+                with open(ca, 'rb') as cf:
+                    caData = cf.read()
 
             creds = grpc.ssl_channel_credentials(certificate_chain=certData,
                                                  private_key=keyData,
@@ -235,7 +235,7 @@ class GRPCClient(object):
         req = rtr.DatasetsRequest(
             types=types
         )
-        stream = self.__client.GetDatasets(req)
+        stream = self.__client.GetDatasets(req, metadata=self.metadata)
         return stream
 
     def create_dataset(self, dtype, dId) -> None:
