@@ -35,7 +35,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--server',
         required=True,
-        help="CloudVision server to connect to in <host>:<port> format")
+        help="CloudVision server to connect to in <host> format.")
     parser.add_argument("--username", required=True, type=str,
                         help="Username to authorize with")
     parser.add_argument("--password", required=True, type=str,

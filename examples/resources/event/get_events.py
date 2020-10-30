@@ -10,19 +10,19 @@
 # 1) Get all events:
 #   $ python get_events.py
 # 2) Get all events after date:
-#   $ python ack_events.py --start 2020-02-20T00:00:01.000000001Z
+#   $ python get_events.py --start 2020-02-20T00:00:01.000000001Z
 # 3) Get all INSUFFICIENT_PEER_LAG_REDUNDANCY events between two dates:
-#   $ python ack_events.py --event-type INSUFFICIENT_PEER_LAG_REDUNDANCY \
+#   $ python get_events.py --event-type INSUFFICIENT_PEER_LAG_REDUNDANCY \
 #   --start 2020-02-20T00:00:01.000000001Z \
 #   --end 2020-02-21T00:00:01.000000001Z
 # 4) Get all INSUFFICIENT_PEER_LAG_REDUNDANCY events between two dates
 #   and acknowledge them:
-#   $ python ack_events.py --event-type INSUFFICIENT_PEER_LAG_REDUNDANCY \
+#   $ python get_events.py --event-type INSUFFICIENT_PEER_LAG_REDUNDANCY \
 #   --start 2020-02-20T00:00:01.000000001Z \
 #   --end 2020-02-21T00:00:01.000000001Z \
 #   --ack
 # 5) Get all events with INFO severity:
-#   $ python ack_events.py --severity INFO
+#   $ python get_events.py --severity INFO
 import argparse
 
 import grpc
@@ -99,21 +99,21 @@ if __name__ == '__main__':
           "Acknowledging a CVP event hides the event from the default view. "
           "Examples:\n"
           "1) Get all events:\n"
-          "\tpython ack_events.py\n"
+          "\tpython get_events.py\n"
           "2) Get all events after date:\n"
-          "\tpython ack_events.py --start 2020-02-20T00:00:01.000000001Z\n"
+          "\tpython get_events.py --start 2020-02-20T00:00:01.000000001Z\n"
           "3) Get all INSUFFICIENT_PEER_LAG_REDUNDANCY events between "
           "two dates:\n"
-          "\tpython ack_events.py --event-type "
+          "\tpython get_events.py --event-type "
           "INSUFFICIENT_PEER_LAG_REDUNDANCY --start 2020-02-20T00:00:01.000000001Z "
           "--end 2020-02-21T00:00:01.000000001Z\n"
           "4) Get all INSUFFICIENT_PEER_LAG_REDUNDANCY events between "
           "two dates and acknowledge them:\n"
-          "\tpython ack_events.py --event-type "
+          "\tpython get_events.py --event-type "
           "INSUFFICIENT_PEER_LAG_REDUNDANCY --start 2020-02-20T00:00:01.000000001Z "
           "--end 2020-02-21T00:00:01.000000001Z --ack\n"
           "5) Get all events with INFO severity:\n"
-          "\tpython ack_events.py --severity INFO")
+          "\tpython get_events.py --severity INFO")
     parser = argparse.ArgumentParser(
         description=ds,
         formatter_class=argparse.RawDescriptionHelpFormatter)

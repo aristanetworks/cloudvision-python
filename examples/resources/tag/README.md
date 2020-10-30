@@ -153,5 +153,52 @@ If everything went smoothly, you should see the `lldp_chassis` tag applied on Et
 
 
 
+## Example 3) Assign topology tags to devices
+
+
+The Tag resource API can be also used to assign topology tags to devices
+Possible topology tags are as below:
+- topology_hint_type
+  - predefined values:
+    - core
+    - edge
+    - endpoint
+    - leaf
+    - management
+    - spine
+- topology_hint_rack
+- topology_hint_pod
+- topology_hint_datacenter
+- topology_hint_building
+- topology_hint_floor
+
+> Note you can add other arbitrary tags to leverage it in other parts of CloudVision, e.g. event rule configuration.
+
+The steps to build the topology would be as simple as creating the tags with the arbitrary value (except for the device type which are predefined)
+and assign them to the devices:
+
+1\. Create tag values
+
+```
+python3 create_device_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name topology_hint_pod --tag_value TPPOD
+python3 create_device_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name topology_hint_rack --tag_value TPRACK
+python3 create_device_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name topology_hint_datacenter --tag_value TPDC
+```
+
+2\. Assign the tags
+
+```
+python3 dtag.py  --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 0123F2E4462997EB155B7C50EC148767 --tag_name topology_hint_datacenter --tag_value TPDC
+python3 dtag.py  --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 0123F2E4462997EB155B7C50EC148767 --tag_name topology_hint_rack --tag_value TPRACK_LF12
+python3 dtag.py  --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 0123F2E4462997EB155B7C50EC148767 --tag_name topology_hint_pod --tag_value TPPOD
+```
+
+3\. Repeat for the other devices
+
+The following is an example of a Leaf-Spine topology:
+
+![topology-tags](./images/topology_tags.png)
+
+>Note that this is just a basic example, which can be modified to receive a list of devices as input.
 
 
