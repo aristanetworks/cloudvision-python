@@ -160,7 +160,8 @@ class GRPCClient(object):
 
     def get(self, queries: List[rtr.Query], start: Optional[TIME_TYPE] = None,
             end: Optional[TIME_TYPE] = None,
-            versions: Optional[int] = None, sharding=None):
+            versions: Optional[int] = None, sharding=None,
+            exact_range=False):
         """
         Get creates and executes a Get protobuf message, returning a stream of
         notificationBatch.
@@ -182,6 +183,7 @@ class GRPCClient(object):
             end=end_ts,
             versions=versions,
             sharded_sub=sharding,
+            exact_range=exact_range,
         )
         stream = self.__client.Get(request, metadata=self.metadata)
         return (self.decode_batch(nb) for nb in stream)
