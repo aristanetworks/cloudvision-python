@@ -21,13 +21,20 @@ def main(apiserverAddr, dId, token=None, certs=None, ca=None, key=None):
         Wildcard()
     ]
     query = [
-        create_query([(pathElts, ["active"])], dId)
+        create_query([(pathElts, ["linkStatus"])], dId)
     ]
+
+    intfStat = []
 
     with GRPCClient(apiserverAddr, token=token, key=key, ca=ca, certs=certs) as client:
         for batch in client.get(query):
             for notif in batch["notifications"]:
-                pretty_print(notif["updates"])
+                intfStat.append({"interface": notif['path_elements'][-1],
+                                 "Status": notif['updates']['linkStatus']['Name']})
+    print(f"{'Interface Name':<25}{'Status'}\n")
+    for interface in intfStat:
+        print(f"{interface['interface']:<25}{interface['Status']}")
+
     return 0
 
 
