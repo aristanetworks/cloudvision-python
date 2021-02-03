@@ -1,5 +1,31 @@
-# Uses Cases
+# Tag resource examples and use-cases
 
+## Authenticating with CloudVision
+
+### CloudVision On-Prem
+
+
+The [get_token.py](../../get_token.py) script can be used to get the token and the certificate from
+the CloudVision server:
+
+`python3 get_token.py --server 10.83.12.79 --username cvpadmin --password arastra --ssl`
+
+The two files that will be saved can then be used to authenticate:
+- token.txt
+- cvp.crt
+
+### CloudVision as a Service
+
+To access the CloudVision as-a-Service and send API requests, “Service Account Token” is needed.
+After obtaining the service account token, it can be used for authentication when sending API requests.
+
+Service accounts can be created from the Settings page where a service token can be generated as seen below:
+
+![serviceaccount1](../../Connector/media/serviceaccount1.png)
+![serviceaccount2](../../Connector/media/serviceaccount2.png)
+![serviceaccount3](../../Connector/media/serviceaccount3.png)
+
+The token should be copied and saved to a file that can later be referred to.
 ## Example 1) Making servers visible on Topology
 
 As of 2020.2.0 the only supported LLDP Chassis ID TLV is subtype 4 (MAC Address). Due to this some 3rd party devices, like ESXI servers, which might advertise UUID or ifName instead of the Chassis MAC in the TLV, those devices will not be drawn on Topology, even though their LLDP states are seen in EOS. To workaround this we can tag the interfaces on the switches where these servers are connected with `lldp_chassis`, `lldp_mode` and `lldp_hostname` tags, thus forcing the values for those states.
@@ -201,4 +227,14 @@ The following is an example of a Leaf-Spine topology:
 
 >Note that this is just a basic example, which can be modified to receive a list of devices as input.
 
+## CloudVision as a Service example
 
+The only difference between sending requests to CloudVision as a Service compared to CloudVision On-Prem is that only the service token is needed and the API endpoint is at TCP 443 instead of 8443.
+
+Creating and assigning device tags:
+
+```
+python3 create_device_tag.py --server www.arista.io:443 --token-file cvaasToken.txt --tag_name topology_hint_datacenter --tag_value TPDC
+
+python3 dtag.py  --server www.arista.io:443 --token-file cvaasToken.txt --device_id 0123F2E4462997EB155B7C50EC148767 --tag_name topology_hint_pod --tag_value TPPOD
+```

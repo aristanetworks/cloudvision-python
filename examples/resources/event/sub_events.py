@@ -66,12 +66,14 @@ if __name__ == '__main__':
     ds = ("Subscribe to CVP events. "
           "Examples:\n"
           "1) Subscribe to all events:\n"
-          "\tpython sub_events.py\n"
+          "\tpython sub_events.py --server 10.83.12.79:8443 --token-file token.txt"
+          "--cert-file cvp.crt\n"
           "2) Subscribe to only DEVICE_INTF_ERR_SMART events\n"
-          "\tpython sub_events.py --event-type "
-          "DEVICE_INTF_ERR_SMART"
+          "\tpython sub_events.py --server 10.83.12.79:8443 --token-file token.txt"
+          "--cert-file cvp.crt --event-type DEVICE_INTF_ERR_SMART\n"
           "3) Subscribe to events with INFO severity:\n"
-          "\tpython sub_events.py --severity INFO")
+          "\tpython sub_events.py --server 10.83.12.79:8443 --token-file token.txt"
+          "--cert-file cvp.crt --severity INFO")
     parser = argparse.ArgumentParser(
         description=ds,
         formatter_class=argparse.RawDescriptionHelpFormatter)

@@ -48,7 +48,7 @@ def get_all(stub, only_active, only_inactive):
     # make the GetAll request and loop over the streamed responses
     for resp in stub.GetAll(get_all_req, timeout=RPC_TIMEOUT):
         # print {hostname}: {serial}
-        print("{}: {}".format(resp.value.hostname.value, resp.value.key.device_id.value))
+        print(f"{resp.value.hostname.value:<25}{resp.value.key.device_id.value:<25}")
         total_devices += 1
     print("{} matching devices in inventory".format(total_devices))
 
@@ -63,7 +63,7 @@ def get_one(stub, serial):
     )
     # issue the request and print it
     resp = stub.GetOne(req)
-    print("{}: {}".format(args.device, resp))
+    print("{}:{}".format(args.device, resp))
 
 
 def main(args):

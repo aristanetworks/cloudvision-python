@@ -1,6 +1,8 @@
 # CloudVision Connector Examples
 
-## Generating the auth files
+## Authenticating with CloudVision
+
+### CloudVision On-Prem
 
 The [get_token.py](../get_token.py) script can be used to get the token and the certificate from
 the CloudVision server:
@@ -10,6 +12,19 @@ the CloudVision server:
 The two files that will be saved can then be used to authenticate:
 - token.txt
 - cvp.crt
+
+### CloudVision as a Service
+
+To access the CloudVision as-a-Service and send API requests, “Service Account Token” is needed.
+After obtaining the service account token, it can be used for authentication when sending API requests.
+
+Service accounts can be created from the Settings page where a service token can be generated as seen below:
+
+![serviceaccount1](./media/serviceaccount1.png)
+![serviceaccount2](./media/serviceaccount2.png)
+![serviceaccount3](./media/serviceaccount3.png)
+
+The token should be copied and saved to a file that can later be referred to.
 
 ## get_intf_rate.py
 ---
@@ -72,6 +87,44 @@ Ethernet24               linkUp
 Ethernet26               linkUp
 Management1              linkUp
 <ommitted>
+```
+
+## get_switches.py
+
+`get_switches.py` is an example on how to return all the actively streaming devices to CloudVision.
+
+```
+python3 get_switches.py --apiserver 10.83.12.79:8443 --auth=token,token.txt,cvp.crt
+{
+    "ZZZ9999999":{
+        "capabilities":[
+            "all"
+        ],
+        "eosVersion":"4.24.4M",
+        "hostname":"leaf1",
+        "isProvisioned":false,
+        "mac":"de:ad:be:ef:ca:fe",
+        "modelName":"DCS-7050TX-64",
+        "primaryManagementIP":"172.28.160.226",
+        "status":"active",
+        "terminAttrVersion":"v1.10.0"
+    }
+}
+{
+    "ZZZ9999998":{
+        "capabilities":[
+            "all"
+        ],
+        "eosVersion":"4.24.3M",
+        "hostname":"spine1",
+        "isProvisioned":true,
+        "mac":"de:ad:b3:3f:ca:f3",
+        "modelName":"DCS-7280SR-48C6",
+        "primaryManagementIP":"172.28.161.108",
+        "status":"active",
+        "terminAttrVersion":"v1.10.0"
+    }
+}
 ```
 
 ## sync_events_cfg.py
@@ -223,6 +276,12 @@ python3 get_events.py  --apiserver 10.83.12.79:8443 --auth=token,~/go79/token.tx
 }
 ```
 
+Get events within a certain period of time:
+
+`python3 get_events.py  --apiserver 10.83.12.79:8443 --auth=token,token.txt,cvp.crt --start=2021-02-02T10:00:00 --end=2021-02-02T21:46:00 --exact_range=True`
+
+> Note that without setting the `-exact_range` flag to `True` events before the start time that were active at start time will also
+> be presented.
 
 ## Utilities
 ---
@@ -230,3 +289,43 @@ python3 get_events.py  --apiserver 10.83.12.79:8443 --auth=token,~/go79/token.tx
 - `pretty_print` from `utils.py` can be used to pretty print notifications that have frozen dictionaries
 - `parser.py` and `dst_parser.py` contain the arugment parsers for connecting to CloudVision
 - `delete.py` can delete keys from a specific path ( Not recommended to be used without contacting Arista Support )
+
+## CloudVision as a Service example
+
+The only difference between sending requests to CloudVision as a Service compared to CloudVision On-Prem is that only the service token is needed and the API endpoint is at TCP 443 instead of 8443.
+
+```
+python3 get_switches.py --apiserver apiserver.arista.io:443 --auth=token,cvaasToken.txt
+{
+    "0123F2E4462997EB155B7C50EC148767":{
+        "capabilities":[
+            "all"
+        ],
+        "deviceType":"",
+        "eosVersion":"4.24.3M",
+        "hostname":"tp-avd-leaf2",
+        "isProvisioned":true,
+        "mac":"50:08:00:b1:5b:0b",
+        "modelName":"vEOS",
+        "primaryManagementIP":"10.83.13.215",
+        "status":"active",
+        "terminAttrVersion":"v1.12.2"
+    }
+}
+{
+    "2568DB4A33177968A78C4FD5A8232159":{
+        "capabilities":[
+            "all"
+        ],
+        "deviceType":"",
+        "eosVersion":"4.24.3M",
+        "hostname":"tp-avd-spine2",
+        "isProvisioned":true,
+        "mac":"50:08:00:8c:22:49",
+        "modelName":"vEOS",
+        "primaryManagementIP":"10.83.13.213",
+        "status":"active",
+        "terminAttrVersion":"v1.12.2"
+    }
+}
+```

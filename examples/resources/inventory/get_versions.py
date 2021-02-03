@@ -45,7 +45,7 @@ def get_device_with_filter(stub, serial, hostname):
     # while we only expect one, we loop over everything streamed
     # this should be only one message, but you may want to do assertions
     for resp in stub.GetAll(get_all_req, timeout=RPC_TIMEOUT):
-        print(resp)
+        print(f"{resp.value.hostname.value:<25}{resp.value.software_version.value:<25}")
 
 
 def main(args):
@@ -65,25 +65,32 @@ def main(args):
 
     # create channel settings (auth + TLS)
     connCreds = grpc.composite_channel_credentials(channelCreds, callCreds)
+    get_all_req = services.DeviceStreamRequest()
 
-    versions = {}
-
+    # filter on actively streaming devices only
+    # if not(args.hostname or args.serial):
+    get_all_req.partial_eq_filter.append(models.Device(
+        streaming_status=models.STREAMING_STATUS_ACTIVE,
+    ))
+    devices = []
     # initialize a connection to the server using our connection settings (auth + TLS)
     with grpc.secure_channel(args.server, connCreds) as channel:
         # create the Python stub for the inventory API
         # this is essentially the client, but Python gRPC refers to them as "stubs"
         # because they call into the gRPC C API
         stub = services.DeviceServiceStub(channel)
-
+        print(f"{'Hostname':<25}{'EOS Version'}\n")
         # iterate all devices
-        for resp in stub.GetAll(services.DeviceStreamRequest(), timeout=RPC_TIMEOUT):
-            ver = resp.value.software_version.value
-            if ver in versions.keys():
-                versions[ver] += 1
-            else:
-                versions[ver] = 1
+        if args.hostname or args.serial:
+            get_device_with_filter(stub, args.serial, args.hostname)
+        else:
+            for resp in stub.GetAll(get_all_req, timeout=RPC_TIMEOUT):
+                hostname = resp.value.hostname.value
+                ver = resp.value.software_version.value
+                devices.append({"hostname": hostname, "version": ver})
 
-    print(versions)
+    for device in devices:
+        print(f"{device['hostname']:<25}{device['version']:<25}")
 
 
 if __name__ == '__main__':
