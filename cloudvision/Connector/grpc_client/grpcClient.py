@@ -116,7 +116,7 @@ class GRPCClient(object):
             tokCreds = None
             if token:
                 with open(token, 'r') as f:
-                    tokData = f.read()
+                    tokData = f.read().strip()
                     tokCreds = grpc.access_token_call_credentials(tokData)
                     self.metadata = ((self.AUTH_KEY_PATH,
                                       tokData),)
