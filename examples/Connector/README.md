@@ -71,6 +71,7 @@ In this example the subscription is made to the `outOctets` rate, other possible
 ---
 
 The `get_intf_status.py` is an example on how to get the status of all the interfaces of a device. The below example get the link status, however other states can be read from the same path such as `operStatus`, `autonegCapabilities`, `burnedInAddr` (the mac address of the interface), `mtu` and many others. For more details visit the Telemetry Browser in the CloudVision UI.
+It also creates a report about how many interfaces are up and down (including the Management interface).
 
 ```
 python3 get_intf_status.py --apiserver 10.83.12.79:8443 --auth=token,~/go79/token.txt,~/go79/cvp.crt --deviceId JPE17182435
@@ -87,6 +88,10 @@ Ethernet24               linkUp
 Ethernet26               linkUp
 Management1              linkUp
 <ommitted>
+
+Ethernet Status on JPE17182435:
+         8 interfaces connected (including Management)
+        56 interfaces down
 ```
 
 ## get_switches.py
