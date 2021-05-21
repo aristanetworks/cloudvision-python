@@ -2,6 +2,7 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
+from argparse import ArgumentError
 from datetime import datetime
 from typing import List, Optional, Any, Tuple, Union
 
@@ -94,19 +95,19 @@ def create_notification(ts: TIME_TYPE,
 class GRPCClient(object):
     """
     GRPCClient implements the protobuf client as well as its methods.
-    grpcAddr must be a valid apiserver adress in the format <ADDRESS>:<PORT>.
+    grpcAddr must be a valid apiserver address in the format <ADDRESS>:<PORT>.
     certs, if present, must be the path to the cert file.
     key, if present, must be the path to .pem key file.
     ca, if present, must be the path to a root certificate authority file.
     token, if present, must be the path a .tok user access token.
+    tokenValue, if present, is the value of the actual token. Cannot be set with token
     """
 
     AUTH_KEY_PATH = "access_token"
 
     def __init__(self, grpcAddr: str, *, certs: Optional[str] = None,
                  key: Optional[str] = None, ca: Optional[str] = None,
-                 token: Optional[str] = None) -> None:
-
+                 token: Optional[str] = None, tokenValue: Optional[str] = None) -> None:
         # used to store the auth token for per request auth
         self.metadata = None
 
@@ -114,12 +115,19 @@ class GRPCClient(object):
             self.channel = grpc.insecure_channel(grpcAddr)
         else:
             tokCreds = None
-            if token:
-                with open(token, 'r') as f:
-                    tokData = f.read().strip()
-                    tokCreds = grpc.access_token_call_credentials(tokData)
-                    self.metadata = ((self.AUTH_KEY_PATH,
-                                      tokData),)
+            if token or tokenValue:
+                if token and tokenValue:
+                    raise ArgumentError("Cannot supply both token file path and token value")
+                tokData = ""
+                if token:
+                    with open(token, 'r') as f:
+                        tokData = f.read().strip()
+                elif tokenValue:
+                    # need the elif to validate that tokenValue is string for typing
+                    tokData = tokenValue
+                tokCreds = grpc.access_token_call_credentials(tokData)
+                self.metadata = ((self.AUTH_KEY_PATH,
+                                  tokData),)
 
             certData = None
             if certs:
