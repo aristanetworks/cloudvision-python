@@ -67,6 +67,18 @@ In this example the subscription is made to the `outOctets` rate, other possible
 - outErrors
 - outMulticastPkts
 
+## get_intf_maxrate_period.py
+---
+
+This script is an example on how to get the maximum Tx and Rx utilization of an interface between a specified time period. It gets the max of `outOctets` and `inOctets` of 15 minute aggregated counters of the interface and publishes the maximum values of these 15 minute periods(max of max). 
+
+```
+python3 get_intf_maxrate_period.py --apiserver 10.1.1.1:8443 --auth=token,token.txt,cvp.crt --device SGD20000000 --interface Port-Channel27 --start=2021-06-03T05:30:00 --end=2021-06-03T08:20:00
+Max Tx (Mbps) is:  597.531184
+Max Rx (Mbps) is:  22.940072
+```
+
+
 ## get_intf_status.py
 ---
 
