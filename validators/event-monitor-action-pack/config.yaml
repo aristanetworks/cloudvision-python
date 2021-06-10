@@ -1,0 +1,7 @@
+id: event-monitor-action-pack
+type: PACKAGE
+version: 1.0.0
+name: event-monitor Change Control Action package
+description: Action package containing a script that checks to ensure no new events occur post-Change Control
+actions:
+  - event-monitor:
