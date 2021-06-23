@@ -111,7 +111,7 @@ class GRPCClient(object):
         # used to store the auth token for per request auth
         self.metadata = None
 
-        if (certs is None or key is None) and token is None:
+        if (certs is None or key is None) and (token is None and tokenValue is None):
             self.channel = grpc.insecure_channel(grpcAddr)
         else:
             tokCreds = None
