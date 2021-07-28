@@ -10,8 +10,11 @@ the CloudVision server:
 `python3 get_token.py --server 10.83.12.79 --username cvpadmin --password arastra --ssl`
 
 The two files that will be saved can then be used to authenticate:
+
 - token.txt
 - cvp.crt
+
+> Note Starting from 2020.3.0 Service Account Token can be used just as on CloudVision as a Service.
 
 ### CloudVision as a Service
 
@@ -27,11 +30,12 @@ Service accounts can be created from the Settings page where a service token can
 The token should be copied and saved to a file that can later be referred to.
 
 ## get_intf_rate.py
+
 ---
 
 This script is an example on how to subscribe to the rate counters of an interface.
 
-```
+```shell
 python3 get_intf_rate.py --apiserver 10.83.12.79:8443 --auth=token,~/go79/token.txt,~/go79/cvp.crt --
 device JPE17182435 --interface Ethernet24
 {
@@ -52,6 +56,7 @@ device JPE17182435 --interface Ethernet24
 ```
 
 In this example the subscription is made to the `outOctets` rate, other possible options are:
+
 - alignmentErrors
 - fcsErrors
 - frameTooLongs
@@ -68,24 +73,25 @@ In this example the subscription is made to the `outOctets` rate, other possible
 - outMulticastPkts
 
 ## get_intf_maxrate_period.py
+
 ---
 
-This script is an example on how to get the maximum Tx and Rx utilization of an interface between a specified time period. It gets the max of `outOctets` and `inOctets` of 15 minute aggregated counters of the interface and publishes the maximum values of these 15 minute periods(max of max). 
+This script is an example on how to get the maximum Tx and Rx utilization of an interface between a specified time period. It gets the max of `outOctets` and `inOctets` of 15 minute aggregated counters of the interface and publishes the maximum values of these 15 minute periods(max of max).
 
-```
+```shell
 python3 get_intf_maxrate_period.py --apiserver 10.1.1.1:8443 --auth=token,token.txt,cvp.crt --device SGD20000000 --interface Port-Channel27 --start=2021-06-03T05:30:00 --end=2021-06-03T08:20:00
 Max Tx (Mbps) is:  597.531184
 Max Rx (Mbps) is:  22.940072
 ```
 
-
 ## get_intf_status.py
+
 ---
 
 The `get_intf_status.py` is an example on how to get the status of all the interfaces of a device. The below example get the link status, however other states can be read from the same path such as `operStatus`, `autonegCapabilities`, `burnedInAddr` (the mac address of the interface), `mtu` and many others. For more details visit the Telemetry Browser in the CloudVision UI.
 It also creates a report about how many interfaces are up and down (including the Management interface).
 
-```
+```shell
 python3 get_intf_status.py --apiserver 10.83.12.79:8443 --auth=token,~/go79/token.txt,~/go79/cvp.crt --deviceId JPE17182435
 Interface Name           Status
 
@@ -108,9 +114,11 @@ Ethernet Status on JPE17182435:
 
 ## get_switches.py
 
+---
+
 `get_switches.py` is an example on how to return all the actively streaming devices to CloudVision.
 
-```
+```shell
 python3 get_switches.py --apiserver 10.83.12.79:8443 --auth=token,token.txt,cvp.crt
 {
     "ZZZ9999999":{
@@ -145,6 +153,7 @@ python3 get_switches.py --apiserver 10.83.12.79:8443 --auth=token,token.txt,cvp.
 ```
 
 ## sync_events_cfg.py
+
 ---
 
 The purpose of writing this script is to synchronize event generation rule configurations between two different CVP cluster.
@@ -152,6 +161,7 @@ The purpose of writing this script is to synchronize event generation rule confi
 This was tested on 2020.2.0 - 2020.3.0. It is recommended to run this script between clusters that are on the same version.
 
 Script files used:
+
 - sync_events_cfg.py
 - dst_parser.py
 - get_token.py
@@ -166,21 +176,21 @@ Script files used:
 
 3\. Create a folder for each server to store the token and ssl cert files
 
-```
+```shell
 mkdir go79
 mkdir go173
 ```
 
 4\. Copy the get_token.py to these folders
 
-```
+```shell
 cp get_token.py go79/
 cp get_token.py go173/
 ```
 
 5\. Generate the token and cert for each server
 
-```
+```shell
 cd go79
 python3 get_token.py --server 10.83.12.79 --username cvpadmin --password arastra --ssl
 
@@ -190,7 +200,7 @@ python3 get_token.py --server 10.83.12.173 --username cvpadmin --password arastr
 
 6\. After that you should have 3 files in each folder like below
 
-```
+```shell
  cvp.crt
  get_token.py
  token.txt
@@ -198,7 +208,7 @@ python3 get_token.py --server 10.83.12.173 --username cvpadmin --password arastr
 
 7\. Now you can run the script
 
-```
+```shell
 cd ../Connector
 
 python3 sync_events_cfg.py --src=10.83.12.79:8443 --srcauth=token,../go79/token.txt,../go79/cvp.crt --dst=10.83.12.173:8443 --dstauth=token,../go173/token.txt,../go173/cvp.crt
@@ -213,7 +223,7 @@ creates a list with all the turbine names that generate events
 based on that list gets the configuration of each event turbine and saves that data in a dictionary
 for each event there will be a ‘default’ key and in case a custom rule was applied it will also have a ‘custom’ key, each key will have an ‘updates’ key and a ‘path_elements’ key, e.g.:
 
-```
+```javascript
      eventName: { “default”: {“updates”: {<RULE data>},
                               “path_elements”:[<aeris path in list format>]
                               },
@@ -223,6 +233,7 @@ for each event there will be a ‘default’ key and in case a custom rule was a
 ```
 
 the default configs are backed up and saved in a json file from both servers, the filenames are:
+
 - backupsource-cvp.json
 - backupdest-cvp.json
 
@@ -232,12 +243,13 @@ the config from the source server is pushed to the destination server
 ![eventsync2](media/eventsync2.png)
 ![eventsync3](media/eventsync3.png)
 
-# get_events.py
+## get_events.py
+
 ---
 
 This script is a very simplistic example of the resource API equivalent `get_events.py` and it prints all current active events in CloudVision.
 
-```
+```shell
 python3 get_events.py  --apiserver 10.83.12.79:8443 --auth=token,~/go79/token.txt,~/go79/cvp.crt
 {
     "74694dfb259599":{
@@ -300,7 +312,72 @@ Get events within a certain period of time:
 > Note that without setting the `-exact_range` flag to `True` events before the start time that were active at start time will also
 > be presented.
 
+## bugalerts_report.py
+
+---
+
+This script is an example on how to generate a report about number of bugs per device, CVEs per device and Bugs per device.
+
+```shell
+python3 bugalerts.py --apiserver 10.83.12.79:8443 --auth=token,token.txt,cvp.crt
+
+Report #1 - BugCount
+
+Device SN                                         Number of bugs
+0123F2E4462997EB155B7C50EC148767                  8
+2568DB4A33177968A78C4FD5A8232159                  2
+6323DA7D2B542B5D09630F87351BEA41                  3
+8520AF39790A4EC959550166DC5DEADE                  3
+CD0EADBEEA126915EA78E0FB4DC776CA                  3
+
+Report #2 - CVEs
+
+Device Hostname               EOS Version                   CVEs
+tp-avd-leaf2                  4.23.3M                       CVE-2018-0732,CVE-2020-10188
+tp-avd-spine2                 4.25.3.1M
+tp-avd-leaf4                  4.25.3.1M
+tp-avd-leaf3                  4.25.3.1M
+tp-avd-spine1                 4.25.3.1M
+
+Report #3 - Bugs
+
+tp-avd-leaf2                  4.23.3M                       281795,444677,464188,472113,489787,496371,523122,556742
+tp-avd-spine2                 4.25.3.1M                     556742,573022
+tp-avd-leaf4                  4.25.3.1M                     556742,573022,583243
+tp-avd-leaf3                  4.25.3.1M                     556742,573022,583243
+tp-avd-spine1                 4.25.3.1M                     556742,573022,578276
+```
+
+## connectivityMonitorVrf.py
+
+---
+
+This script can get connectivity monitor data either for individual devices or for all devices that are streaming connectivity monitor statistics.
+
+All device stats:
+
+```shell
+python3 connectivityMonitorVrf.py --apiserver 10.83.12.174:8443 --auth=token,token.txt,cvp.crt
+Connection                                        Host IP Address per VRF       HTTP RESPONSE TIME per VRF    Jitter per VRF                Latency per VRF               Packet Loss Per VRF
+tp-avd-leaf3 (MGMT/default) to bbc                151.101.0.81                  0.0ms                         0.0ms                         0.0ms                         0%
+tp-avd-leaf3 (MGMT/Management1) to bbc            151.101.0.81                  62.8902587890625ms            0.13899999856948853ms         5.572000026702881ms           0%
+tp-avd-leaf3 (MGMT/default) to google             216.58.194.164                0.0ms                         0.0ms                         0.0ms                         0%
+tp-avd-leaf3 (MGMT/Management1) to google         216.58.194.164                94.55423736572266ms           0.2549999952316284ms          155.31199645996094ms          0%
+tp-avd-leaf1 (MGMT/Management1) to bbc            151.101.0.81                  112.4276351928711ms           1.3760000467300415ms          6.27400016784668ms            0%
+tp-avd-leaf1 (MGMT/Management1) to google         216.58.194.164                528.8643798828125ms           0.37700000405311584ms         154.99899291992188ms          0%
+```
+
+Per device stats:
+
+```shell
+python3 connectivityMonitorVrf.py --apiserver 10.83.12.174:8443 --auth=token,token.txt,cvp.crt --device BAD032986065E8DC14CBB6472EC314A6
+Connection                                        Host IP Address per VRF       HTTP RESPONSE TIME per VRF    Jitter per VRF                Latency per VRF               Packet Loss Per VRF
+tp-avd-leaf1 (MGMT/Management1) to bbc            151.101.0.81                  137.05465698242188ms          0.10700000077486038ms         5.6539998054504395ms          0%
+tp-avd-leaf1 (MGMT/Management1) to google         216.58.194.164                588.5230102539062ms           0.09799999743700027ms         155.143005371093
+```
+
 ## Utilities
+
 ---
 
 - `pretty_print` from `utils.py` can be used to pretty print notifications that have frozen dictionaries
@@ -311,7 +388,7 @@ Get events within a certain period of time:
 
 The only difference between sending requests to CloudVision as a Service compared to CloudVision On-Prem is that only the service token is needed and the API endpoint is at TCP 443 instead of 8443.
 
-```
+```shell
 python3 get_switches.py --apiserver apiserver.arista.io:443 --auth=token,cvaasToken.txt
 {
     "0123F2E4462997EB155B7C50EC148767":{
