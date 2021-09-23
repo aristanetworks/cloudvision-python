@@ -1,3 +1,7 @@
+# Copyright (c) 2021 Arista Networks, Inc.
+# Use of this source code is governed by the Apache License 2.0
+# that can be found in the COPYING file.
+
 import re
 
 ctx.alog("Removing all currently unused EOSs from /mnt/flash")

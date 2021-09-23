@@ -15,7 +15,7 @@ dynamic-params:
     hidden: false
     default: "False"
   - name: expected_difference
-    description: The expected difference between pre CC peers and current peers for the device. Positive numbers allow for adding splines, negative for retiring splines. Defaults to 0 (No difference allowed)
+    description: The expected difference between pre CC peers and current peers for the device. Positive numbers allow for adding peers, negative for retiring peers. Defaults to 0 (No difference allowed)
     required: false
     hidden: false
     default: "0"

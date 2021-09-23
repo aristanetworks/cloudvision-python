@@ -87,12 +87,8 @@ signal.signal(signal.SIGALRM, monitorTimerHandler)
 # if there is a raise timer configured.
 # These will not be caught if the raisetimer is longer than the timeout
 timeout = ctx.changeControl.args.get("duration")
-if timeout:
-    # User timeout arg is a string, convert it to an integer
-    timeout = int(timeout)
-else:
-    # If user has not specified a timeout, default to 300 seconds (5 min)
-    timeout = 300
+# User timeout arg is a string, convert it to an integer. If not specified, default to 300
+timeout = int(timeout) if timeout else 300
 
 # Check to see if the fail_fast arg is "True", anything else is interpreted as False
 fail_fast = ctx.changeControl.args.get("fail_fast") == "True"
