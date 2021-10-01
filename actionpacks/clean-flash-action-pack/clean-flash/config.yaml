@@ -1,0 +1,11 @@
+type: ACTION
+language: PYTHON_3
+name: Clean Flash
+description: Cleans all EOS images on /mnt/flash except one required to boot EOS
+file: script.py
+static-params: []
+dynamic-params:
+  - name: DeviceID
+    description: The ID of the device to run this script against
+    required: true
+    hidden: false

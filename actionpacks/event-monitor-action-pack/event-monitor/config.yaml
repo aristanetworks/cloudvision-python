@@ -1,0 +1,30 @@
+type: ACTION
+language: PYTHON_3
+name: Monitor Events
+description: Monitors CloudVision to ensure no new events happen post Change Control
+file: script.py
+static-params: []
+dynamic-params:
+  - name: severity_filter
+    description: Comma separated list of the event severities to monitor for. Defaults to events above 'INFO' ('WARNING,ERROR,CRITICAL')
+    required: false
+    hidden: false
+    default: "WARNING,ERROR,CRITICAL"
+  - name: event_filter
+    description: Comma separated list of the internal event types to monitor for. Defaults to all events
+    required: false
+    hidden: false
+  - name: device_list
+    description: Comma separated list of the devices in serial number form to monitor for events. Defaults to all devices
+    required: false
+    hidden: false
+  - name: duration
+    description: Duration in seconds to monitor events for. Defaults to 300 (5 minutes)
+    required: false
+    hidden: false
+    default: "300"
+  - name: fail_fast
+    description: True/False flag to fail action immediately if an event occurs. If False, action will monitor for full duration and only fail if any unfinished events exist at the end. Defaults to False
+    required: false
+    hidden: false
+    default: "False"
