@@ -4,4 +4,4 @@ exclude = gen,build/*,*_pb2.py,*_pb2_grpc.py
 ignore = H301,F403,F401
 per-file-ignores =
     # Excludes undefined variable for validators as ctx is defined at runtime
-    validators/*:F821
+    actionpacks/*:F821

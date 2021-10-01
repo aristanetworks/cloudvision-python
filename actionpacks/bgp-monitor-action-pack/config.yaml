@@ -1,4 +1,4 @@
 type: PACKAGE
 version: 1.0.0
-name: bgp-monitor Change Control Action package
+name: bgp-monitor Action package
 description: Action package containing a script that checks BGP stats are stable across a Change Control

@@ -1,4 +1,4 @@
 type: PACKAGE
 version: 1.0.0
-name: clean-flash Change Control Action package
+name: clean-flash Action package
 description: Action package containing a script that removes all unneeded EOS images on /mnt/flash
