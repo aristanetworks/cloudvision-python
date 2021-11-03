@@ -1,0 +1,7 @@
+# The list of action packs bundled by default in CloudVision
+bundled-action-packs: [
+  clean-flash-action-pack,
+  bgp-monitor-action-pack,
+  event-monitor-action-pack,
+  sleep-action-pack,
+]
