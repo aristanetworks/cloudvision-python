@@ -18,7 +18,7 @@ import json
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 debug = False
-emptyEndpoint = {'ipAddrSet': set(), 'hostname': '', 'deviceId': '', 'interface': '', 'vlanId': None, 'timestamp': ''}
+emptyEndpoint = {'ipAddrSet': set(), 'hostname': '', 'device': '', 'interface': '', 'vlanId': None, 'timestamp': ''}
 endpointDict = {}
 
 
@@ -121,7 +121,7 @@ def get_endpointlocation(macAddr, server, inventory, tokenFile):
                     locationList = deviceVal['locationList']['values']
                     if len(locationList) > 0:
                         topLocation = locationList[0]
-                        endpointDict[macAddr]['deviceId'] = inventory[topLocation['deviceId']]['hostname']
+                        endpointDict[macAddr]['device'] = inventory[topLocation['deviceId']]['hostname']
                         endpointDict[macAddr]['interface'] = topLocation['interface']
                         endpointDict[macAddr]['vlanId'] = topLocation['vlanId']
                         endpointDict[macAddr]['timestamp'] = topLocation['learnedTime']
@@ -155,7 +155,7 @@ def main(apiserverAddr, output_file, token=None, certs=None, key=None, ca=None):
             futures_list.append(futures)
 
     # Build the CSV
-    csv_columns = ['MAC Address', 'IP Address List', 'Hostname', 'DeviceID', 'Interface', 'VlanID', 'Timestamp']
+    csv_columns = ['MAC Address', 'IP Address List', 'Hostname', 'Device', 'Interface', 'VlanID', 'Timestamp']
     csv_file = args.output_file
     try:
         with open(csv_file, 'w') as csvfile:
@@ -163,7 +163,7 @@ def main(apiserverAddr, output_file, token=None, certs=None, key=None, ca=None):
             writer.writerow(csv_columns)
             for macAddr, endpointVals in endpointDict.items():
                 writer.writerow([macAddr, ', '.join(endpointVals['ipAddrSet']), endpointVals['hostname'],
-                                 endpointVals['deviceId'], endpointVals['interface'], str(endpointVals['vlanId']),
+                                 endpointVals['device'], endpointVals['interface'], str(endpointVals['vlanId']),
                                  endpointVals['timestamp']])
     except IOError:
         print('I/O error')
