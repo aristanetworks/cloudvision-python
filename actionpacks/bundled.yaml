@@ -1,7 +1,9 @@
 # The list of action packs bundled by default in CloudVision
+# The ./ before the action pack name is needed to allow for
+# bundling on GNU systems. It otherwise only works on BSD systems
 bundled-action-packs: [
-  clean-flash-action-pack,
-  bgp-monitor-action-pack,
-  event-monitor-action-pack,
-  sleep-action-pack,
+  ./clean-flash-action-pack,
+  ./bgp-monitor-action-pack,
+  ./event-monitor-action-pack,
+  ./sleep-action-pack,
 ]
