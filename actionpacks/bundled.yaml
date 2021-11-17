@@ -2,7 +2,7 @@
 # The ./ before the action pack name is needed to allow for
 # bundling on GNU systems. It otherwise only works on BSD systems
 bundled-action-packs: [
-  ./clean-flash-action-pack,
+  ./delete-swis-action-pack,
   ./bgp-monitor-action-pack,
   ./event-monitor-action-pack,
   ./sleep-action-pack,

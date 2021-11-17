@@ -1,0 +1,4 @@
+type: PACKAGE
+version: 1.0.0
+name: delete-swis Action package
+description: Action package containing a script that deletes all unused EOS images on /mnt/flash

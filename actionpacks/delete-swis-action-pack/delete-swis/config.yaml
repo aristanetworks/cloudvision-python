@@ -1,7 +1,7 @@
 type: ACTION
 language: PYTHON_3
-name: Clean Flash
-description: Cleans all EOS images on /mnt/flash except one required to boot EOS
+name: Delete SWIs
+description: Deletes all EOS images on /mnt/flash except one required to boot EOS
 file: script.py
 static-params: []
 dynamic-params:
