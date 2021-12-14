@@ -26,7 +26,7 @@ def IsStatsDiffExpected(prevStats, currentStats, expectedDiff: int):
     # Check to see if there is a difference in the stats, as expected by the user args
     # This allows for the user to add 2 spines to their network or retire a spine
     actualDiff = 0
-    for stat, count in prevStats:
+    for stat, count in prevStats.items():
         actualDiff = actualDiff + currentStats[stat] - count
 
     return expectedDiff == actualDiff
