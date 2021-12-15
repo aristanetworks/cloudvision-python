@@ -2,7 +2,6 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-import re
 import signal
 
 # Import the event resource API models to be able to easily parse the rAPI output
@@ -57,25 +56,29 @@ severity_filter = [
 ]
 
 # Extract the user-defined filter from user args, will be an empty string if unspecified
-severity_filter_str = ctx.changeControl.args.get("severity_filter")
+severity_filter_str: str = ctx.changeControl.args.get("severity_filter")
 # Empty strings are falsy, so will only parse user input if it exists
 if severity_filter_str:
     # User arg is a comma seperated string, split on the comma
-    severity_filter_list = re.split(',', severity_filter_str)
+    severity_filter_list = severity_filter_str.split(',')
     # Converts the user-severities to the model severities through our mapping above
     # Any invalid severity in the args will be dropped
     severity_filter = [SEVERITIES[sev] for sev in severity_filter_list]
 
 # Repeat filter extraction for event types
-event_filter_str = ctx.changeControl.args.get("event_filter")
+event_filter_str: str = ctx.changeControl.args.get("event_filter")
 if event_filter_str:
-    event_filter_list = re.split(',', event_filter_str)
+    event_filter_list = event_filter_str.split(',')
+    # Filter (None) only filters false values. As an empty string is false, it removes
+    # any empty string entries from the split, which would match against anything later on
     event_filter = list(filter(None, event_filter_list))
 
 # Repeat filter extraction for devices
-device_filter_str = ctx.changeControl.args.get("device_filter")
+device_filter_str: str = ctx.changeControl.args.get("device_filter")
 if device_filter_str:
-    device_filter_list = re.split(',', device_filter_str)
+    device_filter_list = device_filter_str.split(',')
+    # Filter (None) only filters false values. As an empty string is false, it removes
+    # any empty string entries from the split, which would match against anything later on
     device_filter = list(filter(None, device_filter_list))
 
 
@@ -91,7 +94,7 @@ timeout = ctx.changeControl.args.get("duration")
 timeout = int(timeout) if timeout else 300
 
 # Check to see if the fail_fast arg is "True", anything else is interpreted as False
-fail_fast = ctx.changeControl.args.get("fail_fast") == "True"
+fail_fast: bool = ctx.changeControl.args.get("fail_fast") == "True"
 
 # Create a stub to the event rAPI so we can send and receive requests and responses
 event_stub = ctx.getApiClient(EventServiceStub)
@@ -119,9 +122,14 @@ try:
         if severity_filter and resp.value.severity not in severity_filter:
             continue
 
-        # Repeat for the the event type
-        if event_filter and resp.value.event_type.value not in event_filter:
-            continue
+        # Event filter works on event title, and allows for partial matching
+        event_title: str = resp.value.title.value
+        if event_filter:
+            # If no event filter entries are substrings of the event title, skip further checks
+            # Convert both strings to lower case for case-insensitive check
+            if not any(event_filter_entry.lower() in event_title.lower()
+                       for event_filter_entry in event_filter):
+                continue
 
         # As the deviceId in the event is not a top level field, we need to extract information
         # Only perform it if there is a device filter in place
@@ -138,9 +146,10 @@ try:
             if not [dev for dev in device_filter if dev in event_devices]:
                 continue
 
+        event_time: str = resp.time.ToDatetime().strftime("%Y/%m/%d: %H:%M:%S")
+        event_key: str = resp.value.key.key.value
         # A new event has occurred, log it
-        ctx.alog("Event \"{}:{}\" raised at {}".format(
-            resp.value.key.key.value, resp.value.title.value, resp.time))
+        ctx.alog(f"Event matching filters, \"{event_key}: {event_title}\" raised at {event_time}")
 
         # If failfast is set, exit after disabling alarm
         if fail_fast:

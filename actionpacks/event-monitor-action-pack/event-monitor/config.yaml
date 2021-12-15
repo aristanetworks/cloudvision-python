@@ -11,11 +11,11 @@ dynamic-params:
     hidden: false
     default: "WARNING,ERROR,CRITICAL"
   - name: event_filter
-    description: Comma separated list of the internal event types to monitor for. Defaults to all events
+    description: Comma separated list of the event types to monitor for. These filter on event title, are case insensitive, and can be a partial match. Defaults to all events if left empty
     required: false
     hidden: false
   - name: device_list
-    description: Comma separated list of the devices in serial number form to monitor for events. Defaults to all devices
+    description: Comma separated list of the devices in serial number form to monitor for events. Defaults to all devices if left empty
     required: false
     hidden: false
   - name: duration
