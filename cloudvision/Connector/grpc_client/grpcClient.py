@@ -168,7 +168,7 @@ class GRPCClient(object):
 
     def get(self, queries: List[rtr.Query], start: Optional[TIME_TYPE] = None,
             end: Optional[TIME_TYPE] = None,
-            versions: Optional[int] = None, sharding=None,
+            versions=0, sharding=None,
             exact_range=False):
         """
         Get creates and executes a Get protobuf message, returning a stream of
@@ -177,8 +177,8 @@ class GRPCClient(object):
         start and end, if present, must be nanoseconds timestamps (uint64).
         sharding, if present must be a protobuf sharding message.
         """
-        end_ts: Optional[int] = None
-        start_ts: Optional[int] = None
+        end_ts = 0
+        start_ts = 0
         if end:
             end_ts = to_pbts(end).ToNanoseconds()
 
