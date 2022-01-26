@@ -1,5 +1,7 @@
 # CloudVision Custom Python3 Script Action Packs
 
+## **Note**: Please see <https://github.com/aristanetworks/cloudvision-python-actions> for up-to-date actions
+
 ## **Note**: This is only available from CloudVision 2021.3.0 onwards
 
 ## Overview
