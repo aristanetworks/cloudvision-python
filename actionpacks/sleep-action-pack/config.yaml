@@ -1,4 +1,0 @@
-type: PACKAGE
-version: 1.0.0
-name: sleep Action package
-description: Action package containing a script to sleep during a Change Control
