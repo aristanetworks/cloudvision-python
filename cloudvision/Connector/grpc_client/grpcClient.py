@@ -289,13 +289,15 @@ class GRPCClient(object):
                end: Optional[TIME_TYPE] = None,
                path_elements=[],
                key_filters: Iterable[rtr.Filter] = None,
-               value_filters: Iterable[rtr.Filter] = None):
+               value_filters: Iterable[rtr.Filter] = None,
+               exact_range: bool = False):
         start_ts = to_pbts(start).ToNanoseconds() if start else 0
         end_ts = to_pbts(end).ToNanoseconds() if end else 0
         encoded_path_elements = [self.encoder.encode(x) for x in path_elements]
         req = rtr.SearchRequest(search_type=search_type, start=start_ts, end=end_ts, query=[rtr.Query(
                                 dataset=ntf.Dataset(type=d_type, name=d_name),
                                 paths=[rtr.Path(path_elements=encoded_path_elements)])],
-                                result_size=result_size, key_filters=key_filters, value_filters=value_filters)
+                                result_size=result_size, key_filters=key_filters, value_filters=value_filters,
+                                exact_range=exact_range)
         res = self.__alpha_client.Search(req)
         return (self.decode_batch(nb) for nb in res)
