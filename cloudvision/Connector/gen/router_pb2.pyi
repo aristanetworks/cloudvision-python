@@ -1010,7 +1010,7 @@ class CustomIndexOptions(google.protobuf.message.Message):
     inuse_delete_after_days: builtins.int = ...
     """inuse_delete_after_days is what is actually in use.
     This is guaranteed to be atleast delete_after_days.
-    delete_after_days may get modified based on index rotation policy by Aeris
+    delete_after_days may get modified based on index rotation policy by Cloudvision
     """
 
     def __init__(self,
@@ -1070,10 +1070,10 @@ class PublishRequest(google.protobuf.message.Message):
     COMPARE_FIELD_NUMBER: builtins.int
     @property
     def batch(self) -> notification_pb2.NotificationBatch:
-        """The batch of notification sent to aeris"""
+        """The batch of notification sent to Cloudvision"""
         pass
     sync: builtins.bool = ...
-    """Used to have a synchronous or asynchronous write to the aeris storage"""
+    """Used to have a synchronous or asynchronous write to the Cloudvision storage"""
 
     @property
     def compare(self) -> notification_pb2.Notification.Update:
@@ -1314,3 +1314,71 @@ class CreateSessionResponse(google.protobuf.message.Message):
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["expiry",b"expiry","jwtToken",b"jwtToken"]) -> None: ...
 global___CreateSessionResponse = CreateSessionResponse
+
+class SQLRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    QUERY_FIELD_NUMBER: builtins.int
+    ARGS_FIELD_NUMBER: builtins.int
+    query: typing.Text = ...
+    @property
+    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.bytes]:
+        """Neat encoded values for the arguments to the stmt query"""
+        pass
+    def __init__(self,
+        *,
+        query : typing.Text = ...,
+        args : typing.Optional[typing.Iterable[builtins.bytes]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["args",b"args","query",b"query"]) -> None: ...
+global___SQLRequest = SQLRequest
+
+class SQLResponseRow(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.bytes]:
+        """NEAT encoded values for one row"""
+        pass
+    def __init__(self,
+        *,
+        values : typing.Optional[typing.Iterable[builtins.bytes]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["values",b"values"]) -> None: ...
+global___SQLResponseRow = SQLResponseRow
+
+class SQLResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    class Metadata(google.protobuf.message.Message):
+        """Metadata, usually returned with the first response.
+        But it could return some metadata on any subsequent response, including the last one.
+        The message can contain partial data
+        (for instance, columns will be only in the first answer)
+        """
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        COLUMNS_FIELD_NUMBER: builtins.int
+        @property
+        def columns(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+            """Name of the columns for the query result returned
+            Returned only in the first response message.
+            """
+            pass
+        def __init__(self,
+            *,
+            columns : typing.Optional[typing.Iterable[typing.Text]] = ...,
+            ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["columns",b"columns"]) -> None: ...
+
+    ROWS_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
+    @property
+    def rows(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SQLResponseRow]: ...
+    @property
+    def metadata(self) -> global___SQLResponse.Metadata: ...
+    def __init__(self,
+        *,
+        rows : typing.Optional[typing.Iterable[global___SQLResponseRow]] = ...,
+        metadata : typing.Optional[global___SQLResponse.Metadata] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["metadata",b"metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["metadata",b"metadata","rows",b"rows"]) -> None: ...
+global___SQLResponse = SQLResponse

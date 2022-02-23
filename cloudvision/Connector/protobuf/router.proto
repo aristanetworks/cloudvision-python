@@ -516,6 +516,31 @@ message CreateSessionResponse {
     int64 expiry = 2;
 }
 
+message SQLRequest {
+    string query = 1;
+    // Neat encoded values for the arguments to the stmt query
+    repeated bytes args = 2;
+}
+
+message SQLResponseRow {
+    // NEAT encoded values for one row
+    repeated bytes values = 1;
+}
+
+message SQLResponse {
+    repeated SQLResponseRow rows = 1;
+    // Metadata, usually returned with the first response.
+    // But it could return some metadata on any subsequent response, including the last one.
+    // The message can contain partial data
+    // (for instance, columns will be only in the first answer)
+    message Metadata {
+        // Name of the columns for the query result returned
+        // Returned only in the first response message.
+        repeated string columns = 1;
+    }
+    Metadata metadata = 2;
+}
+
 service RouterV1 {
    // Publish is used to send notifications to Cloudvision.
    // They will be saved into the storage and sent to all
@@ -612,9 +637,28 @@ service Auth {
    rpc CreateSession (CreateSessionRequest) returns (stream CreateSessionResponse);
 }
 
-// Alpha services are services which are not supported and
-// can be added/removed/changed anytime, without notice.
-// Clients should not user them and build applications on top of this service
+// Search provides methods to query CloudVision using the Search service.
+service Search {
+    // you know, for search...
+    rpc Search (SearchRequest) returns (stream NotificationBatch);
+    // SearchSubscribe allows the client to request a live stream of updates
+    // based on client search request
+    rpc SearchSubscribe (SearchRequest) returns (stream NotificationBatch);
+    // for search with aggregation
+    rpc SearchWithAggregation (SearchRequestWithAggr) returns (AggrResponse);
+    // SearchWithAggregationStream sends the protobuf-serialized form of AggrResponse as in a stream 
+    // of byteArrays. Receiver needs to append the "bytearrays", and protobuf-deserialize
+    // to obtain the result. Intended for messages exceeding the grpc size limit
+    rpc SearchWithAggregationStream (SearchRequestWithAggr) returns (stream ByteStream);
+    // for custom schema configuration
+    rpc SetCustomSchema (CustomIndexSchema) returns (google.protobuf.Empty);
+    // for custom schema deletion
+    // This is alpha version of this api and doesn't synchronize across apiserver instances.
+    // apiserver restart is needed to get updated schema information from hbase.
+    rpc DeleteCustomSchema (CustomIndexSchemaDel) returns (google.protobuf.Empty);
+ }
+ 
+// Alpha services are deprecated. Please use SearchV1
 service Alpha {
    // you know, for search...
    rpc Search (SearchRequest) returns (stream NotificationBatch);
@@ -633,6 +677,10 @@ service Alpha {
    // This is alpha version of this api and doesn't synchronize across apiserver instances.
    // apiserver restart is needed to get updated schema information from hbase.
    rpc DeleteCustomSchema (CustomIndexSchemaDel) returns (google.protobuf.Empty);
+}
+
+service Querier {
+    rpc SQL(SQLRequest) returns (stream SQLResponse);
 }
 
 // Cluster service gives some descriptions about the cluster where the service

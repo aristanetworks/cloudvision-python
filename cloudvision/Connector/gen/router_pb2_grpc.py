@@ -47,7 +47,7 @@ class RouterV1Servicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Publish(self, request, context):
-        """Publish is used to send notifications to aeris.
+        """Publish is used to send notifications to Cloudvision.
         They will be saved into the storage and sent to all
         the clients subscribing to the same device/path.
 
@@ -72,13 +72,13 @@ class RouterV1Servicer(object):
 
         * Publish is asynchronous by default:
         When the call to Publish ends without error, it means the data has been
-        correctly received by aeris but not stored yet.
+        correctly received by Cloudvision but not stored yet.
         So, if a "get" call is done right after the Publish call, the get might
         not return the data just published.
         When the "sync" field is set to true in PublishRequest, the Publish
         will be synchronous:
         When the call to Publish ends without error, it means the data has been
-        correctly received AND stored by aeris.
+        correctly received AND stored by Cloudvision.
         So, if a "get" call is done right after the synchronous Publish call, the get will
         return the data just published (unless someone else stored more recent data of course).
 
@@ -465,10 +465,248 @@ class Auth(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
+class SearchStub(object):
+    """Search provides methods to query CloudVision using the Search service.
+    """
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Search = channel.unary_stream(
+                '/Search/Search',
+                request_serializer=router__pb2.SearchRequest.SerializeToString,
+                response_deserializer=notification__pb2.NotificationBatch.FromString,
+                )
+        self.SearchSubscribe = channel.unary_stream(
+                '/Search/SearchSubscribe',
+                request_serializer=router__pb2.SearchRequest.SerializeToString,
+                response_deserializer=notification__pb2.NotificationBatch.FromString,
+                )
+        self.SearchWithAggregation = channel.unary_unary(
+                '/Search/SearchWithAggregation',
+                request_serializer=router__pb2.SearchRequestWithAggr.SerializeToString,
+                response_deserializer=router__pb2.AggrResponse.FromString,
+                )
+        self.SearchWithAggregationStream = channel.unary_stream(
+                '/Search/SearchWithAggregationStream',
+                request_serializer=router__pb2.SearchRequestWithAggr.SerializeToString,
+                response_deserializer=router__pb2.ByteStream.FromString,
+                )
+        self.SetCustomSchema = channel.unary_unary(
+                '/Search/SetCustomSchema',
+                request_serializer=router__pb2.CustomIndexSchema.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
+        self.DeleteCustomSchema = channel.unary_unary(
+                '/Search/DeleteCustomSchema',
+                request_serializer=router__pb2.CustomIndexSchemaDel.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
+
+
+class SearchServicer(object):
+    """Search provides methods to query CloudVision using the Search service.
+    """
+
+    def Search(self, request, context):
+        """you know, for search...
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SearchSubscribe(self, request, context):
+        """SearchSubscribe allows the client to request a live stream of updates
+        based on client search request
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SearchWithAggregation(self, request, context):
+        """for search with aggregation
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SearchWithAggregationStream(self, request, context):
+        """SearchWithAggregationStream sends the protobuf-serialized form of AggrResponse as in a stream 
+        of byteArrays. Receiver needs to append the "bytearrays", and protobuf-deserialize
+        to obtain the result. Intended for messages exceeding the grpc size limit
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetCustomSchema(self, request, context):
+        """for custom schema configuration
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteCustomSchema(self, request, context):
+        """for custom schema deletion
+        This is alpha version of this api and doesn't synchronize across apiserver instances.
+        apiserver restart is needed to get updated schema information from hbase.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_SearchServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Search': grpc.unary_stream_rpc_method_handler(
+                    servicer.Search,
+                    request_deserializer=router__pb2.SearchRequest.FromString,
+                    response_serializer=notification__pb2.NotificationBatch.SerializeToString,
+            ),
+            'SearchSubscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.SearchSubscribe,
+                    request_deserializer=router__pb2.SearchRequest.FromString,
+                    response_serializer=notification__pb2.NotificationBatch.SerializeToString,
+            ),
+            'SearchWithAggregation': grpc.unary_unary_rpc_method_handler(
+                    servicer.SearchWithAggregation,
+                    request_deserializer=router__pb2.SearchRequestWithAggr.FromString,
+                    response_serializer=router__pb2.AggrResponse.SerializeToString,
+            ),
+            'SearchWithAggregationStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.SearchWithAggregationStream,
+                    request_deserializer=router__pb2.SearchRequestWithAggr.FromString,
+                    response_serializer=router__pb2.ByteStream.SerializeToString,
+            ),
+            'SetCustomSchema': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetCustomSchema,
+                    request_deserializer=router__pb2.CustomIndexSchema.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'DeleteCustomSchema': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteCustomSchema,
+                    request_deserializer=router__pb2.CustomIndexSchemaDel.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'Search', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Search(object):
+    """Search provides methods to query CloudVision using the Search service.
+    """
+
+    @staticmethod
+    def Search(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/Search/Search',
+            router__pb2.SearchRequest.SerializeToString,
+            notification__pb2.NotificationBatch.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SearchSubscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/Search/SearchSubscribe',
+            router__pb2.SearchRequest.SerializeToString,
+            notification__pb2.NotificationBatch.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SearchWithAggregation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Search/SearchWithAggregation',
+            router__pb2.SearchRequestWithAggr.SerializeToString,
+            router__pb2.AggrResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SearchWithAggregationStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/Search/SearchWithAggregationStream',
+            router__pb2.SearchRequestWithAggr.SerializeToString,
+            router__pb2.ByteStream.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetCustomSchema(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Search/SetCustomSchema',
+            router__pb2.CustomIndexSchema.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteCustomSchema(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Search/DeleteCustomSchema',
+            router__pb2.CustomIndexSchemaDel.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
 class AlphaStub(object):
-    """Alpha services are services which are not supported and
-    can be added/removed/changed anytime, without notice.
-    Clients should not user them and build applications on top of this service
+    """Alpha services are deprecated. Please use SearchV1
     """
 
     def __init__(self, channel):
@@ -510,9 +748,7 @@ class AlphaStub(object):
 
 
 class AlphaServicer(object):
-    """Alpha services are services which are not supported and
-    can be added/removed/changed anytime, without notice.
-    Clients should not user them and build applications on top of this service
+    """Alpha services are deprecated. Please use SearchV1
     """
 
     def Search(self, request, context):
@@ -603,9 +839,7 @@ def add_AlphaServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Alpha(object):
-    """Alpha services are services which are not supported and
-    can be added/removed/changed anytime, without notice.
-    Clients should not user them and build applications on top of this service
+    """Alpha services are deprecated. Please use SearchV1
     """
 
     @staticmethod
@@ -707,6 +941,67 @@ class Alpha(object):
         return grpc.experimental.unary_unary(request, target, '/Alpha/DeleteCustomSchema',
             router__pb2.CustomIndexSchemaDel.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class QuerierStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.SQL = channel.unary_stream(
+                '/Querier/SQL',
+                request_serializer=router__pb2.SQLRequest.SerializeToString,
+                response_deserializer=router__pb2.SQLResponse.FromString,
+                )
+
+
+class QuerierServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def SQL(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_QuerierServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'SQL': grpc.unary_stream_rpc_method_handler(
+                    servicer.SQL,
+                    request_deserializer=router__pb2.SQLRequest.FromString,
+                    response_serializer=router__pb2.SQLResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'Querier', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Querier(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def SQL(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/Querier/SQL',
+            router__pb2.SQLRequest.SerializeToString,
+            router__pb2.SQLResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

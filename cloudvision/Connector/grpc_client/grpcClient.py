@@ -117,7 +117,7 @@ class GRPCClient(object):
             tokCreds = None
             if token or tokenValue:
                 if token and tokenValue:
-                    raise ArgumentError("Cannot supply both token file path and token value")
+                    raise ArgumentError(None, "Cannot supply both token file path and token value")
                 tokData = ""
                 if token:
                     with open(token, 'r') as f:
@@ -152,7 +152,7 @@ class GRPCClient(object):
             self.channel = grpc.secure_channel(grpcAddr, creds)
         self.__client = rtr_client.RouterV1Stub(self.channel)
         self.__auth_client = rtr_client.AuthStub(self.channel)
-        self.__alpha_client = rtr_client.AlphaStub(self.channel)
+        self.__search_client = rtr_client.SearchStub(self.channel)
 
         self.encoder = codec.Encoder()
         self.decoder = codec.Decoder()
@@ -302,5 +302,5 @@ class GRPCClient(object):
                                 result_size=result_size, key_filters=key_filters, value_filters=value_filters,
                                 exact_range=exact_range, offset=offset, exact_term=exact_term, sort=sort,
                                 count_only=count_only)
-        res = self.__alpha_client.Search(req)
+        res = self.__search_client.Search(req)
         return (self.decode_batch(nb) for nb in res)

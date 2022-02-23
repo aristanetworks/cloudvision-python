@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\003gen',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0crouter.proto\x1a\x12notification.proto\x1a\x0esharding.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"r\n\x04Path\x12\x18\n\x04type\x18\x01 \x01(\x0e\x32\n.Path.Type\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\x0c\n\x04keys\x18\x03 \x03(\x0c\x12\x15\n\rpath_elements\x18\x04 \x03(\x0c\"\x1d\n\x04Type\x12\t\n\x05\x45XACT\x10\x00\x12\n\n\x06REGEXP\x10\x01\"8\n\x05Query\x12\x19\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x08.Dataset\x12\x14\n\x05paths\x18\x02 \x03(\x0b\x32\x05.Path\"I\n\x10SubscribeRequest\x12\x15\n\x05query\x18\x01 \x03(\x0b\x32\x06.Query\x12\x1e\n\x0bsharded_sub\x18\x02 \x01(\x0b\x32\t.Sharding\"\xca\x01\n\nGetRequest\x12\x15\n\x05query\x18\x01 \x03(\x0b\x32\x06.Query\x12\r\n\x05start\x18\x04 \x01(\x04\x12\x10\n\x08versions\x18\x05 \x01(\r\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x04\x12\x13\n\x0b\x65xact_range\x18\x06 \x01(\x08\x12\x1e\n\x0bsharded_sub\x18\x07 \x01(\x0b\x32\t.Sharding\x12\x35\n\x14wildcard_expand_type\x18\x08 \x01(\x0e\x32\x17.PathWildCardExpandTypeJ\x04\x08\x02\x10\x03R\x05\x63ount\"\xbc\x01\n\x16GetAndSubscribeRequest\x12\x15\n\x05query\x18\x01 \x03(\x0b\x32\x06.Query\x12\r\n\x05start\x18\x02 \x01(\x04\x12\x10\n\x08versions\x18\x03 \x01(\r\x12\x13\n\x0b\x65xact_range\x18\x04 \x01(\x08\x12\x1e\n\x0bsharded_sub\x18\x05 \x01(\x0b\x32\t.Sharding\x12\x35\n\x14wildcard_expand_type\x18\x06 \x01(\x0e\x32\x17.PathWildCardExpandType\"/\n\x04Sort\x12\x0e\n\x06\x66ields\x18\x01 \x03(\t\x12\x17\n\x04type\x18\x02 \x01(\x0e\x32\t.SortType\"\xb1\x03\n\rSearchRequest\x12\x0e\n\x06search\x18\x01 \x01(\t\x12(\n\x0bsearch_type\x18\x02 \x01(\x0e\x32\x13.SearchRequest.Type\x12\x15\n\x05query\x18\x03 \x03(\x0b\x32\x06.Query\x12\r\n\x05start\x18\x04 \x01(\x04\x12\x0b\n\x03\x65nd\x18\x05 \x01(\x04\x12\x12\n\ncount_only\x18\x06 \x01(\x08\x12\x1c\n\x0bkey_filters\x18\x07 \x03(\x0b\x32\x07.Filter\x12\x1e\n\rvalue_filters\x18\x08 \x03(\x0b\x32\x07.Filter\x12\x13\n\x04sort\x18\t \x03(\x0b\x32\x05.Sort\x12\x13\n\x0b\x65xact_range\x18\n \x01(\x08\x12\x1e\n\x0bsharded_sub\x18\x0b \x01(\x0b\x32\t.Sharding\x12\x12\n\nexact_term\x18\x0c \x01(\x08\x12\x13\n\x0bresult_size\x18\x15 \x01(\r\x12\x0e\n\x06offset\x18\x16 \x01(\r\x12 \n\x04meta\x18\x17 \x01(\x0b\x32\x12.NotificationBatch\"<\n\x04Type\x12\n\n\x06STRING\x10\x00\x12\x07\n\x03MAC\x10\x01\x12\x06\n\x02IP\x10\x02\x12\x0b\n\x07\x43OMPLEX\x10\x03\x12\n\n\x06\x43USTOM\x10\x04\"\x91\x05\n\x06\x46ilter\x12\r\n\x05\x66ield\x18\x01 \x01(\t\x12\x1c\n\x02op\x18\x02 \x01(\x0e\x32\x10.Filter.Operator\x12\x1c\n\x05value\x18\x03 \x01(\x0b\x32\r.Filter.Value\x12\x14\n\x0cnested_field\x18\x0b \x03(\t\x12\x1c\n\x0bsub_filters\x18\x15 \x03(\x0b\x32\x07.Filter\x1a\xc5\x01\n\x05Value\x12\r\n\x03str\x18\x01 \x01(\tH\x00\x12\r\n\x03int\x18\x02 \x01(\x12H\x00\x12\x0e\n\x04uint\x18\x03 \x01(\x04H\x00\x12\x0f\n\x05\x66loat\x18\x04 \x01(\x01H\x00\x12\x0b\n\x01\x62\x18\x05 \x01(\x08H\x00\x12\x0c\n\x02ip\x18\x06 \x01(\tH\x00\x12\r\n\x03mac\x18\x07 \x01(\tH\x00\x12&\n\x04\x63omp\x18\x08 \x01(\x0b\x32\x16.Filter.ComponentValueH\x00\x12#\n\x05multi\x18\t \x01(\x0b\x32\x12.Filter.MultiValueH\x00\x42\x06\n\x04kind\x1ap\n\x0e\x43omponentValue\x12\x30\n\x05value\x18\x01 \x03(\x0b\x32!.Filter.ComponentValue.ValueEntry\x1a,\n\nValueEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a+\n\nMultiValue\x12\x1d\n\x06values\x18\x01 \x03(\x0b\x32\r.Filter.Value\"\xa0\x01\n\x08Operator\x12\x06\n\x02\x45Q\x10\x00\x12\x07\n\x03NEQ\x10\x01\x12\x06\n\x02GT\x10\x02\x12\x06\n\x02GE\x10\x03\x12\x06\n\x02LT\x10\x04\x12\x06\n\x02LE\x10\x05\x12\x06\n\x02RE\x10\x06\x12\x07\n\x03NRE\x10\x07\x12\x06\n\x02IN\x10\x08\x12\x07\n\x03NIN\x10\t\x12\x07\n\x03SUB\x10\n\x12\x0c\n\x08WILDCARD\x10\x0b\x12\x0b\n\x07\x42ITMASK\x10\x10\x12\r\n\tLOGICALOR\x10\x14\x12\x0e\n\nLOGICALAND\x10\x15\"\x8c\x02\n\tAggregate\x12\"\n\taggr_type\x18\x01 \x01(\x0e\x32\x0f.Aggregate.Type\x12\x0e\n\x06\x66ields\x18\x02 \x03(\t\x12\x17\n\x04sort\x18\x03 \x01(\x0e\x32\t.SortType\x12\x1d\n\tsub_aggrs\x18\x04 \x03(\x0b\x32\n.Aggregate\x12\x1d\n\x04term\x18\x15 \x01(\x0b\x32\r.term_optionsH\x00\x12\x1d\n\x04hist\x18\x1a \x01(\x0b\x32\r.hist_optionsH\x00\"K\n\x04Type\x12\x0b\n\x07Invalid\x10\x00\x12\x08\n\x04TERM\x10\x01\x12\x07\n\x03SUM\x10\x02\x12\x07\n\x03\x41VG\x10\x03\x12\x07\n\x03MAX\x10\x04\x12\x07\n\x03MIN\x10\x05\x12\x08\n\x04HIST\x10\x06\x42\x08\n\x06Option\"\xb3\x01\n\x0cterm_options\x12\x16\n\x0enum_of_buckets\x18\x01 \x01(\r\x12&\n\nfield_type\x18\x02 \x01(\x0e\x32\x12.term_options.Type\"c\n\x04Type\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04\x42OOL\x10\x01\x12\n\n\x06\x44OUBLE\x10\x02\x12\x08\n\x04LONG\x10\x03\x12\n\n\x06STRING\x10\x04\x12\r\n\tCOMPONENT\x10\x05\x12\x06\n\x02IP\x10\x06\x12\x07\n\x03MAC\x10\x07\"\x88\x01\n\x0chist_options\x12\x10\n\x08interval\x18\x01 \x01(\x04\x12\x13\n\x0b\x61llow_empty\x18\x02 \x01(\x08\x12-\n\x0f\x65xtended_bounds\x18\x03 \x01(\x0b\x32\x14.hist_options.bounds\x1a\"\n\x06\x62ounds\x12\x0b\n\x03min\x18\x01 \x01(\x03\x12\x0b\n\x03max\x18\x02 \x01(\x03\"R\n\x15SearchRequestWithAggr\x12\x1e\n\x06search\x18\x01 \x01(\x0b\x32\x0e.SearchRequest\x12\x19\n\x05\x61ggrs\x18\x02 \x03(\x0b\x32\n.Aggregate\"\x1d\n\nByteStream\x12\x0f\n\x07message\x18\x01 \x01(\x0c\"H\n\x0c\x41ggrResponse\x12\x1c\n\x07\x62uckets\x18\x01 \x03(\x0b\x32\x0b.AggrBucket\x12\x1a\n\x06\x66ields\x18\x02 \x03(\x0b\x32\n.AggrField\"y\n\nAggrBucket\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05\x63ount\x18\x02 \x01(\x04\x12\x11\n\taggr_name\x18\x03 \x01(\t\x12\x1a\n\x06\x66ields\x18\x0b \x03(\x0b\x32\n.AggrField\x12 \n\x0bsub_buckets\x18\x0c \x03(\x0b\x32\x0b.AggrBucket\"(\n\tAggrField\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x01\"X\n\nIndexField\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1c\n\x04type\x18\x02 \x01(\x0e\x32\x0e.IndexDataType\x12\x1e\n\tsub_field\x18\x0b \x03(\x0b\x32\x0b.IndexField\"P\n\x12\x43ustomIndexOptions\x12\x19\n\x11\x64\x65lete_after_days\x18\x01 \x01(\r\x12\x1f\n\x17inuse_delete_after_days\x18\x02 \x01(\r\"l\n\x11\x43ustomIndexSchema\x12\x15\n\x05query\x18\x01 \x01(\x0b\x32\x06.Query\x12\x1b\n\x06schema\x18\x0b \x03(\x0b\x32\x0b.IndexField\x12#\n\x06option\x18\x15 \x01(\x0b\x32\x13.CustomIndexOptions\"B\n\x14\x43ustomIndexSchemaDel\x12\x15\n\x05query\x18\x01 \x01(\x0b\x32\x06.Query\x12\x13\n\x0b\x64\x65lete_data\x18\x0b \x01(\x08\"h\n\x0ePublishRequest\x12!\n\x05\x62\x61tch\x18\x01 \x01(\x0b\x32\x12.NotificationBatch\x12\x0c\n\x04sync\x18\x02 \x01(\x08\x12%\n\x07\x63ompare\x18\x03 \x01(\x0b\x32\x14.Notification.Update\"Z\n\x0f\x44\x61tasetsRequest\x12\r\n\x05types\x18\x01 \x03(\t\x12\x1e\n\x0bsharded_sub\x18\x02 \x01(\x0b\x32\t.Sharding\x12\x18\n\x06parent\x18\x03 \x01(\x0b\x32\x08.Dataset\".\n\x10\x44\x61tasetsResponse\x12\x1a\n\x08\x64\x61tasets\x18\x01 \x03(\x0b\x32\x08.Dataset\"1\n\x14\x43reateDatasetRequest\x12\x19\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x08.Dataset\"\xb9\x04\n\x14SetPermissionRequest\x12(\n\x04type\x18\x01 \x01(\x0e\x32\x1a.SetPermissionRequest.Type\x12\x19\n\x07\x64\x61taset\x18\x02 \x01(\x0b\x32\x08.Dataset\x12\x17\n\x05other\x18\x03 \x01(\x0b\x32\x08.Dataset\x12\x31\n\tpathPerms\x18\x06 \x03(\x0b\x32\x1e.SetPermissionRequest.PathPerm\x1a\xf4\x01\n\x08PathPerm\x12\x13\n\x04path\x18\x01 \x01(\x0b\x32\x05.Path\x12\x34\n\x07newPerm\x18\x02 \x01(\x0e\x32#.SetPermissionRequest.PathPerm.Perm\x12\x38\n\x0b\x63urrentPerm\x18\x03 \x01(\x0e\x32#.SetPermissionRequest.PathPerm.Perm\x12\x12\n\nexactMatch\x18\x04 \x01(\x08\"O\n\x04Perm\x12\x13\n\x0fNULL_PERM_VALUE\x10\x00\x12\r\n\tREAD_PERM\x10\x01\x12\x0e\n\nWRITE_PERM\x10\x02\x12\x13\n\x0fREAD_WRITE_PERM\x10\x03\"\x98\x01\n\x04Type\x12\x13\n\x0fPATH_PERMISSION\x10\x00\x12\x16\n\x12INHERIT_PERMISSION\x10\x01\x12\x18\n\x14UNINHERIT_PERMISSION\x10\x02\x12\x14\n\x10\x41\x44MIN_PERMISSION\x10\x03\x12\x17\n\x13SET_ROLE_PERMISSION\x10\x04\x12\x1a\n\x16REMOVE_ROLE_PERMISSION\x10\x05\";\n\rPermissionSet\x12*\n\x0bpermissions\x18\x01 \x03(\x0b\x32\x15.SetPermissionRequest\"g\n\x12\x43lusterDescription\x12-\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x13\n\x0b\x63lusterName\x18\x02 \x01(\t\x12\r\n\x05\x65poch\x18\x03 \x01(\r\"A\n\x12SetPasswordRequest\x12\x19\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x08.Dataset\x12\x10\n\x08password\x18\x02 \x01(\t\"B\n\x14\x43reateSessionRequest\x12\x19\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x08.Dataset\x12\x0f\n\x07timeout\x18\x02 \x01(\x03\"9\n\x15\x43reateSessionResponse\x12\x10\n\x08jwtToken\x18\x01 \x01(\t\x12\x0e\n\x06\x65xpiry\x18\x02 \x01(\x03*\x94\x01\n\x16PathWildCardExpandType\x12\x1a\n\x16WILDCARD_EXPAND_LEGACY\x10\x00\x12\x1a\n\x16WILDCARD_EXPAND_LATEST\x10\x01\x12\x1f\n\x1bWILDCARD_EXPAND_EXACT_RANGE\x10\x02\x12!\n\x1dWILDCARD_EXPAND_RELAXED_RANGE\x10\x03*/\n\x08SortType\x12\x10\n\x0cSORT_INVALID\x10\x00\x12\x08\n\x04\x44\x45SC\x10\x01\x12\x07\n\x03\x41SC\x10\x02*W\n\rIndexDataType\x12\x0b\n\x07INVALID\x10\x00\x12\x0b\n\x07INTEGER\x10\x01\x12\t\n\x05\x46LOAT\x10\x02\x12\n\n\x06STRING\x10\x03\x12\t\n\x05\x41RRAY\x10\x0b\x12\n\n\x06OBJECT\x10\x0c\x32\x96\x02\n\x08RouterV1\x12\x32\n\x07Publish\x12\x0f.PublishRequest\x1a\x16.google.protobuf.Empty\x12\x34\n\tSubscribe\x12\x11.SubscribeRequest\x1a\x12.NotificationBatch0\x01\x12(\n\x03Get\x12\x0b.GetRequest\x1a\x12.NotificationBatch0\x01\x12@\n\x0fGetAndSubscribe\x12\x17.GetAndSubscribeRequest\x1a\x12.NotificationBatch0\x01\x12\x34\n\x0bGetDatasets\x12\x10.DatasetsRequest\x1a\x11.DatasetsResponse0\x01\x32\xb7\x02\n\x04\x41uth\x12>\n\rCreateDataset\x12\x15.CreateDatasetRequest\x1a\x16.google.protobuf.Empty\x12>\n\rSetPermission\x12\x15.SetPermissionRequest\x1a\x16.google.protobuf.Empty\x12\x31\n\x10GetPermissionSet\x12\x0b.GetRequest\x1a\x0e.PermissionSet0\x01\x12:\n\x0bSetPassword\x12\x13.SetPasswordRequest\x1a\x16.google.protobuf.Empty\x12@\n\rCreateSession\x12\x15.CreateSessionRequest\x1a\x16.CreateSessionResponse0\x01\x32\xfa\x02\n\x05\x41lpha\x12.\n\x06Search\x12\x0e.SearchRequest\x1a\x12.NotificationBatch0\x01\x12\x37\n\x0fSearchSubscribe\x12\x0e.SearchRequest\x1a\x12.NotificationBatch0\x01\x12>\n\x15SearchWithAggregation\x12\x16.SearchRequestWithAggr\x1a\r.AggrResponse\x12\x44\n\x1bSearchWithAggregationStream\x12\x16.SearchRequestWithAggr\x1a\x0b.ByteStream0\x01\x12=\n\x0fSetCustomSchema\x12\x12.CustomIndexSchema\x1a\x16.google.protobuf.Empty\x12\x43\n\x12\x44\x65leteCustomSchema\x12\x15.CustomIndexSchemaDel\x1a\x16.google.protobuf.Empty2G\n\x07\x43luster\x12<\n\x0b\x43lusterInfo\x12\x16.google.protobuf.Empty\x1a\x13.ClusterDescription0\x01\x42\x05Z\x03genb\x06proto3'
+  serialized_pb=b'\n\x0crouter.proto\x1a\x12notification.proto\x1a\x0esharding.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"r\n\x04Path\x12\x18\n\x04type\x18\x01 \x01(\x0e\x32\n.Path.Type\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\x0c\n\x04keys\x18\x03 \x03(\x0c\x12\x15\n\rpath_elements\x18\x04 \x03(\x0c\"\x1d\n\x04Type\x12\t\n\x05\x45XACT\x10\x00\x12\n\n\x06REGEXP\x10\x01\"8\n\x05Query\x12\x19\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x08.Dataset\x12\x14\n\x05paths\x18\x02 \x03(\x0b\x32\x05.Path\"I\n\x10SubscribeRequest\x12\x15\n\x05query\x18\x01 \x03(\x0b\x32\x06.Query\x12\x1e\n\x0bsharded_sub\x18\x02 \x01(\x0b\x32\t.Sharding\"\xca\x01\n\nGetRequest\x12\x15\n\x05query\x18\x01 \x03(\x0b\x32\x06.Query\x12\r\n\x05start\x18\x04 \x01(\x04\x12\x10\n\x08versions\x18\x05 \x01(\r\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x04\x12\x13\n\x0b\x65xact_range\x18\x06 \x01(\x08\x12\x1e\n\x0bsharded_sub\x18\x07 \x01(\x0b\x32\t.Sharding\x12\x35\n\x14wildcard_expand_type\x18\x08 \x01(\x0e\x32\x17.PathWildCardExpandTypeJ\x04\x08\x02\x10\x03R\x05\x63ount\"\xbc\x01\n\x16GetAndSubscribeRequest\x12\x15\n\x05query\x18\x01 \x03(\x0b\x32\x06.Query\x12\r\n\x05start\x18\x02 \x01(\x04\x12\x10\n\x08versions\x18\x03 \x01(\r\x12\x13\n\x0b\x65xact_range\x18\x04 \x01(\x08\x12\x1e\n\x0bsharded_sub\x18\x05 \x01(\x0b\x32\t.Sharding\x12\x35\n\x14wildcard_expand_type\x18\x06 \x01(\x0e\x32\x17.PathWildCardExpandType\"/\n\x04Sort\x12\x0e\n\x06\x66ields\x18\x01 \x03(\t\x12\x17\n\x04type\x18\x02 \x01(\x0e\x32\t.SortType\"\xb1\x03\n\rSearchRequest\x12\x0e\n\x06search\x18\x01 \x01(\t\x12(\n\x0bsearch_type\x18\x02 \x01(\x0e\x32\x13.SearchRequest.Type\x12\x15\n\x05query\x18\x03 \x03(\x0b\x32\x06.Query\x12\r\n\x05start\x18\x04 \x01(\x04\x12\x0b\n\x03\x65nd\x18\x05 \x01(\x04\x12\x12\n\ncount_only\x18\x06 \x01(\x08\x12\x1c\n\x0bkey_filters\x18\x07 \x03(\x0b\x32\x07.Filter\x12\x1e\n\rvalue_filters\x18\x08 \x03(\x0b\x32\x07.Filter\x12\x13\n\x04sort\x18\t \x03(\x0b\x32\x05.Sort\x12\x13\n\x0b\x65xact_range\x18\n \x01(\x08\x12\x1e\n\x0bsharded_sub\x18\x0b \x01(\x0b\x32\t.Sharding\x12\x12\n\nexact_term\x18\x0c \x01(\x08\x12\x13\n\x0bresult_size\x18\x15 \x01(\r\x12\x0e\n\x06offset\x18\x16 \x01(\r\x12 \n\x04meta\x18\x17 \x01(\x0b\x32\x12.NotificationBatch\"<\n\x04Type\x12\n\n\x06STRING\x10\x00\x12\x07\n\x03MAC\x10\x01\x12\x06\n\x02IP\x10\x02\x12\x0b\n\x07\x43OMPLEX\x10\x03\x12\n\n\x06\x43USTOM\x10\x04\"\x91\x05\n\x06\x46ilter\x12\r\n\x05\x66ield\x18\x01 \x01(\t\x12\x1c\n\x02op\x18\x02 \x01(\x0e\x32\x10.Filter.Operator\x12\x1c\n\x05value\x18\x03 \x01(\x0b\x32\r.Filter.Value\x12\x14\n\x0cnested_field\x18\x0b \x03(\t\x12\x1c\n\x0bsub_filters\x18\x15 \x03(\x0b\x32\x07.Filter\x1a\xc5\x01\n\x05Value\x12\r\n\x03str\x18\x01 \x01(\tH\x00\x12\r\n\x03int\x18\x02 \x01(\x12H\x00\x12\x0e\n\x04uint\x18\x03 \x01(\x04H\x00\x12\x0f\n\x05\x66loat\x18\x04 \x01(\x01H\x00\x12\x0b\n\x01\x62\x18\x05 \x01(\x08H\x00\x12\x0c\n\x02ip\x18\x06 \x01(\tH\x00\x12\r\n\x03mac\x18\x07 \x01(\tH\x00\x12&\n\x04\x63omp\x18\x08 \x01(\x0b\x32\x16.Filter.ComponentValueH\x00\x12#\n\x05multi\x18\t \x01(\x0b\x32\x12.Filter.MultiValueH\x00\x42\x06\n\x04kind\x1ap\n\x0e\x43omponentValue\x12\x30\n\x05value\x18\x01 \x03(\x0b\x32!.Filter.ComponentValue.ValueEntry\x1a,\n\nValueEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a+\n\nMultiValue\x12\x1d\n\x06values\x18\x01 \x03(\x0b\x32\r.Filter.Value\"\xa0\x01\n\x08Operator\x12\x06\n\x02\x45Q\x10\x00\x12\x07\n\x03NEQ\x10\x01\x12\x06\n\x02GT\x10\x02\x12\x06\n\x02GE\x10\x03\x12\x06\n\x02LT\x10\x04\x12\x06\n\x02LE\x10\x05\x12\x06\n\x02RE\x10\x06\x12\x07\n\x03NRE\x10\x07\x12\x06\n\x02IN\x10\x08\x12\x07\n\x03NIN\x10\t\x12\x07\n\x03SUB\x10\n\x12\x0c\n\x08WILDCARD\x10\x0b\x12\x0b\n\x07\x42ITMASK\x10\x10\x12\r\n\tLOGICALOR\x10\x14\x12\x0e\n\nLOGICALAND\x10\x15\"\x8c\x02\n\tAggregate\x12\"\n\taggr_type\x18\x01 \x01(\x0e\x32\x0f.Aggregate.Type\x12\x0e\n\x06\x66ields\x18\x02 \x03(\t\x12\x17\n\x04sort\x18\x03 \x01(\x0e\x32\t.SortType\x12\x1d\n\tsub_aggrs\x18\x04 \x03(\x0b\x32\n.Aggregate\x12\x1d\n\x04term\x18\x15 \x01(\x0b\x32\r.term_optionsH\x00\x12\x1d\n\x04hist\x18\x1a \x01(\x0b\x32\r.hist_optionsH\x00\"K\n\x04Type\x12\x0b\n\x07Invalid\x10\x00\x12\x08\n\x04TERM\x10\x01\x12\x07\n\x03SUM\x10\x02\x12\x07\n\x03\x41VG\x10\x03\x12\x07\n\x03MAX\x10\x04\x12\x07\n\x03MIN\x10\x05\x12\x08\n\x04HIST\x10\x06\x42\x08\n\x06Option\"\xb3\x01\n\x0cterm_options\x12\x16\n\x0enum_of_buckets\x18\x01 \x01(\r\x12&\n\nfield_type\x18\x02 \x01(\x0e\x32\x12.term_options.Type\"c\n\x04Type\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04\x42OOL\x10\x01\x12\n\n\x06\x44OUBLE\x10\x02\x12\x08\n\x04LONG\x10\x03\x12\n\n\x06STRING\x10\x04\x12\r\n\tCOMPONENT\x10\x05\x12\x06\n\x02IP\x10\x06\x12\x07\n\x03MAC\x10\x07\"\x88\x01\n\x0chist_options\x12\x10\n\x08interval\x18\x01 \x01(\x04\x12\x13\n\x0b\x61llow_empty\x18\x02 \x01(\x08\x12-\n\x0f\x65xtended_bounds\x18\x03 \x01(\x0b\x32\x14.hist_options.bounds\x1a\"\n\x06\x62ounds\x12\x0b\n\x03min\x18\x01 \x01(\x03\x12\x0b\n\x03max\x18\x02 \x01(\x03\"R\n\x15SearchRequestWithAggr\x12\x1e\n\x06search\x18\x01 \x01(\x0b\x32\x0e.SearchRequest\x12\x19\n\x05\x61ggrs\x18\x02 \x03(\x0b\x32\n.Aggregate\"\x1d\n\nByteStream\x12\x0f\n\x07message\x18\x01 \x01(\x0c\"H\n\x0c\x41ggrResponse\x12\x1c\n\x07\x62uckets\x18\x01 \x03(\x0b\x32\x0b.AggrBucket\x12\x1a\n\x06\x66ields\x18\x02 \x03(\x0b\x32\n.AggrField\"y\n\nAggrBucket\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05\x63ount\x18\x02 \x01(\x04\x12\x11\n\taggr_name\x18\x03 \x01(\t\x12\x1a\n\x06\x66ields\x18\x0b \x03(\x0b\x32\n.AggrField\x12 \n\x0bsub_buckets\x18\x0c \x03(\x0b\x32\x0b.AggrBucket\"(\n\tAggrField\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x01\"X\n\nIndexField\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1c\n\x04type\x18\x02 \x01(\x0e\x32\x0e.IndexDataType\x12\x1e\n\tsub_field\x18\x0b \x03(\x0b\x32\x0b.IndexField\"P\n\x12\x43ustomIndexOptions\x12\x19\n\x11\x64\x65lete_after_days\x18\x01 \x01(\r\x12\x1f\n\x17inuse_delete_after_days\x18\x02 \x01(\r\"l\n\x11\x43ustomIndexSchema\x12\x15\n\x05query\x18\x01 \x01(\x0b\x32\x06.Query\x12\x1b\n\x06schema\x18\x0b \x03(\x0b\x32\x0b.IndexField\x12#\n\x06option\x18\x15 \x01(\x0b\x32\x13.CustomIndexOptions\"B\n\x14\x43ustomIndexSchemaDel\x12\x15\n\x05query\x18\x01 \x01(\x0b\x32\x06.Query\x12\x13\n\x0b\x64\x65lete_data\x18\x0b \x01(\x08\"h\n\x0ePublishRequest\x12!\n\x05\x62\x61tch\x18\x01 \x01(\x0b\x32\x12.NotificationBatch\x12\x0c\n\x04sync\x18\x02 \x01(\x08\x12%\n\x07\x63ompare\x18\x03 \x01(\x0b\x32\x14.Notification.Update\"Z\n\x0f\x44\x61tasetsRequest\x12\r\n\x05types\x18\x01 \x03(\t\x12\x1e\n\x0bsharded_sub\x18\x02 \x01(\x0b\x32\t.Sharding\x12\x18\n\x06parent\x18\x03 \x01(\x0b\x32\x08.Dataset\".\n\x10\x44\x61tasetsResponse\x12\x1a\n\x08\x64\x61tasets\x18\x01 \x03(\x0b\x32\x08.Dataset\"1\n\x14\x43reateDatasetRequest\x12\x19\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x08.Dataset\"\xb9\x04\n\x14SetPermissionRequest\x12(\n\x04type\x18\x01 \x01(\x0e\x32\x1a.SetPermissionRequest.Type\x12\x19\n\x07\x64\x61taset\x18\x02 \x01(\x0b\x32\x08.Dataset\x12\x17\n\x05other\x18\x03 \x01(\x0b\x32\x08.Dataset\x12\x31\n\tpathPerms\x18\x06 \x03(\x0b\x32\x1e.SetPermissionRequest.PathPerm\x1a\xf4\x01\n\x08PathPerm\x12\x13\n\x04path\x18\x01 \x01(\x0b\x32\x05.Path\x12\x34\n\x07newPerm\x18\x02 \x01(\x0e\x32#.SetPermissionRequest.PathPerm.Perm\x12\x38\n\x0b\x63urrentPerm\x18\x03 \x01(\x0e\x32#.SetPermissionRequest.PathPerm.Perm\x12\x12\n\nexactMatch\x18\x04 \x01(\x08\"O\n\x04Perm\x12\x13\n\x0fNULL_PERM_VALUE\x10\x00\x12\r\n\tREAD_PERM\x10\x01\x12\x0e\n\nWRITE_PERM\x10\x02\x12\x13\n\x0fREAD_WRITE_PERM\x10\x03\"\x98\x01\n\x04Type\x12\x13\n\x0fPATH_PERMISSION\x10\x00\x12\x16\n\x12INHERIT_PERMISSION\x10\x01\x12\x18\n\x14UNINHERIT_PERMISSION\x10\x02\x12\x14\n\x10\x41\x44MIN_PERMISSION\x10\x03\x12\x17\n\x13SET_ROLE_PERMISSION\x10\x04\x12\x1a\n\x16REMOVE_ROLE_PERMISSION\x10\x05\";\n\rPermissionSet\x12*\n\x0bpermissions\x18\x01 \x03(\x0b\x32\x15.SetPermissionRequest\"g\n\x12\x43lusterDescription\x12-\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x13\n\x0b\x63lusterName\x18\x02 \x01(\t\x12\r\n\x05\x65poch\x18\x03 \x01(\r\"A\n\x12SetPasswordRequest\x12\x19\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x08.Dataset\x12\x10\n\x08password\x18\x02 \x01(\t\"B\n\x14\x43reateSessionRequest\x12\x19\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x08.Dataset\x12\x0f\n\x07timeout\x18\x02 \x01(\x03\"9\n\x15\x43reateSessionResponse\x12\x10\n\x08jwtToken\x18\x01 \x01(\t\x12\x0e\n\x06\x65xpiry\x18\x02 \x01(\x03\")\n\nSQLRequest\x12\r\n\x05query\x18\x01 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x02 \x03(\x0c\" \n\x0eSQLResponseRow\x12\x0e\n\x06values\x18\x01 \x03(\x0c\"r\n\x0bSQLResponse\x12\x1d\n\x04rows\x18\x01 \x03(\x0b\x32\x0f.SQLResponseRow\x12\'\n\x08metadata\x18\x02 \x01(\x0b\x32\x15.SQLResponse.Metadata\x1a\x1b\n\x08Metadata\x12\x0f\n\x07\x63olumns\x18\x01 \x03(\t*\x94\x01\n\x16PathWildCardExpandType\x12\x1a\n\x16WILDCARD_EXPAND_LEGACY\x10\x00\x12\x1a\n\x16WILDCARD_EXPAND_LATEST\x10\x01\x12\x1f\n\x1bWILDCARD_EXPAND_EXACT_RANGE\x10\x02\x12!\n\x1dWILDCARD_EXPAND_RELAXED_RANGE\x10\x03*/\n\x08SortType\x12\x10\n\x0cSORT_INVALID\x10\x00\x12\x08\n\x04\x44\x45SC\x10\x01\x12\x07\n\x03\x41SC\x10\x02*W\n\rIndexDataType\x12\x0b\n\x07INVALID\x10\x00\x12\x0b\n\x07INTEGER\x10\x01\x12\t\n\x05\x46LOAT\x10\x02\x12\n\n\x06STRING\x10\x03\x12\t\n\x05\x41RRAY\x10\x0b\x12\n\n\x06OBJECT\x10\x0c\x32\x96\x02\n\x08RouterV1\x12\x32\n\x07Publish\x12\x0f.PublishRequest\x1a\x16.google.protobuf.Empty\x12\x34\n\tSubscribe\x12\x11.SubscribeRequest\x1a\x12.NotificationBatch0\x01\x12(\n\x03Get\x12\x0b.GetRequest\x1a\x12.NotificationBatch0\x01\x12@\n\x0fGetAndSubscribe\x12\x17.GetAndSubscribeRequest\x1a\x12.NotificationBatch0\x01\x12\x34\n\x0bGetDatasets\x12\x10.DatasetsRequest\x1a\x11.DatasetsResponse0\x01\x32\xb7\x02\n\x04\x41uth\x12>\n\rCreateDataset\x12\x15.CreateDatasetRequest\x1a\x16.google.protobuf.Empty\x12>\n\rSetPermission\x12\x15.SetPermissionRequest\x1a\x16.google.protobuf.Empty\x12\x31\n\x10GetPermissionSet\x12\x0b.GetRequest\x1a\x0e.PermissionSet0\x01\x12:\n\x0bSetPassword\x12\x13.SetPasswordRequest\x1a\x16.google.protobuf.Empty\x12@\n\rCreateSession\x12\x15.CreateSessionRequest\x1a\x16.CreateSessionResponse0\x01\x32\xfb\x02\n\x06Search\x12.\n\x06Search\x12\x0e.SearchRequest\x1a\x12.NotificationBatch0\x01\x12\x37\n\x0fSearchSubscribe\x12\x0e.SearchRequest\x1a\x12.NotificationBatch0\x01\x12>\n\x15SearchWithAggregation\x12\x16.SearchRequestWithAggr\x1a\r.AggrResponse\x12\x44\n\x1bSearchWithAggregationStream\x12\x16.SearchRequestWithAggr\x1a\x0b.ByteStream0\x01\x12=\n\x0fSetCustomSchema\x12\x12.CustomIndexSchema\x1a\x16.google.protobuf.Empty\x12\x43\n\x12\x44\x65leteCustomSchema\x12\x15.CustomIndexSchemaDel\x1a\x16.google.protobuf.Empty2\xfa\x02\n\x05\x41lpha\x12.\n\x06Search\x12\x0e.SearchRequest\x1a\x12.NotificationBatch0\x01\x12\x37\n\x0fSearchSubscribe\x12\x0e.SearchRequest\x1a\x12.NotificationBatch0\x01\x12>\n\x15SearchWithAggregation\x12\x16.SearchRequestWithAggr\x1a\r.AggrResponse\x12\x44\n\x1bSearchWithAggregationStream\x12\x16.SearchRequestWithAggr\x1a\x0b.ByteStream0\x01\x12=\n\x0fSetCustomSchema\x12\x12.CustomIndexSchema\x1a\x16.google.protobuf.Empty\x12\x43\n\x12\x44\x65leteCustomSchema\x12\x15.CustomIndexSchemaDel\x1a\x16.google.protobuf.Empty2-\n\x07Querier\x12\"\n\x03SQL\x12\x0b.SQLRequest\x1a\x0c.SQLResponse0\x01\x32G\n\x07\x43luster\x12<\n\x0b\x43lusterInfo\x12\x16.google.protobuf.Empty\x1a\x13.ClusterDescription0\x01\x42\x05Z\x03genb\x06proto3'
   ,
   dependencies=[notification__pb2.DESCRIPTOR,sharding__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -58,8 +58,8 @@ _PATHWILDCARDEXPANDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4430,
-  serialized_end=4578,
+  serialized_start=4623,
+  serialized_end=4771,
 )
 _sym_db.RegisterEnumDescriptor(_PATHWILDCARDEXPANDTYPE)
 
@@ -89,8 +89,8 @@ _SORTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4580,
-  serialized_end=4627,
+  serialized_start=4773,
+  serialized_end=4820,
 )
 _sym_db.RegisterEnumDescriptor(_SORTTYPE)
 
@@ -135,8 +135,8 @@ _INDEXDATATYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4629,
-  serialized_end=4716,
+  serialized_start=4822,
+  serialized_end=4909,
 )
 _sym_db.RegisterEnumDescriptor(_INDEXDATATYPE)
 
@@ -2226,6 +2226,147 @@ _CREATESESSIONRESPONSE = _descriptor.Descriptor(
   serialized_end=4427,
 )
 
+
+_SQLREQUEST = _descriptor.Descriptor(
+  name='SQLRequest',
+  full_name='SQLRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='query', full_name='SQLRequest.query', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='args', full_name='SQLRequest.args', index=1,
+      number=2, type=12, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4429,
+  serialized_end=4470,
+)
+
+
+_SQLRESPONSEROW = _descriptor.Descriptor(
+  name='SQLResponseRow',
+  full_name='SQLResponseRow',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='SQLResponseRow.values', index=0,
+      number=1, type=12, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4472,
+  serialized_end=4504,
+)
+
+
+_SQLRESPONSE_METADATA = _descriptor.Descriptor(
+  name='Metadata',
+  full_name='SQLResponse.Metadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='columns', full_name='SQLResponse.Metadata.columns', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4593,
+  serialized_end=4620,
+)
+
+_SQLRESPONSE = _descriptor.Descriptor(
+  name='SQLResponse',
+  full_name='SQLResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='rows', full_name='SQLResponse.rows', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metadata', full_name='SQLResponse.metadata', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SQLRESPONSE_METADATA, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4506,
+  serialized_end=4620,
+)
+
 _PATH.fields_by_name['type'].enum_type = _PATH_TYPE
 _PATH_TYPE.containing_type = _PATH
 _QUERY.fields_by_name['dataset'].message_type = notification__pb2._DATASET
@@ -2334,6 +2475,9 @@ _PERMISSIONSET.fields_by_name['permissions'].message_type = _SETPERMISSIONREQUES
 _CLUSTERDESCRIPTION.fields_by_name['timestamp'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _SETPASSWORDREQUEST.fields_by_name['dataset'].message_type = notification__pb2._DATASET
 _CREATESESSIONREQUEST.fields_by_name['dataset'].message_type = notification__pb2._DATASET
+_SQLRESPONSE_METADATA.containing_type = _SQLRESPONSE
+_SQLRESPONSE.fields_by_name['rows'].message_type = _SQLRESPONSEROW
+_SQLRESPONSE.fields_by_name['metadata'].message_type = _SQLRESPONSE_METADATA
 DESCRIPTOR.message_types_by_name['Path'] = _PATH
 DESCRIPTOR.message_types_by_name['Query'] = _QUERY
 DESCRIPTOR.message_types_by_name['SubscribeRequest'] = _SUBSCRIBEREQUEST
@@ -2364,6 +2508,9 @@ DESCRIPTOR.message_types_by_name['ClusterDescription'] = _CLUSTERDESCRIPTION
 DESCRIPTOR.message_types_by_name['SetPasswordRequest'] = _SETPASSWORDREQUEST
 DESCRIPTOR.message_types_by_name['CreateSessionRequest'] = _CREATESESSIONREQUEST
 DESCRIPTOR.message_types_by_name['CreateSessionResponse'] = _CREATESESSIONRESPONSE
+DESCRIPTOR.message_types_by_name['SQLRequest'] = _SQLREQUEST
+DESCRIPTOR.message_types_by_name['SQLResponseRow'] = _SQLRESPONSEROW
+DESCRIPTOR.message_types_by_name['SQLResponse'] = _SQLRESPONSE
 DESCRIPTOR.enum_types_by_name['PathWildCardExpandType'] = _PATHWILDCARDEXPANDTYPE
 DESCRIPTOR.enum_types_by_name['SortType'] = _SORTTYPE
 DESCRIPTOR.enum_types_by_name['IndexDataType'] = _INDEXDATATYPE
@@ -2627,6 +2774,35 @@ CreateSessionResponse = _reflection.GeneratedProtocolMessageType('CreateSessionR
   })
 _sym_db.RegisterMessage(CreateSessionResponse)
 
+SQLRequest = _reflection.GeneratedProtocolMessageType('SQLRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SQLREQUEST,
+  '__module__' : 'router_pb2'
+  # @@protoc_insertion_point(class_scope:SQLRequest)
+  })
+_sym_db.RegisterMessage(SQLRequest)
+
+SQLResponseRow = _reflection.GeneratedProtocolMessageType('SQLResponseRow', (_message.Message,), {
+  'DESCRIPTOR' : _SQLRESPONSEROW,
+  '__module__' : 'router_pb2'
+  # @@protoc_insertion_point(class_scope:SQLResponseRow)
+  })
+_sym_db.RegisterMessage(SQLResponseRow)
+
+SQLResponse = _reflection.GeneratedProtocolMessageType('SQLResponse', (_message.Message,), {
+
+  'Metadata' : _reflection.GeneratedProtocolMessageType('Metadata', (_message.Message,), {
+    'DESCRIPTOR' : _SQLRESPONSE_METADATA,
+    '__module__' : 'router_pb2'
+    # @@protoc_insertion_point(class_scope:SQLResponse.Metadata)
+    })
+  ,
+  'DESCRIPTOR' : _SQLRESPONSE,
+  '__module__' : 'router_pb2'
+  # @@protoc_insertion_point(class_scope:SQLResponse)
+  })
+_sym_db.RegisterMessage(SQLResponse)
+_sym_db.RegisterMessage(SQLResponse.Metadata)
+
 
 DESCRIPTOR._options = None
 _FILTER_COMPONENTVALUE_VALUEENTRY._options = None
@@ -2638,8 +2814,8 @@ _ROUTERV1 = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=4719,
-  serialized_end=4997,
+  serialized_start=4912,
+  serialized_end=5190,
   methods=[
   _descriptor.MethodDescriptor(
     name='Publish',
@@ -2704,8 +2880,8 @@ _AUTH = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=5000,
-  serialized_end=5311,
+  serialized_start=5193,
+  serialized_end=5504,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateDataset',
@@ -2763,15 +2939,91 @@ _sym_db.RegisterServiceDescriptor(_AUTH)
 DESCRIPTOR.services_by_name['Auth'] = _AUTH
 
 
-_ALPHA = _descriptor.ServiceDescriptor(
-  name='Alpha',
-  full_name='Alpha',
+_SEARCH = _descriptor.ServiceDescriptor(
+  name='Search',
+  full_name='Search',
   file=DESCRIPTOR,
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=5314,
-  serialized_end=5692,
+  serialized_start=5507,
+  serialized_end=5886,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='Search',
+    full_name='Search.Search',
+    index=0,
+    containing_service=None,
+    input_type=_SEARCHREQUEST,
+    output_type=notification__pb2._NOTIFICATIONBATCH,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SearchSubscribe',
+    full_name='Search.SearchSubscribe',
+    index=1,
+    containing_service=None,
+    input_type=_SEARCHREQUEST,
+    output_type=notification__pb2._NOTIFICATIONBATCH,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SearchWithAggregation',
+    full_name='Search.SearchWithAggregation',
+    index=2,
+    containing_service=None,
+    input_type=_SEARCHREQUESTWITHAGGR,
+    output_type=_AGGRRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SearchWithAggregationStream',
+    full_name='Search.SearchWithAggregationStream',
+    index=3,
+    containing_service=None,
+    input_type=_SEARCHREQUESTWITHAGGR,
+    output_type=_BYTESTREAM,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetCustomSchema',
+    full_name='Search.SetCustomSchema',
+    index=4,
+    containing_service=None,
+    input_type=_CUSTOMINDEXSCHEMA,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteCustomSchema',
+    full_name='Search.DeleteCustomSchema',
+    index=5,
+    containing_service=None,
+    input_type=_CUSTOMINDEXSCHEMADEL,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_SEARCH)
+
+DESCRIPTOR.services_by_name['Search'] = _SEARCH
+
+
+_ALPHA = _descriptor.ServiceDescriptor(
+  name='Alpha',
+  full_name='Alpha',
+  file=DESCRIPTOR,
+  index=3,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=5889,
+  serialized_end=6267,
   methods=[
   _descriptor.MethodDescriptor(
     name='Search',
@@ -2839,15 +3091,41 @@ _sym_db.RegisterServiceDescriptor(_ALPHA)
 DESCRIPTOR.services_by_name['Alpha'] = _ALPHA
 
 
+_QUERIER = _descriptor.ServiceDescriptor(
+  name='Querier',
+  full_name='Querier',
+  file=DESCRIPTOR,
+  index=4,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=6269,
+  serialized_end=6314,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='SQL',
+    full_name='Querier.SQL',
+    index=0,
+    containing_service=None,
+    input_type=_SQLREQUEST,
+    output_type=_SQLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_QUERIER)
+
+DESCRIPTOR.services_by_name['Querier'] = _QUERIER
+
+
 _CLUSTER = _descriptor.ServiceDescriptor(
   name='Cluster',
   full_name='Cluster',
   file=DESCRIPTOR,
-  index=3,
+  index=5,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=5694,
-  serialized_end=5765,
+  serialized_start=6316,
+  serialized_end=6387,
   methods=[
   _descriptor.MethodDescriptor(
     name='ClusterInfo',
