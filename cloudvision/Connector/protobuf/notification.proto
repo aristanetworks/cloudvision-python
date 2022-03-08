@@ -12,19 +12,35 @@ message Notification {
     google.protobuf.Timestamp timestamp = 1; // Timestamp in nanoseconds resolution.
     string path = 2;  // Deprecated
     bool delete_all = 3;
-    repeated bytes deletes = 4; // NEAT encoded
+    repeated bytes deletes = 4; // encoded
     message Update {
-        bytes key = 1; // NEAT encoded
-        bytes value = 2; // NEAT encoded
+        bytes key = 1; // encoded
+        bytes value = 2; // encoded
     }
     repeated Update updates = 5;
-    repeated bytes retracts = 6; // NEAT encoded
-    repeated bytes path_elements = 7; // NEAT encoded
+    repeated bytes retracts = 6; // encoded
+    repeated bytes path_elements = 7; // encoded
 }
 
 message Dataset {
    string type = 1;
    string name = 2;
+   Dataset parent = 3;
+}
+
+// ReplicationState represent the level of replication we want to
+// apply on a notification. By default there is no replication.
+// If CACHE_REPLICATE is used then that notification will be
+// replicated to all the other clusters connected to the one
+// where that notification is currently published, and the
+// caches of the components running in these clusters will be
+// synced together.
+// REPLICATE is like CACHE_REPLICATE but without the cache
+// synchronization.
+enum ReplicationState {
+     NO_REPLICATION = 0;
+     REPLICATE = 1;
+     CACHE_REPLICATE = 2;
 }
 
 message NotificationBatch {
@@ -33,4 +49,7 @@ message NotificationBatch {
     string d = 1;
     repeated Notification notifications = 2;
     Dataset dataset = 3;
+
+    map<string,string> metadata = 4;
+    ReplicationState replicate = 5;
 }

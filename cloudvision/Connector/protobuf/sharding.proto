@@ -4,16 +4,23 @@
 
 syntax = "proto3";
 
-option go_package = "gen";
-
 enum ShardingFunction {
     // DATASETANDPATH shards by the association of dataset and path
     DATASETANDPATH = 0;
     // DATASET shards by dataset
     DATASET = 1;
+    // PATH shards by path
+    PATH = 2;
 }
 
-// Sharding contains the information for horizontal scaling of subscriptions and get requests
+// Sharding contains the information for horizontal scaling of subscriptions and get requests.
+// Multitenancy, i.e., matching notifications across multiple parent datasets, is enabled by setting
+// numParentShards >= 1. Dataset/Path sharding must be configured orthogonally to Parent sharding.
+// This makes it possible to map an entire org to a single client instance. Examples:
+//   {numShards = 1, numParentShards = M} => distributes notifs among M shards preserving org grouping
+//   {numShards = N, numParentShards = 1} => distributes among N shards without preserving org grouping
+//   {numShards = N, numParentShards = M} => means that there will be N*M shards in total where the
+//      notification from a single org will be sharded into N bins based on the ShardingFunction.
 message Sharding {
     // shard is the unique ID of the client instance for horizontal scaling
     uint32 shard = 1;
@@ -21,4 +28,8 @@ message Sharding {
     uint32 numShards = 2;
     // shardingFunc defines which sharding function to use for horizontal scaling
     ShardingFunction shardingFunc = 3;
+    // parentShard is the unique ID of the client instance if multitenant is enabled
+    uint32 parentShard = 4;
+    // numParentShards is the number of client instances for parent dataset sharding
+    uint32 numParentShards = 5; 
 }

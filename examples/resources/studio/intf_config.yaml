@@ -1,0 +1,16 @@
+---
+esx36-v2-vm30:
+  Management1:
+    enabled: true
+    speed: 10half
+    description: "Description for Management1@esx36-v2-vm30"
+esx39-v2-vm1:
+  Management1:
+    enabled: true
+    speed: auto
+    description: "Description for Management1@esx39-v2-vm1"
+esx41-v2-vm34:
+  Management1:
+    enabled: true
+    speed: auto
+    description: "Description for Management1@esx41-v2-vm34"

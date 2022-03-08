@@ -135,13 +135,18 @@ def getIntfStatusFixed(client, dId):
     query = [
         create_query([(pathElts, [])], dId)
     ]
+    query = unfreeze(query)
 
     intfStatusFixed = []
     for batch in client.get(query):
         for notif in batch["notifications"]:
-            intfStatusFixed.append({"interface": notif['path_elements'][-1],
-                                    "status": notif['updates']['linkStatus']['Name'],
-                                    "active": notif['updates']['active']})
+            try:
+                intfStatusFixed.append({"interface": notif['path_elements'][-1],
+                                        "status": notif['updates']['linkStatus']['Name'],
+                                        "active": notif['updates']['active']})
+            except KeyError as e:
+                print(e)
+                continue
     printIntfStatus(intfStatusFixed)
 
 

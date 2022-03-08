@@ -147,8 +147,26 @@ message GetAndSubscribeRequest {
    // (Optional) Number of client instances, id of the client making the request, and sharding
    // method for the implementation of horizontal scaling. If not set, no filtering will happen.
    Sharding sharded_sub = 5;
+
+   // (Optional) Specifies wildcard expansion strategy when time range is specified.
+   // This option has no effect when time range (start/end) is not used.
+   PathWildCardExpandType wildcard_expand_type = 6;
 }
 
+enum SortType {
+    SORT_INVALID = 0;
+    // Descending order sort
+    DESC = 1;
+    // Ascending order sort
+    ASC = 2;
+}
+
+message Sort {
+    // fields to support nesting. a.b.c needs to specified as ["a","b","c"].
+    repeated string fields = 1;
+    // type of sort
+    SortType type = 2;
+}
 
 message SearchRequest {
     enum Type {
@@ -160,6 +178,8 @@ message SearchRequest {
       IP = 2;
       // COMPLEX means that a complex key or value will be searched
       COMPLEX = 3;
+      // CUSTOM means that custom schema is used. Path prefix is mandatory in query.
+      CUSTOM = 4;
     }
     // A search string
     string search = 1;
@@ -175,8 +195,33 @@ message SearchRequest {
     bool count_only = 6;
 
     // Complex fields search
+    // These are applicable for CUSTOM type as well
     repeated Filter key_filters = 7;
     repeated Filter value_filters = 8;
+
+    // Sort criteria
+    repeated Sort sort = 9;
+
+   // (Optional) Whether to return the initial state of the requested paths at time `start`.
+   // The "initial state" is the set of notifications that fully specify the state of the path at
+   // that time. It includes all relevant notifications before (and up to) `start`.
+   // If `start` is not set, this is ignored.
+   bool exact_range = 10;
+
+   // (Optional) Set NumParentShards field >= 1 to enable multi-tenant search
+   Sharding sharded_sub = 11;
+
+   // (Optional) whether search exact term or not, useful for string search
+   bool exact_term = 12;
+
+    // For pagination
+
+    // Total number of notification to get back in the response
+    uint32 result_size = 21;
+    // Numeric offset as starting point for next page of result
+    uint32 offset = 22;
+    // cursor based pagination
+    NotificationBatch meta = 23;
 }
 
 // field name and filter value
@@ -192,7 +237,11 @@ message Filter {
         NRE = 7;    // not regex
         IN = 8;     // in
         NIN = 9;    // not in
-        SUB = 10;   // substring
+        SUB = 10;   // substring (prefix substring)
+        WILDCARD = 11;   // wildcard query (for custom index only)
+        BITMASK = 16;   // filter on bitmask bit(s) are set. Only applicable for integer fields
+        LOGICALOR = 20;    // Logical OR operator to be used between two filters
+        LOGICALAND = 21;   // Logical AND operator to be used between two filters
     }
     // Value, normalized
     message Value {
@@ -217,13 +266,166 @@ message Filter {
     string field = 1;
     Operator op = 2;
     Value value = 3;
+    // nested_field to support nested fields. a.b.c needs to specified as ["a","b","c"].
+    repeated string nested_field = 11;
+    // sub_filters to specify complex predicate using logical operators.
+    // Complex predicates are specified as recursive definition of filters.
+    // Different levels are used to resemble abstract syntaxt tree like structure.
+    repeated Filter sub_filters = 21;
 }
+
+message Aggregate {
+    enum Type {
+        Invalid = 0;
+        // Type of bucket aggregation where different buckets are created based on field values
+        TERM = 1;
+        // SUM aggregation where numeric summation is calculated on field values
+        SUM = 2;
+        // AVG aggregation where numeric average is calculated on field values
+        AVG = 3;
+        // MAX aggregation where numeric maximum is returned amongst the field values
+        MAX = 4;
+        // MIN aggregation where numeric minimum is returned amongst the field values
+        MIN = 5;
+        // histogram bucketing/aggregation on numeric field value
+        HIST = 6;
+    }
+    // Type of aggregation being requested
+    Type aggr_type = 1;
+    // Field on which aggregation operation needs to be applied
+    // Nested field like a.b.c needs to specified as ["a","b","c"].
+    // It is not possible to combine fields only for aggregation operation.
+    // All the combinations need to be predecided at schema creation time only.
+    repeated string fields = 2;
+    // For sorting on aggregated outcome. Applicable only for numeric aggregation.
+    SortType sort = 3;
+    // For specifying sub aggregation, like sum aggregation inside bucket aggregation.
+    repeated Aggregate sub_aggrs = 4;
+    // Aggregation type specific additional options
+    oneof Option {
+        // Option for term aggregation
+        term_options term = 21;
+        // Option for histogram aggregation
+        hist_options hist = 26;
+    }
+}
+
+message term_options {
+    // For controlling maximum number of buckets
+    uint32 num_of_buckets = 1;
+    // For providing type hint
+    enum Type {
+        UNSPECIFIED = 0;
+        BOOL = 1;
+        DOUBLE = 2;
+        LONG = 3;
+        STRING = 4;
+        COMPONENT = 5;
+        IP = 6;
+        MAC = 7;
+    }
+    Type field_type = 2;
+}
+
+message hist_options {
+    message bounds {
+        int64 min = 1;
+        int64 max = 2;
+    }
+    // mandatory
+    uint64 interval = 1;
+    // optional
+    bool allow_empty = 2;
+    // specify bounding box beyond min/max returned from query, together with allow_empty
+    bounds extended_bounds = 3;
+}
+
+message SearchRequestWithAggr {
+    // Search criteria within aggregation request
+    SearchRequest search = 1;
+    // Aggregation clauses
+    repeated Aggregate aggrs = 2;
+}
+
+message ByteStream {
+    // Message is an array of bytes
+    bytes message = 1;
+}
+message AggrResponse {
+    // Buckets in aggregation response
+    repeated AggrBucket buckets = 1;
+    // Numeric fields in aggregation response
+    repeated AggrField fields = 2;
+}
+
+message AggrBucket {
+    // key of the bucket
+    string key = 1;
+    // count of matching document
+    uint64 count = 2;
+    // aggr_name has name of the aggregation to which these buckets belong to
+    // this is useful when there are multiple top level aggregations
+    // Name is formed by prepending aggregation type to the field name
+    // for term aggreation with field ["a","b","c"] name would be termabc
+    string aggr_name = 3;
+    // Numeric fields in this bucket
+    repeated AggrField fields = 11;
+    // Sub buckets within this bucket
+    repeated AggrBucket sub_buckets = 12;
+}
+
+message AggrField {
+    // Name of the field
+    // Name is formed by prepending aggregation type to the field name.
+    // SUM for field ["a","b","c"] would be SUMabc
+    string name = 1;
+    // Field value
+    double value = 2;
+}
+
+enum IndexDataType {
+    INVALID = 0;
+    INTEGER = 1;
+    FLOAT = 2;
+    STRING = 3;
+    ARRAY = 11;
+    OBJECT = 12;
+}
+
+message IndexField {
+    string name = 1;
+    IndexDataType type = 2;
+    repeated IndexField sub_field = 11;
+}
+
+message CustomIndexOptions {
+    // delete_after_days is requested days after which data should get deleted
+    uint32 delete_after_days = 1;
+    // inuse_delete_after_days is what is actually in use.
+    // This is guaranteed to be atleast delete_after_days.
+    // delete_after_days may get modified based on index rotation policy by Cloudvision
+    uint32 inuse_delete_after_days = 2;
+}
+
+message CustomIndexSchema {
+    Query query = 1;
+    repeated IndexField schema = 11;
+    CustomIndexOptions option = 21;
+}
+
+message CustomIndexSchemaDel {
+    Query query = 1;
+    // if delete_data is set, then all the data along with schema defintion is deleted.
+    // Data deletion is non recoverable operation !
+    bool delete_data = 11;
+}
+
 
 // PublishRequest
 message PublishRequest {
-   // The batch of notification sent to CloudVision
+   // The batch of notification sent to Cloudvision
    NotificationBatch batch = 1;
-   // Used to have a synchronous or asynchronous write to the CloudVision storage
+   // Used to have a synchronous or asynchronous write to the Cloudvision storage
    bool sync = 2;
    // If provided, the batch notification will be stored only if one of the
    // following conditions are true:
@@ -240,6 +442,8 @@ message PublishRequest {
 // DatasetsRequest
 message DatasetsRequest {
    repeated string types = 1;
+   Sharding sharded_sub = 2;
+   Dataset parent = 3;
 }
 
 message DatasetsResponse {
@@ -261,6 +465,8 @@ message SetPermissionRequest {
         INHERIT_PERMISSION = 1;
         UNINHERIT_PERMISSION = 2;
         ADMIN_PERMISSION = 3;
+        SET_ROLE_PERMISSION = 4;
+        REMOVE_ROLE_PERMISSION = 5;
     }
     message PathPerm {
         enum Perm {
@@ -301,6 +507,7 @@ message SetPasswordRequest {
 // CreateSessionRequest is used to create session for user
 message CreateSessionRequest {
     Dataset dataset = 1;
+    int64 timeout = 2;
 }
 
 // CreateSessionResponse returns the issued JWT token
@@ -309,8 +516,33 @@ message CreateSessionResponse {
     int64 expiry = 2;
 }
 
+message SQLRequest {
+    string query = 1;
+    // Neat encoded values for the arguments to the stmt query
+    repeated bytes args = 2;
+}
+
+message SQLResponseRow {
+    // NEAT encoded values for one row
+    repeated bytes values = 1;
+}
+
+message SQLResponse {
+    repeated SQLResponseRow rows = 1;
+    // Metadata, usually returned with the first response.
+    // But it could return some metadata on any subsequent response, including the last one.
+    // The message can contain partial data
+    // (for instance, columns will be only in the first answer)
+    message Metadata {
+        // Name of the columns for the query result returned
+        // Returned only in the first response message.
+        repeated string columns = 1;
+    }
+    Metadata metadata = 2;
+}
+
 service RouterV1 {
-   // Publish is used to send notifications to CloudVision.
+   // Publish is used to send notifications to Cloudvision.
    // They will be saved into the storage and sent to all
    // the clients subscribing to the same device/path.
    //
@@ -335,13 +567,13 @@ service RouterV1 {
    //
    // * Publish is asynchronous by default:
    // When the call to Publish ends without error, it means the data has been
-   // correctly received by CloudVision but not stored yet.
+   // correctly received by Cloudvision but not stored yet.
    // So, if a "get" call is done right after the Publish call, the get might
    // not return the data just published.
    // When the "sync" field is set to true in PublishRequest, the Publish
    // will be synchronous:
    // When the call to Publish ends without error, it means the data has been
-   // correctly received AND stored by CloudVision.
+   // correctly received AND stored by Cloudvision.
    // So, if a "get" call is done right after the synchronous Publish call, the get will
    // return the data just published (unless someone else stored more recent data of course).
    //
@@ -370,7 +602,7 @@ service RouterV1 {
    // Wildcards are supported with Get requests, but when given a range of time the server
    // will resolve all wildcard paths at the starting timestamp of the given range, so any
    // pointers and/or paths that are created after the given start timestamp will not be
-   // accounted for during wildcard resolution.
+   // accounted for during wildcard resolution. The client may receive duplicate notifications.
    rpc Get (GetRequest) returns (stream NotificationBatch);
 
    // GetAndSubscribe allows the client to issue one request to do both Get and Subscribe requests.
@@ -378,6 +610,10 @@ service RouterV1 {
    // between which batches are subscribe or get batches. Then the server will send a sync signal
    // signaling that the Get stream has finished. After that, server will stream out only subscribe
    // batches. There's no order guarantee for batches received by client.
+   // The end of get stream sync signal will be in the Metadata field in the NotificationBatch, as
+   // 1 key, value pair: [GetRequest:EOF]. If there are batches returned from Get request, this
+   // metadata will be in the last Get batch; if there's no results from Get, it will be sent
+   // in an empty NotificationBatch with only the Metadata field.
    rpc GetAndSubscribe (GetAndSubscribeRequest) returns (stream NotificationBatch);
 
    rpc GetDatasets (DatasetsRequest) returns (stream DatasetsResponse);
@@ -401,15 +637,50 @@ service Auth {
    rpc CreateSession (CreateSessionRequest) returns (stream CreateSessionResponse);
 }
 
-// Alpha services are services which are not supported and
-// can be added/removed/changed anytime, without notice.
-// Clients should not user them and build applications on top of this service
+// Search provides methods to query CloudVision using the Search service.
+service Search {
+    // you know, for search...
+    rpc Search (SearchRequest) returns (stream NotificationBatch);
+    // SearchSubscribe allows the client to request a live stream of updates
+    // based on client search request
+    rpc SearchSubscribe (SearchRequest) returns (stream NotificationBatch);
+    // for search with aggregation
+    rpc SearchWithAggregation (SearchRequestWithAggr) returns (AggrResponse);
+    // SearchWithAggregationStream sends the protobuf-serialized form of AggrResponse as in a stream 
+    // of byteArrays. Receiver needs to append the "bytearrays", and protobuf-deserialize
+    // to obtain the result. Intended for messages exceeding the grpc size limit
+    rpc SearchWithAggregationStream (SearchRequestWithAggr) returns (stream ByteStream);
+    // for custom schema configuration
+    rpc SetCustomSchema (CustomIndexSchema) returns (google.protobuf.Empty);
+    // for custom schema deletion
+    // This is alpha version of this api and doesn't synchronize across apiserver instances.
+    // apiserver restart is needed to get updated schema information from hbase.
+    rpc DeleteCustomSchema (CustomIndexSchemaDel) returns (google.protobuf.Empty);
+ }
+ 
+// Alpha services are deprecated. Please use SearchV1
 service Alpha {
    // you know, for search...
    rpc Search (SearchRequest) returns (stream NotificationBatch);
    // SearchSubscribe allows the client to request a live stream of updates
    // based on client search request
    rpc SearchSubscribe (SearchRequest) returns (stream NotificationBatch);
+   // for search with aggregation
+   rpc SearchWithAggregation (SearchRequestWithAggr) returns (AggrResponse);
+   // SearchWithAggregationStream sends the protobuf-serialized form of AggrResponse as in a stream 
+   // of byteArrays. Receiver needs to append the "bytearrays", and protobuf-deserialize
+   // to obtain the result. Intended for messages exceeding the grpc size limit
+   rpc SearchWithAggregationStream (SearchRequestWithAggr) returns (stream ByteStream);
+   // for custom schema configuration
+   rpc SetCustomSchema (CustomIndexSchema) returns (google.protobuf.Empty);
+   // for custom schema deletion
+   // This is alpha version of this api and doesn't synchronize across apiserver instances.
+   // apiserver restart is needed to get updated schema information from hbase.
+   rpc DeleteCustomSchema (CustomIndexSchemaDel) returns (google.protobuf.Empty);
+}
+
+service Querier {
+    rpc SQL(SQLRequest) returns (stream SQLResponse);
 }
 
 // Cluster service gives some descriptions about the cluster where the service

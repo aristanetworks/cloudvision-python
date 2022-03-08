@@ -4,7 +4,7 @@
 
 from argparse import ArgumentError
 from datetime import datetime
-from typing import List, Optional, Any, Tuple, Union
+from typing import Iterable, List, Optional, Any, Tuple, Union
 
 import cloudvision.Connector.codec as codec
 import cloudvision.Connector.gen.notification_pb2 as ntf
@@ -117,7 +117,7 @@ class GRPCClient(object):
             tokCreds = None
             if token or tokenValue:
                 if token and tokenValue:
-                    raise ArgumentError("Cannot supply both token file path and token value")
+                    raise ArgumentError(None, "Cannot supply both token file path and token value")
                 tokData = ""
                 if token:
                     with open(token, 'r') as f:
@@ -152,6 +152,7 @@ class GRPCClient(object):
             self.channel = grpc.secure_channel(grpcAddr, creds)
         self.__client = rtr_client.RouterV1Stub(self.channel)
         self.__auth_client = rtr_client.AuthStub(self.channel)
+        self.__search_client = rtr_client.SearchStub(self.channel)
 
         self.encoder = codec.Encoder()
         self.decoder = codec.Decoder()
@@ -168,7 +169,7 @@ class GRPCClient(object):
 
     def get(self, queries: List[rtr.Query], start: Optional[TIME_TYPE] = None,
             end: Optional[TIME_TYPE] = None,
-            versions: Optional[int] = None, sharding=None,
+            versions=0, sharding=None,
             exact_range=False):
         """
         Get creates and executes a Get protobuf message, returning a stream of
@@ -177,8 +178,8 @@ class GRPCClient(object):
         start and end, if present, must be nanoseconds timestamps (uint64).
         sharding, if present must be a protobuf sharding message.
         """
-        end_ts: Optional[int] = None
-        start_ts: Optional[int] = None
+        end_ts = 0
+        start_ts = 0
         if end:
             end_ts = to_pbts(end).ToNanoseconds()
 
@@ -279,3 +280,27 @@ class GRPCClient(object):
             ]
         }
         return res
+
+    def search(self, search_type=rtr.SearchRequest.CUSTOM,
+               d_type: str = "device",
+               d_name: str = "",
+               result_size: int = 1,
+               start: Optional[TIME_TYPE] = None,
+               end: Optional[TIME_TYPE] = None,
+               path_elements=[],
+               key_filters: Iterable[rtr.Filter] = [],
+               value_filters: Iterable[rtr.Filter] = [],
+               exact_range: bool = False, offset: int = 0,
+               exact_term: bool = False, sort: Iterable[rtr.Sort] = [],
+               count_only: bool = False):
+        start_ts = to_pbts(start).ToNanoseconds() if start else 0
+        end_ts = to_pbts(end).ToNanoseconds() if end else 0
+        encoded_path_elements = [self.encoder.encode(x) for x in path_elements]
+        req = rtr.SearchRequest(search_type=search_type, start=start_ts, end=end_ts, query=[rtr.Query(
+                                dataset=ntf.Dataset(type=d_type, name=d_name),
+                                paths=[rtr.Path(path_elements=encoded_path_elements)])],
+                                result_size=result_size, key_filters=key_filters, value_filters=value_filters,
+                                exact_range=exact_range, offset=offset, exact_term=exact_term, sort=sort,
+                                count_only=count_only)
+        res = self.__search_client.Search(req)
+        return (self.decode_batch(nb) for nb in res)
