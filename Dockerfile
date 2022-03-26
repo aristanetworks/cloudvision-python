@@ -7,4 +7,4 @@ LABEL maintainer="cvaas-dev@arista.com"
 
 RUN python -m pip install --no-cache-dir msgpack==0.6.2 protobuf==3.13.0 \
     numpy==1.17.4 pyyaml==5.3.1 pytest==4.6.9 \
-    grpcio==1.33.2 grpcio-tools==1.33.2 flake8==3.8.3 mypy==0.782
+    grpcio==1.33.2 grpcio-tools==1.33.2 flake8==3.8.3 mypy==0.942

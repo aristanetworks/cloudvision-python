@@ -3,3 +3,5 @@ msgpack>=0.6.0,<1.0.0
 protobuf>=3.12.2
 typing-extensions>=4.0.1
 types-protobuf>=3.18.2
+types-PyYAML>=6.0.5
+types-requests>=2.27.14
