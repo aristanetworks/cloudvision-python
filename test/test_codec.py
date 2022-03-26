@@ -65,7 +65,7 @@ with open(os.path.join(TEST_DIR, "test_codec.yml"), "r") as file:
 for test, i in zip(test_dict["tests"], range(len(test_dict["tests"]))):
     test_type, test_val = next(((key, val) for key, val in test.items()
                                 if key not in ('name', 'out')))
-    test_val = preprocessing[test_type](test_val)
+    test_val = preprocessing[test_type](test_val)  # type: ignore
     cases.append([test["name"], test_val, bytes(test["out"])])
 
 

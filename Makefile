@@ -17,4 +17,5 @@ clean:
 	rm -r cloudvision.egg-info build dist
 
 lint:
-	flake8 && mypy .
+	flake8 .
+	mypy --exclude build .
