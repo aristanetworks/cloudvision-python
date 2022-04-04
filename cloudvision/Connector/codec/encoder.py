@@ -15,7 +15,7 @@ class Encoder(object):
         self.__buffer = io.BytesIO()
 
     def encode_string(self, s):
-        return self.__packer.pack(bytes(s, "ascii"))
+        return self.__packer.pack(bytes(s, 'utf-8'))
 
     def encode_array(self, a):
         res = b""
