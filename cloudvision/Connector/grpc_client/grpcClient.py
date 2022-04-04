@@ -97,17 +97,22 @@ class GRPCClient(object):
     GRPCClient implements the protobuf client as well as its methods.
     grpcAddr must be a valid apiserver address in the format <ADDRESS>:<PORT>.
     certs, if present, must be the path to the cert file.
-    key, if present, must be the path to .pem key file.
+    key, if present, must be the path to a .pem key file.
     ca, if present, must be the path to a root certificate authority file.
     token, if present, must be the path a .tok user access token.
-    tokenValue, if present, is the value of the actual token. Cannot be set with token
+    tokenValue, if present, is the actual token in string form. Cannot be set with token
+    certsValue, if present, is the actual certs in string form. Cannot be set with certs
+    keyValue, if present, is the actual key in string form. Cannot be set with key
+    caValue, if present, is the actual ca in string form. Cannot be set with ca
     """
 
     AUTH_KEY_PATH = "access_token"
 
     def __init__(self, grpcAddr: str, *, certs: Optional[str] = None,
                  key: Optional[str] = None, ca: Optional[str] = None,
-                 token: Optional[str] = None, tokenValue: Optional[str] = None) -> None:
+                 token: Optional[str] = None, tokenValue: Optional[str] = None,
+                 certsValue: Optional[str] = None, keyValue: Optional[str] = None,
+                 caValue: Optional[str] = None) -> None:
         # used to store the auth token for per request auth
         self.metadata = None
 
@@ -117,7 +122,7 @@ class GRPCClient(object):
             tokCreds = None
             if token or tokenValue:
                 if token and tokenValue:
-                    raise ArgumentError(None, "Cannot supply both token file path and token value")
+                    raise ArgumentError(None, "Cannot supply both token and token value")
                 tokData = ""
                 if token:
                     with open(token, 'r') as f:
@@ -130,17 +135,32 @@ class GRPCClient(object):
                                   tokData),)
 
             certData = None
-            if certs:
-                with open(certs, 'rb') as cf:
-                    certData = cf.read()
+            if certs or certsValue:
+                if certs and certsValue:
+                    raise ArgumentError(None, "Cannot supply both certs and certs value")
+                if certs:
+                    with open(certs, 'rb') as cf:
+                        certData = cf.read()
+                elif certsValue:
+                    certData = certsValue.encode('utf-8')
             keyData = None
-            if key:
-                with open(key, 'rb') as kf:
-                    keyData = kf.read()
+            if key or keyValue:
+                if key and keyValue:
+                    raise ArgumentError(None, "Cannot supply both key and key value")
+                if key:
+                    with open(key, 'rb') as kf:
+                        keyData = kf.read()
+                elif keyValue:
+                    keyData = keyValue.encode('utf-8')
             caData = None
-            if ca:
-                with open(ca, 'rb') as cf:
-                    caData = cf.read()
+            if ca or caValue:
+                if ca and caValue:
+                    raise ArgumentError(None, "Cannot supply both ca and ca value")
+                if ca:
+                    with open(ca, 'rb') as cf:
+                        caData = cf.read()
+                elif caValue:
+                    caData = caValue.encode('utf-8')
 
             creds = grpc.ssl_channel_credentials(certificate_chain=certData,
                                                  private_key=keyData,
