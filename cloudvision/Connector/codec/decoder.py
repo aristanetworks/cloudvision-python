@@ -42,7 +42,7 @@ class Decoder(object):
 
     def __postProcess(self, b):
         if isinstance(b, bytes):
-            return b.decode("ascii", "ignore")
+            return b.decode('utf-8')
         elif isinstance(b, list):
             return self.decode_array(b)
         elif isinstance(b, (dict, FrozenDict)):

@@ -81,7 +81,7 @@ def test_encode_decode(name, inp, expected):
         failed = True
         if isinstance(inp, bytes):
             # NEAT doesn't distinguish z/w byte/string change to string and check
-            inp = str(inp, 'ascii')
+            inp = str(inp, 'utf-8')
             failed = rev != inp
 
         assert not failed, "decoding value did not match input value"
