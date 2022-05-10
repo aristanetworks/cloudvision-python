@@ -27,7 +27,7 @@ def ext_hook(code, data):
 class Decoder(object):
 
     def __init__(self):
-        self.__unpacker = msgpack.Unpacker(raw=False,
+        self.__unpacker = msgpack.Unpacker(strict_map_key=False,
                                            object_pairs_hook=pair_hook,
                                            ext_hook=ext_hook)
 

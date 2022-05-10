@@ -11,8 +11,7 @@ from cloudvision.Connector.codec import Wildcard, Path, FrozenDict
 class Encoder(object):
 
     def __init__(self):
-        self.__packer = msgpack.Packer(use_bin_type=True,
-                                       use_single_float=False)
+        self.__packer = msgpack.Packer(use_single_float=False)
         self.__buffer = io.BytesIO()
 
     def encode_string(self, s):
