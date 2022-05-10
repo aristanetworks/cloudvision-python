@@ -1,7 +1,7 @@
-grpcio>=1.33.2
-msgpack>=0.6.0,<1.0.0
-protobuf>=3.12.2
-typing-extensions>=4.0.1
-types-protobuf>=3.18.2
-types-PyYAML>=6.0.5
-types-requests>=2.27.14
+grpcio>=1.46.0
+msgpack>=1.0.3
+protobuf>=3.20.1
+typing-extensions>=4.2.0
+types-protobuf>=3.19.20
+types-PyYAML>=6.0.7
+types-requests>=2.27.25

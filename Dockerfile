@@ -2,9 +2,16 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-FROM python:3.8
+FROM python:3.10
 LABEL maintainer="cvaas-dev@arista.com"
 
-RUN python -m pip install --no-cache-dir msgpack==0.6.2 protobuf==3.13.0 \
-    numpy==1.17.4 pyyaml==5.3.1 pytest==4.6.9 \
-    grpcio==1.33.2 grpcio-tools==1.33.2 flake8==3.8.3 mypy==0.942
+RUN python -m pip install --no-cache-dir \
+    msgpack==1.0.3 \
+    protobuf==3.20.1 \
+    numpy==1.22.3 \
+    pyyaml==5.4.1 \
+    pytest==7.1.2 \
+    grpcio==1.46.0 \
+    grpcio-tools==1.46.0 \
+    flake8==3.8.4 \
+    mypy==0.950
