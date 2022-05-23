@@ -19,3 +19,4 @@ clean:
 lint:
 	flake8 .
 	mypy --exclude build .
+	./check_copyright.sh
