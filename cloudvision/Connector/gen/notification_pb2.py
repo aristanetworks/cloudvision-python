@@ -4,6 +4,7 @@
 """Generated protocol buffer code."""
 from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
@@ -15,323 +16,20 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor.FileDescriptor(
-  name='notification.proto',
-  package='',
-  syntax='proto3',
-  serialized_options=b'Z\003gen',
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x12notification.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe6\x01\n\x0cNotification\x12-\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\x12\n\ndelete_all\x18\x03 \x01(\x08\x12\x0f\n\x07\x64\x65letes\x18\x04 \x03(\x0c\x12%\n\x07updates\x18\x05 \x03(\x0b\x32\x14.Notification.Update\x12\x10\n\x08retracts\x18\x06 \x03(\x0c\x12\x15\n\rpath_elements\x18\x07 \x03(\x0c\x1a$\n\x06Update\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\r\n\x05value\x18\x02 \x01(\x0c\"?\n\x07\x44\x61taset\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x18\n\x06parent\x18\x03 \x01(\x0b\x32\x08.Dataset\"\xea\x01\n\x11NotificationBatch\x12\t\n\x01\x64\x18\x01 \x01(\t\x12$\n\rnotifications\x18\x02 \x03(\x0b\x32\r.Notification\x12\x19\n\x07\x64\x61taset\x18\x03 \x01(\x0b\x32\x08.Dataset\x12\x32\n\x08metadata\x18\x04 \x03(\x0b\x32 .NotificationBatch.MetadataEntry\x12$\n\treplicate\x18\x05 \x01(\x0e\x32\x11.ReplicationState\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01*J\n\x10ReplicationState\x12\x12\n\x0eNO_REPLICATION\x10\x00\x12\r\n\tREPLICATE\x10\x01\x12\x13\n\x0f\x43\x41\x43HE_REPLICATE\x10\x02\x42\x05Z\x03genb\x06proto3'
-  ,
-  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12notification.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe6\x01\n\x0cNotification\x12-\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\x12\n\ndelete_all\x18\x03 \x01(\x08\x12\x0f\n\x07\x64\x65letes\x18\x04 \x03(\x0c\x12%\n\x07updates\x18\x05 \x03(\x0b\x32\x14.Notification.Update\x12\x10\n\x08retracts\x18\x06 \x03(\x0c\x12\x15\n\rpath_elements\x18\x07 \x03(\x0c\x1a$\n\x06Update\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\r\n\x05value\x18\x02 \x01(\x0c\"?\n\x07\x44\x61taset\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x18\n\x06parent\x18\x03 \x01(\x0b\x32\x08.Dataset\"\xea\x01\n\x11NotificationBatch\x12\t\n\x01\x64\x18\x01 \x01(\t\x12$\n\rnotifications\x18\x02 \x03(\x0b\x32\r.Notification\x12\x19\n\x07\x64\x61taset\x18\x03 \x01(\x0b\x32\x08.Dataset\x12\x32\n\x08metadata\x18\x04 \x03(\x0b\x32 .NotificationBatch.MetadataEntry\x12$\n\treplicate\x18\x05 \x01(\x0e\x32\x11.ReplicationState\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01*J\n\x10ReplicationState\x12\x12\n\x0eNO_REPLICATION\x10\x00\x12\r\n\tREPLICATE\x10\x01\x12\x13\n\x0f\x43\x41\x43HE_REPLICATE\x10\x02\x42\x05Z\x03genb\x06proto3')
 
-_REPLICATIONSTATE = _descriptor.EnumDescriptor(
-  name='ReplicationState',
-  full_name='ReplicationState',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='NO_REPLICATION', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='REPLICATE', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='CACHE_REPLICATE', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=590,
-  serialized_end=664,
-)
-_sym_db.RegisterEnumDescriptor(_REPLICATIONSTATE)
-
+_REPLICATIONSTATE = DESCRIPTOR.enum_types_by_name['ReplicationState']
 ReplicationState = enum_type_wrapper.EnumTypeWrapper(_REPLICATIONSTATE)
 NO_REPLICATION = 0
 REPLICATE = 1
 CACHE_REPLICATE = 2
 
 
-
-_NOTIFICATION_UPDATE = _descriptor.Descriptor(
-  name='Update',
-  full_name='Notification.Update',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='Notification.Update.key', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='Notification.Update.value', index=1,
-      number=2, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=250,
-  serialized_end=286,
-)
-
-_NOTIFICATION = _descriptor.Descriptor(
-  name='Notification',
-  full_name='Notification',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='timestamp', full_name='Notification.timestamp', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='path', full_name='Notification.path', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='delete_all', full_name='Notification.delete_all', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='deletes', full_name='Notification.deletes', index=3,
-      number=4, type=12, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='updates', full_name='Notification.updates', index=4,
-      number=5, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='retracts', full_name='Notification.retracts', index=5,
-      number=6, type=12, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='path_elements', full_name='Notification.path_elements', index=6,
-      number=7, type=12, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_NOTIFICATION_UPDATE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=56,
-  serialized_end=286,
-)
-
-
-_DATASET = _descriptor.Descriptor(
-  name='Dataset',
-  full_name='Dataset',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='type', full_name='Dataset.type', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='name', full_name='Dataset.name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='Dataset.parent', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=288,
-  serialized_end=351,
-)
-
-
-_NOTIFICATIONBATCH_METADATAENTRY = _descriptor.Descriptor(
-  name='MetadataEntry',
-  full_name='NotificationBatch.MetadataEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='NotificationBatch.MetadataEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='NotificationBatch.MetadataEntry.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'8\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=541,
-  serialized_end=588,
-)
-
-_NOTIFICATIONBATCH = _descriptor.Descriptor(
-  name='NotificationBatch',
-  full_name='NotificationBatch',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='d', full_name='NotificationBatch.d', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='notifications', full_name='NotificationBatch.notifications', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='dataset', full_name='NotificationBatch.dataset', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='metadata', full_name='NotificationBatch.metadata', index=3,
-      number=4, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='replicate', full_name='NotificationBatch.replicate', index=4,
-      number=5, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_NOTIFICATIONBATCH_METADATAENTRY, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=354,
-  serialized_end=588,
-)
-
-_NOTIFICATION_UPDATE.containing_type = _NOTIFICATION
-_NOTIFICATION.fields_by_name['timestamp'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_NOTIFICATION.fields_by_name['updates'].message_type = _NOTIFICATION_UPDATE
-_DATASET.fields_by_name['parent'].message_type = _DATASET
-_NOTIFICATIONBATCH_METADATAENTRY.containing_type = _NOTIFICATIONBATCH
-_NOTIFICATIONBATCH.fields_by_name['notifications'].message_type = _NOTIFICATION
-_NOTIFICATIONBATCH.fields_by_name['dataset'].message_type = _DATASET
-_NOTIFICATIONBATCH.fields_by_name['metadata'].message_type = _NOTIFICATIONBATCH_METADATAENTRY
-_NOTIFICATIONBATCH.fields_by_name['replicate'].enum_type = _REPLICATIONSTATE
-DESCRIPTOR.message_types_by_name['Notification'] = _NOTIFICATION
-DESCRIPTOR.message_types_by_name['Dataset'] = _DATASET
-DESCRIPTOR.message_types_by_name['NotificationBatch'] = _NOTIFICATIONBATCH
-DESCRIPTOR.enum_types_by_name['ReplicationState'] = _REPLICATIONSTATE
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
+_NOTIFICATION = DESCRIPTOR.message_types_by_name['Notification']
+_NOTIFICATION_UPDATE = _NOTIFICATION.nested_types_by_name['Update']
+_DATASET = DESCRIPTOR.message_types_by_name['Dataset']
+_NOTIFICATIONBATCH = DESCRIPTOR.message_types_by_name['NotificationBatch']
+_NOTIFICATIONBATCH_METADATAENTRY = _NOTIFICATIONBATCH.nested_types_by_name['MetadataEntry']
 Notification = _reflection.GeneratedProtocolMessageType('Notification', (_message.Message,), {
 
   'Update' : _reflection.GeneratedProtocolMessageType('Update', (_message.Message,), {
@@ -369,7 +67,22 @@ NotificationBatch = _reflection.GeneratedProtocolMessageType('NotificationBatch'
 _sym_db.RegisterMessage(NotificationBatch)
 _sym_db.RegisterMessage(NotificationBatch.MetadataEntry)
 
+if _descriptor._USE_C_DESCRIPTORS == False:
 
-DESCRIPTOR._options = None
-_NOTIFICATIONBATCH_METADATAENTRY._options = None
+  DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b'Z\003gen'
+  _NOTIFICATIONBATCH_METADATAENTRY._options = None
+  _NOTIFICATIONBATCH_METADATAENTRY._serialized_options = b'8\001'
+  _REPLICATIONSTATE._serialized_start=590
+  _REPLICATIONSTATE._serialized_end=664
+  _NOTIFICATION._serialized_start=56
+  _NOTIFICATION._serialized_end=286
+  _NOTIFICATION_UPDATE._serialized_start=250
+  _NOTIFICATION_UPDATE._serialized_end=286
+  _DATASET._serialized_start=288
+  _DATASET._serialized_end=351
+  _NOTIFICATIONBATCH._serialized_start=354
+  _NOTIFICATIONBATCH._serialized_end=588
+  _NOTIFICATIONBATCH_METADATAENTRY._serialized_start=541
+  _NOTIFICATIONBATCH_METADATAENTRY._serialized_end=588
 # @@protoc_insertion_point(module_scope)

@@ -13,109 +13,113 @@ import sharding_pb2
 import typing
 import typing_extensions
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
+DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+
+class _PathWildCardExpandType:
+    ValueType = typing.NewType('ValueType', builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+class _PathWildCardExpandTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_PathWildCardExpandType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    WILDCARD_EXPAND_LEGACY: _PathWildCardExpandType.ValueType  # 0
+    """WILDCARD_EXPAND_LEGACY falls back to default behavior"""
+
+    WILDCARD_EXPAND_LATEST: _PathWildCardExpandType.ValueType  # 1
+    """WILDCARD_EXPAND_LATEST means that only latest path pointers will be considered"""
+
+    WILDCARD_EXPAND_EXACT_RANGE: _PathWildCardExpandType.ValueType  # 2
+    """WILDCARD_EXPAND_EXACT_RANGE means that path pointers satisfying given start/end will be considered"""
+
+    WILDCARD_EXPAND_RELAXED_RANGE: _PathWildCardExpandType.ValueType  # 3
+    """WILDCARD_EXPAND_RELAXED_RANGE means that path pointers satisfying 0 to end will be considered"""
 
 class PathWildCardExpandType(_PathWildCardExpandType, metaclass=_PathWildCardExpandTypeEnumTypeWrapper):
     pass
-class _PathWildCardExpandType:
-    V = typing.NewType('V', builtins.int)
-class _PathWildCardExpandTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_PathWildCardExpandType.V], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-    WILDCARD_EXPAND_LEGACY = PathWildCardExpandType.V(0)
-    """WILDCARD_EXPAND_LEGACY falls back to default behavior"""
 
-    WILDCARD_EXPAND_LATEST = PathWildCardExpandType.V(1)
-    """WILDCARD_EXPAND_LATEST means that only latest path pointers will be considered"""
-
-    WILDCARD_EXPAND_EXACT_RANGE = PathWildCardExpandType.V(2)
-    """WILDCARD_EXPAND_EXACT_RANGE means that path pointers satisfying given start/end will be considered"""
-
-    WILDCARD_EXPAND_RELAXED_RANGE = PathWildCardExpandType.V(3)
-    """WILDCARD_EXPAND_RELAXED_RANGE means that path pointers satisfying 0 to end will be considered"""
-
-
-WILDCARD_EXPAND_LEGACY = PathWildCardExpandType.V(0)
+WILDCARD_EXPAND_LEGACY: PathWildCardExpandType.ValueType  # 0
 """WILDCARD_EXPAND_LEGACY falls back to default behavior"""
 
-WILDCARD_EXPAND_LATEST = PathWildCardExpandType.V(1)
+WILDCARD_EXPAND_LATEST: PathWildCardExpandType.ValueType  # 1
 """WILDCARD_EXPAND_LATEST means that only latest path pointers will be considered"""
 
-WILDCARD_EXPAND_EXACT_RANGE = PathWildCardExpandType.V(2)
+WILDCARD_EXPAND_EXACT_RANGE: PathWildCardExpandType.ValueType  # 2
 """WILDCARD_EXPAND_EXACT_RANGE means that path pointers satisfying given start/end will be considered"""
 
-WILDCARD_EXPAND_RELAXED_RANGE = PathWildCardExpandType.V(3)
+WILDCARD_EXPAND_RELAXED_RANGE: PathWildCardExpandType.ValueType  # 3
 """WILDCARD_EXPAND_RELAXED_RANGE means that path pointers satisfying 0 to end will be considered"""
 
 global___PathWildCardExpandType = PathWildCardExpandType
 
 
-class SortType(_SortType, metaclass=_SortTypeEnumTypeWrapper):
-    pass
 class _SortType:
-    V = typing.NewType('V', builtins.int)
-class _SortTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SortType.V], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-    SORT_INVALID = SortType.V(0)
-    DESC = SortType.V(1)
+    ValueType = typing.NewType('ValueType', builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+class _SortTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SortType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    SORT_INVALID: _SortType.ValueType  # 0
+    DESC: _SortType.ValueType  # 1
     """Descending order sort"""
 
-    ASC = SortType.V(2)
+    ASC: _SortType.ValueType  # 2
     """Ascending order sort"""
 
+class SortType(_SortType, metaclass=_SortTypeEnumTypeWrapper):
+    pass
 
-SORT_INVALID = SortType.V(0)
-DESC = SortType.V(1)
+SORT_INVALID: SortType.ValueType  # 0
+DESC: SortType.ValueType  # 1
 """Descending order sort"""
 
-ASC = SortType.V(2)
+ASC: SortType.ValueType  # 2
 """Ascending order sort"""
 
 global___SortType = SortType
 
 
+class _IndexDataType:
+    ValueType = typing.NewType('ValueType', builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+class _IndexDataTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IndexDataType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    INVALID: _IndexDataType.ValueType  # 0
+    INTEGER: _IndexDataType.ValueType  # 1
+    FLOAT: _IndexDataType.ValueType  # 2
+    STRING: _IndexDataType.ValueType  # 3
+    ARRAY: _IndexDataType.ValueType  # 11
+    OBJECT: _IndexDataType.ValueType  # 12
 class IndexDataType(_IndexDataType, metaclass=_IndexDataTypeEnumTypeWrapper):
     pass
-class _IndexDataType:
-    V = typing.NewType('V', builtins.int)
-class _IndexDataTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IndexDataType.V], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-    INVALID = IndexDataType.V(0)
-    INTEGER = IndexDataType.V(1)
-    FLOAT = IndexDataType.V(2)
-    STRING = IndexDataType.V(3)
-    ARRAY = IndexDataType.V(11)
-    OBJECT = IndexDataType.V(12)
 
-INVALID = IndexDataType.V(0)
-INTEGER = IndexDataType.V(1)
-FLOAT = IndexDataType.V(2)
-STRING = IndexDataType.V(3)
-ARRAY = IndexDataType.V(11)
-OBJECT = IndexDataType.V(12)
+INVALID: IndexDataType.ValueType  # 0
+INTEGER: IndexDataType.ValueType  # 1
+FLOAT: IndexDataType.ValueType  # 2
+STRING: IndexDataType.ValueType  # 3
+ARRAY: IndexDataType.ValueType  # 11
+OBJECT: IndexDataType.ValueType  # 12
 global___IndexDataType = IndexDataType
 
 
 class Path(google.protobuf.message.Message):
     """Path defines a path matcher for a Query."""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    class _Type:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Path._Type.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        EXACT: Path._Type.ValueType  # 0
+        """EXACT means that the "path" will be matched exactly"""
+
+        REGEXP: Path._Type.ValueType  # 1
+        """REGEXP means that the "path" will be treated as regexp"""
+
     class Type(_Type, metaclass=_TypeEnumTypeWrapper):
         """V2: DEPRECATED"""
         pass
-    class _Type:
-        V = typing.NewType('V', builtins.int)
-    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Type.V], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-        EXACT = Path.Type.V(0)
-        """EXACT means that the "path" will be matched exactly"""
 
-        REGEXP = Path.Type.V(1)
-        """REGEXP means that the "path" will be treated as regexp"""
-
-
-    EXACT = Path.Type.V(0)
+    EXACT: Path.Type.ValueType  # 0
     """EXACT means that the "path" will be matched exactly"""
 
-    REGEXP = Path.Type.V(1)
+    REGEXP: Path.Type.ValueType  # 1
     """REGEXP means that the "path" will be treated as regexp"""
 
 
@@ -123,10 +127,10 @@ class Path(google.protobuf.message.Message):
     PATH_FIELD_NUMBER: builtins.int
     KEYS_FIELD_NUMBER: builtins.int
     PATH_ELEMENTS_FIELD_NUMBER: builtins.int
-    type: global___Path.Type.V = ...
+    type: global___Path.Type.ValueType
     """V2: DEPRECATED"""
 
-    path: typing.Text = ...
+    path: typing.Text
     """V2: DEPRECATED"""
 
     @property
@@ -141,16 +145,16 @@ class Path(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        type : global___Path.Type.V = ...,
-        path : typing.Text = ...,
-        keys : typing.Optional[typing.Iterable[builtins.bytes]] = ...,
-        path_elements : typing.Optional[typing.Iterable[builtins.bytes]] = ...,
+        type: global___Path.Type.ValueType = ...,
+        path: typing.Text = ...,
+        keys: typing.Optional[typing.Iterable[builtins.bytes]] = ...,
+        path_elements: typing.Optional[typing.Iterable[builtins.bytes]] = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys","path",b"path","path_elements",b"path_elements","type",b"type"]) -> None: ...
 global___Path = Path
 
 class Query(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     DATASET_FIELD_NUMBER: builtins.int
     PATHS_FIELD_NUMBER: builtins.int
     @property
@@ -159,8 +163,8 @@ class Query(google.protobuf.message.Message):
     def paths(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Path]: ...
     def __init__(self,
         *,
-        dataset : typing.Optional[notification_pb2.Dataset] = ...,
-        paths : typing.Optional[typing.Iterable[global___Path]] = ...,
+        dataset: typing.Optional[notification_pb2.Dataset] = ...,
+        paths: typing.Optional[typing.Iterable[global___Path]] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["dataset",b"dataset"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["dataset",b"dataset","paths",b"paths"]) -> None: ...
@@ -198,7 +202,7 @@ class SubscribeRequest(google.protobuf.message.Message):
     scaling (i.e. number of instances, ID of the subscribing instance, and dispatching
     method).
     """
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     QUERY_FIELD_NUMBER: builtins.int
     SHARDED_SUB_FIELD_NUMBER: builtins.int
     @property
@@ -207,15 +211,15 @@ class SubscribeRequest(google.protobuf.message.Message):
     def sharded_sub(self) -> sharding_pb2.Sharding: ...
     def __init__(self,
         *,
-        query : typing.Optional[typing.Iterable[global___Query]] = ...,
-        sharded_sub : typing.Optional[sharding_pb2.Sharding] = ...,
+        query: typing.Optional[typing.Iterable[global___Query]] = ...,
+        sharded_sub: typing.Optional[sharding_pb2.Sharding] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["sharded_sub",b"sharded_sub"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["query",b"query","sharded_sub",b"sharded_sub"]) -> None: ...
 global___SubscribeRequest = SubscribeRequest
 
 class GetRequest(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     QUERY_FIELD_NUMBER: builtins.int
     START_FIELD_NUMBER: builtins.int
     VERSIONS_FIELD_NUMBER: builtins.int
@@ -230,7 +234,7 @@ class GetRequest(google.protobuf.message.Message):
         NOTE: Query.Path.Type = REGEXP is not supported for GetRequest.
         """
         pass
-    start: builtins.int = ...
+    start: builtins.int
     """(Optional) Lower bound (inclusive) of time range to retrieve, in nanoseconds since the Epoch.
     If `start` is set, the returned results will correspond to a time range query (from `start` to
     `end` or now, depending on whether `end` is set or not).
@@ -238,18 +242,18 @@ class GetRequest(google.protobuf.message.Message):
     The value 0 corresponds to an unset field.
     """
 
-    versions: builtins.int = ...
+    versions: builtins.int
     """(Optional) Maximum number of versions to retrieve.
     If `start` is set, this value is ignored. Otherwise, will return at most (`versions` + 1) past
     versions.
     """
 
-    end: builtins.int = ...
+    end: builtins.int
     """(Optional) Upper bound (inclusive) of time range to retrieve, in nanoseconds since the Epoch.
     The value 0 corresponds to an unset field.  Defaults to the largest valid timestamp.
     """
 
-    exact_range: builtins.bool = ...
+    exact_range: builtins.bool
     """(Optional) Whether to return the initial state of the requested paths at time `start`.
     The "initial state" is the set of notifications that fully specify the state of the path at
     that time. It includes all relevant notifications before (and up to) `start`.
@@ -262,27 +266,27 @@ class GetRequest(google.protobuf.message.Message):
         method for the implementation of horizontal scaling. If not set, no filtering will happen.
         """
         pass
-    wildcard_expand_type: global___PathWildCardExpandType.V = ...
+    wildcard_expand_type: global___PathWildCardExpandType.ValueType
     """(Optional) Specifies wildcard expansion strategy when time range is specified.
     This option has no effect when time range (start/end) is not used.
     """
 
     def __init__(self,
         *,
-        query : typing.Optional[typing.Iterable[global___Query]] = ...,
-        start : builtins.int = ...,
-        versions : builtins.int = ...,
-        end : builtins.int = ...,
-        exact_range : builtins.bool = ...,
-        sharded_sub : typing.Optional[sharding_pb2.Sharding] = ...,
-        wildcard_expand_type : global___PathWildCardExpandType.V = ...,
+        query: typing.Optional[typing.Iterable[global___Query]] = ...,
+        start: builtins.int = ...,
+        versions: builtins.int = ...,
+        end: builtins.int = ...,
+        exact_range: builtins.bool = ...,
+        sharded_sub: typing.Optional[sharding_pb2.Sharding] = ...,
+        wildcard_expand_type: global___PathWildCardExpandType.ValueType = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["sharded_sub",b"sharded_sub"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["end",b"end","exact_range",b"exact_range","query",b"query","sharded_sub",b"sharded_sub","start",b"start","versions",b"versions","wildcard_expand_type",b"wildcard_expand_type"]) -> None: ...
 global___GetRequest = GetRequest
 
 class GetAndSubscribeRequest(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     QUERY_FIELD_NUMBER: builtins.int
     START_FIELD_NUMBER: builtins.int
     VERSIONS_FIELD_NUMBER: builtins.int
@@ -291,7 +295,7 @@ class GetAndSubscribeRequest(google.protobuf.message.Message):
     WILDCARD_EXPAND_TYPE_FIELD_NUMBER: builtins.int
     @property
     def query(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Query]: ...
-    start: builtins.int = ...
+    start: builtins.int
     """(Optional) Lower bound (inclusive) of time range to retrieve, in nanoseconds since the Epoch.
     If `start` is set, the returned results will correspond to a time range query (from `start` to
     `end` or now, depending on whether `end` is set or not).
@@ -299,13 +303,13 @@ class GetAndSubscribeRequest(google.protobuf.message.Message):
     The value 0 corresponds to an unset field.
     """
 
-    versions: builtins.int = ...
+    versions: builtins.int
     """(Optional) Maximum number of versions to retrieve.
     If `start` is set, this value is ignored. Otherwise, will return at most (`versions` + 1) past
     versions.
     """
 
-    exact_range: builtins.bool = ...
+    exact_range: builtins.bool
     """(Optional) Whether to return the initial state of the requested paths at time `start`.
     The "initial state" is the set of notifications that fully specify the state of the path at
     that time. It includes all relevant notifications before (and up to) `start`.
@@ -318,80 +322,81 @@ class GetAndSubscribeRequest(google.protobuf.message.Message):
         method for the implementation of horizontal scaling. If not set, no filtering will happen.
         """
         pass
-    wildcard_expand_type: global___PathWildCardExpandType.V = ...
+    wildcard_expand_type: global___PathWildCardExpandType.ValueType
     """(Optional) Specifies wildcard expansion strategy when time range is specified.
     This option has no effect when time range (start/end) is not used.
     """
 
     def __init__(self,
         *,
-        query : typing.Optional[typing.Iterable[global___Query]] = ...,
-        start : builtins.int = ...,
-        versions : builtins.int = ...,
-        exact_range : builtins.bool = ...,
-        sharded_sub : typing.Optional[sharding_pb2.Sharding] = ...,
-        wildcard_expand_type : global___PathWildCardExpandType.V = ...,
+        query: typing.Optional[typing.Iterable[global___Query]] = ...,
+        start: builtins.int = ...,
+        versions: builtins.int = ...,
+        exact_range: builtins.bool = ...,
+        sharded_sub: typing.Optional[sharding_pb2.Sharding] = ...,
+        wildcard_expand_type: global___PathWildCardExpandType.ValueType = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["sharded_sub",b"sharded_sub"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["exact_range",b"exact_range","query",b"query","sharded_sub",b"sharded_sub","start",b"start","versions",b"versions","wildcard_expand_type",b"wildcard_expand_type"]) -> None: ...
 global___GetAndSubscribeRequest = GetAndSubscribeRequest
 
 class Sort(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     FIELDS_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     @property
     def fields(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
         """fields to support nesting. a.b.c needs to specified as ["a","b","c"]."""
         pass
-    type: global___SortType.V = ...
+    type: global___SortType.ValueType
     """type of sort"""
 
     def __init__(self,
         *,
-        fields : typing.Optional[typing.Iterable[typing.Text]] = ...,
-        type : global___SortType.V = ...,
+        fields: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        type: global___SortType.ValueType = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["fields",b"fields","type",b"type"]) -> None: ...
 global___Sort = Sort
 
 class SearchRequest(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    class Type(_Type, metaclass=_TypeEnumTypeWrapper):
-        pass
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class _Type:
-        V = typing.NewType('V', builtins.int)
-    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Type.V], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-        STRING = SearchRequest.Type.V(0)
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[SearchRequest._Type.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        STRING: SearchRequest._Type.ValueType  # 0
         """STRING means that Key/Value string fields will be searched"""
 
-        MAC = SearchRequest.Type.V(1)
+        MAC: SearchRequest._Type.ValueType  # 1
         """MAC means that Key/Value mac fields will be searched"""
 
-        IP = SearchRequest.Type.V(2)
+        IP: SearchRequest._Type.ValueType  # 2
         """IP means that Key/Value ip fields will be searched"""
 
-        COMPLEX = SearchRequest.Type.V(3)
+        COMPLEX: SearchRequest._Type.ValueType  # 3
         """COMPLEX means that a complex key or value will be searched"""
 
-        CUSTOM = SearchRequest.Type.V(4)
+        CUSTOM: SearchRequest._Type.ValueType  # 4
         """CUSTOM means that custom schema is used. Path prefix is mandatory in query."""
 
+    class Type(_Type, metaclass=_TypeEnumTypeWrapper):
+        pass
 
-    STRING = SearchRequest.Type.V(0)
+    STRING: SearchRequest.Type.ValueType  # 0
     """STRING means that Key/Value string fields will be searched"""
 
-    MAC = SearchRequest.Type.V(1)
+    MAC: SearchRequest.Type.ValueType  # 1
     """MAC means that Key/Value mac fields will be searched"""
 
-    IP = SearchRequest.Type.V(2)
+    IP: SearchRequest.Type.ValueType  # 2
     """IP means that Key/Value ip fields will be searched"""
 
-    COMPLEX = SearchRequest.Type.V(3)
+    COMPLEX: SearchRequest.Type.ValueType  # 3
     """COMPLEX means that a complex key or value will be searched"""
 
-    CUSTOM = SearchRequest.Type.V(4)
+    CUSTOM: SearchRequest.Type.ValueType  # 4
     """CUSTOM means that custom schema is used. Path prefix is mandatory in query."""
 
 
@@ -410,21 +415,21 @@ class SearchRequest(google.protobuf.message.Message):
     RESULT_SIZE_FIELD_NUMBER: builtins.int
     OFFSET_FIELD_NUMBER: builtins.int
     META_FIELD_NUMBER: builtins.int
-    search: typing.Text = ...
+    search: typing.Text
     """A search string"""
 
-    search_type: global___SearchRequest.Type.V = ...
+    search_type: global___SearchRequest.Type.ValueType
     """The type of value that's being searched."""
 
     @property
     def query(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Query]:
         """Filter on specific datasets and paths."""
         pass
-    start: builtins.int = ...
+    start: builtins.int
     """Start and end time of the notifications returned, inclusive."""
 
-    end: builtins.int = ...
-    count_only: builtins.bool = ...
+    end: builtins.int
+    count_only: builtins.bool
     """Return only the number of results"""
 
     @property
@@ -439,7 +444,7 @@ class SearchRequest(google.protobuf.message.Message):
     def sort(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Sort]:
         """Sort criteria"""
         pass
-    exact_range: builtins.bool = ...
+    exact_range: builtins.bool
     """(Optional) Whether to return the initial state of the requested paths at time `start`.
     The "initial state" is the set of notifications that fully specify the state of the path at
     that time. It includes all relevant notifications before (and up to) `start`.
@@ -450,16 +455,16 @@ class SearchRequest(google.protobuf.message.Message):
     def sharded_sub(self) -> sharding_pb2.Sharding:
         """(Optional) Set NumParentShards field >= 1 to enable multi-tenant search"""
         pass
-    exact_term: builtins.bool = ...
+    exact_term: builtins.bool
     """(Optional) whether search exact term or not, useful for string search"""
 
-    result_size: builtins.int = ...
+    result_size: builtins.int
     """For pagination
 
     Total number of notification to get back in the response
     """
 
-    offset: builtins.int = ...
+    offset: builtins.int
     """Numeric offset as starting point for next page of result"""
 
     @property
@@ -468,21 +473,21 @@ class SearchRequest(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        search : typing.Text = ...,
-        search_type : global___SearchRequest.Type.V = ...,
-        query : typing.Optional[typing.Iterable[global___Query]] = ...,
-        start : builtins.int = ...,
-        end : builtins.int = ...,
-        count_only : builtins.bool = ...,
-        key_filters : typing.Optional[typing.Iterable[global___Filter]] = ...,
-        value_filters : typing.Optional[typing.Iterable[global___Filter]] = ...,
-        sort : typing.Optional[typing.Iterable[global___Sort]] = ...,
-        exact_range : builtins.bool = ...,
-        sharded_sub : typing.Optional[sharding_pb2.Sharding] = ...,
-        exact_term : builtins.bool = ...,
-        result_size : builtins.int = ...,
-        offset : builtins.int = ...,
-        meta : typing.Optional[notification_pb2.NotificationBatch] = ...,
+        search: typing.Text = ...,
+        search_type: global___SearchRequest.Type.ValueType = ...,
+        query: typing.Optional[typing.Iterable[global___Query]] = ...,
+        start: builtins.int = ...,
+        end: builtins.int = ...,
+        count_only: builtins.bool = ...,
+        key_filters: typing.Optional[typing.Iterable[global___Filter]] = ...,
+        value_filters: typing.Optional[typing.Iterable[global___Filter]] = ...,
+        sort: typing.Optional[typing.Iterable[global___Sort]] = ...,
+        exact_range: builtins.bool = ...,
+        sharded_sub: typing.Optional[sharding_pb2.Sharding] = ...,
+        exact_term: builtins.bool = ...,
+        result_size: builtins.int = ...,
+        offset: builtins.int = ...,
+        meta: typing.Optional[notification_pb2.NotificationBatch] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["meta",b"meta","sharded_sub",b"sharded_sub"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["count_only",b"count_only","end",b"end","exact_range",b"exact_range","exact_term",b"exact_term","key_filters",b"key_filters","meta",b"meta","offset",b"offset","query",b"query","result_size",b"result_size","search",b"search","search_type",b"search_type","sharded_sub",b"sharded_sub","sort",b"sort","start",b"start","value_filters",b"value_filters"]) -> None: ...
@@ -490,108 +495,109 @@ global___SearchRequest = SearchRequest
 
 class Filter(google.protobuf.message.Message):
     """field name and filter value"""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    class Operator(_Operator, metaclass=_OperatorEnumTypeWrapper):
-        pass
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class _Operator:
-        V = typing.NewType('V', builtins.int)
-    class _OperatorEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Operator.V], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-        EQ = Filter.Operator.V(0)
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _OperatorEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Filter._Operator.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        EQ: Filter._Operator.ValueType  # 0
         """equal to"""
 
-        NEQ = Filter.Operator.V(1)
+        NEQ: Filter._Operator.ValueType  # 1
         """not equal to"""
 
-        GT = Filter.Operator.V(2)
+        GT: Filter._Operator.ValueType  # 2
         """greater than"""
 
-        GE = Filter.Operator.V(3)
+        GE: Filter._Operator.ValueType  # 3
         """greater than or equal to"""
 
-        LT = Filter.Operator.V(4)
+        LT: Filter._Operator.ValueType  # 4
         """less than"""
 
-        LE = Filter.Operator.V(5)
+        LE: Filter._Operator.ValueType  # 5
         """less than or equal to"""
 
-        RE = Filter.Operator.V(6)
+        RE: Filter._Operator.ValueType  # 6
         """regex"""
 
-        NRE = Filter.Operator.V(7)
+        NRE: Filter._Operator.ValueType  # 7
         """not regex"""
 
-        IN = Filter.Operator.V(8)
+        IN: Filter._Operator.ValueType  # 8
         """in"""
 
-        NIN = Filter.Operator.V(9)
+        NIN: Filter._Operator.ValueType  # 9
         """not in"""
 
-        SUB = Filter.Operator.V(10)
+        SUB: Filter._Operator.ValueType  # 10
         """substring (prefix substring)"""
 
-        WILDCARD = Filter.Operator.V(11)
+        WILDCARD: Filter._Operator.ValueType  # 11
         """wildcard query (for custom index only)"""
 
-        BITMASK = Filter.Operator.V(16)
+        BITMASK: Filter._Operator.ValueType  # 16
         """filter on bitmask bit(s) are set. Only applicable for integer fields"""
 
-        LOGICALOR = Filter.Operator.V(20)
+        LOGICALOR: Filter._Operator.ValueType  # 20
         """Logical OR operator to be used between two filters"""
 
-        LOGICALAND = Filter.Operator.V(21)
+        LOGICALAND: Filter._Operator.ValueType  # 21
         """Logical AND operator to be used between two filters"""
 
+    class Operator(_Operator, metaclass=_OperatorEnumTypeWrapper):
+        pass
 
-    EQ = Filter.Operator.V(0)
+    EQ: Filter.Operator.ValueType  # 0
     """equal to"""
 
-    NEQ = Filter.Operator.V(1)
+    NEQ: Filter.Operator.ValueType  # 1
     """not equal to"""
 
-    GT = Filter.Operator.V(2)
+    GT: Filter.Operator.ValueType  # 2
     """greater than"""
 
-    GE = Filter.Operator.V(3)
+    GE: Filter.Operator.ValueType  # 3
     """greater than or equal to"""
 
-    LT = Filter.Operator.V(4)
+    LT: Filter.Operator.ValueType  # 4
     """less than"""
 
-    LE = Filter.Operator.V(5)
+    LE: Filter.Operator.ValueType  # 5
     """less than or equal to"""
 
-    RE = Filter.Operator.V(6)
+    RE: Filter.Operator.ValueType  # 6
     """regex"""
 
-    NRE = Filter.Operator.V(7)
+    NRE: Filter.Operator.ValueType  # 7
     """not regex"""
 
-    IN = Filter.Operator.V(8)
+    IN: Filter.Operator.ValueType  # 8
     """in"""
 
-    NIN = Filter.Operator.V(9)
+    NIN: Filter.Operator.ValueType  # 9
     """not in"""
 
-    SUB = Filter.Operator.V(10)
+    SUB: Filter.Operator.ValueType  # 10
     """substring (prefix substring)"""
 
-    WILDCARD = Filter.Operator.V(11)
+    WILDCARD: Filter.Operator.ValueType  # 11
     """wildcard query (for custom index only)"""
 
-    BITMASK = Filter.Operator.V(16)
+    BITMASK: Filter.Operator.ValueType  # 16
     """filter on bitmask bit(s) are set. Only applicable for integer fields"""
 
-    LOGICALOR = Filter.Operator.V(20)
+    LOGICALOR: Filter.Operator.ValueType  # 20
     """Logical OR operator to be used between two filters"""
 
-    LOGICALAND = Filter.Operator.V(21)
+    LOGICALAND: Filter.Operator.ValueType  # 21
     """Logical AND operator to be used between two filters"""
 
 
     class Value(google.protobuf.message.Message):
         """Value, normalized"""
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
         STR_FIELD_NUMBER: builtins.int
         INT_FIELD_NUMBER: builtins.int
         UINT_FIELD_NUMBER: builtins.int
@@ -601,45 +607,45 @@ class Filter(google.protobuf.message.Message):
         MAC_FIELD_NUMBER: builtins.int
         COMP_FIELD_NUMBER: builtins.int
         MULTI_FIELD_NUMBER: builtins.int
-        str: typing.Text = ...
-        int: builtins.int = ...
-        uint: builtins.int = ...
-        float: builtins.float = ...
-        b: builtins.bool = ...
-        ip: typing.Text = ...
-        mac: typing.Text = ...
+        str: typing.Text
+        int: builtins.int
+        uint: builtins.int
+        float: builtins.float
+        b: builtins.bool
+        ip: typing.Text
+        mac: typing.Text
         @property
         def comp(self) -> global___Filter.ComponentValue: ...
         @property
         def multi(self) -> global___Filter.MultiValue: ...
         def __init__(self,
             *,
-            str : typing.Text = ...,
-            int : builtins.int = ...,
-            uint : builtins.int = ...,
-            float : builtins.float = ...,
-            b : builtins.bool = ...,
-            ip : typing.Text = ...,
-            mac : typing.Text = ...,
-            comp : typing.Optional[global___Filter.ComponentValue] = ...,
-            multi : typing.Optional[global___Filter.MultiValue] = ...,
+            str: typing.Text = ...,
+            int: builtins.int = ...,
+            uint: builtins.int = ...,
+            float: builtins.float = ...,
+            b: builtins.bool = ...,
+            ip: typing.Text = ...,
+            mac: typing.Text = ...,
+            comp: typing.Optional[global___Filter.ComponentValue] = ...,
+            multi: typing.Optional[global___Filter.MultiValue] = ...,
             ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["b",b"b","comp",b"comp","float",b"float","int",b"int","ip",b"ip","kind",b"kind","mac",b"mac","multi",b"multi","str",b"str","uint",b"uint"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["b",b"b","comp",b"comp","float",b"float","int",b"int","ip",b"ip","kind",b"kind","mac",b"mac","multi",b"multi","str",b"str","uint",b"uint"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["kind",b"kind"]) -> typing.Optional[typing_extensions.Literal["str","int","uint","float","b","ip","mac","comp","multi"]]: ...
 
     class ComponentValue(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
         class ValueEntry(google.protobuf.message.Message):
-            DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+            DESCRIPTOR: google.protobuf.descriptor.Descriptor
             KEY_FIELD_NUMBER: builtins.int
             VALUE_FIELD_NUMBER: builtins.int
-            key: typing.Text = ...
-            value: typing.Text = ...
+            key: typing.Text
+            value: typing.Text
             def __init__(self,
                 *,
-                key : typing.Text = ...,
-                value : typing.Text = ...,
+                key: typing.Text = ...,
+                value: typing.Text = ...,
                 ) -> None: ...
             def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
 
@@ -648,18 +654,18 @@ class Filter(google.protobuf.message.Message):
         def value(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
         def __init__(self,
             *,
-            value : typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+            value: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
             ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["value",b"value"]) -> None: ...
 
     class MultiValue(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
         VALUES_FIELD_NUMBER: builtins.int
         @property
         def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Filter.Value]: ...
         def __init__(self,
             *,
-            values : typing.Optional[typing.Iterable[global___Filter.Value]] = ...,
+            values: typing.Optional[typing.Iterable[global___Filter.Value]] = ...,
             ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["values",b"values"]) -> None: ...
 
@@ -668,8 +674,8 @@ class Filter(google.protobuf.message.Message):
     VALUE_FIELD_NUMBER: builtins.int
     NESTED_FIELD_FIELD_NUMBER: builtins.int
     SUB_FILTERS_FIELD_NUMBER: builtins.int
-    field: typing.Text = ...
-    op: global___Filter.Operator.V = ...
+    field: typing.Text
+    op: global___Filter.Operator.ValueType
     @property
     def value(self) -> global___Filter.Value: ...
     @property
@@ -685,61 +691,62 @@ class Filter(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        field : typing.Text = ...,
-        op : global___Filter.Operator.V = ...,
-        value : typing.Optional[global___Filter.Value] = ...,
-        nested_field : typing.Optional[typing.Iterable[typing.Text]] = ...,
-        sub_filters : typing.Optional[typing.Iterable[global___Filter]] = ...,
+        field: typing.Text = ...,
+        op: global___Filter.Operator.ValueType = ...,
+        value: typing.Optional[global___Filter.Value] = ...,
+        nested_field: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        sub_filters: typing.Optional[typing.Iterable[global___Filter]] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["value",b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["field",b"field","nested_field",b"nested_field","op",b"op","sub_filters",b"sub_filters","value",b"value"]) -> None: ...
 global___Filter = Filter
 
 class Aggregate(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    class Type(_Type, metaclass=_TypeEnumTypeWrapper):
-        pass
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class _Type:
-        V = typing.NewType('V', builtins.int)
-    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Type.V], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-        Invalid = Aggregate.Type.V(0)
-        TERM = Aggregate.Type.V(1)
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Aggregate._Type.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        Invalid: Aggregate._Type.ValueType  # 0
+        TERM: Aggregate._Type.ValueType  # 1
         """Type of bucket aggregation where different buckets are created based on field values"""
 
-        SUM = Aggregate.Type.V(2)
+        SUM: Aggregate._Type.ValueType  # 2
         """SUM aggregation where numeric summation is calculated on field values"""
 
-        AVG = Aggregate.Type.V(3)
+        AVG: Aggregate._Type.ValueType  # 3
         """AVG aggregation where numeric average is calculated on field values"""
 
-        MAX = Aggregate.Type.V(4)
+        MAX: Aggregate._Type.ValueType  # 4
         """MAX aggregation where numeric maximum is returned amongst the field values"""
 
-        MIN = Aggregate.Type.V(5)
+        MIN: Aggregate._Type.ValueType  # 5
         """MIN aggregation where numeric minimum is returned amongst the field values"""
 
-        HIST = Aggregate.Type.V(6)
+        HIST: Aggregate._Type.ValueType  # 6
         """histogram bucketing/aggregation on numeric field value"""
 
+    class Type(_Type, metaclass=_TypeEnumTypeWrapper):
+        pass
 
-    Invalid = Aggregate.Type.V(0)
-    TERM = Aggregate.Type.V(1)
+    Invalid: Aggregate.Type.ValueType  # 0
+    TERM: Aggregate.Type.ValueType  # 1
     """Type of bucket aggregation where different buckets are created based on field values"""
 
-    SUM = Aggregate.Type.V(2)
+    SUM: Aggregate.Type.ValueType  # 2
     """SUM aggregation where numeric summation is calculated on field values"""
 
-    AVG = Aggregate.Type.V(3)
+    AVG: Aggregate.Type.ValueType  # 3
     """AVG aggregation where numeric average is calculated on field values"""
 
-    MAX = Aggregate.Type.V(4)
+    MAX: Aggregate.Type.ValueType  # 4
     """MAX aggregation where numeric maximum is returned amongst the field values"""
 
-    MIN = Aggregate.Type.V(5)
+    MIN: Aggregate.Type.ValueType  # 5
     """MIN aggregation where numeric minimum is returned amongst the field values"""
 
-    HIST = Aggregate.Type.V(6)
+    HIST: Aggregate.Type.ValueType  # 6
     """histogram bucketing/aggregation on numeric field value"""
 
 
@@ -749,7 +756,7 @@ class Aggregate(google.protobuf.message.Message):
     SUB_AGGRS_FIELD_NUMBER: builtins.int
     TERM_FIELD_NUMBER: builtins.int
     HIST_FIELD_NUMBER: builtins.int
-    aggr_type: global___Aggregate.Type.V = ...
+    aggr_type: global___Aggregate.Type.ValueType
     """Type of aggregation being requested"""
 
     @property
@@ -760,7 +767,7 @@ class Aggregate(google.protobuf.message.Message):
         All the combinations need to be predecided at schema creation time only.
         """
         pass
-    sort: global___SortType.V = ...
+    sort: global___SortType.ValueType
     """For sorting on aggregated outcome. Applicable only for numeric aggregation."""
 
     @property
@@ -777,12 +784,12 @@ class Aggregate(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        aggr_type : global___Aggregate.Type.V = ...,
-        fields : typing.Optional[typing.Iterable[typing.Text]] = ...,
-        sort : global___SortType.V = ...,
-        sub_aggrs : typing.Optional[typing.Iterable[global___Aggregate]] = ...,
-        term : typing.Optional[global___term_options] = ...,
-        hist : typing.Optional[global___hist_options] = ...,
+        aggr_type: global___Aggregate.Type.ValueType = ...,
+        fields: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        sort: global___SortType.ValueType = ...,
+        sub_aggrs: typing.Optional[typing.Iterable[global___Aggregate]] = ...,
+        term: typing.Optional[global___term_options] = ...,
+        hist: typing.Optional[global___hist_options] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["Option",b"Option","hist",b"hist","term",b"term"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["Option",b"Option","aggr_type",b"aggr_type","fields",b"fields","hist",b"hist","sort",b"sort","sub_aggrs",b"sub_aggrs","term",b"term"]) -> None: ...
@@ -790,68 +797,69 @@ class Aggregate(google.protobuf.message.Message):
 global___Aggregate = Aggregate
 
 class term_options(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    class _Type:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[term_options._Type.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        UNSPECIFIED: term_options._Type.ValueType  # 0
+        BOOL: term_options._Type.ValueType  # 1
+        DOUBLE: term_options._Type.ValueType  # 2
+        LONG: term_options._Type.ValueType  # 3
+        STRING: term_options._Type.ValueType  # 4
+        COMPONENT: term_options._Type.ValueType  # 5
+        IP: term_options._Type.ValueType  # 6
+        MAC: term_options._Type.ValueType  # 7
     class Type(_Type, metaclass=_TypeEnumTypeWrapper):
         """For providing type hint"""
         pass
-    class _Type:
-        V = typing.NewType('V', builtins.int)
-    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Type.V], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-        UNSPECIFIED = term_options.Type.V(0)
-        BOOL = term_options.Type.V(1)
-        DOUBLE = term_options.Type.V(2)
-        LONG = term_options.Type.V(3)
-        STRING = term_options.Type.V(4)
-        COMPONENT = term_options.Type.V(5)
-        IP = term_options.Type.V(6)
-        MAC = term_options.Type.V(7)
 
-    UNSPECIFIED = term_options.Type.V(0)
-    BOOL = term_options.Type.V(1)
-    DOUBLE = term_options.Type.V(2)
-    LONG = term_options.Type.V(3)
-    STRING = term_options.Type.V(4)
-    COMPONENT = term_options.Type.V(5)
-    IP = term_options.Type.V(6)
-    MAC = term_options.Type.V(7)
+    UNSPECIFIED: term_options.Type.ValueType  # 0
+    BOOL: term_options.Type.ValueType  # 1
+    DOUBLE: term_options.Type.ValueType  # 2
+    LONG: term_options.Type.ValueType  # 3
+    STRING: term_options.Type.ValueType  # 4
+    COMPONENT: term_options.Type.ValueType  # 5
+    IP: term_options.Type.ValueType  # 6
+    MAC: term_options.Type.ValueType  # 7
 
     NUM_OF_BUCKETS_FIELD_NUMBER: builtins.int
     FIELD_TYPE_FIELD_NUMBER: builtins.int
-    num_of_buckets: builtins.int = ...
+    num_of_buckets: builtins.int
     """For controlling maximum number of buckets"""
 
-    field_type: global___term_options.Type.V = ...
+    field_type: global___term_options.Type.ValueType
     def __init__(self,
         *,
-        num_of_buckets : builtins.int = ...,
-        field_type : global___term_options.Type.V = ...,
+        num_of_buckets: builtins.int = ...,
+        field_type: global___term_options.Type.ValueType = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["field_type",b"field_type","num_of_buckets",b"num_of_buckets"]) -> None: ...
 global___term_options = term_options
 
 class hist_options(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class bounds(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
         MIN_FIELD_NUMBER: builtins.int
         MAX_FIELD_NUMBER: builtins.int
-        min: builtins.int = ...
-        max: builtins.int = ...
+        min: builtins.int
+        max: builtins.int
         def __init__(self,
             *,
-            min : builtins.int = ...,
-            max : builtins.int = ...,
+            min: builtins.int = ...,
+            max: builtins.int = ...,
             ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["max",b"max","min",b"min"]) -> None: ...
 
     INTERVAL_FIELD_NUMBER: builtins.int
     ALLOW_EMPTY_FIELD_NUMBER: builtins.int
     EXTENDED_BOUNDS_FIELD_NUMBER: builtins.int
-    interval: builtins.int = ...
+    interval: builtins.int
     """mandatory"""
 
-    allow_empty: builtins.bool = ...
+    allow_empty: builtins.bool
     """optional"""
 
     @property
@@ -860,16 +868,16 @@ class hist_options(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        interval : builtins.int = ...,
-        allow_empty : builtins.bool = ...,
-        extended_bounds : typing.Optional[global___hist_options.bounds] = ...,
+        interval: builtins.int = ...,
+        allow_empty: builtins.bool = ...,
+        extended_bounds: typing.Optional[global___hist_options.bounds] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["extended_bounds",b"extended_bounds"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["allow_empty",b"allow_empty","extended_bounds",b"extended_bounds","interval",b"interval"]) -> None: ...
 global___hist_options = hist_options
 
 class SearchRequestWithAggr(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     SEARCH_FIELD_NUMBER: builtins.int
     AGGRS_FIELD_NUMBER: builtins.int
     @property
@@ -882,28 +890,28 @@ class SearchRequestWithAggr(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        search : typing.Optional[global___SearchRequest] = ...,
-        aggrs : typing.Optional[typing.Iterable[global___Aggregate]] = ...,
+        search: typing.Optional[global___SearchRequest] = ...,
+        aggrs: typing.Optional[typing.Iterable[global___Aggregate]] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["search",b"search"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["aggrs",b"aggrs","search",b"search"]) -> None: ...
 global___SearchRequestWithAggr = SearchRequestWithAggr
 
 class ByteStream(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     MESSAGE_FIELD_NUMBER: builtins.int
-    message: builtins.bytes = ...
+    message: builtins.bytes
     """Message is an array of bytes"""
 
     def __init__(self,
         *,
-        message : builtins.bytes = ...,
+        message: builtins.bytes = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["message",b"message"]) -> None: ...
 global___ByteStream = ByteStream
 
 class AggrResponse(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     BUCKETS_FIELD_NUMBER: builtins.int
     FIELDS_FIELD_NUMBER: builtins.int
     @property
@@ -916,26 +924,26 @@ class AggrResponse(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        buckets : typing.Optional[typing.Iterable[global___AggrBucket]] = ...,
-        fields : typing.Optional[typing.Iterable[global___AggrField]] = ...,
+        buckets: typing.Optional[typing.Iterable[global___AggrBucket]] = ...,
+        fields: typing.Optional[typing.Iterable[global___AggrField]] = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["buckets",b"buckets","fields",b"fields"]) -> None: ...
 global___AggrResponse = AggrResponse
 
 class AggrBucket(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
     COUNT_FIELD_NUMBER: builtins.int
     AGGR_NAME_FIELD_NUMBER: builtins.int
     FIELDS_FIELD_NUMBER: builtins.int
     SUB_BUCKETS_FIELD_NUMBER: builtins.int
-    key: typing.Text = ...
+    key: typing.Text
     """key of the bucket"""
 
-    count: builtins.int = ...
+    count: builtins.int
     """count of matching document"""
 
-    aggr_name: typing.Text = ...
+    aggr_name: typing.Text
     """aggr_name has name of the aggregation to which these buckets belong to
     this is useful when there are multiple top level aggregations
     Name is formed by prepending aggregation type to the field name
@@ -952,62 +960,62 @@ class AggrBucket(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        key : typing.Text = ...,
-        count : builtins.int = ...,
-        aggr_name : typing.Text = ...,
-        fields : typing.Optional[typing.Iterable[global___AggrField]] = ...,
-        sub_buckets : typing.Optional[typing.Iterable[global___AggrBucket]] = ...,
+        key: typing.Text = ...,
+        count: builtins.int = ...,
+        aggr_name: typing.Text = ...,
+        fields: typing.Optional[typing.Iterable[global___AggrField]] = ...,
+        sub_buckets: typing.Optional[typing.Iterable[global___AggrBucket]] = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["aggr_name",b"aggr_name","count",b"count","fields",b"fields","key",b"key","sub_buckets",b"sub_buckets"]) -> None: ...
 global___AggrBucket = AggrBucket
 
 class AggrField(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     NAME_FIELD_NUMBER: builtins.int
     VALUE_FIELD_NUMBER: builtins.int
-    name: typing.Text = ...
+    name: typing.Text
     """Name of the field
     Name is formed by prepending aggregation type to the field name.
     SUM for field ["a","b","c"] would be SUMabc
     """
 
-    value: builtins.float = ...
+    value: builtins.float
     """Field value"""
 
     def __init__(self,
         *,
-        name : typing.Text = ...,
-        value : builtins.float = ...,
+        name: typing.Text = ...,
+        value: builtins.float = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["name",b"name","value",b"value"]) -> None: ...
 global___AggrField = AggrField
 
 class IndexField(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     NAME_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     SUB_FIELD_FIELD_NUMBER: builtins.int
-    name: typing.Text = ...
-    type: global___IndexDataType.V = ...
+    name: typing.Text
+    type: global___IndexDataType.ValueType
     @property
     def sub_field(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___IndexField]: ...
     def __init__(self,
         *,
-        name : typing.Text = ...,
-        type : global___IndexDataType.V = ...,
-        sub_field : typing.Optional[typing.Iterable[global___IndexField]] = ...,
+        name: typing.Text = ...,
+        type: global___IndexDataType.ValueType = ...,
+        sub_field: typing.Optional[typing.Iterable[global___IndexField]] = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["name",b"name","sub_field",b"sub_field","type",b"type"]) -> None: ...
 global___IndexField = IndexField
 
 class CustomIndexOptions(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     DELETE_AFTER_DAYS_FIELD_NUMBER: builtins.int
     INUSE_DELETE_AFTER_DAYS_FIELD_NUMBER: builtins.int
-    delete_after_days: builtins.int = ...
+    delete_after_days: builtins.int
     """delete_after_days is requested days after which data should get deleted"""
 
-    inuse_delete_after_days: builtins.int = ...
+    inuse_delete_after_days: builtins.int
     """inuse_delete_after_days is what is actually in use.
     This is guaranteed to be atleast delete_after_days.
     delete_after_days may get modified based on index rotation policy by Cloudvision
@@ -1015,14 +1023,14 @@ class CustomIndexOptions(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        delete_after_days : builtins.int = ...,
-        inuse_delete_after_days : builtins.int = ...,
+        delete_after_days: builtins.int = ...,
+        inuse_delete_after_days: builtins.int = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["delete_after_days",b"delete_after_days","inuse_delete_after_days",b"inuse_delete_after_days"]) -> None: ...
 global___CustomIndexOptions = CustomIndexOptions
 
 class CustomIndexSchema(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     QUERY_FIELD_NUMBER: builtins.int
     SCHEMA_FIELD_NUMBER: builtins.int
     OPTION_FIELD_NUMBER: builtins.int
@@ -1034,29 +1042,29 @@ class CustomIndexSchema(google.protobuf.message.Message):
     def option(self) -> global___CustomIndexOptions: ...
     def __init__(self,
         *,
-        query : typing.Optional[global___Query] = ...,
-        schema : typing.Optional[typing.Iterable[global___IndexField]] = ...,
-        option : typing.Optional[global___CustomIndexOptions] = ...,
+        query: typing.Optional[global___Query] = ...,
+        schema: typing.Optional[typing.Iterable[global___IndexField]] = ...,
+        option: typing.Optional[global___CustomIndexOptions] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["option",b"option","query",b"query"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["option",b"option","query",b"query","schema",b"schema"]) -> None: ...
 global___CustomIndexSchema = CustomIndexSchema
 
 class CustomIndexSchemaDel(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     QUERY_FIELD_NUMBER: builtins.int
     DELETE_DATA_FIELD_NUMBER: builtins.int
     @property
     def query(self) -> global___Query: ...
-    delete_data: builtins.bool = ...
+    delete_data: builtins.bool
     """if delete_data is set, then all the data along with schema defintion is deleted.
     Data deletion is non recoverable operation !
     """
 
     def __init__(self,
         *,
-        query : typing.Optional[global___Query] = ...,
-        delete_data : builtins.bool = ...,
+        query: typing.Optional[global___Query] = ...,
+        delete_data: builtins.bool = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["query",b"query"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["delete_data",b"delete_data","query",b"query"]) -> None: ...
@@ -1064,7 +1072,7 @@ global___CustomIndexSchemaDel = CustomIndexSchemaDel
 
 class PublishRequest(google.protobuf.message.Message):
     """PublishRequest"""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     BATCH_FIELD_NUMBER: builtins.int
     SYNC_FIELD_NUMBER: builtins.int
     COMPARE_FIELD_NUMBER: builtins.int
@@ -1072,7 +1080,7 @@ class PublishRequest(google.protobuf.message.Message):
     def batch(self) -> notification_pb2.NotificationBatch:
         """The batch of notification sent to Cloudvision"""
         pass
-    sync: builtins.bool = ...
+    sync: builtins.bool
     """Used to have a synchronous or asynchronous write to the Cloudvision storage"""
 
     @property
@@ -1090,9 +1098,9 @@ class PublishRequest(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        batch : typing.Optional[notification_pb2.NotificationBatch] = ...,
-        sync : builtins.bool = ...,
-        compare : typing.Optional[notification_pb2.Notification.Update] = ...,
+        batch: typing.Optional[notification_pb2.NotificationBatch] = ...,
+        sync: builtins.bool = ...,
+        compare: typing.Optional[notification_pb2.Notification.Update] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["batch",b"batch","compare",b"compare"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["batch",b"batch","compare",b"compare","sync",b"sync"]) -> None: ...
@@ -1100,7 +1108,7 @@ global___PublishRequest = PublishRequest
 
 class DatasetsRequest(google.protobuf.message.Message):
     """DatasetsRequest"""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     TYPES_FIELD_NUMBER: builtins.int
     SHARDED_SUB_FIELD_NUMBER: builtins.int
     PARENT_FIELD_NUMBER: builtins.int
@@ -1112,34 +1120,34 @@ class DatasetsRequest(google.protobuf.message.Message):
     def parent(self) -> notification_pb2.Dataset: ...
     def __init__(self,
         *,
-        types : typing.Optional[typing.Iterable[typing.Text]] = ...,
-        sharded_sub : typing.Optional[sharding_pb2.Sharding] = ...,
-        parent : typing.Optional[notification_pb2.Dataset] = ...,
+        types: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        sharded_sub: typing.Optional[sharding_pb2.Sharding] = ...,
+        parent: typing.Optional[notification_pb2.Dataset] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["parent",b"parent","sharded_sub",b"sharded_sub"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["parent",b"parent","sharded_sub",b"sharded_sub","types",b"types"]) -> None: ...
 global___DatasetsRequest = DatasetsRequest
 
 class DatasetsResponse(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     DATASETS_FIELD_NUMBER: builtins.int
     @property
     def datasets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[notification_pb2.Dataset]: ...
     def __init__(self,
         *,
-        datasets : typing.Optional[typing.Iterable[notification_pb2.Dataset]] = ...,
+        datasets: typing.Optional[typing.Iterable[notification_pb2.Dataset]] = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["datasets",b"datasets"]) -> None: ...
 global___DatasetsResponse = DatasetsResponse
 
 class CreateDatasetRequest(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     DATASET_FIELD_NUMBER: builtins.int
     @property
     def dataset(self) -> notification_pb2.Dataset: ...
     def __init__(self,
         *,
-        dataset : typing.Optional[notification_pb2.Dataset] = ...,
+        dataset: typing.Optional[notification_pb2.Dataset] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["dataset",b"dataset"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["dataset",b"dataset"]) -> None: ...
@@ -1152,44 +1160,46 @@ class SetPermissionRequest(google.protobuf.message.Message):
     ADMIN_PERMISSION reuses @path but only looks at the @perm field of the first element.
     Updates require the the client to pass `oldPerm` to avoid race conditions.
     """
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    class _Type:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[SetPermissionRequest._Type.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        PATH_PERMISSION: SetPermissionRequest._Type.ValueType  # 0
+        INHERIT_PERMISSION: SetPermissionRequest._Type.ValueType  # 1
+        UNINHERIT_PERMISSION: SetPermissionRequest._Type.ValueType  # 2
+        ADMIN_PERMISSION: SetPermissionRequest._Type.ValueType  # 3
+        SET_ROLE_PERMISSION: SetPermissionRequest._Type.ValueType  # 4
+        REMOVE_ROLE_PERMISSION: SetPermissionRequest._Type.ValueType  # 5
     class Type(_Type, metaclass=_TypeEnumTypeWrapper):
         pass
-    class _Type:
-        V = typing.NewType('V', builtins.int)
-    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Type.V], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-        PATH_PERMISSION = SetPermissionRequest.Type.V(0)
-        INHERIT_PERMISSION = SetPermissionRequest.Type.V(1)
-        UNINHERIT_PERMISSION = SetPermissionRequest.Type.V(2)
-        ADMIN_PERMISSION = SetPermissionRequest.Type.V(3)
-        SET_ROLE_PERMISSION = SetPermissionRequest.Type.V(4)
-        REMOVE_ROLE_PERMISSION = SetPermissionRequest.Type.V(5)
 
-    PATH_PERMISSION = SetPermissionRequest.Type.V(0)
-    INHERIT_PERMISSION = SetPermissionRequest.Type.V(1)
-    UNINHERIT_PERMISSION = SetPermissionRequest.Type.V(2)
-    ADMIN_PERMISSION = SetPermissionRequest.Type.V(3)
-    SET_ROLE_PERMISSION = SetPermissionRequest.Type.V(4)
-    REMOVE_ROLE_PERMISSION = SetPermissionRequest.Type.V(5)
+    PATH_PERMISSION: SetPermissionRequest.Type.ValueType  # 0
+    INHERIT_PERMISSION: SetPermissionRequest.Type.ValueType  # 1
+    UNINHERIT_PERMISSION: SetPermissionRequest.Type.ValueType  # 2
+    ADMIN_PERMISSION: SetPermissionRequest.Type.ValueType  # 3
+    SET_ROLE_PERMISSION: SetPermissionRequest.Type.ValueType  # 4
+    REMOVE_ROLE_PERMISSION: SetPermissionRequest.Type.ValueType  # 5
 
     class PathPerm(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+        class _Perm:
+            ValueType = typing.NewType('ValueType', builtins.int)
+            V: typing_extensions.TypeAlias = ValueType
+        class _PermEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[SetPermissionRequest.PathPerm._Perm.ValueType], builtins.type):
+            DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+            NULL_PERM_VALUE: SetPermissionRequest.PathPerm._Perm.ValueType  # 0
+            READ_PERM: SetPermissionRequest.PathPerm._Perm.ValueType  # 1
+            WRITE_PERM: SetPermissionRequest.PathPerm._Perm.ValueType  # 2
+            READ_WRITE_PERM: SetPermissionRequest.PathPerm._Perm.ValueType  # 3
         class Perm(_Perm, metaclass=_PermEnumTypeWrapper):
             pass
-        class _Perm:
-            V = typing.NewType('V', builtins.int)
-        class _PermEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Perm.V], builtins.type):
-            DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-            NULL_PERM_VALUE = SetPermissionRequest.PathPerm.Perm.V(0)
-            READ_PERM = SetPermissionRequest.PathPerm.Perm.V(1)
-            WRITE_PERM = SetPermissionRequest.PathPerm.Perm.V(2)
-            READ_WRITE_PERM = SetPermissionRequest.PathPerm.Perm.V(3)
 
-        NULL_PERM_VALUE = SetPermissionRequest.PathPerm.Perm.V(0)
-        READ_PERM = SetPermissionRequest.PathPerm.Perm.V(1)
-        WRITE_PERM = SetPermissionRequest.PathPerm.Perm.V(2)
-        READ_WRITE_PERM = SetPermissionRequest.PathPerm.Perm.V(3)
+        NULL_PERM_VALUE: SetPermissionRequest.PathPerm.Perm.ValueType  # 0
+        READ_PERM: SetPermissionRequest.PathPerm.Perm.ValueType  # 1
+        WRITE_PERM: SetPermissionRequest.PathPerm.Perm.ValueType  # 2
+        READ_WRITE_PERM: SetPermissionRequest.PathPerm.Perm.ValueType  # 3
 
         PATH_FIELD_NUMBER: builtins.int
         NEWPERM_FIELD_NUMBER: builtins.int
@@ -1197,15 +1207,15 @@ class SetPermissionRequest(google.protobuf.message.Message):
         EXACTMATCH_FIELD_NUMBER: builtins.int
         @property
         def path(self) -> global___Path: ...
-        newPerm: global___SetPermissionRequest.PathPerm.Perm.V = ...
-        currentPerm: global___SetPermissionRequest.PathPerm.Perm.V = ...
-        exactMatch: builtins.bool = ...
+        newPerm: global___SetPermissionRequest.PathPerm.Perm.ValueType
+        currentPerm: global___SetPermissionRequest.PathPerm.Perm.ValueType
+        exactMatch: builtins.bool
         def __init__(self,
             *,
-            path : typing.Optional[global___Path] = ...,
-            newPerm : global___SetPermissionRequest.PathPerm.Perm.V = ...,
-            currentPerm : global___SetPermissionRequest.PathPerm.Perm.V = ...,
-            exactMatch : builtins.bool = ...,
+            path: typing.Optional[global___Path] = ...,
+            newPerm: global___SetPermissionRequest.PathPerm.Perm.ValueType = ...,
+            currentPerm: global___SetPermissionRequest.PathPerm.Perm.ValueType = ...,
+            exactMatch: builtins.bool = ...,
             ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["path",b"path"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["currentPerm",b"currentPerm","exactMatch",b"exactMatch","newPerm",b"newPerm","path",b"path"]) -> None: ...
@@ -1214,7 +1224,7 @@ class SetPermissionRequest(google.protobuf.message.Message):
     DATASET_FIELD_NUMBER: builtins.int
     OTHER_FIELD_NUMBER: builtins.int
     PATHPERMS_FIELD_NUMBER: builtins.int
-    type: global___SetPermissionRequest.Type.V = ...
+    type: global___SetPermissionRequest.Type.ValueType
     @property
     def dataset(self) -> notification_pb2.Dataset: ...
     @property
@@ -1223,10 +1233,10 @@ class SetPermissionRequest(google.protobuf.message.Message):
     def pathPerms(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SetPermissionRequest.PathPerm]: ...
     def __init__(self,
         *,
-        type : global___SetPermissionRequest.Type.V = ...,
-        dataset : typing.Optional[notification_pb2.Dataset] = ...,
-        other : typing.Optional[notification_pb2.Dataset] = ...,
-        pathPerms : typing.Optional[typing.Iterable[global___SetPermissionRequest.PathPerm]] = ...,
+        type: global___SetPermissionRequest.Type.ValueType = ...,
+        dataset: typing.Optional[notification_pb2.Dataset] = ...,
+        other: typing.Optional[notification_pb2.Dataset] = ...,
+        pathPerms: typing.Optional[typing.Iterable[global___SetPermissionRequest.PathPerm]] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["dataset",b"dataset","other",b"other"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["dataset",b"dataset","other",b"other","pathPerms",b"pathPerms","type",b"type"]) -> None: ...
@@ -1234,19 +1244,19 @@ global___SetPermissionRequest = SetPermissionRequest
 
 class PermissionSet(google.protobuf.message.Message):
     """A PermissionSet can be represented as a list of SetPermissionRequests"""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PERMISSIONS_FIELD_NUMBER: builtins.int
     @property
     def permissions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SetPermissionRequest]: ...
     def __init__(self,
         *,
-        permissions : typing.Optional[typing.Iterable[global___SetPermissionRequest]] = ...,
+        permissions: typing.Optional[typing.Iterable[global___SetPermissionRequest]] = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["permissions",b"permissions"]) -> None: ...
 global___PermissionSet = PermissionSet
 
 class ClusterDescription(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     TIMESTAMP_FIELD_NUMBER: builtins.int
     CLUSTERNAME_FIELD_NUMBER: builtins.int
     EPOCH_FIELD_NUMBER: builtins.int
@@ -1254,13 +1264,13 @@ class ClusterDescription(google.protobuf.message.Message):
     def timestamp(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """timestamp represent the server's current time."""
         pass
-    clusterName: typing.Text = ...
-    epoch: builtins.int = ...
+    clusterName: typing.Text
+    epoch: builtins.int
     def __init__(self,
         *,
-        timestamp : typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        clusterName : typing.Text = ...,
-        epoch : builtins.int = ...,
+        timestamp: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        clusterName: typing.Text = ...,
+        epoch: builtins.int = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["timestamp",b"timestamp"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["clusterName",b"clusterName","epoch",b"epoch","timestamp",b"timestamp"]) -> None: ...
@@ -1268,16 +1278,16 @@ global___ClusterDescription = ClusterDescription
 
 class SetPasswordRequest(google.protobuf.message.Message):
     """SetPasswordRequest is used to set the password for a dataset."""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     DATASET_FIELD_NUMBER: builtins.int
     PASSWORD_FIELD_NUMBER: builtins.int
     @property
     def dataset(self) -> notification_pb2.Dataset: ...
-    password: typing.Text = ...
+    password: typing.Text
     def __init__(self,
         *,
-        dataset : typing.Optional[notification_pb2.Dataset] = ...,
-        password : typing.Text = ...,
+        dataset: typing.Optional[notification_pb2.Dataset] = ...,
+        password: typing.Text = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["dataset",b"dataset"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["dataset",b"dataset","password",b"password"]) -> None: ...
@@ -1285,16 +1295,16 @@ global___SetPasswordRequest = SetPasswordRequest
 
 class CreateSessionRequest(google.protobuf.message.Message):
     """CreateSessionRequest is used to create session for user"""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     DATASET_FIELD_NUMBER: builtins.int
     TIMEOUT_FIELD_NUMBER: builtins.int
     @property
     def dataset(self) -> notification_pb2.Dataset: ...
-    timeout: builtins.int = ...
+    timeout: builtins.int
     def __init__(self,
         *,
-        dataset : typing.Optional[notification_pb2.Dataset] = ...,
-        timeout : builtins.int = ...,
+        dataset: typing.Optional[notification_pb2.Dataset] = ...,
+        timeout: builtins.int = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["dataset",b"dataset"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["dataset",b"dataset","timeout",b"timeout"]) -> None: ...
@@ -1302,38 +1312,38 @@ global___CreateSessionRequest = CreateSessionRequest
 
 class CreateSessionResponse(google.protobuf.message.Message):
     """CreateSessionResponse returns the issued JWT token"""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     JWTTOKEN_FIELD_NUMBER: builtins.int
     EXPIRY_FIELD_NUMBER: builtins.int
-    jwtToken: typing.Text = ...
-    expiry: builtins.int = ...
+    jwtToken: typing.Text
+    expiry: builtins.int
     def __init__(self,
         *,
-        jwtToken : typing.Text = ...,
-        expiry : builtins.int = ...,
+        jwtToken: typing.Text = ...,
+        expiry: builtins.int = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["expiry",b"expiry","jwtToken",b"jwtToken"]) -> None: ...
 global___CreateSessionResponse = CreateSessionResponse
 
 class SQLRequest(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     QUERY_FIELD_NUMBER: builtins.int
     ARGS_FIELD_NUMBER: builtins.int
-    query: typing.Text = ...
+    query: typing.Text
     @property
     def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.bytes]:
         """Neat encoded values for the arguments to the stmt query"""
         pass
     def __init__(self,
         *,
-        query : typing.Text = ...,
-        args : typing.Optional[typing.Iterable[builtins.bytes]] = ...,
+        query: typing.Text = ...,
+        args: typing.Optional[typing.Iterable[builtins.bytes]] = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["args",b"args","query",b"query"]) -> None: ...
 global___SQLRequest = SQLRequest
 
 class SQLResponseRow(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     VALUES_FIELD_NUMBER: builtins.int
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.bytes]:
@@ -1341,20 +1351,20 @@ class SQLResponseRow(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        values : typing.Optional[typing.Iterable[builtins.bytes]] = ...,
+        values: typing.Optional[typing.Iterable[builtins.bytes]] = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["values",b"values"]) -> None: ...
 global___SQLResponseRow = SQLResponseRow
 
 class SQLResponse(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class Metadata(google.protobuf.message.Message):
         """Metadata, usually returned with the first response.
         But it could return some metadata on any subsequent response, including the last one.
         The message can contain partial data
         (for instance, columns will be only in the first answer)
         """
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
         COLUMNS_FIELD_NUMBER: builtins.int
         @property
         def columns(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
@@ -1364,7 +1374,7 @@ class SQLResponse(google.protobuf.message.Message):
             pass
         def __init__(self,
             *,
-            columns : typing.Optional[typing.Iterable[typing.Text]] = ...,
+            columns: typing.Optional[typing.Iterable[typing.Text]] = ...,
             ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["columns",b"columns"]) -> None: ...
 
@@ -1376,8 +1386,8 @@ class SQLResponse(google.protobuf.message.Message):
     def metadata(self) -> global___SQLResponse.Metadata: ...
     def __init__(self,
         *,
-        rows : typing.Optional[typing.Iterable[global___SQLResponseRow]] = ...,
-        metadata : typing.Optional[global___SQLResponse.Metadata] = ...,
+        rows: typing.Optional[typing.Iterable[global___SQLResponseRow]] = ...,
+        metadata: typing.Optional[global___SQLResponse.Metadata] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["metadata",b"metadata"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["metadata",b"metadata","rows",b"rows"]) -> None: ...
