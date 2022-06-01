@@ -11,8 +11,16 @@ import google.protobuf.timestamp_pb2
 import typing
 import typing_extensions
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
+DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+class _ReplicationState:
+    ValueType = typing.NewType('ValueType', builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+class _ReplicationStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ReplicationState.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    NO_REPLICATION: _ReplicationState.ValueType  # 0
+    REPLICATE: _ReplicationState.ValueType  # 1
+    CACHE_REPLICATE: _ReplicationState.ValueType  # 2
 class ReplicationState(_ReplicationState, metaclass=_ReplicationStateEnumTypeWrapper):
     """ReplicationState represent the level of replication we want to
     apply on a notification. By default there is no replication.
@@ -25,36 +33,29 @@ class ReplicationState(_ReplicationState, metaclass=_ReplicationStateEnumTypeWra
     synchronization.
     """
     pass
-class _ReplicationState:
-    V = typing.NewType('V', builtins.int)
-class _ReplicationStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ReplicationState.V], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-    NO_REPLICATION = ReplicationState.V(0)
-    REPLICATE = ReplicationState.V(1)
-    CACHE_REPLICATE = ReplicationState.V(2)
 
-NO_REPLICATION = ReplicationState.V(0)
-REPLICATE = ReplicationState.V(1)
-CACHE_REPLICATE = ReplicationState.V(2)
+NO_REPLICATION: ReplicationState.ValueType  # 0
+REPLICATE: ReplicationState.ValueType  # 1
+CACHE_REPLICATE: ReplicationState.ValueType  # 2
 global___ReplicationState = ReplicationState
 
 
 class Notification(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class Update(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.bytes = ...
+        key: builtins.bytes
         """encoded"""
 
-        value: builtins.bytes = ...
+        value: builtins.bytes
         """encoded"""
 
         def __init__(self,
             *,
-            key : builtins.bytes = ...,
-            value : builtins.bytes = ...,
+            key: builtins.bytes = ...,
+            value: builtins.bytes = ...,
             ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
 
@@ -69,10 +70,10 @@ class Notification(google.protobuf.message.Message):
     def timestamp(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Timestamp in nanoseconds resolution."""
         pass
-    path: typing.Text = ...
+    path: typing.Text
     """Deprecated"""
 
-    delete_all: builtins.bool = ...
+    delete_all: builtins.bool
     @property
     def deletes(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.bytes]:
         """encoded"""
@@ -89,49 +90,49 @@ class Notification(google.protobuf.message.Message):
         pass
     def __init__(self,
         *,
-        timestamp : typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        path : typing.Text = ...,
-        delete_all : builtins.bool = ...,
-        deletes : typing.Optional[typing.Iterable[builtins.bytes]] = ...,
-        updates : typing.Optional[typing.Iterable[global___Notification.Update]] = ...,
-        retracts : typing.Optional[typing.Iterable[builtins.bytes]] = ...,
-        path_elements : typing.Optional[typing.Iterable[builtins.bytes]] = ...,
+        timestamp: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        path: typing.Text = ...,
+        delete_all: builtins.bool = ...,
+        deletes: typing.Optional[typing.Iterable[builtins.bytes]] = ...,
+        updates: typing.Optional[typing.Iterable[global___Notification.Update]] = ...,
+        retracts: typing.Optional[typing.Iterable[builtins.bytes]] = ...,
+        path_elements: typing.Optional[typing.Iterable[builtins.bytes]] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["timestamp",b"timestamp"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["delete_all",b"delete_all","deletes",b"deletes","path",b"path","path_elements",b"path_elements","retracts",b"retracts","timestamp",b"timestamp","updates",b"updates"]) -> None: ...
 global___Notification = Notification
 
 class Dataset(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     TYPE_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     PARENT_FIELD_NUMBER: builtins.int
-    type: typing.Text = ...
-    name: typing.Text = ...
+    type: typing.Text
+    name: typing.Text
     @property
     def parent(self) -> global___Dataset: ...
     def __init__(self,
         *,
-        type : typing.Text = ...,
-        name : typing.Text = ...,
-        parent : typing.Optional[global___Dataset] = ...,
+        type: typing.Text = ...,
+        name: typing.Text = ...,
+        parent: typing.Optional[global___Dataset] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["parent",b"parent"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["name",b"name","parent",b"parent","type",b"type"]) -> None: ...
 global___Dataset = Dataset
 
 class NotificationBatch(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class MetadataEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text = ...
-        value: typing.Text = ...
+        key: typing.Text
+        value: typing.Text
         def __init__(self,
             *,
-            key : typing.Text = ...,
-            value : typing.Text = ...,
+            key: typing.Text = ...,
+            value: typing.Text = ...,
             ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
 
@@ -140,7 +141,7 @@ class NotificationBatch(google.protobuf.message.Message):
     DATASET_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
     REPLICATE_FIELD_NUMBER: builtins.int
-    d: typing.Text = ...
+    d: typing.Text
     """TODO: deprecate, for now just assume
     that type is "device"
     """
@@ -151,14 +152,14 @@ class NotificationBatch(google.protobuf.message.Message):
     def dataset(self) -> global___Dataset: ...
     @property
     def metadata(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
-    replicate: global___ReplicationState.V = ...
+    replicate: global___ReplicationState.ValueType
     def __init__(self,
         *,
-        d : typing.Text = ...,
-        notifications : typing.Optional[typing.Iterable[global___Notification]] = ...,
-        dataset : typing.Optional[global___Dataset] = ...,
-        metadata : typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        replicate : global___ReplicationState.V = ...,
+        d: typing.Text = ...,
+        notifications: typing.Optional[typing.Iterable[global___Notification]] = ...,
+        dataset: typing.Optional[global___Dataset] = ...,
+        metadata: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        replicate: global___ReplicationState.ValueType = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["dataset",b"dataset"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["d",b"d","dataset",b"dataset","metadata",b"metadata","notifications",b"notifications","replicate",b"replicate"]) -> None: ...
