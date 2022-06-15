@@ -31,14 +31,14 @@ class Action:
     '''
 
     def __init__(self, name: str,
+                 actionId: str,
                  context: ActionContext = ActionContext.Unknown,
-                 actionId: Optional[str] = None,
                  args: Optional[Dict[str, str]] = None,
                  ccId: Optional[str] = None,
                  stageId: Optional[str] = None):
         self.name = name
-        self.context = context
         self.id = actionId
+        self.context = context
         self.args = args
         self.ccId = ccId
         self.stageId = stageId
