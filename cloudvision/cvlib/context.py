@@ -8,7 +8,7 @@ from typing import List, Optional
 import signal
 import requests
 
-from cloudvision.Connector.grpc_client import GRPCClient
+from cloudvision.Connector.grpc_client import GRPCClient, create_query
 
 from .action import Action
 from .changecontrol import ChangeControl
@@ -299,6 +299,17 @@ class Context:
         # Turn off the alarm as the function has been executed successfully
         signal.alarm(0)
         return result
+
+    def Get(self, path: List[str], dataset="analytics"):
+        if not isinstance(path, List) or any([not(isinstance(i, str)) for i in path]):
+            raise TypeError("path should be a list of type string")
+        client: GRPCClient = self.getCvClient()
+        query = create_query(pathKeys=[(path, [])], dId=dataset)
+        try:
+            return list(client.get([query]))[0]["notifications"][0]["updates"]
+        except (IndexError, KeyError) as e:
+            self.error(str(e))
+            return []
 
     @staticmethod
     def showIf(linefmt, args):
