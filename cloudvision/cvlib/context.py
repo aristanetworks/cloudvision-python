@@ -28,6 +28,7 @@ CMDS = "cmds"
 DEVICE_ID = "deviceID"
 EXEC_ACTION = "execaction"
 HEADERS = {"Accept": "application/json"}
+HOST = "host"
 JSON = "json"
 REQ_FORMAT = "fmt"
 STOP_ON_ERROR = "stopOnError"
@@ -223,7 +224,12 @@ class Context:
             raise InvalidContextException("runDeviceCmds must have a valid service "
                                           "address and command endpoint specified")
 
+        # From the DI service documentation about the HOST field:
+        # Host can be either IP address or hostname
+        deviceInteractionHost = device.ip if device.ip else device.hostName
+
         request = {
+            HOST: deviceInteractionHost,
             DEVICE_ID: device.id,
             CMDS: commandsList,
             TIMEOUT_CLI: self.connections.connectionTimeout,
