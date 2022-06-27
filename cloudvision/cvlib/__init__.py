@@ -14,4 +14,4 @@ from .studio import Studio
 from .topology import Connection, Topology
 from .user import User
 
-__version__ = "1.4.0"
+__version__ = "1.5.0"
