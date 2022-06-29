@@ -2,6 +2,7 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
+from .studio import InputError
 from typing import List, Optional
 
 
@@ -144,37 +145,33 @@ class TemplateTypeNotSupported(TemplateException):
         return f"Unsupported template type {self.templateType}"
 
 
-class InputError(TemplateException):
+class InputErrorException(TemplateException):
     """
-    This is the primary error that Studio Template writers would raise.
-    It is raised manually by a template script if the set of inputs violates the script-author's
-    assumptions. The inputSpecifiers include the list of what inputs are in conflict so the UI
-    can highlight all such inputs easily.
-    In most cases, a script will only specify a single input specifier to show that inputA
-    has a problem that the end user needs to fix.
-    In certain cases though, you may want to indicate to the end user that either inputA
-    or inputB needs fixing, but both can't coexist in their current form.
-
-    The UI will display these errors on the workspace build with buttons that would take you
-    directly to the problematic input. The Studio page would also highlight the errors
-    directly on the input element (e.g. outlined in red and show the error message inline).
+    Exception for when a user needs to raise an error with one or more InputError
+    structures in it.
+    For Studios, this is raised manually by a template script to report an error with
+    one or more input values. It allows for errors in multiple input fields to be
+    reported at once. These errors are displayed to the user in the Studio UI.
     """
 
-    def __init__(self, message: str = "attempted to access schema-blocked input",
-                 inputPath: List[str] = None, fieldId: str = None, inputSpecifiers=None):
-
+    def __init__(self, message: str = "Error in input fields",
+                 inputErrors: List[InputError] = None):
         super().__init__(message)
-        self.inputPath = inputPath
-        self.fieldId = fieldId
-        self.inputSpecifiers = inputSpecifiers
+        self.errors = inputErrors
+
+    def __str__(self):
+        if not self.errors:
+            return self.message
+
+        return f"{self.message}:\n" + "\n".join(self.errors)
 
 
 class InputEmptyException(TemplateException):
     """
     Exception for when an action/template script tries to access an input that wasn't
     populated and that input was not optional or doesn't have a default value.
-    The inputSpecifier is something that can be used to determine what input was missing.
-    That specifier should be usable by the UI to guide users to the right section to fill
+    The members field is something that can be used to determine what input was missing.
+    Members should be usable by the UI to guide users to the right section to fill
     out the missing input.
     For studios, this is only raised by the internal studios python library utilities.
 
@@ -184,10 +181,10 @@ class InputEmptyException(TemplateException):
     """
 
     def __init__(self, message: str = "attempted to access unpopulated input",
-                 inputSpecifiers=None):
+                 members=None):
 
         super().__init__(message)
-        self.inputSpecifiers = inputSpecifiers
+        self.members = members
 
 
 # -------------------- Studio Autofill Action Exceptions --------------------

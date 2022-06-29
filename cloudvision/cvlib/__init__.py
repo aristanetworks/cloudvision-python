@@ -10,7 +10,7 @@ from .device import Device, Interface
 from .execution import Execution
 from .exceptions import *
 from .logger import Logger
-from .studio import Studio
+from .studio import InputError, Studio
 from .topology import Connection, Topology
 from .user import User
 
