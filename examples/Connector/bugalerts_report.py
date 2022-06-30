@@ -69,10 +69,32 @@ def getSwitchesInfo(client):
     return get(client, dataset, pathElts)
 
 
+def getDeviceLifecycles(client):
+    pathElts = [
+        "lifecycles",
+        "devices",
+        "hardware"
+    ]
+    dataset = "analytics"
+    return get(client, dataset, pathElts)
+
+
+def getDeviceLifecyclesSW(client):
+    pathElts = [
+        "lifecycles",
+        "devices",
+        "software"
+    ]
+    dataset = "analytics"
+    return get(client, dataset, pathElts)
+
+
 def main(apiserverAddr, token=None, certs=None, key=None, ca=None):
 
     with GRPCClient(apiserverAddr, token=token, key=key,
                     ca=ca, certs=certs) as client:
+        hw_eol = getDeviceLifecycles(client)
+        sw_eol = getDeviceLifecyclesSW(client)
         bugCount = deviceBugCount(client)
         datasetInfo = getSwitchesInfo(client)
         print("Report #1 - BugCount\n")
@@ -96,6 +118,78 @@ def main(apiserverAddr, token=None, certs=None, key=None, ca=None):
             hostname = datasetInfo[k]['hostname']
             version = datasetInfo[k]['eosVersion']
             print(f"{hostname:<30}{version:<30}{','.join([str(elem) for elem in v]):<30}")
+
+        print("\nReport #4 - Lifecycle statements - End of Life\n")
+        print(f"{'Hostname':<40}{'Serial number':<40}{'Model':<40}{'End of Life':<40}")
+
+        for k, v in hw_eol.items():
+            hostname = datasetInfo[k]['hostname']
+            eol_date = v['endOfLife']['date']
+            eol_model_temp = v['endOfLife']['models']
+            eol_model = []
+            for km, vm in eol_model_temp.items():
+                eol_model.append(km + "(" + str(vm) + ")")
+            eol_mod = ", ".join(eol_model)
+            print(f"{hostname:<40}{k:<40}{str(eol_mod):<40}{eol_date:<40}")
+
+        print("\nReport #5 - Lifecycle statements - End of Sale\n")
+        print(f"{'Hostname':<40}{'Serial number':<40}{'Model':<40}{'End of Sale':<40}")
+        for k, v in hw_eol.items():
+            hostname = datasetInfo[k]['hostname']
+            eos_date = v['endOfSale']['date']
+            eos_model_temp = v['endOfSale']['models']
+            eos_model = []
+            for km, vm in eos_model_temp.items():
+                eos_model.append(km + "(" + str(vm) + ")")
+            eos_mod = ", ".join(eos_model)
+            print(f"{hostname:<40}{k:<40}{str(eos_mod):<40}{eos_date:<40}")
+
+        print("\nReport #6 - Lifecycle statements - End of TAC Suppor\n")
+        print(f"{'Hostname':<40}{'Serial number':<40}{'Model':<40}{'End of TAC Support':<40}")
+        for k, v in hw_eol.items():
+            hostname = datasetInfo[k]['hostname']
+            eot_date = v['endOfTACSupport']['date']
+            eot_model_temp = v['endOfTACSupport']['models']
+            eot_model = []
+            for km, vm in eot_model_temp.items():
+                eot_model.append(km + "(" + str(vm) + ")")
+            eot_mod = ", ".join(eot_model)
+            print(f"{hostname:<40}{k:<40}{str(eot_mod):<40}{eot_date:<40}")
+
+        print("\nReport #7 - Lifecycle statements - End of Hardware RMA Requests\n")
+        print(f"{'Hostname':<40}{'Serial number':<40}{'Model':<40}{'End of Hardware RMA Requests':<40}")
+        for k, v in hw_eol.items():
+            hostname = datasetInfo[k]['hostname']
+            eor_date = v['endOfHardwareRMARequests']['date']
+            eor_model_temp = v['endOfHardwareRMARequests']['models']
+            eor_model = []
+            for km, vm in eor_model_temp.items():
+                eor_model.append(km + "(" + str(vm) + ")")
+            eor_mod = ", ".join(eor_model)
+            print(f"{hostname:<40}{k:<40}{str(eor_mod):<40}{eor_date:<40}")
+
+        print("\nReport #8 - End of Life (SW + HW)\n")
+        print(f"{'Device':<40}{'Type':<40}{'Component':<40}{'End of Life':<40}")
+        eol_report = []
+        for k, v in sw_eol.items():
+            hostname = datasetInfo[k]['hostname']
+            eol_report.append({hostname: {'sn': k, 'type': 'software', 'component': v['version'],
+                                          'date': v['endOfSupport']}})
+        for k, v in hw_eol.items():
+            hostname = datasetInfo[k]['hostname']
+            eol_report.append({hostname: {'sn': k, 'type': 'hardware', 'component': v['endOfLife']['models'],
+                                          'date': v['endOfLife']['date']}})
+        for device in eol_report:
+            hostname = list(device.keys())[0]
+            eol_model = []
+            eol_model_temp = device[hostname]['component']
+            if type(eol_model_temp) != str:
+                for km, vm in eol_model_temp.items():
+                    eol_model.append(km + "(" + str(vm) + ")")
+                eol_mod = ", ".join(eol_model)
+            else:
+                eol_mod = eol_model_temp
+            print(f"{hostname:<40}{device[hostname]['type']:<40}{str(eol_mod):<40}{device[hostname]['date']:<40}")
 
     return 0
 

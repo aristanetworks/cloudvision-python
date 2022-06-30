@@ -346,6 +346,44 @@ tp-avd-spine2                 4.25.3.1M                     556742,573022
 tp-avd-leaf4                  4.25.3.1M                     556742,573022,583243
 tp-avd-leaf3                  4.25.3.1M                     556742,573022,583243
 tp-avd-spine1                 4.25.3.1M                     556742,573022,578276
+
+Report #4 - Lifecycle statements - End of Life
+
+Hostname                                Serial number                           Model                                   End of Life                             
+leaf1                                   ZZZ99999999                             7328X-FM(4)                             2025-10-02                              
+leaf2                                   ABC12345678                             7328X-FM(4)                             2025-10-02                              
+spine1                                  EFG09876543                             DCS-7050QX-32(1)                        2020-03-22 
+
+Report #5 - Lifecycle statements - End of Sale
+
+Hostname                                Serial number                           Model                                   End of Sale                             
+leaf1                                   ZZZ99999999                             7328X-FM(4), 7320X-32C-LC(5)            2021-10-02                              
+leaf2                                   ABC12345678                             7328X-FM(4), 7320X-32C-LC(8)            2021-10-02                              
+spine1                                  EFG09876543                             DCS-7050QX-32(1)                        2017-03-23     
+
+Report #6 - Lifecycle statements - End of TAC Suppor
+
+Hostname                                Serial number                           Model                                   End of TAC Support                      
+leaf1                                   ZZZ99999999                             7328X-FM(4)                             2025-10-02                              
+leaf2                                   ABC12345678                             7328X-FM(4)                             2025-10-02                              
+spine1                                  EFG09876543                             DCS-7050QX-32(1)                        2020-03-22                   
+
+Report #7 - Lifecycle statements - End of Hardware RMA Requests
+
+Hostname                                Serial number                           Model                                   End of Hardware RMA Requests            
+leaf1                                   ZZZ99999999                             7328X-FM(4)                             2025-10-02                              
+leaf2                                   ABC12345678                             7328X-FM(4)                             2025-10-02                              
+spine1                                  EFG09876543                             DCS-7050QX-32(1)                        2020-03-22                  
+
+Report #8 - End of Life (SW + HW)
+
+Device                                  Type                                    Component                               End of Life                             
+leaf1                                   software                                4.27.0F                                 2024-09-27                              
+leaf2                                   software                                4.27.4M                                 2024-09-27                              
+spine1                                  software                                4.25.2F                                 2023-10-22
+leaf3                                   hardware                                7328X-FM(4)                             2025-10-02                              
+leaf4                                   hardware                                DCS-7050QX-32(1)                        2020-03-22                              
+spine2                                  hardware                                DCS-7050QX-32(1)                        2020-03-22              
 ```
 
 ## connectivityMonitorVrf.py
