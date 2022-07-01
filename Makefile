@@ -7,7 +7,7 @@ PB_DIR = cloudvision/Connector/protobuf
 GEN_DIR = cloudvision/Connector/gen
 PCOMP_FLAGS = -I=$(PB_DIR) --python_out=$(GEN_DIR) --mypy_out=$(GEN_DIR) --grpc_python_out=$(GEN_DIR)
 
-.PHONY: clean
+.PHONY: clean lint dist
 # re-generate python protobuf files
 proto:
 	$(PCOMP) $(PCOMP_FLAGS) $(PB_DIR)/*.proto
@@ -15,6 +15,10 @@ proto:
 # clean all stuff related to dist-ing these packages
 clean:
 	rm -r cloudvision.egg-info build dist
+
+dist:
+	python3 setup.py sdist
+	python3 setup.py bdist_wheel
 
 lint:
 	flake8 .
