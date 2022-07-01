@@ -128,6 +128,13 @@ class Context:
         based on the current user auth token
         :return: cloudvision Connector client
         '''
+        # Use test api addresses for client if they were set
+        if self.connections.testAddresses:
+            testAddr = self.connections.testAddresses.get("apiServer")
+            if not testAddr:
+                return None
+            return GRPCClient(testAddr)
+
         if self.__connector:
             return self.__connector
         if self.connections.apiserverAddr is None or self.user is None:
