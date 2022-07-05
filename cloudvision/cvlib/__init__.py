@@ -14,4 +14,4 @@ from .studio import InputError, Studio
 from .topology import Connection, Topology
 from .user import User
 
-__version__ = "1.4.1"
+__version__ = "1.4.2"
