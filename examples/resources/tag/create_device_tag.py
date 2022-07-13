@@ -5,7 +5,7 @@
 # Create Device Tags
 # Tag creation is necessary before Tag assignment
 # Example usage:
-#  python3 create_device_tag.py --server 10.83.12.79:8443 --token-file token.txt \
+#  python3 create_device_tag.py --server 10.83.12.79:443 --token-file token.txt \
 #  --cert-file cvp.crt --tag_name topology_hint_pod --tag_value IE_Pod1
 
 import argparse
@@ -58,7 +58,7 @@ def main(args):
 if __name__ == '__main__':
     ds = ("Create a Device tag "
           "Examples:\n"
-          "python3 create_tag.py --server 10.83.12.79:8443 --token-file token.txt"
+          "python3 create_tag.py --server 10.83.12.79:443 --token-file token.txt"
           "--cert-file cvp.crt --tag_name \"topology_hint_pod\" \""
           "--tag_value \"50:08:00:0d:00:08\""
           )

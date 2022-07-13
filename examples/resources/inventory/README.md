@@ -1,5 +1,10 @@
 # Inventory resource examples
 
+## gRPC ports
+
+- 8443 up to 2021.2.2
+- 443 from 2021.3.0 or newer
+
 ## Authenticating with CloudVision
 
 ### CloudVision On-Prem
@@ -54,7 +59,7 @@ optional arguments:
 ### Example
 
 ```
-python3 lookup_device.py --server 10.83.12.79:8443 --token-file ~/go79/token.txt --cert-file ~/go79/cvp.crt --hostname leaf1
+python3 lookup_device.py --server 10.83.12.79:443 --token-file ~/go79/token.txt --cert-file ~/go79/cvp.crt --hostname leaf1
 value {
   key {
     device_id {
@@ -133,7 +138,7 @@ optional arguments:
 Get all devices and their EOS versions:
 
 ```
-python3 get_versions.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt
+python3 get_versions.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt
 Hostname                 EOS Version
 
 leaf1                    4.24.4M
@@ -148,7 +153,7 @@ sw-10.83.12.245          4.22.1F
 Get the EOS version of a specific device:
 
 ```
-python3 get_versions.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt \
+python3 get_versions.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt \
 --serial ZZZ9999999 --hostname leaf1
 Hostname                 EOS Version
 
@@ -186,7 +191,7 @@ optional arguments:
 Get all actively streaming devices and their serial numbers:
 
 ```
-python3 example_utility.py --server 10.83.12.79:8443 --token-file ~/go79/token.txt --cert-file ~/go79/cvp.crt --active
+python3 example_utility.py --server 10.83.12.79:443 --token-file ~/go79/token.txt --cert-file ~/go79/cvp.crt --active
 leaf1                    5298089ABC0DA0D24213681DDDB30CE6
 leaf2                    6298089ABC0DA0D24213681DDDB30C26
 core1                    7298089ABC0DA0D24213681DDDB30C46

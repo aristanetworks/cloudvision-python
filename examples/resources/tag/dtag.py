@@ -5,11 +5,11 @@
 # Assign device tags on a device
 #
 # Example usage:
-#  python itag.py --server 10.83.12.79:8443 --token-file token.txt \
+#  python itag.py --server 10.83.12.79:443 --token-file token.txt \
 #  --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
 #  --tag_name "topology_hint_rack" \
 # --tag_value "IE_Rack1"
-#  python itag.py --server 10.83.12.79:8443 --token-file token.txt \
+#  python itag.py --server 10.83.12.79:443 --token-file token.txt \
 # --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
 #  --tag_name "topology_hint_pod" --tag_value "IE_Pod1"
 
@@ -67,11 +67,11 @@ def main(args):
 if __name__ == '__main__':
     ds = ("Assign a tag to an device."
           "Example:"
-          "python3 itag.py --server 10.83.12.79:8443 --token-file token.txt \
+          "python3 itag.py --server 10.83.12.79:443 --token-file token.txt \
             --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
             --tag_name \"topology_hint_pod\" \
             --tag_value \"IE_Pod1\""
-          "python3 itag.py --server 10.83.12.79:8443 --token-file token.txt \
+          "python3 itag.py --server 10.83.12.79:443 --token-file token.txt \
             --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
             --tag_name \"topology_hint_rach\" \
             --tag_value \"IE_Rack1\""
