@@ -8,16 +8,16 @@
 #
 # Examples:
 # 1) Get all events:
-#   $ python get_events.py --server 10.83.12.79:8443 \
+#   $ python get_events.py --server 10.83.12.79:443 \
 #   --token-file token.txt \
 #   --cert-file cvp.crt \
 # 2) Get all events after date:
-#   $ python get_events.py --server 10.83.12.79:8443 \
+#   $ python get_events.py --server 10.83.12.79:443 \
 #   --token-file token.txt \
 #   --cert-file cvp.crt \
 #   --start 2020-02-20T00:00:01.000000001Z
 # 3) Get all INSUFFICIENT_PEER_LAG_REDUNDANCY events between two dates:
-#   $ python get_events.py --server 10.83.12.79:8443 \
+#   $ python get_events.py --server 10.83.12.79:443 \
 #   --token-file token.txt \
 #   --cert-file cvp.crt \
 #   --event-type INSUFFICIENT_PEER_LAG_REDUNDANCY \
@@ -25,7 +25,7 @@
 #   --end 2020-02-21T00:00:01.000000001Z
 # 4) Get all INSUFFICIENT_PEER_LAG_REDUNDANCY events between two dates
 #   and acknowledge them:
-#   $ python get_events.py --server 10.83.12.79:8443 \
+#   $ python get_events.py --server 10.83.12.79:443 \
 #   --token-file token.txt \
 #   --cert-file cvp.crt \
 #   --event-type INSUFFICIENT_PEER_LAG_REDUNDANCY \
@@ -33,7 +33,7 @@
 #   --end 2020-02-21T00:00:01.000000001Z \
 #   --ack
 # 5) Get all events with INFO severity:
-#   $ python get_events.py --server 10.83.12.79:8443 \
+#   $ python get_events.py --server 10.83.12.79:443 \
 #   --token-file token.txt \
 #   --cert-file cvp.crt \
 #   --severity INFO
@@ -113,26 +113,26 @@ if __name__ == '__main__':
           "Acknowledging a CVP event hides the event from the default view. "
           "Examples:\n"
           "1) Get all events:\n"
-          "\tpython get_events.py --server 10.83.12.79:8443 "
+          "\tpython get_events.py --server 10.83.12.79:443 "
           "--token-file token.txt --cert-file cvp.crt\n"
           "2) Get all events after date:\n"
-          "\tpython get_events.py --server 10.83.12.79:8443 "
+          "\tpython get_events.py --server 10.83.12.79:443 "
           "--token-file token.txt --cert-file cvp.crt "
           "--start 2020-02-20T00:00:01.000000001Z\n"
           "3) Get all INSUFFICIENT_PEER_LAG_REDUNDANCY events between "
           "two dates:\n"
-          "\tpython get_events.py --server 10.83.12.79:8443 "
+          "\tpython get_events.py --server 10.83.12.79:443 "
           "--token-file token.txt --cert-file cvp.crt --event-type "
           "INSUFFICIENT_PEER_LAG_REDUNDANCY --start 2020-02-20T00:00:01.000000001Z "
           "--end 2020-02-21T00:00:01.000000001Z\n"
           "4) Get all INSUFFICIENT_PEER_LAG_REDUNDANCY events between "
           "two dates and acknowledge them:\n"
-          "\tpython get_events.py --server 10.83.12.79:8443 "
+          "\tpython get_events.py --server 10.83.12.79:443 "
           "--token-file token.txt --cert-file cvp.crt --event-type "
           "INSUFFICIENT_PEER_LAG_REDUNDANCY --start 2020-02-20T00:00:01.000000001Z "
           "--end 2020-02-21T00:00:01.000000001Z --ack\n"
           "5) Get all events with INFO severity:\n"
-          "\tpython get_events.py --server 10.83.12.79:8443"
+          "\tpython get_events.py --server 10.83.12.79:443"
           "--token-file token.txt --cert-file cvp.crt --severity INFO")
     parser = argparse.ArgumentParser(
         description=ds,

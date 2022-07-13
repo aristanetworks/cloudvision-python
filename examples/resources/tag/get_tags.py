@@ -5,25 +5,25 @@
 # Get tags per device per interface or all tags
 # Example usage:
 # 1) Get all tags:
-#    python3 get_tags.py --server 10.83.12.79:8443 --token-file token.txt \
+#    python3 get_tags.py --server 10.83.12.79:443 --token-file token.txt \
 #     --cert-file cvp.crt
 #
 # 2) Get all tags for a device:
-#    python3 get_tags.py --server 10.83.12.79:8443 --token-file token.txt \
+#    python3 get_tags.py --server 10.83.12.79:443 --token-file token.txt \
 #    --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103
 #
 # 3) Get all tags for an interface of a device
-#    python3 get_tags.py --server 10.83.12.79:8443 --token-file token.txt \
+#    python3 get_tags.py --server 10.83.12.79:443 --token-file token.txt \
 #    --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
 #    --interface_id Ethernet1
 #
 # 4) Get all interfaces that have a specific tag assigned:
-#    python3 get_tags.py --server 10.83.12.79:8443 --token-file token.txt \
+#    python3 get_tags.py --server 10.83.12.79:443 --token-file token.txt \
 #    --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
 #    --tag_name 'lldp_chassis'
 #
 # 5) Get all interfaces that have a tag with a specific value:
-#    python3 get_tags.py --server 10.83.12.79:8443 --token-file token.txt \
+#    python3 get_tags.py --server 10.83.12.79:443 --token-file token.txt \
 #    --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
 #    --tag_value 'forced'
 

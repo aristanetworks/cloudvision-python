@@ -5,11 +5,11 @@
 # Assign Interface Tags on a device
 #
 # Example usage:
-#  python itag.py --server 10.83.12.79:8443 --token-file token.txt \
+#  python itag.py --server 10.83.12.79:443 --token-file token.txt \
 #  --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
 # --interface_id Ethernet7  --tag_name "lldp_chassis" \
 # --tag_value "50:08:00:0f:00:08"
-#  python itag.py --server 10.83.12.79:8443 --token-file token.txt \
+#  python itag.py --server 10.83.12.79:443 --token-file token.txt \
 # --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
 # --interface_id Ethernet7 --tag_name "lldp_mode" --tag_value "default"
 
@@ -71,11 +71,11 @@ def main(args):
 if __name__ == '__main__':
     ds = ("Assign a tag to an interface."
           "Example:"
-          "python3 itag.py --server 10.83.12.79:8443 --token-file token.txt \
+          "python3 itag.py --server 10.83.12.79:443 --token-file token.txt \
             --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
             --interface_id Ethernet7  --tag_name \"lldp_chassis\" \
             --tag_value \"50:08:00:0f:00:08\""
-          "python3 itag.py --server 10.83.12.79:8443 --token-file token.txt \
+          "python3 itag.py --server 10.83.12.79:443 --token-file token.txt \
             --cert-file cvp.crt --device_id 99500CA623B639E85FE0E684862C7103 \
             --interface_id Ethernet7 --tag_name \"lldp_mode\" \
             --tag_value \"default\""

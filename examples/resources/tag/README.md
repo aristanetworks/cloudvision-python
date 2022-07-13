@@ -1,5 +1,10 @@
 # Tag resource examples and use-cases
 
+## gRPC ports
+
+- 8443 up to 2021.2.2
+- 443 from 2021.3.0 or newer
+
 ## Authenticating with CloudVision
 
 ### CloudVision On-Prem
@@ -72,21 +77,21 @@ On the Device page you'll see the server showing up in the LLDP table
 1\. Create the tags
 
 Create the `lldp_chassis` tag and assign the MAC address of the server as the value:
-`python3 create_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name "lldp_chassis" --tag_value "00:50:56:97:29:53"`
+`python3 create_tag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --tag_name "lldp_chassis" --tag_value "00:50:56:97:29:53"`
 
 If it doesn't exist already, create the `lldp_mode: default` tag as well:
-`python3 create_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name "lldp_mode" --tag_value "default"`
+`python3 create_tag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --tag_name "lldp_mode" --tag_value "default"`
 
 (Optional) Create the `lldp_hostname` tag:
 
-`python3 create_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name "lldp_hostname" --tag_value "tacsr34"`
+`python3 create_tag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --tag_name "lldp_hostname" --tag_value "tacsr34"`
 
 2\. Assign the tags to the interface:
-`python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id JPE14252458 --interface_id Ethernet47 --tag_name "lldp_mode" --tag_value "default"`
+`python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id JPE14252458 --interface_id Ethernet47 --tag_name "lldp_mode" --tag_value "default"`
 
-`python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id JPE14252458 --interface_id Ethernet47 --tag_name "lldp_chassis" --tag_value "00:50:56:97:29:53"`
+`python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id JPE14252458 --interface_id Ethernet47 --tag_name "lldp_chassis" --tag_value "00:50:56:97:29:53"`
 
-(Optional) `python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id JPE14252458 --interface_id Ethernet47 --tag_name "lldp_hostname" --tag_value "tacsr34"`
+(Optional) `python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id JPE14252458 --interface_id Ethernet47 --tag_name "lldp_hostname" --tag_value "tacsr34"`
 
 After this you should see the user tags and system tags added on the UI:
 
@@ -112,10 +117,10 @@ In the below setup, `ar-dub-01` is connected to `n9k-dub-01` and `n9k-dub-02` on
 
 To create the tag we can use `create_tag.py` using the following syntax:
 
-`python3 create_tag.py --server {cvpIP}:8443 --token-file {tokenFile} --cert-file {certFile} --tag_name {value} --tag_value {value}`
+`python3 create_tag.py --server {cvpIP}:443 --token-file {tokenFile} --cert-file {certFile} --tag_name {value} --tag_value {value}`
 
 e.g.:
-`python3 create_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name "lldp_chassis" --tag_value "50:08:00:12:00:08"`
+`python3 create_tag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --tag_name "lldp_chassis" --tag_value "50:08:00:12:00:08"`
 
 At this point you should see that there's an unassigned tag. Go to:
 
@@ -135,10 +140,10 @@ At this point you should see that there's an unassigned tag. Go to:
 ![ra-tag-g2-no-assigned-tags](./images/ra-tag-g2-no-assigned-tags.png)
 
 For assigning the tag we can use `itag.py` with the following syntax:
-`python3 itag.py --server {cvpIP}:8443 --token-file {tokenFile} --cert-file {certFile} --device_id {deviceSN} --interface_id {interface} --tag_name {value} --tag_value {value}`
+`python3 itag.py --server {cvpIP}:443 --token-file {tokenFile} --cert-file {certFile} --device_id {deviceSN} --interface_id {interface} --tag_name {value} --tag_value {value}`
 
 e.g.:
-`python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet1 --tag_name "lldp_chassis" --tag_value "50:08:00:12:00:08"`
+`python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet1 --tag_name "lldp_chassis" --tag_value "50:08:00:12:00:08"`
 
 
 
@@ -148,23 +153,23 @@ If everything went smoothly, you should see the `lldp_chassis` tag applied on Et
 
 3\. Now repeate the tag assignment for all interfaces (note that the tag will not have to be created again)
 
-`python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet2 --tag_name "lldp_chassis" --tag_value "50:08:00:12:00:08"`
+`python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet2 --tag_name "lldp_chassis" --tag_value "50:08:00:12:00:08"`
 
-`python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet3 --tag_name "lldp_chassis" --tag_value "50:08:00:12:00:08"`
+`python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet3 --tag_name "lldp_chassis" --tag_value "50:08:00:12:00:08"`
 
-`python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet4 --tag_name "lldp_chassis" --tag_value "50:08:00:12:00:08"`
+`python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet4 --tag_name "lldp_chassis" --tag_value "50:08:00:12:00:08"`
 
 4\. We'll have to do the same for `lldp_mode: default`
 
-`python3 create_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name "lldp_mode" --tag_value "default"`
+`python3 create_tag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --tag_name "lldp_mode" --tag_value "default"`
 
-`python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet4 --tag_name "lldp_mode" --tag_value "default"`
+`python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet4 --tag_name "lldp_mode" --tag_value "default"`
 
-`python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet3 --tag_name "lldp_mode" --tag_value "default"`
+`python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet3 --tag_name "lldp_mode" --tag_value "default"`
 
-`python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet2 --tag_name "lldp_mode" --tag_value "default"`
+`python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet2 --tag_name "lldp_mode" --tag_value "default"`
 
-`python3 itag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet1 --tag_name "lldp_mode" --tag_value "default"`
+`python3 itag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 4B0C688DBE67D1AC9572445DCDB552F9 --interface_id Ethernet1 --tag_name "lldp_mode" --tag_value "default"`
 
 5\. Repeat for the second box
 
@@ -206,17 +211,17 @@ and assign them to the devices:
 1\. Create tag values
 
 ```
-python3 create_device_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name topology_hint_pod --tag_value TPPOD
-python3 create_device_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name topology_hint_rack --tag_value TPRACK
-python3 create_device_tag.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --tag_name topology_hint_datacenter --tag_value TPDC
+python3 create_device_tag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --tag_name topology_hint_pod --tag_value TPPOD
+python3 create_device_tag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --tag_name topology_hint_rack --tag_value TPRACK
+python3 create_device_tag.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --tag_name topology_hint_datacenter --tag_value TPDC
 ```
 
 2\. Assign the tags
 
 ```
-python3 dtag.py  --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 0123F2E4462997EB155B7C50EC148767 --tag_name topology_hint_datacenter --tag_value TPDC
-python3 dtag.py  --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 0123F2E4462997EB155B7C50EC148767 --tag_name topology_hint_rack --tag_value TPRACK_LF12
-python3 dtag.py  --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --device_id 0123F2E4462997EB155B7C50EC148767 --tag_name topology_hint_pod --tag_value TPPOD
+python3 dtag.py  --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 0123F2E4462997EB155B7C50EC148767 --tag_name topology_hint_datacenter --tag_value TPDC
+python3 dtag.py  --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 0123F2E4462997EB155B7C50EC148767 --tag_name topology_hint_rack --tag_value TPRACK_LF12
+python3 dtag.py  --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --device_id 0123F2E4462997EB155B7C50EC148767 --tag_name topology_hint_pod --tag_value TPPOD
 ```
 
 3\. Repeat for the other devices

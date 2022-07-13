@@ -1,5 +1,10 @@
 # Events resource examples
 
+## gRPC ports
+
+- 8443 up to 2021.2.2
+- 443 from 2021.3.0 or newer
+
 ## Authenticating with CloudVision
 
 ### CloudVision On-Prem
@@ -34,19 +39,19 @@ The `get_events.py` script can both get and acknowledge events.
 1) Get all events:
 
 ```
-python3 get_events.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt
+python3 get_events.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt
 ```
 
 2) Get all events after date:
 
 ```
-python3 get_events.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --start 2021-02-02T00:00:01.000000001Z
+python3 get_events.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --start 2021-02-02T00:00:01.000000001Z
 ```
 
 3) Get all `Interface went down unexpectedly` events between two dates:
 
 ```
-python3 get_events.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --event-type DEVICE_INTF_ERR_SMART --start 2021-01-31T00:00:01.000000001Z --end 2021-01-31T22:00:01.000000001Z
+python3 get_events.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --event-type DEVICE_INTF_ERR_SMART --start 2021-01-31T00:00:01.000000001Z --end 2021-01-31T22:00:01.000000001Z
 value {
   key {
     key {
@@ -101,13 +106,13 @@ type: INITIAL
 4) Get all INSUFFICIENT_PEER_LAG_REDUNDANCY events between two dates and acknowledge them:
 
 ```
-python3 get_events.py --server 10.83.12.79:8443 --token-file token.txt --cert-file cvp.crt --event-type INSUFFICIENT_PEER_LAG_REDUNDANCY --start 2021-01-31T00:00:01.000000001Z --end 2021-02-02T22:00:01.000000001Z --ack
+python3 get_events.py --server 10.83.12.79:443 --token-file token.txt --cert-file cvp.crt --event-type INSUFFICIENT_PEER_LAG_REDUNDANCY --start 2021-01-31T00:00:01.000000001Z --end 2021-02-02T22:00:01.000000001Z --ack
 ```
 
 5) Get all events with INFO severity:
 
 ```
-python3 get_events.py --server 10.83.12.79:8443- -token-file token.txt --cert-file cvp.crt --severity INFO
+python3 get_events.py --server 10.83.12.79:443- -token-file token.txt --cert-file cvp.crt --severity INFO
 ```
 
 ## sub_events.py
@@ -119,18 +124,18 @@ The `sub_events.py` can subscribe to CVP events.
 1) Subscribe to all events:
 
 ```
-python3 sub_events.py --server 10.83.12.79:8443 --token-file token.txt--cert-file cvp.crt
+python3 sub_events.py --server 10.83.12.79:443 --token-file token.txt--cert-file cvp.crt
 ```
 
 2) Subscribe to only specific event types, e.g. to subscribe to "Interface went down unexpectedly" events we can set the `event-type` to `DEVICE_INTF_ERR_SMART`:
 
 ```
-python3 sub_events.py --server 10.83.12.79:8443 --token-file token.txt--cert-file cvp.crt --event-type DEVICE_INTF_ERR_SMART
+python3 sub_events.py --server 10.83.12.79:443 --token-file token.txt--cert-file cvp.crt --event-type DEVICE_INTF_ERR_SMART
 ```
 
 3) Subscribe to events with `INFO` severity:
 ```
-python3 sub_events.py --server 10.83.12.79:8443 --token-file token.txt--cert-file cvp.crt --severity INFO
+python3 sub_events.py --server 10.83.12.79:443 --token-file token.txt--cert-file cvp.crt --severity INFO
 ```
 
 ## CloudVision as a Service example

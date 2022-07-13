@@ -1,10 +1,15 @@
 # CloudVision Connector Examples
 
+## gRPC ports
+
+- 8443 up to 2021.2.2
+- 443 from 2021.3.0 or newer
+
 ## Authenticating with CloudVision
 
 ### CloudVision On-Prem
 
-The [get_token.py](../get_token.py) script can be used to get the token and the certificate from
+The [get_token.py](../get_token.py) script can be used to get the token (expires in 24h) and the certificate from
 the CloudVision server:
 
 `python3 get_token.py --server 10.83.12.79 --username cvpadmin --password arastra --ssl`
@@ -36,7 +41,7 @@ The token should be copied and saved to a file that can later be referred to.
 This script is an example on how to subscribe to the rate counters of an interface.
 
 ```shell
-python3 get_intf_rate.py --apiserver 10.83.12.79:8443 --auth=token,~/go79/token.txt,~/go79/cvp.crt --
+python3 get_intf_rate.py --apiserver 10.83.12.79:443 --auth=token,~/go79/token.txt,~/go79/cvp.crt --
 device JPE17182435 --interface Ethernet24
 {
     "outOctets":99945180.4
@@ -79,7 +84,7 @@ In this example the subscription is made to the `outOctets` rate, other possible
 This script is an example on how to get the maximum Tx and Rx utilization of an interface between a specified time period. It gets the max of `outOctets` and `inOctets` of 15 minute aggregated counters of the interface and publishes the maximum values of these 15 minute periods(max of max).
 
 ```shell
-python3 get_intf_maxrate_period.py --apiserver 10.1.1.1:8443 --auth=token,token.txt,cvp.crt --device SGD20000000 --interface Port-Channel27 --start=2021-06-03T05:30:00 --end=2021-06-03T08:20:00
+python3 get_intf_maxrate_period.py --apiserver 10.1.1.1:443 --auth=token,token.txt,cvp.crt --device SGD20000000 --interface Port-Channel27 --start=2021-06-03T05:30:00 --end=2021-06-03T08:20:00
 Max Tx (Mbps) is:  597.531184
 Max Rx (Mbps) is:  22.940072
 ```
@@ -92,7 +97,7 @@ The `get_intf_status.py` is an example on how to get the status of all the inter
 It also creates a report about how many interfaces are up and down (including the Management interface).
 
 ```shell
-python3 get_intf_status.py --apiserver 10.83.12.79:8443 --auth=token,~/go79/token.txt,~/go79/cvp.crt --deviceId JPE17182435
+python3 get_intf_status.py --apiserver 10.83.12.79:443 --auth=token,~/go79/token.txt,~/go79/cvp.crt --deviceId JPE17182435
 Interface Name           Status
 
 Ethernet10               linkDown
@@ -119,7 +124,7 @@ Ethernet Status on JPE17182435:
 `get_switches.py` is an example on how to return all the actively streaming devices to CloudVision.
 
 ```shell
-python3 get_switches.py --apiserver 10.83.12.79:8443 --auth=token,token.txt,cvp.crt
+python3 get_switches.py --apiserver 10.83.12.79:443 --auth=token,token.txt,cvp.crt
 {
     "ZZZ9999999":{
         "capabilities":[
@@ -211,7 +216,7 @@ python3 get_token.py --server 10.83.12.173 --username cvpadmin --password arastr
 ```shell
 cd ../Connector
 
-python3 sync_events_cfg.py --src=10.83.12.79:8443 --srcauth=token,../go79/token.txt,../go79/cvp.crt --dst=10.83.12.173:8443 --dstauth=token,../go173/token.txt,../go173/cvp.crt
+python3 sync_events_cfg.py --src=10.83.12.79:443 --srcauth=token,../go79/token.txt,../go79/cvp.crt --dst=10.83.12.173:443 --dstauth=token,../go173/token.txt,../go173/cvp.crt
 ```
 
 8\. After this you should see the rules from server1 replicated to server2.
@@ -250,7 +255,7 @@ the config from the source server is pushed to the destination server
 This script is a very simplistic example of the resource API equivalent `get_events.py` and it prints all current active events in CloudVision.
 
 ```shell
-python3 get_events.py  --apiserver 10.83.12.79:8443 --auth=token,~/go79/token.txt,~/go79/cvp.crt
+python3 get_events.py  --apiserver 10.83.12.79:443 --auth=token,~/go79/token.txt,~/go79/cvp.crt
 {
     "74694dfb259599":{
         "ack":true,
@@ -307,7 +312,7 @@ python3 get_events.py  --apiserver 10.83.12.79:8443 --auth=token,~/go79/token.tx
 
 Get events within a certain period of time:
 
-`python3 get_events.py  --apiserver 10.83.12.79:8443 --auth=token,token.txt,cvp.crt --start=2021-02-02T10:00:00 --end=2021-02-02T21:46:00 --exact_range=True`
+`python3 get_events.py  --apiserver 10.83.12.79:443 --auth=token,token.txt,cvp.crt --start=2021-02-02T10:00:00 --end=2021-02-02T21:46:00 --exact_range=True`
 
 > Note that without setting the `-exact_range` flag to `True` events before the start time that were active at start time will also
 > be presented.
@@ -319,7 +324,7 @@ Get events within a certain period of time:
 This script is an example on how to generate a report about number of bugs per device, CVEs per device and Bugs per device.
 
 ```shell
-python3 bugalerts.py --apiserver 10.83.12.79:8443 --auth=token,token.txt,cvp.crt
+python3 bugalerts.py --apiserver 10.83.12.79:443 --auth=token,token.txt,cvp.crt
 
 Report #1 - BugCount
 
@@ -395,7 +400,7 @@ This script can get connectivity monitor data either for individual devices or f
 All device stats:
 
 ```shell
-python3 connectivityMonitorVrf.py --apiserver 10.83.12.174:8443 --auth=token,token.txt,cvp.crt
+python3 connectivityMonitorVrf.py --apiserver 10.83.12.174:443 --auth=token,token.txt,cvp.crt
 Connection                                        Host IP Address per VRF       HTTP RESPONSE TIME per VRF    Jitter per VRF                Latency per VRF               Packet Loss Per VRF
 tp-avd-leaf3 (MGMT/default) to bbc                151.101.0.81                  0.0ms                         0.0ms                         0.0ms                         0%
 tp-avd-leaf3 (MGMT/Management1) to bbc            151.101.0.81                  62.8902587890625ms            0.13899999856948853ms         5.572000026702881ms           0%
@@ -408,7 +413,7 @@ tp-avd-leaf1 (MGMT/Management1) to google         216.58.194.164                
 Per device stats:
 
 ```shell
-python3 connectivityMonitorVrf.py --apiserver 10.83.12.174:8443 --auth=token,token.txt,cvp.crt --device BAD032986065E8DC14CBB6472EC314A6
+python3 connectivityMonitorVrf.py --apiserver 10.83.12.174:443 --auth=token,token.txt,cvp.crt --device BAD032986065E8DC14CBB6472EC314A6
 Connection                                        Host IP Address per VRF       HTTP RESPONSE TIME per VRF    Jitter per VRF                Latency per VRF               Packet Loss Per VRF
 tp-avd-leaf1 (MGMT/Management1) to bbc            151.101.0.81                  137.05465698242188ms          0.10700000077486038ms         5.6539998054504395ms          0%
 tp-avd-leaf1 (MGMT/Management1) to google         216.58.194.164                588.5230102539062ms           0.09799999743700027ms         155.143005371093
