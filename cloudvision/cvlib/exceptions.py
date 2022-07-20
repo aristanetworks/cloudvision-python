@@ -162,8 +162,7 @@ class InputErrorException(TemplateException):
     def __str__(self):
         if not self.errors:
             return self.message
-
-        return f"{self.message}:\n" + "\n".join(self.errors)
+        return f"{self.message}:\n" + "\n".join([str(err) for err in self.errors])
 
 
 class InputEmptyException(TemplateException):
