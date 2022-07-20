@@ -47,3 +47,13 @@ class InputError:
         self.inputPath = inputPath
         self.fieldId = fieldId
         self.members = members
+
+    def __str__(self):
+        return (
+            f"{{"
+            f"message: '{self.message}', "
+            f"inputPath: {self.inputPath}, "
+            f"fieldId: '{self.fieldId}', "
+            f"members: {self.members}"
+            f"}}"
+        )
