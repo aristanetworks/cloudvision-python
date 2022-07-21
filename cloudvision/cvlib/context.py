@@ -7,8 +7,9 @@ from logging import getLogger
 from typing import List, Optional
 import signal
 import requests
+from google.protobuf.timestamp_pb2 import Timestamp
 
-from cloudvision.Connector.grpc_client import GRPCClient, create_query
+from cloudvision.Connector.grpc_client import GRPCClient, create_notification, create_query
 
 from .action import Action
 from .changecontrol import ChangeControl
@@ -310,6 +311,53 @@ class Context:
         except (IndexError, KeyError) as e:
             self.error(str(e))
             return []
+
+    def _get_key(self, key: str = None) -> str:
+        if key is None:
+            if self.studio is not None:
+                key = self.studio.studioId + self.studio.workspaceId
+            elif self.action is not None and self.device is not None and self.device.id is not None:
+                key = self.device.id + self.action.name
+            else:
+                raise InvalidContextException("""
+If calling store without a key, please provide a studio or changeControl object to the context
+                                             """)
+        return key
+
+    def _get_path(self, path: str = None) -> List[str]:
+        save_path = ["changecontrol", "actionTempStorage"]
+        if path is not None:
+            save_path.append(path)
+        elif self.action is not None:
+            save_path.append(self.action.name)
+        elif self.studio is not None:
+            save_path.append(self.studio.studioId)
+        else:
+            raise InvalidContextException("""
+If calling store without a path, please provide a studio or changeControl object to the context
+                                         """)
+        return save_path
+
+    def store(self, data, path: str = None, key: str = None):
+        key = self._get_key(key)
+        save_path = self._get_path(path)
+        update = [(key, data)]
+        client: GRPCClient = self.getCvClient()
+        ts = Timestamp()
+        ts.GetCurrentTime()
+        client.publish(dId="cvp", notifs=[create_notification(ts, save_path, updates=update)])
+
+    def retrieve(self, path: str = None, key: str = None, delete=True):
+        key = self._get_key(key)
+        save_path = self._get_path(path)
+        client: GRPCClient = self.getCvClient()
+        query = create_query(pathKeys=[(save_path, [key])], dId="cvp")
+        data = client.get([query])
+        if delete:
+            ts = Timestamp()
+            ts.GetCurrentTime()
+            client.publish(dId="cvp", notifs=[create_notification(ts, save_path, deletes=[key])])
+        return data
 
     @staticmethod
     def showIf(linefmt, args):
