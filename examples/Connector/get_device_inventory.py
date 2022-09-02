@@ -70,6 +70,36 @@ def psu(client, dId):
     return get(client, dataset, pathElts)
 
 
+def fans(client, dId):
+    ''' Returns the FANs inventory of a switch
+    '''
+    pathElts = [
+        "Devices",
+        dId,
+        "versioned-data",
+        "hardware",
+        "inventory",
+        "fanTray"
+    ]
+    dataset = "analytics"
+    return get(client, dataset, pathElts)
+
+
+def cards(client, dId):
+    ''' Returns the cards of a switch (Supervisors + Linecards + Fabric Modules)
+    '''
+    pathElts = [
+        "Devices",
+        dId,
+        "versioned-data",
+        "hardware",
+        "inventory",
+        "card"
+    ]
+    dataset = "analytics"
+    return get(client, dataset, pathElts)
+
+
 def getSwitchesInfo(client):
     ''' Returns all devices streaming to CVP and their states
     '''
@@ -111,6 +141,12 @@ def main(apiserverAddr, token=None, certs=None, ca=None, key=None):
             # replace the power supply pointer data with the actual power supply data
             if 'powerSupply' in dev_hw_db[device]['inventory']:
                 dev_hw_db[device]['inventory']['powerSupply'] = unfreeze(psu(client, device))
+            # replace the card pointer data with the actual cards data
+            if 'card' in dev_hw_db[device]['inventory']:
+                dev_hw_db[device]['inventory']['card'] = unfreeze(cards(client, device))
+            # replace the fanTray pointer data with the actual fans data
+            if 'fanTray' in dev_hw_db[device]['inventory']:
+                dev_hw_db[device]['inventory']['fanTray'] = unfreeze(fans(client, device))
         pretty_print(dev_hw_db)
 
 
