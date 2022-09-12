@@ -13,15 +13,18 @@ class Studio:
     - inputs:       inputs provided to the studio
     - deviceIds:    Ids of the devices associated with this studio
     - logger:       The logger to be used with this studio
+    - execId:       Id of the execution
+    - buildId:      Id of the studio build
     '''
 
-    def __init__(self, workspaceId: str, studioId: str, inputs, deviceIds, logger, execId):
+    def __init__(self, workspaceId: str, studioId: str, inputs, deviceIds, logger, execId, buildId):
         self.workspaceId = workspaceId
         self.studioId = studioId
         self.inputs = inputs
         self.deviceIds = deviceIds
         self.logger = logger
         self.execId = execId
+        self.buildId = buildId
 
 
 class InputError:
