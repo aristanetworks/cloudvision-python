@@ -2,7 +2,6 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-from .studio import InputError
 from typing import List, Optional
 
 
@@ -145,6 +144,41 @@ class TemplateTypeNotSupported(TemplateException):
         return f"Unsupported template type {self.templateType}"
 
 
+class InputError:
+    """
+    This is the primary error that Studio Template writers would raise.
+    It is raised manually by a template script if the set of inputs violates the script-author's
+    assumptions.
+    - message:      A user-friendly text message of the error
+    - inputPath:    The path to the field that is in error. It is a list of field names
+                    (the "name" attribute in the schema) starting from the root.
+                    E.g.: ["networkConfig", "0", "config", "monitoredHosts", "1"]
+    - fieldId:      The unique ID of the field (the "id" attribute in the schema).
+    - members:      A list of all members in a group-type input that are in conflict. inputs easily.
+                    In most cases, a script will only specify a single member to show that inputA
+                    has a problem that the end user needs to fix. In certain cases, though, you may
+                    want to indicate to the end user that either inputA or inputB needs fixing, but
+                    both can't coexist in their current form.
+    """
+
+    def __init__(self, message: str = "Error in input field",
+                 inputPath: List[str] = None, fieldId: str = None, members: List[str] = None):
+        self.message = message
+        self.inputPath = inputPath
+        self.fieldId = fieldId
+        self.members = members
+
+    def __str__(self):
+        return (
+            f"{{"
+            f"message: '{self.message}', "
+            f"inputPath: {self.inputPath}, "
+            f"fieldId: '{self.fieldId}', "
+            f"members: {self.members}"
+            f"}}"
+        )
+
+
 class InputErrorException(TemplateException):
     """
     Exception for when a user needs to raise an error with one or more InputError
@@ -188,6 +222,7 @@ class InputEmptyException(TemplateException):
 
 # -------------------- Studio Autofill Action Exceptions --------------------
 
+# Autofill actions also make use of the script ActionFailed exception
 # Note: These autofill actions are executed via Action Exec API.
 # This might change the way these exceptions are marshalled.
 
@@ -197,7 +232,50 @@ class AutofillActionException(ScriptException):
     def __init__(self, message: str = "cloudvision has encountered an autofill action error"):
         super().__init__(message)
 
-# Also makes use of the script ActionFailed exception and the template InputError
+
+class InputException(AutofillActionException):
+    """ Superclass for autofill input exceptions """
+
+    def __init__(self, message: str = "Error encountered with inputs", inputPath: List[str] = None,
+                 err=None):
+        super().__init__(message)
+        self.inputPath = inputPath
+        self.err = err
+
+    def __str__(self):
+        msg = self.message
+        if self.inputPath:
+            msg += f" ({self.inputPath})"
+        if self.err:
+            msg += f": {self.err}"
+        return msg
+
+
+class InputRequestException(InputException):
+    """
+    Exception raised when an request to get studio inputs fails
+    """
+
+    def __init__(self, inputPath: List[str] = None, err=None):
+        super().__init__("Failed to retrieve studio inputs", inputPath, err)
+
+
+class InputUpdateException(InputException):
+    """
+    Exception raised when an update made to studio inputs fails
+    """
+
+    def __init__(self, inputPath: List[str] = None, err=None):
+        super().__init__("Unable to update studio input", inputPath, err)
+
+
+class InputNotFoundException(InputException):
+    """
+    Exception raised when an input path does not exist in the provided studio inputs
+    """
+
+    def __init__(self, inputPath: List[str] = None, err=None):
+        super().__init__("Input path does not exist in inputs", inputPath, err)
 
 
 # --------------------------- Topology Exceptions ---------------------------

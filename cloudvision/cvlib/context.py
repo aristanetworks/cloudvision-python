@@ -85,25 +85,27 @@ class Context:
         '''
         return self.device
 
-    def getDeviceHostname(self):
+    def getDeviceHostname(self, device: Device = None):
         '''
         Returns the hostname of the device associated to the context.
         Retrieves that information if the context device doesn't have it
         '''
-        if not self.device:
-            raise InvalidContextException(
-                "Context does not have device associated with it")
-        if not self.device.hostName:
-            cmdResponse = self.runDeviceCmds(["enable", "show hostname"])
+        if not device:
+            device = self.device
+        if not device:
+            raise InvalidContextException(("getDeviceHostname requires either a device or the"
+                                           " calling context to have a device associated with it"))
+        if not device.hostName:
+            cmdResponse = self.runDeviceCmds(["enable", "show hostname"], device)
             if len(cmdResponse) != 2:
-                raise DeviceCommandsFailed((f"'show hostname' failed on device {self.device.id}"
+                raise DeviceCommandsFailed((f"'show hostname' failed on device {device.id}"
                                             f" with response: {cmdResponse}"))
             hostnameErr = cmdResponse[1].get('error')
             if hostnameErr:
-                raise DeviceCommandsFailed((f"'show hostname' failed on device {self.device.id}"
+                raise DeviceCommandsFailed((f"'show hostname' failed on device {device.id}"
                                             f" with error: {hostnameErr}"))
-            self.device.hostName = cmdResponse[1]['response']['hostname']
-        return self.device.hostName
+            device.hostName = cmdResponse[1]['response']['hostname']
+        return device.hostName
 
     def setTopology(self, topology: Topology):
         '''
