@@ -14,4 +14,4 @@ RUN python -m pip install --no-cache-dir \
     grpcio==1.46.0 \
     grpcio-tools==1.46.0 \
     flake8==3.8.4 \
-    mypy==0.950
+    mypy==0.981
