@@ -205,14 +205,30 @@ class Context:
         self.__serviceChann = add_user_context(self.__serviceChann)
         return stub(self.__serviceChann)
 
-    def runDeviceCmds(self, commandsList: List[str], device: Optional[Device] = None, fmt=JSON):
+    def runDeviceCmds(self, commandsList: List[str], device: Optional[Device] = None, fmt=JSON,
+                      validateResponse=True):
         '''
         Sends a post request to DI, encodes commandsList in message body.
         Receives output of cli commands from DI as json object
         :param commandsList:
         :param device: device that the commands are run on.
                        Defaults to the context change control device if unspecified
-        :return: json object containing output of commandsList
+        :param validateResponse: Validates that the commands ran successfully. Defaults to true and
+                                 will raise an exception in the case an error message is present in
+                                 the command response.
+                                 Can be set to false to allow commands to run without raising any
+                                 resultant error as an exception, e.g. device reboot commands can
+                                 cause heartbeat error messages in the response, but we can discard
+                                 them as the device will reboot.
+        :return: json object containing output of commandsList (if validateResponse is True)
+                 OR
+                 raw request response (if validateResponse is False)
+        :raises: InvalidContextException when context is invalid for execution of device commands
+                 requests.ConnectionError if connection cannot be established to the command
+                 endpoint address
+                 HTTPError if the status code from the command request is not a 200
+                 DeviceCommandsFailed if validating command responses and the contents
+                 contain an error code/message (can occur if request is a 200)
         '''
         if not self or not self.changeControl:
             raise InvalidContextException(
@@ -264,6 +280,12 @@ class Context:
         self.debug(f"Status code received from DI : {response.status_code}")
         if response.status_code != 200:
             response.raise_for_status()
+
+        # In the case where a response is not validated do not check for errors or convert
+        # the response to JSON. Simply return it as-is
+        if not validateResponse:
+            return response
+
         resp = response.json()
         # Check that some other issue did not occur. It has been seen that a statuscode 200 was
         # received for the response, but when the response contents are jsonified and returned,
