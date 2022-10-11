@@ -46,7 +46,7 @@ class Context:
     - user:           Info on the user executing this script
     - device:         Info on the device the script is operating on, if applicable
     - action:         Info on the action associated with the current context, if applicable
-    - changeControl:  Common change-control script parameters
+    - changeControl:  Common change-control script parameters (Deprecated, use action)
     - studio:         Common studio parameters
     - execution:      Info on the standalone execution context
     - connections:    Object storing connection info used by the context, e.g. apiserver address
@@ -230,9 +230,9 @@ class Context:
                  DeviceCommandsFailed if validating command responses and the contents
                  contain an error code/message (can occur if request is a 200)
         '''
-        if not self or not self.changeControl:
+        if not self or not self.action:
             raise InvalidContextException(
-                "runDeviceCmds is only available during change controls")
+                "runDeviceCmds is only available in action contexts")
 
         if device is None:
             if self.device is None:
