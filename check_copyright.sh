@@ -12,7 +12,10 @@ generatedCodePaths='(^arista|^fmp).*'
 copyrightCheck='.*(check_copyright.sh)'
 
 files=`git diff-tree --no-commit-id --name-only --diff-filter=ACMR -r HEAD | \
-	egrep '\.(go|proto|py|sh)$' | grep -v '_pb2\.py$' | grep -v '_pb2_grpc\.py$'`
+	egrep '\.(go|proto|py|sh)$' | \
+	grep -v '_pb2\.py$' | \
+	grep -v '_pb2_grpc\.py$' |\
+	grep -v 'docsrc/'`
 status=0
 
 for file in $files; do
