@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.tag.v2.services package &mdash; CloudVision Python 1.4.4 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.time package" href="arista.time.html" />
+    <link rel="prev" title="arista.tag.v2 package" href="arista.tag.v2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">cloudvision</a> &raquo;</li>
+          <li><a href="arista.html">arista package</a> &raquo;</li>
+          <li><a href="arista.tag.html">arista.tag package</a> &raquo;</li>
+          <li><a href="arista.tag.v2.html">arista.tag.v2 package</a> &raquo;</li>
+      <li>arista.tag.v2.services package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.tag.v2.services.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-tag-v2-services-package">
+<h1>arista.tag.v2.services package<a class="headerlink" href="#arista-tag-v2-services-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-arista.tag.v2.services.gen_pb2">
+<span id="arista-tag-v2-services-gen-pb2-module"></span><h2>arista.tag.v2.services.gen_pb2 module<a class="headerlink" href="#module-arista.tag.v2.services.gen_pb2" title="Permalink to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigDeleteRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteRequest.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteRequest.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigDeleteRequest.key</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigDeleteResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteResponse.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteResponse.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigDeleteResponse.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigDeleteResponse.time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigRequest.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigRequest.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigRequest.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigRequest.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigRequest.time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigResponse.time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigResponse.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigResponse.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigSetRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetRequest.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetRequest.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigSetRequest.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigSetResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigSetResponse.time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetResponse.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigSetResponse.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigStreamRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamRequest.partial_eq_filter">
+<span class="sig-name descname"><span class="pre">partial_eq_filter</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamRequest.partial_eq_filter" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigStreamRequest.partial_eq_filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamRequest.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigStreamRequest.time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigStreamResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigStreamResponse.time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse.type" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigStreamResponse.type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentConfigStreamResponse.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentRequest.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentRequest.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentRequest.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentRequest.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentRequest.time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentResponse.time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentResponse.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentResponse.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentStreamRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentStreamRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentStreamRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentStreamRequest.partial_eq_filter">
+<span class="sig-name descname"><span class="pre">partial_eq_filter</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentStreamRequest.partial_eq_filter" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentStreamRequest.partial_eq_filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentStreamRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentStreamRequest.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentStreamRequest.time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentStreamResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentStreamResponse.time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse.type" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentStreamResponse.type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagAssignmentStreamResponse.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigDeleteRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagConfigDeleteRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigDeleteRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigDeleteRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigDeleteRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigDeleteRequest.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigDeleteRequest.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigDeleteRequest.key</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigDeleteResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagConfigDeleteResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigDeleteResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigDeleteResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigDeleteResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigDeleteResponse.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigDeleteResponse.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigDeleteResponse.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigDeleteResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigDeleteResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigDeleteResponse.time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagConfigRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigRequest.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigRequest.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigRequest.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigRequest.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigRequest.time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagConfigResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigResponse.time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigResponse.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigResponse.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigSetRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagConfigSetRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigSetRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigSetRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigSetRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigSetRequest.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigSetRequest.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigSetRequest.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigSetResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagConfigSetResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigSetResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigSetResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigSetResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigSetResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigSetResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigSetResponse.time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigSetResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigSetResponse.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigSetResponse.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagConfigStreamRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigStreamRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigStreamRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigStreamRequest.partial_eq_filter">
+<span class="sig-name descname"><span class="pre">partial_eq_filter</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigStreamRequest.partial_eq_filter" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigStreamRequest.partial_eq_filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigStreamRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigStreamRequest.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigStreamRequest.time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagConfigStreamResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigStreamResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigStreamResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigStreamResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigStreamResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigStreamResponse.time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigStreamResponse.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigStreamResponse.type" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigStreamResponse.type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagConfigStreamResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagConfigStreamResponse.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagConfigStreamResponse.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagRequest.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagRequest.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagRequest.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagRequest.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagRequest.time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagResponse.time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagResponse.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagResponse.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagStreamRequest</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagStreamRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagStreamRequest.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagStreamRequest.partial_eq_filter">
+<span class="sig-name descname"><span class="pre">partial_eq_filter</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagStreamRequest.partial_eq_filter" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagStreamRequest.partial_eq_filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagStreamRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagStreamRequest.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagStreamRequest.time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">TagStreamResponse</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagStreamResponse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagStreamResponse.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagStreamResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagStreamResponse.time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagStreamResponse.time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagStreamResponse.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagStreamResponse.type" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagStreamResponse.type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2.TagStreamResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.tag.v2.services.gen_pb2.TagStreamResponse.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.tag.v2.TagStreamResponse.value</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.tag.v2.services.gen_pb2_grpc">
+<span id="arista-tag-v2-services-gen-pb2-grpc-module"></span><h2>arista.tag.v2.services.gen_pb2_grpc module<a class="headerlink" href="#module-arista.tag.v2.services.gen_pb2_grpc" title="Permalink to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigService</span></span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.Delete">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigService.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.Delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.GetAll" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.GetOne" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.Set">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigService.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.Set" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.Subscribe" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigServiceServicer</span></span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.Delete">
+<span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigServiceServicer.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.Delete" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.GetAll" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.GetOne" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.Set">
+<span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigServiceServicer.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.Set" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.Subscribe" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfigServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentConfigServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceStub" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentService</span></span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.GetAll" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.GetOne" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.Subscribe" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentServiceServicer</span></span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.GetAll" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.GetOne" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.Subscribe" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagAssignmentServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceStub" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagConfigService</span></span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigService" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigService.Delete">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigService.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.Delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.GetAll" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.GetOne" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigService.Set">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigService.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.Set" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.Subscribe" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagConfigServiceServicer</span></span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.Delete">
+<span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigServiceServicer.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.Delete" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.GetAll" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.GetOne" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.Set">
+<span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigServiceServicer.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.Set" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.Subscribe" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagConfigServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagConfigServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceStub" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagService</span></span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagService" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagService.GetAll" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagService.GetOne" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagService.Subscribe" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagServiceServicer</span></span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.GetAll" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.GetOne" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.Subscribe" title="Permalink to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.TagServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">TagServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#TagServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.TagServiceStub" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.add_TagAssignmentConfigServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_TagAssignmentConfigServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#add_TagAssignmentConfigServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.add_TagAssignmentConfigServiceServicer_to_server" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.add_TagAssignmentServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_TagAssignmentServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#add_TagAssignmentServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.add_TagAssignmentServiceServicer_to_server" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.add_TagConfigServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_TagConfigServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#add_TagConfigServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.add_TagConfigServiceServicer_to_server" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.tag.v2.services.gen_pb2_grpc.add_TagServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.tag.v2.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_TagServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/tag/v2/services/gen_pb2_grpc.html#add_TagServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.tag.v2.services.gen_pb2_grpc.add_TagServiceServicer_to_server" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-arista.tag.v2.services">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.tag.v2.services" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.tag.v2.html" class="btn btn-neutral float-left" title="arista.tag.v2 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.time.html" class="btn btn-neutral float-right" title="arista.time package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
