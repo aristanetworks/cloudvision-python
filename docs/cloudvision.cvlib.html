@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.cvlib package &mdash; CloudVision Python 1.4.4 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista package" href="arista.html" />
+    <link rel="prev" title="cloudvision.Connector.grpc_client package" href="cloudvision.Connector.grpc_client.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cloudvision.html">cloudvision package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cloudvision.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.Connector.html">cloudvision.Connector package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">cloudvision.cvlib package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.html#module-cloudvision">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.html">arista package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">cloudvision</a> &raquo;</li>
+          <li><a href="cloudvision.html">cloudvision package</a> &raquo;</li>
+      <li>cloudvision.cvlib package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cloudvision.cvlib.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cloudvision-cvlib-package">
+<h1>cloudvision.cvlib package<a class="headerlink" href="#cloudvision-cvlib-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-cloudvision.cvlib.action">
+<span id="cloudvision-cvlib-action-module"></span><h2>cloudvision.cvlib.action module<a class="headerlink" href="#module-cloudvision.cvlib.action" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.action.Action">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.action.</span></span><span class="sig-name descname"><span class="pre">Action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.cvlib.action.ActionContext" title="cloudvision.cvlib.action.ActionContext"><span class="pre">ActionContext</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ActionContext.Unknown</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/action.html#Action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.action.Action" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object to store common change control action script arguments:
+- name:     Name of the action currently running
+- context:  Enum for the context in which the action is running,</p>
+<blockquote>
+<div><p>e.g. Action that is running is a change control action</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>actionId: ID of the action currently running</p></li>
+<li><p>args:     String -&gt; String dictionary of the args associated with the action</p></li>
+<li><p>ccId:     ID of the change control, if applicable</p></li>
+<li><p>stageId:  ID of the current stage of the change control, if applicable</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.action.Action.getCCStartTime">
+<span class="sig-name descname"><span class="pre">getCCStartTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cvClient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient" title="cloudvision.Connector.grpc_client.grpcClient.GRPCClient"><span class="pre">GRPCClient</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/action.html#Action.getCCStartTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.action.Action.getCCStartTime" title="Permalink to this definition"></a></dt>
+<dd><p>Queries the cloudvision database for the change control start time
+:param cvClient:  context.getCvClient() client
+:return:          nanosecond start timestamp of the change control</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.action.ActionContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.action.</span></span><span class="sig-name descname"><span class="pre">ActionContext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/action.html#ActionContext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.action.ActionContext" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Enum class used to store the various contexts in which actions are executed in</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.cvlib.action.ActionContext.ChangeControl">
+<span class="sig-name descname"><span class="pre">ChangeControl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#cloudvision.cvlib.action.ActionContext.ChangeControl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.cvlib.action.ActionContext.Unknown">
+<span class="sig-name descname"><span class="pre">Unknown</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#cloudvision.cvlib.action.ActionContext.Unknown" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.changecontrol">
+<span id="cloudvision-cvlib-changecontrol-module"></span><h2>cloudvision.cvlib.changecontrol module<a class="headerlink" href="#module-cloudvision.cvlib.changecontrol" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.changecontrol.ChangeControl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.changecontrol.</span></span><span class="sig-name descname"><span class="pre">ChangeControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ccId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/changecontrol.html#ChangeControl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.changecontrol.ChangeControl" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>(Deprecated) Please use ctx.action instead for various field information
+Object to store common change control action script arguments:
+- ccId:         ID of the change control, if applicable
+- stageId:      ID of the current stage of the change control, if applicable
+- args:         Dict of user-defined/script defined arguments that are passed in</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.changecontrol.ChangeControl.getStartTime">
+<span class="sig-name descname"><span class="pre">getStartTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cvClient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient" title="cloudvision.Connector.grpc_client.grpcClient.GRPCClient"><span class="pre">GRPCClient</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/changecontrol.html#ChangeControl.getStartTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.changecontrol.ChangeControl.getStartTime" title="Permalink to this definition"></a></dt>
+<dd><p>Queries the cloudvision database for the change control start time
+:param cvClient:  context.getCvClient() client
+:return:          nanosecond start timestamp of the change control</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.connections">
+<span id="cloudvision-cvlib-connections-module"></span><h2>cloudvision.cvlib.connections module<a class="headerlink" href="#module-cloudvision.cvlib.connections" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.connections.AuthAndEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.connections.</span></span><span class="sig-name descname"><span class="pre">AuthAndEndpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">apiserverAddr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serviceAddr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serviceCACert</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aerisCACert</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commandEndpoint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logEndpoint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectionTimeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cliTimeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">testAddresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/connections.html#AuthAndEndpoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.connections.AuthAndEndpoints" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object to store auth and endpoint information for use in the context object
+- apiserverAddr:     Address of the CloudVision apiserver
+- serviceAddr:       Address of the CloudVision service proxy server, e.g. ambassador address
+- cacert:            Path to local CA Cert, used for establishing CV grpc connections
+- commandEndpoint:   Service endpoint where command requests are posted to
+- logEndpoint:       Service endpoint where log requests are posted to
+- connectionTimeout: Timeout value for connections to endpoints in seconds
+- cliTimeout:        Timeout value for cli commands invoked by connections
+- testAddresses:     Api addresses to use when execution is in a test context</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cloudvision.cvlib.connections.addHeaderInterceptor">
+<span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.connections.</span></span><span class="sig-name descname"><span class="pre">addHeaderInterceptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/connections.html#addHeaderInterceptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.connections.addHeaderInterceptor" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cloudvision.cvlib.connections.create">
+<span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.connections.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">intercept_call</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/connections.html#create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.connections.create" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.context">
+<span id="cloudvision-cvlib-context-module"></span><h2>cloudvision.cvlib.context module<a class="headerlink" href="#module-cloudvision.cvlib.context" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.context.</span></span><span class="sig-name descname"><span class="pre">Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.cvlib.user.User" title="cloudvision.cvlib.user.User"><span class="pre">User</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.cvlib.device.Device" title="cloudvision.cvlib.device.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.cvlib.action.Action" title="cloudvision.cvlib.action.Action"><span class="pre">Action</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">changeControl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.cvlib.changecontrol.ChangeControl" title="cloudvision.cvlib.changecontrol.ChangeControl"><span class="pre">ChangeControl</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">studio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.cvlib.studio.Studio" title="cloudvision.cvlib.studio.Studio"><span class="pre">Studio</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.cvlib.execution.Execution" title="cloudvision.cvlib.execution.Execution"><span class="pre">Execution</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.cvlib.connections.AuthAndEndpoints" title="cloudvision.cvlib.connections.AuthAndEndpoints"><span class="pre">AuthAndEndpoints</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.cvlib.logger.Logger" title="cloudvision.cvlib.logger.Logger"><span class="pre">Logger</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Context object that stores a number of system and user-defined parameters:
+- user:           Info on the user executing this script
+- device:         Info on the device the script is operating on, if applicable
+- action:         Info on the action associated with the current context, if applicable
+- changeControl:  Common change-control script parameters
+- studio:         Common studio parameters
+- execution:      Info on the standalone execution context
+- connections:    Object storing connection info used by the context, e.g. apiserver address
+- logger:         Logging functions to be used by the context</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.Get">
+<span class="sig-name descname"><span class="pre">Get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'analytics'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.Get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.Get" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.alog">
+<span class="sig-name descname"><span class="pre">alog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customKey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.alog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.alog" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.critical">
+<span class="sig-name descname"><span class="pre">critical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.critical"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.critical" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.debug"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.debug" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.doWithTimeout">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">doWithTimeout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.doWithTimeout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.doWithTimeout" title="Permalink to this definition"></a></dt>
+<dd><p>Takes a function and a timeout in seconds.
+Will call and return the result of f, but raises a cvlib.TimeoutExpiry
+exception if it runs longer than &lt;timeout&gt;</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.error">
+<span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.error" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.getApiClient">
+<span class="sig-name descname"><span class="pre">getApiClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stub</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.getApiClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.getApiClient" title="Permalink to this definition"></a></dt>
+<dd><p>Instantiates a resource api client to the service server
+based on the current user auth token and passed stub
+:param: stub of the resource api to connect to
+:return: resource api client to the passed stub</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.getCvClient">
+<span class="sig-name descname"><span class="pre">getCvClient</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.getCvClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.getCvClient" title="Permalink to this definition"></a></dt>
+<dd><p>Instantiates a cloudvision connector client to the cv database
+based on the current user auth token
+:return: cloudvision Connector client</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.getDevice">
+<span class="sig-name descname"><span class="pre">getDevice</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.getDevice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.getDevice" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the device associated to the context.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.getDeviceHostname">
+<span class="sig-name descname"><span class="pre">getDeviceHostname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.getDeviceHostname"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.getDeviceHostname" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the hostname of the device associated to the context.
+Retrieves that information if the context device doesn’t have it</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.info">
+<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.info" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.keepBlankLines">
+<span class="sig-name descname"><span class="pre">keepBlankLines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preserve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.keepBlankLines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.keepBlankLines" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.retrieve">
+<span class="sig-name descname"><span class="pre">retrieve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.retrieve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.retrieve" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.runDeviceCmds">
+<span class="sig-name descname"><span class="pre">runDeviceCmds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commandsList</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.cvlib.device.Device" title="cloudvision.cvlib.device.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.runDeviceCmds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.runDeviceCmds" title="Permalink to this definition"></a></dt>
+<dd><p>Sends a post request to DI, encodes commandsList in message body.
+Receives output of cli commands from DI as json object
+:param commandsList:
+:param device: device that the commands are run on.</p>
+<blockquote>
+<div><p>Defaults to the context change control device if unspecified</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>json object containing output of commandsList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.setTopology">
+<span class="sig-name descname"><span class="pre">setTopology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topology</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.cvlib.topology.Topology" title="cloudvision.cvlib.topology.Topology"><span class="pre">Topology</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.setTopology"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.setTopology" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the topology of the context.
+Called during context initialisation during script execution
+Does not need to be called by the script writers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.showIf">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">showIf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linefmt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.showIf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.showIf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.store">
+<span class="sig-name descname"><span class="pre">store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.store" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.trace">
+<span class="sig-name descname"><span class="pre">trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.trace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.context.Context.warning">
+<span class="sig-name descname"><span class="pre">warning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/context.html#Context.warning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.context.Context.warning" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.device">
+<span id="cloudvision-cvlib-device-module"></span><h2>cloudvision.cvlib.device module<a class="headerlink" href="#module-cloudvision.cvlib.device" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.device.Device">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.device.</span></span><span class="sig-name descname"><span class="pre">Device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deviceId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deviceMac</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hostName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modelName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/device.html#Device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.device.Device" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object to store device information
+- ip:           IP address of device
+- deviceId:     ID of the device
+- deviceMac:    Mac address of the device
+- hostName:     Hostname of the device
+- modelName:    Model name of the device</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.device.Device.addInterface">
+<span class="sig-name descname"><span class="pre">addInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/device.html#Device.addInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.device.Device.addInterface" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.device.Device.getInterface">
+<span class="sig-name descname"><span class="pre">getInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/device.html#Device.getInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.device.Device.getInterface" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.device.Device.getInterfaces">
+<span class="sig-name descname"><span class="pre">getInterfaces</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/device.html#Device.getInterfaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.device.Device.getInterfaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.device.Interface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.device.</span></span><span class="sig-name descname"><span class="pre">Interface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.cvlib.device.Device" title="cloudvision.cvlib.device.Device"><span class="pre">Device</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/device.html#Interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.device.Interface" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object to store interface related information
+- name:     The name of the interface
+- device:   The device that the interface is on</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.device.Interface.getDevice">
+<span class="sig-name descname"><span class="pre">getDevice</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/device.html#Interface.getDevice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.device.Interface.getDevice" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.device.Interface.getPeerDevice">
+<span class="sig-name descname"><span class="pre">getPeerDevice</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/device.html#Interface.getPeerDevice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.device.Interface.getPeerDevice" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.device.Interface.getPeerInfo">
+<span class="sig-name descname"><span class="pre">getPeerInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/device.html#Interface.getPeerInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.device.Interface.getPeerInfo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.device.Interface.getPeerInterface">
+<span class="sig-name descname"><span class="pre">getPeerInterface</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/device.html#Interface.getPeerInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.device.Interface.getPeerInterface" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.device.Interface.setPeerInfo">
+<span class="sig-name descname"><span class="pre">setPeerInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.cvlib.device.Device" title="cloudvision.cvlib.device.Device"><span class="pre">Device</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">interface</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/device.html#Interface.setPeerInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.device.Interface.setPeerInfo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.exceptions">
+<span id="cloudvision-cvlib-exceptions-module"></span><h2>cloudvision.cvlib.exceptions module<a class="headerlink" href="#module-cloudvision.cvlib.exceptions" title="Permalink to this heading"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.ActionFailed">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">ActionFailed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#ActionFailed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.ActionFailed" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.ScriptException" title="cloudvision.cvlib.exceptions.ScriptException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScriptException</span></code></a></p>
+<p>Exception to raise if you wish to fail a script or autofill action being executed.</p>
+<p>For the case of a script action, e.g. CCA, it means that the user has declared
+that the action has failed due to some condition being met or missed. This is
+“expected” in the sense that the action did not hit an unexpected exception.</p>
+<p>In the autofill action case, it means the autofill could not be completed due to
+some expected reason (e.g. could not reach IPAM or IPAM block was exhausted).</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.AutofillActionException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">AutofillActionException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cloudvision</span> <span class="pre">has</span> <span class="pre">encountered</span> <span class="pre">an</span> <span class="pre">autofill</span> <span class="pre">action</span> <span class="pre">error'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#AutofillActionException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.AutofillActionException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.ScriptException" title="cloudvision.cvlib.exceptions.ScriptException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScriptException</span></code></a></p>
+<p>Overarching class for Autofill Action exceptions</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.BatchException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">BatchException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Multiple</span> <span class="pre">errors</span> <span class="pre">encountered'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cvErrors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#BatchException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.BatchException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.ScriptException" title="cloudvision.cvlib.exceptions.ScriptException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScriptException</span></code></a></p>
+<p>Exception for when a script needs to raise multiple issues in a single error.
+This is useful for when scripts do all invariant checking at once, and tell
+the user about all the problems they’ve seen (instead of making the user fix one problem,
+rebuild to see the next problem, and repeat).</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.CVException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">CVException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cloudvision</span> <span class="pre">has</span> <span class="pre">encountered</span> <span class="pre">an</span> <span class="pre">error'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#CVException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.CVException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Overarching base exception class for all cloudvision exceptions</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.ConnectionFailed">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">ConnectionFailed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'connection</span> <span class="pre">issue</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">CloudVision</span> <span class="pre">API</span> <span class="pre">server'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#ConnectionFailed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.ConnectionFailed" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.CVException" title="cloudvision.cvlib.exceptions.CVException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CVException</span></code></a></p>
+<p>Exception raised when a connection to the CloudVision API Server
+could not be established, or if it was unexpectedly closed</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.DeviceCommandsFailed">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">DeviceCommandsFailed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errCode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errMsg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#DeviceCommandsFailed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.DeviceCommandsFailed" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.ScriptException" title="cloudvision.cvlib.exceptions.ScriptException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScriptException</span></code></a></p>
+<p>Exception raised when device fails to run commands with ctx.runDeviceCmds.
+This is separate to the commands on the device themselves failing.
+This can be caused by the command request being invalid, not caused by
+invalid commands being issued
+message is the user-facing message for the exception
+errCode is the error code returned from the DI service
+errMsg is the message that the DI service returned with the error code</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.InputEmptyException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">InputEmptyException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'attempted</span> <span class="pre">to</span> <span class="pre">access</span> <span class="pre">unpopulated</span> <span class="pre">input'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">members</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#InputEmptyException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.InputEmptyException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.TemplateException" title="cloudvision.cvlib.exceptions.TemplateException"><code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateException</span></code></a></p>
+<p>Exception for when an action/template script tries to access an input that wasn’t
+populated and that input was not optional or doesn’t have a default value.
+The members field is something that can be used to determine what input was missing.
+Members should be usable by the UI to guide users to the right section to fill
+out the missing input.
+For studios, this is only raised by the internal studios python library utilities.</p>
+<p>For autofill actions, this could be useful for the autofill action to show that it
+can’t autofill because some of the existing inputs don’t make any sense. This also
+lets autofill actions act as validators (users press a button to validate in real time)</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.InputErrorException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">InputErrorException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Error</span> <span class="pre">in</span> <span class="pre">input</span> <span class="pre">fields'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputErrors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.cvlib.studio.InputError" title="cloudvision.cvlib.studio.InputError"><span class="pre">InputError</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#InputErrorException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.InputErrorException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.TemplateException" title="cloudvision.cvlib.exceptions.TemplateException"><code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateException</span></code></a></p>
+<p>Exception for when a user needs to raise an error with one or more InputError
+structures in it.
+For Studios, this is raised manually by a template script to report an error with
+one or more input values. It allows for errors in multiple input fields to be
+reported at once. These errors are displayed to the user in the Studio UI.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.InvalidContextException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidContextException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#InvalidContextException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.InvalidContextException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.CVException" title="cloudvision.cvlib.exceptions.CVException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CVException</span></code></a></p>
+<p>Exception raised when context methods are called invalidly</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.InvalidCredentials">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidCredentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'provided</span> <span class="pre">credentials</span> <span class="pre">were</span> <span class="pre">not</span> <span class="pre">valid'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#InvalidCredentials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.InvalidCredentials" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.CVException" title="cloudvision.cvlib.exceptions.CVException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CVException</span></code></a></p>
+<p>Exception raised if provided credentials are invalid</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.InvalidTopologyException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidTopologyException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#InvalidTopologyException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.InvalidTopologyException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.CVException" title="cloudvision.cvlib.exceptions.CVException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CVException</span></code></a></p>
+<p>Exception class raised when topology model contains invalid configuration</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.ScriptException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">ScriptException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cloudvision</span> <span class="pre">has</span> <span class="pre">encountered</span> <span class="pre">a</span> <span class="pre">script</span> <span class="pre">error'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#ScriptException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.ScriptException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.CVException" title="cloudvision.cvlib.exceptions.CVException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CVException</span></code></a></p>
+<p>Overarching class for Script exceptions</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.TemplateException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">TemplateException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cloudvision</span> <span class="pre">has</span> <span class="pre">encountered</span> <span class="pre">a</span> <span class="pre">template</span> <span class="pre">error'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#TemplateException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.TemplateException" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.ScriptException" title="cloudvision.cvlib.exceptions.ScriptException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScriptException</span></code></a></p>
+<p>Overarching class for Template exceptions</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.TemplateTypeNotSupported">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">TemplateTypeNotSupported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Unsupported</span> <span class="pre">template</span> <span class="pre">type'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">templateType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#TemplateTypeNotSupported"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.TemplateTypeNotSupported" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.TemplateException" title="cloudvision.cvlib.exceptions.TemplateException"><code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateException</span></code></a></p>
+<p>Exception for when a template type is not supported</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="cloudvision.cvlib.exceptions.TimeoutExpiry">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.exceptions.</span></span><span class="sig-name descname"><span class="pre">TimeoutExpiry</span></span><a class="reference internal" href="_modules/cloudvision/cvlib/exceptions.html#TimeoutExpiry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.exceptions.TimeoutExpiry" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudvision.cvlib.exceptions.ScriptException" title="cloudvision.cvlib.exceptions.ScriptException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScriptException</span></code></a></p>
+<p>Exception to raise when alarm signals are used in scripts as timers so that script writers
+do not need to define their own exceptions for use in that situation.
+Users should raise and catch this exception in the signal handler
+so that they can be sure no other exception occurred while the timer was running</p>
+</dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.execution">
+<span id="cloudvision-cvlib-execution-module"></span><h2>cloudvision.cvlib.execution module<a class="headerlink" href="#module-cloudvision.cvlib.execution" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.execution.Execution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.execution.</span></span><span class="sig-name descname"><span class="pre">Execution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">executionId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/execution.html#Execution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.execution.Execution" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object to store standalone execution context:
+- executionId:  Key of the execution run, used by alog</p>
+</dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.logger">
+<span id="cloudvision-cvlib-logger-module"></span><h2>cloudvision.cvlib.logger module<a class="headerlink" href="#module-cloudvision.cvlib.logger" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.logger.Logger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.logger.</span></span><span class="sig-name descname"><span class="pre">Logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alog</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/logger.html#Logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.logger.Logger" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Logger object that stores a number of user-defined logging functions
+Due to context being pickled at certain execution stages of actions/studios, a normal python
+logger cannot be used.
+Minimum required call signatures are described by the init function, where ‘Any’ denotes the
+context being passed to avoid cyclical imports
+- alog:     Function to be used for audit log insertion
+- trace:    Function to be used for trace level logging
+- debug:    Function to be used for debug level logging
+- info:     Function to be used for info level logging
+- warning:  Function to be used for warning level logging
+- error:    Function to be used for error level logging
+- critical: Function to be used for critical level logging</p>
+</dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.studio">
+<span id="cloudvision-cvlib-studio-module"></span><h2>cloudvision.cvlib.studio module<a class="headerlink" href="#module-cloudvision.cvlib.studio" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.studio.InputError">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.studio.</span></span><span class="sig-name descname"><span class="pre">InputError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Error</span> <span class="pre">in</span> <span class="pre">input</span> <span class="pre">field'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputPath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fieldId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">members</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/studio.html#InputError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.studio.InputError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is the primary error that Studio Template writers would raise.
+It is raised manually by a template script if the set of inputs violates the script-author’s
+assumptions.
+- message:      A user-friendly text message of the error
+- inputPath:    The path to the field that is in error. It is a list of field names</p>
+<blockquote>
+<div><p>(the “name” attribute in the schema) starting from the root.
+E.g.: [“networkConfig”, “0”, “config”, “monitoredHosts”, “1”]</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>fieldId:      The unique ID of the field (the “id” attribute in the schema).</p></li>
+<li><dl class="simple">
+<dt>members:      A list of all members in a group-type input that are in conflict. inputs easily.</dt><dd><p>In most cases, a script will only specify a single member to show that inputA
+has a problem that the end user needs to fix. In certain cases, though, you may
+want to indicate to the end user that either inputA or inputB needs fixing, but
+both can’t coexist in their current form.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.studio.Studio">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.studio.</span></span><span class="sig-name descname"><span class="pre">Studio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">workspaceId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">studioId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deviceIds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/studio.html#Studio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.studio.Studio" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object to store studio context:
+- workspaceId:  Id of the workspace
+- studioId:     Id of the studio
+- inputs:       inputs provided to the studio
+- deviceIds:    Ids of the devices associated with this studio
+- logger:       The logger to be used with this studio</p>
+</dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.topology">
+<span id="cloudvision-cvlib-topology-module"></span><h2>cloudvision.cvlib.topology module<a class="headerlink" href="#module-cloudvision.cvlib.topology" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.topology.Connection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.topology.</span></span><span class="sig-name descname"><span class="pre">Connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sourceDevice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sourceInterface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destDevice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destInterface</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/topology.html#Connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.topology.Connection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.topology.Topology">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.topology.</span></span><span class="sig-name descname"><span class="pre">Topology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deviceMap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.cvlib.device.Device" title="cloudvision.cvlib.device.Device"><span class="pre">Device</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/topology.html#Topology"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.topology.Topology" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Topology object that stores devices and their connection to one another in dict form:
+- deviceMap:   Prebuilt topology device dictionary to instantiate the class with</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.topology.Topology.getDevices">
+<span class="sig-name descname"><span class="pre">getDevices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deviceIds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/topology.html#Topology.getDevices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.topology.Topology.getDevices" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.cvlib.topology.Topology.setLogger">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setLogger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loggerToUse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/topology.html#Topology.setLogger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.topology.Topology.setLogger" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.user">
+<span id="cloudvision-cvlib-user-module"></span><h2>cloudvision.cvlib.user module<a class="headerlink" href="#module-cloudvision.cvlib.user" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.cvlib.user.User">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.user.</span></span><span class="sig-name descname"><span class="pre">User</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/user.html#User"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.user.User" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object to store information on the user executing this script:
+- username:      Cloudvision username
+- token:         Auth token used to create connections</p>
+</dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib.utils">
+<span id="cloudvision-cvlib-utils-module"></span><h2>cloudvision.cvlib.utils module<a class="headerlink" href="#module-cloudvision.cvlib.utils" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="cloudvision.cvlib.utils.queryCCStartTime">
+<span class="sig-prename descclassname"><span class="pre">cloudvision.cvlib.utils.</span></span><span class="sig-name descname"><span class="pre">queryCCStartTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient" title="cloudvision.Connector.grpc_client.grpcClient.GRPCClient"><span class="pre">GRPCClient</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/cvlib/utils.html#queryCCStartTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.cvlib.utils.queryCCStartTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-cloudvision.cvlib">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudvision.cvlib" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cloudvision.Connector.grpc_client.html" class="btn btn-neutral float-left" title="cloudvision.Connector.grpc_client package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.html" class="btn btn-neutral float-right" title="arista package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

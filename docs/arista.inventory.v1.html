@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.inventory.v1 package &mdash; CloudVision Python 1.4.4 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.inventory.v1.services package" href="arista.inventory.v1.services.html" />
+    <link rel="prev" title="arista.inventory package" href="arista.inventory.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">cloudvision</a> &raquo;</li>
+          <li><a href="arista.html">arista package</a> &raquo;</li>
+          <li><a href="arista.inventory.html">arista.inventory package</a> &raquo;</li>
+      <li>arista.inventory.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.inventory.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-inventory-v1-package">
+<h1>arista.inventory.v1 package<a class="headerlink" href="#arista-inventory-v1-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.inventory.v1.services.html">arista.inventory.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.services.html#module-arista.inventory.v1.services.gen_pb2">arista.inventory.v1.services.gen_pb2 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.services.html#module-arista.inventory.v1.services.gen_pb2_grpc">arista.inventory.v1.services.gen_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.services.html#module-arista.inventory.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-arista.inventory.v1.inventory_pb2">
+<span id="arista-inventory-v1-inventory-pb2-module"></span><h2>arista.inventory.v1.inventory_pb2 module<a class="headerlink" href="#module-arista.inventory.v1.inventory_pb2" title="Permalink to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">Device</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.boot_time">
+<span class="sig-name descname"><span class="pre">boot_time</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.boot_time" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.boot_time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.domain_name">
+<span class="sig-name descname"><span class="pre">domain_name</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.domain_name" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.domain_name</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.extended_attributes">
+<span class="sig-name descname"><span class="pre">extended_attributes</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.extended_attributes" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.extended_attributes</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.fqdn">
+<span class="sig-name descname"><span class="pre">fqdn</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.fqdn" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.fqdn</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.hardware_revision">
+<span class="sig-name descname"><span class="pre">hardware_revision</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.hardware_revision" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.hardware_revision</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.hostname">
+<span class="sig-name descname"><span class="pre">hostname</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.hostname" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.hostname</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.model_name">
+<span class="sig-name descname"><span class="pre">model_name</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.model_name" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.model_name</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.software_version">
+<span class="sig-name descname"><span class="pre">software_version</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.software_version" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.software_version</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.streaming_status">
+<span class="sig-name descname"><span class="pre">streaming_status</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.streaming_status" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.streaming_status</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.system_mac_address">
+<span class="sig-name descname"><span class="pre">system_mac_address</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.system_mac_address" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.Device.system_mac_address</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceConfiguration</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsEntry</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceConfiguration.OptionsEntry.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceConfiguration.OptionsEntry.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration.options" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceConfiguration.options</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioning">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceDecommissioning</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioning" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioning.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioning.error">
+<span class="sig-name descname"><span class="pre">error</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.error" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceDecommissioning.error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioning.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceDecommissioning.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioning.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.status" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceDecommissioning.status</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioning.status_message">
+<span class="sig-name descname"><span class="pre">status_message</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.status_message" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceDecommissioning.status_message</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceDecommissioningConfig</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.device_id">
+<span class="sig-name descname"><span class="pre">device_id</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.device_id" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceDecommissioningConfig.device_id</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceDecommissioningConfig.key</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceKey</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceKey" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceKey.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceKey.device_id">
+<span class="sig-name descname"><span class="pre">device_id</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceKey.device_id" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceKey.device_id</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboarding">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceOnboarding</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboarding" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboarding.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboarding.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboarding.device_id">
+<span class="sig-name descname"><span class="pre">device_id</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboarding.device_id" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceOnboarding.device_id</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboarding.error">
+<span class="sig-name descname"><span class="pre">error</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboarding.error" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceOnboarding.error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboarding.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboarding.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceOnboarding.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboarding.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboarding.status" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceOnboarding.status</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboarding.status_message">
+<span class="sig-name descname"><span class="pre">status_message</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboarding.status_message" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceOnboarding.status_message</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceOnboardingConfig</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.device_config">
+<span class="sig-name descname"><span class="pre">device_config</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.device_config" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceOnboardingConfig.device_config</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.device_type">
+<span class="sig-name descname"><span class="pre">device_type</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.device_type" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceOnboardingConfig.device_type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.hostname_or_ip">
+<span class="sig-name descname"><span class="pre">hostname_or_ip</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.hostname_or_ip" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceOnboardingConfig.hostname_or_ip</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.DeviceOnboardingConfig.key</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">ExtendedAttributes</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FeatureEnabledEntry</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.ExtendedAttributes.FeatureEnabledEntry.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry.value" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.ExtendedAttributes.FeatureEnabledEntry.value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes.feature_enabled">
+<span class="sig-name descname"><span class="pre">feature_enabled</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes.feature_enabled" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.ExtendedAttributes.feature_enabled</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ProvisionedDevice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">ProvisionedDevice</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ProvisionedDevice" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ProvisionedDevice.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ProvisionedDevice.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ProvisionedDevice.error">
+<span class="sig-name descname"><span class="pre">error</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ProvisionedDevice.error" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.ProvisionedDevice.error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ProvisionedDevice.ip_address">
+<span class="sig-name descname"><span class="pre">ip_address</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ProvisionedDevice.ip_address" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.ProvisionedDevice.ip_address</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ProvisionedDevice.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ProvisionedDevice.key" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.ProvisionedDevice.key</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ProvisionedDevice.provisioning_group_name">
+<span class="sig-name descname"><span class="pre">provisioning_group_name</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ProvisionedDevice.provisioning_group_name" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.ProvisionedDevice.provisioning_group_name</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ProvisionedDevice.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ProvisionedDevice.status" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.ProvisionedDevice.status</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ProvisionedDevice.ztp_mode">
+<span class="sig-name descname"><span class="pre">ztp_mode</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ProvisionedDevice.ztp_mode" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.ProvisionedDevice.ztp_mode</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.UUIDKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">UUIDKey</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.UUIDKey" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CMessage</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.UUIDKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.pyext._message.MessageDescriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.UUIDKey.DESCRIPTOR" title="Permalink to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.UUIDKey.request_id">
+<span class="sig-name descname"><span class="pre">request_id</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.UUIDKey.request_id" title="Permalink to this definition"></a></dt>
+<dd><p>Field arista.inventory.v1.UUIDKey.request_id</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.inventory.v1.inventory_pb2_grpc">
+<span id="arista-inventory-v1-inventory-pb2-grpc-module"></span><h2>arista.inventory.v1.inventory_pb2_grpc module<a class="headerlink" href="#module-arista.inventory.v1.inventory_pb2_grpc" title="Permalink to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.inventory.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.inventory.v1" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.inventory.html" class="btn btn-neutral float-left" title="arista.inventory package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.inventory.v1.services.html" class="btn btn-neutral float-right" title="arista.inventory.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
