@@ -7,10 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Build HTML
-      uses: ammaraskar/sphinx-action@master
-      with:
-        docs-folder: "docsrc/"
+    - uses: actions/setup-python@v2
+    - name: Install dependencies
+      run: |
+        pip install sphinx sphinx_rtd_theme
+        pip install -r docsrc/requirements
+    - name: Sphinx build
+      run: |
+        sphinx-build docsrc docsrc/_build
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
