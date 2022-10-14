@@ -14,15 +14,12 @@ jobs:
         pip install -r docsrc/requirements.txt
     - name: Sphinx build
       run: |
-        sphinx-build docsrc docsrc/_build
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: html-docs
-        path: docsrc/_build/html/
+        sphinx-build docsrc _build
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/trunk'
       with:
+        publish_branch: gh-pages
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docsrc/_build/html
+        publish_dir: _build/
+        force_orphan: true
