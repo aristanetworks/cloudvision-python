@@ -5,6 +5,8 @@
 """Import readme and create package info."""
 import setuptools
 
+from cloudvision import __version__ as version
+
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
@@ -15,7 +17,7 @@ with open("requirements.txt", "r") as fh:
 
 setuptools.setup(
     name="cloudvision",
-    version="1.7.0",
+    version=version,
     description="A Python library for Arista's CloudVision APIs.",
     maintainer_email="support@arista.com",
     long_description=long_description,

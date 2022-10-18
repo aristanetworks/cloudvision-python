@@ -9,6 +9,7 @@
 #
 import os
 import sys
+from cloudvision import __version__ as version
 
 sys.path.insert(0, os.path.abspath('..'))
 
@@ -18,7 +19,7 @@ sys.path.insert(0, os.path.abspath('..'))
 project = 'CloudVision Python'
 copyright = '2022, Arista'
 author = 'Arista'
-release = '1.7.0'
+release = version
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

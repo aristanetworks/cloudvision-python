@@ -3,3 +3,5 @@
 # that can be found in the COPYING file.
 
 __path__ = __import__('pkgutil').extend_path(__path__, __name__)  # type: ignore  # mypy issue #1422
+
+__version__ = "1.7.0"
