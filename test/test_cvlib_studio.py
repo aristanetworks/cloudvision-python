@@ -9,6 +9,74 @@ import pytest
 from cloudvision.cvlib.studio import extractInputElems
 from cloudvision.cvlib.exceptions import InputNotFoundException
 
+exampleStudioInputs = {
+    "campusPicker": [
+        {
+            "inputs": {
+                "campus": {
+                    "commonVlans": [
+                        {
+                            "IPHelperAddress": "",
+                            "commonVlanID": 1,
+                            "commonVlanIsMgmt": True,
+                            "commonVlanName": "Management",
+                            "commonVlanVIP": "1.1.1.1",
+                            "vrf": ""
+                        }
+                    ],
+                    "fabricType": "L2 MLAG",
+                    "podPicker": [
+                        {
+                            "inputs": {
+                                "pod": {
+                                    "leafs": [
+                                        {
+                                            "inputs": {
+                                                "leaf": {
+                                                    "leafInbandMgmtIPSubnet": "1.1.1.1/24",
+                                                    "leafRole": "Primary"
+                                                }
+                                            },
+                                            "tags": {
+                                                "query": "device:deviceID1"
+                                            }
+                                        },
+                                    ]
+                                }
+                            },
+                            "tags": {
+                                "query": "Campus-Pod:1"
+                            }
+                        }
+                    ],
+                    "splinePicker": [
+                        {
+                            "inputs": {
+                                "spline": {
+                                    "splineInbandMgmtIPSubnet": "",
+                                    "splineRole": "Secondary",
+                                    "splineVlans": [
+                                        {
+                                            "primarySecondary": "Primary",
+                                            "splineVlanID": 1,
+                                            "splineVlanIPSubnet": ""
+                                        },
+                                    ]
+                                }
+                            },
+                            "tags": {
+                                "query": "device:deviceID1"
+                            }
+                        }
+                    ]
+                }
+            },
+            "tags": {
+                "query": "Campus:HQ"
+            }
+        }
+    ]
+}
 
 cases = [
     # Elements in case are in the following order
@@ -175,6 +243,35 @@ cases = [
         {},
         "Input path does not exist in inputs (['path', '33', 'input']):"
         + " '33' list index out of range"
+    ],
+    [
+        "Extraction from example studio input",
+        exampleStudioInputs,
+        ["campusPicker", "0", "inputs", "campus", "splinePicker",
+            "0", "inputs", "spline", "splineVlans", "0", "splineVlanIPSubnet"],
+        {"splineVlanID", "splineRole"},
+        {"Campus", "device"},
+        {
+            "splineVlanID": 1,
+            "splineRole": "Secondary",
+            "Campus": "HQ",
+            "device": "deviceID1",
+        },
+        None
+    ],
+    [
+        "Extraction from example studio input",
+        exampleStudioInputs,
+        ["campusPicker", "0", "inputs", "campus", "podPicker",
+            "0", "inputs", "pod", "leafs", "0", "inputs", "leaf", "leafInbandMgmtIPSubnet"],
+        {"leafRole"},
+        {"Campus", "device"},
+        {
+            "leafRole": "Primary",
+            "Campus": "HQ",
+            "device": "deviceID1",
+        },
+        None
     ],
 ]
 
