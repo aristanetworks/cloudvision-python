@@ -17,7 +17,13 @@ from .topology import Topology
 from .connections import addHeaderInterceptor, AuthAndEndpoints
 from .device import Device
 from .execution import Execution
-from .exceptions import DeviceCommandsFailed, InvalidContextException, TimeoutExpiry
+from .exceptions import (
+    ConnectionFailed,
+    DeviceCommandsFailed,
+    InvalidContextException,
+    InvalidCredentials,
+    TimeoutExpiry
+)
 from .logger import Logger
 from .studio import Studio
 from .user import User
@@ -185,13 +191,13 @@ class Context:
                 return stub(self.__serviceChann)
             systemLogger.error(
                 "cannot establish connection to apiserver: %s", self.__connector)
-            return None
+            raise ConnectionFailed("cannot establish connection to api server")
 
         # Verify that we have a correct token
         token = self.user.token
         if token is None:
             systemLogger.error("no valid token for authenticating the API Client")
-            return None
+            raise InvalidCredentials("no valid token for authenticating the API Client")
 
         # Try and read the ca cert
         caData = None
