@@ -326,10 +326,12 @@ class Context:
         signal.signal(signal.SIGALRM, monitorTimerHandler)
         # Set an alarm to fire in <timeout> seconds. This will call the handler we bound earlier
         signal.alarm(timeout)
-        result = f()
-        # Turn off the alarm as the function has been executed successfully
-        signal.alarm(0)
-        return result
+
+        try:
+            return f()
+        finally:
+            # Always turn off the alarm, whether returning a value or propagating an exception
+            signal.alarm(0)
 
     def Get(self, path: List[str], dataset="analytics"):
         if not isinstance(path, List) or any([not(isinstance(i, str)) for i in path]):
