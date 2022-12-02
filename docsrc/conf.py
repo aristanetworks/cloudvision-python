@@ -9,9 +9,10 @@
 #
 import os
 import sys
-from cloudvision import __version__ as version
 
 sys.path.insert(0, os.path.abspath('..'))
+
+from cloudvision import __version__ as version
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
