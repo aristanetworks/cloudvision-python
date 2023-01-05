@@ -4,15 +4,15 @@
 
 from argparse import ArgumentError
 from datetime import datetime
-from typing import Iterable, List, Optional, Any, Tuple, Union
-
-import cloudvision.Connector.codec as codec
-import cloudvision.Connector.gen.notification_pb2 as ntf
-import cloudvision.Connector.gen.router_pb2 as rtr
-import cloudvision.Connector.gen.router_pb2_grpc as rtr_client
+from typing import Any, Iterable, List, Optional, Tuple, Union
 
 import grpc
-import google.protobuf.timestamp_pb2 as pbts
+from google.protobuf import timestamp_pb2 as pbts
+
+from cloudvision.Connector import codec as codec
+from cloudvision.Connector.gen import notification_pb2 as ntf
+from cloudvision.Connector.gen import router_pb2 as rtr
+from cloudvision.Connector.gen import router_pb2_grpc as rtr_client
 
 TIME_TYPE = Union[pbts.Timestamp, datetime]
 UPDATE_TYPE = Tuple[Any, Any]
