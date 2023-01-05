@@ -42,20 +42,22 @@ def create_query(pathKeys: List[Any], dId: str, dtype: str = "device") -> rtr.Qu
             keys=[encoder.encode(k) for k in keys],
             path_elements=[encoder.encode(elt) for elt in path],
         )
-        for path, keys in pathKeys if keys is not None
+        for path, keys in pathKeys
+        if keys is not None
     ]
     return rtr.Query(
         dataset=ntf.Dataset(type=dtype, name=dId),
-        paths=paths
+        paths=paths,
     )
 
 
-def create_notification(ts: TIME_TYPE,
-                        paths: List[Any],
-                        deletes: Optional[List[Any]] = None,
-                        updates: Optional[UPDATES_TYPE] = None,
-                        retracts: Optional[List[Any]] = None) \
-        -> ntf.Notification:
+def create_notification(
+    ts: TIME_TYPE,
+    paths: List[Any],
+    deletes: Optional[List[Any]] = None,
+    updates: Optional[UPDATES_TYPE] = None,
+    retracts: Optional[List[Any]] = None,
+) -> ntf.Notification:
     """
     create_notification creates a notification protobuf message.
     ts must be a google.protobuf.timestamp_pb2.Timestamp or a
@@ -73,11 +75,7 @@ def create_notification(ts: TIME_TYPE,
 
     upds = None
     if updates is not None:
-        upds = [
-            ntf.Notification.Update(
-                key=encoder.encode(k),
-                value=encoder.encode(v)) for k, v in updates
-        ]
+        upds = [ntf.Notification.Update(key=encoder.encode(k), value=encoder.encode(v)) for k, v in updates]
     rets = None
     if retracts is not None:
         rets = [encoder.encode(r) for r in retracts]
@@ -88,7 +86,7 @@ def create_notification(ts: TIME_TYPE,
         deletes=dels,
         updates=upds,
         retracts=rets,
-        path_elements=pathElts
+        path_elements=pathElts,
     )
 
 
@@ -108,11 +106,19 @@ class GRPCClient(object):
 
     AUTH_KEY_PATH = "access_token"
 
-    def __init__(self, grpcAddr: str, *, certs: Optional[str] = None,
-                 key: Optional[str] = None, ca: Optional[str] = None,
-                 token: Optional[str] = None, tokenValue: Optional[str] = None,
-                 certsValue: Optional[str] = None, keyValue: Optional[str] = None,
-                 caValue: Optional[str] = None) -> None:
+    def __init__(
+        self,
+        grpcAddr: str,
+        *,
+        certs: Optional[str] = None,
+        key: Optional[str] = None,
+        ca: Optional[str] = None,
+        token: Optional[str] = None,
+        tokenValue: Optional[str] = None,
+        certsValue: Optional[str] = None,
+        keyValue: Optional[str] = None,
+        caValue: Optional[str] = None
+    ) -> None:
         # used to store the auth token for per request auth
         self.metadata = None
 
@@ -131,8 +137,12 @@ class GRPCClient(object):
                     # need the elif to validate that tokenValue is string for typing
                     tokData = tokenValue
                 tokCreds = grpc.access_token_call_credentials(tokData)
-                self.metadata = ((self.AUTH_KEY_PATH,
-                                  tokData),)
+                self.metadata = (
+                    (
+                        self.AUTH_KEY_PATH,
+                        tokData,
+                    ),
+                )
 
             certData = None
             if certs or certsValue:
@@ -162,9 +172,11 @@ class GRPCClient(object):
                 elif caValue:
                     caData = caValue.encode('utf-8')
 
-            creds = grpc.ssl_channel_credentials(certificate_chain=certData,
-                                                 private_key=keyData,
-                                                 root_certificates=caData)
+            creds = grpc.ssl_channel_credentials(
+                certificate_chain=certData,
+                private_key=keyData,
+                root_certificates=caData,
+            )
 
             if tokCreds:
                 creds = grpc.composite_channel_credentials(creds, tokCreds)
@@ -187,10 +199,15 @@ class GRPCClient(object):
     def close(self):
         self.channel.close()
 
-    def get(self, queries: List[rtr.Query], start: Optional[TIME_TYPE] = None,
-            end: Optional[TIME_TYPE] = None,
-            versions=0, sharding=None,
-            exact_range=False):
+    def get(
+        self,
+        queries: List[rtr.Query],
+        start: Optional[TIME_TYPE] = None,
+        end: Optional[TIME_TYPE] = None,
+        versions=0,
+        sharding=None,
+        exact_range=False,
+    ):
         """
         Get creates and executes a Get protobuf message, returning a stream of
         notificationBatch.
@@ -227,14 +244,19 @@ class GRPCClient(object):
 
         req = rtr.SubscribeRequest(
             query=queries,
-            sharded_sub=sharding
+            sharded_sub=sharding,
         )
         stream = self.__client.Subscribe(req, metadata=self.metadata)
         return (self.decode_batch(nb) for nb in stream)
 
-    def publish(self, dId, notifs: List[ntf.Notification],
-                dtype: str = "device", sync: bool = True,
-                compare: Optional[UPDATE_TYPE] = None) -> None:
+    def publish(
+        self,
+        dId,
+        notifs: List[ntf.Notification],
+        dtype: str = "device",
+        sync: bool = True,
+        compare: Optional[UPDATE_TYPE] = None,
+    ) -> None:
         """
         Publish creates and executes a Publish protobuf message.
         refer to cloudvision/Connector/protobufs/router.proto:124
@@ -244,14 +266,16 @@ class GRPCClient(object):
         if compare:
             key = compare[0]
             value = compare[1]
-            comp_pb = ntf.Notification.Update(key=self.encoder.encode(key),
-                                              value=self.encoder.encode(value))
+            comp_pb = ntf.Notification.Update(
+                key=self.encoder.encode(key),
+                value=self.encoder.encode(value),
+            )
 
         req = rtr.PublishRequest(
             batch=ntf.NotificationBatch(
                 d="device",
                 dataset=ntf.Dataset(type=dtype, name=dId),
-                notifications=notifs
+                notifications=notifs,
             ),
             sync=sync,
             compare=comp_pb,
@@ -264,14 +288,14 @@ class GRPCClient(object):
         types, if present, filter the queried dataset by types
         """
         req = rtr.DatasetsRequest(
-            types=types
+            types=types,
         )
         stream = self.__client.GetDatasets(req, metadata=self.metadata)
         return stream
 
     def create_dataset(self, dtype, dId) -> None:
         req = rtr.CreateDatasetRequest(
-            dataset=ntf.Dataset(type=dtype, name=dId)
+            dataset=ntf.Dataset(type=dtype, name=dId),
         )
         self.__auth_client.CreateDataset(req, metadata=self.metadata)
 
@@ -279,10 +303,9 @@ class GRPCClient(object):
         res = {
             "dataset": {
                 "name": batch.dataset.name,
-                "type": batch.dataset.type
+                "type": batch.dataset.type,
             },
-            "notifications": [self.decode_notification(n)
-                              for n in batch.notifications]
+            "notifications": [self.decode_notification(n) for n in batch.notifications],
         }
         return res
 
@@ -290,37 +313,52 @@ class GRPCClient(object):
         res = {
             "timestamp": notif.timestamp,
             "deletes": [self.decoder.decode(d) for d in notif.deletes],
-            "updates": {
-                self.decoder.decode(u.key): self.decoder.decode(u.value)
-                for u in notif.updates
-            },
+            "updates": {self.decoder.decode(u.key): self.decoder.decode(u.value) for u in notif.updates},
             "retracts": [self.decoder.decode(r) for r in notif.retracts],
-            "path_elements": [
-                self.decoder.decode(elt) for elt in notif.path_elements
-            ]
+            "path_elements": [self.decoder.decode(elt) for elt in notif.path_elements],
         }
         return res
 
-    def search(self, search_type=rtr.SearchRequest.CUSTOM,
-               d_type: str = "device",
-               d_name: str = "",
-               result_size: int = 1,
-               start: Optional[TIME_TYPE] = None,
-               end: Optional[TIME_TYPE] = None,
-               path_elements=[],
-               key_filters: Iterable[rtr.Filter] = [],
-               value_filters: Iterable[rtr.Filter] = [],
-               exact_range: bool = False, offset: int = 0,
-               exact_term: bool = False, sort: Iterable[rtr.Sort] = [],
-               count_only: bool = False):
+    def search(
+        self,
+        search_type=rtr.SearchRequest.CUSTOM,
+        d_type: str = "device",
+        d_name: str = "",
+        result_size: int = 1,
+        start: Optional[TIME_TYPE] = None,
+        end: Optional[TIME_TYPE] = None,
+        path_elements=[],
+        key_filters: Iterable[rtr.Filter] = [],
+        value_filters: Iterable[rtr.Filter] = [],
+        exact_range: bool = False,
+        offset: int = 0,
+        exact_term: bool = False,
+        sort: Iterable[rtr.Sort] = [],
+        count_only: bool = False,
+    ):
         start_ts = to_pbts(start).ToNanoseconds() if start else 0
         end_ts = to_pbts(end).ToNanoseconds() if end else 0
         encoded_path_elements = [self.encoder.encode(x) for x in path_elements]
-        req = rtr.SearchRequest(search_type=search_type, start=start_ts, end=end_ts, query=[rtr.Query(
-                                dataset=ntf.Dataset(type=d_type, name=d_name),
-                                paths=[rtr.Path(path_elements=encoded_path_elements)])],
-                                result_size=result_size, key_filters=key_filters, value_filters=value_filters,
-                                exact_range=exact_range, offset=offset, exact_term=exact_term, sort=sort,
-                                count_only=count_only)
+        req = rtr.SearchRequest(
+            search_type=search_type,
+            start=start_ts,
+            end=end_ts,
+            query=[
+                rtr.Query(
+                    dataset=ntf.Dataset(type=d_type, name=d_name),
+                    paths=[
+                        rtr.Path(path_elements=encoded_path_elements),
+                    ],
+                ),
+            ],
+            result_size=result_size,
+            key_filters=key_filters,
+            value_filters=value_filters,
+            exact_range=exact_range,
+            offset=offset,
+            exact_term=exact_term,
+            sort=sort,
+            count_only=count_only,
+        )
         res = self.__search_client.Search(req)
         return (self.decode_batch(nb) for nb in res)
