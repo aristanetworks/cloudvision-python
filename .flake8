@@ -5,3 +5,8 @@ ignore = H301,F403,F401,W503
 per-file-ignores =
     # Excludes undefined variable for validators as ctx is defined at runtime
     actionpacks/*:F821
+    # Excludes "module level import not at top of file" for the configuration as we need to use
+    # sys.path.insert(0, os.path.abspath('..')) in conf.py before importing cloudvision so that
+    # it resolves properly. Otherwise Sphinx will fail due to ModuleNotFoundError: No module
+    # named 'cloudvision'
+    docsrc/conf.py:E402
