@@ -16,6 +16,7 @@ class ActionContext(Enum):
     '''
     Unknown = 0
     ChangeControl = 1
+    StudioAutofill = 2
 
 
 class Action:
