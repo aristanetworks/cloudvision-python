@@ -29,12 +29,21 @@ class Device:
         self._interfaces: Dict = {}
 
     def getInterfaces(self):
+        '''
+        getInterfaces returns a dictionary list of the interfaces assigned to the Device object
+        '''
         return self._interfaces.values()
 
     def getInterface(self, name):
+        '''
+        getInterface gets a particular named interface from the interfaces assigned to the Device object
+        '''
         return self._interfaces.get(name)
 
     def addInterface(self, name: str):
+        '''
+        addInterface assigns an interface to the Device object
+        '''
         intf = self._interfaces.get(name)
         if intf:
             # interface already exists, do a noop
