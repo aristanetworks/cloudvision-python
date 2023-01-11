@@ -4,6 +4,7 @@
 
 import json
 from logging import getLogger
+from enum import Enum
 from typing import List, Optional
 import signal
 import requests
@@ -44,6 +45,15 @@ TIMEOUT_CONN = "connTimeout"
 USERNAME = "username"
 
 systemLogger = getLogger(__name__)
+
+
+class LoggingLevel(Enum):
+    Trace = 0,
+    Debug = 1,
+    Info = 2,
+    Warn = 3,
+    Error = 4,
+    Critical = 5
 
 
 class Context:
@@ -401,21 +411,54 @@ If calling store without a path, please provide a studio or changeControl object
         self.logger.alog(self, message, userName, customKey)
 
     def trace(self, msg):
+        """
+        Creates a trace level log if the context's logging level is set to allow for it
+        If the logging level is higher, is a no-op
+        """
+        if self.getLoggingLevel(self) > LoggingLevel.Trace:
+            return
         self.logger.trace(self, msg)
 
     def debug(self, msg):
+        """
+        Creates a debug level log if the context's logging level is set to allow for it
+        If the logging level is higher, is a no-op
+        """
+        if self.getLoggingLevel(self) > LoggingLevel.Debug:
+            return
         self.logger.debug(self, msg)
 
     def info(self, msg):
+        """
+        Creates an info level log if the context's logging level is set to allow for it
+        If the logging level is higher, is a no-op
+        """
+        if self.getLoggingLevel(self) > LoggingLevel.Info:
+            return
         self.logger.info(self, msg)
 
     def warning(self, msg):
+        """
+        Creates a warning level log if the context's logging level is set to allow for it
+        If the logging level is higher, is a no-op
+        """
+        if self.getLoggingLevel(self) > LoggingLevel.Warn:
+            return
         self.logger.warning(self, msg)
 
     def error(self, msg):
+        """
+        Creates an error level log if the context's logging level is set to allow for it
+        If the logging level is higher, is a no-op
+        """
+        if self.getLoggingLevel(self) > LoggingLevel.Error:
+            return
         self.logger.warning(self, msg)
 
     def critical(self, msg):
+        """
+        Creates a critical level log
+        """
         self.logger.critical(self, msg)
 
     def keepBlankLines(self, preserve=True):
@@ -423,6 +466,30 @@ If calling store without a path, please provide a studio or changeControl object
         # Script executor code introspects this value to decide whether to
         # clean rendered templates post-rendering
         self.preserveWhitespace = preserve
+
+    def setLoggingLevel(self, loggingLevel: LoggingLevel):
+        """
+        Takes a logging level value and applies it for use in logging call checks
+        """
+        self.loggingLevel = loggingLevel
+
+    def getLoggingLevel(self):
+        """
+        Gets the current logging level of the context
+        """
+        return self.loggingLevel
+
+    def activateDebugMode(self):
+        """
+        Activates debug logging by setting the logging level to debug
+        """
+        self.loggingLevel = LoggingLevel.Debug
+
+    def deactivateDebugMode(self):
+        """
+        Deactivates debug logging by setting the logging level to info
+        """
+        self.loggingLevel = LoggingLevel.Info
 
     # In the case where the context has no logger defined,
     # we can create a compatible backup logger using the system logger
