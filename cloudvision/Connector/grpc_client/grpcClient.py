@@ -10,7 +10,10 @@ import grpc
 from google.protobuf import timestamp_pb2 as pbts
 
 from cloudvision import __version__ as version
-from cloudvision.Connector import codec as codec
+from cloudvision.Connector import codec
+from cloudvision.Connector.auth.cert import gen_csr_der
+from cloudvision.Connector.gen import ca_pb2 as ca
+from cloudvision.Connector.gen import ca_pb2_grpc as ca_client
 from cloudvision.Connector.gen import notification_pb2 as ntf
 from cloudvision.Connector.gen import router_pb2 as rtr
 from cloudvision.Connector.gen import router_pb2_grpc as rtr_client
@@ -187,6 +190,7 @@ class GRPCClient(object):
         self.__client = rtr_client.RouterV1Stub(self.channel)
         self.__auth_client = rtr_client.AuthStub(self.channel)
         self.__search_client = rtr_client.SearchStub(self.channel)
+        self.__ca_client = ca_client.CertificateAuthorityStub(self.channel)
 
         self.encoder = codec.Encoder()
         self.decoder = codec.Decoder()
@@ -364,3 +368,19 @@ class GRPCClient(object):
         )
         res = self.__search_client.Search(req)
         return (self.decode_batch(nb) for nb in res)
+
+    def reenroll(self, cert_path: str, key_path: str) -> bytes:
+        """Reenroll the existing certificate.
+
+        Caller can pass their current key and certificate and receive a renewed
+        certificate in return.
+        The default validity of the renewed certificate is 90 days.
+
+        :param cert_path: Certificate file path
+        :param key_path: Private Key file path
+        :return: Renewed Certificate in ASN.1 DER
+        """
+
+        csr_der: bytes = gen_csr_der(cert_path, key_path)
+        crt = self.__ca_client.Reenroll(ca.CSR(csr=csr_der))
+        return crt.crt
