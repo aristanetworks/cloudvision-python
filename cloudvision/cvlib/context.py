@@ -4,7 +4,7 @@
 
 import json
 from logging import getLogger
-from enum import Enum
+from enum import IntEnum
 from typing import List, Optional
 import signal
 import requests
@@ -47,7 +47,7 @@ USERNAME = "username"
 systemLogger = getLogger(__name__)
 
 
-class LoggingLevel(Enum):
+class LoggingLevel(IntEnum):
     Trace = 0,
     Debug = 1,
     Info = 2,
@@ -76,7 +76,8 @@ class Context:
                  studio: Optional[Studio] = None,
                  execution: Optional[Execution] = None,
                  connections: Optional[AuthAndEndpoints] = None,
-                 logger: Optional[Logger] = None):
+                 logger: Optional[Logger] = None,
+                 loggingLevel: Optional[LoggingLevel] = None):
         self.user = user
         self.device = device
         self.action = action
@@ -94,6 +95,7 @@ class Context:
         self.__serviceChann = None
         self.topology: Optional[Topology] = None
         self.preserveWhitespace = False
+        self.loggingLevel = loggingLevel if loggingLevel else LoggingLevel.Info
 
     def getDevice(self):
         '''
@@ -415,7 +417,7 @@ If calling store without a path, please provide a studio or changeControl object
         Creates a trace level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
         """
-        if self.getLoggingLevel(self) > LoggingLevel.Trace:
+        if self.getLoggingLevel() > LoggingLevel.Trace:
             return
         self.logger.trace(self, msg)
 
@@ -424,7 +426,7 @@ If calling store without a path, please provide a studio or changeControl object
         Creates a debug level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
         """
-        if self.getLoggingLevel(self) > LoggingLevel.Debug:
+        if self.getLoggingLevel() > LoggingLevel.Debug:
             return
         self.logger.debug(self, msg)
 
@@ -433,7 +435,7 @@ If calling store without a path, please provide a studio or changeControl object
         Creates an info level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
         """
-        if self.getLoggingLevel(self) > LoggingLevel.Info:
+        if self.getLoggingLevel() > LoggingLevel.Info:
             return
         self.logger.info(self, msg)
 
@@ -442,7 +444,7 @@ If calling store without a path, please provide a studio or changeControl object
         Creates a warning level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
         """
-        if self.getLoggingLevel(self) > LoggingLevel.Warn:
+        if self.getLoggingLevel() > LoggingLevel.Warn:
             return
         self.logger.warning(self, msg)
 
@@ -451,7 +453,7 @@ If calling store without a path, please provide a studio or changeControl object
         Creates an error level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
         """
-        if self.getLoggingLevel(self) > LoggingLevel.Error:
+        if self.getLoggingLevel() > LoggingLevel.Error:
             return
         self.logger.warning(self, msg)
 

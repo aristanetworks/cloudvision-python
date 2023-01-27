@@ -5,7 +5,7 @@
 from .action import Action, ActionContext
 from .changecontrol import ChangeControl
 from .connections import AuthAndEndpoints
-from .context import Context
+from .context import Context, LoggingLevel
 from .device import Device, Interface
 from .execution import Execution
 from .exceptions import *
