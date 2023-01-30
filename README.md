@@ -5,6 +5,8 @@ APIs for use in Python applications.
 
 ## Documentation
 
+API Documentation for this library can be found [here](https://aristanetworks.github.io/cloudvision-python/).
+
 Documentation for CloudVision's Resource APIs can be found [here](https://aristanetworks.github.io/cloudvision-apis).
 
 Documentation for generic access to CloudVision can be found at [CloudVision Connector](#cloudvision-connector).
