@@ -14,7 +14,9 @@ _sym_db = _symbol_database.Default()
 from arista.dashboard.v1 import dashboard_pb2 as arista_dot_dashboard_dot_v1_dot_dashboard__pb2
 from arista.time import time_pb2 as arista_dot_time_dot_time__pb2
 from arista.subscriptions import subscriptions_pb2 as arista_dot_subscriptions_dot_subscriptions__pb2
+from fmp import deletes_pb2 as fmp_dot_deletes__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z.arista/resources/arista/dashboard.v1;dashboard',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n&arista/dashboard.v1/services.gen.proto\x12\x13\x61rista.dashboard.v1\x1a#arista/dashboard.v1/dashboard.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"l\n\x10\x44\x61shboardRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"l\n\x11\x44\x61shboardResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.dashboard.v1.Dashboard\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa7\x01\n\x16\x44\x61shboardStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.dashboard.v1.Dashboard\x12+\n\x06\x66ilter\x18\x02 \x03(\x0b\x32\x1b.arista.dashboard.v1.Filter\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa1\x01\n\x17\x44\x61shboardStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.dashboard.v1.Dashboard\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"r\n\x16\x44\x61shboardConfigRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x17\x44\x61shboardConfigResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.dashboard.v1.DashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x86\x01\n\x1c\x44\x61shboardConfigStreamRequest\x12?\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32$.arista.dashboard.v1.DashboardConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xad\x01\n\x1d\x44\x61shboardConfigStreamResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.dashboard.v1.DashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"P\n\x19\x44\x61shboardConfigSetRequest\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.dashboard.v1.DashboardConfig\"{\n\x1a\x44\x61shboardConfigSetResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.dashboard.v1.DashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"N\n\x1c\x44\x61shboardConfigDeleteRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\"y\n\x1d\x44\x61shboardConfigDeleteResponse\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"H\n\x1cGlobalDashboardConfigRequest\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1dGlobalDashboardConfigResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.dashboard.v1.GlobalDashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n\"GlobalDashboardConfigStreamRequest\x12\x45\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32*.arista.dashboard.v1.GlobalDashboardConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb9\x01\n#GlobalDashboardConfigStreamResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.dashboard.v1.GlobalDashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"\\\n\x1fGlobalDashboardConfigSetRequest\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.dashboard.v1.GlobalDashboardConfig\"\x87\x01\n GlobalDashboardConfigSetResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.dashboard.v1.GlobalDashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xbc\x02\n\x10\x44\x61shboardService\x12W\n\x06GetOne\x12%.arista.dashboard.v1.DashboardRequest\x1a&.arista.dashboard.v1.DashboardResponse\x12\x65\n\x06GetAll\x12+.arista.dashboard.v1.DashboardStreamRequest\x1a,.arista.dashboard.v1.DashboardStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.dashboard.v1.DashboardStreamRequest\x1a,.arista.dashboard.v1.DashboardStreamResponse0\x01\x32\xbf\x04\n\x16\x44\x61shboardConfigService\x12\x63\n\x06GetOne\x12+.arista.dashboard.v1.DashboardConfigRequest\x1a,.arista.dashboard.v1.DashboardConfigResponse\x12q\n\x06GetAll\x12\x31.arista.dashboard.v1.DashboardConfigStreamRequest\x1a\x32.arista.dashboard.v1.DashboardConfigStreamResponse0\x01\x12t\n\tSubscribe\x12\x31.arista.dashboard.v1.DashboardConfigStreamRequest\x1a\x32.arista.dashboard.v1.DashboardConfigStreamResponse0\x01\x12\x66\n\x03Set\x12..arista.dashboard.v1.DashboardConfigSetRequest\x1a/.arista.dashboard.v1.DashboardConfigSetResponse\x12o\n\x06\x44\x65lete\x12\x31.arista.dashboard.v1.DashboardConfigDeleteRequest\x1a\x32.arista.dashboard.v1.DashboardConfigDeleteResponse2\x86\x03\n\x1cGlobalDashboardConfigService\x12o\n\x06GetOne\x12\x31.arista.dashboard.v1.GlobalDashboardConfigRequest\x1a\x32.arista.dashboard.v1.GlobalDashboardConfigResponse\x12\x80\x01\n\tSubscribe\x12\x37.arista.dashboard.v1.GlobalDashboardConfigStreamRequest\x1a\x38.arista.dashboard.v1.GlobalDashboardConfigStreamResponse0\x01\x12r\n\x03Set\x12\x34.arista.dashboard.v1.GlobalDashboardConfigSetRequest\x1a\x35.arista.dashboard.v1.GlobalDashboardConfigSetResponseB0Z.arista/resources/arista/dashboard.v1;dashboardb\x06proto3'
+  serialized_pb=b'\n&arista/dashboard.v1/services.gen.proto\x12\x13\x61rista.dashboard.v1\x1a#arista/dashboard.v1/dashboard.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"l\n\x10\x44\x61shboardRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"l\n\x11\x44\x61shboardResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.dashboard.v1.Dashboard\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa7\x01\n\x16\x44\x61shboardStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.dashboard.v1.Dashboard\x12+\n\x06\x66ilter\x18\x02 \x03(\x0b\x32\x1b.arista.dashboard.v1.Filter\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa1\x01\n\x17\x44\x61shboardStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.dashboard.v1.Dashboard\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"r\n\x16\x44\x61shboardConfigRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x17\x44\x61shboardConfigResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.dashboard.v1.DashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x86\x01\n\x1c\x44\x61shboardConfigStreamRequest\x12?\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32$.arista.dashboard.v1.DashboardConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xad\x01\n\x1d\x44\x61shboardConfigStreamResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.dashboard.v1.DashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"P\n\x19\x44\x61shboardConfigSetRequest\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.dashboard.v1.DashboardConfig\"{\n\x1a\x44\x61shboardConfigSetResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.dashboard.v1.DashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"N\n\x1c\x44\x61shboardConfigDeleteRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\"y\n\x1d\x44\x61shboardConfigDeleteResponse\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"!\n\x1f\x44\x61shboardConfigDeleteAllRequest\"\xc9\x01\n DashboardConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x03key\x18\x03 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"H\n\x1cGlobalDashboardConfigRequest\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1dGlobalDashboardConfigResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.dashboard.v1.GlobalDashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n\"GlobalDashboardConfigStreamRequest\x12\x45\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32*.arista.dashboard.v1.GlobalDashboardConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb9\x01\n#GlobalDashboardConfigStreamResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.dashboard.v1.GlobalDashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"\\\n\x1fGlobalDashboardConfigSetRequest\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.dashboard.v1.GlobalDashboardConfig\"\x87\x01\n GlobalDashboardConfigSetResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.dashboard.v1.GlobalDashboardConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xbc\x02\n\x10\x44\x61shboardService\x12W\n\x06GetOne\x12%.arista.dashboard.v1.DashboardRequest\x1a&.arista.dashboard.v1.DashboardResponse\x12\x65\n\x06GetAll\x12+.arista.dashboard.v1.DashboardStreamRequest\x1a,.arista.dashboard.v1.DashboardStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.dashboard.v1.DashboardStreamRequest\x1a,.arista.dashboard.v1.DashboardStreamResponse0\x01\x32\xbb\x05\n\x16\x44\x61shboardConfigService\x12\x63\n\x06GetOne\x12+.arista.dashboard.v1.DashboardConfigRequest\x1a,.arista.dashboard.v1.DashboardConfigResponse\x12q\n\x06GetAll\x12\x31.arista.dashboard.v1.DashboardConfigStreamRequest\x1a\x32.arista.dashboard.v1.DashboardConfigStreamResponse0\x01\x12t\n\tSubscribe\x12\x31.arista.dashboard.v1.DashboardConfigStreamRequest\x1a\x32.arista.dashboard.v1.DashboardConfigStreamResponse0\x01\x12\x66\n\x03Set\x12..arista.dashboard.v1.DashboardConfigSetRequest\x1a/.arista.dashboard.v1.DashboardConfigSetResponse\x12o\n\x06\x44\x65lete\x12\x31.arista.dashboard.v1.DashboardConfigDeleteRequest\x1a\x32.arista.dashboard.v1.DashboardConfigDeleteResponse\x12z\n\tDeleteAll\x12\x34.arista.dashboard.v1.DashboardConfigDeleteAllRequest\x1a\x35.arista.dashboard.v1.DashboardConfigDeleteAllResponse0\x01\x32\x86\x03\n\x1cGlobalDashboardConfigService\x12o\n\x06GetOne\x12\x31.arista.dashboard.v1.GlobalDashboardConfigRequest\x1a\x32.arista.dashboard.v1.GlobalDashboardConfigResponse\x12\x80\x01\n\tSubscribe\x12\x37.arista.dashboard.v1.GlobalDashboardConfigStreamRequest\x1a\x38.arista.dashboard.v1.GlobalDashboardConfigStreamResponse0\x01\x12r\n\x03Set\x12\x34.arista.dashboard.v1.GlobalDashboardConfigSetRequest\x1a\x35.arista.dashboard.v1.GlobalDashboardConfigSetResponseB0Z.arista/resources/arista/dashboard.v1;dashboardb\x06proto3'
   ,
-  dependencies=[arista_dot_dashboard_dot_v1_dot_dashboard__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[arista_dot_dashboard_dot_v1_dot_dashboard__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,fmp_dot_deletes__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
 
@@ -64,8 +66,8 @@ _DASHBOARDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=199,
-  serialized_end=307,
+  serialized_start=250,
+  serialized_end=358,
 )
 
 
@@ -103,8 +105,8 @@ _DASHBOARDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=309,
-  serialized_end=417,
+  serialized_start=360,
+  serialized_end=468,
 )
 
 
@@ -149,8 +151,8 @@ _DASHBOARDSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=420,
-  serialized_end=587,
+  serialized_start=471,
+  serialized_end=638,
 )
 
 
@@ -195,8 +197,8 @@ _DASHBOARDSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=590,
-  serialized_end=751,
+  serialized_start=641,
+  serialized_end=802,
 )
 
 
@@ -234,8 +236,8 @@ _DASHBOARDCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=753,
-  serialized_end=867,
+  serialized_start=804,
+  serialized_end=918,
 )
 
 
@@ -273,8 +275,8 @@ _DASHBOARDCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=869,
-  serialized_end=989,
+  serialized_start=920,
+  serialized_end=1040,
 )
 
 
@@ -312,8 +314,8 @@ _DASHBOARDCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=992,
-  serialized_end=1126,
+  serialized_start=1043,
+  serialized_end=1177,
 )
 
 
@@ -358,8 +360,8 @@ _DASHBOARDCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1129,
-  serialized_end=1302,
+  serialized_start=1180,
+  serialized_end=1353,
 )
 
 
@@ -390,8 +392,8 @@ _DASHBOARDCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1304,
-  serialized_end=1384,
+  serialized_start=1355,
+  serialized_end=1435,
 )
 
 
@@ -429,8 +431,8 @@ _DASHBOARDCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1386,
-  serialized_end=1509,
+  serialized_start=1437,
+  serialized_end=1560,
 )
 
 
@@ -461,8 +463,8 @@ _DASHBOARDCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1511,
-  serialized_end=1589,
+  serialized_start=1562,
+  serialized_end=1640,
 )
 
 
@@ -500,8 +502,86 @@ _DASHBOARDCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1591,
-  serialized_end=1712,
+  serialized_start=1642,
+  serialized_end=1763,
+)
+
+
+_DASHBOARDCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='DashboardConfigDeleteAllRequest',
+  full_name='arista.dashboard.v1.DashboardConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1765,
+  serialized_end=1798,
+)
+
+
+_DASHBOARDCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='DashboardConfigDeleteAllResponse',
+  full_name='arista.dashboard.v1.DashboardConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.dashboard.v1.DashboardConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.dashboard.v1.DashboardConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.dashboard.v1.DashboardConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.dashboard.v1.DashboardConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1801,
+  serialized_end=2002,
 )
 
 
@@ -532,8 +612,8 @@ _GLOBALDASHBOARDCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1714,
-  serialized_end=1786,
+  serialized_start=2004,
+  serialized_end=2076,
 )
 
 
@@ -571,8 +651,8 @@ _GLOBALDASHBOARDCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1789,
-  serialized_end=1921,
+  serialized_start=2079,
+  serialized_end=2211,
 )
 
 
@@ -610,8 +690,8 @@ _GLOBALDASHBOARDCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1924,
-  serialized_end=2070,
+  serialized_start=2214,
+  serialized_end=2360,
 )
 
 
@@ -656,8 +736,8 @@ _GLOBALDASHBOARDCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2073,
-  serialized_end=2258,
+  serialized_start=2363,
+  serialized_end=2548,
 )
 
 
@@ -688,8 +768,8 @@ _GLOBALDASHBOARDCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2260,
-  serialized_end=2352,
+  serialized_start=2550,
+  serialized_end=2642,
 )
 
 
@@ -727,8 +807,8 @@ _GLOBALDASHBOARDCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2355,
-  serialized_end=2490,
+  serialized_start=2645,
+  serialized_end=2780,
 )
 
 _DASHBOARDREQUEST.fields_by_name['key'].message_type = arista_dot_dashboard_dot_v1_dot_dashboard__pb2._DASHBOARDKEY
@@ -756,6 +836,10 @@ _DASHBOARDCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_pro
 _DASHBOARDCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_dashboard_dot_v1_dot_dashboard__pb2._DASHBOARDKEY
 _DASHBOARDCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_dashboard_dot_v1_dot_dashboard__pb2._DASHBOARDKEY
 _DASHBOARDCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DASHBOARDCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_DASHBOARDCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_DASHBOARDCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_dashboard_dot_v1_dot_dashboard__pb2._DASHBOARDKEY
+_DASHBOARDCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GLOBALDASHBOARDCONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GLOBALDASHBOARDCONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_dashboard_dot_v1_dot_dashboard__pb2._GLOBALDASHBOARDCONFIG
 _GLOBALDASHBOARDCONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -779,6 +863,8 @@ DESCRIPTOR.message_types_by_name['DashboardConfigSetRequest'] = _DASHBOARDCONFIG
 DESCRIPTOR.message_types_by_name['DashboardConfigSetResponse'] = _DASHBOARDCONFIGSETRESPONSE
 DESCRIPTOR.message_types_by_name['DashboardConfigDeleteRequest'] = _DASHBOARDCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['DashboardConfigDeleteResponse'] = _DASHBOARDCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['DashboardConfigDeleteAllRequest'] = _DASHBOARDCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['DashboardConfigDeleteAllResponse'] = _DASHBOARDCONFIGDELETEALLRESPONSE
 DESCRIPTOR.message_types_by_name['GlobalDashboardConfigRequest'] = _GLOBALDASHBOARDCONFIGREQUEST
 DESCRIPTOR.message_types_by_name['GlobalDashboardConfigResponse'] = _GLOBALDASHBOARDCONFIGRESPONSE
 DESCRIPTOR.message_types_by_name['GlobalDashboardConfigStreamRequest'] = _GLOBALDASHBOARDCONFIGSTREAMREQUEST
@@ -871,6 +957,20 @@ DashboardConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('Dashbo
   })
 _sym_db.RegisterMessage(DashboardConfigDeleteResponse)
 
+DashboardConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('DashboardConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DASHBOARDCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.dashboard.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.dashboard.v1.DashboardConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(DashboardConfigDeleteAllRequest)
+
+DashboardConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('DashboardConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DASHBOARDCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.dashboard.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.dashboard.v1.DashboardConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(DashboardConfigDeleteAllResponse)
+
 GlobalDashboardConfigRequest = _reflection.GeneratedProtocolMessageType('GlobalDashboardConfigRequest', (_message.Message,), {
   'DESCRIPTOR' : _GLOBALDASHBOARDCONFIGREQUEST,
   '__module__' : 'arista.dashboard.v1.services.gen_pb2'
@@ -923,8 +1023,8 @@ _DASHBOARDSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2493,
-  serialized_end=2809,
+  serialized_start=2783,
+  serialized_end=3099,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -969,8 +1069,8 @@ _DASHBOARDCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2812,
-  serialized_end=3387,
+  serialized_start=3102,
+  serialized_end=3801,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1022,6 +1122,16 @@ _DASHBOARDCONFIGSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.dashboard.v1.DashboardConfigService.DeleteAll',
+    index=5,
+    containing_service=None,
+    input_type=_DASHBOARDCONFIGDELETEALLREQUEST,
+    output_type=_DASHBOARDCONFIGDELETEALLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
 ])
 _sym_db.RegisterServiceDescriptor(_DASHBOARDCONFIGSERVICE)
 
@@ -1035,8 +1145,8 @@ _GLOBALDASHBOARDCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3390,
-  serialized_end=3780,
+  serialized_start=3804,
+  serialized_end=4194,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',

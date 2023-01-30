@@ -166,6 +166,11 @@ class DashboardConfigServiceStub(object):
                 request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteResponse.FromString,
                 )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.dashboard.v1.DashboardConfigService/DeleteAll',
+                request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteAllResponse.FromString,
+                )
 
 
 class DashboardConfigServiceServicer(object):
@@ -201,6 +206,12 @@ class DashboardConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DashboardConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -228,6 +239,11 @@ def add_DashboardConfigServiceServicer_to_server(servicer, server):
                     servicer.Delete,
                     request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -321,6 +337,23 @@ class DashboardConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.dashboard.v1.DashboardConfigService/Delete',
             arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteRequest.SerializeToString,
             arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.dashboard.v1.DashboardConfigService/DeleteAll',
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteAllRequest.SerializeToString,
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

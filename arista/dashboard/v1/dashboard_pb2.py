@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z.arista/resources/arista/dashboard.v1;dashboard',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#arista/dashboard.v1/dashboard.proto\x12\x13\x61rista.dashboard.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"\\\n\x08Position\x12\'\n\x01x\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\'\n\x01y\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"g\n\nDimensions\x12+\n\x05width\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12,\n\x06height\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"\xce\x02\n\x06Widget\x12(\n\x02id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x08position\x18\x03 \x01(\x0b\x32\x1d.arista.dashboard.v1.Position\x12\x33\n\ndimensions\x18\x04 \x01(\x0b\x32\x1f.arista.dashboard.v1.Dimensions\x12*\n\x04type\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06inputs\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08location\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"6\n\x07Widgets\x12+\n\x06values\x18\x01 \x03(\x0b\x32\x1b.arista.dashboard.v1.Widget\"H\n\x0c\x44\x61shboardKey\x12\x32\n\x0c\x64\x61shboard_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xd7\x01\n\x0f\x44\x61shboardConfig\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12*\n\x04name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07widgets\x18\x04 \x01(\x0b\x32\x1c.arista.dashboard.v1.Widgets:\x06\xfa\x8d\x19\x02rw\"\xb1\x01\n\x11\x44\x61shboardMetadata\x12\x34\n\x0eschema_version\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\nlegacy_key\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0elegacy_version\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"+\n\x06\x46ilter\x12!\n\x04tags\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\"\xe8\x03\n\tDashboard\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x39\n\tmeta_data\x18\x06 \x01(\x0b\x32&.arista.dashboard.v1.DashboardMetadata\x12*\n\x04name\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07widgets\x18\t \x01(\x0b\x32\x1c.arista.dashboard.v1.Widgets:\x12\xfa\x8d\x19\x02ro\x8a\x8e\x19\x08[]Filter\"]\n\x15GlobalDashboardConfig\x12<\n\x11\x64\x65\x66\x61ult_dashboard\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey:\x06\xa2\x8e\x19\x02rwB0Z.arista/resources/arista/dashboard.v1;dashboardb\x06proto3'
+  serialized_pb=b'\n#arista/dashboard.v1/dashboard.proto\x12\x13\x61rista.dashboard.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"\\\n\x08Position\x12\'\n\x01x\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\'\n\x01y\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"g\n\nDimensions\x12+\n\x05width\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12,\n\x06height\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"\xe1\x01\n\x0cWidgetStyles\x12.\n\nhide_title\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x36\n\x10\x62\x61\x63kground_color\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x37\n\x13hide_horizontal_bar\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\ntitle_size\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"\x81\x03\n\x06Widget\x12(\n\x02id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x08position\x18\x03 \x01(\x0b\x32\x1d.arista.dashboard.v1.Position\x12\x33\n\ndimensions\x18\x04 \x01(\x0b\x32\x1f.arista.dashboard.v1.Dimensions\x12*\n\x04type\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06inputs\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08location\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x06styles\x18\x08 \x01(\x0b\x32!.arista.dashboard.v1.WidgetStyles\"6\n\x07Widgets\x12+\n\x06values\x18\x01 \x03(\x0b\x32\x1b.arista.dashboard.v1.Widget\"H\n\x0c\x44\x61shboardKey\x12\x32\n\x0c\x64\x61shboard_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xd7\x01\n\x0f\x44\x61shboardConfig\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12*\n\x04name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07widgets\x18\x04 \x01(\x0b\x32\x1c.arista.dashboard.v1.Widgets:\x06\xfa\x8d\x19\x02rw\"\xe5\x01\n\x11\x44\x61shboardMetadata\x12\x34\n\x0eschema_version\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\nlegacy_key\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0elegacy_version\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0c\x66rom_package\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"+\n\x06\x46ilter\x12!\n\x04tags\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\"\xe8\x03\n\tDashboard\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x39\n\tmeta_data\x18\x06 \x01(\x0b\x32&.arista.dashboard.v1.DashboardMetadata\x12*\n\x04name\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07widgets\x18\t \x01(\x0b\x32\x1c.arista.dashboard.v1.Widgets:\x12\xfa\x8d\x19\x02ro\x8a\x8e\x19\x08[]Filter\"]\n\x15GlobalDashboardConfig\x12<\n\x11\x64\x65\x66\x61ult_dashboard\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey:\x06\xa2\x8e\x19\x02rwB0Z.arista/resources/arista/dashboard.v1;dashboardb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,fmp_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -108,6 +108,59 @@ _DIMENSIONS = _descriptor.Descriptor(
 )
 
 
+_WIDGETSTYLES = _descriptor.Descriptor(
+  name='WidgetStyles',
+  full_name='arista.dashboard.v1.WidgetStyles',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='hide_title', full_name='arista.dashboard.v1.WidgetStyles.hide_title', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='background_color', full_name='arista.dashboard.v1.WidgetStyles.background_color', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hide_horizontal_bar', full_name='arista.dashboard.v1.WidgetStyles.hide_horizontal_bar', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='title_size', full_name='arista.dashboard.v1.WidgetStyles.title_size', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=367,
+  serialized_end=592,
+)
+
+
 _WIDGET = _descriptor.Descriptor(
   name='Widget',
   full_name='arista.dashboard.v1.Widget',
@@ -165,6 +218,13 @@ _WIDGET = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='styles', full_name='arista.dashboard.v1.Widget.styles', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -177,8 +237,8 @@ _WIDGET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=367,
-  serialized_end=701,
+  serialized_start=595,
+  serialized_end=980,
 )
 
 
@@ -209,8 +269,8 @@ _WIDGETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=703,
-  serialized_end=757,
+  serialized_start=982,
+  serialized_end=1036,
 )
 
 
@@ -241,8 +301,8 @@ _DASHBOARDKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=759,
-  serialized_end=831,
+  serialized_start=1038,
+  serialized_end=1110,
 )
 
 
@@ -294,8 +354,8 @@ _DASHBOARDCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=834,
-  serialized_end=1049,
+  serialized_start=1113,
+  serialized_end=1328,
 )
 
 
@@ -328,6 +388,13 @@ _DASHBOARDMETADATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='from_package', full_name='arista.dashboard.v1.DashboardMetadata.from_package', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -340,8 +407,8 @@ _DASHBOARDMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1052,
-  serialized_end=1229,
+  serialized_start=1331,
+  serialized_end=1560,
 )
 
 
@@ -372,8 +439,8 @@ _FILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1231,
-  serialized_end=1274,
+  serialized_start=1562,
+  serialized_end=1605,
 )
 
 
@@ -460,8 +527,8 @@ _DASHBOARD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1277,
-  serialized_end=1765,
+  serialized_start=1608,
+  serialized_end=2096,
 )
 
 
@@ -492,14 +559,18 @@ _GLOBALDASHBOARDCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1767,
-  serialized_end=1860,
+  serialized_start=2098,
+  serialized_end=2191,
 )
 
 _POSITION.fields_by_name['x'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _POSITION.fields_by_name['y'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _DIMENSIONS.fields_by_name['width'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _DIMENSIONS.fields_by_name['height'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
+_WIDGETSTYLES.fields_by_name['hide_title'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_WIDGETSTYLES.fields_by_name['background_color'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_WIDGETSTYLES.fields_by_name['hide_horizontal_bar'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_WIDGETSTYLES.fields_by_name['title_size'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _WIDGET.fields_by_name['id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WIDGET.fields_by_name['name'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WIDGET.fields_by_name['position'].message_type = _POSITION
@@ -507,6 +578,7 @@ _WIDGET.fields_by_name['dimensions'].message_type = _DIMENSIONS
 _WIDGET.fields_by_name['type'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WIDGET.fields_by_name['inputs'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WIDGET.fields_by_name['location'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_WIDGET.fields_by_name['styles'].message_type = _WIDGETSTYLES
 _WIDGETS.fields_by_name['values'].message_type = _WIDGET
 _DASHBOARDKEY.fields_by_name['dashboard_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _DASHBOARDCONFIG.fields_by_name['key'].message_type = _DASHBOARDKEY
@@ -516,6 +588,7 @@ _DASHBOARDCONFIG.fields_by_name['widgets'].message_type = _WIDGETS
 _DASHBOARDMETADATA.fields_by_name['schema_version'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _DASHBOARDMETADATA.fields_by_name['legacy_key'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _DASHBOARDMETADATA.fields_by_name['legacy_version'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_DASHBOARDMETADATA.fields_by_name['from_package'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _FILTER.fields_by_name['tags'].message_type = fmp_dot_wrappers__pb2._REPEATEDSTRING
 _DASHBOARD.fields_by_name['key'].message_type = _DASHBOARDKEY
 _DASHBOARD.fields_by_name['created_at'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -529,6 +602,7 @@ _DASHBOARD.fields_by_name['widgets'].message_type = _WIDGETS
 _GLOBALDASHBOARDCONFIG.fields_by_name['default_dashboard'].message_type = _DASHBOARDKEY
 DESCRIPTOR.message_types_by_name['Position'] = _POSITION
 DESCRIPTOR.message_types_by_name['Dimensions'] = _DIMENSIONS
+DESCRIPTOR.message_types_by_name['WidgetStyles'] = _WIDGETSTYLES
 DESCRIPTOR.message_types_by_name['Widget'] = _WIDGET
 DESCRIPTOR.message_types_by_name['Widgets'] = _WIDGETS
 DESCRIPTOR.message_types_by_name['DashboardKey'] = _DASHBOARDKEY
@@ -552,6 +626,13 @@ Dimensions = _reflection.GeneratedProtocolMessageType('Dimensions', (_message.Me
   # @@protoc_insertion_point(class_scope:arista.dashboard.v1.Dimensions)
   })
 _sym_db.RegisterMessage(Dimensions)
+
+WidgetStyles = _reflection.GeneratedProtocolMessageType('WidgetStyles', (_message.Message,), {
+  'DESCRIPTOR' : _WIDGETSTYLES,
+  '__module__' : 'arista.dashboard.v1.dashboard_pb2'
+  # @@protoc_insertion_point(class_scope:arista.dashboard.v1.WidgetStyles)
+  })
+_sym_db.RegisterMessage(WidgetStyles)
 
 Widget = _reflection.GeneratedProtocolMessageType('Widget', (_message.Message,), {
   'DESCRIPTOR' : _WIDGET,

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\024arista/resources/fmp',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0e\x66mp/yang.proto\x12\x03\x66mp\"\x1b\n\nMACAddress\x12\r\n\x05value\x18\x01 \x01(\tB\x16Z\x14\x61rista/resources/fmpb\x06proto3'
+  serialized_pb=b'\n\x0e\x66mp/yang.proto\x12\x03\x66mp\"\x1b\n\nMACAddress\x12\r\n\x05value\x18\x01 \x01(\t\"5\n\x12RepeatedMACAddress\x12\x1f\n\x06values\x18\x01 \x03(\x0b\x32\x0f.fmp.MACAddressB\x16Z\x14\x61rista/resources/fmpb\x06proto3'
 )
 
 
@@ -56,7 +56,41 @@ _MACADDRESS = _descriptor.Descriptor(
   serialized_end=50,
 )
 
+
+_REPEATEDMACADDRESS = _descriptor.Descriptor(
+  name='RepeatedMACAddress',
+  full_name='fmp.RepeatedMACAddress',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='fmp.RepeatedMACAddress.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=52,
+  serialized_end=105,
+)
+
+_REPEATEDMACADDRESS.fields_by_name['values'].message_type = _MACADDRESS
 DESCRIPTOR.message_types_by_name['MACAddress'] = _MACADDRESS
+DESCRIPTOR.message_types_by_name['RepeatedMACAddress'] = _REPEATEDMACADDRESS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 MACAddress = _reflection.GeneratedProtocolMessageType('MACAddress', (_message.Message,), {
@@ -65,6 +99,13 @@ MACAddress = _reflection.GeneratedProtocolMessageType('MACAddress', (_message.Me
   # @@protoc_insertion_point(class_scope:fmp.MACAddress)
   })
 _sym_db.RegisterMessage(MACAddress)
+
+RepeatedMACAddress = _reflection.GeneratedProtocolMessageType('RepeatedMACAddress', (_message.Message,), {
+  'DESCRIPTOR' : _REPEATEDMACADDRESS,
+  '__module__' : 'fmp.yang_pb2'
+  # @@protoc_insertion_point(class_scope:fmp.RepeatedMACAddress)
+  })
+_sym_db.RegisterMessage(RepeatedMACAddress)
 
 
 DESCRIPTOR._options = None
