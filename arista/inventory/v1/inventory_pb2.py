@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z.arista/resources/arista/inventory.v1;inventory',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#arista/inventory.v1/inventory.proto\x12\x13\x61rista.inventory.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x0e\x66mp/inet.proto\"\xa1\x01\n\x12\x45xtendedAttributes\x12T\n\x0f\x66\x65\x61ture_enabled\x18\x01 \x03(\x0b\x32;.arista.inventory.v1.ExtendedAttributes.FeatureEnabledEntry\x1a\x35\n\x13\x46\x65\x61tureEnabledEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"B\n\tDeviceKey\x12/\n\tdevice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x8d\x01\n\x13\x44\x65viceConfiguration\x12\x46\n\x07options\x18\x01 \x03(\x0b\x32\x35.arista.inventory.v1.DeviceConfiguration.OptionsEntry\x1a.\n\x0cOptionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"A\n\x07UUIDKey\x12\x30\n\nrequest_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xf5\x01\n\x16\x44\x65viceOnboardingConfig\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12\x34\n\x0ehostname_or_ip\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65vice_type\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12?\n\rdevice_config\x18\x04 \x01(\x0b\x32(.arista.inventory.v1.DeviceConfiguration:\x06\xfa\x8d\x19\x02rw\"\x90\x02\n\x10\x44\x65viceOnboarding\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12/\n\tdevice_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x35\n\x06status\x18\x03 \x01(\x0e\x32%.arista.inventory.v1.OnboardingStatus\x12+\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0estatus_message\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\x81\x01\n\x1b\x44\x65viceDecommissioningConfig\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12/\n\tdevice_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02rw\"\xe9\x01\n\x15\x44\x65viceDecommissioning\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12:\n\x06status\x18\x02 \x01(\x0e\x32*.arista.inventory.v1.DecommissioningStatus\x12+\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0estatus_message\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\xde\x04\n\x06\x44\x65vice\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.inventory.v1.DeviceKey\x12\x36\n\x10software_version\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\nmodel_name\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x37\n\x11hardware_revision\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04\x66qdn\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08hostname\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64omain_name\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x38\n\x12system_mac_address\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\tboot_time\x18\x14 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12>\n\x10streaming_status\x18\x1e \x01(\x0e\x32$.arista.inventory.v1.StreamingStatus\x12\x44\n\x13\x65xtended_attributes\x18\x1f \x01(\x0b\x32\'.arista.inventory.v1.ExtendedAttributes:\x06\xfa\x8d\x19\x02ro\"\xbf\x02\n\x11ProvisionedDevice\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.inventory.v1.DeviceKey\x12\x37\n\x06status\x18\x02 \x01(\x0e\x32\'.arista.inventory.v1.ProvisioningStatus\x12+\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x08ztp_mode\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\"\n\nip_address\x18\x05 \x01(\x0b\x32\x0e.fmp.IPAddress\x12=\n\x17provisioning_group_name\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro*o\n\x0fStreamingStatus\x12 \n\x1cSTREAMING_STATUS_UNSPECIFIED\x10\x00\x12\x1d\n\x19STREAMING_STATUS_INACTIVE\x10\x01\x12\x1b\n\x17STREAMING_STATUS_ACTIVE\x10\x02*\x96\x01\n\x10OnboardingStatus\x12!\n\x1dONBOARDING_STATUS_UNSPECIFIED\x10\x00\x12!\n\x1dONBOARDING_STATUS_IN_PROGRESS\x10\x01\x12\x1d\n\x19ONBOARDING_STATUS_FAILURE\x10\x02\x12\x1d\n\x19ONBOARDING_STATUS_SUCCESS\x10\x03*\xaf\x01\n\x15\x44\x65\x63ommissioningStatus\x12&\n\"DECOMMISSIONING_STATUS_UNSPECIFIED\x10\x00\x12&\n\"DECOMMISSIONING_STATUS_IN_PROGRESS\x10\x01\x12\"\n\x1e\x44\x45\x43OMMISSIONING_STATUS_FAILURE\x10\x02\x12\"\n\x1e\x44\x45\x43OMMISSIONING_STATUS_SUCCESS\x10\x03*\xa0\x01\n\x12ProvisioningStatus\x12#\n\x1fPROVISIONING_STATUS_UNSPECIFIED\x10\x00\x12#\n\x1fPROVISIONING_STATUS_IN_PROGRESS\x10\x01\x12\x1f\n\x1bPROVISIONING_STATUS_FAILURE\x10\x02\x12\x1f\n\x1bPROVISIONING_STATUS_SUCCESS\x10\x03\x42\x30Z.arista/resources/arista/inventory.v1;inventoryb\x06proto3'
+  serialized_pb=b'\n#arista/inventory.v1/inventory.proto\x12\x13\x61rista.inventory.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x0e\x66mp/inet.proto\"\xa1\x01\n\x12\x45xtendedAttributes\x12T\n\x0f\x66\x65\x61ture_enabled\x18\x01 \x03(\x0b\x32;.arista.inventory.v1.ExtendedAttributes.FeatureEnabledEntry\x1a\x35\n\x13\x46\x65\x61tureEnabledEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"B\n\tDeviceKey\x12/\n\tdevice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x8d\x01\n\x13\x44\x65viceConfiguration\x12\x46\n\x07options\x18\x01 \x03(\x0b\x32\x35.arista.inventory.v1.DeviceConfiguration.OptionsEntry\x1a.\n\x0cOptionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"A\n\x07UUIDKey\x12\x30\n\nrequest_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xf5\x01\n\x16\x44\x65viceOnboardingConfig\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12\x34\n\x0ehostname_or_ip\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65vice_type\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12?\n\rdevice_config\x18\x04 \x01(\x0b\x32(.arista.inventory.v1.DeviceConfiguration:\x06\xfa\x8d\x19\x02rw\"\x90\x02\n\x10\x44\x65viceOnboarding\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12/\n\tdevice_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x35\n\x06status\x18\x03 \x01(\x0e\x32%.arista.inventory.v1.OnboardingStatus\x12+\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0estatus_message\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\xac\x01\n\x1b\x44\x65viceDecommissioningConfig\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12/\n\tdevice_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x05\x66orce\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02rw\"\xe9\x01\n\x15\x44\x65viceDecommissioning\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12:\n\x06status\x18\x02 \x01(\x0e\x32*.arista.inventory.v1.DecommissioningStatus\x12+\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0estatus_message\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\xde\x04\n\x06\x44\x65vice\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.inventory.v1.DeviceKey\x12\x36\n\x10software_version\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\nmodel_name\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x37\n\x11hardware_revision\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04\x66qdn\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08hostname\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64omain_name\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x38\n\x12system_mac_address\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\tboot_time\x18\x14 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12>\n\x10streaming_status\x18\x1e \x01(\x0e\x32$.arista.inventory.v1.StreamingStatus\x12\x44\n\x13\x65xtended_attributes\x18\x1f \x01(\x0b\x32\'.arista.inventory.v1.ExtendedAttributes:\x06\xfa\x8d\x19\x02ro\"\xbf\x02\n\x11ProvisionedDevice\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.inventory.v1.DeviceKey\x12\x37\n\x06status\x18\x02 \x01(\x0e\x32\'.arista.inventory.v1.ProvisioningStatus\x12+\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x08ztp_mode\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\"\n\nip_address\x18\x05 \x01(\x0b\x32\x0e.fmp.IPAddress\x12=\n\x17provisioning_group_name\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro*o\n\x0fStreamingStatus\x12 \n\x1cSTREAMING_STATUS_UNSPECIFIED\x10\x00\x12\x1d\n\x19STREAMING_STATUS_INACTIVE\x10\x01\x12\x1b\n\x17STREAMING_STATUS_ACTIVE\x10\x02*\x96\x01\n\x10OnboardingStatus\x12!\n\x1dONBOARDING_STATUS_UNSPECIFIED\x10\x00\x12!\n\x1dONBOARDING_STATUS_IN_PROGRESS\x10\x01\x12\x1d\n\x19ONBOARDING_STATUS_FAILURE\x10\x02\x12\x1d\n\x19ONBOARDING_STATUS_SUCCESS\x10\x03*\xaf\x01\n\x15\x44\x65\x63ommissioningStatus\x12&\n\"DECOMMISSIONING_STATUS_UNSPECIFIED\x10\x00\x12&\n\"DECOMMISSIONING_STATUS_IN_PROGRESS\x10\x01\x12\"\n\x1e\x44\x45\x43OMMISSIONING_STATUS_FAILURE\x10\x02\x12\"\n\x1e\x44\x45\x43OMMISSIONING_STATUS_SUCCESS\x10\x03*\xa0\x01\n\x12ProvisioningStatus\x12#\n\x1fPROVISIONING_STATUS_UNSPECIFIED\x10\x00\x12#\n\x1fPROVISIONING_STATUS_IN_PROGRESS\x10\x01\x12\x1f\n\x1bPROVISIONING_STATUS_FAILURE\x10\x02\x12\x1f\n\x1bPROVISIONING_STATUS_SUCCESS\x10\x03\x42\x30Z.arista/resources/arista/inventory.v1;inventoryb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,fmp_dot_inet__pb2.DESCRIPTOR,])
 
@@ -53,8 +53,8 @@ _STREAMINGSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2428,
-  serialized_end=2539,
+  serialized_start=2471,
+  serialized_end=2582,
 )
 _sym_db.RegisterEnumDescriptor(_STREAMINGSTATUS)
 
@@ -89,8 +89,8 @@ _ONBOARDINGSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2542,
-  serialized_end=2692,
+  serialized_start=2585,
+  serialized_end=2735,
 )
 _sym_db.RegisterEnumDescriptor(_ONBOARDINGSTATUS)
 
@@ -125,8 +125,8 @@ _DECOMMISSIONINGSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2695,
-  serialized_end=2870,
+  serialized_start=2738,
+  serialized_end=2913,
 )
 _sym_db.RegisterEnumDescriptor(_DECOMMISSIONINGSTATUS)
 
@@ -161,8 +161,8 @@ _PROVISIONINGSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2873,
-  serialized_end=3033,
+  serialized_start=2916,
+  serialized_end=3076,
 )
 _sym_db.RegisterEnumDescriptor(_PROVISIONINGSTATUS)
 
@@ -524,6 +524,13 @@ _DEVICEDECOMMISSIONINGCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='force', full_name='arista.inventory.v1.DeviceDecommissioningConfig.force', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -537,7 +544,7 @@ _DEVICEDECOMMISSIONINGCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1130,
-  serialized_end=1259,
+  serialized_end=1302,
 )
 
 
@@ -589,8 +596,8 @@ _DEVICEDECOMMISSIONING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1262,
-  serialized_end=1495,
+  serialized_start=1305,
+  serialized_end=1538,
 )
 
 
@@ -691,8 +698,8 @@ _DEVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1498,
-  serialized_end=2104,
+  serialized_start=1541,
+  serialized_end=2147,
 )
 
 
@@ -758,8 +765,8 @@ _PROVISIONEDDEVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2107,
-  serialized_end=2426,
+  serialized_start=2150,
+  serialized_end=2469,
 )
 
 _EXTENDEDATTRIBUTES_FEATUREENABLEDENTRY.containing_type = _EXTENDEDATTRIBUTES
@@ -779,6 +786,7 @@ _DEVICEONBOARDING.fields_by_name['error'].message_type = google_dot_protobuf_dot
 _DEVICEONBOARDING.fields_by_name['status_message'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _DEVICEDECOMMISSIONINGCONFIG.fields_by_name['key'].message_type = _UUIDKEY
 _DEVICEDECOMMISSIONINGCONFIG.fields_by_name['device_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_DEVICEDECOMMISSIONINGCONFIG.fields_by_name['force'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _DEVICEDECOMMISSIONING.fields_by_name['key'].message_type = _UUIDKEY
 _DEVICEDECOMMISSIONING.fields_by_name['status'].enum_type = _DECOMMISSIONINGSTATUS
 _DEVICEDECOMMISSIONING.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE

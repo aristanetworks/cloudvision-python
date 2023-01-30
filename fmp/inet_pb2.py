@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\024arista/resources/fmp',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0e\x66mp/inet.proto\x12\x03\x66mp\"\x1a\n\tIPAddress\x12\r\n\x05value\x18\x01 \x01(\t\"\x1c\n\x0bIPv4Address\x12\r\n\x05value\x18\x01 \x01(\t\"\x1c\n\x0bIPv6Address\x12\r\n\x05value\x18\x01 \x01(\t\"\x19\n\x08IPPrefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x1b\n\nIPv4Prefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x1b\n\nIPv6Prefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x15\n\x04Port\x12\r\n\x05value\x18\x01 \x01(\rB\x16Z\x14\x61rista/resources/fmpb\x06proto3'
+  serialized_pb=b'\n\x0e\x66mp/inet.proto\x12\x03\x66mp\"\x1a\n\tIPAddress\x12\r\n\x05value\x18\x01 \x01(\t\"3\n\x11RepeatedIPAddress\x12\x1e\n\x06values\x18\x01 \x03(\x0b\x32\x0e.fmp.IPAddress\"\x1c\n\x0bIPv4Address\x12\r\n\x05value\x18\x01 \x01(\t\"7\n\x13RepeatedIPv4Address\x12 \n\x06values\x18\x01 \x03(\x0b\x32\x10.fmp.IPv4Address\"\x1c\n\x0bIPv6Address\x12\r\n\x05value\x18\x01 \x01(\t\"7\n\x13RepeatedIPv6Address\x12 \n\x06values\x18\x01 \x03(\x0b\x32\x10.fmp.IPv6Address\"\x19\n\x08IPPrefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x1b\n\nIPv4Prefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x1b\n\nIPv6Prefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x15\n\x04Port\x12\r\n\x05value\x18\x01 \x01(\rB\x16Z\x14\x61rista/resources/fmpb\x06proto3'
 )
 
 
@@ -57,6 +57,38 @@ _IPADDRESS = _descriptor.Descriptor(
 )
 
 
+_REPEATEDIPADDRESS = _descriptor.Descriptor(
+  name='RepeatedIPAddress',
+  full_name='fmp.RepeatedIPAddress',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='fmp.RepeatedIPAddress.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=51,
+  serialized_end=102,
+)
+
+
 _IPV4ADDRESS = _descriptor.Descriptor(
   name='IPv4Address',
   full_name='fmp.IPv4Address',
@@ -84,8 +116,40 @@ _IPV4ADDRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=51,
-  serialized_end=79,
+  serialized_start=104,
+  serialized_end=132,
+)
+
+
+_REPEATEDIPV4ADDRESS = _descriptor.Descriptor(
+  name='RepeatedIPv4Address',
+  full_name='fmp.RepeatedIPv4Address',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='fmp.RepeatedIPv4Address.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=134,
+  serialized_end=189,
 )
 
 
@@ -116,8 +180,40 @@ _IPV6ADDRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=81,
-  serialized_end=109,
+  serialized_start=191,
+  serialized_end=219,
+)
+
+
+_REPEATEDIPV6ADDRESS = _descriptor.Descriptor(
+  name='RepeatedIPv6Address',
+  full_name='fmp.RepeatedIPv6Address',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='fmp.RepeatedIPv6Address.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=221,
+  serialized_end=276,
 )
 
 
@@ -148,8 +244,8 @@ _IPPREFIX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=111,
-  serialized_end=136,
+  serialized_start=278,
+  serialized_end=303,
 )
 
 
@@ -180,8 +276,8 @@ _IPV4PREFIX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=138,
-  serialized_end=165,
+  serialized_start=305,
+  serialized_end=332,
 )
 
 
@@ -212,8 +308,8 @@ _IPV6PREFIX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=167,
-  serialized_end=194,
+  serialized_start=334,
+  serialized_end=361,
 )
 
 
@@ -244,13 +340,19 @@ _PORT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=196,
-  serialized_end=217,
+  serialized_start=363,
+  serialized_end=384,
 )
 
+_REPEATEDIPADDRESS.fields_by_name['values'].message_type = _IPADDRESS
+_REPEATEDIPV4ADDRESS.fields_by_name['values'].message_type = _IPV4ADDRESS
+_REPEATEDIPV6ADDRESS.fields_by_name['values'].message_type = _IPV6ADDRESS
 DESCRIPTOR.message_types_by_name['IPAddress'] = _IPADDRESS
+DESCRIPTOR.message_types_by_name['RepeatedIPAddress'] = _REPEATEDIPADDRESS
 DESCRIPTOR.message_types_by_name['IPv4Address'] = _IPV4ADDRESS
+DESCRIPTOR.message_types_by_name['RepeatedIPv4Address'] = _REPEATEDIPV4ADDRESS
 DESCRIPTOR.message_types_by_name['IPv6Address'] = _IPV6ADDRESS
+DESCRIPTOR.message_types_by_name['RepeatedIPv6Address'] = _REPEATEDIPV6ADDRESS
 DESCRIPTOR.message_types_by_name['IPPrefix'] = _IPPREFIX
 DESCRIPTOR.message_types_by_name['IPv4Prefix'] = _IPV4PREFIX
 DESCRIPTOR.message_types_by_name['IPv6Prefix'] = _IPV6PREFIX
@@ -264,6 +366,13 @@ IPAddress = _reflection.GeneratedProtocolMessageType('IPAddress', (_message.Mess
   })
 _sym_db.RegisterMessage(IPAddress)
 
+RepeatedIPAddress = _reflection.GeneratedProtocolMessageType('RepeatedIPAddress', (_message.Message,), {
+  'DESCRIPTOR' : _REPEATEDIPADDRESS,
+  '__module__' : 'fmp.inet_pb2'
+  # @@protoc_insertion_point(class_scope:fmp.RepeatedIPAddress)
+  })
+_sym_db.RegisterMessage(RepeatedIPAddress)
+
 IPv4Address = _reflection.GeneratedProtocolMessageType('IPv4Address', (_message.Message,), {
   'DESCRIPTOR' : _IPV4ADDRESS,
   '__module__' : 'fmp.inet_pb2'
@@ -271,12 +380,26 @@ IPv4Address = _reflection.GeneratedProtocolMessageType('IPv4Address', (_message.
   })
 _sym_db.RegisterMessage(IPv4Address)
 
+RepeatedIPv4Address = _reflection.GeneratedProtocolMessageType('RepeatedIPv4Address', (_message.Message,), {
+  'DESCRIPTOR' : _REPEATEDIPV4ADDRESS,
+  '__module__' : 'fmp.inet_pb2'
+  # @@protoc_insertion_point(class_scope:fmp.RepeatedIPv4Address)
+  })
+_sym_db.RegisterMessage(RepeatedIPv4Address)
+
 IPv6Address = _reflection.GeneratedProtocolMessageType('IPv6Address', (_message.Message,), {
   'DESCRIPTOR' : _IPV6ADDRESS,
   '__module__' : 'fmp.inet_pb2'
   # @@protoc_insertion_point(class_scope:fmp.IPv6Address)
   })
 _sym_db.RegisterMessage(IPv6Address)
+
+RepeatedIPv6Address = _reflection.GeneratedProtocolMessageType('RepeatedIPv6Address', (_message.Message,), {
+  'DESCRIPTOR' : _REPEATEDIPV6ADDRESS,
+  '__module__' : 'fmp.inet_pb2'
+  # @@protoc_insertion_point(class_scope:fmp.RepeatedIPv6Address)
+  })
+_sym_db.RegisterMessage(RepeatedIPv6Address)
 
 IPPrefix = _reflection.GeneratedProtocolMessageType('IPPrefix', (_message.Message,), {
   'DESCRIPTOR' : _IPPREFIX,
