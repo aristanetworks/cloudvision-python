@@ -1,1 +1,4 @@
 _build
+arista*.rst
+cloudvision*.rst
+fmp*.rst

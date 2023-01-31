@@ -14,6 +14,9 @@ jobs:
         pip install -r requirements.txt
     - name: Sphinx build
       run: |
+        sphinx-apidoc -o docsrc arista
+        sphinx-apidoc -o docsrc cloudvision
+        sphinx-apidoc -o docsrc fmp
         sphinx-build docsrc _build
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
