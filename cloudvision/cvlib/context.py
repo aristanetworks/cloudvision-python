@@ -455,7 +455,7 @@ If calling store without a path, please provide a studio or changeControl object
         """
         if self.getLoggingLevel() > LoggingLevel.Error:
             return
-        self.logger.warning(self, msg)
+        self.logger.error(self, msg)
 
     def critical(self, msg):
         """
