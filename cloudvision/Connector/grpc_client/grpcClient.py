@@ -9,6 +9,7 @@ from typing import Any, Iterable, List, Optional, Tuple, Union
 import grpc
 from google.protobuf import timestamp_pb2 as pbts
 
+from cloudvision import __version__ as version
 from cloudvision.Connector import codec as codec
 from cloudvision.Connector.gen import notification_pb2 as ntf
 from cloudvision.Connector.gen import router_pb2 as rtr
@@ -17,6 +18,7 @@ from cloudvision.Connector.gen import router_pb2_grpc as rtr_client
 TIME_TYPE = Union[pbts.Timestamp, datetime]
 UPDATE_TYPE = Tuple[Any, Any]
 UPDATES_TYPE = List[UPDATE_TYPE]
+GRPC_OPTIONS = (("grpc.primary_user_agent", f"cloudvision.Connector/{version}"),)
 
 
 def to_pbts(ts: TIME_TYPE) -> pbts.Timestamp:
@@ -123,7 +125,7 @@ class GRPCClient(object):
         self.metadata = None
 
         if (certs is None or key is None) and (token is None and tokenValue is None):
-            self.channel = grpc.insecure_channel(grpcAddr)
+            self.channel = grpc.insecure_channel(grpcAddr, options=GRPC_OPTIONS)
         else:
             tokCreds = None
             if token or tokenValue:
@@ -181,7 +183,7 @@ class GRPCClient(object):
             if tokCreds:
                 creds = grpc.composite_channel_credentials(creds, tokCreds)
 
-            self.channel = grpc.secure_channel(grpcAddr, creds)
+            self.channel = grpc.secure_channel(grpcAddr, creds, options=GRPC_OPTIONS)
         self.__client = rtr_client.RouterV1Stub(self.channel)
         self.__auth_client = rtr_client.AuthStub(self.channel)
         self.__search_client = rtr_client.SearchStub(self.channel)
