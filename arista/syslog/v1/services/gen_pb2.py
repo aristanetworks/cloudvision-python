@@ -14,7 +14,9 @@ _sym_db = _symbol_database.Default()
 from arista.syslog.v1 import syslog_pb2 as arista_dot_syslog_dot_v1_dot_syslog__pb2
 from arista.time import time_pb2 as arista_dot_time_dot_time__pb2
 from arista.subscriptions import subscriptions_pb2 as arista_dot_subscriptions_dot_subscriptions__pb2
+from fmp import deletes_pb2 as fmp_dot_deletes__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z(arista/resources/arista/syslog.v1;syslog',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#arista/syslog.v1/services.gen.proto\x12\x10\x61rista.syslog.v1\x1a\x1d\x61rista/syslog.v1/syslog.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"c\n\rExportRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.syslog.v1.ExportKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"c\n\x0e\x45xportResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.syslog.v1.Export\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x13\x45xportStreamRequest\x12\x33\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x18.arista.syslog.v1.Export\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x98\x01\n\x14\x45xportStreamResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.syslog.v1.Export\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"i\n\x13\x45xportConfigRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.syslog.v1.ExportKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x14\x45xportConfigResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.syslog.v1.ExportConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x19\x45xportConfigStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.syslog.v1.ExportConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa4\x01\n\x1a\x45xportConfigStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.syslog.v1.ExportConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"G\n\x16\x45xportConfigSetRequest\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.syslog.v1.ExportConfig\"r\n\x17\x45xportConfigSetResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.syslog.v1.ExportConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"E\n\x19\x45xportConfigDeleteRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.syslog.v1.ExportKey\"p\n\x1a\x45xportConfigDeleteResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.syslog.v1.ExportKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"E\n\x19\x45xportFormatConfigRequest\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"{\n\x1a\x45xportFormatConfigResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.syslog.v1.ExportFormatConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x89\x01\n\x1f\x45xportFormatConfigStreamRequest\x12?\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32$.arista.syslog.v1.ExportFormatConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb0\x01\n ExportFormatConfigStreamResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.syslog.v1.ExportFormatConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"S\n\x1c\x45xportFormatConfigSetRequest\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.syslog.v1.ExportFormatConfig\"~\n\x1d\x45xportFormatConfigSetResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.syslog.v1.ExportFormatConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\x95\x02\n\rExportService\x12K\n\x06GetOne\x12\x1f.arista.syslog.v1.ExportRequest\x1a .arista.syslog.v1.ExportResponse\x12Y\n\x06GetAll\x12%.arista.syslog.v1.ExportStreamRequest\x1a&.arista.syslog.v1.ExportStreamResponse0\x01\x12\\\n\tSubscribe\x12%.arista.syslog.v1.ExportStreamRequest\x1a&.arista.syslog.v1.ExportStreamResponse0\x01\x32\x80\x04\n\x13\x45xportConfigService\x12W\n\x06GetOne\x12%.arista.syslog.v1.ExportConfigRequest\x1a&.arista.syslog.v1.ExportConfigResponse\x12\x65\n\x06GetAll\x12+.arista.syslog.v1.ExportConfigStreamRequest\x1a,.arista.syslog.v1.ExportConfigStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.syslog.v1.ExportConfigStreamRequest\x1a,.arista.syslog.v1.ExportConfigStreamResponse0\x01\x12Z\n\x03Set\x12(.arista.syslog.v1.ExportConfigSetRequest\x1a).arista.syslog.v1.ExportConfigSetResponse\x12\x63\n\x06\x44\x65lete\x12+.arista.syslog.v1.ExportConfigDeleteRequest\x1a,.arista.syslog.v1.ExportConfigDeleteResponse2\xde\x02\n\x19\x45xportFormatConfigService\x12\x63\n\x06GetOne\x12+.arista.syslog.v1.ExportFormatConfigRequest\x1a,.arista.syslog.v1.ExportFormatConfigResponse\x12t\n\tSubscribe\x12\x31.arista.syslog.v1.ExportFormatConfigStreamRequest\x1a\x32.arista.syslog.v1.ExportFormatConfigStreamResponse0\x01\x12\x66\n\x03Set\x12..arista.syslog.v1.ExportFormatConfigSetRequest\x1a/.arista.syslog.v1.ExportFormatConfigSetResponseB*Z(arista/resources/arista/syslog.v1;syslogb\x06proto3'
+  serialized_pb=b'\n#arista/syslog.v1/services.gen.proto\x12\x10\x61rista.syslog.v1\x1a\x1d\x61rista/syslog.v1/syslog.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"c\n\rExportRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.syslog.v1.ExportKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"c\n\x0e\x45xportResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.syslog.v1.Export\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x13\x45xportStreamRequest\x12\x33\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x18.arista.syslog.v1.Export\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x98\x01\n\x14\x45xportStreamResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.syslog.v1.Export\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"i\n\x13\x45xportConfigRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.syslog.v1.ExportKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x14\x45xportConfigResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.syslog.v1.ExportConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x19\x45xportConfigStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.syslog.v1.ExportConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa4\x01\n\x1a\x45xportConfigStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.syslog.v1.ExportConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"G\n\x16\x45xportConfigSetRequest\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.syslog.v1.ExportConfig\"r\n\x17\x45xportConfigSetResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.syslog.v1.ExportConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"E\n\x19\x45xportConfigDeleteRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.syslog.v1.ExportKey\"p\n\x1a\x45xportConfigDeleteResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.syslog.v1.ExportKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x1e\n\x1c\x45xportConfigDeleteAllRequest\"\xc0\x01\n\x1d\x45xportConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x03key\x18\x03 \x01(\x0b\x32\x1b.arista.syslog.v1.ExportKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"E\n\x19\x45xportFormatConfigRequest\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"{\n\x1a\x45xportFormatConfigResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.syslog.v1.ExportFormatConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x89\x01\n\x1f\x45xportFormatConfigStreamRequest\x12?\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32$.arista.syslog.v1.ExportFormatConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb0\x01\n ExportFormatConfigStreamResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.syslog.v1.ExportFormatConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"S\n\x1c\x45xportFormatConfigSetRequest\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.syslog.v1.ExportFormatConfig\"~\n\x1d\x45xportFormatConfigSetResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.syslog.v1.ExportFormatConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\x95\x02\n\rExportService\x12K\n\x06GetOne\x12\x1f.arista.syslog.v1.ExportRequest\x1a .arista.syslog.v1.ExportResponse\x12Y\n\x06GetAll\x12%.arista.syslog.v1.ExportStreamRequest\x1a&.arista.syslog.v1.ExportStreamResponse0\x01\x12\\\n\tSubscribe\x12%.arista.syslog.v1.ExportStreamRequest\x1a&.arista.syslog.v1.ExportStreamResponse0\x01\x32\xf0\x04\n\x13\x45xportConfigService\x12W\n\x06GetOne\x12%.arista.syslog.v1.ExportConfigRequest\x1a&.arista.syslog.v1.ExportConfigResponse\x12\x65\n\x06GetAll\x12+.arista.syslog.v1.ExportConfigStreamRequest\x1a,.arista.syslog.v1.ExportConfigStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.syslog.v1.ExportConfigStreamRequest\x1a,.arista.syslog.v1.ExportConfigStreamResponse0\x01\x12Z\n\x03Set\x12(.arista.syslog.v1.ExportConfigSetRequest\x1a).arista.syslog.v1.ExportConfigSetResponse\x12\x63\n\x06\x44\x65lete\x12+.arista.syslog.v1.ExportConfigDeleteRequest\x1a,.arista.syslog.v1.ExportConfigDeleteResponse\x12n\n\tDeleteAll\x12..arista.syslog.v1.ExportConfigDeleteAllRequest\x1a/.arista.syslog.v1.ExportConfigDeleteAllResponse0\x01\x32\xde\x02\n\x19\x45xportFormatConfigService\x12\x63\n\x06GetOne\x12+.arista.syslog.v1.ExportFormatConfigRequest\x1a,.arista.syslog.v1.ExportFormatConfigResponse\x12t\n\tSubscribe\x12\x31.arista.syslog.v1.ExportFormatConfigStreamRequest\x1a\x32.arista.syslog.v1.ExportFormatConfigStreamResponse0\x01\x12\x66\n\x03Set\x12..arista.syslog.v1.ExportFormatConfigSetRequest\x1a/.arista.syslog.v1.ExportFormatConfigSetResponseB*Z(arista/resources/arista/syslog.v1;syslogb\x06proto3'
   ,
-  dependencies=[arista_dot_syslog_dot_v1_dot_syslog__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[arista_dot_syslog_dot_v1_dot_syslog__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,fmp_dot_deletes__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
 
@@ -64,8 +66,8 @@ _EXPORTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=187,
-  serialized_end=286,
+  serialized_start=238,
+  serialized_end=337,
 )
 
 
@@ -103,8 +105,8 @@ _EXPORTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=288,
-  serialized_end=387,
+  serialized_start=339,
+  serialized_end=438,
 )
 
 
@@ -142,8 +144,8 @@ _EXPORTSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=389,
-  serialized_end=502,
+  serialized_start=440,
+  serialized_end=553,
 )
 
 
@@ -188,8 +190,8 @@ _EXPORTSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=505,
-  serialized_end=657,
+  serialized_start=556,
+  serialized_end=708,
 )
 
 
@@ -227,8 +229,8 @@ _EXPORTCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=659,
-  serialized_end=764,
+  serialized_start=710,
+  serialized_end=815,
 )
 
 
@@ -266,8 +268,8 @@ _EXPORTCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=766,
-  serialized_end=877,
+  serialized_start=817,
+  serialized_end=928,
 )
 
 
@@ -305,8 +307,8 @@ _EXPORTCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=879,
-  serialized_end=1004,
+  serialized_start=930,
+  serialized_end=1055,
 )
 
 
@@ -351,8 +353,8 @@ _EXPORTCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1007,
-  serialized_end=1171,
+  serialized_start=1058,
+  serialized_end=1222,
 )
 
 
@@ -383,8 +385,8 @@ _EXPORTCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1173,
-  serialized_end=1244,
+  serialized_start=1224,
+  serialized_end=1295,
 )
 
 
@@ -422,8 +424,8 @@ _EXPORTCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1246,
-  serialized_end=1360,
+  serialized_start=1297,
+  serialized_end=1411,
 )
 
 
@@ -454,8 +456,8 @@ _EXPORTCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1362,
-  serialized_end=1431,
+  serialized_start=1413,
+  serialized_end=1482,
 )
 
 
@@ -493,8 +495,86 @@ _EXPORTCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1433,
-  serialized_end=1545,
+  serialized_start=1484,
+  serialized_end=1596,
+)
+
+
+_EXPORTCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='ExportConfigDeleteAllRequest',
+  full_name='arista.syslog.v1.ExportConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1598,
+  serialized_end=1628,
+)
+
+
+_EXPORTCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='ExportConfigDeleteAllResponse',
+  full_name='arista.syslog.v1.ExportConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.syslog.v1.ExportConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.syslog.v1.ExportConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.syslog.v1.ExportConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.syslog.v1.ExportConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1631,
+  serialized_end=1823,
 )
 
 
@@ -525,8 +605,8 @@ _EXPORTFORMATCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1547,
-  serialized_end=1616,
+  serialized_start=1825,
+  serialized_end=1894,
 )
 
 
@@ -564,8 +644,8 @@ _EXPORTFORMATCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1618,
-  serialized_end=1741,
+  serialized_start=1896,
+  serialized_end=2019,
 )
 
 
@@ -603,8 +683,8 @@ _EXPORTFORMATCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1744,
-  serialized_end=1881,
+  serialized_start=2022,
+  serialized_end=2159,
 )
 
 
@@ -649,8 +729,8 @@ _EXPORTFORMATCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1884,
-  serialized_end=2060,
+  serialized_start=2162,
+  serialized_end=2338,
 )
 
 
@@ -681,8 +761,8 @@ _EXPORTFORMATCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2062,
-  serialized_end=2145,
+  serialized_start=2340,
+  serialized_end=2423,
 )
 
 
@@ -720,8 +800,8 @@ _EXPORTFORMATCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2147,
-  serialized_end=2273,
+  serialized_start=2425,
+  serialized_end=2551,
 )
 
 _EXPORTREQUEST.fields_by_name['key'].message_type = arista_dot_syslog_dot_v1_dot_syslog__pb2._EXPORTKEY
@@ -748,6 +828,10 @@ _EXPORTCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protob
 _EXPORTCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_syslog_dot_v1_dot_syslog__pb2._EXPORTKEY
 _EXPORTCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_syslog_dot_v1_dot_syslog__pb2._EXPORTKEY
 _EXPORTCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_EXPORTCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_EXPORTCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_EXPORTCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_syslog_dot_v1_dot_syslog__pb2._EXPORTKEY
+_EXPORTCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EXPORTFORMATCONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EXPORTFORMATCONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_syslog_dot_v1_dot_syslog__pb2._EXPORTFORMATCONFIG
 _EXPORTFORMATCONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -771,6 +855,8 @@ DESCRIPTOR.message_types_by_name['ExportConfigSetRequest'] = _EXPORTCONFIGSETREQ
 DESCRIPTOR.message_types_by_name['ExportConfigSetResponse'] = _EXPORTCONFIGSETRESPONSE
 DESCRIPTOR.message_types_by_name['ExportConfigDeleteRequest'] = _EXPORTCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['ExportConfigDeleteResponse'] = _EXPORTCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['ExportConfigDeleteAllRequest'] = _EXPORTCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['ExportConfigDeleteAllResponse'] = _EXPORTCONFIGDELETEALLRESPONSE
 DESCRIPTOR.message_types_by_name['ExportFormatConfigRequest'] = _EXPORTFORMATCONFIGREQUEST
 DESCRIPTOR.message_types_by_name['ExportFormatConfigResponse'] = _EXPORTFORMATCONFIGRESPONSE
 DESCRIPTOR.message_types_by_name['ExportFormatConfigStreamRequest'] = _EXPORTFORMATCONFIGSTREAMREQUEST
@@ -863,6 +949,20 @@ ExportConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('ExportCon
   })
 _sym_db.RegisterMessage(ExportConfigDeleteResponse)
 
+ExportConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('ExportConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EXPORTCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.syslog.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.syslog.v1.ExportConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(ExportConfigDeleteAllRequest)
+
+ExportConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('ExportConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EXPORTCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.syslog.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.syslog.v1.ExportConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(ExportConfigDeleteAllResponse)
+
 ExportFormatConfigRequest = _reflection.GeneratedProtocolMessageType('ExportFormatConfigRequest', (_message.Message,), {
   'DESCRIPTOR' : _EXPORTFORMATCONFIGREQUEST,
   '__module__' : 'arista.syslog.v1.services.gen_pb2'
@@ -915,8 +1015,8 @@ _EXPORTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2276,
-  serialized_end=2553,
+  serialized_start=2554,
+  serialized_end=2831,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -961,8 +1061,8 @@ _EXPORTCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2556,
-  serialized_end=3068,
+  serialized_start=2834,
+  serialized_end=3458,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1014,6 +1114,16 @@ _EXPORTCONFIGSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.syslog.v1.ExportConfigService.DeleteAll',
+    index=5,
+    containing_service=None,
+    input_type=_EXPORTCONFIGDELETEALLREQUEST,
+    output_type=_EXPORTCONFIGDELETEALLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
 ])
 _sym_db.RegisterServiceDescriptor(_EXPORTCONFIGSERVICE)
 
@@ -1027,8 +1137,8 @@ _EXPORTFORMATCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3071,
-  serialized_end=3421,
+  serialized_start=3461,
+  serialized_end=3811,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',

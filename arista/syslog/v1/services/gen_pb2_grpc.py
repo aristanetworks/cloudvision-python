@@ -166,6 +166,11 @@ class ExportConfigServiceStub(object):
                 request_serializer=arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteResponse.FromString,
                 )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.syslog.v1.ExportConfigService/DeleteAll',
+                request_serializer=arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteAllResponse.FromString,
+                )
 
 
 class ExportConfigServiceServicer(object):
@@ -201,6 +206,12 @@ class ExportConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ExportConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -228,6 +239,11 @@ def add_ExportConfigServiceServicer_to_server(servicer, server):
                     servicer.Delete,
                     request_deserializer=arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -321,6 +337,23 @@ class ExportConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.syslog.v1.ExportConfigService/Delete',
             arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteRequest.SerializeToString,
             arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.syslog.v1.ExportConfigService/DeleteAll',
+            arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteAllRequest.SerializeToString,
+            arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2.ExportConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
