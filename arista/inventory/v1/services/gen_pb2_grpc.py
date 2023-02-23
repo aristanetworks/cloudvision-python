@@ -293,6 +293,11 @@ class DeviceDecommissioningConfigServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteResponse.FromString,
                 )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningConfigService/DeleteAll',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllResponse.FromString,
+                )
 
 
 class DeviceDecommissioningConfigServiceServicer(object):
@@ -328,6 +333,12 @@ class DeviceDecommissioningConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DeviceDecommissioningConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -355,6 +366,11 @@ def add_DeviceDecommissioningConfigServiceServicer_to_server(servicer, server):
                     servicer.Delete,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -448,6 +464,23 @@ class DeviceDecommissioningConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/Delete',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/DeleteAll',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -613,6 +646,11 @@ class DeviceOnboardingConfigServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteResponse.FromString,
                 )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingConfigService/DeleteAll',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllResponse.FromString,
+                )
 
 
 class DeviceOnboardingConfigServiceServicer(object):
@@ -648,6 +686,12 @@ class DeviceOnboardingConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DeviceOnboardingConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -675,6 +719,11 @@ def add_DeviceOnboardingConfigServiceServicer_to_server(servicer, server):
                     servicer.Delete,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -768,6 +817,23 @@ class DeviceOnboardingConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/Delete',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/DeleteAll',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

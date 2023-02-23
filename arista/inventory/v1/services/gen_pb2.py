@@ -14,7 +14,9 @@ _sym_db = _symbol_database.Default()
 from arista.inventory.v1 import inventory_pb2 as arista_dot_inventory_dot_v1_dot_inventory__pb2
 from arista.time import time_pb2 as arista_dot_time_dot_time__pb2
 from arista.subscriptions import subscriptions_pb2 as arista_dot_subscriptions_dot_subscriptions__pb2
+from fmp import deletes_pb2 as fmp_dot_deletes__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z.arista/resources/arista/inventory.v1;inventory',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n&arista/inventory.v1/services.gen.proto\x12\x13\x61rista.inventory.v1\x1a#arista/inventory.v1/inventory.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"f\n\rDeviceRequest\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.inventory.v1.DeviceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"f\n\x0e\x44\x65viceResponse\x12*\n\x05value\x18\x01 \x01(\x0b\x32\x1b.arista.inventory.v1.Device\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"t\n\x13\x44\x65viceStreamRequest\x12\x36\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1b.arista.inventory.v1.Device\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x9b\x01\n\x14\x44\x65viceStreamResponse\x12*\n\x05value\x18\x01 \x01(\x0b\x32\x1b.arista.inventory.v1.Device\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"s\n\x1c\x44\x65viceDecommissioningRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1d\x44\x65viceDecommissioningResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.inventory.v1.DeviceDecommissioning\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n\"DeviceDecommissioningStreamRequest\x12\x45\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32*.arista.inventory.v1.DeviceDecommissioning\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb9\x01\n#DeviceDecommissioningStreamResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.inventory.v1.DeviceDecommissioning\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"y\n\"DeviceDecommissioningConfigRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x90\x01\n#DeviceDecommissioningConfigResponse\x12?\n\x05value\x18\x01 \x01(\x0b\x32\x30.arista.inventory.v1.DeviceDecommissioningConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x9e\x01\n(DeviceDecommissioningConfigStreamRequest\x12K\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x30.arista.inventory.v1.DeviceDecommissioningConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xc5\x01\n)DeviceDecommissioningConfigStreamResponse\x12?\n\x05value\x18\x01 \x01(\x0b\x32\x30.arista.inventory.v1.DeviceDecommissioningConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"h\n%DeviceDecommissioningConfigSetRequest\x12?\n\x05value\x18\x01 \x01(\x0b\x32\x30.arista.inventory.v1.DeviceDecommissioningConfig\"\x93\x01\n&DeviceDecommissioningConfigSetResponse\x12?\n\x05value\x18\x01 \x01(\x0b\x32\x30.arista.inventory.v1.DeviceDecommissioningConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"U\n(DeviceDecommissioningConfigDeleteRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\"\x80\x01\n)DeviceDecommissioningConfigDeleteResponse\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"n\n\x17\x44\x65viceOnboardingRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"z\n\x18\x44\x65viceOnboardingResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.inventory.v1.DeviceOnboarding\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x88\x01\n\x1d\x44\x65viceOnboardingStreamRequest\x12@\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32%.arista.inventory.v1.DeviceOnboarding\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xaf\x01\n\x1e\x44\x65viceOnboardingStreamResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.inventory.v1.DeviceOnboarding\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"t\n\x1d\x44\x65viceOnboardingConfigRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x86\x01\n\x1e\x44\x65viceOnboardingConfigResponse\x12:\n\x05value\x18\x01 \x01(\x0b\x32+.arista.inventory.v1.DeviceOnboardingConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x94\x01\n#DeviceOnboardingConfigStreamRequest\x12\x46\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32+.arista.inventory.v1.DeviceOnboardingConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xbb\x01\n$DeviceOnboardingConfigStreamResponse\x12:\n\x05value\x18\x01 \x01(\x0b\x32+.arista.inventory.v1.DeviceOnboardingConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"^\n DeviceOnboardingConfigSetRequest\x12:\n\x05value\x18\x01 \x01(\x0b\x32+.arista.inventory.v1.DeviceOnboardingConfig\"\x89\x01\n!DeviceOnboardingConfigSetResponse\x12:\n\x05value\x18\x01 \x01(\x0b\x32+.arista.inventory.v1.DeviceOnboardingConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"P\n#DeviceOnboardingConfigDeleteRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\"{\n$DeviceOnboardingConfigDeleteResponse\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x18ProvisionedDeviceRequest\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.inventory.v1.DeviceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"|\n\x19ProvisionedDeviceResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.inventory.v1.ProvisionedDevice\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x8a\x01\n\x1eProvisionedDeviceStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.inventory.v1.ProvisionedDevice\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb1\x01\n\x1fProvisionedDeviceStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.inventory.v1.ProvisionedDevice\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation2\xa7\x02\n\rDeviceService\x12Q\n\x06GetOne\x12\".arista.inventory.v1.DeviceRequest\x1a#.arista.inventory.v1.DeviceResponse\x12_\n\x06GetAll\x12(.arista.inventory.v1.DeviceStreamRequest\x1a).arista.inventory.v1.DeviceStreamResponse0\x01\x12\x62\n\tSubscribe\x12(.arista.inventory.v1.DeviceStreamRequest\x1a).arista.inventory.v1.DeviceStreamResponse0\x01\x32\x91\x03\n\x1c\x44\x65viceDecommissioningService\x12o\n\x06GetOne\x12\x31.arista.inventory.v1.DeviceDecommissioningRequest\x1a\x32.arista.inventory.v1.DeviceDecommissioningResponse\x12}\n\x06GetAll\x12\x37.arista.inventory.v1.DeviceDecommissioningStreamRequest\x1a\x38.arista.inventory.v1.DeviceDecommissioningStreamResponse0\x01\x12\x80\x01\n\tSubscribe\x12\x37.arista.inventory.v1.DeviceDecommissioningStreamRequest\x1a\x38.arista.inventory.v1.DeviceDecommissioningStreamResponse0\x01\x32\xc6\x05\n\"DeviceDecommissioningConfigService\x12{\n\x06GetOne\x12\x37.arista.inventory.v1.DeviceDecommissioningConfigRequest\x1a\x38.arista.inventory.v1.DeviceDecommissioningConfigResponse\x12\x89\x01\n\x06GetAll\x12=.arista.inventory.v1.DeviceDecommissioningConfigStreamRequest\x1a>.arista.inventory.v1.DeviceDecommissioningConfigStreamResponse0\x01\x12\x8c\x01\n\tSubscribe\x12=.arista.inventory.v1.DeviceDecommissioningConfigStreamRequest\x1a>.arista.inventory.v1.DeviceDecommissioningConfigStreamResponse0\x01\x12~\n\x03Set\x12:.arista.inventory.v1.DeviceDecommissioningConfigSetRequest\x1a;.arista.inventory.v1.DeviceDecommissioningConfigSetResponse\x12\x87\x01\n\x06\x44\x65lete\x12=.arista.inventory.v1.DeviceDecommissioningConfigDeleteRequest\x1a>.arista.inventory.v1.DeviceDecommissioningConfigDeleteResponse2\xed\x02\n\x17\x44\x65viceOnboardingService\x12\x65\n\x06GetOne\x12,.arista.inventory.v1.DeviceOnboardingRequest\x1a-.arista.inventory.v1.DeviceOnboardingResponse\x12s\n\x06GetAll\x12\x32.arista.inventory.v1.DeviceOnboardingStreamRequest\x1a\x33.arista.inventory.v1.DeviceOnboardingStreamResponse0\x01\x12v\n\tSubscribe\x12\x32.arista.inventory.v1.DeviceOnboardingStreamRequest\x1a\x33.arista.inventory.v1.DeviceOnboardingStreamResponse0\x01\x32\x8d\x05\n\x1d\x44\x65viceOnboardingConfigService\x12q\n\x06GetOne\x12\x32.arista.inventory.v1.DeviceOnboardingConfigRequest\x1a\x33.arista.inventory.v1.DeviceOnboardingConfigResponse\x12\x7f\n\x06GetAll\x12\x38.arista.inventory.v1.DeviceOnboardingConfigStreamRequest\x1a\x39.arista.inventory.v1.DeviceOnboardingConfigStreamResponse0\x01\x12\x82\x01\n\tSubscribe\x12\x38.arista.inventory.v1.DeviceOnboardingConfigStreamRequest\x1a\x39.arista.inventory.v1.DeviceOnboardingConfigStreamResponse0\x01\x12t\n\x03Set\x12\x35.arista.inventory.v1.DeviceOnboardingConfigSetRequest\x1a\x36.arista.inventory.v1.DeviceOnboardingConfigSetResponse\x12}\n\x06\x44\x65lete\x12\x38.arista.inventory.v1.DeviceOnboardingConfigDeleteRequest\x1a\x39.arista.inventory.v1.DeviceOnboardingConfigDeleteResponse2\xf4\x02\n\x18ProvisionedDeviceService\x12g\n\x06GetOne\x12-.arista.inventory.v1.ProvisionedDeviceRequest\x1a..arista.inventory.v1.ProvisionedDeviceResponse\x12u\n\x06GetAll\x12\x33.arista.inventory.v1.ProvisionedDeviceStreamRequest\x1a\x34.arista.inventory.v1.ProvisionedDeviceStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.inventory.v1.ProvisionedDeviceStreamRequest\x1a\x34.arista.inventory.v1.ProvisionedDeviceStreamResponse0\x01\x42\x30Z.arista/resources/arista/inventory.v1;inventoryb\x06proto3'
+  serialized_pb=b'\n&arista/inventory.v1/services.gen.proto\x12\x13\x61rista.inventory.v1\x1a#arista/inventory.v1/inventory.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"f\n\rDeviceRequest\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.inventory.v1.DeviceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"f\n\x0e\x44\x65viceResponse\x12*\n\x05value\x18\x01 \x01(\x0b\x32\x1b.arista.inventory.v1.Device\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"t\n\x13\x44\x65viceStreamRequest\x12\x36\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1b.arista.inventory.v1.Device\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x9b\x01\n\x14\x44\x65viceStreamResponse\x12*\n\x05value\x18\x01 \x01(\x0b\x32\x1b.arista.inventory.v1.Device\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"s\n\x1c\x44\x65viceDecommissioningRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1d\x44\x65viceDecommissioningResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.inventory.v1.DeviceDecommissioning\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n\"DeviceDecommissioningStreamRequest\x12\x45\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32*.arista.inventory.v1.DeviceDecommissioning\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb9\x01\n#DeviceDecommissioningStreamResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.inventory.v1.DeviceDecommissioning\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"y\n\"DeviceDecommissioningConfigRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x90\x01\n#DeviceDecommissioningConfigResponse\x12?\n\x05value\x18\x01 \x01(\x0b\x32\x30.arista.inventory.v1.DeviceDecommissioningConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x9e\x01\n(DeviceDecommissioningConfigStreamRequest\x12K\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x30.arista.inventory.v1.DeviceDecommissioningConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xc5\x01\n)DeviceDecommissioningConfigStreamResponse\x12?\n\x05value\x18\x01 \x01(\x0b\x32\x30.arista.inventory.v1.DeviceDecommissioningConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"h\n%DeviceDecommissioningConfigSetRequest\x12?\n\x05value\x18\x01 \x01(\x0b\x32\x30.arista.inventory.v1.DeviceDecommissioningConfig\"\x93\x01\n&DeviceDecommissioningConfigSetResponse\x12?\n\x05value\x18\x01 \x01(\x0b\x32\x30.arista.inventory.v1.DeviceDecommissioningConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"U\n(DeviceDecommissioningConfigDeleteRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\"\x80\x01\n)DeviceDecommissioningConfigDeleteResponse\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"-\n+DeviceDecommissioningConfigDeleteAllRequest\"\xd0\x01\n,DeviceDecommissioningConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x03key\x18\x03 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"n\n\x17\x44\x65viceOnboardingRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"z\n\x18\x44\x65viceOnboardingResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.inventory.v1.DeviceOnboarding\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x88\x01\n\x1d\x44\x65viceOnboardingStreamRequest\x12@\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32%.arista.inventory.v1.DeviceOnboarding\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xaf\x01\n\x1e\x44\x65viceOnboardingStreamResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.inventory.v1.DeviceOnboarding\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"t\n\x1d\x44\x65viceOnboardingConfigRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x86\x01\n\x1e\x44\x65viceOnboardingConfigResponse\x12:\n\x05value\x18\x01 \x01(\x0b\x32+.arista.inventory.v1.DeviceOnboardingConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x94\x01\n#DeviceOnboardingConfigStreamRequest\x12\x46\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32+.arista.inventory.v1.DeviceOnboardingConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xbb\x01\n$DeviceOnboardingConfigStreamResponse\x12:\n\x05value\x18\x01 \x01(\x0b\x32+.arista.inventory.v1.DeviceOnboardingConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"^\n DeviceOnboardingConfigSetRequest\x12:\n\x05value\x18\x01 \x01(\x0b\x32+.arista.inventory.v1.DeviceOnboardingConfig\"\x89\x01\n!DeviceOnboardingConfigSetResponse\x12:\n\x05value\x18\x01 \x01(\x0b\x32+.arista.inventory.v1.DeviceOnboardingConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"P\n#DeviceOnboardingConfigDeleteRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\"{\n$DeviceOnboardingConfigDeleteResponse\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"(\n&DeviceOnboardingConfigDeleteAllRequest\"\xcb\x01\n\'DeviceOnboardingConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x03key\x18\x03 \x01(\x0b\x32\x1c.arista.inventory.v1.UUIDKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x18ProvisionedDeviceRequest\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.inventory.v1.DeviceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"|\n\x19ProvisionedDeviceResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.inventory.v1.ProvisionedDevice\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x8a\x01\n\x1eProvisionedDeviceStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.inventory.v1.ProvisionedDevice\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb1\x01\n\x1fProvisionedDeviceStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.inventory.v1.ProvisionedDevice\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation2\xa7\x02\n\rDeviceService\x12Q\n\x06GetOne\x12\".arista.inventory.v1.DeviceRequest\x1a#.arista.inventory.v1.DeviceResponse\x12_\n\x06GetAll\x12(.arista.inventory.v1.DeviceStreamRequest\x1a).arista.inventory.v1.DeviceStreamResponse0\x01\x12\x62\n\tSubscribe\x12(.arista.inventory.v1.DeviceStreamRequest\x1a).arista.inventory.v1.DeviceStreamResponse0\x01\x32\x91\x03\n\x1c\x44\x65viceDecommissioningService\x12o\n\x06GetOne\x12\x31.arista.inventory.v1.DeviceDecommissioningRequest\x1a\x32.arista.inventory.v1.DeviceDecommissioningResponse\x12}\n\x06GetAll\x12\x37.arista.inventory.v1.DeviceDecommissioningStreamRequest\x1a\x38.arista.inventory.v1.DeviceDecommissioningStreamResponse0\x01\x12\x80\x01\n\tSubscribe\x12\x37.arista.inventory.v1.DeviceDecommissioningStreamRequest\x1a\x38.arista.inventory.v1.DeviceDecommissioningStreamResponse0\x01\x32\xdb\x06\n\"DeviceDecommissioningConfigService\x12{\n\x06GetOne\x12\x37.arista.inventory.v1.DeviceDecommissioningConfigRequest\x1a\x38.arista.inventory.v1.DeviceDecommissioningConfigResponse\x12\x89\x01\n\x06GetAll\x12=.arista.inventory.v1.DeviceDecommissioningConfigStreamRequest\x1a>.arista.inventory.v1.DeviceDecommissioningConfigStreamResponse0\x01\x12\x8c\x01\n\tSubscribe\x12=.arista.inventory.v1.DeviceDecommissioningConfigStreamRequest\x1a>.arista.inventory.v1.DeviceDecommissioningConfigStreamResponse0\x01\x12~\n\x03Set\x12:.arista.inventory.v1.DeviceDecommissioningConfigSetRequest\x1a;.arista.inventory.v1.DeviceDecommissioningConfigSetResponse\x12\x87\x01\n\x06\x44\x65lete\x12=.arista.inventory.v1.DeviceDecommissioningConfigDeleteRequest\x1a>.arista.inventory.v1.DeviceDecommissioningConfigDeleteResponse\x12\x92\x01\n\tDeleteAll\x12@.arista.inventory.v1.DeviceDecommissioningConfigDeleteAllRequest\x1a\x41.arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse0\x01\x32\xed\x02\n\x17\x44\x65viceOnboardingService\x12\x65\n\x06GetOne\x12,.arista.inventory.v1.DeviceOnboardingRequest\x1a-.arista.inventory.v1.DeviceOnboardingResponse\x12s\n\x06GetAll\x12\x32.arista.inventory.v1.DeviceOnboardingStreamRequest\x1a\x33.arista.inventory.v1.DeviceOnboardingStreamResponse0\x01\x12v\n\tSubscribe\x12\x32.arista.inventory.v1.DeviceOnboardingStreamRequest\x1a\x33.arista.inventory.v1.DeviceOnboardingStreamResponse0\x01\x32\x98\x06\n\x1d\x44\x65viceOnboardingConfigService\x12q\n\x06GetOne\x12\x32.arista.inventory.v1.DeviceOnboardingConfigRequest\x1a\x33.arista.inventory.v1.DeviceOnboardingConfigResponse\x12\x7f\n\x06GetAll\x12\x38.arista.inventory.v1.DeviceOnboardingConfigStreamRequest\x1a\x39.arista.inventory.v1.DeviceOnboardingConfigStreamResponse0\x01\x12\x82\x01\n\tSubscribe\x12\x38.arista.inventory.v1.DeviceOnboardingConfigStreamRequest\x1a\x39.arista.inventory.v1.DeviceOnboardingConfigStreamResponse0\x01\x12t\n\x03Set\x12\x35.arista.inventory.v1.DeviceOnboardingConfigSetRequest\x1a\x36.arista.inventory.v1.DeviceOnboardingConfigSetResponse\x12}\n\x06\x44\x65lete\x12\x38.arista.inventory.v1.DeviceOnboardingConfigDeleteRequest\x1a\x39.arista.inventory.v1.DeviceOnboardingConfigDeleteResponse\x12\x88\x01\n\tDeleteAll\x12;.arista.inventory.v1.DeviceOnboardingConfigDeleteAllRequest\x1a<.arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse0\x01\x32\xf4\x02\n\x18ProvisionedDeviceService\x12g\n\x06GetOne\x12-.arista.inventory.v1.ProvisionedDeviceRequest\x1a..arista.inventory.v1.ProvisionedDeviceResponse\x12u\n\x06GetAll\x12\x33.arista.inventory.v1.ProvisionedDeviceStreamRequest\x1a\x34.arista.inventory.v1.ProvisionedDeviceStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.inventory.v1.ProvisionedDeviceStreamRequest\x1a\x34.arista.inventory.v1.ProvisionedDeviceStreamResponse0\x01\x42\x30Z.arista/resources/arista/inventory.v1;inventoryb\x06proto3'
   ,
-  dependencies=[arista_dot_inventory_dot_v1_dot_inventory__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[arista_dot_inventory_dot_v1_dot_inventory__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,fmp_dot_deletes__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
 
@@ -64,8 +66,8 @@ _DEVICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=199,
-  serialized_end=301,
+  serialized_start=250,
+  serialized_end=352,
 )
 
 
@@ -103,8 +105,8 @@ _DEVICERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=303,
-  serialized_end=405,
+  serialized_start=354,
+  serialized_end=456,
 )
 
 
@@ -142,8 +144,8 @@ _DEVICESTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=407,
-  serialized_end=523,
+  serialized_start=458,
+  serialized_end=574,
 )
 
 
@@ -188,8 +190,8 @@ _DEVICESTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=526,
-  serialized_end=681,
+  serialized_start=577,
+  serialized_end=732,
 )
 
 
@@ -227,8 +229,8 @@ _DEVICEDECOMMISSIONINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=683,
-  serialized_end=798,
+  serialized_start=734,
+  serialized_end=849,
 )
 
 
@@ -266,8 +268,8 @@ _DEVICEDECOMMISSIONINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=801,
-  serialized_end=933,
+  serialized_start=852,
+  serialized_end=984,
 )
 
 
@@ -305,8 +307,8 @@ _DEVICEDECOMMISSIONINGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=936,
-  serialized_end=1082,
+  serialized_start=987,
+  serialized_end=1133,
 )
 
 
@@ -351,8 +353,8 @@ _DEVICEDECOMMISSIONINGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1085,
-  serialized_end=1270,
+  serialized_start=1136,
+  serialized_end=1321,
 )
 
 
@@ -390,8 +392,8 @@ _DEVICEDECOMMISSIONINGCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1272,
-  serialized_end=1393,
+  serialized_start=1323,
+  serialized_end=1444,
 )
 
 
@@ -429,8 +431,8 @@ _DEVICEDECOMMISSIONINGCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1396,
-  serialized_end=1540,
+  serialized_start=1447,
+  serialized_end=1591,
 )
 
 
@@ -468,8 +470,8 @@ _DEVICEDECOMMISSIONINGCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1543,
-  serialized_end=1701,
+  serialized_start=1594,
+  serialized_end=1752,
 )
 
 
@@ -514,8 +516,8 @@ _DEVICEDECOMMISSIONINGCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1704,
-  serialized_end=1901,
+  serialized_start=1755,
+  serialized_end=1952,
 )
 
 
@@ -546,8 +548,8 @@ _DEVICEDECOMMISSIONINGCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1903,
-  serialized_end=2007,
+  serialized_start=1954,
+  serialized_end=2058,
 )
 
 
@@ -585,8 +587,8 @@ _DEVICEDECOMMISSIONINGCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2010,
-  serialized_end=2157,
+  serialized_start=2061,
+  serialized_end=2208,
 )
 
 
@@ -617,8 +619,8 @@ _DEVICEDECOMMISSIONINGCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2159,
-  serialized_end=2244,
+  serialized_start=2210,
+  serialized_end=2295,
 )
 
 
@@ -656,8 +658,86 @@ _DEVICEDECOMMISSIONINGCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2247,
-  serialized_end=2375,
+  serialized_start=2298,
+  serialized_end=2426,
+)
+
+
+_DEVICEDECOMMISSIONINGCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='DeviceDecommissioningConfigDeleteAllRequest',
+  full_name='arista.inventory.v1.DeviceDecommissioningConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2428,
+  serialized_end=2473,
+)
+
+
+_DEVICEDECOMMISSIONINGCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='DeviceDecommissioningConfigDeleteAllResponse',
+  full_name='arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2476,
+  serialized_end=2684,
 )
 
 
@@ -695,8 +775,8 @@ _DEVICEONBOARDINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2377,
-  serialized_end=2487,
+  serialized_start=2686,
+  serialized_end=2796,
 )
 
 
@@ -734,8 +814,8 @@ _DEVICEONBOARDINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2489,
-  serialized_end=2611,
+  serialized_start=2798,
+  serialized_end=2920,
 )
 
 
@@ -773,8 +853,8 @@ _DEVICEONBOARDINGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2614,
-  serialized_end=2750,
+  serialized_start=2923,
+  serialized_end=3059,
 )
 
 
@@ -819,8 +899,8 @@ _DEVICEONBOARDINGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2753,
-  serialized_end=2928,
+  serialized_start=3062,
+  serialized_end=3237,
 )
 
 
@@ -858,8 +938,8 @@ _DEVICEONBOARDINGCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2930,
-  serialized_end=3046,
+  serialized_start=3239,
+  serialized_end=3355,
 )
 
 
@@ -897,8 +977,8 @@ _DEVICEONBOARDINGCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3049,
-  serialized_end=3183,
+  serialized_start=3358,
+  serialized_end=3492,
 )
 
 
@@ -936,8 +1016,8 @@ _DEVICEONBOARDINGCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3186,
-  serialized_end=3334,
+  serialized_start=3495,
+  serialized_end=3643,
 )
 
 
@@ -982,8 +1062,8 @@ _DEVICEONBOARDINGCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3337,
-  serialized_end=3524,
+  serialized_start=3646,
+  serialized_end=3833,
 )
 
 
@@ -1014,8 +1094,8 @@ _DEVICEONBOARDINGCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3526,
-  serialized_end=3620,
+  serialized_start=3835,
+  serialized_end=3929,
 )
 
 
@@ -1053,8 +1133,8 @@ _DEVICEONBOARDINGCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3623,
-  serialized_end=3760,
+  serialized_start=3932,
+  serialized_end=4069,
 )
 
 
@@ -1085,8 +1165,8 @@ _DEVICEONBOARDINGCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3762,
-  serialized_end=3842,
+  serialized_start=4071,
+  serialized_end=4151,
 )
 
 
@@ -1124,8 +1204,86 @@ _DEVICEONBOARDINGCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3844,
-  serialized_end=3967,
+  serialized_start=4153,
+  serialized_end=4276,
+)
+
+
+_DEVICEONBOARDINGCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='DeviceOnboardingConfigDeleteAllRequest',
+  full_name='arista.inventory.v1.DeviceOnboardingConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4278,
+  serialized_end=4318,
+)
+
+
+_DEVICEONBOARDINGCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='DeviceOnboardingConfigDeleteAllResponse',
+  full_name='arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4321,
+  serialized_end=4524,
 )
 
 
@@ -1163,8 +1321,8 @@ _PROVISIONEDDEVICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3969,
-  serialized_end=4082,
+  serialized_start=4526,
+  serialized_end=4639,
 )
 
 
@@ -1202,8 +1360,8 @@ _PROVISIONEDDEVICERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4084,
-  serialized_end=4208,
+  serialized_start=4641,
+  serialized_end=4765,
 )
 
 
@@ -1241,8 +1399,8 @@ _PROVISIONEDDEVICESTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4211,
-  serialized_end=4349,
+  serialized_start=4768,
+  serialized_end=4906,
 )
 
 
@@ -1287,8 +1445,8 @@ _PROVISIONEDDEVICESTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4352,
-  serialized_end=4529,
+  serialized_start=4909,
+  serialized_end=5086,
 )
 
 _DEVICEREQUEST.fields_by_name['key'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._DEVICEKEY
@@ -1324,6 +1482,10 @@ _DEVICEDECOMMISSIONINGCONFIGSETRESPONSE.fields_by_name['time'].message_type = go
 _DEVICEDECOMMISSIONINGCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._UUIDKEY
 _DEVICEDECOMMISSIONINGCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._UUIDKEY
 _DEVICEDECOMMISSIONINGCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DEVICEDECOMMISSIONINGCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_DEVICEDECOMMISSIONINGCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_DEVICEDECOMMISSIONINGCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._UUIDKEY
+_DEVICEDECOMMISSIONINGCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _DEVICEONBOARDINGREQUEST.fields_by_name['key'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._UUIDKEY
 _DEVICEONBOARDINGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _DEVICEONBOARDINGRESPONSE.fields_by_name['value'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._DEVICEONBOARDING
@@ -1348,6 +1510,10 @@ _DEVICEONBOARDINGCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_
 _DEVICEONBOARDINGCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._UUIDKEY
 _DEVICEONBOARDINGCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._UUIDKEY
 _DEVICEONBOARDINGCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DEVICEONBOARDINGCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_DEVICEONBOARDINGCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_DEVICEONBOARDINGCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._UUIDKEY
+_DEVICEONBOARDINGCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _PROVISIONEDDEVICEREQUEST.fields_by_name['key'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._DEVICEKEY
 _PROVISIONEDDEVICEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _PROVISIONEDDEVICERESPONSE.fields_by_name['value'].message_type = arista_dot_inventory_dot_v1_dot_inventory__pb2._PROVISIONEDDEVICE
@@ -1373,6 +1539,8 @@ DESCRIPTOR.message_types_by_name['DeviceDecommissioningConfigSetRequest'] = _DEV
 DESCRIPTOR.message_types_by_name['DeviceDecommissioningConfigSetResponse'] = _DEVICEDECOMMISSIONINGCONFIGSETRESPONSE
 DESCRIPTOR.message_types_by_name['DeviceDecommissioningConfigDeleteRequest'] = _DEVICEDECOMMISSIONINGCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['DeviceDecommissioningConfigDeleteResponse'] = _DEVICEDECOMMISSIONINGCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['DeviceDecommissioningConfigDeleteAllRequest'] = _DEVICEDECOMMISSIONINGCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['DeviceDecommissioningConfigDeleteAllResponse'] = _DEVICEDECOMMISSIONINGCONFIGDELETEALLRESPONSE
 DESCRIPTOR.message_types_by_name['DeviceOnboardingRequest'] = _DEVICEONBOARDINGREQUEST
 DESCRIPTOR.message_types_by_name['DeviceOnboardingResponse'] = _DEVICEONBOARDINGRESPONSE
 DESCRIPTOR.message_types_by_name['DeviceOnboardingStreamRequest'] = _DEVICEONBOARDINGSTREAMREQUEST
@@ -1385,6 +1553,8 @@ DESCRIPTOR.message_types_by_name['DeviceOnboardingConfigSetRequest'] = _DEVICEON
 DESCRIPTOR.message_types_by_name['DeviceOnboardingConfigSetResponse'] = _DEVICEONBOARDINGCONFIGSETRESPONSE
 DESCRIPTOR.message_types_by_name['DeviceOnboardingConfigDeleteRequest'] = _DEVICEONBOARDINGCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['DeviceOnboardingConfigDeleteResponse'] = _DEVICEONBOARDINGCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['DeviceOnboardingConfigDeleteAllRequest'] = _DEVICEONBOARDINGCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['DeviceOnboardingConfigDeleteAllResponse'] = _DEVICEONBOARDINGCONFIGDELETEALLRESPONSE
 DESCRIPTOR.message_types_by_name['ProvisionedDeviceRequest'] = _PROVISIONEDDEVICEREQUEST
 DESCRIPTOR.message_types_by_name['ProvisionedDeviceResponse'] = _PROVISIONEDDEVICERESPONSE
 DESCRIPTOR.message_types_by_name['ProvisionedDeviceStreamRequest'] = _PROVISIONEDDEVICESTREAMREQUEST
@@ -1503,6 +1673,20 @@ DeviceDecommissioningConfigDeleteResponse = _reflection.GeneratedProtocolMessage
   })
 _sym_db.RegisterMessage(DeviceDecommissioningConfigDeleteResponse)
 
+DeviceDecommissioningConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('DeviceDecommissioningConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DEVICEDECOMMISSIONINGCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.inventory.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.inventory.v1.DeviceDecommissioningConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(DeviceDecommissioningConfigDeleteAllRequest)
+
+DeviceDecommissioningConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('DeviceDecommissioningConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DEVICEDECOMMISSIONINGCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.inventory.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(DeviceDecommissioningConfigDeleteAllResponse)
+
 DeviceOnboardingRequest = _reflection.GeneratedProtocolMessageType('DeviceOnboardingRequest', (_message.Message,), {
   'DESCRIPTOR' : _DEVICEONBOARDINGREQUEST,
   '__module__' : 'arista.inventory.v1.services.gen_pb2'
@@ -1587,6 +1771,20 @@ DeviceOnboardingConfigDeleteResponse = _reflection.GeneratedProtocolMessageType(
   })
 _sym_db.RegisterMessage(DeviceOnboardingConfigDeleteResponse)
 
+DeviceOnboardingConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('DeviceOnboardingConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DEVICEONBOARDINGCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.inventory.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.inventory.v1.DeviceOnboardingConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(DeviceOnboardingConfigDeleteAllRequest)
+
+DeviceOnboardingConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('DeviceOnboardingConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DEVICEONBOARDINGCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.inventory.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(DeviceOnboardingConfigDeleteAllResponse)
+
 ProvisionedDeviceRequest = _reflection.GeneratedProtocolMessageType('ProvisionedDeviceRequest', (_message.Message,), {
   'DESCRIPTOR' : _PROVISIONEDDEVICEREQUEST,
   '__module__' : 'arista.inventory.v1.services.gen_pb2'
@@ -1625,8 +1823,8 @@ _DEVICESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=4532,
-  serialized_end=4827,
+  serialized_start=5089,
+  serialized_end=5384,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1671,8 +1869,8 @@ _DEVICEDECOMMISSIONINGSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=4830,
-  serialized_end=5231,
+  serialized_start=5387,
+  serialized_end=5788,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1717,8 +1915,8 @@ _DEVICEDECOMMISSIONINGCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=5234,
-  serialized_end=5944,
+  serialized_start=5791,
+  serialized_end=6650,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1770,6 +1968,16 @@ _DEVICEDECOMMISSIONINGCONFIGSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.inventory.v1.DeviceDecommissioningConfigService.DeleteAll',
+    index=5,
+    containing_service=None,
+    input_type=_DEVICEDECOMMISSIONINGCONFIGDELETEALLREQUEST,
+    output_type=_DEVICEDECOMMISSIONINGCONFIGDELETEALLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
 ])
 _sym_db.RegisterServiceDescriptor(_DEVICEDECOMMISSIONINGCONFIGSERVICE)
 
@@ -1783,8 +1991,8 @@ _DEVICEONBOARDINGSERVICE = _descriptor.ServiceDescriptor(
   index=3,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=5947,
-  serialized_end=6312,
+  serialized_start=6653,
+  serialized_end=7018,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1829,8 +2037,8 @@ _DEVICEONBOARDINGCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=4,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=6315,
-  serialized_end=6968,
+  serialized_start=7021,
+  serialized_end=7813,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1882,6 +2090,16 @@ _DEVICEONBOARDINGCONFIGSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.inventory.v1.DeviceOnboardingConfigService.DeleteAll',
+    index=5,
+    containing_service=None,
+    input_type=_DEVICEONBOARDINGCONFIGDELETEALLREQUEST,
+    output_type=_DEVICEONBOARDINGCONFIGDELETEALLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
 ])
 _sym_db.RegisterServiceDescriptor(_DEVICEONBOARDINGCONFIGSERVICE)
 
@@ -1895,8 +2113,8 @@ _PROVISIONEDDEVICESERVICE = _descriptor.ServiceDescriptor(
   index=5,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=6971,
-  serialized_end=7343,
+  serialized_start=7816,
+  serialized_end=8188,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
