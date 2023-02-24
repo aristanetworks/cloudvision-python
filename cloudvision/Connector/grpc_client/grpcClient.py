@@ -4,7 +4,7 @@
 
 from argparse import ArgumentError
 from datetime import datetime
-from typing import Any, Iterable, List, Optional, Tuple, Union
+from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
 
 import grpc
 from google.protobuf import timestamp_pb2 as pbts
@@ -12,6 +12,7 @@ from google.protobuf import timestamp_pb2 as pbts
 from cloudvision import __version__ as version
 from cloudvision.Connector import codec
 from cloudvision.Connector.auth.cert import gen_csr_der
+from cloudvision.Connector.core.utils import get_dict
 from cloudvision.Connector.gen import ca_pb2 as ca
 from cloudvision.Connector.gen import ca_pb2_grpc as ca_client
 from cloudvision.Connector.gen import notification_pb2 as ntf
@@ -21,7 +22,6 @@ from cloudvision.Connector.gen import router_pb2_grpc as rtr_client
 TIME_TYPE = Union[pbts.Timestamp, datetime]
 UPDATE_TYPE = Tuple[Any, Any]
 UPDATES_TYPE = List[UPDATE_TYPE]
-GRPC_OPTIONS = (("grpc.primary_user_agent", f"cloudvision.Connector/{version}"),)
 
 
 def to_pbts(ts: TIME_TYPE) -> pbts.Timestamp:
@@ -110,6 +110,10 @@ class GRPCClient(object):
     """
 
     AUTH_KEY_PATH = "access_token"
+    DEFAULT_CHANNEL_OPTIONS = {
+        "grpc.primary_user_agent": f"cloudvision.Connector/{version}",
+        "grpc.keepalive_time_ms": 60000,  # 60 seconds
+    }
 
     def __init__(
         self,
@@ -122,13 +126,20 @@ class GRPCClient(object):
         tokenValue: Optional[str] = None,
         certsValue: Optional[str] = None,
         keyValue: Optional[str] = None,
-        caValue: Optional[str] = None
+        caValue: Optional[str] = None,
+        channel_options: Dict[str, Any] = {},
     ) -> None:
         # used to store the auth token for per request auth
         self.metadata = None
+        # create a channel option by merging the default channel options and the user provided one
+        # NOTE: default options will be overriden if provided by the user
+        channel_options = get_dict(channel_options)
+        self.channel_options = [
+            (k, v) for k, v in dict(GRPCClient.DEFAULT_CHANNEL_OPTIONS, **channel_options).items()
+        ]
 
         if (certs is None or key is None) and (token is None and tokenValue is None):
-            self.channel = grpc.insecure_channel(grpcAddr, options=GRPC_OPTIONS)
+            self.channel = grpc.insecure_channel(grpcAddr, options=self.channel_options)
         else:
             tokCreds = None
             if token or tokenValue:
@@ -186,7 +197,7 @@ class GRPCClient(object):
             if tokCreds:
                 creds = grpc.composite_channel_credentials(creds, tokCreds)
 
-            self.channel = grpc.secure_channel(grpcAddr, creds, options=GRPC_OPTIONS)
+            self.channel = grpc.secure_channel(grpcAddr, creds, options=self.channel_options)
         self.__client = rtr_client.RouterV1Stub(self.channel)
         self.__auth_client = rtr_client.AuthStub(self.channel)
         self.__search_client = rtr_client.SearchStub(self.channel)
