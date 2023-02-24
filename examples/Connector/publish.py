@@ -22,7 +22,7 @@ def main(apiserverAddr, dId, path, key, value, token=None, cert=None,
     notifs = [create_notification(ts, pathElts, updates=update)]
     with GRPCClient(apiserverAddr, token=token, certs=cert,
                     key=keyFile, ca=ca) as client:
-        client.publish(dtype, dId, sync, compare, notifs)
+        client.publish(dId=dId, notifs=notifs, dtype=dtype, sync=sync, compare=compare)
     return 0
 
 
