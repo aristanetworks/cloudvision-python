@@ -18,7 +18,12 @@ import json
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 debug = False
-emptyEndpoint = {'ipAddrSet': set(), 'hostname': '', 'device': '', 'interface': '', 'vlanId': None, 'timestamp': ''}
+emptyEndpoint = {'ipAddrSet': set(),
+                 'hostname': '',
+                 'device': '',
+                 'interface': '',
+                 'vlanId': None,
+                 'timestamp': ''}
 endpointDict = {}
 
 
@@ -121,7 +126,8 @@ def get_endpointlocation(macAddr, server, inventory, tokenFile):
                     locationList = deviceVal['locationList']['values']
                     if len(locationList) > 0:
                         topLocation = locationList[0]
-                        endpointDict[macAddr]['device'] = inventory[topLocation['deviceId']]['hostname']
+                        device = topLocation['deviceId']
+                        endpointDict[macAddr]['device'] = inventory[device]['hostname']
                         endpointDict[macAddr]['interface'] = topLocation['interface']
                         endpointDict[macAddr]['vlanId'] = topLocation['vlanId']
                         endpointDict[macAddr]['timestamp'] = topLocation['learnedTime']
@@ -151,19 +157,25 @@ def main(apiserverAddr, output_file, token=None, certs=None, key=None, ca=None):
     futures_list = []
     with ThreadPoolExecutor(max_workers=40) as executor:
         for macAddr, _ in endpointDict.items():
-            futures = executor.submit(get_endpointlocation, macAddr, server, switches_info, tokenFile)
+            futures = executor.submit(get_endpointlocation, macAddr, server, switches_info,
+                                      tokenFile)
             futures_list.append(futures)
 
     # Build the CSV
-    csv_columns = ['MAC Address', 'IP Address List', 'Hostname', 'Device', 'Interface', 'VlanID', 'Timestamp']
+    csv_columns = ['MAC Address', 'IP Address List', 'Hostname', 'Device', 'Interface', 'VlanID',
+                   'Timestamp']
     csv_file = args.output_file
     try:
         with open(csv_file, 'w') as csvfile:
             writer = csv.writer(csvfile, delimiter='\t')
             writer.writerow(csv_columns)
             for macAddr, endpointVals in endpointDict.items():
-                writer.writerow([macAddr, ', '.join(endpointVals['ipAddrSet']), endpointVals['hostname'],
-                                 endpointVals['device'], endpointVals['interface'], str(endpointVals['vlanId']),
+                writer.writerow([macAddr,
+                                ', '.join(endpointVals['ipAddrSet']),
+                                 endpointVals['hostname'],
+                                 endpointVals['device'],
+                                 endpointVals['interface'],
+                                 str(endpointVals['vlanId']),
                                  endpointVals['timestamp']])
     except IOError:
         print('I/O error')
@@ -173,7 +185,8 @@ def main(apiserverAddr, output_file, token=None, certs=None, key=None, ca=None):
 
 
 if __name__ == "__main__":
-    base.add_argument("--output-file", required=True, type=str, help="output file for endpoint list")
+    base.add_argument("--output-file", required=True, type=str,
+                      help="output file for endpoint list")
     args = base.parse_args()
     server = args.apiserver.split(":")[0]
     with open(args.tokenFile) as f:

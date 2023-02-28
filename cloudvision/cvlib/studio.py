@@ -78,7 +78,8 @@ def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: Lis
         raise InputUpdateException(inputPath, f"Value {value} was not set: {e}")
 
 
-def extractInputElems(inputs, inputPath: List[str], elems: List[str] = [], tagElems: List[str] = []):
+def extractInputElems(inputs, inputPath: List[str], elems: List[str] = [],
+                      tagElems: List[str] = []):
     '''
     Takes lists of elements and tag elements, and traverses through the input tree towards the
     Input path, extracting the most recent matching values for these elements from the inputs.

@@ -29,10 +29,12 @@ def getConnMon(client, device=None):
 
     for batch in client.get(query):
         for notif in batch["notifications"]:
-            # there are some static path pointers at this path so we remove them from the update results
+            # there are some static path pointers at this path so we remove them from the update
+            # results
             notif["updates"].pop("aggregate", None)
             notif["updates"].pop("anomaly", None)
-            # if the updates only contained the static path pointers then continue as there is no data of interest here
+            # if the updates only contained the static path pointers then continue as there is no
+            # data of interest here
             if not notif["updates"]:
                 continue
             pathElts = notif["path_elements"]

@@ -36,7 +36,8 @@ class Device:
 
     def getInterface(self, name):
         '''
-        getInterface gets a particular named interface from the interfaces assigned to the Device object
+        getInterface gets a particular named interface from the interfaces assigned to the Device
+        object
         '''
         return self._interfaces.get(name)
 

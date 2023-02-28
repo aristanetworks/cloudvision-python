@@ -1,6 +1,6 @@
 [flake8]
-max-line-length = 120
-exclude = gen,build/*,*_pb2.py,*_pb2_grpc.py
+max-line-length = 100
+exclude = gen,.venv,build/*,*_pb2.py,*_pb2_grpc.py
 ignore = H301,F403,F401,W503
 per-file-ignores =
     # Excludes undefined variable for validators as ctx is defined at runtime

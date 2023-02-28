@@ -115,7 +115,8 @@ class _ClientCallDetails(
 
 
 def addHeaderInterceptor(header, value):
-    def intercept_call(client_call_details, request_iterator, request_streaming, response_streaming):
+    def intercept_call(client_call_details, request_iterator, request_streaming,
+                       response_streaming):
         metadata = []
         if client_call_details.metadata is not None:
             metadata = list(client_call_details.metadata)

@@ -334,7 +334,8 @@ class Context:
         def monitorTimerHandler(signum, frame):
             raise TimeoutExpiry
 
-        # Set up a signal handler that will cause a signal.SIGALRM signal to trigger our timer handler
+        # Set up a signal handler that will cause a signal.SIGALRM signal to trigger our timer
+        # handler
         signal.signal(signal.SIGALRM, monitorTimerHandler)
         # Set an alarm to fire in <timeout> seconds. This will call the handler we bound earlier
         signal.alarm(timeout)

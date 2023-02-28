@@ -80,7 +80,8 @@ def create_notification(
 
     upds = None
     if updates is not None:
-        upds = [ntf.Notification.Update(key=encoder.encode(k), value=encoder.encode(v)) for k, v in updates]
+        upds = [ntf.Notification.Update(key=encoder.encode(k),
+                                        value=encoder.encode(v)) for k, v in updates]
     rets = None
     if retracts is not None:
         rets = [encoder.encode(r) for r in retracts]
@@ -330,7 +331,8 @@ class GRPCClient(object):
         res = {
             "timestamp": notif.timestamp,
             "deletes": [self.decoder.decode(d) for d in notif.deletes],
-            "updates": {self.decoder.decode(u.key): self.decoder.decode(u.value) for u in notif.updates},
+            "updates": {self.decoder.decode(u.key):
+                        self.decoder.decode(u.value) for u in notif.updates},
             "retracts": [self.decoder.decode(r) for r in notif.retracts],
             "path_elements": [self.decoder.decode(elt) for elt in notif.path_elements],
         }

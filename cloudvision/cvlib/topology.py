@@ -20,7 +20,8 @@ class Connection:
 
     def __str__(self):
         return (
-            f"{self.sourceDevice}:{self.sourceInterface} --> {self.destDevice}:{self.destInterface}")
+            (f"{self.sourceDevice}:{self.sourceInterface} --> "
+             f"{self.destDevice}:{self.destInterface}"))
 
 
 class Topology:

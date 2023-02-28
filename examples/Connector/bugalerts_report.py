@@ -157,7 +157,8 @@ def main(apiserverAddr, token=None, certs=None, key=None, ca=None):
             print(f"{hostname:<40}{k:<40}{str(eot_mod):<40}{eot_date:<40}")
 
         print("\nReport #7 - Lifecycle statements - End of Hardware RMA Requests\n")
-        print(f"{'Hostname':<40}{'Serial number':<40}{'Model':<40}{'End of Hardware RMA Requests':<40}")
+        print((f"{'Hostname':<40}{'Serial number':<40}{'Model':<40}"
+               f"{'End of Hardware RMA Requests':<40}"))
         for k, v in hw_eol.items():
             hostname = datasetInfo[k]['hostname']
             eor_date = v['endOfHardwareRMARequests']['date']
@@ -173,11 +174,15 @@ def main(apiserverAddr, token=None, certs=None, key=None, ca=None):
         eol_report = []
         for k, v in sw_eol.items():
             hostname = datasetInfo[k]['hostname']
-            eol_report.append({hostname: {'sn': k, 'type': 'software', 'component': v['version'],
+            eol_report.append({hostname: {'sn': k,
+                                          'type': 'software',
+                                          'component': v['version'],
                                           'date': v['endOfSupport']}})
         for k, v in hw_eol.items():
             hostname = datasetInfo[k]['hostname']
-            eol_report.append({hostname: {'sn': k, 'type': 'hardware', 'component': v['endOfLife']['models'],
+            eol_report.append({hostname: {'sn': k,
+                                          'type': 'hardware',
+                                          'component': v['endOfLife']['models'],
                                           'date': v['endOfLife']['date']}})
         for device in eol_report:
             hostname = list(device.keys())[0]
@@ -189,7 +194,8 @@ def main(apiserverAddr, token=None, certs=None, key=None, ca=None):
                 eol_mod = ", ".join(eol_model)
             else:
                 eol_mod = eol_model_temp
-            print(f"{hostname:<40}{device[hostname]['type']:<40}{str(eol_mod):<40}{device[hostname]['date']:<40}")
+            print((f"{hostname:<40}{device[hostname]['type']:<40}"
+                   f"{str(eol_mod):<40}{device[hostname]['date']:<40}"))
 
     return 0
 

@@ -109,4 +109,6 @@ def test_decode_breaking_values():
         assert out == exp, f"Bad decoding of {input}\nGot: '{out}'\nExp: '{exp}'"
         out_json = json.JSONEncoder(ensure_ascii=True).encode({"value": out})
         exp_json = tc["exp_json"]
-        assert out_json == exp_json, f"Unexpected json decoding of {input}\nGot: '{out_json}'\nExp: '{exp_json}'"
+        assert out_json == exp_json, (f"Unexpected json decoding of {input}\n"
+                                      f"Got: '{out_json}'\n"
+                                      f"Exp: '{exp_json}'")
