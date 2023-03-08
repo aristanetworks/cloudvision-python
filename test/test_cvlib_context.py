@@ -4,6 +4,8 @@
 
 import pytest
 
+from unittest import mock
+
 from cloudvision.cvlib import (
     Action,
     ActionContext,
@@ -14,6 +16,12 @@ from cloudvision.cvlib import (
     Logger,
     LoggingLevel
 )
+
+from cloudvision.cvlib.exceptions import (
+    DeviceCommandsFailed,
+    InvalidContextException
+)
+
 
 user = User("test_user", "123")
 
@@ -88,13 +96,13 @@ ctx_low_logging.logger = logger_low
 
 ctx_low_logging.setLoggingLevel(LoggingLevel.Trace)
 
-cases = [
+logging_cases = [
     ("critical_logging", ctx_high_logging, 1),
     ("trace_logging", ctx_low_logging, 7)
 ]
 
 
-@pytest.mark.parametrize('name, inp, expected', cases)
+@pytest.mark.parametrize('name, inp, expected', logging_cases)
 def test_logging(name, inp, expected):
     inp.trace("logTrace")
     inp.debug("logDebug")
@@ -103,3 +111,98 @@ def test_logging(name, inp, expected):
     inp.error("logError")
     inp.critical("logCritical")
     assert logsCalls == expected
+
+
+device_no_host = Device(ip="123.456.789", deviceId="JPE123456",
+                        deviceMac="00-B0-D0-63-C2-26")
+
+device_no_id = Device(ip="123.456.789",
+                      deviceMac="00-B0-D0-63-C2-26")
+
+cases_get_host_name = [
+    (
+        "no_device",
+        None,
+        InvalidContextException,
+        "getDeviceHostname requires either a device or the"
+        " calling context to have a device associated with it",
+        None
+    ),
+    (
+        "no_device_host_name",
+        device_no_host,
+        DeviceCommandsFailed,
+        f"'show hostname' failed on device {device_no_host.id} with response:",
+        [
+            {},
+            {'errorCode': '341604', 'errorMessage': 'Invalid request'},
+            {}
+        ]
+    ),
+    (
+        "no_device_host_name_error",
+        device_no_host,
+        DeviceCommandsFailed,
+        f"'show hostname' failed on device {device_no_host.id} with error:",
+        [
+            {},
+            {'error': '341604'}
+        ]
+    )
+]
+
+
+@pytest.mark.parametrize('name, device, exception, expected, returnVals', cases_get_host_name)
+def test_get_host_name_exception(name, device, exception, expected, returnVals):
+    ctx = Context(
+        user=User("test_user", "123"),
+        device=device,
+    )
+
+    ctx.runDeviceCmds = mock.Mock(return_value=returnVals)
+
+    with pytest.raises(exception) as excinfo:
+        ctx.getDeviceHostname(ctx.device)
+    assert expected in str(excinfo.value)
+
+
+cases_run_device_cmds = [
+    (
+        "no action",
+        None,
+        None,
+        "runDeviceCmds is only available in action contexts"
+    ),
+    (
+        "no device",
+        None,
+        action,
+        "runDeviceCmds is only available when a device is set"
+    ),
+    (
+        "no device id",
+        device_no_id,
+        action,
+        "runDeviceCmds requires a device with an id"
+    ),
+    (
+        "no connection",
+        device,
+        action,
+        "runDeviceCmds must have a valid service "
+        "address and command endpoint specified"
+    )
+]
+
+
+@pytest.mark.parametrize('name, device, action, expected', cases_run_device_cmds)
+def test_runDeviceCmds_exception(name, device, action, expected):
+    ctx = Context(
+        user=User("test_user", "123"),
+        device=device,
+        action=action
+    )
+
+    with pytest.raises(InvalidContextException) as excinfo:
+        ctx.runDeviceCmds(["enable", "show hostname"], ctx.device)
+    assert expected in str(excinfo.value)
