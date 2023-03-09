@@ -11,7 +11,6 @@ from cloudvision.cvlib import (
     ActionContext,
     Context,
     Device,
-    Execution,
     User,
     Logger,
     LoggingLevel
@@ -22,95 +21,37 @@ from cloudvision.cvlib.exceptions import (
     InvalidContextException
 )
 
-
-user = User("test_user", "123")
-
-device = Device(ip="123.456.789", deviceId="JP123456",
-                deviceMac="00-B0-D0-63-C2-26")
-
-action = Action(
-    name="test_action",
-    context=ActionContext.ChangeControl,
-    actionId="1234"
-)
-
-execution = Execution(executionId="2")
-
-ctx_high_logging = Context(
-    user=user,
-    device=device,
-    action=action,
-    execution=execution
-)
-
-logsCalls = 0
-
-
-def alog(a, b, c, d):
-    pass
-
-
-def log_high(a, b):
-    global logsCalls
-    logsCalls += 1
-
-
-logger_high = Logger(
-    alog=alog,
-    trace=log_high,
-    debug=log_high,
-    info=log_high,
-    warning=log_high,
-    error=log_high,
-    critical=log_high
-)
-
-ctx_high_logging.logger = logger_high
-
-ctx_high_logging.setLoggingLevel(LoggingLevel.Critical)
-
-ctx_low_logging = Context(
-    user=user,
-    device=device,
-    action=action,
-    execution=execution
-)
-
-
-def log_low(a, b):
-    global logsCalls
-    logsCalls += 1
-
-
-logger_low = Logger(
-    alog=alog,
-    trace=log_low,
-    debug=log_low,
-    info=log_low,
-    warning=log_low,
-    error=log_low,
-    critical=log_low
-)
-
-ctx_low_logging.logger = logger_low
-
-ctx_low_logging.setLoggingLevel(LoggingLevel.Trace)
-
-logging_cases = [
-    ("critical_logging", ctx_high_logging, 1),
-    ("trace_logging", ctx_low_logging, 7)
+loggingTestCases = [
+    ("critical_logging", LoggingLevel.Critical, 1),
+    ("trace_logging", LoggingLevel.Trace, 6)
 ]
 
 
-@pytest.mark.parametrize('name, inp, expected', logging_cases)
-def test_logging(name, inp, expected):
-    inp.trace("logTrace")
-    inp.debug("logDebug")
-    inp.info("logInfo")
-    inp.warning("logWarning")
-    inp.error("logError")
-    inp.critical("logCritical")
-    assert logsCalls == expected
+@pytest.mark.parametrize('name, logLevel, expectedLogCalls', loggingTestCases)
+def test_logging(name, logLevel, expectedLogCalls):
+
+    def alog(a, b, c, d):
+        pass
+
+    logCalls = 0
+
+    def log(a, b):
+        nonlocal logCalls
+        logCalls += 1
+
+    logger = Logger(alog, log, log, log, log, log, log)
+    ctx = Context(
+        user=User("test_user", "123"),
+        logger=logger
+    )
+    ctx.setLoggingLevel(logLevel)
+    ctx.trace("logTrace")
+    ctx.debug("logDebug")
+    ctx.info("logInfo")
+    ctx.warning("logWarning")
+    ctx.error("logError")
+    ctx.critical("logCritical")
+    assert logCalls == expectedLogCalls
 
 
 device_no_host = Device(ip="123.456.789", deviceId="JPE123456",
@@ -165,6 +106,15 @@ def test_get_host_name_exception(name, device, exception, expected, returnVals):
         ctx.getDeviceHostname(ctx.device)
     assert expected in str(excinfo.value)
 
+
+action = Action(
+    name="test_action",
+    context=ActionContext.ChangeControl,
+    actionId="1234"
+)
+
+device = Device(ip="123.456.789", deviceId="JP123456",
+                deviceMac="00-B0-D0-63-C2-26")
 
 cases_run_device_cmds = [
     (
