@@ -8,7 +8,12 @@ from fmp import wrappers_pb2 as fmp_wrappers
 import google.protobuf.wrappers_pb2 as pb
 from arista.studio.v1 import models, services
 
-from .exceptions import InputNotFoundException, InputRequestException, InputUpdateException
+from .exceptions import (
+    InputException,
+    InputNotFoundException,
+    InputRequestException,
+    InputUpdateException
+)
 
 
 class Studio:
@@ -127,6 +132,32 @@ def extractInputElems(inputs, inputPath: List[str], elems: List[str] = [],
             raise InputNotFoundException(inputPath)
 
     return results
+
+
+def getSimpleResolverQueryValue(query: str):
+    '''
+    Autofill action arguments may be resolver queries. In these cases the string
+    argument is in the form of "<tag>:<Value>" or more complex queries such as
+    "<tag>:<ValueA> OR <tag>:<ValueB>". This function is designed to extract the
+    query values from a simple query.
+
+    Params:
+    - query:   The simple query string, e.g. "<tag>:<Value>"
+
+    Returns:
+    - The query value, e.g. "<Value>" from the above example.
+
+    Raises an InputException in the case where the passed query is not parsable as a simple query
+    '''
+    queryElems = query.split(":")
+    if len(queryElems) == 1:
+        raise InputException("Passed 'query' does not appear to be a query")
+    if len(queryElems) > 2:
+        raise InputException("Passed query is a complex query")
+    queryValue = queryElems[1]
+    if len(queryValue) == 0:
+        raise InputException("Passed query is missing a value")
+    return queryValue
 
 
 def extractStudioInfoFromArgs(args: Dict):

@@ -2,12 +2,9 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-"""basic test that converted and encoded types are handled correctly."""
-
 import pytest
 
 from cloudvision.cvlib.studio import extractInputElems
-from cloudvision.cvlib.exceptions import InputNotFoundException
 
 exampleStudioInputs = {
     "campusPicker": [
