@@ -234,7 +234,8 @@ class Context:
                       validateResponse=True):
         '''
         Sends a post request to DI, encodes commandsList in message body.
-        Receives output of cli commands from DI as json object
+        Receives output of cli commands from DI as json object.
+
         :param commandsList:
         :param device: device that the commands are run on.
                        Defaults to the context change control device if unspecified
@@ -295,7 +296,7 @@ class Context:
         cookies = {ACCESS_TOKEN: accessToken}
         try:
             runCmdURL = f"https://{self.connections.serviceAddr}/{self.connections.commandEndpoint}"
-            self.debug(f"Executing command : {runCmdURL}")
+            self.debug(f"Executing the following command(s) on device {device.id}: {commandsList}")
             response = requests.post(runCmdURL, data=data, headers=HEADERS,
                                      cookies=cookies, verify=False)
         except requests.ConnectionError as e:
