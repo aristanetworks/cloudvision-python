@@ -6,6 +6,7 @@ from typing import Dict, List
 import json
 from fmp import wrappers_pb2 as fmp_wrappers
 import google.protobuf.wrappers_pb2 as pb
+from grpc import StatusCode, RpcError
 from arista.studio.v1 import models, services
 
 from .exceptions import (
@@ -14,6 +15,8 @@ from .exceptions import (
     InputRequestException,
     InputUpdateException
 )
+
+MAINLINE_WS_ID = ""
 
 
 class Studio:
@@ -187,3 +190,84 @@ def extractStudioInfoFromArgs(args: Dict):
         if not isinstance(inputPath, list):
             raise ValueError("Studio input path must be a list of strings")
     return studioId, workspaceId, inputPath
+
+
+def GetOneWithWS(apiClientGetter, stateStub, stateGetReq, configStub, confGetReq):
+    '''
+    For Studio APIs, the state for a particular workspace can be difficult to determine.
+    A state for a particular workspace only exists if an update has occurred for that workspace.
+    State may exist in mainline, or the configuration change in the workspace may have explicitly
+    deleted the state.
+
+    GetOneWithWS does the following to try and provide state for the get request:
+        - Do a get on the X state endpoint in the particular workspace for the desired state
+        - If the state does NOT exist, issue another get on the X state endpoint for the
+          mainline state.
+        - If the state DOES exist there, check the X configuration endpoint of the workspace to
+          see if the state has been explicitly deleted there.
+
+    Params:
+    - apiClientGetter:  The API client getter, i.e. ctx.getApiClient
+    - stateStub:        The stub for the state endpoint
+    - stateGetReq:      A workspace-aware get request to be made to the state client for the
+                        desired workspace. It is assumed that the get request has a key field
+                        "workspace_id", such that mainline can be queried in the case that the
+                        workspace query does not return anything.
+    - configStub:       The stub for the config endpoint
+    - confGetReq:       A workspace-aware get request to be made to the config client for the
+                        desired workspace.
+
+    Returns:
+    - The request's value, or None if the resource has been deleted
+    '''
+
+    if not hasattr(stateGetReq.key, 'workspace_id'):
+        raise ValueError("Passed request to GetOneWithWS has no key attribute 'workspace_id'")
+
+    stateClient = apiClientGetter(stateStub)
+    # Issue a get to the state endpoint for the workspace
+    try:
+        result = stateClient.GetOne(stateGetReq)
+    except RpcError as exc:
+        # If the state does not exist for the workspace, reraise the original
+        # exception as something went wrong
+        if exc.code() != StatusCode.NOT_FOUND:
+            raise
+
+        # In the case where the original get req is for the mainline,
+        # nothing further we can do
+        if stateGetReq.key.workspace_id.value == MAINLINE_WS_ID:
+            raise
+
+        # Try again for the mainline state
+        stateGetReq.key.workspace_id.value = MAINLINE_WS_ID
+        try:
+            result = stateClient.GetOne(stateGetReq)
+        except RpcError as mainlineExc:
+            # Handle the mainline error as its own exception, such that stack
+            # traces don't contain nested exceptions such as "when handling the
+            # above exception, another exception occurred"
+            raise mainlineExc from None
+
+        # Check the config endpoint for the workspace to ensure that
+        # the mainline value has not been deleted
+        configClient = apiClientGetter(configStub)
+        try:
+            configResp = configClient.GetOne(confGetReq)
+        except RpcError as confExc:
+            # If the config does not exist for the workspace, return the mainline state
+            if confExc.code() == StatusCode.NOT_FOUND:
+                return result.value
+            # Handle the config error as its own exception, such that stack
+            # traces don't contain nested exceptions such as "when handling the
+            # above exception, another exception occurred"
+            raise confExc from None
+
+        # Remove is a config field for workspace-aware configuration apis
+        # If it is set it means that configuration has been explicitly
+        # deleted for this ws
+        if configResp.value.remove:
+            # Config has been explicitly removed, return nothing
+            return None
+
+    return result.value
