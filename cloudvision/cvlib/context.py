@@ -11,6 +11,7 @@ from time import process_time_ns
 from collections.abc import Callable
 import grpc
 import requests
+from grpc import StatusCode, RpcError
 from google.protobuf.timestamp_pb2 import Timestamp
 
 from cloudvision.Connector.grpc_client import GRPCClient, create_notification, create_query
@@ -43,6 +44,7 @@ REQ_FORMAT = "format"
 STOP_ON_ERROR = "stopOnError"
 TIMEOUT_CLI = "timeout"
 TIMEOUT_CONN = "connTimeout"
+TMP_STORAGE_PATH = ["action", "tmp"]
 USERNAME = "username"
 
 systemLogger = getLogger(__name__)
@@ -349,63 +351,163 @@ class Context:
             # Always turn off the alarm, whether returning a value or propagating an exception
             signal.alarm(0)
 
-    def Get(self, path: List[str], dataset="analytics"):
-        if not isinstance(path, List) or any([not(isinstance(i, str)) for i in path]):
-            raise TypeError("path should be a list of type string")
+    def Get(self, path: List[str], keys: List[str] = [], dataset: str = "analytics"):
+        '''
+        Get issues a get request to the provided path/key(s) combo, and returns the contents
+        of that path as a dictionary. Wildcarding is not advised as the returned dictionary
+        is only a single level deep, so adding wildcards will cause overwrites in the results.
+
+        Params:
+        - path:     The path to issue the get to, in the form of a list of strings
+        - keys:     The key(s) to get at the path. Defaults to all keys
+        - dataset:  The dataset to issue the get to. Defaults to the `analytics` dataset
+        '''
         client: GRPCClient = self.getCvClient()
-        query = create_query(pathKeys=[(path, [])], dId=dataset)
-        try:
-            return list(client.get([query]))[0]["notifications"][0]["updates"]
-        except (IndexError, KeyError) as e:
-            self.error(str(e))
-            return []
+        query = create_query(pathKeys=[(path, keys)], dId=dataset)
 
-    def _get_key(self, key: str = None) -> str:
-        if key is None:
-            if self.studio is not None:
-                key = self.studio.studioId + self.studio.workspaceId
-            elif self.action is not None and self.device is not None and self.device.id is not None:
-                key = self.device.id + self.action.name
-            else:
-                raise InvalidContextException("""
-If calling store without a key, please provide a studio or changeControl object to the context
-                                             """)
-        return key
+        results = {}
+        for batch in client.get([query]):
+            for notif in batch["notifications"]:
+                results.update(notif.get("updates", {}))
+        return results
 
-    def _get_path(self, path: str = None) -> List[str]:
-        save_path = ["changecontrol", "actionTempStorage"]
-        if path is not None:
-            save_path.append(path)
-        elif self.action is not None:
-            save_path.append(self.action.name)
-        elif self.studio is not None:
-            save_path.append(self.studio.studioId)
-        else:
-            raise InvalidContextException("""
-If calling store without a path, please provide a studio or changeControl object to the context
-                                         """)
-        return save_path
+    def _getGenericKey(self) -> str:
+        '''
+        Creates a generic key for use in store/retrieve based off of the available
+        context information such that overwrites will be done on successive runs of
+        the same calling studio/WS or action.
 
-    def store(self, data, path: str = None, key: str = None):
-        key = self._get_key(key)
-        save_path = self._get_path(path)
+        When building the key based on the context;
+        - If it is a studio context, the key generated will be in the form of
+          "<studioId>:<buildId>" if a build ID is present, else "<studioId>"
+        - If it is an action context, the key generated will be in the form of
+          "<executionID>"
+
+        Raises InvalidContextException if not enough context information is present
+        to create a key
+        '''
+        if self.studio is not None:
+            if self.studio.buildId:
+                return ":".join([self.studio.studioId, self.studio.buildId])
+            return self.studio.studioId
+        if self.action and self.execution:
+            return self.execution.executionId
+        raise InvalidContextException(
+            "store/retrieve without key requires a studio or action in the context")
+
+    def _getStoragePath(self, additionalElems: List[str] = []) -> List[str]:
+        '''
+        Builds a generic path for use in store/retrieve based off of either the passed
+        additional elements provided by the user or the available context information.
+        All paths will contain "action/tmp" as the root.
+
+        When building a path based on the context;
+        - If it is a studio context, the path generated will be in the form of
+          /action/tmp/workspace/<workspaceId>/studio
+        - If it is an action context, the path generated will be in the form of
+          /action/tmp/action/<actionId>
+
+        Raises InvalidContextException if no additional elems were passed by the user
+        and not enough context information is present to create a path
+        '''
+        storage_path = TMP_STORAGE_PATH.copy()
+        if additionalElems:
+            storage_path.extend(additionalElems)
+            return storage_path
+        if self.studio and self.studio.workspaceId:
+            storage_path.extend(["workspace", self.studio.workspaceId, "studio"])
+            return storage_path
+        if self.action and self.action.id:
+            storage_path.extend(["action", self.action.id])
+            return storage_path
+        raise InvalidContextException(
+            "store without specified path requires a studio or action in the context")
+
+    def store(self, data, path: List[str] = [], customKey=""):
+        '''
+        store puts the passed data into a path in the Database
+
+        NOTE: This function is only available to those with write permissions to the
+        'action' path in the cvp dataset (granted by the action module), as that is
+        where the store is.
+
+        This should be used in conjunction with the retrieve method to ensure that
+        the entry is cleaned up after use.
+
+        Params:
+        - data:      The data to store
+        - path:      The path to store the data at, in the form of a list of strings.
+                     If this argument is omitted, a generic path will be created for
+                     use. All paths have "action/tmp" as the root.
+        - customKey: The key to store the data at in the path. If this argument is
+                     omitted, a generic string key will be created for use.
+
+        Raises InvalidContextException if not enough context information is
+        present to create a generic key/path (if required)
+        '''
+        key = customKey if customKey else self._getGenericKey()
+        storagePath = self._getStoragePath(additionalElems=path)
         update = [(key, data)]
-        client: GRPCClient = self.getCvClient()
         ts = Timestamp()
         ts.GetCurrentTime()
-        client.publish(dId="cvp", notifs=[create_notification(ts, save_path, updates=update)])
+        try:
+            self.getCvClient().publish(
+                dId="cvp", notifs=[create_notification(ts, storagePath, updates=update)])
+        except RpcError as exc:
+            # If the exception is not a permissions error, reraise the original
+            # exception as something went wrong
+            if exc.code() != StatusCode.PERMISSION_DENIED:
+                raise
+            raise InvalidCredentials(
+                f"Context user does not have permission to write to path '{storagePath}'")
 
-    def retrieve(self, path: str = None, key: str = None, delete=True):
-        key = self._get_key(key)
-        save_path = self._get_path(path)
-        client: GRPCClient = self.getCvClient()
-        query = create_query(pathKeys=[(save_path, [key])], dId="cvp")
-        data = client.get([query])
+    def retrieve(self, path: List[str] = [], customKey="", delete=True):
+        '''
+        retrieve gets the passed key's data from the provided path from the
+        Database store.
+
+        NOTE: This function is only available to those with read permissions to the
+        'action' path in the cvp dataset (granted by the action module), as that is
+        where the store is.
+
+        Params:
+        - path:      The path where the data is stored at, in the form of a list
+                     of strings. If this argument is omitted, a generic path will be
+                     created for use. All paths have "action/tmp" as the root.
+        - customKey: The key where the data is stored at in the path. If this argument
+                     is omitted, a generic string key will be created for use.
+        - delete:    Boolean flag marking whether a delete should be issued to the
+                     store for the key/path combo to clean up after use.
+                     Deleting once the contents have been retrieved is the default.
+
+        Raises InvalidContextException if not enough context information is
+        present to create a generic key/path (if required)
+        '''
+        key = customKey if customKey else self._getGenericKey()
+        storagePath = self._getStoragePath(additionalElems=path)
+        try:
+            results = self.Get(path=storagePath, keys=[key], dataset="cvp")
+        except RpcError as exc:
+            # If the exception is not a permissions error, reraise the original
+            # exception as something went wrong
+            if exc.code() != StatusCode.PERMISSION_DENIED:
+                raise
+            raise InvalidCredentials(
+                f"Context user does not have permission to read from path '{storagePath}'")
         if delete:
             ts = Timestamp()
             ts.GetCurrentTime()
-            client.publish(dId="cvp", notifs=[create_notification(ts, save_path, deletes=[key])])
-        return data
+            try:
+                self.getCvClient().publish(
+                    dId="cvp", notifs=[create_notification(ts, storagePath, deletes=[key])])
+            except RpcError as exc:
+                # If the exception is not a permissions error, reraise the original
+                # exception as something went wrong
+                if exc.code() != StatusCode.PERMISSION_DENIED:
+                    raise
+                raise InvalidCredentials(
+                    f"Context user does not have permission to write to path '{storagePath}'")
+        return results.get(key)
 
     @staticmethod
     def showIf(linefmt, args):
