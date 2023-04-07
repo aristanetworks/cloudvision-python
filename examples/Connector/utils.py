@@ -4,6 +4,7 @@
 
 import json
 from cloudvision.Connector.codec import Path, FrozenDict
+from google.protobuf.timestamp_pb2 import Timestamp
 
 
 def pretty_print(dataDict):
@@ -12,6 +13,8 @@ def pretty_print(dataDict):
             return obj._keys
         if isinstance(obj, (FrozenDict, dict)):
             return obj._dict
+        if isinstance(obj, Timestamp):
+            return obj.ToNanoseconds()
     print(json.dumps(
         dataDict, default=default, indent=4,
         sort_keys=True, separators=(",", ":")
