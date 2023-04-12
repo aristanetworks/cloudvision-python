@@ -1,20 +1,19 @@
-# Copyright (c) 2022 Arista Networks, Inc.
+# Copyright (c) 2023 Arista Networks, Inc.
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-from cloudvision.Connector.grpc_client import GRPCClient, create_query
-from cloudvision.Connector.codec import Wildcard, Path
-from cloudvision.Connector.codec.custom_types import FrozenDict
 from utils import pretty_print
+from cloudvision.Connector.grpc_client import GRPCClient, create_query
+from cloudvision.Connector.codec import Wildcard
 from parser import base
 
 debug = False
 
 
-def getConnMon(client, device=None):
+def get_conn_mon(client, device=None):
     """Returns a query on a path element"""
     device = device if device else Wildcard()
-    pathElts = [
+    path_elts = [
         "Devices",
         device,
         "versioned-data",
@@ -25,8 +24,7 @@ def getConnMon(client, device=None):
     ]
     dataset = "analytics"
     result = {}
-    query = [create_query([(pathElts, [])], dataset)]
-
+    query = [create_query([(path_elts, [])], dataset)]
     for batch in client.get(query):
         for notif in batch["notifications"]:
             # there are some static path pointers at this path so we remove them from the update
@@ -37,18 +35,22 @@ def getConnMon(client, device=None):
             # data of interest here
             if not notif["updates"]:
                 continue
-            pathElts = notif["path_elements"]
-            connMonKey = (pathElts[1], pathElts[5], pathElts[6])
-            result[connMonKey] = notif["updates"]
-
+            path_elts = notif["path_elements"]
+            # we need to store the result per device, per host+Vrf and per source interface
+            conn_mon_key = (path_elts[1], path_elts[5], path_elts[6])
+            # retreive any previous stats for this conn_mon_key for the scenario where the stats do
+            # not arrive together
+            # update the stats object for this conn_mon_key
+            conn_mon_stats_val = result.get(conn_mon_key, {})
+            conn_mon_stats_val.update(notif["updates"])
+            result[conn_mon_key] = conn_mon_stats_val
     return result
 
 
-def get(client, dataset, pathElts):
+def get(client, dataset, path_elts):
     """Returns a query on a path element"""
     result = {}
-    query = [create_query([(pathElts, [])], dataset)]
-
+    query = [create_query([(path_elts, [])], dataset)]
     for batch in client.get(query):
         for notif in batch["notifications"]:
             if debug:
@@ -57,9 +59,11 @@ def get(client, dataset, pathElts):
     return result
 
 
-def getConnMonCfg(client, device=None):
+def get_conn_mon_cfg(client, device=None):
+    ''' Get connectivity monitor configuration for a device or all devices.
+    '''
     device = device if device else Wildcard()
-    pathElts = [
+    path_elts = [
         "Devices",
         device,
         "versioned-data",
@@ -69,62 +73,70 @@ def getConnMonCfg(client, device=None):
     ]
     dataset = "analytics"
     result = {}
-    query = [create_query([(pathElts, [])], dataset)]
+    query = [create_query([(path_elts, [])], dataset)]
 
     for batch in client.get(query):
         for notif in batch["notifications"]:
             if not notif["updates"]:
                 continue
-            pathElts = notif["path_elements"]
-            connMonKey = (pathElts[1], pathElts[5])
-            result[connMonKey] = notif["updates"]
+            path_elts = notif["path_elements"]
+            # we need to store the result per device and host+Vrf
+            conn_mon_key = (path_elts[1], path_elts[5])
+            result[conn_mon_key] = notif["updates"]
     return result
 
 
-def getSwitchesInfo(client):
-    pathElts = ["DatasetInfo", "Devices"]
+def get_switches_info(client):
+    ''' Get device information.
+    '''
+    path_elts = ["DatasetInfo", "Devices"]
     dataset = "analytics"
-    return get(client, dataset, pathElts)
+    return get(client, dataset, path_elts)
 
 
-def report(client, data, configData):
-    datasetInfo = getSwitchesInfo(client)
+def report(client, data, config_data):
+    ''' Generate report in a human readable format.
+    '''
+    dataset_info = get_switches_info(client)
     for k, v in data.items():
-        hostname = datasetInfo[k[0]]["hostname"]
+        hostname = dataset_info[k[0]]["hostname"]
         vrf = k[1]["vrfName"]
-        httpResp = v["httpResponseTime"]
+        http_resp = v["httpResponseTime"]
         jitter = v["jitter"]
         latency = v["latency"]
         pktloss = v["packetLoss"]
         host = k[1]["hostName"]
-        ipaddr = configData[(k[0], k[1])]["ipAddr"]
+        if "ipAddr" in config_data[(k[0], k[1])]:
+            ipaddr = config_data[(k[0], k[1])]["ipAddr"]
+        else:
+            ipaddr = ""
         intf = k[2]
         hdr_part1 = f"{hostname + ' (' + vrf + '/' + intf + ') to ' + host:<50}"
-        hdr_part2 = f"{ipaddr:<30}{str(httpResp) + 'ms':<30}{str(jitter) + 'ms':<30}"
+        hdr_part2 = f"{ipaddr:<30}{str(http_resp) + 'ms':<30}{str(jitter) + 'ms':<30}"
         hdr_part3 = f"{str(latency) + 'ms':<30}{str(pktloss)  + '%':<30}"
         print(hdr_part1 + hdr_part2 + hdr_part3)
 
 
-def main(apiserverAddr, token=None, certs=None, key=None, ca=None):
+def main(apiserver_addr, token=None, certs=None, key=None, ca=None):
 
-    with GRPCClient(apiserverAddr, token=token, key=key, ca=ca, certs=certs) as client:
+    with GRPCClient(apiserver_addr, token=token, key=key, ca=ca, certs=certs) as client:
         col1 = "Connection"
         col2 = "Host IP Address per VRF"
         col3 = "HTTP RESPONSE TIME per VRF"
         col4 = "Jitter per VRF"
         col5 = "Latency per VRF"
         col6 = "Packet Loss Per VRF"
-        dashboardColumns = (
+        dashboard_columns = (
             f"{col1:<50}{col2:<30}{col3:<30}{col4:<30}{col5:<30}{col6:<30}"
         )
         if args.device:
             device = args.device
         else:
             device = None
-        data = getConnMon(client, device)
-        configData = getConnMonCfg(client, device)
-        print(dashboardColumns)
-        report(client, data, configData)
+        data = get_conn_mon(client, device)
+        config_data = get_conn_mon_cfg(client, device)
+        print(dashboard_columns)
+        report(client, data, config_data)
 
     return 0
 
