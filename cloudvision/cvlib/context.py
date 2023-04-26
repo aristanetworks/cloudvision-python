@@ -509,6 +509,38 @@ class Context:
                     f"Context user does not have permission to write to path '{storagePath}'")
         return results.get(key)
 
+    def clear(self, path: List, keys: List = [], fullPathOnly: bool = False):
+        """
+        clear issues deletes to the backend data store for cleanup, where retrieve with
+        delete is not required or not suitable. By default, it walks upwards through
+        each element in the path provided and issues a delete-all at each sub-path
+        to purge the information store. The fullPathOnly flag can be set to true to only
+        issue a deletes to the full path, instead of at all sub-paths in the path. A list
+        of keys to specifically delete can be provided to only delete those fields.
+
+        NOTE: While this function accepts wildcards, note that using them may
+        impact other storage paths used in other actions.
+
+        Params:
+        - path:         The path where the data should be purged, in the form of a list
+                        of strings or Connector Wildcards.
+        - keys:         The list of keys to delete. Defaults to a delete-all.
+        - fullPathOnly: Boolean flag marking whether a delete-all should only be issued
+                        to the store for full path.
+                        By default, deletes are issued at all sub-paths.
+        """
+        storagePath = self._getStoragePath(additionalElems=path)
+        client = self.getCvClient()
+        ts = Timestamp()
+        ts.GetCurrentTime()
+        # Repeatedly issue delete-alls until we reach the root storage path
+        while len(storagePath) > len(TMP_STORAGE_PATH):
+            client.publish(dId="cvp",
+                           notifs=[create_notification(ts, storagePath, deletes=keys)])
+            if fullPathOnly:
+                break
+            storagePath.pop()
+
     @staticmethod
     def showIf(linefmt, args):
         if args:
