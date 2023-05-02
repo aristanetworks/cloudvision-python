@@ -5,8 +5,11 @@
 import json
 from logging import getLogger
 from enum import IntEnum
-from typing import List, Optional
+from typing import List, Optional, Any, Dict
 import signal
+from time import process_time_ns
+from collections.abc import Callable
+import grpc
 import requests
 from google.protobuf.timestamp_pb2 import Timestamp
 
@@ -28,8 +31,6 @@ from .exceptions import (
 from .logger import Logger
 from .studio import Studio
 from .user import User
-
-import grpc
 
 ACCESS_TOKEN = "access_token"
 CMDS = "cmds"
@@ -96,6 +97,8 @@ class Context:
         self.topology: Optional[Topology] = None
         self.preserveWhitespace = False
         self.loggingLevel = loggingLevel if loggingLevel else LoggingLevel.Info
+        self.stats: Dict = {}
+        self.benchmarking = False
 
     def getDevice(self):
         '''
@@ -529,3 +532,39 @@ If calling store without a path, please provide a studio or changeControl object
             critical=backupCritical
         )
         self.logger = backupLogger
+
+    def benchmarkingOn(self):
+        self.benchmarking = True
+
+    def benchmarkingOff(self):
+        self.benchmarking = False
+
+    def benchmark(self, func: Callable[..., Any]) -> Callable[..., Any]:
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
+            startTime = process_time_ns()
+            result = func(*args, **kwargs)
+            timer = process_time_ns() - startTime
+            if not self.stats.get(func.__name__):
+                self.stats[func.__name__] = {'sum': 0, 'count': 0, 'instances': []}
+
+            self.stats[func.__name__]['count'] += 1
+            self.stats[func.__name__]['sum'] += timer
+            self.stats[func.__name__]['instances'].append(timer)
+            return result
+        if not self.benchmarking:
+            return func
+        return wrapper
+
+    def benchmarkDump(self):
+        if not self.stats:
+            return
+        self.logger.info(self, f'benchmarks for device {self.device.id}:')
+        for fun, timings in self.stats.items():
+            timings['average'] = timings['sum'] / timings['count'] / 1e9
+
+        for fun, timings in dict(sorted(self.stats.items(),
+                                 key=lambda item: item[1]['average'],
+                                 reverse=True)).items():
+            self.logger.info(self,
+                             f"{fun:<40}: {timings['average']:>25}s{timings['count']:>5}"
+                             + " iteration(s)")
