@@ -34,6 +34,20 @@ Service accounts can be created from the Settings page where a service token can
 
 The token should be copied and saved to a file that can later be referred to.
 
+## get_lldp_nei.py
+
+This script is an example on how to get the LLDP neighbors of a device (based on serialNumber).
+
+```python
+python3 get_lldp_nei.py --apiserver 192.0.2.79:443 --auth=token,token.tok,cvp.crt --device 8520AF39790A4EC959550166DC5DEADE
+Port                          Neighbor Device ID            Neighbor Port ID              TTL
+Ethernet2                      tp-avd-spine2                  Ethernet3                      120
+Ethernet1                      tp-avd-spine1.tst              Ethernet3                      120
+Ethernet3                      tp-avd-leaf4                   Ethernet3                      120
+Ethernet4                      tp-avd-host2                   Ethernet1                      120
+Ethernet5                      tp-avd-leaf4                   Ethernet5                      120
+```
+
 ## get_intf_rate.py
 
 ---
@@ -41,7 +55,7 @@ The token should be copied and saved to a file that can later be referred to.
 This script is an example on how to subscribe to the rate counters of an interface.
 
 ```shell
-python3 get_intf_rate.py --apiserver 10.83.12.79:443 --auth=token,~/go79/token.txt,~/go79/cvp.crt --
+python3 get_intf_rate.py --apiserver 192.0.2.79.79:443 --auth=token,token.txt,cvp.crt --
 device JPE17182435 --interface Ethernet24
 {
     "outOctets":99945180.4
