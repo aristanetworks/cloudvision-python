@@ -16,9 +16,10 @@ from .studio import (
     getStudioInputs,
     extractInputElems,
     extractStudioInfoFromArgs,
-    GetOneWithWS
+    GetOneWithWS,
+    getSimpleResolverQueryValue,
 )
 from .topology import Connection, Topology
 from .user import User
 
-__version__ = "1.4.3"
+__version__ = "1.5.3"
