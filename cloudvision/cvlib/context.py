@@ -31,6 +31,7 @@ from .exceptions import (
 )
 from .logger import Logger
 from .studio import Studio
+from .tags import Tags
 from .user import User
 
 ACCESS_TOKEN = "access_token"
@@ -101,6 +102,7 @@ class Context:
         self.loggingLevel = loggingLevel if loggingLevel else LoggingLevel.Info
         self.stats: Dict = {}
         self.benchmarking = False
+        self.tags = Tags(self)
 
     def getDevice(self):
         '''
@@ -669,6 +671,14 @@ class Context:
         self.logger = backupLogger
 
     def benchmarkingOn(self):
+        '''
+        Turns on benchmarking to collect stats such as time consumed in a routine
+        of the template
+        To use add the following lines into the template:
+            ctx.benchmarkingOn()   - place this as the first line after imports in the template
+            @ctx.benchmark         - decorate the functions of the template to be benchmarked
+            ctx.benchmarkDump()    - place this as the last line in the template
+        '''
         self.benchmarking = True
 
     def benchmarkingOff(self):
@@ -695,11 +705,16 @@ class Context:
             return
         self.logger.info(self, f'benchmarks for device {self.device.id}:')
         for fun, timings in self.stats.items():
-            timings['average'] = timings['sum'] / timings['count'] / 1e9
+            timings['sum'] = timings['sum'] / 1e9
+            timings['average'] = timings['sum'] / timings['count']
 
+        self.logger.info(self,
+                         f"{'functions':<40}:{'total(s)':>8}{'avg(s)':>8}"
+                         + f"{'count':>10}")
+        self.logger.info(self, "-" * 40 + "-" * 8 + "-" * 8 + "-" * 11)
         for fun, timings in dict(sorted(self.stats.items(),
-                                 key=lambda item: item[1]['average'],
+                                 key=lambda item: item[1]['sum'],
                                  reverse=True)).items():
             self.logger.info(self,
-                             f"{fun:<40}: {timings['average']:>25}s{timings['count']:>5}"
-                             + " iteration(s)")
+                             f"{fun:<40}:{timings['sum']:>8.4f}{timings['average']:>8.4f}"
+                             + f"{timings['count']:>10}")
