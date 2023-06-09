@@ -10,20 +10,25 @@ from arista.tag.v2.services import (
     TagAssignmentStreamRequest,
     TagConfigServiceStub,
     TagConfigSetRequest,
+    TagAssignmentConfigStreamRequest,
     TagAssignmentConfigServiceStub,
     TagAssignmentConfigSetRequest
 )
 from arista.tag.v2.tag_pb2 import (
     TagAssignment,
+    TagAssignmentConfig,
     ELEMENT_TYPE_DEVICE,
     CREATOR_TYPE_USER
 )
+
+MAINLINE_ID = ""
 
 
 class Tags:
     '''
     Object to store tags data relevant to a studio build context.
     Implemented so only one access is made to retreive tags from the remote tags service.
+    (two accesses until the tags service provided merged mainline-workspace state apis)
     Note that a tag is of the form label:value, where the same label may be associated
     with many values.
     Device tags are assigned to devices.
@@ -31,7 +36,7 @@ class Tags:
     - tagLabelFilter:          List of tag labels relevant to the studio build,
                                e.g. ['DC', 'Role', 'NodeId'],
                                if unspecified implies all tags will be available
-    - relevantTagAssigns:      Dictionary of relevant tags,
+    - relevantTagAssigns:      Dictionary of relevant unvalidated tags,
                                of the form map[deviceId]map[label]=[value1,value2,..],
                                works like a cache
     - deviceTagValidationFunc: Used to validate the device tags before returning them,
@@ -59,24 +64,148 @@ class Tags:
         self.deviceTagValidationFunc = deviceTagValidationFunc
         self.validatedTagAssigns: Dict = {}
 
-    def getFilter(self):
-        '''
-        getFilter returns the list of relevant tag labels
-        '''
-        return self.tagLabelFilter
+    def _tagExists(self, label: str, value: str):
+        for dev, tags in self.getAllDeviceTags().items():
+            if tags.get(label) and value in tags[label]:
+                return True
+        return False
+
+    def _tagAssigned(self, deviceId: str, label: str, value: str):
+        if value in self.getDeviceTags(deviceId).get(label, []):
+            return True
+        return False
 
     def _trimTagsFromLocalCache(self):
         '''
         _trimTagsFromLocalCache removes tags not of interest
-        from the cache
+        from the caches
         '''
         if not self.tagLabelFilter:
             return
         for device, tags in self.relevantTagAssigns.items():
             for tag in list(tags.keys()):
                 if tag not in self.tagLabelFilter:
-                    del tags[tag]
+                    tags.pop(tag, None)
                     self.validatedTagAssigns[device] = {}
+
+    def _assignDevTagInUnvalidatedCache(self, deviceId: str, label: str, value: str):
+        '''
+        _assignDevTagInUnvalidatedCache modifies relevantTagAssigns for the device tag
+        ensuring the tag is assigned to the device in the local cache
+        '''
+        if deviceId not in self.relevantTagAssigns:
+            self.relevantTagAssigns[deviceId] = {}
+        if label not in self.relevantTagAssigns[deviceId]:
+            self.relevantTagAssigns[deviceId][label] = []
+        if value not in self.relevantTagAssigns[deviceId][label]:
+            self.relevantTagAssigns[deviceId][label].append(value)
+
+    def _unassignDevTagInUnvalidatedCache(self, deviceId: str, label: str, value: str):
+        '''
+        _unassignDevTagInUnvalidatedCache modifies relevantTagAssigns for the device tag
+        ensuring the tag is not assigned to the device in the local cache
+        '''
+        if deviceId not in self.relevantTagAssigns:
+            return
+        if label not in self.relevantTagAssigns[deviceId]:
+            return
+        if value not in self.relevantTagAssigns[deviceId][label]:
+            return
+        self.relevantTagAssigns[deviceId][label].remove(value)
+        if not self.relevantTagAssigns[deviceId][label]:
+            self.relevantTagAssigns[deviceId].pop(label, None)
+            if not self.relevantTagAssigns[deviceId]:
+                self.relevantTagAssigns.pop(deviceId, None)
+
+    def _getAllDeviceTagsFromMainline(self):
+        '''
+        _getAllDeviceTagsFromMainline returns a map of all assigned device tags available
+        in the mainline.  Also sets the local unvalidated cache to this map.
+        limited to the labels of tagLabelFilter, if set via setFilter.
+        The returned map is of the form: map[deviceId]map[label]=[value1,value2,..]
+        '''
+        self.relevantTagAssigns = {}
+        self.validatedTagAssigns = {}
+        tagClient = self.ctx.getApiClient(TagAssignmentServiceStub)
+        tagRequest = TagAssignmentStreamRequest()
+        tagFilter = TagAssignment()
+        tagFilter.tag_creator_type = CREATOR_TYPE_USER
+        tagFilter.key.element_type = ELEMENT_TYPE_DEVICE
+        tagFilter.key.workspace_id.value = MAINLINE_ID
+        if not self.tagLabelFilter:
+            tagRequest.partial_eq_filter.append(tagFilter)
+        else:
+            for tag in self.tagLabelFilter:
+                tagFilter.key.label.value = tag
+                tagRequest.partial_eq_filter.append(tagFilter)
+        for resp in tagClient.GetAll(tagRequest):
+            label = resp.value.key.label.value
+            value = resp.value.key.value.value
+            deviceId = resp.value.key.device_id.value
+            if deviceId not in self.relevantTagAssigns:
+                self.relevantTagAssigns[deviceId] = {}
+            if label not in self.relevantTagAssigns[deviceId]:
+                self.relevantTagAssigns[deviceId][label] = []
+            if value not in self.relevantTagAssigns[deviceId][label]:
+                self.relevantTagAssigns[deviceId][label].append(value)
+        return self.relevantTagAssigns
+
+    def _getTagUpdatesFromWorkspace(self):
+        '''
+        _getTagUpdatesFromWorkspace returns a list of tags updates
+        in the workspace.
+        limited to the labels of tagLabelFilter, if set via setFilter.
+        The returned list is of the form: list[(deviceId, label, value, remove)]
+        '''
+        workspaceTagUpdates = []
+        tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
+        tagRequest = TagAssignmentConfigStreamRequest()
+        tagFilter = TagAssignmentConfig()
+        tagFilter.key.element_type = ELEMENT_TYPE_DEVICE
+        tagFilter.key.workspace_id.value = self.ctx.studio.workspaceId
+        if not self.tagLabelFilter:
+            tagRequest.partial_eq_filter.append(tagFilter)
+        else:
+            for tag in self.tagLabelFilter:
+                tagFilter.key.label.value = tag
+                tagRequest.partial_eq_filter.append(tagFilter)
+        for resp in tagClient.GetAll(tagRequest):
+            workspaceTagUpdates.append((resp.value.key.device_id.value,
+                                        resp.value.key.label.value,
+                                        resp.value.key.value.value,
+                                        resp.value.remove.value))
+        return workspaceTagUpdates
+
+    def _assignDeviceTagMultiValue(self, deviceId: str, label: str, value: str):
+        '''
+        _assignDeviceTagMultiValue assigns a device tag if it isn't already assigned
+        '''
+        # check if the tag is already assigned to this device
+        if self._tagAssigned(deviceId, label, value):
+            return
+        # create the tag
+        self.createTag(ELEMENT_TYPE_DEVICE, label, value)
+        # assign the tag
+        setRequest = TagAssignmentConfigSetRequest()
+        setRequest.value.key.workspace_id.value = self.ctx.studio.workspaceId
+        setRequest.value.key.element_type = ELEMENT_TYPE_DEVICE
+        setRequest.value.key.label.value = label
+        setRequest.value.key.value.value = value
+        setRequest.value.key.device_id.value = deviceId
+        setRequest.value.remove.value = False
+        tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
+        tagClient.Set(setRequest)
+        # assign the tag in unvalidated cache
+        self._assignDevTagInUnvalidatedCache(deviceId, label, value)
+        # repopulate validatedTagAssigns for device tag
+        self.validatedTagAssigns.pop(deviceId, None)
+        self.getDeviceTags(deviceId)
+
+    def getFilter(self):
+        '''
+        getFilter returns the list of relevant tag labels
+        '''
+        return self.tagLabelFilter
 
     def setFilter(self, tagLabels: List[str]):
         '''
@@ -114,46 +243,6 @@ class Tags:
         self.deviceTagValidationFunc = validationFunc
         self.validatedTagAssigns = {}
 
-    def _tagExists(self, label: str, value: str):
-        for dev, tags in self.getAllDeviceTags().items():
-            if tags.get(label) and value in tags[label]:
-                return True
-        return False
-
-    def _tagAssigned(self, deviceId: str, label: str, value: str):
-        if value in self.getDeviceTags(deviceId).get(label, []):
-            return True
-        return False
-
-    def _assignDevTagInLocalCaches(self, deviceId: str, label: str, value: str):
-        # modify relevantTagAssigns for device tag
-        if not self.getDeviceTags(deviceId):
-            self.relevantTagAssigns[deviceId] = {}
-        if label not in self.relevantTagAssigns[deviceId]:
-            self.relevantTagAssigns[deviceId][label] = []
-        if value not in self.relevantTagAssigns[deviceId][label]:
-            self.relevantTagAssigns[deviceId][label].append(value)
-        # repopulate validatedTagAssigns for device tag
-        self.validatedTagAssigns.pop(deviceId)
-        self.getDeviceTags(deviceId)
-
-    def _unassignDevTagInLocalCaches(self, deviceId: str, label: str, value: str):
-        # modify relevantTagAssigns for device tag
-        if not self.getDeviceTags(deviceId):
-            return
-        if label not in self.relevantTagAssigns[deviceId]:
-            return
-        if value not in self.relevantTagAssigns[deviceId][label]:
-            return
-        self.relevantTagAssigns[deviceId][label].remove(value)
-        if not self.relevantTagAssigns[deviceId][label]:
-            self.relevantTagAssigns[deviceId].pop(label)
-            if not self.relevantTagAssigns[deviceId]:
-                self.relevantTagAssigns.pop(deviceId)
-        # repopulate validatedTagAssigns for device tag
-        self.validatedTagAssigns.pop(deviceId)
-        self.getDeviceTags(deviceId)
-
     def getDeviceTags(self, deviceId: str):
         '''
         getDeviceTags returns the relevant assigned tags for the device.
@@ -174,35 +263,19 @@ class Tags:
 
     def getAllDeviceTags(self):
         '''
-        getAllDeviceTags Returns a map of all assigned device tags available in the workspace,
+        getAllDeviceTags returns a map of all assigned device tags available in the workspace,
         limited to the labels of tagLabelFilter, if set via setFilter.
         The returned map is of the form: map[deviceId]map[label]=[value1,value2,..]
         '''
         if self.relevantTagAssigns:
             return self.relevantTagAssigns
-        self.relevantTagAssigns = {}
-        tagClient = self.ctx.getApiClient(TagAssignmentServiceStub)
-        tagRequest = TagAssignmentStreamRequest()
-        tagFilter = TagAssignment()
-        tagFilter.tag_creator_type = CREATOR_TYPE_USER
-        tagFilter.key.element_type = ELEMENT_TYPE_DEVICE
-        tagFilter.key.workspace_id.value = self.ctx.studio.workspaceId
-        if not self.tagLabelFilter:
-            tagRequest.partial_eq_filter.append(tagFilter)
-        else:
-            for tag in self.tagLabelFilter:
-                tagFilter.key.label.value = tag
-                tagRequest.partial_eq_filter.append(tagFilter)
-        for resp in tagClient.GetAll(tagRequest):
-            label = resp.value.key.label.value
-            value = resp.value.key.value.value
-            deviceId = resp.value.key.device_id.value
-            if deviceId not in self.relevantTagAssigns:
-                self.relevantTagAssigns[deviceId] = {}
-            if label not in self.relevantTagAssigns[deviceId]:
-                self.relevantTagAssigns[deviceId][label] = []
-            if value not in self.relevantTagAssigns[deviceId][label]:
-                self.relevantTagAssigns[deviceId][label].append(value)
+        self._getAllDeviceTagsFromMainline()
+        workspaceUpdates = self._getTagUpdatesFromWorkspace()
+        for (deviceId, label, value, remove) in workspaceUpdates:
+            if remove:
+                self._unassignDevTagInUnvalidatedCache(deviceId, label, value)
+            else:
+                self._assignDevTagInUnvalidatedCache(deviceId, label, value)
         return self.relevantTagAssigns
 
     def createTag(self, etype: int, label: str, value: str):
@@ -228,40 +301,21 @@ class Tags:
         enforcing that only one value of the tag is assigned to the device,
         unless the multiValue argument is set to True
         '''
+        # first make sure this device's tags have been loaded and validated
+        self.getDeviceTags(deviceId)
         if not multiValue:
             current_values = list(self.getDeviceTags(deviceId).get(label, []))
             for cvalue in current_values:
                 if cvalue != value:
                     self.unassignDeviceTag(deviceId, label, cvalue)
-        self.assignDeviceTagMultiValue(deviceId, label, value)
-
-    def assignDeviceTagMultiValue(self, deviceId: str, label: str, value: str):
-        '''
-        assignDeviceTagMultiValue assigns a device tag if it isn't already assigned
-        not enforcing that only one value of the tag is assigned to the device
-        '''
-        # check if the tag is already assigned to this device
-        if self._tagAssigned(deviceId, label, value):
-            return
-        # create the tag
-        self.createTag(ELEMENT_TYPE_DEVICE, label, value)
-        # assign the tag
-        setRequest = TagAssignmentConfigSetRequest()
-        setRequest.value.key.workspace_id.value = self.ctx.studio.workspaceId
-        setRequest.value.key.element_type = ELEMENT_TYPE_DEVICE
-        setRequest.value.key.label.value = label
-        setRequest.value.key.value.value = value
-        setRequest.value.key.device_id.value = deviceId
-        setRequest.value.remove.value = False
-        tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
-        tagClient.Set(setRequest)
-        # assign the tag in local cache
-        self._assignDevTagInLocalCaches(deviceId, label, value)
+        self._assignDeviceTagMultiValue(deviceId, label, value)
 
     def unassignDeviceTag(self, deviceId: str, label: str, value: str):
         '''
         unassignDeviceTag unassigns a device tag if it is assigned
         '''
+        # first make sure this device's tags have been loaded and validated
+        self.getDeviceTags(deviceId)
         # check if the tag is assigned to this device
         if not self._tagAssigned(deviceId, label, value):
             return
@@ -275,8 +329,11 @@ class Tags:
         setRequest.value.remove.value = True
         tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
         tagClient.Set(setRequest)
-        # unassign the tag in local cache
-        self._unassignDevTagInLocalCaches(deviceId, label, value)
+        # unassign the tag in unvalidated cache
+        self._unassignDevTagInUnvalidatedCache(deviceId, label, value)
+        # repopulate validatedTagAssigns for device tag
+        self.validatedTagAssigns.pop(deviceId, None)
+        self.getDeviceTags(deviceId)
 
     def unassignDeviceTagLabel(self, deviceId: str, label: str):
         '''

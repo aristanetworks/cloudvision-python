@@ -11,8 +11,36 @@ from cloudvision.cvlib import (
 )
 
 from arista.tag.v2.services import (
-    TagAssignmentStreamResponse
+    TagAssignmentServiceStub,
+    TagAssignmentConfigServiceStub,
+    TagAssignmentStreamResponse,
+    TagAssignmentConfigStreamResponse
 )
+
+
+def convertListToStream(assignmentList):
+    stream = []
+    for assign in assignmentList:
+        device, tag, value = assign
+        item = TagAssignmentStreamResponse()
+        item.value.key.device_id.value = device
+        item.value.key.label.value = tag
+        item.value.key.value.value = value
+        stream.append(item)
+    return stream
+
+
+def convertListToConfigStream(assignmentConfigList):
+    stream = []
+    for assign in assignmentConfigList:
+        device, tag, value, remove = assign
+        item = TagAssignmentConfigStreamResponse()
+        item.value.key.device_id.value = device
+        item.value.key.label.value = tag
+        item.value.key.value.value = value
+        item.value.remove.value = remove
+        stream.append(item)
+    return stream
 
 
 class mockStudio:
@@ -22,16 +50,33 @@ class mockStudio:
 
 class mockClient:
     def __init__(self):
-        self.stuff = None
-        self.tagResponse = TagAssignmentStreamResponse()
+        self.stub = None
+        self.tagResponse = convertListToStream([])
+        self.tagConfigResponse = convertListToConfigStream([])
         self.numGetAlls = 0
 
     def GetAll(self, request):
-        self.numGetAlls += 1
-        return self.tagResponse
+        labelFilters = []
+        for afilter in request.partial_eq_filter:
+            if afilter.key.label.value:
+                labelFilters.append(afilter.key.label.value)
+        if self.stub == TagAssignmentServiceStub:
+            self.numGetAlls += 1
+            response = self.tagResponse
+        elif self.stub == TagAssignmentConfigServiceStub:
+            self.numGetAlls += 1
+            response = self.tagConfigResponse
+        if labelFilters:
+            for item in list(response):
+                if item.value.key.label.value not in labelFilters:
+                    response.remove(item)
+        return response
 
     def SetGetAllResponse(self, response):
         self.tagResponse = response
+
+    def SetGetAllConfigResponse(self, response):
+        self.tagConfigResponse = response
 
     def Set(self, request):
         return
@@ -50,22 +95,11 @@ class mockCtx:
         self.tags = Tags(self)
 
     def getApiClient(self, stub):
+        self.client.stub = stub
         return self.client
 
     def getDevice(self):
         return self.device
-
-
-def convertMapToStream(assignmentList):
-    stream = []
-    for assign in assignmentList:
-        device, tag, value = assign
-        item = TagAssignmentStreamResponse()
-        item.value.key.device_id.value = device
-        item.value.key.label.value = tag
-        item.value.key.value.value = value
-        stream.append(item)
-    return stream
 
 
 def deviceTagValidationFunc(deviceID, deviceTags):
@@ -149,14 +183,14 @@ getAllDeviceTagsCases = [
             'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1']},
         },
         None,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ]),
-        1,
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ]),
+        2,
         {
             'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
             'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
@@ -172,14 +206,14 @@ getAllDeviceTagsCases = [
             'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1']},
         },
         None,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ]),
-        1,
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ]),
+        2,
         {
             'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
             'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
@@ -214,60 +248,60 @@ getDeviceTagsCases = [
     [
         "no validation",
         None,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ]),
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ]),
         'dev1',
-        1,
+        2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
         None
     ],
     [
         "passing validation",
         deviceTagValidationFunc,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ]),
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ]),
         'dev1',
-        1,
+        2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
         None
     ],
     [
         "passing validation where unused devices would fail validation",
         deviceTagValidationFunc,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', 'a'),
-                            ]),
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', 'a'),
+                             ]),
         'dev1',
-        1,
+        2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
         None
     ],
     [
         "failing validation",
         deviceTagValidationFunc,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', 'a'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ]),
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', 'a'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ]),
         'dev1',
-        1,
+        2,
         None,
         "Tag validation error: tag NodeId values ['a'] assigned to dev1 failed Integer Check\n"
     ],
@@ -308,127 +342,127 @@ assignUnassignDeviceTagCases = [
     [
         "assign additional Role tag value",
         deviceTagValidationFunc,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev1', 'Role', 'Spine'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ('dev2', 'Role', 'Leaf'),
-                            ]),
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
         'dev1',
         'assign',
         'Role',
         'Core',
         True,
-        1,
+        2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine', 'Core']},
         None
     ],
     [
         "assign replacement Role tag value",
         deviceTagValidationFunc,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev1', 'Role', 'Spine'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ('dev2', 'Role', 'Leaf'),
-                            ]),
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
         'dev1',
         'assign',
         'Role',
         'Core',
         False,
-        1,
+        2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Core']},
         None
     ],
     [
         "assign additional Node tag value failing validation check",
         deviceTagValidationFunc,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev1', 'Role', 'Spine'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ('dev2', 'Role', 'Leaf'),
-                            ]),
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
         'dev1',
         'assign',
         'NodeId',
         '3',
         True,
-        1,
+        2,
         None,
         "Tag validation error: tag NodeId values ['1', '3'] assigned to dev1 failed Count Check\n"
     ],
     [
         "unassign second Role tag value",
         deviceTagValidationFunc,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev1', 'Role', 'Spine'),
-                            ('dev1', 'Role', 'Core'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ('dev2', 'Role', 'Leaf'),
-                            ]),
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev1', 'Role', 'Core'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
         'dev1',
         'unassign',
         'Role',
         'Core',
         True,
-        1,
+        2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine']},
         None
     ],
     [
         "unassign last Role tag value",
         deviceTagValidationFunc,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev1', 'Role', 'Spine'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ('dev2', 'Role', 'Leaf'),
-                            ]),
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
         'dev1',
         'unassign',
         'Role',
         'Spine',
         True,
-        1,
+        2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
         None
     ],
     [
         "unassign tag value that's not assigned",
         deviceTagValidationFunc,
-        convertMapToStream([('dev1', 'DC', 'DC1'),
-                            ('dev1', 'DC-Pod', 'POD1'),
-                            ('dev1', 'NodeId', '1'),
-                            ('dev1', 'Role', 'Spine'),
-                            ('dev2', 'DC', 'DC1'),
-                            ('dev2', 'DC-Pod', 'POD1'),
-                            ('dev2', 'NodeId', '2'),
-                            ('dev2', 'Role', 'Leaf'),
-                            ]),
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
         'dev1',
         'unassign',
         'Role',
         'Core',
         True,
-        1,
+        2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine']},
         None
     ],
@@ -457,3 +491,208 @@ def test_changeDeviceTags(name, validateFunc, getAllResp, deviceId, oper, operLa
     else:
         assert devTags == expected
         assert ctx.client.numGetAlls == expNumGetAlls
+
+
+mergeGetAllDeviceTagsCases = [
+    # name
+    # filter
+    # validateFunc
+    # mainline state response
+    # workspace config response
+    # expected
+    # err
+    [
+        "no workspace updates",
+        ['DC', 'DC-Pod', 'NodeId', 'Role'],
+        None,
+        convertListToStream([
+                            ('dev1', 'DC', 'DC1'),
+                            ('dev1', 'DC-Pod', 'POD1'),
+                            ('dev1', 'NodeId', '1'),
+                            ('dev1', 'Role', 'Spine'),
+                            ('dev2', 'DC', 'DC1'),
+                            ('dev2', 'DC-Pod', 'POD1'),
+                            ('dev2', 'NodeId', '2'),
+                            ('dev2', 'Role', 'Leaf'),
+                            ]),
+        convertListToConfigStream([]),
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role':['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "no mainline tags",
+        ['DC', 'DC-Pod', 'NodeId', 'Role'],
+        None,
+        convertListToStream([]),
+        convertListToConfigStream([
+                                  ('dev1', 'DC', 'DC1', False),
+                                  ('dev1', 'DC-Pod', 'POD1', False),
+                                  ('dev1', 'NodeId', '1', False),
+                                  ('dev1', 'Role', 'Spine', False),
+                                  ('dev2', 'DC', 'DC1', False),
+                                  ('dev2', 'DC-Pod', 'POD1', False),
+                                  ('dev2', 'NodeId', '2', False),
+                                  ('dev2', 'Role', 'Leaf', False),
+                                  ]),
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role':['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "mainline with workspace remove",
+        ['DC', 'DC-Pod', 'NodeId', 'Role'],
+        None,
+        convertListToStream([
+                            ('dev1', 'DC', 'DC1'),
+                            ('dev1', 'DC-Pod', 'POD1'),
+                            ('dev1', 'NodeId', '1'),
+                            ('dev1', 'Role', 'Spine'),
+                            ('dev2', 'DC', 'DC1'),
+                            ('dev2', 'DC-Pod', 'POD1'),
+                            ('dev2', 'NodeId', '2'),
+                            ('dev2', 'Role', 'Leaf'),
+                            ]),
+        convertListToConfigStream([
+                                  ('dev1', 'Role', 'Spine', True),
+                                  ]),
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "mainline with workspace add",
+        ['DC', 'DC-Pod', 'NodeId', 'Role'],
+        None,
+        convertListToStream([
+                            ('dev1', 'DC', 'DC1'),
+                            ('dev1', 'DC-Pod', 'POD1'),
+                            ('dev1', 'NodeId', '1'),
+                            ('dev2', 'DC', 'DC1'),
+                            ('dev2', 'DC-Pod', 'POD1'),
+                            ('dev2', 'NodeId', '2'),
+                            ('dev2', 'Role', 'Leaf'),
+                            ]),
+        convertListToConfigStream([
+                                  ('dev1', 'Role', 'Spine', False),
+                                  ]),
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role':['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "mainline with workspace add/remove",
+        ['DC', 'DC-Pod', 'NodeId', 'Role'],
+        None,
+        convertListToStream([
+                            ('dev1', 'DC', 'DC1'),
+                            ('dev1', 'DC-Pod', 'POD1'),
+                            ('dev1', 'NodeId', '1'),
+                            ('dev1', 'Role', 'Spine'),
+                            ('dev2', 'DC', 'DC1'),
+                            ('dev2', 'DC-Pod', 'POD1'),
+                            ('dev2', 'NodeId', '2'),
+                            ('dev2', 'Role', 'Leaf'),
+                            ]),
+        convertListToConfigStream([
+                                  ('dev1', 'Role', 'Spine', True),
+                                  ('dev1', 'Role', 'Leaf', False),
+                                  ]),
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role':['Leaf']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "mainline with workspace remove all for a device",
+        ['DC', 'DC-Pod', 'NodeId', 'Role'],
+        None,
+        convertListToStream([
+                            ('dev1', 'DC', 'DC1'),
+                            ('dev1', 'DC-Pod', 'POD1'),
+                            ('dev1', 'NodeId', '1'),
+                            ('dev1', 'Role', 'Spine'),
+                            ('dev2', 'DC', 'DC1'),
+                            ('dev2', 'DC-Pod', 'POD1'),
+                            ('dev2', 'NodeId', '2'),
+                            ('dev2', 'Role', 'Leaf'),
+                            ]),
+        convertListToConfigStream([
+                                  ('dev1', 'DC', 'DC1', True),
+                                  ('dev1', 'DC-Pod', 'POD1', True),
+                                  ('dev1', 'NodeId', '1', True),
+                                  ('dev1', 'Role', 'Spine', True),
+                                  ]),
+        {
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "mainline with workspace add for new device",
+        ['DC', 'DC-Pod', 'NodeId', 'Role'],
+        None,
+        convertListToStream([
+                            ('dev2', 'DC', 'DC1'),
+                            ('dev2', 'DC-Pod', 'POD1'),
+                            ('dev2', 'NodeId', '2'),
+                            ('dev2', 'Role', 'Leaf'),
+                            ]),
+        convertListToConfigStream([
+                                  ('dev1', 'DC', 'DC1', False),
+                                  ('dev1', 'DC-Pod', 'POD1', False),
+                                  ('dev1', 'NodeId', '1', False),
+                                  ('dev1', 'Role', 'Spine', False),
+                                  ]),
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role':['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "mainline with workspace add/remove while filtering out",
+        ['DC', 'DC-Pod', 'NodeId'],
+        None,
+        convertListToStream([
+                            ('dev1', 'DC', 'DC1'),
+                            ('dev1', 'DC-Pod', 'POD1'),
+                            ('dev1', 'NodeId', '1'),
+                            ('dev1', 'Role', 'Spine'),
+                            ('dev2', 'DC', 'DC1'),
+                            ('dev2', 'DC-Pod', 'POD1'),
+                            ('dev2', 'NodeId', '2'),
+                            ('dev2', 'Role', 'Leaf'),
+                            ]),
+        convertListToConfigStream([
+                                  ('dev1', 'Role', 'Spine', True),
+                                  ('dev1', 'Role', 'Leaf', False),
+                                  ]),
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
+        },
+        None
+    ],
+]
+
+
+@pytest.mark.parametrize('name, filter1, validateFunc, mainlineStateResp, workspaceConfigResp, '
+                         + 'expected, err', mergeGetAllDeviceTagsCases)
+def test_mergeTags(name, filter1, validateFunc, mainlineStateResp, workspaceConfigResp,
+                   expected, err):
+    ctx = mockCtx()
+    ctx.client.SetGetAllResponse(mainlineStateResp)
+    ctx.client.SetGetAllConfigResponse(workspaceConfigResp)
+    ctx.tags.setFilter(filter1)
+    allTags = ctx.tags.getAllDeviceTags()
+    assert allTags == expected
