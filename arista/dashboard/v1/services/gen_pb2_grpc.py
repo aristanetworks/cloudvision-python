@@ -161,6 +161,11 @@ class DashboardConfigServiceStub(object):
                 request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.dashboard.v1.DashboardConfigService/SetSome',
+                request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.dashboard.v1.DashboardConfigService/Delete',
                 request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteRequest.SerializeToString,
@@ -200,6 +205,12 @@ class DashboardConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -234,6 +245,11 @@ def add_DashboardConfigServiceServicer_to_server(servicer, server):
                     servicer.Set,
                     request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetRequest.FromString,
                     response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetSomeResponse.SerializeToString,
             ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
@@ -320,6 +336,23 @@ class DashboardConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.dashboard.v1.DashboardConfigService/Set',
             arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetRequest.SerializeToString,
             arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.dashboard.v1.DashboardConfigService/SetSome',
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetSomeRequest.SerializeToString,
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigSetSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

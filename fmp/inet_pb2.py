@@ -17,9 +17,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fmp/inet.proto',
   package='fmp',
   syntax='proto3',
-  serialized_options=b'Z\024arista/resources/fmp',
+  serialized_options=b'Z0github.com/aristanetworks/cloudvision-go/api/fmp',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0e\x66mp/inet.proto\x12\x03\x66mp\"\x1a\n\tIPAddress\x12\r\n\x05value\x18\x01 \x01(\t\"3\n\x11RepeatedIPAddress\x12\x1e\n\x06values\x18\x01 \x03(\x0b\x32\x0e.fmp.IPAddress\"\x1c\n\x0bIPv4Address\x12\r\n\x05value\x18\x01 \x01(\t\"7\n\x13RepeatedIPv4Address\x12 \n\x06values\x18\x01 \x03(\x0b\x32\x10.fmp.IPv4Address\"\x1c\n\x0bIPv6Address\x12\r\n\x05value\x18\x01 \x01(\t\"7\n\x13RepeatedIPv6Address\x12 \n\x06values\x18\x01 \x03(\x0b\x32\x10.fmp.IPv6Address\"\x19\n\x08IPPrefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x1b\n\nIPv4Prefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x1b\n\nIPv6Prefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x15\n\x04Port\x12\r\n\x05value\x18\x01 \x01(\rB\x16Z\x14\x61rista/resources/fmpb\x06proto3'
+  serialized_pb=b'\n\x0e\x66mp/inet.proto\x12\x03\x66mp\"\x1a\n\tIPAddress\x12\r\n\x05value\x18\x01 \x01(\t\"3\n\x11RepeatedIPAddress\x12\x1e\n\x06values\x18\x01 \x03(\x0b\x32\x0e.fmp.IPAddress\"\x1c\n\x0bIPv4Address\x12\r\n\x05value\x18\x01 \x01(\t\"7\n\x13RepeatedIPv4Address\x12 \n\x06values\x18\x01 \x03(\x0b\x32\x10.fmp.IPv4Address\"\x1c\n\x0bIPv6Address\x12\r\n\x05value\x18\x01 \x01(\t\"7\n\x13RepeatedIPv6Address\x12 \n\x06values\x18\x01 \x03(\x0b\x32\x10.fmp.IPv6Address\"\x19\n\x08IPPrefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x1b\n\nIPv4Prefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x1b\n\nIPv6Prefix\x12\r\n\x05value\x18\x01 \x01(\t\"\x15\n\x04Port\x12\r\n\x05value\x18\x01 \x01(\rB2Z0github.com/aristanetworks/cloudvision-go/api/fmpb\x06proto3'
 )
 
 
