@@ -39,6 +39,11 @@ class ApproveConfigServiceStub(object):
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteResponse.FromString,
                 )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.changecontrol.v1.ApproveConfigService/DeleteAll',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllResponse.FromString,
+                )
 
 
 class ApproveConfigServiceServicer(object):
@@ -74,6 +79,12 @@ class ApproveConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ApproveConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -101,6 +112,11 @@ def add_ApproveConfigServiceServicer_to_server(servicer, server):
                     servicer.Delete,
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -194,6 +210,23 @@ class ApproveConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.changecontrol.v1.ApproveConfigService/Delete',
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteRequest.SerializeToString,
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ApproveConfigService/DeleteAll',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -359,6 +392,11 @@ class ChangeControlConfigServiceStub(object):
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteResponse.FromString,
                 )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlConfigService/DeleteAll',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllResponse.FromString,
+                )
 
 
 class ChangeControlConfigServiceServicer(object):
@@ -394,6 +432,12 @@ class ChangeControlConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ChangeControlConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -421,6 +465,11 @@ def add_ChangeControlConfigServiceServicer_to_server(servicer, server):
                     servicer.Delete,
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -514,5 +563,22 @@ class ChangeControlConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.changecontrol.v1.ChangeControlConfigService/Delete',
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteRequest.SerializeToString,
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ChangeControlConfigService/DeleteAll',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

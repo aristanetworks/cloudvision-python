@@ -14,7 +14,9 @@ _sym_db = _symbol_database.Default()
 from arista.studio.v1 import studio_pb2 as arista_dot_studio_dot_v1_dot_studio__pb2
 from arista.time import time_pb2 as arista_dot_time_dot_time__pb2
 from arista.subscriptions import subscriptions_pb2 as arista_dot_subscriptions_dot_subscriptions__pb2
+from fmp import deletes_pb2 as fmp_dot_deletes__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z(arista/resources/arista/studio.v1;studio',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#arista/studio.v1/services.gen.proto\x12\x10\x61rista.studio.v1\x1a\x1d\x61rista/studio.v1/studio.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"i\n\x13\x41ssignedTagsRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x14\x41ssignedTagsResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.AssignedTags\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x19\x41ssignedTagsStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.studio.v1.AssignedTags\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa4\x01\n\x1a\x41ssignedTagsStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.AssignedTags\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"o\n\x19\x41ssignedTagsConfigRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"{\n\x1a\x41ssignedTagsConfigResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x89\x01\n\x1f\x41ssignedTagsConfigStreamRequest\x12?\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb0\x01\n AssignedTagsConfigStreamResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"S\n\x1c\x41ssignedTagsConfigSetRequest\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\"~\n\x1d\x41ssignedTagsConfigSetResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"K\n\x1f\x41ssignedTagsConfigDeleteRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\"v\n AssignedTagsConfigDeleteResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"c\n\rInputsRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"c\n\x0eInputsResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.studio.v1.Inputs\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x13InputsStreamRequest\x12\x33\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x18.arista.studio.v1.Inputs\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x98\x01\n\x14InputsStreamResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.studio.v1.Inputs\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"i\n\x13InputsConfigRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x14InputsConfigResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.InputsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x19InputsConfigStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.studio.v1.InputsConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa4\x01\n\x1aInputsConfigStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.InputsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"G\n\x16InputsConfigSetRequest\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.InputsConfig\"r\n\x17InputsConfigSetResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.InputsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"E\n\x19InputsConfigDeleteRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\"p\n\x1aInputsConfigDeleteResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"c\n\rStudioRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"c\n\x0eStudioResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.studio.v1.Studio\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x13StudioStreamRequest\x12\x33\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x18.arista.studio.v1.Studio\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x98\x01\n\x14StudioStreamResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.studio.v1.Studio\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"i\n\x13StudioConfigRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x14StudioConfigResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.StudioConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x19StudioConfigStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.studio.v1.StudioConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa4\x01\n\x1aStudioConfigStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.StudioConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"G\n\x16StudioConfigSetRequest\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.StudioConfig\"r\n\x17StudioConfigSetResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.StudioConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"E\n\x19StudioConfigDeleteRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\"p\n\x1aStudioConfigDeleteResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xbf\x02\n\x13\x41ssignedTagsService\x12W\n\x06GetOne\x12%.arista.studio.v1.AssignedTagsRequest\x1a&.arista.studio.v1.AssignedTagsResponse\x12\x65\n\x06GetAll\x12+.arista.studio.v1.AssignedTagsStreamRequest\x1a,.arista.studio.v1.AssignedTagsStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.studio.v1.AssignedTagsStreamRequest\x1a,.arista.studio.v1.AssignedTagsStreamResponse0\x01\x32\xc2\x04\n\x19\x41ssignedTagsConfigService\x12\x63\n\x06GetOne\x12+.arista.studio.v1.AssignedTagsConfigRequest\x1a,.arista.studio.v1.AssignedTagsConfigResponse\x12q\n\x06GetAll\x12\x31.arista.studio.v1.AssignedTagsConfigStreamRequest\x1a\x32.arista.studio.v1.AssignedTagsConfigStreamResponse0\x01\x12t\n\tSubscribe\x12\x31.arista.studio.v1.AssignedTagsConfigStreamRequest\x1a\x32.arista.studio.v1.AssignedTagsConfigStreamResponse0\x01\x12\x66\n\x03Set\x12..arista.studio.v1.AssignedTagsConfigSetRequest\x1a/.arista.studio.v1.AssignedTagsConfigSetResponse\x12o\n\x06\x44\x65lete\x12\x31.arista.studio.v1.AssignedTagsConfigDeleteRequest\x1a\x32.arista.studio.v1.AssignedTagsConfigDeleteResponse2\x95\x02\n\rInputsService\x12K\n\x06GetOne\x12\x1f.arista.studio.v1.InputsRequest\x1a .arista.studio.v1.InputsResponse\x12Y\n\x06GetAll\x12%.arista.studio.v1.InputsStreamRequest\x1a&.arista.studio.v1.InputsStreamResponse0\x01\x12\\\n\tSubscribe\x12%.arista.studio.v1.InputsStreamRequest\x1a&.arista.studio.v1.InputsStreamResponse0\x01\x32\x80\x04\n\x13InputsConfigService\x12W\n\x06GetOne\x12%.arista.studio.v1.InputsConfigRequest\x1a&.arista.studio.v1.InputsConfigResponse\x12\x65\n\x06GetAll\x12+.arista.studio.v1.InputsConfigStreamRequest\x1a,.arista.studio.v1.InputsConfigStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.studio.v1.InputsConfigStreamRequest\x1a,.arista.studio.v1.InputsConfigStreamResponse0\x01\x12Z\n\x03Set\x12(.arista.studio.v1.InputsConfigSetRequest\x1a).arista.studio.v1.InputsConfigSetResponse\x12\x63\n\x06\x44\x65lete\x12+.arista.studio.v1.InputsConfigDeleteRequest\x1a,.arista.studio.v1.InputsConfigDeleteResponse2\x95\x02\n\rStudioService\x12K\n\x06GetOne\x12\x1f.arista.studio.v1.StudioRequest\x1a .arista.studio.v1.StudioResponse\x12Y\n\x06GetAll\x12%.arista.studio.v1.StudioStreamRequest\x1a&.arista.studio.v1.StudioStreamResponse0\x01\x12\\\n\tSubscribe\x12%.arista.studio.v1.StudioStreamRequest\x1a&.arista.studio.v1.StudioStreamResponse0\x01\x32\x80\x04\n\x13StudioConfigService\x12W\n\x06GetOne\x12%.arista.studio.v1.StudioConfigRequest\x1a&.arista.studio.v1.StudioConfigResponse\x12\x65\n\x06GetAll\x12+.arista.studio.v1.StudioConfigStreamRequest\x1a,.arista.studio.v1.StudioConfigStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.studio.v1.StudioConfigStreamRequest\x1a,.arista.studio.v1.StudioConfigStreamResponse0\x01\x12Z\n\x03Set\x12(.arista.studio.v1.StudioConfigSetRequest\x1a).arista.studio.v1.StudioConfigSetResponse\x12\x63\n\x06\x44\x65lete\x12+.arista.studio.v1.StudioConfigDeleteRequest\x1a,.arista.studio.v1.StudioConfigDeleteResponseB*Z(arista/resources/arista/studio.v1;studiob\x06proto3'
+  serialized_pb=b'\n#arista/studio.v1/services.gen.proto\x12\x10\x61rista.studio.v1\x1a\x1d\x61rista/studio.v1/studio.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"i\n\x13\x41ssignedTagsRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x14\x41ssignedTagsResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.AssignedTags\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x19\x41ssignedTagsStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.studio.v1.AssignedTags\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa4\x01\n\x1a\x41ssignedTagsStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.AssignedTags\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"o\n\x19\x41ssignedTagsConfigRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"{\n\x1a\x41ssignedTagsConfigResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x89\x01\n\x1f\x41ssignedTagsConfigStreamRequest\x12?\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb0\x01\n AssignedTagsConfigStreamResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"S\n\x1c\x41ssignedTagsConfigSetRequest\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\"~\n\x1d\x41ssignedTagsConfigSetResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"X\n AssignedTagsConfigSetSomeRequest\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.arista.studio.v1.AssignedTagsConfig\"\\\n!AssignedTagsConfigSetSomeResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"K\n\x1f\x41ssignedTagsConfigDeleteRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\"v\n AssignedTagsConfigDeleteResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"$\n\"AssignedTagsConfigDeleteAllRequest\"\xc6\x01\n#AssignedTagsConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x03key\x18\x03 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"s\n\x15\x41utofillActionRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.AutofillActionKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"s\n\x16\x41utofillActionResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.studio.v1.AutofillAction\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x81\x01\n\x1b\x41utofillActionStreamRequest\x12;\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32 .arista.studio.v1.AutofillAction\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa8\x01\n\x1c\x41utofillActionStreamResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.studio.v1.AutofillAction\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"y\n\x1b\x41utofillActionConfigRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.AutofillActionKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x7f\n\x1c\x41utofillActionConfigResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.studio.v1.AutofillActionConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x8d\x01\n!AutofillActionConfigStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.studio.v1.AutofillActionConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb4\x01\n\"AutofillActionConfigStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.studio.v1.AutofillActionConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"W\n\x1e\x41utofillActionConfigSetRequest\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.studio.v1.AutofillActionConfig\"\x82\x01\n\x1f\x41utofillActionConfigSetResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.studio.v1.AutofillActionConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\\\n\"AutofillActionConfigSetSomeRequest\x12\x36\n\x06values\x18\x01 \x03(\x0b\x32&.arista.studio.v1.AutofillActionConfig\"f\n#AutofillActionConfigSetSomeResponse\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.AutofillActionKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"U\n!AutofillActionConfigDeleteRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.AutofillActionKey\"\x80\x01\n\"AutofillActionConfigDeleteResponse\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.AutofillActionKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"&\n$AutofillActionConfigDeleteAllRequest\"\xd0\x01\n%AutofillActionConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x03key\x18\x03 \x01(\x0b\x32#.arista.studio.v1.AutofillActionKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"c\n\rInputsRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"c\n\x0eInputsResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.studio.v1.Inputs\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x13InputsStreamRequest\x12\x33\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x18.arista.studio.v1.Inputs\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x98\x01\n\x14InputsStreamResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.studio.v1.Inputs\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"i\n\x13InputsConfigRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x14InputsConfigResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.InputsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x19InputsConfigStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.studio.v1.InputsConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa4\x01\n\x1aInputsConfigStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.InputsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"G\n\x16InputsConfigSetRequest\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.InputsConfig\"r\n\x17InputsConfigSetResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.InputsConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"L\n\x1aInputsConfigSetSomeRequest\x12.\n\x06values\x18\x01 \x03(\x0b\x32\x1e.arista.studio.v1.InputsConfig\"V\n\x1bInputsConfigSetSomeResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"E\n\x19InputsConfigDeleteRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\"p\n\x1aInputsConfigDeleteResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x1e\n\x1cInputsConfigDeleteAllRequest\"\xc0\x01\n\x1dInputsConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x03key\x18\x03 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"h\n\x12SecretInputRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"m\n\x13SecretInputResponse\x12,\n\x05value\x18\x01 \x01(\x0b\x32\x1d.arista.studio.v1.SecretInput\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"{\n\x18SecretInputStreamRequest\x12\x38\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1d.arista.studio.v1.SecretInput\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa2\x01\n\x19SecretInputStreamResponse\x12,\n\x05value\x18\x01 \x01(\x0b\x32\x1d.arista.studio.v1.SecretInput\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"c\n\rStudioRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"c\n\x0eStudioResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.studio.v1.Studio\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x13StudioStreamRequest\x12\x33\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x18.arista.studio.v1.Studio\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x98\x01\n\x14StudioStreamResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.studio.v1.Studio\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"i\n\x13StudioConfigRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x14StudioConfigResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.StudioConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x19StudioConfigStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.studio.v1.StudioConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa4\x01\n\x1aStudioConfigStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.StudioConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"G\n\x16StudioConfigSetRequest\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.StudioConfig\"r\n\x17StudioConfigSetResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.StudioConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"L\n\x1aStudioConfigSetSomeRequest\x12.\n\x06values\x18\x01 \x03(\x0b\x32\x1e.arista.studio.v1.StudioConfig\"V\n\x1bStudioConfigSetSomeResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"E\n\x19StudioConfigDeleteRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\"p\n\x1aStudioConfigDeleteResponse\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x1e\n\x1cStudioConfigDeleteAllRequest\"\xc0\x01\n\x1dStudioConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x03key\x18\x03 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"j\n\x14StudioSummaryRequest\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x15StudioSummaryResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.studio.v1.StudioSummary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x7f\n\x1aStudioSummaryStreamRequest\x12:\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1f.arista.studio.v1.StudioSummary\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa6\x01\n\x1bStudioSummaryStreamResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.studio.v1.StudioSummary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"q\n\x14TopologyInputRequest\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.studio.v1.TopologyInputKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x15TopologyInputResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.studio.v1.TopologyInput\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x7f\n\x1aTopologyInputStreamRequest\x12:\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1f.arista.studio.v1.TopologyInput\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa6\x01\n\x1bTopologyInputStreamResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.studio.v1.TopologyInput\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"w\n\x1aTopologyInputConfigRequest\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.studio.v1.TopologyInputKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x1bTopologyInputConfigResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.studio.v1.TopologyInputConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x8b\x01\n TopologyInputConfigStreamRequest\x12@\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32%.arista.studio.v1.TopologyInputConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb2\x01\n!TopologyInputConfigStreamResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.studio.v1.TopologyInputConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"U\n\x1dTopologyInputConfigSetRequest\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.studio.v1.TopologyInputConfig\"\x80\x01\n\x1eTopologyInputConfigSetResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.studio.v1.TopologyInputConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"Z\n!TopologyInputConfigSetSomeRequest\x12\x35\n\x06values\x18\x01 \x03(\x0b\x32%.arista.studio.v1.TopologyInputConfig\"d\n\"TopologyInputConfigSetSomeResponse\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.studio.v1.TopologyInputKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"S\n TopologyInputConfigDeleteRequest\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.studio.v1.TopologyInputKey\"~\n!TopologyInputConfigDeleteResponse\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.studio.v1.TopologyInputKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"%\n#TopologyInputConfigDeleteAllRequest\"\xce\x01\n$TopologyInputConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x03key\x18\x03 \x01(\x0b\x32\".arista.studio.v1.TopologyInputKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"s\n\x15TopologyUpdateRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.TopologyUpdateKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"s\n\x16TopologyUpdateResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.studio.v1.TopologyUpdate\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x81\x01\n\x1bTopologyUpdateStreamRequest\x12;\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32 .arista.studio.v1.TopologyUpdate\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa8\x01\n\x1cTopologyUpdateStreamResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.studio.v1.TopologyUpdate\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"y\n\x1bTopologyUpdateConfigRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.TopologyUpdateKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x7f\n\x1cTopologyUpdateConfigResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.studio.v1.TopologyUpdateConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x8d\x01\n!TopologyUpdateConfigStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.studio.v1.TopologyUpdateConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb4\x01\n\"TopologyUpdateConfigStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.studio.v1.TopologyUpdateConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"W\n\x1eTopologyUpdateConfigSetRequest\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.studio.v1.TopologyUpdateConfig\"\x82\x01\n\x1fTopologyUpdateConfigSetResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.studio.v1.TopologyUpdateConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\\\n\"TopologyUpdateConfigSetSomeRequest\x12\x36\n\x06values\x18\x01 \x03(\x0b\x32&.arista.studio.v1.TopologyUpdateConfig\"f\n#TopologyUpdateConfigSetSomeResponse\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.TopologyUpdateKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"U\n!TopologyUpdateConfigDeleteRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.TopologyUpdateKey\"\x80\x01\n\"TopologyUpdateConfigDeleteResponse\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.TopologyUpdateKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"&\n$TopologyUpdateConfigDeleteAllRequest\"\xd0\x01\n%TopologyUpdateConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x03key\x18\x03 \x01(\x0b\x32#.arista.studio.v1.TopologyUpdateKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"r\n\x19TopologyUpdateSyncRequest\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"{\n\x1aTopologyUpdateSyncResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.studio.v1.TopologyUpdateSync\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x89\x01\n\x1fTopologyUpdateSyncStreamRequest\x12?\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32$.arista.studio.v1.TopologyUpdateSync\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb0\x01\n TopologyUpdateSyncStreamResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.studio.v1.TopologyUpdateSync\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"x\n\x1fTopologyUpdateSyncConfigRequest\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x87\x01\n TopologyUpdateSyncConfigResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.studio.v1.TopologyUpdateSyncConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x95\x01\n%TopologyUpdateSyncConfigStreamRequest\x12\x45\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32*.arista.studio.v1.TopologyUpdateSyncConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xbc\x01\n&TopologyUpdateSyncConfigStreamResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.studio.v1.TopologyUpdateSyncConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"_\n\"TopologyUpdateSyncConfigSetRequest\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.studio.v1.TopologyUpdateSyncConfig\"\x8a\x01\n#TopologyUpdateSyncConfigSetResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.studio.v1.TopologyUpdateSyncConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"d\n&TopologyUpdateSyncConfigSetSomeRequest\x12:\n\x06values\x18\x01 \x03(\x0b\x32*.arista.studio.v1.TopologyUpdateSyncConfig\"e\n\'TopologyUpdateSyncConfigSetSomeResponse\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.WorkspaceKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"T\n%TopologyUpdateSyncConfigDeleteRequest\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.WorkspaceKey\"\x7f\n&TopologyUpdateSyncConfigDeleteResponse\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"*\n(TopologyUpdateSyncConfigDeleteAllRequest\"\xcf\x01\n)TopologyUpdateSyncConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x03key\x18\x03 \x01(\x0b\x32\x1e.arista.studio.v1.WorkspaceKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xbf\x02\n\x13\x41ssignedTagsService\x12W\n\x06GetOne\x12%.arista.studio.v1.AssignedTagsRequest\x1a&.arista.studio.v1.AssignedTagsResponse\x12\x65\n\x06GetAll\x12+.arista.studio.v1.AssignedTagsStreamRequest\x1a,.arista.studio.v1.AssignedTagsStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.studio.v1.AssignedTagsStreamRequest\x1a,.arista.studio.v1.AssignedTagsStreamResponse0\x01\x32\xb4\x06\n\x19\x41ssignedTagsConfigService\x12\x63\n\x06GetOne\x12+.arista.studio.v1.AssignedTagsConfigRequest\x1a,.arista.studio.v1.AssignedTagsConfigResponse\x12q\n\x06GetAll\x12\x31.arista.studio.v1.AssignedTagsConfigStreamRequest\x1a\x32.arista.studio.v1.AssignedTagsConfigStreamResponse0\x01\x12t\n\tSubscribe\x12\x31.arista.studio.v1.AssignedTagsConfigStreamRequest\x1a\x32.arista.studio.v1.AssignedTagsConfigStreamResponse0\x01\x12\x66\n\x03Set\x12..arista.studio.v1.AssignedTagsConfigSetRequest\x1a/.arista.studio.v1.AssignedTagsConfigSetResponse\x12t\n\x07SetSome\x12\x32.arista.studio.v1.AssignedTagsConfigSetSomeRequest\x1a\x33.arista.studio.v1.AssignedTagsConfigSetSomeResponse0\x01\x12o\n\x06\x44\x65lete\x12\x31.arista.studio.v1.AssignedTagsConfigDeleteRequest\x1a\x32.arista.studio.v1.AssignedTagsConfigDeleteResponse\x12z\n\tDeleteAll\x12\x34.arista.studio.v1.AssignedTagsConfigDeleteAllRequest\x1a\x35.arista.studio.v1.AssignedTagsConfigDeleteAllResponse0\x01\x32\xcd\x02\n\x15\x41utofillActionService\x12[\n\x06GetOne\x12\'.arista.studio.v1.AutofillActionRequest\x1a(.arista.studio.v1.AutofillActionResponse\x12i\n\x06GetAll\x12-.arista.studio.v1.AutofillActionStreamRequest\x1a..arista.studio.v1.AutofillActionStreamResponse0\x01\x12l\n\tSubscribe\x12-.arista.studio.v1.AutofillActionStreamRequest\x1a..arista.studio.v1.AutofillActionStreamResponse0\x01\x32\xd2\x06\n\x1b\x41utofillActionConfigService\x12g\n\x06GetOne\x12-.arista.studio.v1.AutofillActionConfigRequest\x1a..arista.studio.v1.AutofillActionConfigResponse\x12u\n\x06GetAll\x12\x33.arista.studio.v1.AutofillActionConfigStreamRequest\x1a\x34.arista.studio.v1.AutofillActionConfigStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.studio.v1.AutofillActionConfigStreamRequest\x1a\x34.arista.studio.v1.AutofillActionConfigStreamResponse0\x01\x12j\n\x03Set\x12\x30.arista.studio.v1.AutofillActionConfigSetRequest\x1a\x31.arista.studio.v1.AutofillActionConfigSetResponse\x12x\n\x07SetSome\x12\x34.arista.studio.v1.AutofillActionConfigSetSomeRequest\x1a\x35.arista.studio.v1.AutofillActionConfigSetSomeResponse0\x01\x12s\n\x06\x44\x65lete\x12\x33.arista.studio.v1.AutofillActionConfigDeleteRequest\x1a\x34.arista.studio.v1.AutofillActionConfigDeleteResponse\x12~\n\tDeleteAll\x12\x36.arista.studio.v1.AutofillActionConfigDeleteAllRequest\x1a\x37.arista.studio.v1.AutofillActionConfigDeleteAllResponse0\x01\x32\x95\x02\n\rInputsService\x12K\n\x06GetOne\x12\x1f.arista.studio.v1.InputsRequest\x1a .arista.studio.v1.InputsResponse\x12Y\n\x06GetAll\x12%.arista.studio.v1.InputsStreamRequest\x1a&.arista.studio.v1.InputsStreamResponse0\x01\x12\\\n\tSubscribe\x12%.arista.studio.v1.InputsStreamRequest\x1a&.arista.studio.v1.InputsStreamResponse0\x01\x32\xda\x05\n\x13InputsConfigService\x12W\n\x06GetOne\x12%.arista.studio.v1.InputsConfigRequest\x1a&.arista.studio.v1.InputsConfigResponse\x12\x65\n\x06GetAll\x12+.arista.studio.v1.InputsConfigStreamRequest\x1a,.arista.studio.v1.InputsConfigStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.studio.v1.InputsConfigStreamRequest\x1a,.arista.studio.v1.InputsConfigStreamResponse0\x01\x12Z\n\x03Set\x12(.arista.studio.v1.InputsConfigSetRequest\x1a).arista.studio.v1.InputsConfigSetResponse\x12h\n\x07SetSome\x12,.arista.studio.v1.InputsConfigSetSomeRequest\x1a-.arista.studio.v1.InputsConfigSetSomeResponse0\x01\x12\x63\n\x06\x44\x65lete\x12+.arista.studio.v1.InputsConfigDeleteRequest\x1a,.arista.studio.v1.InputsConfigDeleteResponse\x12n\n\tDeleteAll\x12..arista.studio.v1.InputsConfigDeleteAllRequest\x1a/.arista.studio.v1.InputsConfigDeleteAllResponse0\x01\x32\xb8\x02\n\x12SecretInputService\x12U\n\x06GetOne\x12$.arista.studio.v1.SecretInputRequest\x1a%.arista.studio.v1.SecretInputResponse\x12\x63\n\x06GetAll\x12*.arista.studio.v1.SecretInputStreamRequest\x1a+.arista.studio.v1.SecretInputStreamResponse0\x01\x12\x66\n\tSubscribe\x12*.arista.studio.v1.SecretInputStreamRequest\x1a+.arista.studio.v1.SecretInputStreamResponse0\x01\x32\x95\x02\n\rStudioService\x12K\n\x06GetOne\x12\x1f.arista.studio.v1.StudioRequest\x1a .arista.studio.v1.StudioResponse\x12Y\n\x06GetAll\x12%.arista.studio.v1.StudioStreamRequest\x1a&.arista.studio.v1.StudioStreamResponse0\x01\x12\\\n\tSubscribe\x12%.arista.studio.v1.StudioStreamRequest\x1a&.arista.studio.v1.StudioStreamResponse0\x01\x32\xda\x05\n\x13StudioConfigService\x12W\n\x06GetOne\x12%.arista.studio.v1.StudioConfigRequest\x1a&.arista.studio.v1.StudioConfigResponse\x12\x65\n\x06GetAll\x12+.arista.studio.v1.StudioConfigStreamRequest\x1a,.arista.studio.v1.StudioConfigStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.studio.v1.StudioConfigStreamRequest\x1a,.arista.studio.v1.StudioConfigStreamResponse0\x01\x12Z\n\x03Set\x12(.arista.studio.v1.StudioConfigSetRequest\x1a).arista.studio.v1.StudioConfigSetResponse\x12h\n\x07SetSome\x12,.arista.studio.v1.StudioConfigSetSomeRequest\x1a-.arista.studio.v1.StudioConfigSetSomeResponse0\x01\x12\x63\n\x06\x44\x65lete\x12+.arista.studio.v1.StudioConfigDeleteRequest\x1a,.arista.studio.v1.StudioConfigDeleteResponse\x12n\n\tDeleteAll\x12..arista.studio.v1.StudioConfigDeleteAllRequest\x1a/.arista.studio.v1.StudioConfigDeleteAllResponse0\x01\x32\xc6\x02\n\x14StudioSummaryService\x12Y\n\x06GetOne\x12&.arista.studio.v1.StudioSummaryRequest\x1a\'.arista.studio.v1.StudioSummaryResponse\x12g\n\x06GetAll\x12,.arista.studio.v1.StudioSummaryStreamRequest\x1a-.arista.studio.v1.StudioSummaryStreamResponse0\x01\x12j\n\tSubscribe\x12,.arista.studio.v1.StudioSummaryStreamRequest\x1a-.arista.studio.v1.StudioSummaryStreamResponse0\x01\x32\xc6\x02\n\x14TopologyInputService\x12Y\n\x06GetOne\x12&.arista.studio.v1.TopologyInputRequest\x1a\'.arista.studio.v1.TopologyInputResponse\x12g\n\x06GetAll\x12,.arista.studio.v1.TopologyInputStreamRequest\x1a-.arista.studio.v1.TopologyInputStreamResponse0\x01\x12j\n\tSubscribe\x12,.arista.studio.v1.TopologyInputStreamRequest\x1a-.arista.studio.v1.TopologyInputStreamResponse0\x01\x32\xc3\x06\n\x1aTopologyInputConfigService\x12\x65\n\x06GetOne\x12,.arista.studio.v1.TopologyInputConfigRequest\x1a-.arista.studio.v1.TopologyInputConfigResponse\x12s\n\x06GetAll\x12\x32.arista.studio.v1.TopologyInputConfigStreamRequest\x1a\x33.arista.studio.v1.TopologyInputConfigStreamResponse0\x01\x12v\n\tSubscribe\x12\x32.arista.studio.v1.TopologyInputConfigStreamRequest\x1a\x33.arista.studio.v1.TopologyInputConfigStreamResponse0\x01\x12h\n\x03Set\x12/.arista.studio.v1.TopologyInputConfigSetRequest\x1a\x30.arista.studio.v1.TopologyInputConfigSetResponse\x12v\n\x07SetSome\x12\x33.arista.studio.v1.TopologyInputConfigSetSomeRequest\x1a\x34.arista.studio.v1.TopologyInputConfigSetSomeResponse0\x01\x12q\n\x06\x44\x65lete\x12\x32.arista.studio.v1.TopologyInputConfigDeleteRequest\x1a\x33.arista.studio.v1.TopologyInputConfigDeleteResponse\x12|\n\tDeleteAll\x12\x35.arista.studio.v1.TopologyInputConfigDeleteAllRequest\x1a\x36.arista.studio.v1.TopologyInputConfigDeleteAllResponse0\x01\x32\xcd\x02\n\x15TopologyUpdateService\x12[\n\x06GetOne\x12\'.arista.studio.v1.TopologyUpdateRequest\x1a(.arista.studio.v1.TopologyUpdateResponse\x12i\n\x06GetAll\x12-.arista.studio.v1.TopologyUpdateStreamRequest\x1a..arista.studio.v1.TopologyUpdateStreamResponse0\x01\x12l\n\tSubscribe\x12-.arista.studio.v1.TopologyUpdateStreamRequest\x1a..arista.studio.v1.TopologyUpdateStreamResponse0\x01\x32\xd2\x06\n\x1bTopologyUpdateConfigService\x12g\n\x06GetOne\x12-.arista.studio.v1.TopologyUpdateConfigRequest\x1a..arista.studio.v1.TopologyUpdateConfigResponse\x12u\n\x06GetAll\x12\x33.arista.studio.v1.TopologyUpdateConfigStreamRequest\x1a\x34.arista.studio.v1.TopologyUpdateConfigStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.studio.v1.TopologyUpdateConfigStreamRequest\x1a\x34.arista.studio.v1.TopologyUpdateConfigStreamResponse0\x01\x12j\n\x03Set\x12\x30.arista.studio.v1.TopologyUpdateConfigSetRequest\x1a\x31.arista.studio.v1.TopologyUpdateConfigSetResponse\x12x\n\x07SetSome\x12\x34.arista.studio.v1.TopologyUpdateConfigSetSomeRequest\x1a\x35.arista.studio.v1.TopologyUpdateConfigSetSomeResponse0\x01\x12s\n\x06\x44\x65lete\x12\x33.arista.studio.v1.TopologyUpdateConfigDeleteRequest\x1a\x34.arista.studio.v1.TopologyUpdateConfigDeleteResponse\x12~\n\tDeleteAll\x12\x36.arista.studio.v1.TopologyUpdateConfigDeleteAllRequest\x1a\x37.arista.studio.v1.TopologyUpdateConfigDeleteAllResponse0\x01\x32\xe9\x02\n\x19TopologyUpdateSyncService\x12\x63\n\x06GetOne\x12+.arista.studio.v1.TopologyUpdateSyncRequest\x1a,.arista.studio.v1.TopologyUpdateSyncResponse\x12q\n\x06GetAll\x12\x31.arista.studio.v1.TopologyUpdateSyncStreamRequest\x1a\x32.arista.studio.v1.TopologyUpdateSyncStreamResponse0\x01\x12t\n\tSubscribe\x12\x31.arista.studio.v1.TopologyUpdateSyncStreamRequest\x1a\x32.arista.studio.v1.TopologyUpdateSyncStreamResponse0\x01\x32\x91\x07\n\x1fTopologyUpdateSyncConfigService\x12o\n\x06GetOne\x12\x31.arista.studio.v1.TopologyUpdateSyncConfigRequest\x1a\x32.arista.studio.v1.TopologyUpdateSyncConfigResponse\x12}\n\x06GetAll\x12\x37.arista.studio.v1.TopologyUpdateSyncConfigStreamRequest\x1a\x38.arista.studio.v1.TopologyUpdateSyncConfigStreamResponse0\x01\x12\x80\x01\n\tSubscribe\x12\x37.arista.studio.v1.TopologyUpdateSyncConfigStreamRequest\x1a\x38.arista.studio.v1.TopologyUpdateSyncConfigStreamResponse0\x01\x12r\n\x03Set\x12\x34.arista.studio.v1.TopologyUpdateSyncConfigSetRequest\x1a\x35.arista.studio.v1.TopologyUpdateSyncConfigSetResponse\x12\x80\x01\n\x07SetSome\x12\x38.arista.studio.v1.TopologyUpdateSyncConfigSetSomeRequest\x1a\x39.arista.studio.v1.TopologyUpdateSyncConfigSetSomeResponse0\x01\x12{\n\x06\x44\x65lete\x12\x37.arista.studio.v1.TopologyUpdateSyncConfigDeleteRequest\x1a\x38.arista.studio.v1.TopologyUpdateSyncConfigDeleteResponse\x12\x86\x01\n\tDeleteAll\x12:.arista.studio.v1.TopologyUpdateSyncConfigDeleteAllRequest\x1a;.arista.studio.v1.TopologyUpdateSyncConfigDeleteAllResponse0\x01\x42*Z(arista/resources/arista/studio.v1;studiob\x06proto3'
   ,
-  dependencies=[arista_dot_studio_dot_v1_dot_studio__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[arista_dot_studio_dot_v1_dot_studio__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,fmp_dot_deletes__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
 
@@ -64,8 +66,8 @@ _ASSIGNEDTAGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=187,
-  serialized_end=292,
+  serialized_start=238,
+  serialized_end=343,
 )
 
 
@@ -103,8 +105,8 @@ _ASSIGNEDTAGSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=294,
-  serialized_end=405,
+  serialized_start=345,
+  serialized_end=456,
 )
 
 
@@ -142,8 +144,8 @@ _ASSIGNEDTAGSSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=407,
-  serialized_end=532,
+  serialized_start=458,
+  serialized_end=583,
 )
 
 
@@ -188,8 +190,8 @@ _ASSIGNEDTAGSSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=535,
-  serialized_end=699,
+  serialized_start=586,
+  serialized_end=750,
 )
 
 
@@ -227,8 +229,8 @@ _ASSIGNEDTAGSCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=701,
-  serialized_end=812,
+  serialized_start=752,
+  serialized_end=863,
 )
 
 
@@ -266,8 +268,8 @@ _ASSIGNEDTAGSCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=814,
-  serialized_end=937,
+  serialized_start=865,
+  serialized_end=988,
 )
 
 
@@ -305,8 +307,8 @@ _ASSIGNEDTAGSCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=940,
-  serialized_end=1077,
+  serialized_start=991,
+  serialized_end=1128,
 )
 
 
@@ -351,8 +353,8 @@ _ASSIGNEDTAGSCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1080,
-  serialized_end=1256,
+  serialized_start=1131,
+  serialized_end=1307,
 )
 
 
@@ -383,8 +385,8 @@ _ASSIGNEDTAGSCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1258,
-  serialized_end=1341,
+  serialized_start=1309,
+  serialized_end=1392,
 )
 
 
@@ -422,8 +424,79 @@ _ASSIGNEDTAGSCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1343,
-  serialized_end=1469,
+  serialized_start=1394,
+  serialized_end=1520,
+)
+
+
+_ASSIGNEDTAGSCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='AssignedTagsConfigSetSomeRequest',
+  full_name='arista.studio.v1.AssignedTagsConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.studio.v1.AssignedTagsConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1522,
+  serialized_end=1610,
+)
+
+
+_ASSIGNEDTAGSCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='AssignedTagsConfigSetSomeResponse',
+  full_name='arista.studio.v1.AssignedTagsConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.AssignedTagsConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.AssignedTagsConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1612,
+  serialized_end=1704,
 )
 
 
@@ -454,8 +527,8 @@ _ASSIGNEDTAGSCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1471,
-  serialized_end=1546,
+  serialized_start=1706,
+  serialized_end=1781,
 )
 
 
@@ -493,8 +566,703 @@ _ASSIGNEDTAGSCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1548,
-  serialized_end=1666,
+  serialized_start=1783,
+  serialized_end=1901,
+)
+
+
+_ASSIGNEDTAGSCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='AssignedTagsConfigDeleteAllRequest',
+  full_name='arista.studio.v1.AssignedTagsConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1903,
+  serialized_end=1939,
+)
+
+
+_ASSIGNEDTAGSCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='AssignedTagsConfigDeleteAllResponse',
+  full_name='arista.studio.v1.AssignedTagsConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.AssignedTagsConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.AssignedTagsConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.AssignedTagsConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AssignedTagsConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1942,
+  serialized_end=2140,
+)
+
+
+_AUTOFILLACTIONREQUEST = _descriptor.Descriptor(
+  name='AutofillActionRequest',
+  full_name='arista.studio.v1.AutofillActionRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.AutofillActionRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2142,
+  serialized_end=2257,
+)
+
+
+_AUTOFILLACTIONRESPONSE = _descriptor.Descriptor(
+  name='AutofillActionResponse',
+  full_name='arista.studio.v1.AutofillActionResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.AutofillActionResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2259,
+  serialized_end=2374,
+)
+
+
+_AUTOFILLACTIONSTREAMREQUEST = _descriptor.Descriptor(
+  name='AutofillActionStreamRequest',
+  full_name='arista.studio.v1.AutofillActionStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.studio.v1.AutofillActionStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2377,
+  serialized_end=2506,
+)
+
+
+_AUTOFILLACTIONSTREAMRESPONSE = _descriptor.Descriptor(
+  name='AutofillActionStreamResponse',
+  full_name='arista.studio.v1.AutofillActionStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.AutofillActionStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.AutofillActionStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2509,
+  serialized_end=2677,
+)
+
+
+_AUTOFILLACTIONCONFIGREQUEST = _descriptor.Descriptor(
+  name='AutofillActionConfigRequest',
+  full_name='arista.studio.v1.AutofillActionConfigRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.AutofillActionConfigRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionConfigRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2679,
+  serialized_end=2800,
+)
+
+
+_AUTOFILLACTIONCONFIGRESPONSE = _descriptor.Descriptor(
+  name='AutofillActionConfigResponse',
+  full_name='arista.studio.v1.AutofillActionConfigResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.AutofillActionConfigResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionConfigResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2802,
+  serialized_end=2929,
+)
+
+
+_AUTOFILLACTIONCONFIGSTREAMREQUEST = _descriptor.Descriptor(
+  name='AutofillActionConfigStreamRequest',
+  full_name='arista.studio.v1.AutofillActionConfigStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.studio.v1.AutofillActionConfigStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionConfigStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2932,
+  serialized_end=3073,
+)
+
+
+_AUTOFILLACTIONCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
+  name='AutofillActionConfigStreamResponse',
+  full_name='arista.studio.v1.AutofillActionConfigStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.AutofillActionConfigStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionConfigStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.AutofillActionConfigStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3076,
+  serialized_end=3256,
+)
+
+
+_AUTOFILLACTIONCONFIGSETREQUEST = _descriptor.Descriptor(
+  name='AutofillActionConfigSetRequest',
+  full_name='arista.studio.v1.AutofillActionConfigSetRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.AutofillActionConfigSetRequest.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3258,
+  serialized_end=3345,
+)
+
+
+_AUTOFILLACTIONCONFIGSETRESPONSE = _descriptor.Descriptor(
+  name='AutofillActionConfigSetResponse',
+  full_name='arista.studio.v1.AutofillActionConfigSetResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.AutofillActionConfigSetResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionConfigSetResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3348,
+  serialized_end=3478,
+)
+
+
+_AUTOFILLACTIONCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='AutofillActionConfigSetSomeRequest',
+  full_name='arista.studio.v1.AutofillActionConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.studio.v1.AutofillActionConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3480,
+  serialized_end=3572,
+)
+
+
+_AUTOFILLACTIONCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='AutofillActionConfigSetSomeResponse',
+  full_name='arista.studio.v1.AutofillActionConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.AutofillActionConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.AutofillActionConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3574,
+  serialized_end=3676,
+)
+
+
+_AUTOFILLACTIONCONFIGDELETEREQUEST = _descriptor.Descriptor(
+  name='AutofillActionConfigDeleteRequest',
+  full_name='arista.studio.v1.AutofillActionConfigDeleteRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.AutofillActionConfigDeleteRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3678,
+  serialized_end=3763,
+)
+
+
+_AUTOFILLACTIONCONFIGDELETERESPONSE = _descriptor.Descriptor(
+  name='AutofillActionConfigDeleteResponse',
+  full_name='arista.studio.v1.AutofillActionConfigDeleteResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.AutofillActionConfigDeleteResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionConfigDeleteResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3766,
+  serialized_end=3894,
+)
+
+
+_AUTOFILLACTIONCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='AutofillActionConfigDeleteAllRequest',
+  full_name='arista.studio.v1.AutofillActionConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3896,
+  serialized_end=3934,
+)
+
+
+_AUTOFILLACTIONCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='AutofillActionConfigDeleteAllResponse',
+  full_name='arista.studio.v1.AutofillActionConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.AutofillActionConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.AutofillActionConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.AutofillActionConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.AutofillActionConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3937,
+  serialized_end=4145,
 )
 
 
@@ -532,8 +1300,8 @@ _INPUTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1668,
-  serialized_end=1767,
+  serialized_start=4147,
+  serialized_end=4246,
 )
 
 
@@ -571,8 +1339,8 @@ _INPUTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1769,
-  serialized_end=1868,
+  serialized_start=4248,
+  serialized_end=4347,
 )
 
 
@@ -610,8 +1378,8 @@ _INPUTSSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1870,
-  serialized_end=1983,
+  serialized_start=4349,
+  serialized_end=4462,
 )
 
 
@@ -656,8 +1424,8 @@ _INPUTSSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1986,
-  serialized_end=2138,
+  serialized_start=4465,
+  serialized_end=4617,
 )
 
 
@@ -695,8 +1463,8 @@ _INPUTSCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2140,
-  serialized_end=2245,
+  serialized_start=4619,
+  serialized_end=4724,
 )
 
 
@@ -734,8 +1502,8 @@ _INPUTSCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2247,
-  serialized_end=2358,
+  serialized_start=4726,
+  serialized_end=4837,
 )
 
 
@@ -773,8 +1541,8 @@ _INPUTSCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2360,
-  serialized_end=2485,
+  serialized_start=4839,
+  serialized_end=4964,
 )
 
 
@@ -819,8 +1587,8 @@ _INPUTSCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2488,
-  serialized_end=2652,
+  serialized_start=4967,
+  serialized_end=5131,
 )
 
 
@@ -851,8 +1619,8 @@ _INPUTSCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2654,
-  serialized_end=2725,
+  serialized_start=5133,
+  serialized_end=5204,
 )
 
 
@@ -890,8 +1658,79 @@ _INPUTSCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2727,
-  serialized_end=2841,
+  serialized_start=5206,
+  serialized_end=5320,
+)
+
+
+_INPUTSCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='InputsConfigSetSomeRequest',
+  full_name='arista.studio.v1.InputsConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.studio.v1.InputsConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5322,
+  serialized_end=5398,
+)
+
+
+_INPUTSCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='InputsConfigSetSomeResponse',
+  full_name='arista.studio.v1.InputsConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.InputsConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.InputsConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5400,
+  serialized_end=5486,
 )
 
 
@@ -922,8 +1761,8 @@ _INPUTSCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2843,
-  serialized_end=2912,
+  serialized_start=5488,
+  serialized_end=5557,
 )
 
 
@@ -961,8 +1800,249 @@ _INPUTSCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2914,
-  serialized_end=3026,
+  serialized_start=5559,
+  serialized_end=5671,
+)
+
+
+_INPUTSCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='InputsConfigDeleteAllRequest',
+  full_name='arista.studio.v1.InputsConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5673,
+  serialized_end=5703,
+)
+
+
+_INPUTSCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='InputsConfigDeleteAllResponse',
+  full_name='arista.studio.v1.InputsConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.InputsConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.InputsConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.InputsConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.InputsConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5706,
+  serialized_end=5898,
+)
+
+
+_SECRETINPUTREQUEST = _descriptor.Descriptor(
+  name='SecretInputRequest',
+  full_name='arista.studio.v1.SecretInputRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.SecretInputRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.SecretInputRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5900,
+  serialized_end=6004,
+)
+
+
+_SECRETINPUTRESPONSE = _descriptor.Descriptor(
+  name='SecretInputResponse',
+  full_name='arista.studio.v1.SecretInputResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.SecretInputResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.SecretInputResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6006,
+  serialized_end=6115,
+)
+
+
+_SECRETINPUTSTREAMREQUEST = _descriptor.Descriptor(
+  name='SecretInputStreamRequest',
+  full_name='arista.studio.v1.SecretInputStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.studio.v1.SecretInputStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.SecretInputStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6117,
+  serialized_end=6240,
+)
+
+
+_SECRETINPUTSTREAMRESPONSE = _descriptor.Descriptor(
+  name='SecretInputStreamResponse',
+  full_name='arista.studio.v1.SecretInputStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.SecretInputStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.SecretInputStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.SecretInputStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6243,
+  serialized_end=6405,
 )
 
 
@@ -1000,8 +2080,8 @@ _STUDIOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3028,
-  serialized_end=3127,
+  serialized_start=6407,
+  serialized_end=6506,
 )
 
 
@@ -1039,8 +2119,8 @@ _STUDIORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3129,
-  serialized_end=3228,
+  serialized_start=6508,
+  serialized_end=6607,
 )
 
 
@@ -1078,8 +2158,8 @@ _STUDIOSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3230,
-  serialized_end=3343,
+  serialized_start=6609,
+  serialized_end=6722,
 )
 
 
@@ -1124,8 +2204,8 @@ _STUDIOSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3346,
-  serialized_end=3498,
+  serialized_start=6725,
+  serialized_end=6877,
 )
 
 
@@ -1163,8 +2243,8 @@ _STUDIOCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3500,
-  serialized_end=3605,
+  serialized_start=6879,
+  serialized_end=6984,
 )
 
 
@@ -1202,8 +2282,8 @@ _STUDIOCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3607,
-  serialized_end=3718,
+  serialized_start=6986,
+  serialized_end=7097,
 )
 
 
@@ -1241,8 +2321,8 @@ _STUDIOCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3720,
-  serialized_end=3845,
+  serialized_start=7099,
+  serialized_end=7224,
 )
 
 
@@ -1287,8 +2367,8 @@ _STUDIOCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3848,
-  serialized_end=4012,
+  serialized_start=7227,
+  serialized_end=7391,
 )
 
 
@@ -1319,8 +2399,8 @@ _STUDIOCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4014,
-  serialized_end=4085,
+  serialized_start=7393,
+  serialized_end=7464,
 )
 
 
@@ -1358,8 +2438,79 @@ _STUDIOCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4087,
-  serialized_end=4201,
+  serialized_start=7466,
+  serialized_end=7580,
+)
+
+
+_STUDIOCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='StudioConfigSetSomeRequest',
+  full_name='arista.studio.v1.StudioConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.studio.v1.StudioConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7582,
+  serialized_end=7658,
+)
+
+
+_STUDIOCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='StudioConfigSetSomeResponse',
+  full_name='arista.studio.v1.StudioConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.StudioConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.StudioConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7660,
+  serialized_end=7746,
 )
 
 
@@ -1390,8 +2541,8 @@ _STUDIOCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4203,
-  serialized_end=4272,
+  serialized_start=7748,
+  serialized_end=7817,
 )
 
 
@@ -1429,8 +2580,2100 @@ _STUDIOCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4274,
-  serialized_end=4386,
+  serialized_start=7819,
+  serialized_end=7931,
+)
+
+
+_STUDIOCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='StudioConfigDeleteAllRequest',
+  full_name='arista.studio.v1.StudioConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7933,
+  serialized_end=7963,
+)
+
+
+_STUDIOCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='StudioConfigDeleteAllResponse',
+  full_name='arista.studio.v1.StudioConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.StudioConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.StudioConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.StudioConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.StudioConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7966,
+  serialized_end=8158,
+)
+
+
+_STUDIOSUMMARYREQUEST = _descriptor.Descriptor(
+  name='StudioSummaryRequest',
+  full_name='arista.studio.v1.StudioSummaryRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.StudioSummaryRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.StudioSummaryRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8160,
+  serialized_end=8266,
+)
+
+
+_STUDIOSUMMARYRESPONSE = _descriptor.Descriptor(
+  name='StudioSummaryResponse',
+  full_name='arista.studio.v1.StudioSummaryResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.StudioSummaryResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.StudioSummaryResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8268,
+  serialized_end=8381,
+)
+
+
+_STUDIOSUMMARYSTREAMREQUEST = _descriptor.Descriptor(
+  name='StudioSummaryStreamRequest',
+  full_name='arista.studio.v1.StudioSummaryStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.studio.v1.StudioSummaryStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.StudioSummaryStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8383,
+  serialized_end=8510,
+)
+
+
+_STUDIOSUMMARYSTREAMRESPONSE = _descriptor.Descriptor(
+  name='StudioSummaryStreamResponse',
+  full_name='arista.studio.v1.StudioSummaryStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.StudioSummaryStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.StudioSummaryStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.StudioSummaryStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8513,
+  serialized_end=8679,
+)
+
+
+_TOPOLOGYINPUTREQUEST = _descriptor.Descriptor(
+  name='TopologyInputRequest',
+  full_name='arista.studio.v1.TopologyInputRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyInputRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8681,
+  serialized_end=8794,
+)
+
+
+_TOPOLOGYINPUTRESPONSE = _descriptor.Descriptor(
+  name='TopologyInputResponse',
+  full_name='arista.studio.v1.TopologyInputResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyInputResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8796,
+  serialized_end=8909,
+)
+
+
+_TOPOLOGYINPUTSTREAMREQUEST = _descriptor.Descriptor(
+  name='TopologyInputStreamRequest',
+  full_name='arista.studio.v1.TopologyInputStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.studio.v1.TopologyInputStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8911,
+  serialized_end=9038,
+)
+
+
+_TOPOLOGYINPUTSTREAMRESPONSE = _descriptor.Descriptor(
+  name='TopologyInputStreamResponse',
+  full_name='arista.studio.v1.TopologyInputStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyInputStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.TopologyInputStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9041,
+  serialized_end=9207,
+)
+
+
+_TOPOLOGYINPUTCONFIGREQUEST = _descriptor.Descriptor(
+  name='TopologyInputConfigRequest',
+  full_name='arista.studio.v1.TopologyInputConfigRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyInputConfigRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputConfigRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9209,
+  serialized_end=9328,
+)
+
+
+_TOPOLOGYINPUTCONFIGRESPONSE = _descriptor.Descriptor(
+  name='TopologyInputConfigResponse',
+  full_name='arista.studio.v1.TopologyInputConfigResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyInputConfigResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputConfigResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9330,
+  serialized_end=9455,
+)
+
+
+_TOPOLOGYINPUTCONFIGSTREAMREQUEST = _descriptor.Descriptor(
+  name='TopologyInputConfigStreamRequest',
+  full_name='arista.studio.v1.TopologyInputConfigStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.studio.v1.TopologyInputConfigStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputConfigStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9458,
+  serialized_end=9597,
+)
+
+
+_TOPOLOGYINPUTCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
+  name='TopologyInputConfigStreamResponse',
+  full_name='arista.studio.v1.TopologyInputConfigStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyInputConfigStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputConfigStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.TopologyInputConfigStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9600,
+  serialized_end=9778,
+)
+
+
+_TOPOLOGYINPUTCONFIGSETREQUEST = _descriptor.Descriptor(
+  name='TopologyInputConfigSetRequest',
+  full_name='arista.studio.v1.TopologyInputConfigSetRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyInputConfigSetRequest.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9780,
+  serialized_end=9865,
+)
+
+
+_TOPOLOGYINPUTCONFIGSETRESPONSE = _descriptor.Descriptor(
+  name='TopologyInputConfigSetResponse',
+  full_name='arista.studio.v1.TopologyInputConfigSetResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyInputConfigSetResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputConfigSetResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9868,
+  serialized_end=9996,
+)
+
+
+_TOPOLOGYINPUTCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='TopologyInputConfigSetSomeRequest',
+  full_name='arista.studio.v1.TopologyInputConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.studio.v1.TopologyInputConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9998,
+  serialized_end=10088,
+)
+
+
+_TOPOLOGYINPUTCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='TopologyInputConfigSetSomeResponse',
+  full_name='arista.studio.v1.TopologyInputConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyInputConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.TopologyInputConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10090,
+  serialized_end=10190,
+)
+
+
+_TOPOLOGYINPUTCONFIGDELETEREQUEST = _descriptor.Descriptor(
+  name='TopologyInputConfigDeleteRequest',
+  full_name='arista.studio.v1.TopologyInputConfigDeleteRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyInputConfigDeleteRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10192,
+  serialized_end=10275,
+)
+
+
+_TOPOLOGYINPUTCONFIGDELETERESPONSE = _descriptor.Descriptor(
+  name='TopologyInputConfigDeleteResponse',
+  full_name='arista.studio.v1.TopologyInputConfigDeleteResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyInputConfigDeleteResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputConfigDeleteResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10277,
+  serialized_end=10403,
+)
+
+
+_TOPOLOGYINPUTCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='TopologyInputConfigDeleteAllRequest',
+  full_name='arista.studio.v1.TopologyInputConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10405,
+  serialized_end=10442,
+)
+
+
+_TOPOLOGYINPUTCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='TopologyInputConfigDeleteAllResponse',
+  full_name='arista.studio.v1.TopologyInputConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.TopologyInputConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.TopologyInputConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyInputConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyInputConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10445,
+  serialized_end=10651,
+)
+
+
+_TOPOLOGYUPDATEREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateRequest',
+  full_name='arista.studio.v1.TopologyUpdateRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10653,
+  serialized_end=10768,
+)
+
+
+_TOPOLOGYUPDATERESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateResponse',
+  full_name='arista.studio.v1.TopologyUpdateResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10770,
+  serialized_end=10885,
+)
+
+
+_TOPOLOGYUPDATESTREAMREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateStreamRequest',
+  full_name='arista.studio.v1.TopologyUpdateStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.studio.v1.TopologyUpdateStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10888,
+  serialized_end=11017,
+)
+
+
+_TOPOLOGYUPDATESTREAMRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateStreamResponse',
+  full_name='arista.studio.v1.TopologyUpdateStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.TopologyUpdateStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11020,
+  serialized_end=11188,
+)
+
+
+_TOPOLOGYUPDATECONFIGREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateConfigRequest',
+  full_name='arista.studio.v1.TopologyUpdateConfigRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateConfigRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateConfigRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11190,
+  serialized_end=11311,
+)
+
+
+_TOPOLOGYUPDATECONFIGRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateConfigResponse',
+  full_name='arista.studio.v1.TopologyUpdateConfigResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateConfigResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateConfigResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11313,
+  serialized_end=11440,
+)
+
+
+_TOPOLOGYUPDATECONFIGSTREAMREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateConfigStreamRequest',
+  full_name='arista.studio.v1.TopologyUpdateConfigStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.studio.v1.TopologyUpdateConfigStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateConfigStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11443,
+  serialized_end=11584,
+)
+
+
+_TOPOLOGYUPDATECONFIGSTREAMRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateConfigStreamResponse',
+  full_name='arista.studio.v1.TopologyUpdateConfigStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateConfigStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateConfigStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.TopologyUpdateConfigStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11587,
+  serialized_end=11767,
+)
+
+
+_TOPOLOGYUPDATECONFIGSETREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateConfigSetRequest',
+  full_name='arista.studio.v1.TopologyUpdateConfigSetRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateConfigSetRequest.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11769,
+  serialized_end=11856,
+)
+
+
+_TOPOLOGYUPDATECONFIGSETRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateConfigSetResponse',
+  full_name='arista.studio.v1.TopologyUpdateConfigSetResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateConfigSetResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateConfigSetResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11859,
+  serialized_end=11989,
+)
+
+
+_TOPOLOGYUPDATECONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateConfigSetSomeRequest',
+  full_name='arista.studio.v1.TopologyUpdateConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.studio.v1.TopologyUpdateConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11991,
+  serialized_end=12083,
+)
+
+
+_TOPOLOGYUPDATECONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateConfigSetSomeResponse',
+  full_name='arista.studio.v1.TopologyUpdateConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.TopologyUpdateConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=12085,
+  serialized_end=12187,
+)
+
+
+_TOPOLOGYUPDATECONFIGDELETEREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateConfigDeleteRequest',
+  full_name='arista.studio.v1.TopologyUpdateConfigDeleteRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateConfigDeleteRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=12189,
+  serialized_end=12274,
+)
+
+
+_TOPOLOGYUPDATECONFIGDELETERESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateConfigDeleteResponse',
+  full_name='arista.studio.v1.TopologyUpdateConfigDeleteResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateConfigDeleteResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateConfigDeleteResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=12277,
+  serialized_end=12405,
+)
+
+
+_TOPOLOGYUPDATECONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateConfigDeleteAllRequest',
+  full_name='arista.studio.v1.TopologyUpdateConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=12407,
+  serialized_end=12445,
+)
+
+
+_TOPOLOGYUPDATECONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateConfigDeleteAllResponse',
+  full_name='arista.studio.v1.TopologyUpdateConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.TopologyUpdateConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.TopologyUpdateConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=12448,
+  serialized_end=12656,
+)
+
+
+_TOPOLOGYUPDATESYNCREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateSyncRequest',
+  full_name='arista.studio.v1.TopologyUpdateSyncRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateSyncRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=12658,
+  serialized_end=12772,
+)
+
+
+_TOPOLOGYUPDATESYNCRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateSyncResponse',
+  full_name='arista.studio.v1.TopologyUpdateSyncResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateSyncResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=12774,
+  serialized_end=12897,
+)
+
+
+_TOPOLOGYUPDATESYNCSTREAMREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateSyncStreamRequest',
+  full_name='arista.studio.v1.TopologyUpdateSyncStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.studio.v1.TopologyUpdateSyncStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=12900,
+  serialized_end=13037,
+)
+
+
+_TOPOLOGYUPDATESYNCSTREAMRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateSyncStreamResponse',
+  full_name='arista.studio.v1.TopologyUpdateSyncStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateSyncStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.TopologyUpdateSyncStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=13040,
+  serialized_end=13216,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigRequest',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateSyncConfigRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncConfigRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=13218,
+  serialized_end=13338,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigResponse',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateSyncConfigResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncConfigResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=13341,
+  serialized_end=13476,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGSTREAMREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigStreamRequest',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.studio.v1.TopologyUpdateSyncConfigStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncConfigStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=13479,
+  serialized_end=13628,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigStreamResponse',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateSyncConfigStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncConfigStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.TopologyUpdateSyncConfigStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=13631,
+  serialized_end=13819,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGSETREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigSetRequest',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigSetRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateSyncConfigSetRequest.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=13821,
+  serialized_end=13916,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGSETRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigSetResponse',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigSetResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.TopologyUpdateSyncConfigSetResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncConfigSetResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=13919,
+  serialized_end=14057,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigSetSomeRequest',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.studio.v1.TopologyUpdateSyncConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=14059,
+  serialized_end=14159,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigSetSomeResponse',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateSyncConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.TopologyUpdateSyncConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=14161,
+  serialized_end=14262,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGDELETEREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigDeleteRequest',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=14264,
+  serialized_end=14348,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGDELETERESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigDeleteResponse',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=14350,
+  serialized_end=14477,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigDeleteAllRequest',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=14479,
+  serialized_end=14521,
+)
+
+
+_TOPOLOGYUPDATESYNCCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='TopologyUpdateSyncConfigDeleteAllResponse',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.studio.v1.TopologyUpdateSyncConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=14524,
+  serialized_end=14731,
 )
 
 _ASSIGNEDTAGSREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
@@ -1454,9 +4697,45 @@ _ASSIGNEDTAGSCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_
 _ASSIGNEDTAGSCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._ASSIGNEDTAGSCONFIG
 _ASSIGNEDTAGSCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._ASSIGNEDTAGSCONFIG
 _ASSIGNEDTAGSCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_ASSIGNEDTAGSCONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._ASSIGNEDTAGSCONFIG
+_ASSIGNEDTAGSCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
 _ASSIGNEDTAGSCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
 _ASSIGNEDTAGSCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
 _ASSIGNEDTAGSCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_ASSIGNEDTAGSCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_ASSIGNEDTAGSCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_ASSIGNEDTAGSCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
+_ASSIGNEDTAGSCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_AUTOFILLACTIONREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONKEY
+_AUTOFILLACTIONREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_AUTOFILLACTIONRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTION
+_AUTOFILLACTIONRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_AUTOFILLACTIONSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTION
+_AUTOFILLACTIONSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_AUTOFILLACTIONSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTION
+_AUTOFILLACTIONSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_AUTOFILLACTIONSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_AUTOFILLACTIONCONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONKEY
+_AUTOFILLACTIONCONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_AUTOFILLACTIONCONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONCONFIG
+_AUTOFILLACTIONCONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_AUTOFILLACTIONCONFIGSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONCONFIG
+_AUTOFILLACTIONCONFIGSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_AUTOFILLACTIONCONFIGSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONCONFIG
+_AUTOFILLACTIONCONFIGSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_AUTOFILLACTIONCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_AUTOFILLACTIONCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONCONFIG
+_AUTOFILLACTIONCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONCONFIG
+_AUTOFILLACTIONCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_AUTOFILLACTIONCONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONCONFIG
+_AUTOFILLACTIONCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONKEY
+_AUTOFILLACTIONCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONKEY
+_AUTOFILLACTIONCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONKEY
+_AUTOFILLACTIONCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_AUTOFILLACTIONCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_AUTOFILLACTIONCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_AUTOFILLACTIONCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._AUTOFILLACTIONKEY
+_AUTOFILLACTIONCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _INPUTSREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._INPUTSKEY
 _INPUTSREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _INPUTSRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._INPUTS
@@ -1478,9 +4757,24 @@ _INPUTSCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscr
 _INPUTSCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._INPUTSCONFIG
 _INPUTSCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._INPUTSCONFIG
 _INPUTSCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_INPUTSCONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._INPUTSCONFIG
+_INPUTSCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._INPUTSKEY
 _INPUTSCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._INPUTSKEY
 _INPUTSCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._INPUTSKEY
 _INPUTSCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_INPUTSCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_INPUTSCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_INPUTSCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._INPUTSKEY
+_INPUTSCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECRETINPUTREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._INPUTSKEY
+_SECRETINPUTREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECRETINPUTRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._SECRETINPUT
+_SECRETINPUTRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECRETINPUTSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._SECRETINPUT
+_SECRETINPUTSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_SECRETINPUTSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._SECRETINPUT
+_SECRETINPUTSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECRETINPUTSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
 _STUDIOREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
 _STUDIOREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _STUDIORESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIO
@@ -1502,9 +4796,114 @@ _STUDIOCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscr
 _STUDIOCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOCONFIG
 _STUDIOCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOCONFIG
 _STUDIOCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_STUDIOCONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOCONFIG
+_STUDIOCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
 _STUDIOCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
 _STUDIOCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
 _STUDIOCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_STUDIOCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_STUDIOCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_STUDIOCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
+_STUDIOCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_STUDIOSUMMARYREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOKEY
+_STUDIOSUMMARYREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_STUDIOSUMMARYRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOSUMMARY
+_STUDIOSUMMARYRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_STUDIOSUMMARYSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOSUMMARY
+_STUDIOSUMMARYSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_STUDIOSUMMARYSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._STUDIOSUMMARY
+_STUDIOSUMMARYSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_STUDIOSUMMARYSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_TOPOLOGYINPUTREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTKEY
+_TOPOLOGYINPUTREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYINPUTRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUT
+_TOPOLOGYINPUTRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYINPUTSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUT
+_TOPOLOGYINPUTSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_TOPOLOGYINPUTSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUT
+_TOPOLOGYINPUTSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYINPUTSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_TOPOLOGYINPUTCONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTKEY
+_TOPOLOGYINPUTCONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYINPUTCONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTCONFIG
+_TOPOLOGYINPUTCONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYINPUTCONFIGSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTCONFIG
+_TOPOLOGYINPUTCONFIGSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_TOPOLOGYINPUTCONFIGSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTCONFIG
+_TOPOLOGYINPUTCONFIGSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYINPUTCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_TOPOLOGYINPUTCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTCONFIG
+_TOPOLOGYINPUTCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTCONFIG
+_TOPOLOGYINPUTCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYINPUTCONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTCONFIG
+_TOPOLOGYINPUTCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTKEY
+_TOPOLOGYINPUTCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTKEY
+_TOPOLOGYINPUTCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTKEY
+_TOPOLOGYINPUTCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYINPUTCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_TOPOLOGYINPUTCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_TOPOLOGYINPUTCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYINPUTKEY
+_TOPOLOGYINPUTCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATEREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATEKEY
+_TOPOLOGYUPDATEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATERESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATE
+_TOPOLOGYUPDATERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATE
+_TOPOLOGYUPDATESTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_TOPOLOGYUPDATESTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATE
+_TOPOLOGYUPDATESTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_TOPOLOGYUPDATECONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATEKEY
+_TOPOLOGYUPDATECONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATECONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATECONFIG
+_TOPOLOGYUPDATECONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATECONFIGSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATECONFIG
+_TOPOLOGYUPDATECONFIGSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_TOPOLOGYUPDATECONFIGSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATECONFIG
+_TOPOLOGYUPDATECONFIGSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATECONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_TOPOLOGYUPDATECONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATECONFIG
+_TOPOLOGYUPDATECONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATECONFIG
+_TOPOLOGYUPDATECONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATECONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATECONFIG
+_TOPOLOGYUPDATECONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATEKEY
+_TOPOLOGYUPDATECONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATEKEY
+_TOPOLOGYUPDATECONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATEKEY
+_TOPOLOGYUPDATECONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATECONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_TOPOLOGYUPDATECONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_TOPOLOGYUPDATECONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATEKEY
+_TOPOLOGYUPDATECONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESYNCREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._WORKSPACEKEY
+_TOPOLOGYUPDATESYNCREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESYNCRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATESYNC
+_TOPOLOGYUPDATESYNCRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESYNCSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATESYNC
+_TOPOLOGYUPDATESYNCSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_TOPOLOGYUPDATESYNCSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATESYNC
+_TOPOLOGYUPDATESYNCSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESYNCSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_TOPOLOGYUPDATESYNCCONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._WORKSPACEKEY
+_TOPOLOGYUPDATESYNCCONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESYNCCONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATESYNCCONFIG
+_TOPOLOGYUPDATESYNCCONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESYNCCONFIGSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATESYNCCONFIG
+_TOPOLOGYUPDATESYNCCONFIGSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_TOPOLOGYUPDATESYNCCONFIGSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATESYNCCONFIG
+_TOPOLOGYUPDATESYNCCONFIGSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESYNCCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_TOPOLOGYUPDATESYNCCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATESYNCCONFIG
+_TOPOLOGYUPDATESYNCCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATESYNCCONFIG
+_TOPOLOGYUPDATESYNCCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESYNCCONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._TOPOLOGYUPDATESYNCCONFIG
+_TOPOLOGYUPDATESYNCCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._WORKSPACEKEY
+_TOPOLOGYUPDATESYNCCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._WORKSPACEKEY
+_TOPOLOGYUPDATESYNCCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._WORKSPACEKEY
+_TOPOLOGYUPDATESYNCCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TOPOLOGYUPDATESYNCCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_TOPOLOGYUPDATESYNCCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_TOPOLOGYUPDATESYNCCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_studio_dot_v1_dot_studio__pb2._WORKSPACEKEY
+_TOPOLOGYUPDATESYNCCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['AssignedTagsRequest'] = _ASSIGNEDTAGSREQUEST
 DESCRIPTOR.message_types_by_name['AssignedTagsResponse'] = _ASSIGNEDTAGSRESPONSE
 DESCRIPTOR.message_types_by_name['AssignedTagsStreamRequest'] = _ASSIGNEDTAGSSTREAMREQUEST
@@ -1515,8 +4914,28 @@ DESCRIPTOR.message_types_by_name['AssignedTagsConfigStreamRequest'] = _ASSIGNEDT
 DESCRIPTOR.message_types_by_name['AssignedTagsConfigStreamResponse'] = _ASSIGNEDTAGSCONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['AssignedTagsConfigSetRequest'] = _ASSIGNEDTAGSCONFIGSETREQUEST
 DESCRIPTOR.message_types_by_name['AssignedTagsConfigSetResponse'] = _ASSIGNEDTAGSCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['AssignedTagsConfigSetSomeRequest'] = _ASSIGNEDTAGSCONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['AssignedTagsConfigSetSomeResponse'] = _ASSIGNEDTAGSCONFIGSETSOMERESPONSE
 DESCRIPTOR.message_types_by_name['AssignedTagsConfigDeleteRequest'] = _ASSIGNEDTAGSCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['AssignedTagsConfigDeleteResponse'] = _ASSIGNEDTAGSCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['AssignedTagsConfigDeleteAllRequest'] = _ASSIGNEDTAGSCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['AssignedTagsConfigDeleteAllResponse'] = _ASSIGNEDTAGSCONFIGDELETEALLRESPONSE
+DESCRIPTOR.message_types_by_name['AutofillActionRequest'] = _AUTOFILLACTIONREQUEST
+DESCRIPTOR.message_types_by_name['AutofillActionResponse'] = _AUTOFILLACTIONRESPONSE
+DESCRIPTOR.message_types_by_name['AutofillActionStreamRequest'] = _AUTOFILLACTIONSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['AutofillActionStreamResponse'] = _AUTOFILLACTIONSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['AutofillActionConfigRequest'] = _AUTOFILLACTIONCONFIGREQUEST
+DESCRIPTOR.message_types_by_name['AutofillActionConfigResponse'] = _AUTOFILLACTIONCONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['AutofillActionConfigStreamRequest'] = _AUTOFILLACTIONCONFIGSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['AutofillActionConfigStreamResponse'] = _AUTOFILLACTIONCONFIGSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['AutofillActionConfigSetRequest'] = _AUTOFILLACTIONCONFIGSETREQUEST
+DESCRIPTOR.message_types_by_name['AutofillActionConfigSetResponse'] = _AUTOFILLACTIONCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['AutofillActionConfigSetSomeRequest'] = _AUTOFILLACTIONCONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['AutofillActionConfigSetSomeResponse'] = _AUTOFILLACTIONCONFIGSETSOMERESPONSE
+DESCRIPTOR.message_types_by_name['AutofillActionConfigDeleteRequest'] = _AUTOFILLACTIONCONFIGDELETEREQUEST
+DESCRIPTOR.message_types_by_name['AutofillActionConfigDeleteResponse'] = _AUTOFILLACTIONCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['AutofillActionConfigDeleteAllRequest'] = _AUTOFILLACTIONCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['AutofillActionConfigDeleteAllResponse'] = _AUTOFILLACTIONCONFIGDELETEALLRESPONSE
 DESCRIPTOR.message_types_by_name['InputsRequest'] = _INPUTSREQUEST
 DESCRIPTOR.message_types_by_name['InputsResponse'] = _INPUTSRESPONSE
 DESCRIPTOR.message_types_by_name['InputsStreamRequest'] = _INPUTSSTREAMREQUEST
@@ -1527,8 +4946,16 @@ DESCRIPTOR.message_types_by_name['InputsConfigStreamRequest'] = _INPUTSCONFIGSTR
 DESCRIPTOR.message_types_by_name['InputsConfigStreamResponse'] = _INPUTSCONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['InputsConfigSetRequest'] = _INPUTSCONFIGSETREQUEST
 DESCRIPTOR.message_types_by_name['InputsConfigSetResponse'] = _INPUTSCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['InputsConfigSetSomeRequest'] = _INPUTSCONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['InputsConfigSetSomeResponse'] = _INPUTSCONFIGSETSOMERESPONSE
 DESCRIPTOR.message_types_by_name['InputsConfigDeleteRequest'] = _INPUTSCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['InputsConfigDeleteResponse'] = _INPUTSCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['InputsConfigDeleteAllRequest'] = _INPUTSCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['InputsConfigDeleteAllResponse'] = _INPUTSCONFIGDELETEALLRESPONSE
+DESCRIPTOR.message_types_by_name['SecretInputRequest'] = _SECRETINPUTREQUEST
+DESCRIPTOR.message_types_by_name['SecretInputResponse'] = _SECRETINPUTRESPONSE
+DESCRIPTOR.message_types_by_name['SecretInputStreamRequest'] = _SECRETINPUTSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['SecretInputStreamResponse'] = _SECRETINPUTSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['StudioRequest'] = _STUDIOREQUEST
 DESCRIPTOR.message_types_by_name['StudioResponse'] = _STUDIORESPONSE
 DESCRIPTOR.message_types_by_name['StudioStreamRequest'] = _STUDIOSTREAMREQUEST
@@ -1539,8 +4966,64 @@ DESCRIPTOR.message_types_by_name['StudioConfigStreamRequest'] = _STUDIOCONFIGSTR
 DESCRIPTOR.message_types_by_name['StudioConfigStreamResponse'] = _STUDIOCONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['StudioConfigSetRequest'] = _STUDIOCONFIGSETREQUEST
 DESCRIPTOR.message_types_by_name['StudioConfigSetResponse'] = _STUDIOCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['StudioConfigSetSomeRequest'] = _STUDIOCONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['StudioConfigSetSomeResponse'] = _STUDIOCONFIGSETSOMERESPONSE
 DESCRIPTOR.message_types_by_name['StudioConfigDeleteRequest'] = _STUDIOCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['StudioConfigDeleteResponse'] = _STUDIOCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['StudioConfigDeleteAllRequest'] = _STUDIOCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['StudioConfigDeleteAllResponse'] = _STUDIOCONFIGDELETEALLRESPONSE
+DESCRIPTOR.message_types_by_name['StudioSummaryRequest'] = _STUDIOSUMMARYREQUEST
+DESCRIPTOR.message_types_by_name['StudioSummaryResponse'] = _STUDIOSUMMARYRESPONSE
+DESCRIPTOR.message_types_by_name['StudioSummaryStreamRequest'] = _STUDIOSUMMARYSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['StudioSummaryStreamResponse'] = _STUDIOSUMMARYSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyInputRequest'] = _TOPOLOGYINPUTREQUEST
+DESCRIPTOR.message_types_by_name['TopologyInputResponse'] = _TOPOLOGYINPUTRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyInputStreamRequest'] = _TOPOLOGYINPUTSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['TopologyInputStreamResponse'] = _TOPOLOGYINPUTSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyInputConfigRequest'] = _TOPOLOGYINPUTCONFIGREQUEST
+DESCRIPTOR.message_types_by_name['TopologyInputConfigResponse'] = _TOPOLOGYINPUTCONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyInputConfigStreamRequest'] = _TOPOLOGYINPUTCONFIGSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['TopologyInputConfigStreamResponse'] = _TOPOLOGYINPUTCONFIGSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyInputConfigSetRequest'] = _TOPOLOGYINPUTCONFIGSETREQUEST
+DESCRIPTOR.message_types_by_name['TopologyInputConfigSetResponse'] = _TOPOLOGYINPUTCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyInputConfigSetSomeRequest'] = _TOPOLOGYINPUTCONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['TopologyInputConfigSetSomeResponse'] = _TOPOLOGYINPUTCONFIGSETSOMERESPONSE
+DESCRIPTOR.message_types_by_name['TopologyInputConfigDeleteRequest'] = _TOPOLOGYINPUTCONFIGDELETEREQUEST
+DESCRIPTOR.message_types_by_name['TopologyInputConfigDeleteResponse'] = _TOPOLOGYINPUTCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['TopologyInputConfigDeleteAllRequest'] = _TOPOLOGYINPUTCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['TopologyInputConfigDeleteAllResponse'] = _TOPOLOGYINPUTCONFIGDELETEALLRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateRequest'] = _TOPOLOGYUPDATEREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateResponse'] = _TOPOLOGYUPDATERESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateStreamRequest'] = _TOPOLOGYUPDATESTREAMREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateStreamResponse'] = _TOPOLOGYUPDATESTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigRequest'] = _TOPOLOGYUPDATECONFIGREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigResponse'] = _TOPOLOGYUPDATECONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigStreamRequest'] = _TOPOLOGYUPDATECONFIGSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigStreamResponse'] = _TOPOLOGYUPDATECONFIGSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigSetRequest'] = _TOPOLOGYUPDATECONFIGSETREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigSetResponse'] = _TOPOLOGYUPDATECONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigSetSomeRequest'] = _TOPOLOGYUPDATECONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigSetSomeResponse'] = _TOPOLOGYUPDATECONFIGSETSOMERESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigDeleteRequest'] = _TOPOLOGYUPDATECONFIGDELETEREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigDeleteResponse'] = _TOPOLOGYUPDATECONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigDeleteAllRequest'] = _TOPOLOGYUPDATECONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateConfigDeleteAllResponse'] = _TOPOLOGYUPDATECONFIGDELETEALLRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncRequest'] = _TOPOLOGYUPDATESYNCREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncResponse'] = _TOPOLOGYUPDATESYNCRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncStreamRequest'] = _TOPOLOGYUPDATESYNCSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncStreamResponse'] = _TOPOLOGYUPDATESYNCSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigRequest'] = _TOPOLOGYUPDATESYNCCONFIGREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigResponse'] = _TOPOLOGYUPDATESYNCCONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigStreamRequest'] = _TOPOLOGYUPDATESYNCCONFIGSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigStreamResponse'] = _TOPOLOGYUPDATESYNCCONFIGSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigSetRequest'] = _TOPOLOGYUPDATESYNCCONFIGSETREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigSetResponse'] = _TOPOLOGYUPDATESYNCCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigSetSomeRequest'] = _TOPOLOGYUPDATESYNCCONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigSetSomeResponse'] = _TOPOLOGYUPDATESYNCCONFIGSETSOMERESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigDeleteRequest'] = _TOPOLOGYUPDATESYNCCONFIGDELETEREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigDeleteResponse'] = _TOPOLOGYUPDATESYNCCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigDeleteAllRequest'] = _TOPOLOGYUPDATESYNCCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfigDeleteAllResponse'] = _TOPOLOGYUPDATESYNCCONFIGDELETEALLRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 AssignedTagsRequest = _reflection.GeneratedProtocolMessageType('AssignedTagsRequest', (_message.Message,), {
@@ -1613,6 +5096,20 @@ AssignedTagsConfigSetResponse = _reflection.GeneratedProtocolMessageType('Assign
   })
 _sym_db.RegisterMessage(AssignedTagsConfigSetResponse)
 
+AssignedTagsConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('AssignedTagsConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ASSIGNEDTAGSCONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AssignedTagsConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(AssignedTagsConfigSetSomeRequest)
+
+AssignedTagsConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('AssignedTagsConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _ASSIGNEDTAGSCONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AssignedTagsConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(AssignedTagsConfigSetSomeResponse)
+
 AssignedTagsConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('AssignedTagsConfigDeleteRequest', (_message.Message,), {
   'DESCRIPTOR' : _ASSIGNEDTAGSCONFIGDELETEREQUEST,
   '__module__' : 'arista.studio.v1.services.gen_pb2'
@@ -1626,6 +5123,132 @@ AssignedTagsConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('Ass
   # @@protoc_insertion_point(class_scope:arista.studio.v1.AssignedTagsConfigDeleteResponse)
   })
 _sym_db.RegisterMessage(AssignedTagsConfigDeleteResponse)
+
+AssignedTagsConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('AssignedTagsConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ASSIGNEDTAGSCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AssignedTagsConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(AssignedTagsConfigDeleteAllRequest)
+
+AssignedTagsConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('AssignedTagsConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _ASSIGNEDTAGSCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AssignedTagsConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(AssignedTagsConfigDeleteAllResponse)
+
+AutofillActionRequest = _reflection.GeneratedProtocolMessageType('AutofillActionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionRequest)
+  })
+_sym_db.RegisterMessage(AutofillActionRequest)
+
+AutofillActionResponse = _reflection.GeneratedProtocolMessageType('AutofillActionResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionResponse)
+  })
+_sym_db.RegisterMessage(AutofillActionResponse)
+
+AutofillActionStreamRequest = _reflection.GeneratedProtocolMessageType('AutofillActionStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONSTREAMREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionStreamRequest)
+  })
+_sym_db.RegisterMessage(AutofillActionStreamRequest)
+
+AutofillActionStreamResponse = _reflection.GeneratedProtocolMessageType('AutofillActionStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONSTREAMRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionStreamResponse)
+  })
+_sym_db.RegisterMessage(AutofillActionStreamResponse)
+
+AutofillActionConfigRequest = _reflection.GeneratedProtocolMessageType('AutofillActionConfigRequest', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigRequest)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigRequest)
+
+AutofillActionConfigResponse = _reflection.GeneratedProtocolMessageType('AutofillActionConfigResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigResponse)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigResponse)
+
+AutofillActionConfigStreamRequest = _reflection.GeneratedProtocolMessageType('AutofillActionConfigStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGSTREAMREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigStreamRequest)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigStreamRequest)
+
+AutofillActionConfigStreamResponse = _reflection.GeneratedProtocolMessageType('AutofillActionConfigStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGSTREAMRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigStreamResponse)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigStreamResponse)
+
+AutofillActionConfigSetRequest = _reflection.GeneratedProtocolMessageType('AutofillActionConfigSetRequest', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGSETREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigSetRequest)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigSetRequest)
+
+AutofillActionConfigSetResponse = _reflection.GeneratedProtocolMessageType('AutofillActionConfigSetResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGSETRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigSetResponse)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigSetResponse)
+
+AutofillActionConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('AutofillActionConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigSetSomeRequest)
+
+AutofillActionConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('AutofillActionConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigSetSomeResponse)
+
+AutofillActionConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('AutofillActionConfigDeleteRequest', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGDELETEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigDeleteRequest)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigDeleteRequest)
+
+AutofillActionConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('AutofillActionConfigDeleteResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGDELETERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigDeleteResponse)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigDeleteResponse)
+
+AutofillActionConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('AutofillActionConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigDeleteAllRequest)
+
+AutofillActionConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('AutofillActionConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOFILLACTIONCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.AutofillActionConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(AutofillActionConfigDeleteAllResponse)
 
 InputsRequest = _reflection.GeneratedProtocolMessageType('InputsRequest', (_message.Message,), {
   'DESCRIPTOR' : _INPUTSREQUEST,
@@ -1697,6 +5320,20 @@ InputsConfigSetResponse = _reflection.GeneratedProtocolMessageType('InputsConfig
   })
 _sym_db.RegisterMessage(InputsConfigSetResponse)
 
+InputsConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('InputsConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _INPUTSCONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.InputsConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(InputsConfigSetSomeRequest)
+
+InputsConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('InputsConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _INPUTSCONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.InputsConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(InputsConfigSetSomeResponse)
+
 InputsConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('InputsConfigDeleteRequest', (_message.Message,), {
   'DESCRIPTOR' : _INPUTSCONFIGDELETEREQUEST,
   '__module__' : 'arista.studio.v1.services.gen_pb2'
@@ -1710,6 +5347,48 @@ InputsConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('InputsCon
   # @@protoc_insertion_point(class_scope:arista.studio.v1.InputsConfigDeleteResponse)
   })
 _sym_db.RegisterMessage(InputsConfigDeleteResponse)
+
+InputsConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('InputsConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _INPUTSCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.InputsConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(InputsConfigDeleteAllRequest)
+
+InputsConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('InputsConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _INPUTSCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.InputsConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(InputsConfigDeleteAllResponse)
+
+SecretInputRequest = _reflection.GeneratedProtocolMessageType('SecretInputRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SECRETINPUTREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.SecretInputRequest)
+  })
+_sym_db.RegisterMessage(SecretInputRequest)
+
+SecretInputResponse = _reflection.GeneratedProtocolMessageType('SecretInputResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SECRETINPUTRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.SecretInputResponse)
+  })
+_sym_db.RegisterMessage(SecretInputResponse)
+
+SecretInputStreamRequest = _reflection.GeneratedProtocolMessageType('SecretInputStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SECRETINPUTSTREAMREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.SecretInputStreamRequest)
+  })
+_sym_db.RegisterMessage(SecretInputStreamRequest)
+
+SecretInputStreamResponse = _reflection.GeneratedProtocolMessageType('SecretInputStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SECRETINPUTSTREAMRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.SecretInputStreamResponse)
+  })
+_sym_db.RegisterMessage(SecretInputStreamResponse)
 
 StudioRequest = _reflection.GeneratedProtocolMessageType('StudioRequest', (_message.Message,), {
   'DESCRIPTOR' : _STUDIOREQUEST,
@@ -1781,6 +5460,20 @@ StudioConfigSetResponse = _reflection.GeneratedProtocolMessageType('StudioConfig
   })
 _sym_db.RegisterMessage(StudioConfigSetResponse)
 
+StudioConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('StudioConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STUDIOCONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.StudioConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(StudioConfigSetSomeRequest)
+
+StudioConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('StudioConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STUDIOCONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.StudioConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(StudioConfigSetSomeResponse)
+
 StudioConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('StudioConfigDeleteRequest', (_message.Message,), {
   'DESCRIPTOR' : _STUDIOCONFIGDELETEREQUEST,
   '__module__' : 'arista.studio.v1.services.gen_pb2'
@@ -1795,6 +5488,384 @@ StudioConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('StudioCon
   })
 _sym_db.RegisterMessage(StudioConfigDeleteResponse)
 
+StudioConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('StudioConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STUDIOCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.StudioConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(StudioConfigDeleteAllRequest)
+
+StudioConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('StudioConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STUDIOCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.StudioConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(StudioConfigDeleteAllResponse)
+
+StudioSummaryRequest = _reflection.GeneratedProtocolMessageType('StudioSummaryRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STUDIOSUMMARYREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.StudioSummaryRequest)
+  })
+_sym_db.RegisterMessage(StudioSummaryRequest)
+
+StudioSummaryResponse = _reflection.GeneratedProtocolMessageType('StudioSummaryResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STUDIOSUMMARYRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.StudioSummaryResponse)
+  })
+_sym_db.RegisterMessage(StudioSummaryResponse)
+
+StudioSummaryStreamRequest = _reflection.GeneratedProtocolMessageType('StudioSummaryStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STUDIOSUMMARYSTREAMREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.StudioSummaryStreamRequest)
+  })
+_sym_db.RegisterMessage(StudioSummaryStreamRequest)
+
+StudioSummaryStreamResponse = _reflection.GeneratedProtocolMessageType('StudioSummaryStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STUDIOSUMMARYSTREAMRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.StudioSummaryStreamResponse)
+  })
+_sym_db.RegisterMessage(StudioSummaryStreamResponse)
+
+TopologyInputRequest = _reflection.GeneratedProtocolMessageType('TopologyInputRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputRequest)
+  })
+_sym_db.RegisterMessage(TopologyInputRequest)
+
+TopologyInputResponse = _reflection.GeneratedProtocolMessageType('TopologyInputResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputResponse)
+  })
+_sym_db.RegisterMessage(TopologyInputResponse)
+
+TopologyInputStreamRequest = _reflection.GeneratedProtocolMessageType('TopologyInputStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTSTREAMREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputStreamRequest)
+  })
+_sym_db.RegisterMessage(TopologyInputStreamRequest)
+
+TopologyInputStreamResponse = _reflection.GeneratedProtocolMessageType('TopologyInputStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTSTREAMRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputStreamResponse)
+  })
+_sym_db.RegisterMessage(TopologyInputStreamResponse)
+
+TopologyInputConfigRequest = _reflection.GeneratedProtocolMessageType('TopologyInputConfigRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigRequest)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigRequest)
+
+TopologyInputConfigResponse = _reflection.GeneratedProtocolMessageType('TopologyInputConfigResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigResponse)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigResponse)
+
+TopologyInputConfigStreamRequest = _reflection.GeneratedProtocolMessageType('TopologyInputConfigStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGSTREAMREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigStreamRequest)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigStreamRequest)
+
+TopologyInputConfigStreamResponse = _reflection.GeneratedProtocolMessageType('TopologyInputConfigStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGSTREAMRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigStreamResponse)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigStreamResponse)
+
+TopologyInputConfigSetRequest = _reflection.GeneratedProtocolMessageType('TopologyInputConfigSetRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGSETREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigSetRequest)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigSetRequest)
+
+TopologyInputConfigSetResponse = _reflection.GeneratedProtocolMessageType('TopologyInputConfigSetResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGSETRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigSetResponse)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigSetResponse)
+
+TopologyInputConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('TopologyInputConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigSetSomeRequest)
+
+TopologyInputConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('TopologyInputConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigSetSomeResponse)
+
+TopologyInputConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('TopologyInputConfigDeleteRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGDELETEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigDeleteRequest)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigDeleteRequest)
+
+TopologyInputConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('TopologyInputConfigDeleteResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGDELETERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigDeleteResponse)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigDeleteResponse)
+
+TopologyInputConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('TopologyInputConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigDeleteAllRequest)
+
+TopologyInputConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('TopologyInputConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(TopologyInputConfigDeleteAllResponse)
+
+TopologyUpdateRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateRequest)
+
+TopologyUpdateResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateResponse)
+
+TopologyUpdateStreamRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESTREAMREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateStreamRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateStreamRequest)
+
+TopologyUpdateStreamResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESTREAMRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateStreamResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateStreamResponse)
+
+TopologyUpdateConfigRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigRequest)
+
+TopologyUpdateConfigResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigResponse)
+
+TopologyUpdateConfigStreamRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGSTREAMREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigStreamRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigStreamRequest)
+
+TopologyUpdateConfigStreamResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGSTREAMRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigStreamResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigStreamResponse)
+
+TopologyUpdateConfigSetRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigSetRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGSETREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigSetRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigSetRequest)
+
+TopologyUpdateConfigSetResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigSetResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGSETRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigSetResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigSetResponse)
+
+TopologyUpdateConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigSetSomeRequest)
+
+TopologyUpdateConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigSetSomeResponse)
+
+TopologyUpdateConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigDeleteRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGDELETEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigDeleteRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigDeleteRequest)
+
+TopologyUpdateConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigDeleteResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGDELETERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigDeleteResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigDeleteResponse)
+
+TopologyUpdateConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigDeleteAllRequest)
+
+TopologyUpdateConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateConfigDeleteAllResponse)
+
+TopologyUpdateSyncRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncRequest)
+
+TopologyUpdateSyncResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncResponse)
+
+TopologyUpdateSyncStreamRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCSTREAMREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncStreamRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncStreamRequest)
+
+TopologyUpdateSyncStreamResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCSTREAMRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncStreamResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncStreamResponse)
+
+TopologyUpdateSyncConfigRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigRequest)
+
+TopologyUpdateSyncConfigResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigResponse)
+
+TopologyUpdateSyncConfigStreamRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGSTREAMREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigStreamRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigStreamRequest)
+
+TopologyUpdateSyncConfigStreamResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGSTREAMRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigStreamResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigStreamResponse)
+
+TopologyUpdateSyncConfigSetRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigSetRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGSETREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigSetRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigSetRequest)
+
+TopologyUpdateSyncConfigSetResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigSetResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGSETRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigSetResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigSetResponse)
+
+TopologyUpdateSyncConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigSetSomeRequest)
+
+TopologyUpdateSyncConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigSetSomeResponse)
+
+TopologyUpdateSyncConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigDeleteRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGDELETEREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigDeleteRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigDeleteRequest)
+
+TopologyUpdateSyncConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigDeleteResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGDELETERESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigDeleteResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigDeleteResponse)
+
+TopologyUpdateSyncConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigDeleteAllRequest)
+
+TopologyUpdateSyncConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.studio.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(TopologyUpdateSyncConfigDeleteAllResponse)
+
 
 DESCRIPTOR._options = None
 
@@ -1805,8 +5876,8 @@ _ASSIGNEDTAGSSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=4389,
-  serialized_end=4708,
+  serialized_start=14734,
+  serialized_end=15053,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1851,8 +5922,8 @@ _ASSIGNEDTAGSCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=4711,
-  serialized_end=5289,
+  serialized_start=15056,
+  serialized_end=15876,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1895,12 +5966,32 @@ _ASSIGNEDTAGSCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.studio.v1.AssignedTagsConfigService.SetSome',
+    index=4,
+    containing_service=None,
+    input_type=_ASSIGNEDTAGSCONFIGSETSOMEREQUEST,
+    output_type=_ASSIGNEDTAGSCONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Delete',
     full_name='arista.studio.v1.AssignedTagsConfigService.Delete',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_ASSIGNEDTAGSCONFIGDELETEREQUEST,
     output_type=_ASSIGNEDTAGSCONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.studio.v1.AssignedTagsConfigService.DeleteAll',
+    index=6,
+    containing_service=None,
+    input_type=_ASSIGNEDTAGSCONFIGDELETEALLREQUEST,
+    output_type=_ASSIGNEDTAGSCONFIGDELETEALLRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1910,15 +6001,147 @@ _sym_db.RegisterServiceDescriptor(_ASSIGNEDTAGSCONFIGSERVICE)
 DESCRIPTOR.services_by_name['AssignedTagsConfigService'] = _ASSIGNEDTAGSCONFIGSERVICE
 
 
-_INPUTSSERVICE = _descriptor.ServiceDescriptor(
-  name='InputsService',
-  full_name='arista.studio.v1.InputsService',
+_AUTOFILLACTIONSERVICE = _descriptor.ServiceDescriptor(
+  name='AutofillActionService',
+  full_name='arista.studio.v1.AutofillActionService',
   file=DESCRIPTOR,
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=5292,
-  serialized_end=5569,
+  serialized_start=15879,
+  serialized_end=16212,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.studio.v1.AutofillActionService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_AUTOFILLACTIONREQUEST,
+    output_type=_AUTOFILLACTIONRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.studio.v1.AutofillActionService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_AUTOFILLACTIONSTREAMREQUEST,
+    output_type=_AUTOFILLACTIONSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.studio.v1.AutofillActionService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_AUTOFILLACTIONSTREAMREQUEST,
+    output_type=_AUTOFILLACTIONSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_AUTOFILLACTIONSERVICE)
+
+DESCRIPTOR.services_by_name['AutofillActionService'] = _AUTOFILLACTIONSERVICE
+
+
+_AUTOFILLACTIONCONFIGSERVICE = _descriptor.ServiceDescriptor(
+  name='AutofillActionConfigService',
+  full_name='arista.studio.v1.AutofillActionConfigService',
+  file=DESCRIPTOR,
+  index=3,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=16215,
+  serialized_end=17065,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.studio.v1.AutofillActionConfigService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_AUTOFILLACTIONCONFIGREQUEST,
+    output_type=_AUTOFILLACTIONCONFIGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.studio.v1.AutofillActionConfigService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_AUTOFILLACTIONCONFIGSTREAMREQUEST,
+    output_type=_AUTOFILLACTIONCONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.studio.v1.AutofillActionConfigService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_AUTOFILLACTIONCONFIGSTREAMREQUEST,
+    output_type=_AUTOFILLACTIONCONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Set',
+    full_name='arista.studio.v1.AutofillActionConfigService.Set',
+    index=3,
+    containing_service=None,
+    input_type=_AUTOFILLACTIONCONFIGSETREQUEST,
+    output_type=_AUTOFILLACTIONCONFIGSETRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.studio.v1.AutofillActionConfigService.SetSome',
+    index=4,
+    containing_service=None,
+    input_type=_AUTOFILLACTIONCONFIGSETSOMEREQUEST,
+    output_type=_AUTOFILLACTIONCONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Delete',
+    full_name='arista.studio.v1.AutofillActionConfigService.Delete',
+    index=5,
+    containing_service=None,
+    input_type=_AUTOFILLACTIONCONFIGDELETEREQUEST,
+    output_type=_AUTOFILLACTIONCONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.studio.v1.AutofillActionConfigService.DeleteAll',
+    index=6,
+    containing_service=None,
+    input_type=_AUTOFILLACTIONCONFIGDELETEALLREQUEST,
+    output_type=_AUTOFILLACTIONCONFIGDELETEALLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_AUTOFILLACTIONCONFIGSERVICE)
+
+DESCRIPTOR.services_by_name['AutofillActionConfigService'] = _AUTOFILLACTIONCONFIGSERVICE
+
+
+_INPUTSSERVICE = _descriptor.ServiceDescriptor(
+  name='InputsService',
+  full_name='arista.studio.v1.InputsService',
+  file=DESCRIPTOR,
+  index=4,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=17068,
+  serialized_end=17345,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1960,11 +6183,11 @@ _INPUTSCONFIGSERVICE = _descriptor.ServiceDescriptor(
   name='InputsConfigService',
   full_name='arista.studio.v1.InputsConfigService',
   file=DESCRIPTOR,
-  index=3,
+  index=5,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=5572,
-  serialized_end=6084,
+  serialized_start=17348,
+  serialized_end=18078,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -2007,12 +6230,32 @@ _INPUTSCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.studio.v1.InputsConfigService.SetSome',
+    index=4,
+    containing_service=None,
+    input_type=_INPUTSCONFIGSETSOMEREQUEST,
+    output_type=_INPUTSCONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Delete',
     full_name='arista.studio.v1.InputsConfigService.Delete',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_INPUTSCONFIGDELETEREQUEST,
     output_type=_INPUTSCONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.studio.v1.InputsConfigService.DeleteAll',
+    index=6,
+    containing_service=None,
+    input_type=_INPUTSCONFIGDELETEALLREQUEST,
+    output_type=_INPUTSCONFIGDELETEALLRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -2022,15 +6265,61 @@ _sym_db.RegisterServiceDescriptor(_INPUTSCONFIGSERVICE)
 DESCRIPTOR.services_by_name['InputsConfigService'] = _INPUTSCONFIGSERVICE
 
 
+_SECRETINPUTSERVICE = _descriptor.ServiceDescriptor(
+  name='SecretInputService',
+  full_name='arista.studio.v1.SecretInputService',
+  file=DESCRIPTOR,
+  index=6,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=18081,
+  serialized_end=18393,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.studio.v1.SecretInputService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_SECRETINPUTREQUEST,
+    output_type=_SECRETINPUTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.studio.v1.SecretInputService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_SECRETINPUTSTREAMREQUEST,
+    output_type=_SECRETINPUTSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.studio.v1.SecretInputService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_SECRETINPUTSTREAMREQUEST,
+    output_type=_SECRETINPUTSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_SECRETINPUTSERVICE)
+
+DESCRIPTOR.services_by_name['SecretInputService'] = _SECRETINPUTSERVICE
+
+
 _STUDIOSERVICE = _descriptor.ServiceDescriptor(
   name='StudioService',
   full_name='arista.studio.v1.StudioService',
   file=DESCRIPTOR,
-  index=4,
+  index=7,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=6087,
-  serialized_end=6364,
+  serialized_start=18396,
+  serialized_end=18673,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -2072,11 +6361,11 @@ _STUDIOCONFIGSERVICE = _descriptor.ServiceDescriptor(
   name='StudioConfigService',
   full_name='arista.studio.v1.StudioConfigService',
   file=DESCRIPTOR,
-  index=5,
+  index=8,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=6367,
-  serialized_end=6879,
+  serialized_start=18676,
+  serialized_end=19406,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -2119,12 +6408,32 @@ _STUDIOCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.studio.v1.StudioConfigService.SetSome',
+    index=4,
+    containing_service=None,
+    input_type=_STUDIOCONFIGSETSOMEREQUEST,
+    output_type=_STUDIOCONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Delete',
     full_name='arista.studio.v1.StudioConfigService.Delete',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_STUDIOCONFIGDELETEREQUEST,
     output_type=_STUDIOCONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.studio.v1.StudioConfigService.DeleteAll',
+    index=6,
+    containing_service=None,
+    input_type=_STUDIOCONFIGDELETEALLREQUEST,
+    output_type=_STUDIOCONFIGDELETEALLRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -2132,5 +6441,447 @@ _STUDIOCONFIGSERVICE = _descriptor.ServiceDescriptor(
 _sym_db.RegisterServiceDescriptor(_STUDIOCONFIGSERVICE)
 
 DESCRIPTOR.services_by_name['StudioConfigService'] = _STUDIOCONFIGSERVICE
+
+
+_STUDIOSUMMARYSERVICE = _descriptor.ServiceDescriptor(
+  name='StudioSummaryService',
+  full_name='arista.studio.v1.StudioSummaryService',
+  file=DESCRIPTOR,
+  index=9,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=19409,
+  serialized_end=19735,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.studio.v1.StudioSummaryService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_STUDIOSUMMARYREQUEST,
+    output_type=_STUDIOSUMMARYRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.studio.v1.StudioSummaryService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_STUDIOSUMMARYSTREAMREQUEST,
+    output_type=_STUDIOSUMMARYSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.studio.v1.StudioSummaryService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_STUDIOSUMMARYSTREAMREQUEST,
+    output_type=_STUDIOSUMMARYSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_STUDIOSUMMARYSERVICE)
+
+DESCRIPTOR.services_by_name['StudioSummaryService'] = _STUDIOSUMMARYSERVICE
+
+
+_TOPOLOGYINPUTSERVICE = _descriptor.ServiceDescriptor(
+  name='TopologyInputService',
+  full_name='arista.studio.v1.TopologyInputService',
+  file=DESCRIPTOR,
+  index=10,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=19738,
+  serialized_end=20064,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.studio.v1.TopologyInputService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_TOPOLOGYINPUTREQUEST,
+    output_type=_TOPOLOGYINPUTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.studio.v1.TopologyInputService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_TOPOLOGYINPUTSTREAMREQUEST,
+    output_type=_TOPOLOGYINPUTSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.studio.v1.TopologyInputService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_TOPOLOGYINPUTSTREAMREQUEST,
+    output_type=_TOPOLOGYINPUTSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_TOPOLOGYINPUTSERVICE)
+
+DESCRIPTOR.services_by_name['TopologyInputService'] = _TOPOLOGYINPUTSERVICE
+
+
+_TOPOLOGYINPUTCONFIGSERVICE = _descriptor.ServiceDescriptor(
+  name='TopologyInputConfigService',
+  full_name='arista.studio.v1.TopologyInputConfigService',
+  file=DESCRIPTOR,
+  index=11,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=20067,
+  serialized_end=20902,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.studio.v1.TopologyInputConfigService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_TOPOLOGYINPUTCONFIGREQUEST,
+    output_type=_TOPOLOGYINPUTCONFIGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.studio.v1.TopologyInputConfigService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_TOPOLOGYINPUTCONFIGSTREAMREQUEST,
+    output_type=_TOPOLOGYINPUTCONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.studio.v1.TopologyInputConfigService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_TOPOLOGYINPUTCONFIGSTREAMREQUEST,
+    output_type=_TOPOLOGYINPUTCONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Set',
+    full_name='arista.studio.v1.TopologyInputConfigService.Set',
+    index=3,
+    containing_service=None,
+    input_type=_TOPOLOGYINPUTCONFIGSETREQUEST,
+    output_type=_TOPOLOGYINPUTCONFIGSETRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.studio.v1.TopologyInputConfigService.SetSome',
+    index=4,
+    containing_service=None,
+    input_type=_TOPOLOGYINPUTCONFIGSETSOMEREQUEST,
+    output_type=_TOPOLOGYINPUTCONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Delete',
+    full_name='arista.studio.v1.TopologyInputConfigService.Delete',
+    index=5,
+    containing_service=None,
+    input_type=_TOPOLOGYINPUTCONFIGDELETEREQUEST,
+    output_type=_TOPOLOGYINPUTCONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.studio.v1.TopologyInputConfigService.DeleteAll',
+    index=6,
+    containing_service=None,
+    input_type=_TOPOLOGYINPUTCONFIGDELETEALLREQUEST,
+    output_type=_TOPOLOGYINPUTCONFIGDELETEALLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_TOPOLOGYINPUTCONFIGSERVICE)
+
+DESCRIPTOR.services_by_name['TopologyInputConfigService'] = _TOPOLOGYINPUTCONFIGSERVICE
+
+
+_TOPOLOGYUPDATESERVICE = _descriptor.ServiceDescriptor(
+  name='TopologyUpdateService',
+  full_name='arista.studio.v1.TopologyUpdateService',
+  file=DESCRIPTOR,
+  index=12,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=20905,
+  serialized_end=21238,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.studio.v1.TopologyUpdateService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATEREQUEST,
+    output_type=_TOPOLOGYUPDATERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.studio.v1.TopologyUpdateService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESTREAMREQUEST,
+    output_type=_TOPOLOGYUPDATESTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.studio.v1.TopologyUpdateService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESTREAMREQUEST,
+    output_type=_TOPOLOGYUPDATESTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_TOPOLOGYUPDATESERVICE)
+
+DESCRIPTOR.services_by_name['TopologyUpdateService'] = _TOPOLOGYUPDATESERVICE
+
+
+_TOPOLOGYUPDATECONFIGSERVICE = _descriptor.ServiceDescriptor(
+  name='TopologyUpdateConfigService',
+  full_name='arista.studio.v1.TopologyUpdateConfigService',
+  file=DESCRIPTOR,
+  index=13,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=21241,
+  serialized_end=22091,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.studio.v1.TopologyUpdateConfigService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATECONFIGREQUEST,
+    output_type=_TOPOLOGYUPDATECONFIGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.studio.v1.TopologyUpdateConfigService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATECONFIGSTREAMREQUEST,
+    output_type=_TOPOLOGYUPDATECONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.studio.v1.TopologyUpdateConfigService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATECONFIGSTREAMREQUEST,
+    output_type=_TOPOLOGYUPDATECONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Set',
+    full_name='arista.studio.v1.TopologyUpdateConfigService.Set',
+    index=3,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATECONFIGSETREQUEST,
+    output_type=_TOPOLOGYUPDATECONFIGSETRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.studio.v1.TopologyUpdateConfigService.SetSome',
+    index=4,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATECONFIGSETSOMEREQUEST,
+    output_type=_TOPOLOGYUPDATECONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Delete',
+    full_name='arista.studio.v1.TopologyUpdateConfigService.Delete',
+    index=5,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATECONFIGDELETEREQUEST,
+    output_type=_TOPOLOGYUPDATECONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.studio.v1.TopologyUpdateConfigService.DeleteAll',
+    index=6,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATECONFIGDELETEALLREQUEST,
+    output_type=_TOPOLOGYUPDATECONFIGDELETEALLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_TOPOLOGYUPDATECONFIGSERVICE)
+
+DESCRIPTOR.services_by_name['TopologyUpdateConfigService'] = _TOPOLOGYUPDATECONFIGSERVICE
+
+
+_TOPOLOGYUPDATESYNCSERVICE = _descriptor.ServiceDescriptor(
+  name='TopologyUpdateSyncService',
+  full_name='arista.studio.v1.TopologyUpdateSyncService',
+  file=DESCRIPTOR,
+  index=14,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=22094,
+  serialized_end=22455,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.studio.v1.TopologyUpdateSyncService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESYNCREQUEST,
+    output_type=_TOPOLOGYUPDATESYNCRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.studio.v1.TopologyUpdateSyncService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESYNCSTREAMREQUEST,
+    output_type=_TOPOLOGYUPDATESYNCSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.studio.v1.TopologyUpdateSyncService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESYNCSTREAMREQUEST,
+    output_type=_TOPOLOGYUPDATESYNCSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_TOPOLOGYUPDATESYNCSERVICE)
+
+DESCRIPTOR.services_by_name['TopologyUpdateSyncService'] = _TOPOLOGYUPDATESYNCSERVICE
+
+
+_TOPOLOGYUPDATESYNCCONFIGSERVICE = _descriptor.ServiceDescriptor(
+  name='TopologyUpdateSyncConfigService',
+  full_name='arista.studio.v1.TopologyUpdateSyncConfigService',
+  file=DESCRIPTOR,
+  index=15,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=22458,
+  serialized_end=23371,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.studio.v1.TopologyUpdateSyncConfigService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESYNCCONFIGREQUEST,
+    output_type=_TOPOLOGYUPDATESYNCCONFIGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.studio.v1.TopologyUpdateSyncConfigService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESYNCCONFIGSTREAMREQUEST,
+    output_type=_TOPOLOGYUPDATESYNCCONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.studio.v1.TopologyUpdateSyncConfigService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESYNCCONFIGSTREAMREQUEST,
+    output_type=_TOPOLOGYUPDATESYNCCONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Set',
+    full_name='arista.studio.v1.TopologyUpdateSyncConfigService.Set',
+    index=3,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESYNCCONFIGSETREQUEST,
+    output_type=_TOPOLOGYUPDATESYNCCONFIGSETRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.studio.v1.TopologyUpdateSyncConfigService.SetSome',
+    index=4,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESYNCCONFIGSETSOMEREQUEST,
+    output_type=_TOPOLOGYUPDATESYNCCONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Delete',
+    full_name='arista.studio.v1.TopologyUpdateSyncConfigService.Delete',
+    index=5,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESYNCCONFIGDELETEREQUEST,
+    output_type=_TOPOLOGYUPDATESYNCCONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.studio.v1.TopologyUpdateSyncConfigService.DeleteAll',
+    index=6,
+    containing_service=None,
+    input_type=_TOPOLOGYUPDATESYNCCONFIGDELETEALLREQUEST,
+    output_type=_TOPOLOGYUPDATESYNCCONFIGDELETEALLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_TOPOLOGYUPDATESYNCCONFIGSERVICE)
+
+DESCRIPTOR.services_by_name['TopologyUpdateSyncConfigService'] = _TOPOLOGYUPDATESYNCCONFIGSERVICE
 
 # @@protoc_insertion_point(module_scope)

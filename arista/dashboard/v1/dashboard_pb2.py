@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z.arista/resources/arista/dashboard.v1;dashboard',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#arista/dashboard.v1/dashboard.proto\x12\x13\x61rista.dashboard.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"\\\n\x08Position\x12\'\n\x01x\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\'\n\x01y\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"g\n\nDimensions\x12+\n\x05width\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12,\n\x06height\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"\xe1\x01\n\x0cWidgetStyles\x12.\n\nhide_title\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x36\n\x10\x62\x61\x63kground_color\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x37\n\x13hide_horizontal_bar\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\ntitle_size\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"\x81\x03\n\x06Widget\x12(\n\x02id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x08position\x18\x03 \x01(\x0b\x32\x1d.arista.dashboard.v1.Position\x12\x33\n\ndimensions\x18\x04 \x01(\x0b\x32\x1f.arista.dashboard.v1.Dimensions\x12*\n\x04type\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06inputs\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08location\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x06styles\x18\x08 \x01(\x0b\x32!.arista.dashboard.v1.WidgetStyles\"6\n\x07Widgets\x12+\n\x06values\x18\x01 \x03(\x0b\x32\x1b.arista.dashboard.v1.Widget\"H\n\x0c\x44\x61shboardKey\x12\x32\n\x0c\x64\x61shboard_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xd7\x01\n\x0f\x44\x61shboardConfig\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12*\n\x04name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07widgets\x18\x04 \x01(\x0b\x32\x1c.arista.dashboard.v1.Widgets:\x06\xfa\x8d\x19\x02rw\"\xe5\x01\n\x11\x44\x61shboardMetadata\x12\x34\n\x0eschema_version\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\nlegacy_key\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0elegacy_version\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0c\x66rom_package\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"+\n\x06\x46ilter\x12!\n\x04tags\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\"\xe8\x03\n\tDashboard\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x39\n\tmeta_data\x18\x06 \x01(\x0b\x32&.arista.dashboard.v1.DashboardMetadata\x12*\n\x04name\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07widgets\x18\t \x01(\x0b\x32\x1c.arista.dashboard.v1.Widgets:\x12\xfa\x8d\x19\x02ro\x8a\x8e\x19\x08[]Filter\"]\n\x15GlobalDashboardConfig\x12<\n\x11\x64\x65\x66\x61ult_dashboard\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey:\x06\xa2\x8e\x19\x02rwB0Z.arista/resources/arista/dashboard.v1;dashboardb\x06proto3'
+  serialized_pb=b'\n#arista/dashboard.v1/dashboard.proto\x12\x13\x61rista.dashboard.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"\\\n\x08Position\x12\'\n\x01x\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\'\n\x01y\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"g\n\nDimensions\x12+\n\x05width\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12,\n\x06height\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"\xe1\x01\n\x0cWidgetStyles\x12.\n\nhide_title\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x36\n\x10\x62\x61\x63kground_color\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x37\n\x13hide_horizontal_bar\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\ntitle_size\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"\xaf\x03\n\x06Widget\x12(\n\x02id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x08position\x18\x03 \x01(\x0b\x32\x1d.arista.dashboard.v1.Position\x12\x33\n\ndimensions\x18\x04 \x01(\x0b\x32\x1f.arista.dashboard.v1.Dimensions\x12*\n\x04type\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06inputs\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08location\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x06styles\x18\x08 \x01(\x0b\x32!.arista.dashboard.v1.WidgetStyles\x12,\n\x06parent\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValue\"6\n\x07Widgets\x12+\n\x06values\x18\x01 \x03(\x0b\x32\x1b.arista.dashboard.v1.Widget\"H\n\x0c\x44\x61shboardKey\x12\x32\n\x0c\x64\x61shboard_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xd7\x01\n\x0f\x44\x61shboardConfig\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12*\n\x04name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07widgets\x18\x04 \x01(\x0b\x32\x1c.arista.dashboard.v1.Widgets:\x06\xfa\x8d\x19\x02rw\"\xe5\x01\n\x11\x44\x61shboardMetadata\x12\x34\n\x0eschema_version\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\nlegacy_key\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0elegacy_version\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0c\x66rom_package\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"+\n\x06\x46ilter\x12!\n\x04tags\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\"\xe8\x03\n\tDashboard\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x39\n\tmeta_data\x18\x06 \x01(\x0b\x32&.arista.dashboard.v1.DashboardMetadata\x12*\n\x04name\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07widgets\x18\t \x01(\x0b\x32\x1c.arista.dashboard.v1.Widgets:\x12\xfa\x8d\x19\x02ro\x8a\x8e\x19\x08[]Filter\"]\n\x15GlobalDashboardConfig\x12<\n\x11\x64\x65\x66\x61ult_dashboard\x18\x01 \x01(\x0b\x32!.arista.dashboard.v1.DashboardKey:\x06\xa2\x8e\x19\x02rwB0Z.arista/resources/arista/dashboard.v1;dashboardb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,fmp_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -225,6 +225,13 @@ _WIDGET = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='arista.dashboard.v1.Widget.parent', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -238,7 +245,7 @@ _WIDGET = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=595,
-  serialized_end=980,
+  serialized_end=1026,
 )
 
 
@@ -269,8 +276,8 @@ _WIDGETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=982,
-  serialized_end=1036,
+  serialized_start=1028,
+  serialized_end=1082,
 )
 
 
@@ -301,8 +308,8 @@ _DASHBOARDKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1038,
-  serialized_end=1110,
+  serialized_start=1084,
+  serialized_end=1156,
 )
 
 
@@ -354,8 +361,8 @@ _DASHBOARDCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1113,
-  serialized_end=1328,
+  serialized_start=1159,
+  serialized_end=1374,
 )
 
 
@@ -407,8 +414,8 @@ _DASHBOARDMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1331,
-  serialized_end=1560,
+  serialized_start=1377,
+  serialized_end=1606,
 )
 
 
@@ -439,8 +446,8 @@ _FILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1562,
-  serialized_end=1605,
+  serialized_start=1608,
+  serialized_end=1651,
 )
 
 
@@ -527,8 +534,8 @@ _DASHBOARD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1608,
-  serialized_end=2096,
+  serialized_start=1654,
+  serialized_end=2142,
 )
 
 
@@ -559,8 +566,8 @@ _GLOBALDASHBOARDCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2098,
-  serialized_end=2191,
+  serialized_start=2144,
+  serialized_end=2237,
 )
 
 _POSITION.fields_by_name['x'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
@@ -579,6 +586,7 @@ _WIDGET.fields_by_name['type'].message_type = google_dot_protobuf_dot_wrappers__
 _WIDGET.fields_by_name['inputs'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WIDGET.fields_by_name['location'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WIDGET.fields_by_name['styles'].message_type = _WIDGETSTYLES
+_WIDGET.fields_by_name['parent'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WIDGETS.fields_by_name['values'].message_type = _WIDGET
 _DASHBOARDKEY.fields_by_name['dashboard_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _DASHBOARDCONFIG.fields_by_name['key'].message_type = _DASHBOARDKEY

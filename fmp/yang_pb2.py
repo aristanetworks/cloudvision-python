@@ -17,9 +17,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fmp/yang.proto',
   package='fmp',
   syntax='proto3',
-  serialized_options=b'Z\024arista/resources/fmp',
+  serialized_options=b'Z0github.com/aristanetworks/cloudvision-go/api/fmp',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0e\x66mp/yang.proto\x12\x03\x66mp\"\x1b\n\nMACAddress\x12\r\n\x05value\x18\x01 \x01(\t\"5\n\x12RepeatedMACAddress\x12\x1f\n\x06values\x18\x01 \x03(\x0b\x32\x0f.fmp.MACAddressB\x16Z\x14\x61rista/resources/fmpb\x06proto3'
+  serialized_pb=b'\n\x0e\x66mp/yang.proto\x12\x03\x66mp\"\x1b\n\nMACAddress\x12\r\n\x05value\x18\x01 \x01(\t\"5\n\x12RepeatedMACAddress\x12\x1f\n\x06values\x18\x01 \x03(\x0b\x32\x0f.fmp.MACAddressB2Z0github.com/aristanetworks/cloudvision-go/api/fmpb\x06proto3'
 )
 
 

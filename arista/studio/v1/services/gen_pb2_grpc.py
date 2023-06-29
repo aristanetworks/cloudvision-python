@@ -161,10 +161,20 @@ class AssignedTagsConfigServiceStub(object):
                 request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.studio.v1.AssignedTagsConfigService/SetSome',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.studio.v1.AssignedTagsConfigService/Delete',
                 request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.studio.v1.AssignedTagsConfigService/DeleteAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteAllResponse.FromString,
                 )
 
 
@@ -195,7 +205,19 @@ class AssignedTagsConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -224,10 +246,20 @@ def add_AssignedTagsConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigSetRequest.FromString,
                     response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigSetResponse.SerializeToString,
             ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigSetSomeResponse.SerializeToString,
+            ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -308,6 +340,23 @@ class AssignedTagsConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.AssignedTagsConfigService/SetSome',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigSetSomeRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Delete(request,
             target,
             options=(),
@@ -321,6 +370,409 @@ class AssignedTagsConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.AssignedTagsConfigService/Delete',
             arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteRequest.SerializeToString,
             arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.AssignedTagsConfigService/DeleteAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteAllRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AssignedTagsConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class AutofillActionServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.studio.v1.AutofillActionService/GetOne',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.studio.v1.AutofillActionService/GetAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.studio.v1.AutofillActionService/Subscribe',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamResponse.FromString,
+                )
+
+
+class AutofillActionServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_AutofillActionServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.studio.v1.AutofillActionService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class AutofillActionService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.AutofillActionService/GetOne',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.AutofillActionService/GetAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.AutofillActionService/Subscribe',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class AutofillActionConfigServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.studio.v1.AutofillActionConfigService/GetOne',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.studio.v1.AutofillActionConfigService/GetAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.studio.v1.AutofillActionConfigService/Subscribe',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamResponse.FromString,
+                )
+        self.Set = channel.unary_unary(
+                '/arista.studio.v1.AutofillActionConfigService/Set',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetResponse.FromString,
+                )
+        self.SetSome = channel.unary_stream(
+                '/arista.studio.v1.AutofillActionConfigService/SetSome',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetSomeResponse.FromString,
+                )
+        self.Delete = channel.unary_unary(
+                '/arista.studio.v1.AutofillActionConfigService/Delete',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.studio.v1.AutofillActionConfigService/DeleteAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteAllResponse.FromString,
+                )
+
+
+class AutofillActionConfigServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Set(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_AutofillActionConfigServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamResponse.SerializeToString,
+            ),
+            'Set': grpc.unary_unary_rpc_method_handler(
+                    servicer.Set,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetSomeResponse.SerializeToString,
+            ),
+            'Delete': grpc.unary_unary_rpc_method_handler(
+                    servicer.Delete,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteAllResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.studio.v1.AutofillActionConfigService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class AutofillActionConfigService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.AutofillActionConfigService/GetOne',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.AutofillActionConfigService/GetAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.AutofillActionConfigService/Subscribe',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Set(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.AutofillActionConfigService/Set',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.AutofillActionConfigService/SetSome',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetSomeRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Delete(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.AutofillActionConfigService/Delete',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.AutofillActionConfigService/DeleteAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteAllRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.AutofillActionConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -481,10 +933,20 @@ class InputsConfigServiceStub(object):
                 request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.studio.v1.InputsConfigService/SetSome',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.studio.v1.InputsConfigService/Delete',
                 request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.studio.v1.InputsConfigService/DeleteAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteAllResponse.FromString,
                 )
 
 
@@ -515,7 +977,19 @@ class InputsConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -544,10 +1018,20 @@ def add_InputsConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigSetRequest.FromString,
                     response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigSetResponse.SerializeToString,
             ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigSetSomeResponse.SerializeToString,
+            ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -628,6 +1112,23 @@ class InputsConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.InputsConfigService/SetSome',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigSetSomeRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Delete(request,
             target,
             options=(),
@@ -641,6 +1142,150 @@ class InputsConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.InputsConfigService/Delete',
             arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteRequest.SerializeToString,
             arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.InputsConfigService/DeleteAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteAllRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.InputsConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class SecretInputServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.studio.v1.SecretInputService/GetOne',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.studio.v1.SecretInputService/GetAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.studio.v1.SecretInputService/Subscribe',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamResponse.FromString,
+                )
+
+
+class SecretInputServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_SecretInputServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.studio.v1.SecretInputService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class SecretInputService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.SecretInputService/GetOne',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.SecretInputService/GetAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.SecretInputService/Subscribe',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.SecretInputStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -801,10 +1446,20 @@ class StudioConfigServiceStub(object):
                 request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.studio.v1.StudioConfigService/SetSome',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.studio.v1.StudioConfigService/Delete',
                 request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.studio.v1.StudioConfigService/DeleteAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteAllResponse.FromString,
                 )
 
 
@@ -835,7 +1490,19 @@ class StudioConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -864,10 +1531,20 @@ def add_StudioConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigSetRequest.FromString,
                     response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigSetResponse.SerializeToString,
             ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigSetSomeResponse.SerializeToString,
+            ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -948,6 +1625,23 @@ class StudioConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.StudioConfigService/SetSome',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigSetSomeRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Delete(request,
             target,
             options=(),
@@ -961,5 +1655,1307 @@ class StudioConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.StudioConfigService/Delete',
             arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteRequest.SerializeToString,
             arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.StudioConfigService/DeleteAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteAllRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class StudioSummaryServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.studio.v1.StudioSummaryService/GetOne',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.studio.v1.StudioSummaryService/GetAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.studio.v1.StudioSummaryService/Subscribe',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamResponse.FromString,
+                )
+
+
+class StudioSummaryServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_StudioSummaryServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.studio.v1.StudioSummaryService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class StudioSummaryService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.StudioSummaryService/GetOne',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.StudioSummaryService/GetAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.StudioSummaryService/Subscribe',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.StudioSummaryStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class TopologyInputServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.studio.v1.TopologyInputService/GetOne',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.studio.v1.TopologyInputService/GetAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.studio.v1.TopologyInputService/Subscribe',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamResponse.FromString,
+                )
+
+
+class TopologyInputServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_TopologyInputServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.studio.v1.TopologyInputService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class TopologyInputService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyInputService/GetOne',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyInputService/GetAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyInputService/Subscribe',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class TopologyInputConfigServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.studio.v1.TopologyInputConfigService/GetOne',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.studio.v1.TopologyInputConfigService/GetAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.studio.v1.TopologyInputConfigService/Subscribe',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamResponse.FromString,
+                )
+        self.Set = channel.unary_unary(
+                '/arista.studio.v1.TopologyInputConfigService/Set',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetResponse.FromString,
+                )
+        self.SetSome = channel.unary_stream(
+                '/arista.studio.v1.TopologyInputConfigService/SetSome',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetSomeResponse.FromString,
+                )
+        self.Delete = channel.unary_unary(
+                '/arista.studio.v1.TopologyInputConfigService/Delete',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.studio.v1.TopologyInputConfigService/DeleteAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteAllResponse.FromString,
+                )
+
+
+class TopologyInputConfigServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Set(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_TopologyInputConfigServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamResponse.SerializeToString,
+            ),
+            'Set': grpc.unary_unary_rpc_method_handler(
+                    servicer.Set,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetSomeResponse.SerializeToString,
+            ),
+            'Delete': grpc.unary_unary_rpc_method_handler(
+                    servicer.Delete,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteAllResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.studio.v1.TopologyInputConfigService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class TopologyInputConfigService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyInputConfigService/GetOne',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyInputConfigService/GetAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyInputConfigService/Subscribe',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Set(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyInputConfigService/Set',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyInputConfigService/SetSome',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetSomeRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Delete(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyInputConfigService/Delete',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyInputConfigService/DeleteAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteAllRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyInputConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class TopologyUpdateServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.studio.v1.TopologyUpdateService/GetOne',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateService/GetAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateService/Subscribe',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamResponse.FromString,
+                )
+
+
+class TopologyUpdateServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_TopologyUpdateServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.studio.v1.TopologyUpdateService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class TopologyUpdateService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyUpdateService/GetOne',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateService/GetAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateService/Subscribe',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class TopologyUpdateConfigServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.studio.v1.TopologyUpdateConfigService/GetOne',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateConfigService/GetAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateConfigService/Subscribe',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamResponse.FromString,
+                )
+        self.Set = channel.unary_unary(
+                '/arista.studio.v1.TopologyUpdateConfigService/Set',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetResponse.FromString,
+                )
+        self.SetSome = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateConfigService/SetSome',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetSomeResponse.FromString,
+                )
+        self.Delete = channel.unary_unary(
+                '/arista.studio.v1.TopologyUpdateConfigService/Delete',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateConfigService/DeleteAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteAllResponse.FromString,
+                )
+
+
+class TopologyUpdateConfigServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Set(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_TopologyUpdateConfigServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamResponse.SerializeToString,
+            ),
+            'Set': grpc.unary_unary_rpc_method_handler(
+                    servicer.Set,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetSomeResponse.SerializeToString,
+            ),
+            'Delete': grpc.unary_unary_rpc_method_handler(
+                    servicer.Delete,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteAllResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.studio.v1.TopologyUpdateConfigService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class TopologyUpdateConfigService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyUpdateConfigService/GetOne',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateConfigService/GetAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateConfigService/Subscribe',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Set(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyUpdateConfigService/Set',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateConfigService/SetSome',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetSomeRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Delete(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyUpdateConfigService/Delete',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateConfigService/DeleteAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteAllRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class TopologyUpdateSyncServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.studio.v1.TopologyUpdateSyncService/GetOne',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateSyncService/GetAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateSyncService/Subscribe',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamResponse.FromString,
+                )
+
+
+class TopologyUpdateSyncServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_TopologyUpdateSyncServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.studio.v1.TopologyUpdateSyncService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class TopologyUpdateSyncService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyUpdateSyncService/GetOne',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateSyncService/GetAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateSyncService/Subscribe',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class TopologyUpdateSyncConfigServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.studio.v1.TopologyUpdateSyncConfigService/GetOne',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateSyncConfigService/GetAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateSyncConfigService/Subscribe',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamResponse.FromString,
+                )
+        self.Set = channel.unary_unary(
+                '/arista.studio.v1.TopologyUpdateSyncConfigService/Set',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetResponse.FromString,
+                )
+        self.SetSome = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateSyncConfigService/SetSome',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetSomeResponse.FromString,
+                )
+        self.Delete = channel.unary_unary(
+                '/arista.studio.v1.TopologyUpdateSyncConfigService/Delete',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.studio.v1.TopologyUpdateSyncConfigService/DeleteAll',
+                request_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteAllResponse.FromString,
+                )
+
+
+class TopologyUpdateSyncConfigServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Set(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_TopologyUpdateSyncConfigServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamResponse.SerializeToString,
+            ),
+            'Set': grpc.unary_unary_rpc_method_handler(
+                    servicer.Set,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetSomeResponse.SerializeToString,
+            ),
+            'Delete': grpc.unary_unary_rpc_method_handler(
+                    servicer.Delete,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteAllResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.studio.v1.TopologyUpdateSyncConfigService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class TopologyUpdateSyncConfigService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyUpdateSyncConfigService/GetOne',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateSyncConfigService/GetAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateSyncConfigService/Subscribe',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Set(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyUpdateSyncConfigService/Set',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateSyncConfigService/SetSome',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetSomeRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Delete(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.studio.v1.TopologyUpdateSyncConfigService/Delete',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.studio.v1.TopologyUpdateSyncConfigService/DeleteAll',
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteAllRequest.SerializeToString,
+            arista_dot_studio_dot_v1_dot_services_dot_gen__pb2.TopologyUpdateSyncConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

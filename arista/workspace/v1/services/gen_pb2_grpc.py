@@ -259,6 +259,133 @@ class WorkspaceBuildService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
+class WorkspaceBuildDetailsServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.workspace.v1.WorkspaceBuildDetailsService/GetOne',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceBuildDetailsService/GetAll',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceBuildDetailsService/Subscribe',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamResponse.FromString,
+                )
+
+
+class WorkspaceBuildDetailsServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_WorkspaceBuildDetailsServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.workspace.v1.WorkspaceBuildDetailsService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class WorkspaceBuildDetailsService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.workspace.v1.WorkspaceBuildDetailsService/GetOne',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceBuildDetailsService/GetAll',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceBuildDetailsService/Subscribe',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
 class WorkspaceConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
@@ -288,10 +415,20 @@ class WorkspaceConfigServiceStub(object):
                 request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceConfigService/SetSome',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.workspace.v1.WorkspaceConfigService/Delete',
                 request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceConfigService/DeleteAll',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllResponse.FromString,
                 )
 
 
@@ -322,7 +459,19 @@ class WorkspaceConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -351,10 +500,20 @@ def add_WorkspaceConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigSetRequest.FromString,
                     response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigSetResponse.SerializeToString,
             ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigSetSomeResponse.SerializeToString,
+            ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -435,6 +594,23 @@ class WorkspaceConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceConfigService/SetSome',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigSetSomeRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Delete(request,
             target,
             options=(),
@@ -448,5 +624,22 @@ class WorkspaceConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.workspace.v1.WorkspaceConfigService/Delete',
             arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteRequest.SerializeToString,
             arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceConfigService/DeleteAll',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

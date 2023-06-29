@@ -34,6 +34,11 @@ class OAuthConfigServiceStub(object):
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.identityprovider.v1.OAuthConfigService/SetSome',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.identityprovider.v1.OAuthConfigService/Delete',
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteRequest.SerializeToString,
@@ -73,6 +78,12 @@ class OAuthConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -107,6 +118,11 @@ def add_OAuthConfigServiceServicer_to_server(servicer, server):
                     servicer.Set,
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeResponse.SerializeToString,
             ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
@@ -197,6 +213,23 @@ class OAuthConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.OAuthConfigService/SetSome',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Delete(request,
             target,
             options=(),
@@ -260,6 +293,11 @@ class SAMLConfigServiceStub(object):
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.identityprovider.v1.SAMLConfigService/SetSome',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.identityprovider.v1.SAMLConfigService/Delete',
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteRequest.SerializeToString,
@@ -299,6 +337,12 @@ class SAMLConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -333,6 +377,11 @@ def add_SAMLConfigServiceServicer_to_server(servicer, server):
                     servicer.Set,
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeResponse.SerializeToString,
             ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
@@ -419,6 +468,23 @@ class SAMLConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.identityprovider.v1.SAMLConfigService/Set',
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetRequest.SerializeToString,
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.SAMLConfigService/SetSome',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

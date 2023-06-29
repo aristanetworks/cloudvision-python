@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fmp/deletes.proto',
   package='fmp',
   syntax='proto3',
-  serialized_options=b'Z\024arista/resources/fmp',
+  serialized_options=b'Z0github.com/aristanetworks/cloudvision-go/api/fmp',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x11\x66mp/deletes.proto\x12\x03\x66mp*\x87\x01\n\x0b\x44\x65leteError\x12\x1c\n\x18\x44\x45LETE_ERROR_UNSPECIFIED\x10\x00\x12\x1d\n\x19\x44\x45LETE_ERROR_UNAUTHORIZED\x10\x01\x12\x19\n\x15\x44\x45LETE_ERROR_INTERNAL\x10\x02\x12 \n\x1c\x44\x45LETE_ERROR_UNDELETABLE_KEY\x10\x03\x42\x16Z\x14\x61rista/resources/fmpb\x06proto3'
+  serialized_pb=b'\n\x11\x66mp/deletes.proto\x12\x03\x66mp*\x87\x01\n\x0b\x44\x65leteError\x12\x1c\n\x18\x44\x45LETE_ERROR_UNSPECIFIED\x10\x00\x12\x1d\n\x19\x44\x45LETE_ERROR_UNAUTHORIZED\x10\x01\x12\x19\n\x15\x44\x45LETE_ERROR_INTERNAL\x10\x02\x12 \n\x1c\x44\x45LETE_ERROR_UNDELETABLE_KEY\x10\x03\x42\x32Z0github.com/aristanetworks/cloudvision-go/api/fmpb\x06proto3'
 )
 
 _DELETEERROR = _descriptor.EnumDescriptor(

@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032com.arista.configstatus.v1B\024ConfigstatusServicesP\001Z4arista/resources/arista/configstatus.v1;configstatus',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)arista/configstatus.v1/services.gen.proto\x12\x16\x61rista.configstatus.v1\x1a)arista/configstatus.v1/configstatus.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"q\n\x11\x43onfigDiffRequest\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.ConfigDiffKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x12\x43onfigDiffResponse\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.configstatus.v1.ConfigDiff\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x7f\n\x17\x43onfigDiffStreamRequest\x12=\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\".arista.configstatus.v1.ConfigDiff\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa6\x01\n\x18\x43onfigDiffStreamResponse\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.configstatus.v1.ConfigDiff\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"p\n\x14\x43onfigurationRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.configstatus.v1.ConfigKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"w\n\x15\x43onfigurationResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.Configuration\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x85\x01\n\x1a\x43onfigurationStreamRequest\x12@\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32%.arista.configstatus.v1.Configuration\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xac\x01\n\x1b\x43onfigurationStreamResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.Configuration\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"k\n\x0eSummaryRequest\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.configstatus.v1.SummaryKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"k\n\x0fSummaryResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.configstatus.v1.Summary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"y\n\x14SummaryStreamRequest\x12:\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1f.arista.configstatus.v1.Summary\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa0\x01\n\x15SummaryStreamResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.configstatus.v1.Summary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation2\xd5\x02\n\x11\x43onfigDiffService\x12_\n\x06GetOne\x12).arista.configstatus.v1.ConfigDiffRequest\x1a*.arista.configstatus.v1.ConfigDiffResponse\x12m\n\x06GetAll\x12/.arista.configstatus.v1.ConfigDiffStreamRequest\x1a\x30.arista.configstatus.v1.ConfigDiffStreamResponse0\x01\x12p\n\tSubscribe\x12/.arista.configstatus.v1.ConfigDiffStreamRequest\x1a\x30.arista.configstatus.v1.ConfigDiffStreamResponse0\x01\x32\xea\x02\n\x14\x43onfigurationService\x12\x65\n\x06GetOne\x12,.arista.configstatus.v1.ConfigurationRequest\x1a-.arista.configstatus.v1.ConfigurationResponse\x12s\n\x06GetAll\x12\x32.arista.configstatus.v1.ConfigurationStreamRequest\x1a\x33.arista.configstatus.v1.ConfigurationStreamResponse0\x01\x12v\n\tSubscribe\x12\x32.arista.configstatus.v1.ConfigurationStreamRequest\x1a\x33.arista.configstatus.v1.ConfigurationStreamResponse0\x01\x32\xc0\x02\n\x0eSummaryService\x12Y\n\x06GetOne\x12&.arista.configstatus.v1.SummaryRequest\x1a\'.arista.configstatus.v1.SummaryResponse\x12g\n\x06GetAll\x12,.arista.configstatus.v1.SummaryStreamRequest\x1a-.arista.configstatus.v1.SummaryStreamResponse0\x01\x12j\n\tSubscribe\x12,.arista.configstatus.v1.SummaryStreamRequest\x1a-.arista.configstatus.v1.SummaryStreamResponse0\x01\x42j\n\x1a\x63om.arista.configstatus.v1B\x14\x43onfigstatusServicesP\x01Z4arista/resources/arista/configstatus.v1;configstatusb\x06proto3'
+  serialized_pb=b'\n)arista/configstatus.v1/services.gen.proto\x12\x16\x61rista.configstatus.v1\x1a)arista/configstatus.v1/configstatus.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"q\n\x11\x43onfigDiffRequest\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.ConfigDiffKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x12\x43onfigDiffResponse\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.configstatus.v1.ConfigDiff\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x7f\n\x17\x43onfigDiffStreamRequest\x12=\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\".arista.configstatus.v1.ConfigDiff\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa6\x01\n\x18\x43onfigDiffStreamResponse\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.configstatus.v1.ConfigDiff\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"p\n\x14\x43onfigurationRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.configstatus.v1.ConfigKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"w\n\x15\x43onfigurationResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.Configuration\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x85\x01\n\x1a\x43onfigurationStreamRequest\x12@\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32%.arista.configstatus.v1.Configuration\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xac\x01\n\x1b\x43onfigurationStreamResponse\x12\x34\n\x05value\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.Configuration\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"r\n\x16SecurityProfileRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.configstatus.v1.ConfigKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"{\n\x17SecurityProfileResponse\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.configstatus.v1.SecurityProfile\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x89\x01\n\x1cSecurityProfileStreamRequest\x12\x42\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\'.arista.configstatus.v1.SecurityProfile\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb0\x01\n\x1dSecurityProfileStreamResponse\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.configstatus.v1.SecurityProfile\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"z\n\x1aSecurityProfileDiffRequest\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.ConfigDiffKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x83\x01\n\x1bSecurityProfileDiffResponse\x12:\n\x05value\x18\x01 \x01(\x0b\x32+.arista.configstatus.v1.SecurityProfileDiff\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x91\x01\n SecurityProfileDiffStreamRequest\x12\x46\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32+.arista.configstatus.v1.SecurityProfileDiff\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb8\x01\n!SecurityProfileDiffStreamResponse\x12:\n\x05value\x18\x01 \x01(\x0b\x32+.arista.configstatus.v1.SecurityProfileDiff\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"~\n!SecurityProfileDiffSummaryRequest\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.configstatus.v1.SummaryKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x91\x01\n\"SecurityProfileDiffSummaryResponse\x12\x41\n\x05value\x18\x01 \x01(\x0b\x32\x32.arista.configstatus.v1.SecurityProfileDiffSummary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x9f\x01\n\'SecurityProfileDiffSummaryStreamRequest\x12M\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x32.arista.configstatus.v1.SecurityProfileDiffSummary\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xc6\x01\n(SecurityProfileDiffSummaryStreamResponse\x12\x41\n\x05value\x18\x01 \x01(\x0b\x32\x32.arista.configstatus.v1.SecurityProfileDiffSummary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"k\n\x0eSummaryRequest\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.configstatus.v1.SummaryKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"k\n\x0fSummaryResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.configstatus.v1.Summary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"y\n\x14SummaryStreamRequest\x12:\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1f.arista.configstatus.v1.Summary\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa0\x01\n\x15SummaryStreamResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.configstatus.v1.Summary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation2\xd5\x02\n\x11\x43onfigDiffService\x12_\n\x06GetOne\x12).arista.configstatus.v1.ConfigDiffRequest\x1a*.arista.configstatus.v1.ConfigDiffResponse\x12m\n\x06GetAll\x12/.arista.configstatus.v1.ConfigDiffStreamRequest\x1a\x30.arista.configstatus.v1.ConfigDiffStreamResponse0\x01\x12p\n\tSubscribe\x12/.arista.configstatus.v1.ConfigDiffStreamRequest\x1a\x30.arista.configstatus.v1.ConfigDiffStreamResponse0\x01\x32\xea\x02\n\x14\x43onfigurationService\x12\x65\n\x06GetOne\x12,.arista.configstatus.v1.ConfigurationRequest\x1a-.arista.configstatus.v1.ConfigurationResponse\x12s\n\x06GetAll\x12\x32.arista.configstatus.v1.ConfigurationStreamRequest\x1a\x33.arista.configstatus.v1.ConfigurationStreamResponse0\x01\x12v\n\tSubscribe\x12\x32.arista.configstatus.v1.ConfigurationStreamRequest\x1a\x33.arista.configstatus.v1.ConfigurationStreamResponse0\x01\x32\xf8\x02\n\x16SecurityProfileService\x12i\n\x06GetOne\x12..arista.configstatus.v1.SecurityProfileRequest\x1a/.arista.configstatus.v1.SecurityProfileResponse\x12w\n\x06GetAll\x12\x34.arista.configstatus.v1.SecurityProfileStreamRequest\x1a\x35.arista.configstatus.v1.SecurityProfileStreamResponse0\x01\x12z\n\tSubscribe\x12\x34.arista.configstatus.v1.SecurityProfileStreamRequest\x1a\x35.arista.configstatus.v1.SecurityProfileStreamResponse0\x01\x32\x95\x03\n\x1aSecurityProfileDiffService\x12q\n\x06GetOne\x12\x32.arista.configstatus.v1.SecurityProfileDiffRequest\x1a\x33.arista.configstatus.v1.SecurityProfileDiffResponse\x12\x7f\n\x06GetAll\x12\x38.arista.configstatus.v1.SecurityProfileDiffStreamRequest\x1a\x39.arista.configstatus.v1.SecurityProfileDiffStreamResponse0\x01\x12\x82\x01\n\tSubscribe\x12\x38.arista.configstatus.v1.SecurityProfileDiffStreamRequest\x1a\x39.arista.configstatus.v1.SecurityProfileDiffStreamResponse0\x01\x32\xc7\x03\n!SecurityProfileDiffSummaryService\x12\x7f\n\x06GetOne\x12\x39.arista.configstatus.v1.SecurityProfileDiffSummaryRequest\x1a:.arista.configstatus.v1.SecurityProfileDiffSummaryResponse\x12\x8d\x01\n\x06GetAll\x12?.arista.configstatus.v1.SecurityProfileDiffSummaryStreamRequest\x1a@.arista.configstatus.v1.SecurityProfileDiffSummaryStreamResponse0\x01\x12\x90\x01\n\tSubscribe\x12?.arista.configstatus.v1.SecurityProfileDiffSummaryStreamRequest\x1a@.arista.configstatus.v1.SecurityProfileDiffSummaryStreamResponse0\x01\x32\xc0\x02\n\x0eSummaryService\x12Y\n\x06GetOne\x12&.arista.configstatus.v1.SummaryRequest\x1a\'.arista.configstatus.v1.SummaryResponse\x12g\n\x06GetAll\x12,.arista.configstatus.v1.SummaryStreamRequest\x1a-.arista.configstatus.v1.SummaryStreamResponse0\x01\x12j\n\tSubscribe\x12,.arista.configstatus.v1.SummaryStreamRequest\x1a-.arista.configstatus.v1.SummaryStreamResponse0\x01\x42j\n\x1a\x63om.arista.configstatus.v1B\x14\x43onfigstatusServicesP\x01Z4arista/resources/arista/configstatus.v1;configstatusb\x06proto3'
   ,
   dependencies=[arista_dot_configstatus_dot_v1_dot_configstatus__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -356,6 +356,495 @@ _CONFIGURATIONSTREAMRESPONSE = _descriptor.Descriptor(
 )
 
 
+_SECURITYPROFILEREQUEST = _descriptor.Descriptor(
+  name='SecurityProfileRequest',
+  full_name='arista.configstatus.v1.SecurityProfileRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.configstatus.v1.SecurityProfileRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1285,
+  serialized_end=1399,
+)
+
+
+_SECURITYPROFILERESPONSE = _descriptor.Descriptor(
+  name='SecurityProfileResponse',
+  full_name='arista.configstatus.v1.SecurityProfileResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.configstatus.v1.SecurityProfileResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1401,
+  serialized_end=1524,
+)
+
+
+_SECURITYPROFILESTREAMREQUEST = _descriptor.Descriptor(
+  name='SecurityProfileStreamRequest',
+  full_name='arista.configstatus.v1.SecurityProfileStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.configstatus.v1.SecurityProfileStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1527,
+  serialized_end=1664,
+)
+
+
+_SECURITYPROFILESTREAMRESPONSE = _descriptor.Descriptor(
+  name='SecurityProfileStreamResponse',
+  full_name='arista.configstatus.v1.SecurityProfileStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.configstatus.v1.SecurityProfileStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.configstatus.v1.SecurityProfileStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1667,
+  serialized_end=1843,
+)
+
+
+_SECURITYPROFILEDIFFREQUEST = _descriptor.Descriptor(
+  name='SecurityProfileDiffRequest',
+  full_name='arista.configstatus.v1.SecurityProfileDiffRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.configstatus.v1.SecurityProfileDiffRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileDiffRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1845,
+  serialized_end=1967,
+)
+
+
+_SECURITYPROFILEDIFFRESPONSE = _descriptor.Descriptor(
+  name='SecurityProfileDiffResponse',
+  full_name='arista.configstatus.v1.SecurityProfileDiffResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.configstatus.v1.SecurityProfileDiffResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileDiffResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1970,
+  serialized_end=2101,
+)
+
+
+_SECURITYPROFILEDIFFSTREAMREQUEST = _descriptor.Descriptor(
+  name='SecurityProfileDiffStreamRequest',
+  full_name='arista.configstatus.v1.SecurityProfileDiffStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.configstatus.v1.SecurityProfileDiffStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileDiffStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2104,
+  serialized_end=2249,
+)
+
+
+_SECURITYPROFILEDIFFSTREAMRESPONSE = _descriptor.Descriptor(
+  name='SecurityProfileDiffStreamResponse',
+  full_name='arista.configstatus.v1.SecurityProfileDiffStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.configstatus.v1.SecurityProfileDiffStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileDiffStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.configstatus.v1.SecurityProfileDiffStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2252,
+  serialized_end=2436,
+)
+
+
+_SECURITYPROFILEDIFFSUMMARYREQUEST = _descriptor.Descriptor(
+  name='SecurityProfileDiffSummaryRequest',
+  full_name='arista.configstatus.v1.SecurityProfileDiffSummaryRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.configstatus.v1.SecurityProfileDiffSummaryRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileDiffSummaryRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2438,
+  serialized_end=2564,
+)
+
+
+_SECURITYPROFILEDIFFSUMMARYRESPONSE = _descriptor.Descriptor(
+  name='SecurityProfileDiffSummaryResponse',
+  full_name='arista.configstatus.v1.SecurityProfileDiffSummaryResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.configstatus.v1.SecurityProfileDiffSummaryResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileDiffSummaryResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2567,
+  serialized_end=2712,
+)
+
+
+_SECURITYPROFILEDIFFSUMMARYSTREAMREQUEST = _descriptor.Descriptor(
+  name='SecurityProfileDiffSummaryStreamRequest',
+  full_name='arista.configstatus.v1.SecurityProfileDiffSummaryStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.configstatus.v1.SecurityProfileDiffSummaryStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileDiffSummaryStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2715,
+  serialized_end=2874,
+)
+
+
+_SECURITYPROFILEDIFFSUMMARYSTREAMRESPONSE = _descriptor.Descriptor(
+  name='SecurityProfileDiffSummaryStreamResponse',
+  full_name='arista.configstatus.v1.SecurityProfileDiffSummaryStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.configstatus.v1.SecurityProfileDiffSummaryStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.configstatus.v1.SecurityProfileDiffSummaryStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.configstatus.v1.SecurityProfileDiffSummaryStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2877,
+  serialized_end=3075,
+)
+
+
 _SUMMARYREQUEST = _descriptor.Descriptor(
   name='SummaryRequest',
   full_name='arista.configstatus.v1.SummaryRequest',
@@ -390,8 +879,8 @@ _SUMMARYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1285,
-  serialized_end=1392,
+  serialized_start=3077,
+  serialized_end=3184,
 )
 
 
@@ -429,8 +918,8 @@ _SUMMARYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1394,
-  serialized_end=1501,
+  serialized_start=3186,
+  serialized_end=3293,
 )
 
 
@@ -468,8 +957,8 @@ _SUMMARYSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1503,
-  serialized_end=1624,
+  serialized_start=3295,
+  serialized_end=3416,
 )
 
 
@@ -514,8 +1003,8 @@ _SUMMARYSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1627,
-  serialized_end=1787,
+  serialized_start=3419,
+  serialized_end=3579,
 )
 
 _CONFIGDIFFREQUEST.fields_by_name['key'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._CONFIGDIFFKEY
@@ -536,6 +1025,33 @@ _CONFIGURATIONSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_tim
 _CONFIGURATIONSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._CONFIGURATION
 _CONFIGURATIONSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CONFIGURATIONSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_SECURITYPROFILEREQUEST.fields_by_name['key'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._CONFIGKEY
+_SECURITYPROFILEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILERESPONSE.fields_by_name['value'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SECURITYPROFILE
+_SECURITYPROFILERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILESTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SECURITYPROFILE
+_SECURITYPROFILESTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_SECURITYPROFILESTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SECURITYPROFILE
+_SECURITYPROFILESTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILESTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_SECURITYPROFILEDIFFREQUEST.fields_by_name['key'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._CONFIGDIFFKEY
+_SECURITYPROFILEDIFFREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILEDIFFRESPONSE.fields_by_name['value'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SECURITYPROFILEDIFF
+_SECURITYPROFILEDIFFRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILEDIFFSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SECURITYPROFILEDIFF
+_SECURITYPROFILEDIFFSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_SECURITYPROFILEDIFFSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SECURITYPROFILEDIFF
+_SECURITYPROFILEDIFFSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILEDIFFSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_SECURITYPROFILEDIFFSUMMARYREQUEST.fields_by_name['key'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SUMMARYKEY
+_SECURITYPROFILEDIFFSUMMARYREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILEDIFFSUMMARYRESPONSE.fields_by_name['value'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SECURITYPROFILEDIFFSUMMARY
+_SECURITYPROFILEDIFFSUMMARYRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILEDIFFSUMMARYSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SECURITYPROFILEDIFFSUMMARY
+_SECURITYPROFILEDIFFSUMMARYSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_SECURITYPROFILEDIFFSUMMARYSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SECURITYPROFILEDIFFSUMMARY
+_SECURITYPROFILEDIFFSUMMARYSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILEDIFFSUMMARYSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
 _SUMMARYREQUEST.fields_by_name['key'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SUMMARYKEY
 _SUMMARYREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _SUMMARYRESPONSE.fields_by_name['value'].message_type = arista_dot_configstatus_dot_v1_dot_configstatus__pb2._SUMMARY
@@ -553,6 +1069,18 @@ DESCRIPTOR.message_types_by_name['ConfigurationRequest'] = _CONFIGURATIONREQUEST
 DESCRIPTOR.message_types_by_name['ConfigurationResponse'] = _CONFIGURATIONRESPONSE
 DESCRIPTOR.message_types_by_name['ConfigurationStreamRequest'] = _CONFIGURATIONSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['ConfigurationStreamResponse'] = _CONFIGURATIONSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['SecurityProfileRequest'] = _SECURITYPROFILEREQUEST
+DESCRIPTOR.message_types_by_name['SecurityProfileResponse'] = _SECURITYPROFILERESPONSE
+DESCRIPTOR.message_types_by_name['SecurityProfileStreamRequest'] = _SECURITYPROFILESTREAMREQUEST
+DESCRIPTOR.message_types_by_name['SecurityProfileStreamResponse'] = _SECURITYPROFILESTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['SecurityProfileDiffRequest'] = _SECURITYPROFILEDIFFREQUEST
+DESCRIPTOR.message_types_by_name['SecurityProfileDiffResponse'] = _SECURITYPROFILEDIFFRESPONSE
+DESCRIPTOR.message_types_by_name['SecurityProfileDiffStreamRequest'] = _SECURITYPROFILEDIFFSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['SecurityProfileDiffStreamResponse'] = _SECURITYPROFILEDIFFSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['SecurityProfileDiffSummaryRequest'] = _SECURITYPROFILEDIFFSUMMARYREQUEST
+DESCRIPTOR.message_types_by_name['SecurityProfileDiffSummaryResponse'] = _SECURITYPROFILEDIFFSUMMARYRESPONSE
+DESCRIPTOR.message_types_by_name['SecurityProfileDiffSummaryStreamRequest'] = _SECURITYPROFILEDIFFSUMMARYSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['SecurityProfileDiffSummaryStreamResponse'] = _SECURITYPROFILEDIFFSUMMARYSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['SummaryRequest'] = _SUMMARYREQUEST
 DESCRIPTOR.message_types_by_name['SummaryResponse'] = _SUMMARYRESPONSE
 DESCRIPTOR.message_types_by_name['SummaryStreamRequest'] = _SUMMARYSTREAMREQUEST
@@ -615,6 +1143,90 @@ ConfigurationStreamResponse = _reflection.GeneratedProtocolMessageType('Configur
   })
 _sym_db.RegisterMessage(ConfigurationStreamResponse)
 
+SecurityProfileRequest = _reflection.GeneratedProtocolMessageType('SecurityProfileRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEREQUEST,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileRequest)
+  })
+_sym_db.RegisterMessage(SecurityProfileRequest)
+
+SecurityProfileResponse = _reflection.GeneratedProtocolMessageType('SecurityProfileResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILERESPONSE,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileResponse)
+  })
+_sym_db.RegisterMessage(SecurityProfileResponse)
+
+SecurityProfileStreamRequest = _reflection.GeneratedProtocolMessageType('SecurityProfileStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILESTREAMREQUEST,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileStreamRequest)
+  })
+_sym_db.RegisterMessage(SecurityProfileStreamRequest)
+
+SecurityProfileStreamResponse = _reflection.GeneratedProtocolMessageType('SecurityProfileStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILESTREAMRESPONSE,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileStreamResponse)
+  })
+_sym_db.RegisterMessage(SecurityProfileStreamResponse)
+
+SecurityProfileDiffRequest = _reflection.GeneratedProtocolMessageType('SecurityProfileDiffRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEDIFFREQUEST,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileDiffRequest)
+  })
+_sym_db.RegisterMessage(SecurityProfileDiffRequest)
+
+SecurityProfileDiffResponse = _reflection.GeneratedProtocolMessageType('SecurityProfileDiffResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEDIFFRESPONSE,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileDiffResponse)
+  })
+_sym_db.RegisterMessage(SecurityProfileDiffResponse)
+
+SecurityProfileDiffStreamRequest = _reflection.GeneratedProtocolMessageType('SecurityProfileDiffStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEDIFFSTREAMREQUEST,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileDiffStreamRequest)
+  })
+_sym_db.RegisterMessage(SecurityProfileDiffStreamRequest)
+
+SecurityProfileDiffStreamResponse = _reflection.GeneratedProtocolMessageType('SecurityProfileDiffStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEDIFFSTREAMRESPONSE,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileDiffStreamResponse)
+  })
+_sym_db.RegisterMessage(SecurityProfileDiffStreamResponse)
+
+SecurityProfileDiffSummaryRequest = _reflection.GeneratedProtocolMessageType('SecurityProfileDiffSummaryRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEDIFFSUMMARYREQUEST,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileDiffSummaryRequest)
+  })
+_sym_db.RegisterMessage(SecurityProfileDiffSummaryRequest)
+
+SecurityProfileDiffSummaryResponse = _reflection.GeneratedProtocolMessageType('SecurityProfileDiffSummaryResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEDIFFSUMMARYRESPONSE,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileDiffSummaryResponse)
+  })
+_sym_db.RegisterMessage(SecurityProfileDiffSummaryResponse)
+
+SecurityProfileDiffSummaryStreamRequest = _reflection.GeneratedProtocolMessageType('SecurityProfileDiffSummaryStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEDIFFSUMMARYSTREAMREQUEST,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileDiffSummaryStreamRequest)
+  })
+_sym_db.RegisterMessage(SecurityProfileDiffSummaryStreamRequest)
+
+SecurityProfileDiffSummaryStreamResponse = _reflection.GeneratedProtocolMessageType('SecurityProfileDiffSummaryStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEDIFFSUMMARYSTREAMRESPONSE,
+  '__module__' : 'arista.configstatus.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileDiffSummaryStreamResponse)
+  })
+_sym_db.RegisterMessage(SecurityProfileDiffSummaryStreamResponse)
+
 SummaryRequest = _reflection.GeneratedProtocolMessageType('SummaryRequest', (_message.Message,), {
   'DESCRIPTOR' : _SUMMARYREQUEST,
   '__module__' : 'arista.configstatus.v1.services.gen_pb2'
@@ -653,8 +1265,8 @@ _CONFIGDIFFSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1790,
-  serialized_end=2131,
+  serialized_start=3582,
+  serialized_end=3923,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -699,8 +1311,8 @@ _CONFIGURATIONSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2134,
-  serialized_end=2496,
+  serialized_start=3926,
+  serialized_end=4288,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -738,15 +1350,153 @@ _sym_db.RegisterServiceDescriptor(_CONFIGURATIONSERVICE)
 DESCRIPTOR.services_by_name['ConfigurationService'] = _CONFIGURATIONSERVICE
 
 
-_SUMMARYSERVICE = _descriptor.ServiceDescriptor(
-  name='SummaryService',
-  full_name='arista.configstatus.v1.SummaryService',
+_SECURITYPROFILESERVICE = _descriptor.ServiceDescriptor(
+  name='SecurityProfileService',
+  full_name='arista.configstatus.v1.SecurityProfileService',
   file=DESCRIPTOR,
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2499,
-  serialized_end=2819,
+  serialized_start=4291,
+  serialized_end=4667,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.configstatus.v1.SecurityProfileService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_SECURITYPROFILEREQUEST,
+    output_type=_SECURITYPROFILERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.configstatus.v1.SecurityProfileService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_SECURITYPROFILESTREAMREQUEST,
+    output_type=_SECURITYPROFILESTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.configstatus.v1.SecurityProfileService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_SECURITYPROFILESTREAMREQUEST,
+    output_type=_SECURITYPROFILESTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_SECURITYPROFILESERVICE)
+
+DESCRIPTOR.services_by_name['SecurityProfileService'] = _SECURITYPROFILESERVICE
+
+
+_SECURITYPROFILEDIFFSERVICE = _descriptor.ServiceDescriptor(
+  name='SecurityProfileDiffService',
+  full_name='arista.configstatus.v1.SecurityProfileDiffService',
+  file=DESCRIPTOR,
+  index=3,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=4670,
+  serialized_end=5075,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.configstatus.v1.SecurityProfileDiffService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_SECURITYPROFILEDIFFREQUEST,
+    output_type=_SECURITYPROFILEDIFFRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.configstatus.v1.SecurityProfileDiffService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_SECURITYPROFILEDIFFSTREAMREQUEST,
+    output_type=_SECURITYPROFILEDIFFSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.configstatus.v1.SecurityProfileDiffService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_SECURITYPROFILEDIFFSTREAMREQUEST,
+    output_type=_SECURITYPROFILEDIFFSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_SECURITYPROFILEDIFFSERVICE)
+
+DESCRIPTOR.services_by_name['SecurityProfileDiffService'] = _SECURITYPROFILEDIFFSERVICE
+
+
+_SECURITYPROFILEDIFFSUMMARYSERVICE = _descriptor.ServiceDescriptor(
+  name='SecurityProfileDiffSummaryService',
+  full_name='arista.configstatus.v1.SecurityProfileDiffSummaryService',
+  file=DESCRIPTOR,
+  index=4,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=5078,
+  serialized_end=5533,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.configstatus.v1.SecurityProfileDiffSummaryService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_SECURITYPROFILEDIFFSUMMARYREQUEST,
+    output_type=_SECURITYPROFILEDIFFSUMMARYRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.configstatus.v1.SecurityProfileDiffSummaryService.GetAll',
+    index=1,
+    containing_service=None,
+    input_type=_SECURITYPROFILEDIFFSUMMARYSTREAMREQUEST,
+    output_type=_SECURITYPROFILEDIFFSUMMARYSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.configstatus.v1.SecurityProfileDiffSummaryService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_SECURITYPROFILEDIFFSUMMARYSTREAMREQUEST,
+    output_type=_SECURITYPROFILEDIFFSUMMARYSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_SECURITYPROFILEDIFFSUMMARYSERVICE)
+
+DESCRIPTOR.services_by_name['SecurityProfileDiffSummaryService'] = _SECURITYPROFILEDIFFSUMMARYSERVICE
+
+
+_SUMMARYSERVICE = _descriptor.ServiceDescriptor(
+  name='SummaryService',
+  full_name='arista.configstatus.v1.SummaryService',
+  file=DESCRIPTOR,
+  index=5,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=5536,
+  serialized_end=5856,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',

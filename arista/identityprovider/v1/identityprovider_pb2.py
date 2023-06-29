@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z<arista/resources/arista/identityprovider.v1;identityprovider',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n1arista/identityprovider.v1/identityprovider.proto\x12\x1a\x61rista.identityprovider.v1\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"C\n\x08OAuthKey\x12\x31\n\x0bprovider_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xe2\x03\n\x0bOAuthConfig\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12.\n\x08\x65ndpoint\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tclient_id\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rclient_secret\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\'\n\nalgorithms\x18\x05 \x01(\x0b\x32\x13.fmp.RepeatedString\x12;\n\x17link_to_shared_provider\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12.\n\x08jwks_uri\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x17permitted_email_domains\x18\x08 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x36\n\x10roles_scope_name\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02rw\"B\n\x07SAMLKey\x12\x31\n\x0bprovider_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xd5\x03\n\nSAMLConfig\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12\x30\n\nidp_issuer\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x10idp_metadata_url\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x44\n\x0f\x61uthreq_binding\x18\x04 \x01(\x0e\x32+.arista.identityprovider.v1.ProtocolBinding\x12\x34\n\x0e\x65mail_attrname\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12;\n\x17link_to_shared_provider\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\x17permitted_email_domains\x18\x07 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x34\n\x10\x66orce_saml_authn\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02rw*w\n\x0fProtocolBinding\x12 \n\x1cPROTOCOL_BINDING_UNSPECIFIED\x10\x00\x12\x1e\n\x1aPROTOCOL_BINDING_HTTP_POST\x10\x01\x12\"\n\x1ePROTOCOL_BINDING_HTTP_REDIRECT\x10\x02\x42>Z<arista/resources/arista/identityprovider.v1;identityproviderb\x06proto3'
+  serialized_pb=b'\n1arista/identityprovider.v1/identityprovider.proto\x12\x1a\x61rista.identityprovider.v1\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"C\n\x08OAuthKey\x12\x31\n\x0bprovider_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xad\x04\n\x0bOAuthConfig\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12.\n\x08\x65ndpoint\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tclient_id\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rclient_secret\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\'\n\nalgorithms\x18\x05 \x01(\x0b\x32\x13.fmp.RepeatedString\x12;\n\x17link_to_shared_provider\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12.\n\x08jwks_uri\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x17permitted_email_domains\x18\x08 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x36\n\x10roles_scope_name\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12I\n#bearer_token_introspection_endpoint\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02rw\"B\n\x07SAMLKey\x12\x31\n\x0bprovider_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xbf\x04\n\nSAMLConfig\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12\x30\n\nidp_issuer\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x10idp_metadata_url\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x44\n\x0f\x61uthreq_binding\x18\x04 \x01(\x0e\x32+.arista.identityprovider.v1.ProtocolBinding\x12\x34\n\x0e\x65mail_attrname\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12;\n\x17link_to_shared_provider\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\x17permitted_email_domains\x18\x07 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x34\n\x10\x66orce_saml_authn\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\x0eroles_attrname\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0corg_attrname\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02rw*w\n\x0fProtocolBinding\x12 \n\x1cPROTOCOL_BINDING_UNSPECIFIED\x10\x00\x12\x1e\n\x1aPROTOCOL_BINDING_HTTP_POST\x10\x01\x12\"\n\x1ePROTOCOL_BINDING_HTTP_REDIRECT\x10\x02\x42>Z<arista/resources/arista/identityprovider.v1;identityproviderb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,fmp_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -52,8 +52,8 @@ _PROTOCOLBINDING = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1249,
-  serialized_end=1368,
+  serialized_start=1430,
+  serialized_end=1549,
 )
 _sym_db.RegisterEnumDescriptor(_PROTOCOLBINDING)
 
@@ -167,6 +167,13 @@ _OAUTHCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='bearer_token_introspection_endpoint', full_name='arista.identityprovider.v1.OAuthConfig.bearer_token_introspection_endpoint', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -180,7 +187,7 @@ _OAUTHCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=225,
-  serialized_end=707,
+  serialized_end=782,
 )
 
 
@@ -211,8 +218,8 @@ _SAMLKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=709,
-  serialized_end=775,
+  serialized_start=784,
+  serialized_end=850,
 )
 
 
@@ -280,6 +287,20 @@ _SAMLCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='roles_attrname', full_name='arista.identityprovider.v1.SAMLConfig.roles_attrname', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='org_attrname', full_name='arista.identityprovider.v1.SAMLConfig.org_attrname', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -292,8 +313,8 @@ _SAMLCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=778,
-  serialized_end=1247,
+  serialized_start=853,
+  serialized_end=1428,
 )
 
 _OAUTHKEY.fields_by_name['provider_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
@@ -306,6 +327,7 @@ _OAUTHCONFIG.fields_by_name['link_to_shared_provider'].message_type = google_dot
 _OAUTHCONFIG.fields_by_name['jwks_uri'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _OAUTHCONFIG.fields_by_name['permitted_email_domains'].message_type = fmp_dot_wrappers__pb2._REPEATEDSTRING
 _OAUTHCONFIG.fields_by_name['roles_scope_name'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_OAUTHCONFIG.fields_by_name['bearer_token_introspection_endpoint'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _SAMLKEY.fields_by_name['provider_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _SAMLCONFIG.fields_by_name['key'].message_type = _SAMLKEY
 _SAMLCONFIG.fields_by_name['idp_issuer'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
@@ -315,6 +337,8 @@ _SAMLCONFIG.fields_by_name['email_attrname'].message_type = google_dot_protobuf_
 _SAMLCONFIG.fields_by_name['link_to_shared_provider'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _SAMLCONFIG.fields_by_name['permitted_email_domains'].message_type = fmp_dot_wrappers__pb2._REPEATEDSTRING
 _SAMLCONFIG.fields_by_name['force_saml_authn'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_SAMLCONFIG.fields_by_name['roles_attrname'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_SAMLCONFIG.fields_by_name['org_attrname'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 DESCRIPTOR.message_types_by_name['OAuthKey'] = _OAUTHKEY
 DESCRIPTOR.message_types_by_name['OAuthConfig'] = _OAUTHCONFIG
 DESCRIPTOR.message_types_by_name['SAMLKey'] = _SAMLKEY

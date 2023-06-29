@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032com.arista.configstatus.v1B\014ConfigstatusP\001Z4arista/resources/arista/configstatus.v1;configstatus',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)arista/configstatus.v1/configstatus.proto\x12\x16\x61rista.configstatus.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\"\xda\x01\n\x0b\x43onfigError\x12\x35\n\nerror_code\x18\x01 \x01(\x0e\x32!.arista.configstatus.v1.ErrorCode\x12/\n\terror_msg\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x08line_num\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x34\n\x0e\x63onfiglet_name\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"C\n\x0c\x43onfigErrors\x12\x33\n\x06values\x18\x01 \x03(\x0b\x32#.arista.configstatus.v1.ConfigError\"\xaf\x03\n\tDiffEntry\x12*\n\x02op\x18\x01 \x01(\x0e\x32\x1e.arista.configstatus.v1.DiffOp\x12/\n\na_line_num\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12/\n\nb_line_num\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x36\n\x11\x62_parent_line_num\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12,\n\x06\x61_line\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06\x62_line\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12?\n\ra_filter_code\x18\x07 \x01(\x0e\x32(.arista.configstatus.v1.ConfigFilterCode\x12?\n\rb_filter_code\x18\x08 \x01(\x0e\x32(.arista.configstatus.v1.ConfigFilterCode\"@\n\x0b\x44iffEntries\x12\x31\n\x06values\x18\x01 \x03(\x0b\x32!.arista.configstatus.v1.DiffEntry\"\x93\x06\n\rConfigSummary\x12\x34\n\x04sync\x18\x01 \x01(\x0e\x32&.arista.configstatus.v1.ConfigSyncCode\x12.\n\tnop_lines\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x32\n\rignored_lines\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x30\n\x0b\x61\x64\x64\x65\x64_lines\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x32\n\rdeleted_lines\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x32\n\rchanged_lines\x18\x06 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12;\n\x16\x64\x65signed_config_errors\x18\x07 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12=\n\x18\x64\x65signed_config_warnings\x18\x08 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12>\n\x1arunning_config_update_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12?\n\x1b\x64\x65signed_config_update_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x38\n\x12running_config_uri\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x39\n\x13\x64\x65signed_config_uri\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08\x64iff_uri\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06\x64igest\x18\x0e \x01(\x0b\x32\x1c.google.protobuf.StringValue\"t\n\tConfigKey\x12/\n\tdevice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x04type\x18\x02 \x01(\x0e\x32\".arista.configstatus.v1.ConfigType:\x04\x80\x8e\x19\x01\"\xa6\x01\n\rConfiguration\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.configstatus.v1.ConfigKey\x12)\n\x03uri\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x05\x65rror\x18\x03 \x01(\x0b\x32#.arista.configstatus.v1.ConfigError:\x06\xfa\x8d\x19\x02ro\"\xbb\x02\n\rConfigDiffKey\x12\x31\n\x0b\x61_device_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x06\x61_type\x18\x02 \x01(\x0e\x32\".arista.configstatus.v1.ConfigType\x12*\n\x06\x61_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x31\n\x0b\x62_device_id\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x06\x62_type\x18\x05 \x01(\x0e\x32\".arista.configstatus.v1.ConfigType\x12*\n\x06\x62_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x04\x80\x8e\x19\x01\"\xa7\x01\n\nConfigDiff\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.ConfigDiffKey\x12)\n\x03uri\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x05\x65rror\x18\x03 \x01(\x0b\x32#.arista.configstatus.v1.ConfigError:\x06\xfa\x8d\x19\x02ro\"C\n\nSummaryKey\x12/\n\tdevice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xae\x01\n\x07Summary\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.configstatus.v1.SummaryKey\x12\x36\n\x07summary\x18\x02 \x01(\x0b\x32%.arista.configstatus.v1.ConfigSummary\x12\x32\n\x05\x65rror\x18\x03 \x01(\x0b\x32#.arista.configstatus.v1.ConfigError:\x06\xfa\x8d\x19\x02ro*\xc3\x01\n\tErrorCode\x12\x1a\n\x16\x45RROR_CODE_UNSPECIFIED\x10\x00\x12\x1d\n\x19\x45RROR_CODE_DEVICE_WARNING\x10\x01\x12\x1b\n\x17\x45RROR_CODE_DEVICE_ERROR\x10\x02\x12!\n\x1d\x45RROR_CODE_UNREACHABLE_DEVICE\x10\x03\x12\"\n\x1e\x45RROR_CODE_CONFIG_FILTER_ERROR\x10\x04\x12\x17\n\x13\x45RROR_CODE_INTERNAL\x10\x05*\x7f\n\x06\x44iffOp\x12\x17\n\x13\x44IFF_OP_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x44IFF_OP_NOP\x10\x01\x12\x12\n\x0e\x44IFF_OP_IGNORE\x10\x02\x12\x0f\n\x0b\x44IFF_OP_ADD\x10\x03\x12\x12\n\x0e\x44IFF_OP_DELETE\x10\x04\x12\x12\n\x0e\x44IFF_OP_CHANGE\x10\x05*\x82\x01\n\x10\x43onfigFilterCode\x12\"\n\x1e\x43ONFIG_FILTER_CODE_UNSPECIFIED\x10\x00\x12#\n\x1f\x43ONFIG_FILTER_CODE_MANAGED_LINE\x10\x01\x12%\n!CONFIG_FILTER_CODE_UNMANAGED_LINE\x10\x02*r\n\x0e\x43onfigSyncCode\x12 \n\x1c\x43ONFIG_SYNC_CODE_UNSPECIFIED\x10\x00\x12\x1c\n\x18\x43ONFIG_SYNC_CODE_IN_SYNC\x10\x01\x12 \n\x1c\x43ONFIG_SYNC_CODE_OUT_OF_SYNC\x10\x02*j\n\nConfigType\x12\x1b\n\x17\x43ONFIG_TYPE_UNSPECIFIED\x10\x00\x12\x1e\n\x1a\x43ONFIG_TYPE_RUNNING_CONFIG\x10\x01\x12\x1f\n\x1b\x43ONFIG_TYPE_DESIGNED_CONFIG\x10\x02\x42\x62\n\x1a\x63om.arista.configstatus.v1B\x0c\x43onfigstatusP\x01Z4arista/resources/arista/configstatus.v1;configstatusb\x06proto3'
+  serialized_pb=b'\n)arista/configstatus.v1/configstatus.proto\x12\x16\x61rista.configstatus.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\"\xda\x01\n\x0b\x43onfigError\x12\x35\n\nerror_code\x18\x01 \x01(\x0e\x32!.arista.configstatus.v1.ErrorCode\x12/\n\terror_msg\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x08line_num\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x34\n\x0e\x63onfiglet_name\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"C\n\x0c\x43onfigErrors\x12\x33\n\x06values\x18\x01 \x03(\x0b\x32#.arista.configstatus.v1.ConfigError\"\xe7\x03\n\tDiffEntry\x12*\n\x02op\x18\x01 \x01(\x0e\x32\x1e.arista.configstatus.v1.DiffOp\x12/\n\na_line_num\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12/\n\nb_line_num\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x36\n\x11\x62_parent_line_num\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12,\n\x06\x61_line\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06\x62_line\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12?\n\ra_filter_code\x18\x07 \x01(\x0e\x32(.arista.configstatus.v1.ConfigFilterCode\x12?\n\rb_filter_code\x18\x08 \x01(\x0e\x32(.arista.configstatus.v1.ConfigFilterCode\x12\x36\n\x11\x61_parent_line_num\x18\t \x01(\x0b\x32\x1b.google.protobuf.Int32Value\"@\n\x0b\x44iffEntries\x12\x31\n\x06values\x18\x01 \x03(\x0b\x32!.arista.configstatus.v1.DiffEntry\"~\n\x0c\x43onfigSource\x12=\n\x0bsource_type\x18\x01 \x01(\x0e\x32(.arista.configstatus.v1.ConfigSourceType\x12/\n\tsource_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"E\n\rConfigSources\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.arista.configstatus.v1.ConfigSource\"\x93\x06\n\rConfigSummary\x12\x34\n\x04sync\x18\x01 \x01(\x0e\x32&.arista.configstatus.v1.ConfigSyncCode\x12.\n\tnop_lines\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x32\n\rignored_lines\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x30\n\x0b\x61\x64\x64\x65\x64_lines\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x32\n\rdeleted_lines\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x32\n\rchanged_lines\x18\x06 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12;\n\x16\x64\x65signed_config_errors\x18\x07 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12=\n\x18\x64\x65signed_config_warnings\x18\x08 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12>\n\x1arunning_config_update_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12?\n\x1b\x64\x65signed_config_update_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x38\n\x12running_config_uri\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x39\n\x13\x64\x65signed_config_uri\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08\x64iff_uri\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06\x64igest\x18\x0e \x01(\x0b\x32\x1c.google.protobuf.StringValue\"t\n\tConfigKey\x12/\n\tdevice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x04type\x18\x02 \x01(\x0e\x32\".arista.configstatus.v1.ConfigType:\x04\x80\x8e\x19\x01\"r\n\rConfiguration\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.configstatus.v1.ConfigKey\x12)\n\x03uri\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\xbb\x02\n\rConfigDiffKey\x12\x31\n\x0b\x61_device_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x06\x61_type\x18\x02 \x01(\x0e\x32\".arista.configstatus.v1.ConfigType\x12*\n\x06\x61_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x31\n\x0b\x62_device_id\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x06\x62_type\x18\x05 \x01(\x0e\x32\".arista.configstatus.v1.ConfigType\x12*\n\x06\x62_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x04\x80\x8e\x19\x01\"s\n\nConfigDiff\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.ConfigDiffKey\x12)\n\x03uri\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"C\n\nSummaryKey\x12/\n\tdevice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"z\n\x07Summary\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.configstatus.v1.SummaryKey\x12\x36\n\x07summary\x18\x02 \x01(\x0b\x32%.arista.configstatus.v1.ConfigSummary:\x06\xfa\x8d\x19\x02ro\"w\n\x0fSecurityProfile\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.configstatus.v1.ConfigKey\x12,\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\x85\x04\n SecurityProfileComplianceSummary\x12\x34\n\x04sync\x18\x01 \x01(\x0e\x32&.arista.configstatus.v1.ConfigSyncCode\x12.\n\tnop_lines\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x32\n\rignored_lines\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x30\n\x0b\x61\x64\x64\x65\x64_lines\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x32\n\rdeleted_lines\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x32\n\rchanged_lines\x18\x06 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12,\n\x06\x64igest\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12>\n\x1arunning_config_update_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12?\n\x1b\x64\x65signed_config_update_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa0\x01\n\x1aSecurityProfileDiffSummary\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.configstatus.v1.SummaryKey\x12I\n\x07summary\x18\x02 \x01(\x0b\x32\x38.arista.configstatus.v1.SecurityProfileComplianceSummary:\x06\xfa\x8d\x19\x02ro\"\x84\x01\n\x13SecurityProfileDiff\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.ConfigDiffKey\x12\x31\n\x04\x64iff\x18\x02 \x01(\x0b\x32#.arista.configstatus.v1.DiffEntries:\x06\xfa\x8d\x19\x02ro*\xc3\x01\n\tErrorCode\x12\x1a\n\x16\x45RROR_CODE_UNSPECIFIED\x10\x00\x12\x1d\n\x19\x45RROR_CODE_DEVICE_WARNING\x10\x01\x12\x1b\n\x17\x45RROR_CODE_DEVICE_ERROR\x10\x02\x12!\n\x1d\x45RROR_CODE_UNREACHABLE_DEVICE\x10\x03\x12\"\n\x1e\x45RROR_CODE_CONFIG_FILTER_ERROR\x10\x04\x12\x17\n\x13\x45RROR_CODE_INTERNAL\x10\x05*\x7f\n\x06\x44iffOp\x12\x17\n\x13\x44IFF_OP_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x44IFF_OP_NOP\x10\x01\x12\x12\n\x0e\x44IFF_OP_IGNORE\x10\x02\x12\x0f\n\x0b\x44IFF_OP_ADD\x10\x03\x12\x12\n\x0e\x44IFF_OP_DELETE\x10\x04\x12\x12\n\x0e\x44IFF_OP_CHANGE\x10\x05*\x82\x01\n\x10\x43onfigFilterCode\x12\"\n\x1e\x43ONFIG_FILTER_CODE_UNSPECIFIED\x10\x00\x12#\n\x1f\x43ONFIG_FILTER_CODE_MANAGED_LINE\x10\x01\x12%\n!CONFIG_FILTER_CODE_UNMANAGED_LINE\x10\x02*r\n\x0e\x43onfigSyncCode\x12 \n\x1c\x43ONFIG_SYNC_CODE_UNSPECIFIED\x10\x00\x12\x1c\n\x18\x43ONFIG_SYNC_CODE_IN_SYNC\x10\x01\x12 \n\x1c\x43ONFIG_SYNC_CODE_OUT_OF_SYNC\x10\x02*\xb2\x01\n\x10\x43onfigSourceType\x12\"\n\x1e\x43ONFIG_SOURCE_TYPE_UNSPECIFIED\x10\x00\x12\x35\n1CONFIG_SOURCE_TYPE_NETWORK_PROVISIONING_CONFIGLET\x10\x01\x12\x1d\n\x19\x43ONFIG_SOURCE_TYPE_STUDIO\x10\x02\x12$\n CONFIG_SOURCE_TYPE_STUDIO_STATIC\x10\x03*j\n\nConfigType\x12\x1b\n\x17\x43ONFIG_TYPE_UNSPECIFIED\x10\x00\x12\x1e\n\x1a\x43ONFIG_TYPE_RUNNING_CONFIG\x10\x01\x12\x1f\n\x1b\x43ONFIG_TYPE_DESIGNED_CONFIG\x10\x02\x42\x62\n\x1a\x63om.arista.configstatus.v1B\x0c\x43onfigstatusP\x01Z4arista/resources/arista/configstatus.v1;configstatusb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,])
 
@@ -67,8 +67,8 @@ _ERRORCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2758,
-  serialized_end=2953,
+  serialized_start=3793,
+  serialized_end=3988,
 )
 _sym_db.RegisterEnumDescriptor(_ERRORCODE)
 
@@ -113,8 +113,8 @@ _DIFFOP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2955,
-  serialized_end=3082,
+  serialized_start=3990,
+  serialized_end=4117,
 )
 _sym_db.RegisterEnumDescriptor(_DIFFOP)
 
@@ -144,8 +144,8 @@ _CONFIGFILTERCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3085,
-  serialized_end=3215,
+  serialized_start=4120,
+  serialized_end=4250,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIGFILTERCODE)
 
@@ -175,12 +175,48 @@ _CONFIGSYNCCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3217,
-  serialized_end=3331,
+  serialized_start=4252,
+  serialized_end=4366,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIGSYNCCODE)
 
 ConfigSyncCode = enum_type_wrapper.EnumTypeWrapper(_CONFIGSYNCCODE)
+_CONFIGSOURCETYPE = _descriptor.EnumDescriptor(
+  name='ConfigSourceType',
+  full_name='arista.configstatus.v1.ConfigSourceType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='CONFIG_SOURCE_TYPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CONFIG_SOURCE_TYPE_NETWORK_PROVISIONING_CONFIGLET', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CONFIG_SOURCE_TYPE_STUDIO', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CONFIG_SOURCE_TYPE_STUDIO_STATIC', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4369,
+  serialized_end=4547,
+)
+_sym_db.RegisterEnumDescriptor(_CONFIGSOURCETYPE)
+
+ConfigSourceType = enum_type_wrapper.EnumTypeWrapper(_CONFIGSOURCETYPE)
 _CONFIGTYPE = _descriptor.EnumDescriptor(
   name='ConfigType',
   full_name='arista.configstatus.v1.ConfigType',
@@ -206,8 +242,8 @@ _CONFIGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3333,
-  serialized_end=3439,
+  serialized_start=4549,
+  serialized_end=4655,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIGTYPE)
 
@@ -230,6 +266,10 @@ CONFIG_FILTER_CODE_UNMANAGED_LINE = 2
 CONFIG_SYNC_CODE_UNSPECIFIED = 0
 CONFIG_SYNC_CODE_IN_SYNC = 1
 CONFIG_SYNC_CODE_OUT_OF_SYNC = 2
+CONFIG_SOURCE_TYPE_UNSPECIFIED = 0
+CONFIG_SOURCE_TYPE_NETWORK_PROVISIONING_CONFIGLET = 1
+CONFIG_SOURCE_TYPE_STUDIO = 2
+CONFIG_SOURCE_TYPE_STUDIO_STATIC = 3
 CONFIG_TYPE_UNSPECIFIED = 0
 CONFIG_TYPE_RUNNING_CONFIG = 1
 CONFIG_TYPE_DESIGNED_CONFIG = 2
@@ -385,6 +425,13 @@ _DIFFENTRY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='a_parent_line_num', full_name='arista.configstatus.v1.DiffEntry.a_parent_line_num', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -398,7 +445,7 @@ _DIFFENTRY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=447,
-  serialized_end=878,
+  serialized_end=934,
 )
 
 
@@ -429,8 +476,79 @@ _DIFFENTRIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=880,
-  serialized_end=944,
+  serialized_start=936,
+  serialized_end=1000,
+)
+
+
+_CONFIGSOURCE = _descriptor.Descriptor(
+  name='ConfigSource',
+  full_name='arista.configstatus.v1.ConfigSource',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='source_type', full_name='arista.configstatus.v1.ConfigSource.source_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='source_id', full_name='arista.configstatus.v1.ConfigSource.source_id', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1002,
+  serialized_end=1128,
+)
+
+
+_CONFIGSOURCES = _descriptor.Descriptor(
+  name='ConfigSources',
+  full_name='arista.configstatus.v1.ConfigSources',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.configstatus.v1.ConfigSources.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1130,
+  serialized_end=1199,
 )
 
 
@@ -552,8 +670,8 @@ _CONFIGSUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=947,
-  serialized_end=1734,
+  serialized_start=1202,
+  serialized_end=1989,
 )
 
 
@@ -591,8 +709,8 @@ _CONFIGKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1736,
-  serialized_end=1852,
+  serialized_start=1991,
+  serialized_end=2107,
 )
 
 
@@ -618,13 +736,6 @@ _CONFIGURATION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='error', full_name='arista.configstatus.v1.Configuration.error', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -637,8 +748,8 @@ _CONFIGURATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1855,
-  serialized_end=2021,
+  serialized_start=2109,
+  serialized_end=2223,
 )
 
 
@@ -704,8 +815,8 @@ _CONFIGDIFFKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2024,
-  serialized_end=2339,
+  serialized_start=2226,
+  serialized_end=2541,
 )
 
 
@@ -731,13 +842,6 @@ _CONFIGDIFF = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='error', full_name='arista.configstatus.v1.ConfigDiff.error', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -750,8 +854,8 @@ _CONFIGDIFF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2342,
-  serialized_end=2509,
+  serialized_start=2543,
+  serialized_end=2658,
 )
 
 
@@ -782,8 +886,8 @@ _SUMMARYKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2511,
-  serialized_end=2578,
+  serialized_start=2660,
+  serialized_end=2727,
 )
 
 
@@ -809,9 +913,41 @@ _SUMMARY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\372\215\031\002ro',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2729,
+  serialized_end=2851,
+)
+
+
+_SECURITYPROFILE = _descriptor.Descriptor(
+  name='SecurityProfile',
+  full_name='arista.configstatus.v1.SecurityProfile',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
     _descriptor.FieldDescriptor(
-      name='error', full_name='arista.configstatus.v1.Summary.error', index=2,
-      number=3, type=11, cpp_type=10, label=1,
+      name='key', full_name='arista.configstatus.v1.SecurityProfile.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='config', full_name='arista.configstatus.v1.SecurityProfile.config', index=1,
+      number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -828,8 +964,174 @@ _SUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2581,
-  serialized_end=2755,
+  serialized_start=2853,
+  serialized_end=2972,
+)
+
+
+_SECURITYPROFILECOMPLIANCESUMMARY = _descriptor.Descriptor(
+  name='SecurityProfileComplianceSummary',
+  full_name='arista.configstatus.v1.SecurityProfileComplianceSummary',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sync', full_name='arista.configstatus.v1.SecurityProfileComplianceSummary.sync', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='nop_lines', full_name='arista.configstatus.v1.SecurityProfileComplianceSummary.nop_lines', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ignored_lines', full_name='arista.configstatus.v1.SecurityProfileComplianceSummary.ignored_lines', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='added_lines', full_name='arista.configstatus.v1.SecurityProfileComplianceSummary.added_lines', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deleted_lines', full_name='arista.configstatus.v1.SecurityProfileComplianceSummary.deleted_lines', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='changed_lines', full_name='arista.configstatus.v1.SecurityProfileComplianceSummary.changed_lines', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='digest', full_name='arista.configstatus.v1.SecurityProfileComplianceSummary.digest', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='running_config_update_time', full_name='arista.configstatus.v1.SecurityProfileComplianceSummary.running_config_update_time', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='designed_config_update_time', full_name='arista.configstatus.v1.SecurityProfileComplianceSummary.designed_config_update_time', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2975,
+  serialized_end=3492,
+)
+
+
+_SECURITYPROFILEDIFFSUMMARY = _descriptor.Descriptor(
+  name='SecurityProfileDiffSummary',
+  full_name='arista.configstatus.v1.SecurityProfileDiffSummary',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.configstatus.v1.SecurityProfileDiffSummary.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='summary', full_name='arista.configstatus.v1.SecurityProfileDiffSummary.summary', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\372\215\031\002ro',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3495,
+  serialized_end=3655,
+)
+
+
+_SECURITYPROFILEDIFF = _descriptor.Descriptor(
+  name='SecurityProfileDiff',
+  full_name='arista.configstatus.v1.SecurityProfileDiff',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.configstatus.v1.SecurityProfileDiff.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='diff', full_name='arista.configstatus.v1.SecurityProfileDiff.diff', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\372\215\031\002ro',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3658,
+  serialized_end=3790,
 )
 
 _CONFIGERROR.fields_by_name['error_code'].enum_type = _ERRORCODE
@@ -845,7 +1147,11 @@ _DIFFENTRY.fields_by_name['a_line'].message_type = google_dot_protobuf_dot_wrapp
 _DIFFENTRY.fields_by_name['b_line'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _DIFFENTRY.fields_by_name['a_filter_code'].enum_type = _CONFIGFILTERCODE
 _DIFFENTRY.fields_by_name['b_filter_code'].enum_type = _CONFIGFILTERCODE
+_DIFFENTRY.fields_by_name['a_parent_line_num'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
 _DIFFENTRIES.fields_by_name['values'].message_type = _DIFFENTRY
+_CONFIGSOURCE.fields_by_name['source_type'].enum_type = _CONFIGSOURCETYPE
+_CONFIGSOURCE.fields_by_name['source_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_CONFIGSOURCES.fields_by_name['values'].message_type = _CONFIGSOURCE
 _CONFIGSUMMARY.fields_by_name['sync'].enum_type = _CONFIGSYNCCODE
 _CONFIGSUMMARY.fields_by_name['nop_lines'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
 _CONFIGSUMMARY.fields_by_name['ignored_lines'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
@@ -864,7 +1170,6 @@ _CONFIGKEY.fields_by_name['device_id'].message_type = google_dot_protobuf_dot_wr
 _CONFIGKEY.fields_by_name['type'].enum_type = _CONFIGTYPE
 _CONFIGURATION.fields_by_name['key'].message_type = _CONFIGKEY
 _CONFIGURATION.fields_by_name['uri'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_CONFIGURATION.fields_by_name['error'].message_type = _CONFIGERROR
 _CONFIGDIFFKEY.fields_by_name['a_device_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _CONFIGDIFFKEY.fields_by_name['a_type'].enum_type = _CONFIGTYPE
 _CONFIGDIFFKEY.fields_by_name['a_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -873,15 +1178,30 @@ _CONFIGDIFFKEY.fields_by_name['b_type'].enum_type = _CONFIGTYPE
 _CONFIGDIFFKEY.fields_by_name['b_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CONFIGDIFF.fields_by_name['key'].message_type = _CONFIGDIFFKEY
 _CONFIGDIFF.fields_by_name['uri'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_CONFIGDIFF.fields_by_name['error'].message_type = _CONFIGERROR
 _SUMMARYKEY.fields_by_name['device_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _SUMMARY.fields_by_name['key'].message_type = _SUMMARYKEY
 _SUMMARY.fields_by_name['summary'].message_type = _CONFIGSUMMARY
-_SUMMARY.fields_by_name['error'].message_type = _CONFIGERROR
+_SECURITYPROFILE.fields_by_name['key'].message_type = _CONFIGKEY
+_SECURITYPROFILE.fields_by_name['config'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_SECURITYPROFILECOMPLIANCESUMMARY.fields_by_name['sync'].enum_type = _CONFIGSYNCCODE
+_SECURITYPROFILECOMPLIANCESUMMARY.fields_by_name['nop_lines'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
+_SECURITYPROFILECOMPLIANCESUMMARY.fields_by_name['ignored_lines'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
+_SECURITYPROFILECOMPLIANCESUMMARY.fields_by_name['added_lines'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
+_SECURITYPROFILECOMPLIANCESUMMARY.fields_by_name['deleted_lines'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
+_SECURITYPROFILECOMPLIANCESUMMARY.fields_by_name['changed_lines'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
+_SECURITYPROFILECOMPLIANCESUMMARY.fields_by_name['digest'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_SECURITYPROFILECOMPLIANCESUMMARY.fields_by_name['running_config_update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILECOMPLIANCESUMMARY.fields_by_name['designed_config_update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SECURITYPROFILEDIFFSUMMARY.fields_by_name['key'].message_type = _SUMMARYKEY
+_SECURITYPROFILEDIFFSUMMARY.fields_by_name['summary'].message_type = _SECURITYPROFILECOMPLIANCESUMMARY
+_SECURITYPROFILEDIFF.fields_by_name['key'].message_type = _CONFIGDIFFKEY
+_SECURITYPROFILEDIFF.fields_by_name['diff'].message_type = _DIFFENTRIES
 DESCRIPTOR.message_types_by_name['ConfigError'] = _CONFIGERROR
 DESCRIPTOR.message_types_by_name['ConfigErrors'] = _CONFIGERRORS
 DESCRIPTOR.message_types_by_name['DiffEntry'] = _DIFFENTRY
 DESCRIPTOR.message_types_by_name['DiffEntries'] = _DIFFENTRIES
+DESCRIPTOR.message_types_by_name['ConfigSource'] = _CONFIGSOURCE
+DESCRIPTOR.message_types_by_name['ConfigSources'] = _CONFIGSOURCES
 DESCRIPTOR.message_types_by_name['ConfigSummary'] = _CONFIGSUMMARY
 DESCRIPTOR.message_types_by_name['ConfigKey'] = _CONFIGKEY
 DESCRIPTOR.message_types_by_name['Configuration'] = _CONFIGURATION
@@ -889,10 +1209,15 @@ DESCRIPTOR.message_types_by_name['ConfigDiffKey'] = _CONFIGDIFFKEY
 DESCRIPTOR.message_types_by_name['ConfigDiff'] = _CONFIGDIFF
 DESCRIPTOR.message_types_by_name['SummaryKey'] = _SUMMARYKEY
 DESCRIPTOR.message_types_by_name['Summary'] = _SUMMARY
+DESCRIPTOR.message_types_by_name['SecurityProfile'] = _SECURITYPROFILE
+DESCRIPTOR.message_types_by_name['SecurityProfileComplianceSummary'] = _SECURITYPROFILECOMPLIANCESUMMARY
+DESCRIPTOR.message_types_by_name['SecurityProfileDiffSummary'] = _SECURITYPROFILEDIFFSUMMARY
+DESCRIPTOR.message_types_by_name['SecurityProfileDiff'] = _SECURITYPROFILEDIFF
 DESCRIPTOR.enum_types_by_name['ErrorCode'] = _ERRORCODE
 DESCRIPTOR.enum_types_by_name['DiffOp'] = _DIFFOP
 DESCRIPTOR.enum_types_by_name['ConfigFilterCode'] = _CONFIGFILTERCODE
 DESCRIPTOR.enum_types_by_name['ConfigSyncCode'] = _CONFIGSYNCCODE
+DESCRIPTOR.enum_types_by_name['ConfigSourceType'] = _CONFIGSOURCETYPE
 DESCRIPTOR.enum_types_by_name['ConfigType'] = _CONFIGTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -923,6 +1248,20 @@ DiffEntries = _reflection.GeneratedProtocolMessageType('DiffEntries', (_message.
   # @@protoc_insertion_point(class_scope:arista.configstatus.v1.DiffEntries)
   })
 _sym_db.RegisterMessage(DiffEntries)
+
+ConfigSource = _reflection.GeneratedProtocolMessageType('ConfigSource', (_message.Message,), {
+  'DESCRIPTOR' : _CONFIGSOURCE,
+  '__module__' : 'arista.configstatus.v1.configstatus_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.ConfigSource)
+  })
+_sym_db.RegisterMessage(ConfigSource)
+
+ConfigSources = _reflection.GeneratedProtocolMessageType('ConfigSources', (_message.Message,), {
+  'DESCRIPTOR' : _CONFIGSOURCES,
+  '__module__' : 'arista.configstatus.v1.configstatus_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.ConfigSources)
+  })
+_sym_db.RegisterMessage(ConfigSources)
 
 ConfigSummary = _reflection.GeneratedProtocolMessageType('ConfigSummary', (_message.Message,), {
   'DESCRIPTOR' : _CONFIGSUMMARY,
@@ -973,6 +1312,34 @@ Summary = _reflection.GeneratedProtocolMessageType('Summary', (_message.Message,
   })
 _sym_db.RegisterMessage(Summary)
 
+SecurityProfile = _reflection.GeneratedProtocolMessageType('SecurityProfile', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILE,
+  '__module__' : 'arista.configstatus.v1.configstatus_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfile)
+  })
+_sym_db.RegisterMessage(SecurityProfile)
+
+SecurityProfileComplianceSummary = _reflection.GeneratedProtocolMessageType('SecurityProfileComplianceSummary', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILECOMPLIANCESUMMARY,
+  '__module__' : 'arista.configstatus.v1.configstatus_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileComplianceSummary)
+  })
+_sym_db.RegisterMessage(SecurityProfileComplianceSummary)
+
+SecurityProfileDiffSummary = _reflection.GeneratedProtocolMessageType('SecurityProfileDiffSummary', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEDIFFSUMMARY,
+  '__module__' : 'arista.configstatus.v1.configstatus_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileDiffSummary)
+  })
+_sym_db.RegisterMessage(SecurityProfileDiffSummary)
+
+SecurityProfileDiff = _reflection.GeneratedProtocolMessageType('SecurityProfileDiff', (_message.Message,), {
+  'DESCRIPTOR' : _SECURITYPROFILEDIFF,
+  '__module__' : 'arista.configstatus.v1.configstatus_pb2'
+  # @@protoc_insertion_point(class_scope:arista.configstatus.v1.SecurityProfileDiff)
+  })
+_sym_db.RegisterMessage(SecurityProfileDiff)
+
 
 DESCRIPTOR._options = None
 _CONFIGKEY._options = None
@@ -981,4 +1348,7 @@ _CONFIGDIFFKEY._options = None
 _CONFIGDIFF._options = None
 _SUMMARYKEY._options = None
 _SUMMARY._options = None
+_SECURITYPROFILE._options = None
+_SECURITYPROFILEDIFFSUMMARY._options = None
+_SECURITYPROFILEDIFF._options = None
 # @@protoc_insertion_point(module_scope)

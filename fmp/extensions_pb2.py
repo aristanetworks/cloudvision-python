@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fmp/extensions.proto',
   package='fmp',
   syntax='proto3',
-  serialized_options=b'Z\024arista/resources/fmp',
+  serialized_options=b'Z0github.com/aristanetworks/cloudvision-go/api/fmp',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14\x66mp/extensions.proto\x12\x03\x66mp\x1a google/protobuf/descriptor.proto:0\n\x05model\x12\x1f.google.protobuf.MessageOptions\x18\xdf\x91\x03 \x01(\t:4\n\tmodel_key\x12\x1f.google.protobuf.MessageOptions\x18\xe0\x91\x03 \x01(\x08:8\n\rcustom_filter\x12\x1f.google.protobuf.MessageOptions\x18\xe1\x91\x03 \x01(\t:<\n\x11no_default_filter\x12\x1f.google.protobuf.MessageOptions\x18\xe2\x91\x03 \x01(\x08::\n\x0frequire_set_key\x12\x1f.google.protobuf.MessageOptions\x18\xe3\x91\x03 \x01(\x08:8\n\runkeyed_model\x12\x1f.google.protobuf.MessageOptions\x18\xe4\x91\x03 \x01(\t:7\n\x0e\x63hild_resource\x12\x1d.google.protobuf.FieldOptions\x18\xf9\x91\x03 \x01(\t:4\n\x0c\x64isable_yang\x12\x1c.google.protobuf.FileOptions\x18\xa7\x93\x03 \x01(\tB\x16Z\x14\x61rista/resources/fmpb\x06proto3'
+  serialized_pb=b'\n\x14\x66mp/extensions.proto\x12\x03\x66mp\x1a google/protobuf/descriptor.proto:0\n\x05model\x12\x1f.google.protobuf.MessageOptions\x18\xdf\x91\x03 \x01(\t:4\n\tmodel_key\x12\x1f.google.protobuf.MessageOptions\x18\xe0\x91\x03 \x01(\x08:8\n\rcustom_filter\x12\x1f.google.protobuf.MessageOptions\x18\xe1\x91\x03 \x01(\t:<\n\x11no_default_filter\x12\x1f.google.protobuf.MessageOptions\x18\xe2\x91\x03 \x01(\x08::\n\x0frequire_set_key\x12\x1f.google.protobuf.MessageOptions\x18\xe3\x91\x03 \x01(\x08:8\n\runkeyed_model\x12\x1f.google.protobuf.MessageOptions\x18\xe4\x91\x03 \x01(\t:7\n\x0e\x63hild_resource\x12\x1d.google.protobuf.FieldOptions\x18\xf9\x91\x03 \x01(\t:4\n\x0c\x64isable_yang\x12\x1c.google.protobuf.FileOptions\x18\xa7\x93\x03 \x01(\tB2Z0github.com/aristanetworks/cloudvision-go/api/fmpb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_descriptor__pb2.DESCRIPTOR,])
 
