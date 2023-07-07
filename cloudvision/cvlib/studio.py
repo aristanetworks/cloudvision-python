@@ -154,12 +154,12 @@ def getSimpleResolverQueryValue(query: str):
     '''
     queryElems = query.split(":")
     if len(queryElems) == 1:
-        raise InputException("Passed 'query' does not appear to be a query")
+        raise InputException(f"Passed 'query' \"{query}\" does not appear to be a query")
     if len(queryElems) > 2:
-        raise InputException("Passed query is a complex query")
+        raise InputException(f"Passed query \"{query}\" is a complex query")
     queryValue = queryElems[1]
     if len(queryValue) == 0:
-        raise InputException("Passed query is missing a value")
+        raise InputException(f"Passed query \"{query}\" is missing a value")
     return queryValue
 
 

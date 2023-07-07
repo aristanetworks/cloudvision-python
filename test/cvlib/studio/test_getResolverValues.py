@@ -18,19 +18,19 @@ cases = [
         "Not a query input",
         "Management",
         None,
-        "Passed 'query' does not appear to be a query",
+        "Passed 'query' \"Management\" does not appear to be a query",
     ],
     [
         "Complex Query",
         "device:deviceID1 OR device:deviceID2",
         None,
-        "Passed query is a complex query",
+        "Passed query \"device:deviceID1 OR device:deviceID2\" is a complex query",
     ],
     [
         "Simple Query with empty value",
         "device:",
         None,
-        "Passed query is missing a value",
+        "Passed query \"device:\" is missing a value",
     ],
     [
         "Simple Query",
