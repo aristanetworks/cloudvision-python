@@ -130,8 +130,8 @@ def extractInputElems(inputs, inputPath: List[str], elems: List[str] = [],
                 raise InputNotFoundException(inputPath) from None
         except (KeyError, IndexError) as e:
             raise InputNotFoundException(inputPath, f"{e} not present in inputs") from None
-        # Ensure sane value
-        if currInput is None:
+        # Ensure sane value and allow for current input to be None
+        if currInput is None and pthElem != inputPath[-1]:
             raise InputNotFoundException(inputPath)
 
     return results
