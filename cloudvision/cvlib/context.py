@@ -14,6 +14,7 @@ import requests
 from grpc import StatusCode, RpcError
 from google.protobuf.timestamp_pb2 import Timestamp
 
+from cloudvision.Connector.codec import Path
 from cloudvision.Connector.grpc_client import GRPCClient, create_notification, create_query
 
 from .action import Action
@@ -453,9 +454,18 @@ class Context:
         update = [(key, data)]
         ts = Timestamp()
         ts.GetCurrentTime()
+        notifs = [create_notification(ts, storagePath, updates=update)]
+        # Generate the list of path pointer notifs that lead to the new entry
+        for i, pathElem in enumerate(storagePath):
+            if i == 0:
+                # We don't want to keep writing the path pointer to actions
+                # in the top level of the cvp dataset
+                continue
+            pathPointerPath = storagePath[:i]
+            pathPointerUpdate = [(pathElem, Path(keys=storagePath[:i + 1]))]
+            notifs.append(create_notification(ts, pathPointerPath, updates=pathPointerUpdate))
         try:
-            self.getCvClient().publish(
-                dId="cvp", notifs=[create_notification(ts, storagePath, updates=update)])
+            self.getCvClient().publish(dId="cvp", notifs=notifs)
         except RpcError as exc:
             # If the exception is not a permissions error, reraise the original
             # exception as something went wrong
