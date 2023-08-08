@@ -8,6 +8,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
 
 import grpc
 from google.protobuf import timestamp_pb2 as pbts
+from google.protobuf.empty_pb2 import Empty
 
 from cloudvision import __version__ as version
 from cloudvision.Connector import codec
@@ -22,6 +23,8 @@ from cloudvision.Connector.gen import router_pb2_grpc as rtr_client
 TIME_TYPE = Union[pbts.Timestamp, datetime]
 UPDATE_TYPE = Tuple[Any, Any]
 UPDATES_TYPE = List[UPDATE_TYPE]
+DEFAULT_DELETE_AFTER_DAYS = 34
+DATASET_TYPE_DEVICE = "device"
 
 
 def to_pbts(ts: TIME_TYPE) -> pbts.Timestamp:
@@ -35,7 +38,7 @@ def to_pbts(ts: TIME_TYPE) -> pbts.Timestamp:
         raise TypeError("timestamp must be a datetime or protobuf timestamp")
 
 
-def create_query(pathKeys: List[Any], dId: str, dtype: str = "device") -> rtr.Query:
+def create_query(pathKeys: List[Any], dId: str, dtype: str = DATASET_TYPE_DEVICE) -> rtr.Query:
     """
     create_query creates a protobuf query message with dataset ID dId
     and dataset type dtype.
@@ -271,7 +274,7 @@ class GRPCClient(object):
         self,
         dId,
         notifs: List[ntf.Notification],
-        dtype: str = "device",
+        dtype: str = DATASET_TYPE_DEVICE,
         sync: bool = True,
         compare: Optional[UPDATE_TYPE] = None,
     ) -> None:
@@ -291,7 +294,7 @@ class GRPCClient(object):
 
         req = rtr.PublishRequest(
             batch=ntf.NotificationBatch(
-                d="device",
+                d=DATASET_TYPE_DEVICE,
                 dataset=ntf.Dataset(type=dtype, name=dId),
                 notifications=notifs,
             ),
@@ -341,7 +344,7 @@ class GRPCClient(object):
     def search(
         self,
         search_type=rtr.SearchRequest.CUSTOM,
-        d_type: str = "device",
+        d_type: str = DATASET_TYPE_DEVICE,
         d_name: str = "",
         result_size: int = 1,
         start: Optional[TIME_TYPE] = None,
@@ -381,6 +384,44 @@ class GRPCClient(object):
         )
         res = self.__search_client.Search(req)
         return (self.decode_batch(nb) for nb in res)
+
+    def set_custom_schema(
+        self,
+        d_name: str,
+        path_elements: Iterable[str],
+        schema: Iterable[rtr.IndexField],
+        delete_after_days: int = DEFAULT_DELETE_AFTER_DAYS,
+        d_type: str = DATASET_TYPE_DEVICE,
+    ) -> Empty:
+        """Set custom index schema for given path.
+
+        :param d_name: Dataset name on aeris
+        :param path_elements: Path elements for which schema needs to be set
+        :param schema: Schema to be set
+        :param delete_after_days: Number of days after which data would be deleted
+        :param d_type: Type of the dataset
+        """
+        req = self.create_custom_schema_index_request(
+            d_name, path_elements, schema, delete_after_days, d_type)
+        return self.__search_client.SetCustomSchema(req)
+
+    def create_custom_schema_index_request(
+        self,
+        d_name,
+        path_elements, schema,
+        delete_after_days, d_type
+    ) -> rtr.CustomIndexSchema:
+        encoded_path_elements = [self.encoder.encode(x) for x in path_elements]
+        req = rtr.CustomIndexSchema(
+            query=rtr.Query
+            (
+                dataset=ntf.Dataset(type=d_type, name=d_name),
+                paths=[rtr.Path(path_elements=encoded_path_elements)],
+            ),
+            schema=schema,
+            option=rtr.CustomIndexOptions(delete_after_days=delete_after_days)
+        )
+        return req
 
     def reenroll(self, cert_path: str, key_path: str) -> bytes:
         """Reenroll the existing certificate.

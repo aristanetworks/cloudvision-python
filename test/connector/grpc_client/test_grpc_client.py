@@ -9,6 +9,7 @@ import pytest
 
 from cloudvision import __version__ as version
 from cloudvision.Connector.grpc_client import GRPCClient
+from cloudvision.Connector.gen import router_pb2 as rtr
 
 
 class TestGRPCClient:
@@ -68,3 +69,24 @@ class TestGRPCClient:
         assert hasattr(client, "channel_options")
         got = client.channel_options
         assert sorted(got) == sorted(want)
+
+    def test_create_custom_schema_index_request(self):
+        client = GRPCClient("localhost:443")
+        d_name = "dataset_name"
+        path_elements = ["path", "element"]
+        schema = [rtr.IndexField(name="FieldName1", type=rtr.INTEGER),
+                  rtr.IndexField(name="FieldName1", type=rtr.FLOAT)]
+        d_type = "device"
+        delete_after_days = 50
+        request = client.create_custom_schema_index_request(
+            d_name, path_elements, schema, delete_after_days, d_type)
+        assert len(request.schema) == len(schema)
+        for idx, fieldSchema in enumerate(request.schema):
+            assert fieldSchema == schema[idx]
+        assert request.option.delete_after_days == delete_after_days
+        assert request.query.dataset.name == d_name
+        assert request.query.dataset.type == d_type
+        assert len(request.query.paths) == 1
+        path = request.query.paths[0]
+        for idx, path_element in enumerate([client.encoder.encode(x) for x in path_elements]):
+            assert path_element == path.path_elements[idx]
