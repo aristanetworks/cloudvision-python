@@ -52,6 +52,11 @@ class mockStudio:
         self.workspaceId = "workspace1"
 
 
+class mockWorkspace:
+    def __init__(self):
+        self.id = "1"
+
+
 class mockClient:
     def __init__(self):
         self.stub = None
@@ -91,6 +96,7 @@ class mockCtx(Context):
         super().__init__('user')
         self.client = mockClient()
         self.studio = mockStudio()
+        self.workspace = mockWorkspace()
         self.device = Device()
 
     def getApiClient(self, stub):

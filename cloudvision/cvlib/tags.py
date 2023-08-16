@@ -2,8 +2,7 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-from collections.abc import Callable
-from typing import Dict, List, Optional
+from typing import Dict
 
 from arista.tag.v2.services import (
     TagAssignmentServiceStub,
@@ -32,6 +31,7 @@ class Tag:
     '''
     Object that represents a tag
     '''
+
     def __init__(self, label: str, value: str):
         self._label = label if label else ''
         self._value = value if value else ''
@@ -153,7 +153,7 @@ class Tags:
         tagRequest = TagAssignmentConfigStreamRequest()
         tagFilter = TagAssignmentConfig()
         tagFilter.key.element_type = ELEMENT_TYPE_DEVICE
-        tagFilter.key.workspace_id.value = self.ctx.studio.workspaceId
+        tagFilter.key.workspace_id.value = self.ctx.getWorkspaceId()
         tagRequest.partial_eq_filter.append(tagFilter)
         for resp in tagClient.GetAll(tagRequest):
             workspaceTagUpdates.append((resp.value.key.device_id.value,
@@ -173,7 +173,8 @@ class Tags:
         self._createTag(ELEMENT_TYPE_DEVICE, label, value)
         # assign the tag
         setRequest = TagAssignmentConfigSetRequest()
-        setRequest.value.key.workspace_id.value = self.ctx.studio.workspaceId
+        wsID = self.ctx.getWorkspaceId()
+        setRequest.value.key.workspace_id.value = wsID
         setRequest.value.key.element_type = ELEMENT_TYPE_DEVICE
         setRequest.value.key.label.value = label
         setRequest.value.key.value.value = value
@@ -227,7 +228,8 @@ class Tags:
             return
         # create the tag
         setRequest = TagConfigSetRequest()
-        setRequest.value.key.workspace_id.value = self.ctx.studio.workspaceId
+        wsID = self.ctx.getWorkspaceId()
+        setRequest.value.key.workspace_id.value = wsID
         setRequest.value.key.element_type = etype
         setRequest.value.key.label.value = label
         setRequest.value.key.value.value = value
@@ -264,7 +266,8 @@ class Tags:
             return
         # unassign the tag
         setRequest = TagAssignmentConfigSetRequest()
-        setRequest.value.key.workspace_id.value = self.ctx.studio.workspaceId
+        wsID = self.ctx.getWorkspaceId()
+        setRequest.value.key.workspace_id.value = wsID
         setRequest.value.key.element_type = ELEMENT_TYPE_DEVICE
         setRequest.value.key.label.value = label
         setRequest.value.key.value.value = value

@@ -413,6 +413,12 @@ class Context:
                 buildId=buildId
             )
 
+    def getWorkspaceId(self):
+        if not (self.workspace or self.studio):
+            raise InvalidContextException(("Context does not have a workspace or studio "
+                                          "associated with it"))
+        return self.workspace.id if self.workspace else self.studio.workspaceId
+
     def Get(self, path: List[str], keys: List[str] = [], dataset: str = "analytics"):
         '''
         Get issues a get request to the provided path/key(s) combo, and returns the contents
