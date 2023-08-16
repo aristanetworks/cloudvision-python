@@ -3,6 +3,7 @@
 # that can be found in the COPYING file.
 
 from typing import Any, Dict
+from json import loads
 
 from cloudvision.Connector.grpc_client import GRPCClient, create_query
 
@@ -47,3 +48,16 @@ def queryCCStartTime(client: GRPCClient, ccId: str):
             return cc["Start"]["Timestamp"]
 
     raise ScriptException(f"No entries found for Change control ID {ccId}")
+
+
+def extractJSONEncodedListArg(listArg: str):
+    """
+    Extracts a string arg in JSON-encoded list form and converts it to a list for use
+
+    Args:
+        listArg (str): The stringified list
+    """
+    extractedList = loads(listArg)  # Evaluate this into a list
+    if not isinstance(extractedList, list):
+        raise ValueError("Extracted arg must be a list")
+    return extractedList

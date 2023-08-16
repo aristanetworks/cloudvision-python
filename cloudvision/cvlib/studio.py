@@ -9,12 +9,18 @@ import google.protobuf.wrappers_pb2 as pb
 from grpc import StatusCode, RpcError
 from arista.studio.v1 import models, services
 
+from .constants import (
+    INPUT_PATH_ARG,
+    STUDIO_ID_ARG,
+    WORKSPACE_ID_ARG,
+)
 from .exceptions import (
     InputException,
     InputNotFoundException,
     InputRequestException,
     InputUpdateException
 )
+from .utils import extractJSONEncodedListArg
 
 MAINLINE_WS_ID = ""
 
@@ -181,14 +187,15 @@ def extractStudioInfoFromArgs(args: Dict):
     The `extractInputElems` method accounts for this and is suggested over manually traversing
     the tree looking for elements
     '''
-    studioId = args.get("StudioID")
-    workspaceId = args.get("WorkspaceID")
+    studioId = args.get(STUDIO_ID_ARG)
+    workspaceId = args.get(WORKSPACE_ID_ARG)
     inputPath = None
-    inputPathArg = args.get("InputPath")  # This is a stringified list
+    inputPathArg = args.get(INPUT_PATH_ARG)  # This is a stringified list
     if inputPathArg:
-        inputPath = json.loads(inputPathArg)  # Evaluate this into a list
-        if not isinstance(inputPath, list):
-            raise ValueError("Studio input path must be a list of strings")
+        try:
+            inputPath = extractJSONEncodedListArg(inputPathArg)
+        except ValueError as e:
+            raise ValueError("Studio input path must be a list of strings") from e
     return studioId, workspaceId, inputPath
 
 

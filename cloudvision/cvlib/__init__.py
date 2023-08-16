@@ -19,8 +19,9 @@ from .studio import (
     GetOneWithWS,
     getSimpleResolverQueryValue,
 )
+from .tags import Tag, Tags
 from .topology import Connection, Topology
 from .user import User
-from .tags import Tags, Tag
+from .workspace import Workspace
 
-__version__ = "1.5.3"
+__version__ = "1.6.0"

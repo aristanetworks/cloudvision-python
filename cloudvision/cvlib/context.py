@@ -19,8 +19,13 @@ from cloudvision.Connector.grpc_client import GRPCClient, create_notification, c
 
 from .action import Action
 from .changecontrol import ChangeControl
-from .topology import Topology
 from .connections import addHeaderInterceptor, AuthAndEndpoints
+from .constants import (
+    BUILD_ID_ARG,
+    STUDIO_ID_ARG,
+    STUDIO_IDS_ARG,
+    WORKSPACE_ID_ARG,
+)
 from .device import Device
 from .execution import Execution
 from .exceptions import (
@@ -33,7 +38,10 @@ from .exceptions import (
 from .logger import Logger
 from .studio import Studio
 from .tags import Tags, Tag
+from .topology import Topology
 from .user import User
+from .utils import extractJSONEncodedListArg
+from .workspace import Workspace
 
 ACCESS_TOKEN = "access_token"
 CMDS = "cmds"
@@ -104,6 +112,7 @@ class Context:
         self.stats: Dict = {}
         self.benchmarking = False
         self.tags = Tags(self)
+        self.workspace: Optional[Workspace] = None
 
     def getDevice(self):
         '''
@@ -355,6 +364,54 @@ class Context:
         finally:
             # Always turn off the alarm, whether returning a value or propagating an exception
             signal.alarm(0)
+
+    def initializeStudioCtxFromArgs(self):
+        '''
+        initializeStudioCtxFromArgs associates studio(s) and a workspace with the current
+        context from argument information available in the current context's action class.
+        This allows for actions such as Studio Autofill Actions and Studio Build Hook Actions
+        to associate a studio with their active contexts, allowing them to access various helper
+        methods that require the presence of a studio or workspace with the active context,
+        such as those offered by the tags class.
+
+        NOTE: Will raise InvalidContextException if called and either a studio is already
+        bound to the context or no action is available in the context
+        '''
+        if self.studio or self.workspace:
+            raise InvalidContextException(
+                "initializeStudioCtxFromArgs already has studio ctx initialised")
+        if not self.action:
+            raise InvalidContextException("initializeStudioCtxFromArgs must be"
+                                          " run in an action context")
+
+        buildId = self.action.args.get(BUILD_ID_ARG)
+        # Will be set if action is in a studio scope
+        studioId = self.action.args.get(STUDIO_ID_ARG)
+        # Will be present for some execution contexts, e.g. Studio Build Hook actions
+        studioIdsStr = self.action.args.get(STUDIO_IDS_ARG)
+        workspaceId = self.action.args.get(WORKSPACE_ID_ARG)
+        studioIds = None
+        if studioIdsStr:
+            try:
+                studioIds = extractJSONEncodedListArg(studioIdsStr)
+            except ValueError as e:
+                self.warning((f"Unable to extract json encoded list '{STUDIO_IDS_ARG}': {e}\n"
+                              f"Ignoring {STUDIO_IDS_ARG} contents"))
+        if not workspaceId:
+            raise InvalidContextException(
+                ("initializeStudioCtxFromArgs: Missing minimum required argument"
+                 f" {WORKSPACE_ID_ARG} for studio ctx initialisation"))
+        self.workspace = Workspace(
+            workspaceId=workspaceId,
+            studioIds=studioIds,
+            buildId=buildId
+        )
+        if studioId:
+            self.studio = Studio(
+                workspaceId=workspaceId,
+                studioId=studioId,
+                buildId=buildId
+            )
 
     def Get(self, path: List[str], keys: List[str] = [], dataset: str = "analytics"):
         '''
