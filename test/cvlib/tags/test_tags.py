@@ -2,12 +2,16 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-"""tests for the template access to tags """
+"""tests for the template access to Context class tags methods"""
 
 import pytest
 
 from cloudvision.cvlib import (
-    Tags
+    Context,
+    Device,
+    Topology,
+    Tags,
+    Tag
 )
 
 from arista.tag.v2.services import (
@@ -45,7 +49,7 @@ def convertListToConfigStream(assignmentConfigList):
 
 class mockStudio:
     def __init__(self):
-        self.workspaceId = "1"
+        self.workspaceId = "workspace1"
 
 
 class mockClient:
@@ -82,24 +86,16 @@ class mockClient:
         return
 
 
-class mockDevice:
+class mockCtx(Context):
     def __init__(self):
-        self.id = None
-
-
-class mockCtx:
-    def __init__(self):
+        super().__init__('user')
         self.client = mockClient()
         self.studio = mockStudio()
-        self.device = mockDevice()
-        self.tags = Tags(self)
+        self.device = Device()
 
     def getApiClient(self, stub):
         self.client.stub = stub
         return self.client
-
-    def getDevice(self):
-        return self.device
 
 
 getAllDeviceTagsCases = [
@@ -110,8 +106,8 @@ getAllDeviceTagsCases = [
     # validateFunc
     # tagv2 GetAll response
     # num GetAll calls
-    # expected
-    # err
+    # expected tags
+    # expected error
     [
         "pre-existing cache",
         {
@@ -150,24 +146,32 @@ getAllDeviceTagsCases = [
 
 
 @pytest.mark.parametrize('name, cacheTags, validateFunc, getAllResp, '
-                         + 'expNumGetAlls, expected, err', getAllDeviceTagsCases)
+                         + 'expNumGetAlls, expectedTags, expectedError',
+                         getAllDeviceTagsCases)
 def test_getAllDeviceTags(name, cacheTags, validateFunc, getAllResp,
-                          expNumGetAlls, expected, err):
+                          expNumGetAlls, expectedTags, expectedError):
+    error = None
     ctx = mockCtx()
     ctx.client.SetGetAllResponse(getAllResp)
     ctx.tags._setRelevantTagAssigns(cacheTags)
-    allTags = ctx.tags._getAllDeviceTags()
-    assert allTags == expected
+    try:
+        allTags = ctx.tags._getAllDeviceTags()
+    except Exception as e:
+        error = e
+    if error or expectedError:
+        assert str(error) == str(expectedError)
+    assert allTags == expectedTags
     assert ctx.client.numGetAlls == expNumGetAlls
 
 
 getDeviceTagsCases = [
     # name
+    # cached tags
     # tagv2 GetAll response
     # device id
     # num GetAll calls
-    # expected
-    # err
+    # expected tags
+    # expected error
     [
         "preloaded tags",
         {
@@ -240,22 +244,22 @@ getDeviceTagsCases = [
 
 
 @pytest.mark.parametrize('name, cacheTags, getAllResp, deviceId, '
-                         + 'expNumGetAlls, expected, err', getDeviceTagsCases)
+                         + 'expNumGetAlls, expectedTags, expectedError',
+                         getDeviceTagsCases)
 def test_getDeviceTags(name, cacheTags, getAllResp, deviceId,
-                       expNumGetAlls, expected, err):
+                       expNumGetAlls, expectedTags, expectedError):
+    error = None
     ctx = mockCtx()
     ctx.client.SetGetAllResponse(getAllResp)
     ctx.tags._setRelevantTagAssigns(cacheTags)
-    error = ""
     try:
         devTags = ctx.tags._getDeviceTags(deviceId)
     except Exception as e:
-        error = str(e).split("assert")[0]
-    if error:
-        assert error == err
-    else:
-        assert devTags == expected
-        assert ctx.client.numGetAlls == expNumGetAlls
+        error = e
+    if error or expectedError:
+        assert str(error) == str(expectedError)
+    assert devTags == expectedTags
+    assert ctx.client.numGetAlls == expNumGetAlls
 
 
 assignUnassignDeviceTagCases = [
@@ -265,10 +269,10 @@ assignUnassignDeviceTagCases = [
     # operation ('assign', 'unassign')
     # operation tag label
     # operation tag value
-    # multiAllowed
+    # replace flag
     # num GetAll calls
-    # expected
-    # err
+    # expected tags
+    # expected error
     [
         "assign additional Role tag value",
         convertListToStream([('dev1', 'DC', 'DC1'),
@@ -284,7 +288,7 @@ assignUnassignDeviceTagCases = [
         'assign',
         'Role',
         'Core',
-        True,
+        False,
         2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine', 'Core']},
         None
@@ -304,7 +308,7 @@ assignUnassignDeviceTagCases = [
         'assign',
         'Role',
         'Core',
-        False,
+        True,
         2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Core']},
         None
@@ -325,7 +329,7 @@ assignUnassignDeviceTagCases = [
         'unassign',
         'Role',
         'Core',
-        True,
+        False,
         2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine']},
         None
@@ -345,7 +349,7 @@ assignUnassignDeviceTagCases = [
         'unassign',
         'Role',
         'Spine',
-        True,
+        False,
         2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
         None
@@ -365,7 +369,7 @@ assignUnassignDeviceTagCases = [
         'unassign',
         'Role',
         'Core',
-        True,
+        False,
         2,
         {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine']},
         None
@@ -374,34 +378,34 @@ assignUnassignDeviceTagCases = [
 
 
 @pytest.mark.parametrize('name, getAllResp, deviceId, oper, operLabel, operValue, '
-                         + 'multiAllowed, expNumGetAlls, expected, err',
+                         + 'replace, expNumGetAlls, expectedTags, expectedError',
                          assignUnassignDeviceTagCases)
 def test_changeDeviceTags(name, getAllResp, deviceId, oper, operLabel, operValue,
-                          multiAllowed, expNumGetAlls, expected, err):
+                          replace, expNumGetAlls, expectedTags, expectedError):
+    error = None
     ctx = mockCtx()
     ctx.client.SetGetAllResponse(getAllResp)
-    error = ""
     try:
         if oper == 'assign':
-            ctx.tags._assignDeviceTag(deviceId, operLabel, operValue, multiValue=multiAllowed)
+            ctx.tags._assignDeviceTag(deviceId, operLabel, operValue,
+                                      replaceValue=replace)
         elif oper == 'unassign':
             ctx.tags._unassignDeviceTag(deviceId, operLabel, operValue)
-        devTags = ctx.tags._getDeviceTags(deviceId)
     except Exception as e:
-        error = str(e).split("assert")[0]
-    if error:
-        assert error == err
-    else:
-        assert devTags == expected
-        assert ctx.client.numGetAlls == expNumGetAlls
+        error = e
+    devTags = ctx.tags._getDeviceTags(deviceId)
+    if error or expectedError:
+        assert str(error) == str(expectedError)
+    assert devTags == expectedTags
+    assert ctx.client.numGetAlls == expNumGetAlls
 
 
 mergeGetAllDeviceTagsCases = [
     # name
     # mainline state response
     # workspace config response
-    # expected
-    # err
+    # expected tags
+    # expected error
     [
         "no workspace updates",
         convertListToStream([
@@ -550,11 +554,234 @@ mergeGetAllDeviceTagsCases = [
 
 
 @pytest.mark.parametrize('name, mainlineStateResp, workspaceConfigResp, '
-                         + 'expected, err', mergeGetAllDeviceTagsCases)
+                         + 'expectedTags, expectedError', mergeGetAllDeviceTagsCases)
 def test_mergeTags(name, mainlineStateResp, workspaceConfigResp,
-                   expected, err):
+                   expectedTags, expectedError):
+    error = None
     ctx = mockCtx()
     ctx.client.SetGetAllResponse(mainlineStateResp)
     ctx.client.SetGetAllConfigResponse(workspaceConfigResp)
-    allTags = ctx.tags._getAllDeviceTags()
-    assert allTags == expected
+    try:
+        allTags = ctx.tags._getAllDeviceTags()
+    except Exception as e:
+        error = e
+    if error or expectedError:
+        assert str(error) == str(expectedError)
+    assert allTags == expectedTags
+
+
+getDevicesByTagCases = [
+    # name
+    # cached tags
+    # tagv2 GetAll response
+    # devices in topology
+    # tag
+    # topology flag
+    # num GetAll calls
+    # expected devices
+    # expected Error
+    [
+        "get devices matching label with preloaded cache",
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        },
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev3', 'DC', 'DC2'),
+                             ('dev3', 'DC-Pod', 'POD1'),
+                             ('dev3', 'NodeId', '1'),
+                             ]),
+        ['dev1', 'dev2', 'dev3'],
+        Tag('DC', ''),
+        True,
+        0,
+        [Device('dev1'), Device('dev2'), Device('dev3')],
+        None
+    ],
+    [
+        "try get devices not matching label with preloaded cache",
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        },
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev3', 'DC', 'DC2'),
+                             ('dev3', 'DC-Pod', 'POD1'),
+                             ('dev3', 'NodeId', '1'),
+                             ]),
+        ['dev1', 'dev2', 'dev3'],
+        Tag('Role', ''),
+        True,
+        0,
+        [],
+        None
+    ],
+    [
+        "get devices matching label and value with preloaded cache",
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        },
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev3', 'DC', 'DC2'),
+                             ('dev3', 'DC-Pod', 'POD1'),
+                             ('dev3', 'NodeId', '1'),
+                             ]),
+        ['dev1', 'dev2', 'dev3'],
+        Tag('DC', 'DC1'),
+        True,
+        0,
+        [Device('dev1'), Device('dev2')],
+        None
+    ],
+    [
+        "get devices in topology matching label and value with preloaded cache",
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        },
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev3', 'DC', 'DC2'),
+                             ('dev3', 'DC-Pod', 'POD1'),
+                             ('dev3', 'NodeId', '1'),
+                             ]),
+        ['dev1', 'dev3'],
+        Tag('DC', 'DC1'),
+        True,
+        0,
+        [Device('dev1')],
+        None
+    ],
+    [
+        "get devices not in topology matching label and value with preloaded cache",
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        },
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev3', 'DC', 'DC2'),
+                             ('dev3', 'DC-Pod', 'POD1'),
+                             ('dev3', 'NodeId', '1'),
+                             ]),
+        ['dev1', 'dev3'],
+        Tag('DC', 'DC1'),
+        False,
+        0,
+        [Device('dev1'), Device('dev2')],
+        None
+    ],
+    [
+        "try get devices with None label and value with preloaded cache",
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        },
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev3', 'DC', 'DC2'),
+                             ('dev3', 'DC-Pod', 'POD1'),
+                             ('dev3', 'NodeId', '1'),
+                             ]),
+        ['dev1', 'dev2', 'dev3'],
+        Tag('', 'DC1'),
+        True,
+        0,
+        [],
+        None
+    ],
+    [
+        "get devices matching label without preloaded cache",
+        {
+        },
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ]),
+        ['dev1', 'dev2'],
+        Tag('DC', ''),
+        True,
+        2,
+        [Device('dev1'), Device('dev2')],
+        None
+    ],
+    [
+        "try get devices not matching label without preloaded cache",
+        {
+        },
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ]),
+        ['dev1', 'dev2'],
+        Tag('Role', ''),
+        True,
+        2,
+        [],
+        None
+    ],
+]
+
+
+@pytest.mark.parametrize('name, cacheTags, getAllResp, topoDevices, tag, '
+                         + 'topoFlag, expNumGetAlls, expectedDevices, expectedError',
+                         getDevicesByTagCases)
+def test_getDevicesByTag(name, cacheTags, getAllResp, topoDevices, tag,
+                         topoFlag, expNumGetAlls, expectedDevices, expectedError):
+    error = None
+    ctx = mockCtx()
+    deviceMap = {}
+    for dev in topoDevices:
+        deviceMap[dev] = Device(deviceId=dev)
+    topology = Topology(deviceMap)
+    ctx.setTopology(topology)
+    ctx.client.SetGetAllResponse(getAllResp)
+    ctx.tags._setRelevantTagAssigns(cacheTags)
+    try:
+        devices = ctx.getDevicesByTag(tag, inTopology=topoFlag)
+    except Exception as e:
+        error = e
+    if error or expectedError:
+        assert str(error) == str(expectedError)
+    assert devices == expectedDevices
+    assert ctx.client.numGetAlls == expNumGetAlls

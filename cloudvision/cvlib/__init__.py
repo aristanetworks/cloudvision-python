@@ -21,6 +21,6 @@ from .studio import (
 )
 from .topology import Connection, Topology
 from .user import User
-from .tags import Tags
+from .tags import Tags, Tag
 
 __version__ = "1.5.3"

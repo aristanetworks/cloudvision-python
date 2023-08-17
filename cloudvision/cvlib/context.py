@@ -32,7 +32,7 @@ from .exceptions import (
 )
 from .logger import Logger
 from .studio import Studio
-from .tags import Tags
+from .tags import Tags, Tag
 from .user import User
 
 ACCESS_TOKEN = "access_token"
@@ -728,3 +728,18 @@ class Context:
             self.logger.info(self,
                              f"{fun:<40}:{timings['sum']:>8.4f}{timings['average']:>8.4f}"
                              + f"{timings['count']:>10}")
+
+    def getDevicesByTag(self, tag: Tag, inTopology: bool = True):
+        '''
+        Returns list of devices that have the tag assigned to them.
+        If tag.value is unspecified then returns devices having that label assigned.
+        By default only devices in the topology are returned.
+        '''
+        devices = []
+        for devId, tags in self.tags._getAllDeviceTags().items():
+            if tags.get(tag.label) and (not tag.value or tag.value in tags[tag.label]):
+                if dev := self.topology._deviceMap.get(devId) if self.topology else None:
+                    devices.append(dev)
+                elif not inTopology:
+                    devices.append(Device(deviceId=devId))
+        return devices

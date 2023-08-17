@@ -289,3 +289,85 @@ class InvalidTopologyException(CVException):
     def __init__(self, errors):
         super().__init__("Invalid topology configuration:\n" + "\n".join(errors))
         self.errors = errors
+
+
+# ---------------------------- Tag Exceptions ------------------------------
+
+
+class TagErrorException(CVException):
+    '''
+    Exception raised for tag errors
+    '''
+
+    def __init__(self, message: str):
+        super().__init__("Tag error: " + message)
+
+    def expTagField(self, field: str):
+        return field if field else '<unspecified>'
+
+
+class TagOperationException(TagErrorException):
+    """
+    Exception raised when an attempted tag operation is invalid
+    """
+
+    def __init__(self, label: str, value: str, operation: str, devId: str = None):
+        message = (f"invalid attempt to {operation} tag "
+                   f"{self.expTagField(label)}:{self.expTagField(value)}")
+        if devId:
+            message = message + " for device " + devId
+        super().__init__(message)
+
+
+class TagMissingException(TagErrorException):
+    """
+    Exception raised when a tag is missing from a device
+    """
+
+    def __init__(self, label: str, devId: str):
+        message = (f"{self.expTagField(label)} tag missing"
+                   f" for device {devId}")
+        super().__init__(message)
+
+
+class TagTooManyValuesException(TagErrorException):
+    """
+    Exception raised when a tag has too many values assigned to a device
+    """
+
+    def __init__(self, label: str, devId: str, currVals: List[str] = None):
+        message = (f"{self.expTagField(label)} tag has too many values"
+                   f" assigned to device {devId}")
+        if currVals:
+            message = message + ", assigned values: " + ", ".join(currVals)
+        super().__init__(message)
+
+
+class TagInvalidTypeException(TagErrorException):
+    """
+    Exception raised when a tag value is not of the correct type
+    """
+
+    def __init__(self, label: str, devId: str, valType: str, currVals: List[str] = None):
+        message = (f"{self.expTagField(label)} tag"
+                   f" assigned to device {devId}"
+                   f" must have a {valType} value")
+        if currVals:
+            message = message + ", assigned values: " + ", ".join(currVals)
+        super().__init__(message)
+
+
+class TagInvalidValuesException(TagErrorException):
+    """
+    Exception raised when a tag has invalid values assigned to a device
+    """
+
+    def __init__(self, label: str, devId: str, allowedVals: List[str] = None,
+                 currVals: List[str] = None):
+        message = (f"{self.expTagField(label)} tag has invalid values"
+                   f" assigned to device {devId}")
+        if allowedVals:
+            message = message + ", allowed values: " + ", ".join(allowedVals)
+        if currVals:
+            message = message + ", assigned values: " + ", ".join(currVals)
+        super().__init__(message)

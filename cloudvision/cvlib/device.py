@@ -2,7 +2,13 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-from typing import Dict, Optional
+from typing import Dict, List, Optional
+
+from .exceptions import (
+    TagMissingException,
+    TagTooManyValuesException
+)
+from .tags import Tag
 
 
 class Device:
@@ -28,6 +34,9 @@ class Device:
         # dict of interface name -> interface
         self._interfaces: Dict = {}
 
+    def __eq__(self, other):
+        return self.__dict__ == other.__dict__
+
     def getInterfaces(self):
         '''
         getInterfaces returns a dictionary list of the interfaces assigned to the Device object
@@ -52,6 +61,55 @@ class Device:
         intf = Interface(name, self)
         self._interfaces[name] = intf
 
+    def getSingleTag(self, ctx, label: str, required: bool = True):
+        '''
+        getSingleTag returns Tag of the label assigned to the device.
+        Raises an exception if there are multiple tags of the label assigned.
+        Raises an exception if the tag is missing, unless it's not required,
+        in which case it returns None
+        '''
+        devName = str(self.hostName) if self.hostName else str(self.id)
+        values = ctx.tags._getDeviceTags(self.id).get(label)
+        if required and not values:
+            raise TagMissingException(label, devName)
+        if values and len(values) > 1:
+            raise TagTooManyValuesException(label, devName, values)
+        return Tag(label, values[0]) if values else None
+
+    def getTags(self, ctx, label: str = None):
+        '''
+        Return a list of Tags matching the specified label assigned to the device.
+        If label is unspecified then it returns all Tags assigned to the device.
+        '''
+        devTags: List[Tag] = []
+        if not (ctxDevTags := ctx.tags._getDeviceTags(self.id)):
+            return devTags
+        for tagLabel, values in ctxDevTags.items():
+            if label and label != tagLabel:
+                continue
+            for value in values:
+                devTags.append(Tag(tagLabel, value))
+        return devTags
+
+    def _assignTag(self, ctx, tag: Tag, replaceValue: bool = True):
+        '''
+        Assign a Tag to a device.
+        Optionally can ensure only one value of label assigned to device.
+        '''
+        ctx.tags._assignDeviceTag(self.id, tag.label, tag.value, replaceValue)
+        return
+
+    def _unassignTag(self, ctx, tag: Tag):
+        '''
+        Unassign a Tag from a device.
+        If tag.value is unspecified unassign all tags of label from device.
+        '''
+        if tag.value:
+            ctx.tags._unassignDeviceTag(self.id, tag.label, tag.value)
+        else:
+            ctx.tags._unassignDeviceTagLabel(self.id, tag.label)
+        return
+
 
 # Interfaces and devices are defined together to avoid circular imports
 class Interface:
@@ -66,6 +124,9 @@ class Interface:
         self._device = device
         self._peerInterface = None
         self._peerDevice: Optional[Device] = None
+
+    def __eq__(self, other):
+        return self.__dict__ == other.__dict__
 
     def getPeerInterface(self):
         return self._peerInterface

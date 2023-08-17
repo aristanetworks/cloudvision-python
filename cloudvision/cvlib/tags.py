@@ -21,7 +21,37 @@ from arista.tag.v2.tag_pb2 import (
     CREATOR_TYPE_USER
 )
 
+from .exceptions import (
+    TagOperationException
+)
+
 MAINLINE_ID = ""
+
+
+class Tag:
+    '''
+    Object that represents a tag
+    '''
+    def __init__(self, label: str, value: str):
+        self._label = label if label else ''
+        self._value = value if value else ''
+
+    @property
+    def value(self):
+        return self._value
+
+    @property
+    def label(self):
+        return self._label
+
+    def __eq__(self, other):
+        return self.__dict__ == other.__dict__
+
+    def __lt__(self, other):
+        if self.label != other.label:
+            return self.label < other.label
+        else:
+            return self.value < other.value
 
 
 class Tags:
@@ -33,7 +63,7 @@ class Tags:
     with many values.
     Device tags are assigned to devices.
     - ctx:                     Context in which the studio build is run
-    - relevantTagAssigns:      Dictionary of relevant unvalidated tags,
+    - relevantTagAssigns:      Dictionary of relevant tags,
                                of the form map[deviceId]map[label]=[value1,value2,..],
                                works like a cache
     '''
@@ -54,9 +84,9 @@ class Tags:
             return True
         return False
 
-    def _assignDevTagInUnvalidatedCache(self, deviceId: str, label: str, value: str):
+    def _assignDevTagInCache(self, deviceId: str, label: str, value: str):
         '''
-        _assignDevTagInUnvalidatedCache modifies relevantTagAssigns for the device tag
+        _assignDevTagInCache modifies relevantTagAssigns for the device tag
         ensuring the tag is assigned to the device in the local cache
         '''
         if deviceId not in self.relevantTagAssigns:
@@ -66,9 +96,9 @@ class Tags:
         if value not in self.relevantTagAssigns[deviceId][label]:
             self.relevantTagAssigns[deviceId][label].append(value)
 
-    def _unassignDevTagInUnvalidatedCache(self, deviceId: str, label: str, value: str):
+    def _unassignDevTagInCache(self, deviceId: str, label: str, value: str):
         '''
-        _unassignDevTagInUnvalidatedCache modifies relevantTagAssigns for the device tag
+        _unassignDevTagInCache modifies relevantTagAssigns for the device tag
         ensuring the tag is not assigned to the device in the local cache
         '''
         if deviceId not in self.relevantTagAssigns:
@@ -86,7 +116,7 @@ class Tags:
     def _getAllDeviceTagsFromMainline(self):
         '''
         _getAllDeviceTagsFromMainline returns a map of all assigned device tags available
-        in the mainline.  Also sets the local unvalidated cache to this map.
+        in the mainline.  Also sets the local cache to this map.
         The returned map is of the form: map[deviceId]map[label]=[value1,value2,..]
         '''
         self.relevantTagAssigns = {}
@@ -129,9 +159,9 @@ class Tags:
                                         resp.value.remove.value))
         return workspaceTagUpdates
 
-    def _assignDeviceTagMultiValue(self, deviceId: str, label: str, value: str):
+    def _assignDeviceTagSet(self, deviceId: str, label: str, value: str):
         '''
-        _assignDeviceTagMultiValue assigns a device tag if it isn't already assigned
+        _assignDeviceTagSet assigns a device tag if it isn't already assigned
         '''
         # check if the tag is already assigned to this device
         if self._tagAssigned(deviceId, label, value):
@@ -148,8 +178,8 @@ class Tags:
         setRequest.value.remove.value = False
         tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
         tagClient.Set(setRequest)
-        # assign the tag in unvalidated cache
-        self._assignDevTagInUnvalidatedCache(deviceId, label, value)
+        # assign the tag in cache
+        self._assignDevTagInCache(deviceId, label, value)
 
     def _setRelevantTagAssigns(self, tags: Dict):
         '''
@@ -177,9 +207,9 @@ class Tags:
         workspaceUpdates = self._getTagUpdatesFromWorkspace()
         for (deviceId, label, value, remove) in workspaceUpdates:
             if remove:
-                self._unassignDevTagInUnvalidatedCache(deviceId, label, value)
+                self._unassignDevTagInCache(deviceId, label, value)
             else:
-                self._assignDevTagInUnvalidatedCache(deviceId, label, value)
+                self._assignDevTagInCache(deviceId, label, value)
         return self.relevantTagAssigns
 
     def _createTag(self, etype: int, label: str, value: str):
@@ -187,6 +217,8 @@ class Tags:
         _createTag creates a tag if it doesn't already exist
         etype is a tags ElementType
         '''
+        if not label or not value:
+            raise TagOperationException(label, value, 'create')
         # check if the tag exists
         if self._tagExists(label, value):
             return
@@ -199,27 +231,31 @@ class Tags:
         tagClient = self.ctx.getApiClient(TagConfigServiceStub)
         tagClient.Set(setRequest)
 
-    def _assignDeviceTag(self, deviceId: str, label: str, value: str, multiValue: bool = False):
+    def _assignDeviceTag(self, deviceId: str, label: str, value: str, replaceValue: bool = True):
         '''
         _assignDeviceTag assigns a device tag if it isn't already assigned,
         enforcing that only one value of the tag is assigned to the device,
-        unless the multiValue argument is set to True
+        unless the replaceValue argument is set to False
         '''
-        # first make sure this device's tags have been loaded and validated
+        # first make sure this device's tags have been loaded in cache
         self._getDeviceTags(deviceId)
-        if not multiValue:
+        if not label or not value or not deviceId:
+            raise TagOperationException(label, value, 'assign', deviceId)
+        if replaceValue:
             current_values = list(self._getDeviceTags(deviceId).get(label, []))
             for cvalue in current_values:
                 if cvalue != value:
                     self._unassignDeviceTag(deviceId, label, cvalue)
-        self._assignDeviceTagMultiValue(deviceId, label, value)
+        self._assignDeviceTagSet(deviceId, label, value)
 
     def _unassignDeviceTag(self, deviceId: str, label: str, value: str):
         '''
         _unassignDeviceTag unassigns a device tag if it is assigned
         '''
-        # first make sure this device's tags have been loaded and validated
+        # first make sure this device's tags have been loaded in cache
         self._getDeviceTags(deviceId)
+        if not label or not value or not deviceId:
+            raise TagOperationException(label, value, 'unassign', deviceId)
         # check if the tag is assigned to this device
         if not self._tagAssigned(deviceId, label, value):
             return
@@ -233,13 +269,15 @@ class Tags:
         setRequest.value.remove.value = True
         tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
         tagClient.Set(setRequest)
-        # unassign the tag in unvalidated cache
-        self._unassignDevTagInUnvalidatedCache(deviceId, label, value)
+        # unassign the tag in cache
+        self._unassignDevTagInCache(deviceId, label, value)
 
     def _unassignDeviceTagLabel(self, deviceId: str, label: str):
         '''
         _unassignDeviceTagLabel unassigns all device tags of a label
         '''
         current_values = list(self._getDeviceTags(deviceId).get(label, []))
+        if not label or not deviceId:
+            raise TagOperationException(label, '', 'unassign', deviceId)
         for cvalue in current_values:
             self._unassignDeviceTag(deviceId, label, cvalue)
