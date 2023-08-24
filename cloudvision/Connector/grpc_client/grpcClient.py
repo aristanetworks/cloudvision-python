@@ -400,6 +400,7 @@ class GRPCClient(object):
         :param schema: Schema to be set
         :param delete_after_days: Number of days after which data would be deleted
         :param d_type: Type of the dataset
+        :return: Empty message
         """
         req = self.create_custom_schema_index_request(
             d_name, path_elements, schema, delete_after_days, d_type)
@@ -411,6 +412,15 @@ class GRPCClient(object):
         path_elements, schema,
         delete_after_days, d_type
     ) -> rtr.CustomIndexSchema:
+        """Create custom index schema request from given imputs.
+
+        :param d_name: Dataset name on aeris
+        :param path_elements: Path elements for which schema needs to be set
+        :param schema: Schema to be set
+        :param delete_after_days: Number of days after which data would be deleted
+        :param d_type: Type of the dataset
+        :return: Custom index schema request
+        """
         encoded_path_elements = [self.encoder.encode(x) for x in path_elements]
         req = rtr.CustomIndexSchema(
             query=rtr.Query
