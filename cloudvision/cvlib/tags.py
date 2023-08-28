@@ -57,6 +57,9 @@ class Tag:
 class Tags:
     '''
     Object to store tags data relevant to a studio build context.
+    Note, this class and the methods in context and device classes which use it,
+    are meant to be used from studio workspace builds and will operate on
+    tags within workspaces using the workspace and studio in the context.
     Implemented so only one access is made to retreive tags from the remote tags service.
     (two accesses until the tags service provided merged mainline-workspace state apis)
     Note that a tag is of the form label:value, where the same label may be associated

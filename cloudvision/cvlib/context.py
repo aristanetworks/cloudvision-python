@@ -136,8 +136,9 @@ class Context:
     def setTopology(self, topology: Topology):
         '''
         Sets the topology of the context.
-        Called during context initialisation during script execution
-        Does not need to be called by the script writers
+        Called during context initialisation during script execution,
+        to set the Topology to that of the Inventory and Topology Studio.
+        Does not need to be called by the script writers.
         '''
         self.topology = topology
         self.topology.setLogger(systemLogger)
@@ -731,7 +732,7 @@ class Context:
 
     def getDevicesByTag(self, tag: Tag, inTopology: bool = True):
         '''
-        Returns list of devices that have the tag assigned to them.
+        Returns list of devices that have the user tag assigned to them.
         If tag.value is unspecified then returns devices having that label assigned.
         By default only devices in the topology are returned.
         '''

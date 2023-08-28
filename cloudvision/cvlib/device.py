@@ -39,13 +39,13 @@ class Device:
 
     def getInterfaces(self):
         '''
-        getInterfaces returns a dictionary list of the interfaces assigned to the Device object
+        Returns a dictionary list of the interfaces assigned to the Device object
         '''
         return self._interfaces.values()
 
     def getInterface(self, name):
         '''
-        getInterface gets a particular named interface from the interfaces assigned to the Device
+        Returns a particular named interface from the interfaces assigned to the Device
         object
         '''
         return self._interfaces.get(name)
@@ -63,22 +63,22 @@ class Device:
 
     def getSingleTag(self, ctx, label: str, required: bool = True):
         '''
-        getSingleTag returns Tag of the label assigned to the device.
-        Raises an exception if there are multiple tags of the label assigned.
-        Raises an exception if the tag is missing, unless it's not required,
-        in which case it returns None
+        Returns a Tag of the label assigned to the device.
+        Raises TagTooManyValuesException if there are multiple tags of the label assigned.
+        Raises TagMissingException if required is True and the tag is missing.
+        Returns None if required is False and the tag is missing.
         '''
         devName = str(self.hostName) if self.hostName else str(self.id)
         values = ctx.tags._getDeviceTags(self.id).get(label)
-        if required and not values:
-            raise TagMissingException(label, devName)
         if values and len(values) > 1:
             raise TagTooManyValuesException(label, devName, values)
+        if required and not values:
+            raise TagMissingException(label, devName)
         return Tag(label, values[0]) if values else None
 
     def getTags(self, ctx, label: str = None):
         '''
-        Return a list of Tags matching the specified label assigned to the device.
+        Returns a list of Tags matching the specified label assigned to the device.
         If label is unspecified then it returns all Tags assigned to the device.
         '''
         devTags: List[Tag] = []
@@ -94,10 +94,9 @@ class Device:
     def _assignTag(self, ctx, tag: Tag, replaceValue: bool = True):
         '''
         Assign a Tag to a device.
-        Optionally can ensure only one value of label assigned to device.
+        If replaceValue is True ensures only one value of label is assigned to device.
         '''
         ctx.tags._assignDeviceTag(self.id, tag.label, tag.value, replaceValue)
-        return
 
     def _unassignTag(self, ctx, tag: Tag):
         '''
@@ -108,7 +107,6 @@ class Device:
             ctx.tags._unassignDeviceTag(self.id, tag.label, tag.value)
         else:
             ctx.tags._unassignDeviceTagLabel(self.id, tag.label)
-        return
 
 
 # Interfaces and devices are defined together to avoid circular imports
