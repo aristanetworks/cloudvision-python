@@ -70,7 +70,7 @@ def cert_from_pem(cert_pem: bytes) -> x509.Certificate:
     return x509.load_pem_x509_certificate(cert_pem)
 
 
-def load_key(key_path: str, passphrase: str = None) -> Any:
+def load_key(key_path: str, passphrase: Optional[str] = None) -> Any:
     """Load private key file (PEM encoded).
 
     :param key_path: Private key file (PEM encoded)
@@ -86,7 +86,7 @@ def load_key(key_path: str, passphrase: str = None) -> Any:
     return key_from_pem(key_pem, _passphrase)
 
 
-def key_from_pem(key_pem: bytes, passphrase: bytes = None) -> Any:
+def key_from_pem(key_pem: bytes, passphrase: Optional[bytes] = None) -> Any:
     """Generate key object from PEM encoded private key.
 
     :param key_pem: Private key (PEM encoded)
