@@ -5,7 +5,7 @@
 from typing import Any, Optional, Tuple
 
 from cryptography import x509
-from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives import hashes, serialization
 
 
 def gen_csr_der(cert_path: str, key_path: str) -> bytes:
@@ -31,8 +31,8 @@ def create_csr(cert: x509.Certificate, key: Any) -> x509.CertificateSigningReque
 
     return (
         x509.CertificateSigningRequestBuilder().subject_name(cert.subject)
-        # NOTE: Stick to the same old signature hash algo used earlier
-        .sign(key, cert.signature_hash_algorithm)
+        # Use SHA256 as signing algorithm
+        .sign(key, hashes.SHA256())
     )
 
 

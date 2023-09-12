@@ -7,6 +7,7 @@
 
 from pathlib import Path
 from typing import Union
+from cryptography.hazmat.primitives import hashes
 
 import pytest
 from cryptography import x509
@@ -58,7 +59,7 @@ class TestCert:
         csr = load_der_x509_csr(csr_der)
         cert, key = load_key_cert_pair(cert_path, key_path)
         assert csr.subject == cert.subject
-        assert csr.signature_hash_algorithm == cert.signature_hash_algorithm
+        assert isinstance(csr.signature_hash_algorithm, hashes.SHA256)
         assert csr.public_key().public_bytes(
             Encoding.DER, PublicFormat.SubjectPublicKeyInfo
         ) == key.public_key().public_bytes(Encoding.DER, PublicFormat.SubjectPublicKeyInfo)
@@ -71,7 +72,7 @@ class TestCert:
         cert, key = load_key_cert_pair(cert_path, key_path)
         csr: x509.CertificateSigningRequest = create_csr(cert, key)
         assert csr.subject == cert.subject
-        assert csr.signature_hash_algorithm == cert.signature_hash_algorithm
+        assert isinstance(csr.signature_hash_algorithm, hashes.SHA256)
         assert csr.public_key().public_bytes(
             Encoding.DER, PublicFormat.SubjectPublicKeyInfo
         ) == key.public_key().public_bytes(Encoding.DER, PublicFormat.SubjectPublicKeyInfo)
