@@ -2,7 +2,7 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-from typing import Any, Callable, Optional
+from typing import Any, Callable, Dict, Optional
 
 
 class Logger:
@@ -22,13 +22,15 @@ class Logger:
     '''
 
     def __init__(self,
-                 alog: Optional[Callable[[Any, str, Optional[str], Optional[str]], None]] = None,
-                 trace: Optional[Callable[[Any, str], None]] = None,
-                 debug: Optional[Callable[[Any, str], None]] = None,
-                 info: Optional[Callable[[Any, str], None]] = None,
-                 warning: Optional[Callable[[Any, str], None]] = None,
-                 error: Optional[Callable[[Any, str], None]] = None,
-                 critical: Optional[Callable[[Any, str], None]] = None):
+                 alog: Callable[
+                     [Any, str, Optional[str], Optional[str], Optional[Dict[str, str]]], None
+                 ],
+                 trace: Callable[[Any, str], None],
+                 debug: Callable[[Any, str], None],
+                 info: Callable[[Any, str], None],
+                 warning: Callable[[Any, str], None],
+                 error: Callable[[Any, str], None],
+                 critical: Callable[[Any, str], None]):
         self.alog = alog
         self.trace = trace
         self.debug = debug

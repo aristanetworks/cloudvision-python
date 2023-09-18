@@ -100,10 +100,8 @@ class Context:
         # When connections is None, replace with an empty AuthAndEndpoints obj
         # so that further lookups succeed without throwing exceptions
         self.connections = connections if connections else AuthAndEndpoints()
-        self.logger = logger
         # In the case where the context is not passed a logger, create a backup one and use that
-        if not self.logger:
-            self.__useBackupLogger()
+        self.logger = logger if logger else self.__getBackupLogger()
         self.__connector = None
         self.__serviceChann = None
         self.topology: Optional[Topology] = None
@@ -624,8 +622,21 @@ class Context:
             return linefmt.format(args)
         return ''
 
-    def alog(self, message, userName=None, customKey=None):
-        self.logger.alog(self, message, userName, customKey)
+    def alog(self, message, userName=None, customKey=None, tags: Dict[str, str] = None):
+        """
+        Creates an audit log entry in CloudVision, with the provided info.
+        The context's associated device name and id will be added to the audit log metadata
+        if it is available in the context.
+
+        Args:
+            message:    The string message for the audit log entry
+            userName:   The user to make the audit log entry under. If unspecified, will
+                        use the context's user's username
+            customKey:  A custom key that will be used to alias the audit log entry if provided
+            tags:       A string dictionary of additional custom tags to add to the audit log
+                        entry. The action ID is always added as a tag to the audit log
+        """
+        self.logger.alog(self, message, userName, customKey, tags)
 
     def trace(self, msg):
         """
@@ -711,14 +722,11 @@ class Context:
     # In the case where the context has no logger defined,
     # we can create a compatible backup logger using the system logger
     # This is called in init if no logger is provided
-    def __useBackupLogger(self):
-        def backupAlog(_, message, _userName=None, _customKey=None):
+    def __getBackupLogger(self) -> Logger:
+        def backupAlog(_, message, _userName=None, _customKey=None, tags=None):
             systemLogger.info(message)
 
-        def backupTrace(_, message):
-            systemLogger.debug(message)
-
-        def backupDebug(_, message):
+        def backupDebugOrTrace(_, message):
             systemLogger.debug(message)
 
         def backupInfo(_, message):
@@ -733,16 +741,15 @@ class Context:
         def backupCritical(_, message):
             systemLogger.critical(message)
 
-        backupLogger = Logger(
+        return Logger(
             alog=backupAlog,
-            trace=backupTrace,
-            debug=backupDebug,
+            trace=backupDebugOrTrace,
+            debug=backupDebugOrTrace,
             info=backupInfo,
             warning=backupWarning,
             error=backupError,
             critical=backupCritical
         )
-        self.logger = backupLogger
 
     def benchmarkingOn(self):
         '''
