@@ -52,7 +52,7 @@ HOST = "host"
 JSON = "json"
 REQ_FORMAT = "format"
 STOP_ON_ERROR = "stopOnError"
-TIMEOUT_CLI = "timeout"
+TIMEOUT_CLI = "readTimeout"
 TIMEOUT_CONN = "connTimeout"
 TMP_STORAGE_PATH = ["action", "tmp"]
 USERNAME = "username"
@@ -293,8 +293,8 @@ class Context:
             HOST: deviceInteractionHost,
             DEVICE_ID: device.id,
             CMDS: commandsList,
-            TIMEOUT_CLI: self.connections.connectionTimeout,
-            TIMEOUT_CONN: self.connections.cliTimeout,
+            TIMEOUT_CLI: self.connections.cliTimeout,
+            TIMEOUT_CONN: self.connections.connectionTimeout,
             REQ_FORMAT: fmt,
             STOP_ON_ERROR: False
         }
