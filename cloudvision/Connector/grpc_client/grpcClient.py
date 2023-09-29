@@ -116,7 +116,10 @@ class GRPCClient(object):
     AUTH_KEY_PATH = "access_token"
     DEFAULT_CHANNEL_OPTIONS = {
         "grpc.primary_user_agent": f"cloudvision.Connector/{version}",
-        "grpc.keepalive_time_ms": 60000,  # 60 seconds
+        # 60 seconds
+        "grpc.keepalive_time_ms": 60000,
+        # 0 means infinite, as keepalive_time_ms is 60 seconds client will send 1 ping every minute
+        "grpc.http2.max_pings_without_data": 0,
     }
 
     def __init__(

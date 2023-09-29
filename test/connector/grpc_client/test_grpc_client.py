@@ -19,6 +19,7 @@ class TestGRPCClient:
             [
                 ("grpc.primary_user_agent", f"cloudvision.Connector/{version}"),
                 ("grpc.keepalive_time_ms", 60000),
+                ('grpc.http2.max_pings_without_data', 0),
             ]
         ],
     )
@@ -34,20 +35,24 @@ class TestGRPCClient:
             (
                 {
                     "grpc.keepalive_time_ms": 30000,
+                    'grpc.http2.max_pings_without_data': 0,
                 },
                 [
                     ("grpc.primary_user_agent", f"cloudvision.Connector/{version}"),
                     ("grpc.keepalive_time_ms", 30000),
+                    ('grpc.http2.max_pings_without_data', 0),
                 ],
             ),
             (
                 {
                     "grpc.primary_user_agent": "torans_grpc_client",
                     "grpc.keepalive_time_ms": 1200000,
+                    'grpc.http2.max_pings_without_data': 0,
                 },
                 [
                     ("grpc.primary_user_agent", "torans_grpc_client"),
                     ("grpc.keepalive_time_ms", 1200000),
+                    ('grpc.http2.max_pings_without_data', 0),
                 ],
             ),
             (
@@ -55,11 +60,13 @@ class TestGRPCClient:
                     "grpc.primary_user_agent": "torans_grpc_client",
                     "grpc.keepalive_time_ms": 1200000,
                     "grpc.keepalive_timeout_ms": 10000,
+                    'grpc.http2.max_pings_without_data': 1,
                 },
                 [
                     ("grpc.primary_user_agent", "torans_grpc_client"),
                     ("grpc.keepalive_time_ms", 1200000),
                     ("grpc.keepalive_timeout_ms", 10000),
+                    ('grpc.http2.max_pings_without_data', 1),
                 ],
             ),
         ],
