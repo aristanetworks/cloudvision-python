@@ -76,9 +76,13 @@ def create_notification(
     """
     proto_ts = to_pbts(ts)
     encoder = codec.Encoder()
-    # An empty list would mean deleteAll so distinguish z/w empty and None
+    # An empty list would mean deleteAll so there is a need to distinguish between empty and None
+    deleteAll = False
     dels = None
-    if deletes is not None:
+    if deletes is not None and not deletes:
+        # Passed deletes is an empty list, e.g. deleteAll
+        deleteAll = True
+    elif deletes:
         dels = [encoder.encode(d) for d in deletes]
 
     upds = None
@@ -92,6 +96,7 @@ def create_notification(
     pathElts = [encoder.encode(elt) for elt in paths]
     return ntf.Notification(
         timestamp=proto_ts,
+        delete_all=deleteAll,
         deletes=dels,
         updates=upds,
         retracts=rets,
