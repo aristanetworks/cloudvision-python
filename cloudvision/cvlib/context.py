@@ -56,6 +56,8 @@ TIMEOUT_CLI = "readTimeout"
 TIMEOUT_CONN = "connTimeout"
 TMP_STORAGE_PATH = ["action", "tmp"]
 USERNAME = "username"
+DATASET_TYPE = "dataset_type"
+ORGANIZATION = "organization"
 
 systemLogger = getLogger(__name__)
 
@@ -189,12 +191,18 @@ class Context:
         :param: stub of the resource api to connect to
         :return: resource api client to the passed stub
         '''
-        def add_user_context(chann):
+        def add_user_context(chann, default_org=False):
             # If provided, add the user context to the grpc metadata
             # This allows the context to access services correctly
             if self.user is not None:
                 username_interceptor = addHeaderInterceptor(USERNAME, self.user.username)
-                chann = grpc.intercept_channel(chann, username_interceptor)
+                if default_org:
+                    dataset_interceptor = addHeaderInterceptor(DATASET_TYPE, 'user')
+                    org_interceptor = addHeaderInterceptor(ORGANIZATION, 'Default')
+                    chann = grpc.intercept_channel(chann, username_interceptor,
+                                                   dataset_interceptor, org_interceptor)
+                else:
+                    chann = grpc.intercept_channel(chann, username_interceptor)
             return chann
 
         # Use test api addresses for client if they were set
@@ -203,7 +211,7 @@ class Context:
             if not testAddr:
                 return None
             chann = grpc.insecure_channel(testAddr)
-            chann = add_user_context(chann)
+            chann = add_user_context(chann, default_org=True)
             stubChann = stub(chann)
             return stubChann
 
