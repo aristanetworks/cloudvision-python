@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\"arista/resources/arista/tag.v2;tag',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x17\x61rista/tag.v2/tag.proto\x12\rarista.tag.v2\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\"\xce\x01\n\x06TagKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x0c\x65lement_type\x18\x02 \x01(\x0e\x32\x1a.arista.tag.v2.ElementType\x12+\n\x05label\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x05value\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"c\n\tTagConfig\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02rw\"c\n\x03Tag\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12\x30\n\x0c\x63reator_type\x18\x02 \x01(\x0e\x32\x1a.arista.tag.v2.CreatorType:\x06\xfa\x8d\x19\x02ro\"\xbd\x02\n\x10TagAssignmentKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x0c\x65lement_type\x18\x02 \x01(\x0e\x32\x1a.arista.tag.v2.ElementType\x12+\n\x05label\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x05value\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tdevice_id\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0cinterface_id\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"w\n\x13TagAssignmentConfig\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02rw\"E\n\rTagAssignment\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey:\x06\xfa\x8d\x19\x02ro*`\n\x0b\x45lementType\x12\x1c\n\x18\x45LEMENT_TYPE_UNSPECIFIED\x10\x00\x12\x17\n\x13\x45LEMENT_TYPE_DEVICE\x10\x01\x12\x1a\n\x16\x45LEMENT_TYPE_INTERFACE\x10\x02*[\n\x0b\x43reatorType\x12\x1c\n\x18\x43REATOR_TYPE_UNSPECIFIED\x10\x00\x12\x17\n\x13\x43REATOR_TYPE_SYSTEM\x10\x01\x12\x15\n\x11\x43REATOR_TYPE_USER\x10\x02\x42$Z\"arista/resources/arista/tag.v2;tagb\x06proto3'
+  serialized_pb=b'\n\x17\x61rista/tag.v2/tag.proto\x12\rarista.tag.v2\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\"\x87\x02\n\x06TagKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x0c\x65lement_type\x18\x02 \x01(\x0e\x32\x1a.arista.tag.v2.ElementType\x12+\n\x05label\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x05value\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x37\n\x10\x65lement_sub_type\x18\x05 \x01(\x0e\x32\x1d.arista.tag.v2.ElementSubType:\x04\x80\x8e\x19\x01\"c\n\tTagConfig\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02rw\"c\n\x03Tag\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12\x30\n\x0c\x63reator_type\x18\x02 \x01(\x0e\x32\x1a.arista.tag.v2.CreatorType:\x06\xfa\x8d\x19\x02ro\"\xf6\x02\n\x10TagAssignmentKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x0c\x65lement_type\x18\x02 \x01(\x0e\x32\x1a.arista.tag.v2.ElementType\x12+\n\x05label\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x05value\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tdevice_id\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0cinterface_id\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x37\n\x10\x65lement_sub_type\x18\x07 \x01(\x0e\x32\x1d.arista.tag.v2.ElementSubType:\x04\x80\x8e\x19\x01\"w\n\x13TagAssignmentConfig\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02rw\"{\n\rTagAssignment\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12\x34\n\x10tag_creator_type\x18\x02 \x01(\x0e\x32\x1a.arista.tag.v2.CreatorType:\x06\xfa\x8d\x19\x02ro*`\n\x0b\x45lementType\x12\x1c\n\x18\x45LEMENT_TYPE_UNSPECIFIED\x10\x00\x12\x17\n\x13\x45LEMENT_TYPE_DEVICE\x10\x01\x12\x1a\n\x16\x45LEMENT_TYPE_INTERFACE\x10\x02*\xa8\x01\n\x0e\x45lementSubType\x12 \n\x1c\x45LEMENT_SUB_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n\x17\x45LEMENT_SUB_TYPE_DEVICE\x10\x01\x12\x18\n\x14\x45LEMENT_SUB_TYPE_VDS\x10\x02\x12$\n ELEMENT_SUB_TYPE_WORKLOAD_SERVER\x10\x03\x12\x17\n\x13\x45LEMENT_SUB_TYPE_VM\x10\x04*v\n\x0b\x43reatorType\x12\x1c\n\x18\x43REATOR_TYPE_UNSPECIFIED\x10\x00\x12\x17\n\x13\x43REATOR_TYPE_SYSTEM\x10\x01\x12\x15\n\x11\x43REATOR_TYPE_USER\x10\x02\x12\x19\n\x15\x43REATOR_TYPE_EXTERNAL\x10\x03\x42$Z\"arista/resources/arista/tag.v2;tagb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,])
 
@@ -51,12 +51,53 @@ _ELEMENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1019,
-  serialized_end=1115,
+  serialized_start=1187,
+  serialized_end=1283,
 )
 _sym_db.RegisterEnumDescriptor(_ELEMENTTYPE)
 
 ElementType = enum_type_wrapper.EnumTypeWrapper(_ELEMENTTYPE)
+_ELEMENTSUBTYPE = _descriptor.EnumDescriptor(
+  name='ElementSubType',
+  full_name='arista.tag.v2.ElementSubType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='ELEMENT_SUB_TYPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ELEMENT_SUB_TYPE_DEVICE', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ELEMENT_SUB_TYPE_VDS', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ELEMENT_SUB_TYPE_WORKLOAD_SERVER', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ELEMENT_SUB_TYPE_VM', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1286,
+  serialized_end=1454,
+)
+_sym_db.RegisterEnumDescriptor(_ELEMENTSUBTYPE)
+
+ElementSubType = enum_type_wrapper.EnumTypeWrapper(_ELEMENTSUBTYPE)
 _CREATORTYPE = _descriptor.EnumDescriptor(
   name='CreatorType',
   full_name='arista.tag.v2.CreatorType',
@@ -79,11 +120,16 @@ _CREATORTYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CREATOR_TYPE_EXTERNAL', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1117,
-  serialized_end=1208,
+  serialized_start=1456,
+  serialized_end=1574,
 )
 _sym_db.RegisterEnumDescriptor(_CREATORTYPE)
 
@@ -91,9 +137,15 @@ CreatorType = enum_type_wrapper.EnumTypeWrapper(_CREATORTYPE)
 ELEMENT_TYPE_UNSPECIFIED = 0
 ELEMENT_TYPE_DEVICE = 1
 ELEMENT_TYPE_INTERFACE = 2
+ELEMENT_SUB_TYPE_UNSPECIFIED = 0
+ELEMENT_SUB_TYPE_DEVICE = 1
+ELEMENT_SUB_TYPE_VDS = 2
+ELEMENT_SUB_TYPE_WORKLOAD_SERVER = 3
+ELEMENT_SUB_TYPE_VM = 4
 CREATOR_TYPE_UNSPECIFIED = 0
 CREATOR_TYPE_SYSTEM = 1
 CREATOR_TYPE_USER = 2
+CREATOR_TYPE_EXTERNAL = 3
 
 
 
@@ -133,6 +185,13 @@ _TAGKEY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='element_sub_type', full_name='arista.tag.v2.TagKey.element_sub_type', index=4,
+      number=5, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -146,7 +205,7 @@ _TAGKEY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=97,
-  serialized_end=303,
+  serialized_end=360,
 )
 
 
@@ -184,8 +243,8 @@ _TAGCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=305,
-  serialized_end=404,
+  serialized_start=362,
+  serialized_end=461,
 )
 
 
@@ -223,8 +282,8 @@ _TAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=406,
-  serialized_end=505,
+  serialized_start=463,
+  serialized_end=562,
 )
 
 
@@ -278,6 +337,13 @@ _TAGASSIGNMENTKEY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='element_sub_type', full_name='arista.tag.v2.TagAssignmentKey.element_sub_type', index=6,
+      number=7, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -290,8 +356,8 @@ _TAGASSIGNMENTKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=508,
-  serialized_end=825,
+  serialized_start=565,
+  serialized_end=939,
 )
 
 
@@ -329,8 +395,8 @@ _TAGASSIGNMENTCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=827,
-  serialized_end=946,
+  serialized_start=941,
+  serialized_end=1060,
 )
 
 
@@ -349,6 +415,13 @@ _TAGASSIGNMENT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tag_creator_type', full_name='arista.tag.v2.TagAssignment.tag_creator_type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -361,14 +434,15 @@ _TAGASSIGNMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=948,
-  serialized_end=1017,
+  serialized_start=1062,
+  serialized_end=1185,
 )
 
 _TAGKEY.fields_by_name['workspace_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _TAGKEY.fields_by_name['element_type'].enum_type = _ELEMENTTYPE
 _TAGKEY.fields_by_name['label'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _TAGKEY.fields_by_name['value'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_TAGKEY.fields_by_name['element_sub_type'].enum_type = _ELEMENTSUBTYPE
 _TAGCONFIG.fields_by_name['key'].message_type = _TAGKEY
 _TAGCONFIG.fields_by_name['remove'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _TAG.fields_by_name['key'].message_type = _TAGKEY
@@ -379,9 +453,11 @@ _TAGASSIGNMENTKEY.fields_by_name['label'].message_type = google_dot_protobuf_dot
 _TAGASSIGNMENTKEY.fields_by_name['value'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _TAGASSIGNMENTKEY.fields_by_name['device_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _TAGASSIGNMENTKEY.fields_by_name['interface_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_TAGASSIGNMENTKEY.fields_by_name['element_sub_type'].enum_type = _ELEMENTSUBTYPE
 _TAGASSIGNMENTCONFIG.fields_by_name['key'].message_type = _TAGASSIGNMENTKEY
 _TAGASSIGNMENTCONFIG.fields_by_name['remove'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _TAGASSIGNMENT.fields_by_name['key'].message_type = _TAGASSIGNMENTKEY
+_TAGASSIGNMENT.fields_by_name['tag_creator_type'].enum_type = _CREATORTYPE
 DESCRIPTOR.message_types_by_name['TagKey'] = _TAGKEY
 DESCRIPTOR.message_types_by_name['TagConfig'] = _TAGCONFIG
 DESCRIPTOR.message_types_by_name['Tag'] = _TAG
@@ -389,6 +465,7 @@ DESCRIPTOR.message_types_by_name['TagAssignmentKey'] = _TAGASSIGNMENTKEY
 DESCRIPTOR.message_types_by_name['TagAssignmentConfig'] = _TAGASSIGNMENTCONFIG
 DESCRIPTOR.message_types_by_name['TagAssignment'] = _TAGASSIGNMENT
 DESCRIPTOR.enum_types_by_name['ElementType'] = _ELEMENTTYPE
+DESCRIPTOR.enum_types_by_name['ElementSubType'] = _ELEMENTSUBTYPE
 DESCRIPTOR.enum_types_by_name['CreatorType'] = _CREATORTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

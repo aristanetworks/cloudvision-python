@@ -14,7 +14,9 @@ _sym_db = _symbol_database.Default()
 from arista.tag.v2 import tag_pb2 as arista_dot_tag_dot_v2_dot_tag__pb2
 from arista.time import time_pb2 as arista_dot_time_dot_time__pb2
 from arista.subscriptions import subscriptions_pb2 as arista_dot_subscriptions_dot_subscriptions__pb2
+from fmp import deletes_pb2 as fmp_dot_deletes__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\"arista/resources/arista/tag.v2;tag',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n arista/tag.v2/services.gen.proto\x12\rarista.tag.v2\x1a\x17\x61rista/tag.v2/tag.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"Z\n\nTagRequest\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"Z\n\x0bTagResponse\x12!\n\x05value\x18\x01 \x01(\x0b\x32\x12.arista.tag.v2.Tag\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"h\n\x10TagStreamRequest\x12-\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x12.arista.tag.v2.Tag\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x8f\x01\n\x11TagStreamResponse\x12!\n\x05value\x18\x01 \x01(\x0b\x32\x12.arista.tag.v2.Tag\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"n\n\x14TagAssignmentRequest\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"n\n\x15TagAssignmentResponse\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.tag.v2.TagAssignment\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"|\n\x1aTagAssignmentStreamRequest\x12\x37\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1c.arista.tag.v2.TagAssignment\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa3\x01\n\x1bTagAssignmentStreamResponse\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.tag.v2.TagAssignment\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"t\n\x1aTagAssignmentConfigRequest\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"z\n\x1bTagAssignmentConfigResponse\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x88\x01\n TagAssignmentConfigStreamRequest\x12=\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xaf\x01\n!TagAssignmentConfigStreamResponse\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"R\n\x1dTagAssignmentConfigSetRequest\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\"}\n\x1eTagAssignmentConfigSetResponse\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"P\n TagAssignmentConfigDeleteRequest\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\"{\n!TagAssignmentConfigDeleteResponse\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"`\n\x10TagConfigRequest\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"f\n\x11TagConfigResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.tag.v2.TagConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"t\n\x16TagConfigStreamRequest\x12\x33\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x18.arista.tag.v2.TagConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x9b\x01\n\x17TagConfigStreamResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.tag.v2.TagConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\">\n\x13TagConfigSetRequest\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.tag.v2.TagConfig\"i\n\x14TagConfigSetResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.tag.v2.TagConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"<\n\x16TagConfigDeleteRequest\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\"g\n\x17TagConfigDeleteResponse\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xee\x01\n\nTagService\x12?\n\x06GetOne\x12\x19.arista.tag.v2.TagRequest\x1a\x1a.arista.tag.v2.TagResponse\x12M\n\x06GetAll\x12\x1f.arista.tag.v2.TagStreamRequest\x1a .arista.tag.v2.TagStreamResponse0\x01\x12P\n\tSubscribe\x12\x1f.arista.tag.v2.TagStreamRequest\x1a .arista.tag.v2.TagStreamResponse0\x01\x32\xb4\x02\n\x14TagAssignmentService\x12S\n\x06GetOne\x12#.arista.tag.v2.TagAssignmentRequest\x1a$.arista.tag.v2.TagAssignmentResponse\x12\x61\n\x06GetAll\x12).arista.tag.v2.TagAssignmentStreamRequest\x1a*.arista.tag.v2.TagAssignmentStreamResponse0\x01\x12\x64\n\tSubscribe\x12).arista.tag.v2.TagAssignmentStreamRequest\x1a*.arista.tag.v2.TagAssignmentStreamResponse0\x01\x32\xaf\x04\n\x1aTagAssignmentConfigService\x12_\n\x06GetOne\x12).arista.tag.v2.TagAssignmentConfigRequest\x1a*.arista.tag.v2.TagAssignmentConfigResponse\x12m\n\x06GetAll\x12/.arista.tag.v2.TagAssignmentConfigStreamRequest\x1a\x30.arista.tag.v2.TagAssignmentConfigStreamResponse0\x01\x12p\n\tSubscribe\x12/.arista.tag.v2.TagAssignmentConfigStreamRequest\x1a\x30.arista.tag.v2.TagAssignmentConfigStreamResponse0\x01\x12\x62\n\x03Set\x12,.arista.tag.v2.TagAssignmentConfigSetRequest\x1a-.arista.tag.v2.TagAssignmentConfigSetResponse\x12k\n\x06\x44\x65lete\x12/.arista.tag.v2.TagAssignmentConfigDeleteRequest\x1a\x30.arista.tag.v2.TagAssignmentConfigDeleteResponse2\xc1\x03\n\x10TagConfigService\x12K\n\x06GetOne\x12\x1f.arista.tag.v2.TagConfigRequest\x1a .arista.tag.v2.TagConfigResponse\x12Y\n\x06GetAll\x12%.arista.tag.v2.TagConfigStreamRequest\x1a&.arista.tag.v2.TagConfigStreamResponse0\x01\x12\\\n\tSubscribe\x12%.arista.tag.v2.TagConfigStreamRequest\x1a&.arista.tag.v2.TagConfigStreamResponse0\x01\x12N\n\x03Set\x12\".arista.tag.v2.TagConfigSetRequest\x1a#.arista.tag.v2.TagConfigSetResponse\x12W\n\x06\x44\x65lete\x12%.arista.tag.v2.TagConfigDeleteRequest\x1a&.arista.tag.v2.TagConfigDeleteResponseB$Z\"arista/resources/arista/tag.v2;tagb\x06proto3'
+  serialized_pb=b'\n arista/tag.v2/services.gen.proto\x12\rarista.tag.v2\x1a\x17\x61rista/tag.v2/tag.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"Z\n\nTagRequest\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"Z\n\x0bTagResponse\x12!\n\x05value\x18\x01 \x01(\x0b\x32\x12.arista.tag.v2.Tag\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"h\n\x10TagStreamRequest\x12-\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x12.arista.tag.v2.Tag\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x8f\x01\n\x11TagStreamResponse\x12!\n\x05value\x18\x01 \x01(\x0b\x32\x12.arista.tag.v2.Tag\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"n\n\x14TagAssignmentRequest\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"n\n\x15TagAssignmentResponse\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.tag.v2.TagAssignment\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"|\n\x1aTagAssignmentStreamRequest\x12\x37\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1c.arista.tag.v2.TagAssignment\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa3\x01\n\x1bTagAssignmentStreamResponse\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.tag.v2.TagAssignment\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"t\n\x1aTagAssignmentConfigRequest\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"z\n\x1bTagAssignmentConfigResponse\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x88\x01\n TagAssignmentConfigStreamRequest\x12=\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xaf\x01\n!TagAssignmentConfigStreamResponse\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"R\n\x1dTagAssignmentConfigSetRequest\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\"}\n\x1eTagAssignmentConfigSetResponse\x12\x31\n\x05value\x18\x01 \x01(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"W\n!TagAssignmentConfigSetSomeRequest\x12\x32\n\x06values\x18\x01 \x03(\x0b\x32\".arista.tag.v2.TagAssignmentConfig\"a\n\"TagAssignmentConfigSetSomeResponse\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"P\n TagAssignmentConfigDeleteRequest\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\"{\n!TagAssignmentConfigDeleteResponse\x12,\n\x03key\x18\x01 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"%\n#TagAssignmentConfigDeleteAllRequest\"\xcb\x01\n$TagAssignmentConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x03key\x18\x03 \x01(\x0b\x32\x1f.arista.tag.v2.TagAssignmentKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"`\n\x10TagConfigRequest\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"f\n\x11TagConfigResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.tag.v2.TagConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"t\n\x16TagConfigStreamRequest\x12\x33\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x18.arista.tag.v2.TagConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x9b\x01\n\x17TagConfigStreamResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.tag.v2.TagConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\">\n\x13TagConfigSetRequest\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.tag.v2.TagConfig\"i\n\x14TagConfigSetResponse\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.arista.tag.v2.TagConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"C\n\x17TagConfigSetSomeRequest\x12(\n\x06values\x18\x01 \x03(\x0b\x32\x18.arista.tag.v2.TagConfig\"M\n\x18TagConfigSetSomeResponse\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"<\n\x16TagConfigDeleteRequest\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\"g\n\x17TagConfigDeleteResponse\x12\"\n\x03key\x18\x01 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x1b\n\x19TagConfigDeleteAllRequest\"\xb7\x01\n\x1aTagConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\"\n\x03key\x18\x03 \x01(\x0b\x32\x15.arista.tag.v2.TagKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xee\x01\n\nTagService\x12?\n\x06GetOne\x12\x19.arista.tag.v2.TagRequest\x1a\x1a.arista.tag.v2.TagResponse\x12M\n\x06GetAll\x12\x1f.arista.tag.v2.TagStreamRequest\x1a .arista.tag.v2.TagStreamResponse0\x01\x12P\n\tSubscribe\x12\x1f.arista.tag.v2.TagStreamRequest\x1a .arista.tag.v2.TagStreamResponse0\x01\x32\xb4\x02\n\x14TagAssignmentService\x12S\n\x06GetOne\x12#.arista.tag.v2.TagAssignmentRequest\x1a$.arista.tag.v2.TagAssignmentResponse\x12\x61\n\x06GetAll\x12).arista.tag.v2.TagAssignmentStreamRequest\x1a*.arista.tag.v2.TagAssignmentStreamResponse0\x01\x12\x64\n\tSubscribe\x12).arista.tag.v2.TagAssignmentStreamRequest\x1a*.arista.tag.v2.TagAssignmentStreamResponse0\x01\x32\x99\x06\n\x1aTagAssignmentConfigService\x12_\n\x06GetOne\x12).arista.tag.v2.TagAssignmentConfigRequest\x1a*.arista.tag.v2.TagAssignmentConfigResponse\x12m\n\x06GetAll\x12/.arista.tag.v2.TagAssignmentConfigStreamRequest\x1a\x30.arista.tag.v2.TagAssignmentConfigStreamResponse0\x01\x12p\n\tSubscribe\x12/.arista.tag.v2.TagAssignmentConfigStreamRequest\x1a\x30.arista.tag.v2.TagAssignmentConfigStreamResponse0\x01\x12\x62\n\x03Set\x12,.arista.tag.v2.TagAssignmentConfigSetRequest\x1a-.arista.tag.v2.TagAssignmentConfigSetResponse\x12p\n\x07SetSome\x12\x30.arista.tag.v2.TagAssignmentConfigSetSomeRequest\x1a\x31.arista.tag.v2.TagAssignmentConfigSetSomeResponse0\x01\x12k\n\x06\x44\x65lete\x12/.arista.tag.v2.TagAssignmentConfigDeleteRequest\x1a\x30.arista.tag.v2.TagAssignmentConfigDeleteResponse\x12v\n\tDeleteAll\x12\x32.arista.tag.v2.TagAssignmentConfigDeleteAllRequest\x1a\x33.arista.tag.v2.TagAssignmentConfigDeleteAllResponse0\x01\x32\x83\x05\n\x10TagConfigService\x12K\n\x06GetOne\x12\x1f.arista.tag.v2.TagConfigRequest\x1a .arista.tag.v2.TagConfigResponse\x12Y\n\x06GetAll\x12%.arista.tag.v2.TagConfigStreamRequest\x1a&.arista.tag.v2.TagConfigStreamResponse0\x01\x12\\\n\tSubscribe\x12%.arista.tag.v2.TagConfigStreamRequest\x1a&.arista.tag.v2.TagConfigStreamResponse0\x01\x12N\n\x03Set\x12\".arista.tag.v2.TagConfigSetRequest\x1a#.arista.tag.v2.TagConfigSetResponse\x12\\\n\x07SetSome\x12&.arista.tag.v2.TagConfigSetSomeRequest\x1a\'.arista.tag.v2.TagConfigSetSomeResponse0\x01\x12W\n\x06\x44\x65lete\x12%.arista.tag.v2.TagConfigDeleteRequest\x1a&.arista.tag.v2.TagConfigDeleteResponse\x12\x62\n\tDeleteAll\x12(.arista.tag.v2.TagConfigDeleteAllRequest\x1a).arista.tag.v2.TagConfigDeleteAllResponse0\x01\x42$Z\"arista/resources/arista/tag.v2;tagb\x06proto3'
   ,
-  dependencies=[arista_dot_tag_dot_v2_dot_tag__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[arista_dot_tag_dot_v2_dot_tag__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,fmp_dot_deletes__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
 
@@ -64,8 +66,8 @@ _TAGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=175,
-  serialized_end=265,
+  serialized_start=226,
+  serialized_end=316,
 )
 
 
@@ -103,8 +105,8 @@ _TAGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=267,
-  serialized_end=357,
+  serialized_start=318,
+  serialized_end=408,
 )
 
 
@@ -142,8 +144,8 @@ _TAGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=359,
-  serialized_end=463,
+  serialized_start=410,
+  serialized_end=514,
 )
 
 
@@ -188,8 +190,8 @@ _TAGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=466,
-  serialized_end=609,
+  serialized_start=517,
+  serialized_end=660,
 )
 
 
@@ -227,8 +229,8 @@ _TAGASSIGNMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=611,
-  serialized_end=721,
+  serialized_start=662,
+  serialized_end=772,
 )
 
 
@@ -266,8 +268,8 @@ _TAGASSIGNMENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=723,
-  serialized_end=833,
+  serialized_start=774,
+  serialized_end=884,
 )
 
 
@@ -305,8 +307,8 @@ _TAGASSIGNMENTSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=835,
-  serialized_end=959,
+  serialized_start=886,
+  serialized_end=1010,
 )
 
 
@@ -351,8 +353,8 @@ _TAGASSIGNMENTSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=962,
-  serialized_end=1125,
+  serialized_start=1013,
+  serialized_end=1176,
 )
 
 
@@ -390,8 +392,8 @@ _TAGASSIGNMENTCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1127,
-  serialized_end=1243,
+  serialized_start=1178,
+  serialized_end=1294,
 )
 
 
@@ -429,8 +431,8 @@ _TAGASSIGNMENTCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1245,
-  serialized_end=1367,
+  serialized_start=1296,
+  serialized_end=1418,
 )
 
 
@@ -468,8 +470,8 @@ _TAGASSIGNMENTCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1370,
-  serialized_end=1506,
+  serialized_start=1421,
+  serialized_end=1557,
 )
 
 
@@ -514,8 +516,8 @@ _TAGASSIGNMENTCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1509,
-  serialized_end=1684,
+  serialized_start=1560,
+  serialized_end=1735,
 )
 
 
@@ -546,8 +548,8 @@ _TAGASSIGNMENTCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1686,
-  serialized_end=1768,
+  serialized_start=1737,
+  serialized_end=1819,
 )
 
 
@@ -585,8 +587,79 @@ _TAGASSIGNMENTCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1770,
-  serialized_end=1895,
+  serialized_start=1821,
+  serialized_end=1946,
+)
+
+
+_TAGASSIGNMENTCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='TagAssignmentConfigSetSomeRequest',
+  full_name='arista.tag.v2.TagAssignmentConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.tag.v2.TagAssignmentConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1948,
+  serialized_end=2035,
+)
+
+
+_TAGASSIGNMENTCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='TagAssignmentConfigSetSomeResponse',
+  full_name='arista.tag.v2.TagAssignmentConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.tag.v2.TagAssignmentConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.tag.v2.TagAssignmentConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2037,
+  serialized_end=2134,
 )
 
 
@@ -617,8 +690,8 @@ _TAGASSIGNMENTCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1897,
-  serialized_end=1977,
+  serialized_start=2136,
+  serialized_end=2216,
 )
 
 
@@ -656,8 +729,86 @@ _TAGASSIGNMENTCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1979,
-  serialized_end=2102,
+  serialized_start=2218,
+  serialized_end=2341,
+)
+
+
+_TAGASSIGNMENTCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='TagAssignmentConfigDeleteAllRequest',
+  full_name='arista.tag.v2.TagAssignmentConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2343,
+  serialized_end=2380,
+)
+
+
+_TAGASSIGNMENTCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='TagAssignmentConfigDeleteAllResponse',
+  full_name='arista.tag.v2.TagAssignmentConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.tag.v2.TagAssignmentConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.tag.v2.TagAssignmentConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.tag.v2.TagAssignmentConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.tag.v2.TagAssignmentConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2383,
+  serialized_end=2586,
 )
 
 
@@ -695,8 +846,8 @@ _TAGCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2104,
-  serialized_end=2200,
+  serialized_start=2588,
+  serialized_end=2684,
 )
 
 
@@ -734,8 +885,8 @@ _TAGCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2202,
-  serialized_end=2304,
+  serialized_start=2686,
+  serialized_end=2788,
 )
 
 
@@ -773,8 +924,8 @@ _TAGCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2306,
-  serialized_end=2422,
+  serialized_start=2790,
+  serialized_end=2906,
 )
 
 
@@ -819,8 +970,8 @@ _TAGCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2425,
-  serialized_end=2580,
+  serialized_start=2909,
+  serialized_end=3064,
 )
 
 
@@ -851,8 +1002,8 @@ _TAGCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2582,
-  serialized_end=2644,
+  serialized_start=3066,
+  serialized_end=3128,
 )
 
 
@@ -890,8 +1041,79 @@ _TAGCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2646,
-  serialized_end=2751,
+  serialized_start=3130,
+  serialized_end=3235,
+)
+
+
+_TAGCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='TagConfigSetSomeRequest',
+  full_name='arista.tag.v2.TagConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.tag.v2.TagConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3237,
+  serialized_end=3304,
+)
+
+
+_TAGCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='TagConfigSetSomeResponse',
+  full_name='arista.tag.v2.TagConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.tag.v2.TagConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.tag.v2.TagConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3306,
+  serialized_end=3383,
 )
 
 
@@ -922,8 +1144,8 @@ _TAGCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2753,
-  serialized_end=2813,
+  serialized_start=3385,
+  serialized_end=3445,
 )
 
 
@@ -961,8 +1183,86 @@ _TAGCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2815,
-  serialized_end=2918,
+  serialized_start=3447,
+  serialized_end=3550,
+)
+
+
+_TAGCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='TagConfigDeleteAllRequest',
+  full_name='arista.tag.v2.TagConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3552,
+  serialized_end=3579,
+)
+
+
+_TAGCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='TagConfigDeleteAllResponse',
+  full_name='arista.tag.v2.TagConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.tag.v2.TagConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.tag.v2.TagConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.tag.v2.TagConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.tag.v2.TagConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3582,
+  serialized_end=3765,
 )
 
 _TAGREQUEST.fields_by_name['key'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGKEY
@@ -995,9 +1295,15 @@ _TAGASSIGNMENTCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot
 _TAGASSIGNMENTCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGASSIGNMENTCONFIG
 _TAGASSIGNMENTCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGASSIGNMENTCONFIG
 _TAGASSIGNMENTCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TAGASSIGNMENTCONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGASSIGNMENTCONFIG
+_TAGASSIGNMENTCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGASSIGNMENTKEY
 _TAGASSIGNMENTCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGASSIGNMENTKEY
 _TAGASSIGNMENTCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGASSIGNMENTKEY
 _TAGASSIGNMENTCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TAGASSIGNMENTCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_TAGASSIGNMENTCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_TAGASSIGNMENTCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGASSIGNMENTKEY
+_TAGASSIGNMENTCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TAGCONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGKEY
 _TAGCONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TAGCONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGCONFIG
@@ -1010,9 +1316,15 @@ _TAGCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscript
 _TAGCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGCONFIG
 _TAGCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGCONFIG
 _TAGCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TAGCONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGCONFIG
+_TAGCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGKEY
 _TAGCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGKEY
 _TAGCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGKEY
 _TAGCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TAGCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_TAGCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_TAGCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_tag_dot_v2_dot_tag__pb2._TAGKEY
+_TAGCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['TagRequest'] = _TAGREQUEST
 DESCRIPTOR.message_types_by_name['TagResponse'] = _TAGRESPONSE
 DESCRIPTOR.message_types_by_name['TagStreamRequest'] = _TAGSTREAMREQUEST
@@ -1027,16 +1339,24 @@ DESCRIPTOR.message_types_by_name['TagAssignmentConfigStreamRequest'] = _TAGASSIG
 DESCRIPTOR.message_types_by_name['TagAssignmentConfigStreamResponse'] = _TAGASSIGNMENTCONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['TagAssignmentConfigSetRequest'] = _TAGASSIGNMENTCONFIGSETREQUEST
 DESCRIPTOR.message_types_by_name['TagAssignmentConfigSetResponse'] = _TAGASSIGNMENTCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['TagAssignmentConfigSetSomeRequest'] = _TAGASSIGNMENTCONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['TagAssignmentConfigSetSomeResponse'] = _TAGASSIGNMENTCONFIGSETSOMERESPONSE
 DESCRIPTOR.message_types_by_name['TagAssignmentConfigDeleteRequest'] = _TAGASSIGNMENTCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['TagAssignmentConfigDeleteResponse'] = _TAGASSIGNMENTCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['TagAssignmentConfigDeleteAllRequest'] = _TAGASSIGNMENTCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['TagAssignmentConfigDeleteAllResponse'] = _TAGASSIGNMENTCONFIGDELETEALLRESPONSE
 DESCRIPTOR.message_types_by_name['TagConfigRequest'] = _TAGCONFIGREQUEST
 DESCRIPTOR.message_types_by_name['TagConfigResponse'] = _TAGCONFIGRESPONSE
 DESCRIPTOR.message_types_by_name['TagConfigStreamRequest'] = _TAGCONFIGSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['TagConfigStreamResponse'] = _TAGCONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['TagConfigSetRequest'] = _TAGCONFIGSETREQUEST
 DESCRIPTOR.message_types_by_name['TagConfigSetResponse'] = _TAGCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['TagConfigSetSomeRequest'] = _TAGCONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['TagConfigSetSomeResponse'] = _TAGCONFIGSETSOMERESPONSE
 DESCRIPTOR.message_types_by_name['TagConfigDeleteRequest'] = _TAGCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['TagConfigDeleteResponse'] = _TAGCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['TagConfigDeleteAllRequest'] = _TAGCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['TagConfigDeleteAllResponse'] = _TAGCONFIGDELETEALLRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 TagRequest = _reflection.GeneratedProtocolMessageType('TagRequest', (_message.Message,), {
@@ -1137,6 +1457,20 @@ TagAssignmentConfigSetResponse = _reflection.GeneratedProtocolMessageType('TagAs
   })
 _sym_db.RegisterMessage(TagAssignmentConfigSetResponse)
 
+TagAssignmentConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('TagAssignmentConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TAGASSIGNMENTCONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.tag.v2.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.tag.v2.TagAssignmentConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(TagAssignmentConfigSetSomeRequest)
+
+TagAssignmentConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('TagAssignmentConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TAGASSIGNMENTCONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.tag.v2.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.tag.v2.TagAssignmentConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(TagAssignmentConfigSetSomeResponse)
+
 TagAssignmentConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('TagAssignmentConfigDeleteRequest', (_message.Message,), {
   'DESCRIPTOR' : _TAGASSIGNMENTCONFIGDELETEREQUEST,
   '__module__' : 'arista.tag.v2.services.gen_pb2'
@@ -1150,6 +1484,20 @@ TagAssignmentConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('Ta
   # @@protoc_insertion_point(class_scope:arista.tag.v2.TagAssignmentConfigDeleteResponse)
   })
 _sym_db.RegisterMessage(TagAssignmentConfigDeleteResponse)
+
+TagAssignmentConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('TagAssignmentConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TAGASSIGNMENTCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.tag.v2.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.tag.v2.TagAssignmentConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(TagAssignmentConfigDeleteAllRequest)
+
+TagAssignmentConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('TagAssignmentConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TAGASSIGNMENTCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.tag.v2.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.tag.v2.TagAssignmentConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(TagAssignmentConfigDeleteAllResponse)
 
 TagConfigRequest = _reflection.GeneratedProtocolMessageType('TagConfigRequest', (_message.Message,), {
   'DESCRIPTOR' : _TAGCONFIGREQUEST,
@@ -1193,6 +1541,20 @@ TagConfigSetResponse = _reflection.GeneratedProtocolMessageType('TagConfigSetRes
   })
 _sym_db.RegisterMessage(TagConfigSetResponse)
 
+TagConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('TagConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TAGCONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.tag.v2.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.tag.v2.TagConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(TagConfigSetSomeRequest)
+
+TagConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('TagConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TAGCONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.tag.v2.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.tag.v2.TagConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(TagConfigSetSomeResponse)
+
 TagConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('TagConfigDeleteRequest', (_message.Message,), {
   'DESCRIPTOR' : _TAGCONFIGDELETEREQUEST,
   '__module__' : 'arista.tag.v2.services.gen_pb2'
@@ -1207,6 +1569,20 @@ TagConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('TagConfigDel
   })
 _sym_db.RegisterMessage(TagConfigDeleteResponse)
 
+TagConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('TagConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TAGCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.tag.v2.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.tag.v2.TagConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(TagConfigDeleteAllRequest)
+
+TagConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('TagConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TAGCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.tag.v2.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.tag.v2.TagConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(TagConfigDeleteAllResponse)
+
 
 DESCRIPTOR._options = None
 
@@ -1217,8 +1593,8 @@ _TAGSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2921,
-  serialized_end=3159,
+  serialized_start=3768,
+  serialized_end=4006,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1263,8 +1639,8 @@ _TAGASSIGNMENTSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3162,
-  serialized_end=3470,
+  serialized_start=4009,
+  serialized_end=4317,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1309,8 +1685,8 @@ _TAGASSIGNMENTCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3473,
-  serialized_end=4032,
+  serialized_start=4320,
+  serialized_end=5113,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1353,12 +1729,32 @@ _TAGASSIGNMENTCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.tag.v2.TagAssignmentConfigService.SetSome',
+    index=4,
+    containing_service=None,
+    input_type=_TAGASSIGNMENTCONFIGSETSOMEREQUEST,
+    output_type=_TAGASSIGNMENTCONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Delete',
     full_name='arista.tag.v2.TagAssignmentConfigService.Delete',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_TAGASSIGNMENTCONFIGDELETEREQUEST,
     output_type=_TAGASSIGNMENTCONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.tag.v2.TagAssignmentConfigService.DeleteAll',
+    index=6,
+    containing_service=None,
+    input_type=_TAGASSIGNMENTCONFIGDELETEALLREQUEST,
+    output_type=_TAGASSIGNMENTCONFIGDELETEALLRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1375,8 +1771,8 @@ _TAGCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=3,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=4035,
-  serialized_end=4484,
+  serialized_start=5116,
+  serialized_end=5759,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1419,12 +1815,32 @@ _TAGCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.tag.v2.TagConfigService.SetSome',
+    index=4,
+    containing_service=None,
+    input_type=_TAGCONFIGSETSOMEREQUEST,
+    output_type=_TAGCONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Delete',
     full_name='arista.tag.v2.TagConfigService.Delete',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_TAGCONFIGDELETEREQUEST,
     output_type=_TAGCONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.tag.v2.TagConfigService.DeleteAll',
+    index=6,
+    containing_service=None,
+    input_type=_TAGCONFIGDELETEALLREQUEST,
+    output_type=_TAGCONFIGDELETEALLRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

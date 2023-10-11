@@ -288,10 +288,20 @@ class TagAssignmentConfigServiceStub(object):
                 request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.tag.v2.TagAssignmentConfigService/SetSome',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.tag.v2.TagAssignmentConfigService/Delete',
                 request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.tag.v2.TagAssignmentConfigService/DeleteAll',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteAllResponse.FromString,
                 )
 
 
@@ -322,7 +332,19 @@ class TagAssignmentConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -351,10 +373,20 @@ def add_TagAssignmentConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigSetRequest.FromString,
                     response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigSetResponse.SerializeToString,
             ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigSetSomeResponse.SerializeToString,
+            ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -435,6 +467,23 @@ class TagAssignmentConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagAssignmentConfigService/SetSome',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigSetSomeRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Delete(request,
             target,
             options=(),
@@ -448,6 +497,23 @@ class TagAssignmentConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.tag.v2.TagAssignmentConfigService/Delete',
             arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteRequest.SerializeToString,
             arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagAssignmentConfigService/DeleteAll',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteAllRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -481,10 +547,20 @@ class TagConfigServiceStub(object):
                 request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.tag.v2.TagConfigService/SetSome',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.tag.v2.TagConfigService/Delete',
                 request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.tag.v2.TagConfigService/DeleteAll',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllResponse.FromString,
                 )
 
 
@@ -515,7 +591,19 @@ class TagConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -544,10 +632,20 @@ def add_TagConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigSetRequest.FromString,
                     response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigSetResponse.SerializeToString,
             ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigSetSomeResponse.SerializeToString,
+            ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -628,6 +726,23 @@ class TagConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagConfigService/SetSome',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigSetSomeRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Delete(request,
             target,
             options=(),
@@ -641,5 +756,22 @@ class TagConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.tag.v2.TagConfigService/Delete',
             arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteRequest.SerializeToString,
             arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagConfigService/DeleteAll',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
