@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\031com.arista.imagestatus.v1B\013ImagestatusP\001Z2arista/resources/arista/imagestatus.v1;imagestatus',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'arista/imagestatus.v1/imagestatus.proto\x12\x15\x61rista.imagestatus.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\"j\n\rSoftwareImage\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07version\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x8a\x02\n\tExtension\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07version\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\x0freboot_required\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x07present\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12@\n\tinstalled\x18\x05 \x01(\x0e\x32-.arista.imagestatus.v1.ExtensionInstallStatus\">\n\nExtensions\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .arista.imagestatus.v1.Extension\"\x8f\x02\n\x10\x43omplianceStatus\x12U\n\x1esoftware_image_compliance_code\x18\x01 \x01(\x0e\x32-.arista.imagestatus.v1.SoftwareComplianceCode\x12Q\n\x1aterminattr_compliance_code\x18\x02 \x01(\x0e\x32-.arista.imagestatus.v1.SoftwareComplianceCode\x12Q\n\x1a\x65xtensions_compliance_code\x18\x03 \x01(\x0e\x32-.arista.imagestatus.v1.SoftwareComplianceCode\"\xb9\x01\n\x15\x43omplianceStatusBySup\x12H\n\x06values\x18\x01 \x03(\x0b\x32\x38.arista.imagestatus.v1.ComplianceStatusBySup.ValuesEntry\x1aV\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32\'.arista.imagestatus.v1.ComplianceStatus:\x02\x38\x01\"\xd3\x01\n\x0eRebootRequired\x12\x42\n\x1esoftware_image_reboot_required\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12>\n\x1aterminattr_reboot_required\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12=\n\x19\x65xtension_reboot_required\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\xa2\x01\n\x11SoftwareImageDiff\x12+\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1d.arista.imagestatus.v1.DiffOp\x12/\n\x01\x61\x18\x02 \x01(\x0b\x32$.arista.imagestatus.v1.SoftwareImage\x12/\n\x01\x62\x18\x03 \x01(\x0b\x32$.arista.imagestatus.v1.SoftwareImage\"\xbe\x01\n\x17SoftwareImageDiffsBySup\x12J\n\x06values\x18\x01 \x03(\x0b\x32:.arista.imagestatus.v1.SoftwareImageDiffsBySup.ValuesEntry\x1aW\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x37\n\x05value\x18\x02 \x01(\x0b\x32(.arista.imagestatus.v1.SoftwareImageDiff:\x02\x38\x01\"\x96\x01\n\rExtensionDiff\x12+\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1d.arista.imagestatus.v1.DiffOp\x12+\n\x01\x61\x18\x02 \x01(\x0b\x32 .arista.imagestatus.v1.Extension\x12+\n\x01\x62\x18\x03 \x01(\x0b\x32 .arista.imagestatus.v1.Extension\"\xb4\x01\n\x14TerminAttrDiffsBySup\x12G\n\x06values\x18\x01 \x03(\x0b\x32\x37.arista.imagestatus.v1.TerminAttrDiffsBySup.ValuesEntry\x1aS\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.arista.imagestatus.v1.ExtensionDiff:\x02\x38\x01\"F\n\x0e\x45xtensionDiffs\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.arista.imagestatus.v1.ExtensionDiff\"\xb3\x01\n\x13\x45xtensionDiffsBySup\x12\x46\n\x06values\x18\x01 \x03(\x0b\x32\x36.arista.imagestatus.v1.ExtensionDiffsBySup.ValuesEntry\x1aT\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x34\n\x05value\x18\x02 \x01(\x0b\x32%.arista.imagestatus.v1.ExtensionDiffs:\x02\x38\x01\"\x9d\x06\n\x0cImageSummary\x12)\n\x03sku\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12=\n\x19running_image_update_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12>\n\x1a\x64\x65signed_image_update_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x64ual_sup\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\x0b\x61\x63tive_slot\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x31\n\x0cstandby_slot\x18\x06 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12K\n\x13software_image_diff\x18\x07 \x01(\x0b\x32..arista.imagestatus.v1.SoftwareImageDiffsBySup\x12\x44\n\x0fterminattr_diff\x18\x08 \x01(\x0b\x32+.arista.imagestatus.v1.TerminAttrDiffsBySup\x12\x43\n\x0f\x65xtensions_diff\x18\t \x01(\x0b\x32*.arista.imagestatus.v1.ExtensionDiffsBySup\x12H\n\x11\x63ompliance_status\x18\n \x01(\x0e\x32-.arista.imagestatus.v1.SoftwareComplianceCode\x12@\n\ncompliance\x18\x0b \x01(\x0b\x32,.arista.imagestatus.v1.ComplianceStatusBySup\x12>\n\x0freboot_required\x18\x0c \x01(\x0b\x32%.arista.imagestatus.v1.RebootRequired\x12,\n\x06\x64igest\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValue\"C\n\nSummaryKey\x12/\n\tdevice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xe3\x01\n\x07Summary\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.imagestatus.v1.SummaryKey\x12\x34\n\x07summary\x18\x02 \x01(\x0b\x32#.arista.imagestatus.v1.ImageSummary\x12\x32\n\x06\x65rrors\x18\x03 \x01(\x0b\x32\".arista.imagestatus.v1.ImageErrors\x12\x36\n\x08warnings\x18\x04 \x01(\x0b\x32$.arista.imagestatus.v1.ImageWarnings:\x06\xfa\x8d\x19\x02ro\"\x9e\x01\n\nImageError\x12)\n\x03sku\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\nerror_code\x18\x02 \x01(\x0e\x32 .arista.imagestatus.v1.ErrorCode\x12/\n\terror_msg\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"@\n\x0bImageErrors\x12\x31\n\x06values\x18\x01 \x03(\x0b\x32!.arista.imagestatus.v1.ImageError\"\xa6\x01\n\x0cImageWarning\x12)\n\x03sku\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x38\n\x0cwarning_code\x18\x02 \x01(\x0e\x32\".arista.imagestatus.v1.WarningCode\x12\x31\n\x0bwarning_msg\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"D\n\rImageWarnings\x12\x33\n\x06values\x18\x01 \x03(\x0b\x32#.arista.imagestatus.v1.ImageWarning*\xc4\x01\n\x16\x45xtensionInstallStatus\x12(\n$EXTENSION_INSTALL_STATUS_UNSPECIFIED\x10\x00\x12*\n&EXTENSION_INSTALL_STATUS_NOT_INSTALLED\x10\x01\x12&\n\"EXTENSION_INSTALL_STATUS_INSTALLED\x10\x02\x12,\n(EXTENSION_INSTALL_STATUS_FORCE_INSTALLED\x10\x03*\x92\x01\n\x16SoftwareComplianceCode\x12(\n$SOFTWARE_COMPLIANCE_CODE_UNSPECIFIED\x10\x00\x12$\n SOFTWARE_COMPLIANCE_CODE_IN_SYNC\x10\x01\x12(\n$SOFTWARE_COMPLIANCE_CODE_OUT_OF_SYNC\x10\x02*k\n\x06\x44iffOp\x12\x17\n\x13\x44IFF_OP_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x44IFF_OP_NOP\x10\x01\x12\x0f\n\x0b\x44IFF_OP_ADD\x10\x02\x12\x12\n\x0e\x44IFF_OP_DELETE\x10\x03\x12\x12\n\x0e\x44IFF_OP_CHANGE\x10\x04*\xea\x02\n\tErrorCode\x12\x1a\n\x16\x45RROR_CODE_UNSPECIFIED\x10\x00\x12%\n!ERROR_CODE_SUPPORT_NOT_INTRODUCED\x10\x01\x12\x1e\n\x1a\x45RROR_CODE_SUPPORT_REMOVED\x10\x02\x12!\n\x1d\x45RROR_CODE_DEVICE_UNREACHABLE\x10\x03\x12 \n\x1c\x45RROR_CODE_VALIDATION_FAILED\x10\x04\x12-\n)ERROR_CODE_GET_PROPOSED_IMAGE_INFO_FAILED\x10\x05\x12\x43\n?ERROR_CODE_GET_RUNNING_IMAGE_INFO_FROM_ACTIVE_SUPERVISOR_FAILED\x10\x06\x12\x41\n=ERROR_CODE_GET_RUNNING_IMAGE_INFO_FROM_PEER_SUPERVISOR_FAILED\x10\x07*\x9f\x03\n\x0bWarningCode\x12\x1c\n\x18WARNING_CODE_UNSPECIFIED\x10\x00\x12\x1f\n\x1bWARNING_CODE_NOT_APPLICABLE\x10\x01\x12$\n WARNING_CODE_SKUINFO_UNAVAILABLE\x10\x02\x12\'\n#WARNING_CODE_DEVICE_SKU_UNAVAILABLE\x10\x03\x12\x1c\n\x18WARNING_CODE_SWI_UNKNOWN\x10\x04\x12$\n WARNING_CODE_TA_EOS_INCOMPATIBLE\x10\x05\x12#\n\x1fWARNING_CODE_TA_CV_INCOMPATIBLE\x10\x06\x12$\n WARNING_CODE_EOS_CV_INCOMPATIBLE\x10\x07\x12!\n\x1dWARNING_CODE_EOS_ARCH_UNKNOWN\x10\x08\x12,\n(WARNING_CODE_TA_EMBEDDEDEXT_INCOMPATIBLE\x10\t\x12\"\n\x1eWARNING_CODE_ARCH_INCOMPATIBLE\x10\nB^\n\x19\x63om.arista.imagestatus.v1B\x0bImagestatusP\x01Z2arista/resources/arista/imagestatus.v1;imagestatusb\x06proto3'
+  serialized_pb=b'\n\'arista/imagestatus.v1/imagestatus.proto\x12\x15\x61rista.imagestatus.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\"\xa2\x01\n\rSoftwareImage\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07version\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x08metadata\x18\x03 \x01(\x0b\x32$.arista.imagestatus.v1.ImageMetadata\"\xf6\x01\n\rImageMetadata\x12-\n\x07version\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07release\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06\x66lavor\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07variant\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04\x61rch\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xf0\x02\n\tExtension\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07version\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\x0freboot_required\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x07present\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12@\n\tinstalled\x18\x05 \x01(\x0e\x32-.arista.imagestatus.v1.ExtensionInstallStatus\x12\x33\n\rstatus_detail\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x0bis_embedded\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\">\n\nExtensions\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .arista.imagestatus.v1.Extension\"\x8f\x02\n\x10\x43omplianceStatus\x12U\n\x1esoftware_image_compliance_code\x18\x01 \x01(\x0e\x32-.arista.imagestatus.v1.SoftwareComplianceCode\x12Q\n\x1aterminattr_compliance_code\x18\x02 \x01(\x0e\x32-.arista.imagestatus.v1.SoftwareComplianceCode\x12Q\n\x1a\x65xtensions_compliance_code\x18\x03 \x01(\x0e\x32-.arista.imagestatus.v1.SoftwareComplianceCode\"\xb9\x01\n\x15\x43omplianceStatusBySup\x12H\n\x06values\x18\x01 \x03(\x0b\x32\x38.arista.imagestatus.v1.ComplianceStatusBySup.ValuesEntry\x1aV\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32\'.arista.imagestatus.v1.ComplianceStatus:\x02\x38\x01\"\xd3\x01\n\x0eRebootRequired\x12\x42\n\x1esoftware_image_reboot_required\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12>\n\x1aterminattr_reboot_required\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12=\n\x19\x65xtension_reboot_required\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\xa2\x01\n\x11SoftwareImageDiff\x12+\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1d.arista.imagestatus.v1.DiffOp\x12/\n\x01\x61\x18\x02 \x01(\x0b\x32$.arista.imagestatus.v1.SoftwareImage\x12/\n\x01\x62\x18\x03 \x01(\x0b\x32$.arista.imagestatus.v1.SoftwareImage\"\xbe\x01\n\x17SoftwareImageDiffsBySup\x12J\n\x06values\x18\x01 \x03(\x0b\x32:.arista.imagestatus.v1.SoftwareImageDiffsBySup.ValuesEntry\x1aW\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x37\n\x05value\x18\x02 \x01(\x0b\x32(.arista.imagestatus.v1.SoftwareImageDiff:\x02\x38\x01\"\x96\x01\n\rExtensionDiff\x12+\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x1d.arista.imagestatus.v1.DiffOp\x12+\n\x01\x61\x18\x02 \x01(\x0b\x32 .arista.imagestatus.v1.Extension\x12+\n\x01\x62\x18\x03 \x01(\x0b\x32 .arista.imagestatus.v1.Extension\"\xb4\x01\n\x14TerminAttrDiffsBySup\x12G\n\x06values\x18\x01 \x03(\x0b\x32\x37.arista.imagestatus.v1.TerminAttrDiffsBySup.ValuesEntry\x1aS\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.arista.imagestatus.v1.ExtensionDiff:\x02\x38\x01\"F\n\x0e\x45xtensionDiffs\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.arista.imagestatus.v1.ExtensionDiff\"\xb3\x01\n\x13\x45xtensionDiffsBySup\x12\x46\n\x06values\x18\x01 \x03(\x0b\x32\x36.arista.imagestatus.v1.ExtensionDiffsBySup.ValuesEntry\x1aT\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x34\n\x05value\x18\x02 \x01(\x0b\x32%.arista.imagestatus.v1.ExtensionDiffs:\x02\x38\x01\"\x9d\x06\n\x0cImageSummary\x12)\n\x03sku\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12=\n\x19running_image_update_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12>\n\x1a\x64\x65signed_image_update_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x64ual_sup\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\x0b\x61\x63tive_slot\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x31\n\x0cstandby_slot\x18\x06 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12K\n\x13software_image_diff\x18\x07 \x01(\x0b\x32..arista.imagestatus.v1.SoftwareImageDiffsBySup\x12\x44\n\x0fterminattr_diff\x18\x08 \x01(\x0b\x32+.arista.imagestatus.v1.TerminAttrDiffsBySup\x12\x43\n\x0f\x65xtensions_diff\x18\t \x01(\x0b\x32*.arista.imagestatus.v1.ExtensionDiffsBySup\x12H\n\x11\x63ompliance_status\x18\n \x01(\x0e\x32-.arista.imagestatus.v1.SoftwareComplianceCode\x12@\n\ncompliance\x18\x0b \x01(\x0b\x32,.arista.imagestatus.v1.ComplianceStatusBySup\x12>\n\x0freboot_required\x18\x0c \x01(\x0b\x32%.arista.imagestatus.v1.RebootRequired\x12,\n\x06\x64igest\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValue\"C\n\nSummaryKey\x12/\n\tdevice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xe3\x01\n\x07Summary\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.imagestatus.v1.SummaryKey\x12\x34\n\x07summary\x18\x02 \x01(\x0b\x32#.arista.imagestatus.v1.ImageSummary\x12\x32\n\x06\x65rrors\x18\x03 \x01(\x0b\x32\".arista.imagestatus.v1.ImageErrors\x12\x36\n\x08warnings\x18\x04 \x01(\x0b\x32$.arista.imagestatus.v1.ImageWarnings:\x06\xfa\x8d\x19\x02ro\"\x9e\x01\n\nImageError\x12)\n\x03sku\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\nerror_code\x18\x02 \x01(\x0e\x32 .arista.imagestatus.v1.ErrorCode\x12/\n\terror_msg\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"@\n\x0bImageErrors\x12\x31\n\x06values\x18\x01 \x03(\x0b\x32!.arista.imagestatus.v1.ImageError\"\xa6\x01\n\x0cImageWarning\x12)\n\x03sku\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x38\n\x0cwarning_code\x18\x02 \x01(\x0e\x32\".arista.imagestatus.v1.WarningCode\x12\x31\n\x0bwarning_msg\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"D\n\rImageWarnings\x12\x33\n\x06values\x18\x01 \x03(\x0b\x32#.arista.imagestatus.v1.ImageWarning*\xc4\x01\n\x16\x45xtensionInstallStatus\x12(\n$EXTENSION_INSTALL_STATUS_UNSPECIFIED\x10\x00\x12*\n&EXTENSION_INSTALL_STATUS_NOT_INSTALLED\x10\x01\x12&\n\"EXTENSION_INSTALL_STATUS_INSTALLED\x10\x02\x12,\n(EXTENSION_INSTALL_STATUS_FORCE_INSTALLED\x10\x03*\x92\x01\n\x16SoftwareComplianceCode\x12(\n$SOFTWARE_COMPLIANCE_CODE_UNSPECIFIED\x10\x00\x12$\n SOFTWARE_COMPLIANCE_CODE_IN_SYNC\x10\x01\x12(\n$SOFTWARE_COMPLIANCE_CODE_OUT_OF_SYNC\x10\x02*k\n\x06\x44iffOp\x12\x17\n\x13\x44IFF_OP_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x44IFF_OP_NOP\x10\x01\x12\x0f\n\x0b\x44IFF_OP_ADD\x10\x02\x12\x12\n\x0e\x44IFF_OP_DELETE\x10\x03\x12\x12\n\x0e\x44IFF_OP_CHANGE\x10\x04*\xe2\x03\n\tErrorCode\x12\x1a\n\x16\x45RROR_CODE_UNSPECIFIED\x10\x00\x12%\n!ERROR_CODE_SUPPORT_NOT_INTRODUCED\x10\x01\x12\x1e\n\x1a\x45RROR_CODE_SUPPORT_REMOVED\x10\x02\x12!\n\x1d\x45RROR_CODE_DEVICE_UNREACHABLE\x10\x03\x12 \n\x1c\x45RROR_CODE_VALIDATION_FAILED\x10\x04\x12-\n)ERROR_CODE_GET_PROPOSED_IMAGE_INFO_FAILED\x10\x05\x12\x43\n?ERROR_CODE_GET_RUNNING_IMAGE_INFO_FROM_ACTIVE_SUPERVISOR_FAILED\x10\x06\x12\x41\n=ERROR_CODE_GET_RUNNING_IMAGE_INFO_FROM_PEER_SUPERVISOR_FAILED\x10\x07\x12/\n+ERROR_CODE_EOS_TA_ARCHITECTURE_INCOMPATIBLE\x10\x08\x12!\n\x1d\x45RROR_CODE_TA_CV_INCOMPATIBLE\x10\t\x12\"\n\x1e\x45RROR_CODE_EOS_CV_INCOMPATIBLE\x10\n*\xab\x03\n\x0bWarningCode\x12\x1c\n\x18WARNING_CODE_UNSPECIFIED\x10\x00\x12\x1f\n\x1bWARNING_CODE_NOT_APPLICABLE\x10\x01\x12$\n WARNING_CODE_SKUINFO_UNAVAILABLE\x10\x02\x12\'\n#WARNING_CODE_DEVICE_SKU_UNAVAILABLE\x10\x03\x12\x1c\n\x18WARNING_CODE_SWI_UNKNOWN\x10\x04\x12$\n WARNING_CODE_TA_EOS_INCOMPATIBLE\x10\x05\x12\'\n\x1fWARNING_CODE_TA_CV_INCOMPATIBLE\x10\x06\x1a\x02\x08\x01\x12(\n WARNING_CODE_EOS_CV_INCOMPATIBLE\x10\x07\x1a\x02\x08\x01\x12!\n\x1dWARNING_CODE_EOS_ARCH_UNKNOWN\x10\x08\x12,\n(WARNING_CODE_TA_EMBEDDEDEXT_INCOMPATIBLE\x10\t\x12&\n\x1eWARNING_CODE_ARCH_INCOMPATIBLE\x10\n\x1a\x02\x08\x01\x42^\n\x19\x63om.arista.imagestatus.v1B\x0bImagestatusP\x01Z2arista/resources/arista/imagestatus.v1;imagestatusb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,])
 
@@ -57,8 +57,8 @@ _EXTENSIONINSTALLSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3784,
-  serialized_end=3980,
+  serialized_start=4192,
+  serialized_end=4388,
 )
 _sym_db.RegisterEnumDescriptor(_EXTENSIONINSTALLSTATUS)
 
@@ -88,8 +88,8 @@ _SOFTWARECOMPLIANCECODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3983,
-  serialized_end=4129,
+  serialized_start=4391,
+  serialized_end=4537,
 )
 _sym_db.RegisterEnumDescriptor(_SOFTWARECOMPLIANCECODE)
 
@@ -129,8 +129,8 @@ _DIFFOP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4131,
-  serialized_end=4238,
+  serialized_start=4539,
+  serialized_end=4646,
 )
 _sym_db.RegisterEnumDescriptor(_DIFFOP)
 
@@ -182,11 +182,26 @@ _ERRORCODE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ERROR_CODE_EOS_TA_ARCHITECTURE_INCOMPATIBLE', index=8, number=8,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ERROR_CODE_TA_CV_INCOMPATIBLE', index=9, number=9,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ERROR_CODE_EOS_CV_INCOMPATIBLE', index=10, number=10,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4241,
-  serialized_end=4603,
+  serialized_start=4649,
+  serialized_end=5131,
 )
 _sym_db.RegisterEnumDescriptor(_ERRORCODE)
 
@@ -230,12 +245,12 @@ _WARNINGCODE = _descriptor.EnumDescriptor(
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='WARNING_CODE_TA_CV_INCOMPATIBLE', index=6, number=6,
-      serialized_options=None,
+      serialized_options=b'\010\001',
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='WARNING_CODE_EOS_CV_INCOMPATIBLE', index=7, number=7,
-      serialized_options=None,
+      serialized_options=b'\010\001',
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
@@ -250,14 +265,14 @@ _WARNINGCODE = _descriptor.EnumDescriptor(
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='WARNING_CODE_ARCH_INCOMPATIBLE', index=10, number=10,
-      serialized_options=None,
+      serialized_options=b'\010\001',
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4606,
-  serialized_end=5021,
+  serialized_start=5134,
+  serialized_end=5561,
 )
 _sym_db.RegisterEnumDescriptor(_WARNINGCODE)
 
@@ -282,6 +297,9 @@ ERROR_CODE_VALIDATION_FAILED = 4
 ERROR_CODE_GET_PROPOSED_IMAGE_INFO_FAILED = 5
 ERROR_CODE_GET_RUNNING_IMAGE_INFO_FROM_ACTIVE_SUPERVISOR_FAILED = 6
 ERROR_CODE_GET_RUNNING_IMAGE_INFO_FROM_PEER_SUPERVISOR_FAILED = 7
+ERROR_CODE_EOS_TA_ARCHITECTURE_INCOMPATIBLE = 8
+ERROR_CODE_TA_CV_INCOMPATIBLE = 9
+ERROR_CODE_EOS_CV_INCOMPATIBLE = 10
 WARNING_CODE_UNSPECIFIED = 0
 WARNING_CODE_NOT_APPLICABLE = 1
 WARNING_CODE_SKUINFO_UNAVAILABLE = 2
@@ -318,6 +336,13 @@ _SOFTWAREIMAGE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metadata', full_name='arista.imagestatus.v1.SoftwareImage.metadata', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -330,8 +355,68 @@ _SOFTWAREIMAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=153,
-  serialized_end=259,
+  serialized_start=154,
+  serialized_end=316,
+)
+
+
+_IMAGEMETADATA = _descriptor.Descriptor(
+  name='ImageMetadata',
+  full_name='arista.imagestatus.v1.ImageMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='version', full_name='arista.imagestatus.v1.ImageMetadata.version', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='release', full_name='arista.imagestatus.v1.ImageMetadata.release', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='flavor', full_name='arista.imagestatus.v1.ImageMetadata.flavor', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='variant', full_name='arista.imagestatus.v1.ImageMetadata.variant', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='arch', full_name='arista.imagestatus.v1.ImageMetadata.arch', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=319,
+  serialized_end=565,
 )
 
 
@@ -378,6 +463,20 @@ _EXTENSION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='status_detail', full_name='arista.imagestatus.v1.Extension.status_detail', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='is_embedded', full_name='arista.imagestatus.v1.Extension.is_embedded', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -390,8 +489,8 @@ _EXTENSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=262,
-  serialized_end=528,
+  serialized_start=568,
+  serialized_end=936,
 )
 
 
@@ -422,8 +521,8 @@ _EXTENSIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=530,
-  serialized_end=592,
+  serialized_start=938,
+  serialized_end=1000,
 )
 
 
@@ -468,8 +567,8 @@ _COMPLIANCESTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=595,
-  serialized_end=866,
+  serialized_start=1003,
+  serialized_end=1274,
 )
 
 
@@ -507,8 +606,8 @@ _COMPLIANCESTATUSBYSUP_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=968,
-  serialized_end=1054,
+  serialized_start=1376,
+  serialized_end=1462,
 )
 
 _COMPLIANCESTATUSBYSUP = _descriptor.Descriptor(
@@ -538,8 +637,8 @@ _COMPLIANCESTATUSBYSUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=869,
-  serialized_end=1054,
+  serialized_start=1277,
+  serialized_end=1462,
 )
 
 
@@ -584,8 +683,8 @@ _REBOOTREQUIRED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1057,
-  serialized_end=1268,
+  serialized_start=1465,
+  serialized_end=1676,
 )
 
 
@@ -630,8 +729,8 @@ _SOFTWAREIMAGEDIFF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1271,
-  serialized_end=1433,
+  serialized_start=1679,
+  serialized_end=1841,
 )
 
 
@@ -669,8 +768,8 @@ _SOFTWAREIMAGEDIFFSBYSUP_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1539,
-  serialized_end=1626,
+  serialized_start=1947,
+  serialized_end=2034,
 )
 
 _SOFTWAREIMAGEDIFFSBYSUP = _descriptor.Descriptor(
@@ -700,8 +799,8 @@ _SOFTWAREIMAGEDIFFSBYSUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1436,
-  serialized_end=1626,
+  serialized_start=1844,
+  serialized_end=2034,
 )
 
 
@@ -746,8 +845,8 @@ _EXTENSIONDIFF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1629,
-  serialized_end=1779,
+  serialized_start=2037,
+  serialized_end=2187,
 )
 
 
@@ -785,8 +884,8 @@ _TERMINATTRDIFFSBYSUP_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1879,
-  serialized_end=1962,
+  serialized_start=2287,
+  serialized_end=2370,
 )
 
 _TERMINATTRDIFFSBYSUP = _descriptor.Descriptor(
@@ -816,8 +915,8 @@ _TERMINATTRDIFFSBYSUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1782,
-  serialized_end=1962,
+  serialized_start=2190,
+  serialized_end=2370,
 )
 
 
@@ -848,8 +947,8 @@ _EXTENSIONDIFFS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1964,
-  serialized_end=2034,
+  serialized_start=2372,
+  serialized_end=2442,
 )
 
 
@@ -887,8 +986,8 @@ _EXTENSIONDIFFSBYSUP_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2132,
-  serialized_end=2216,
+  serialized_start=2540,
+  serialized_end=2624,
 )
 
 _EXTENSIONDIFFSBYSUP = _descriptor.Descriptor(
@@ -918,8 +1017,8 @@ _EXTENSIONDIFFSBYSUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2037,
-  serialized_end=2216,
+  serialized_start=2445,
+  serialized_end=2624,
 )
 
 
@@ -1034,8 +1133,8 @@ _IMAGESUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2219,
-  serialized_end=3016,
+  serialized_start=2627,
+  serialized_end=3424,
 )
 
 
@@ -1066,8 +1165,8 @@ _SUMMARYKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3018,
-  serialized_end=3085,
+  serialized_start=3426,
+  serialized_end=3493,
 )
 
 
@@ -1119,8 +1218,8 @@ _SUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3088,
-  serialized_end=3315,
+  serialized_start=3496,
+  serialized_end=3723,
 )
 
 
@@ -1165,8 +1264,8 @@ _IMAGEERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3318,
-  serialized_end=3476,
+  serialized_start=3726,
+  serialized_end=3884,
 )
 
 
@@ -1197,8 +1296,8 @@ _IMAGEERRORS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3478,
-  serialized_end=3542,
+  serialized_start=3886,
+  serialized_end=3950,
 )
 
 
@@ -1243,8 +1342,8 @@ _IMAGEWARNING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3545,
-  serialized_end=3711,
+  serialized_start=3953,
+  serialized_end=4119,
 )
 
 
@@ -1275,17 +1374,25 @@ _IMAGEWARNINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3713,
-  serialized_end=3781,
+  serialized_start=4121,
+  serialized_end=4189,
 )
 
 _SOFTWAREIMAGE.fields_by_name['name'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _SOFTWAREIMAGE.fields_by_name['version'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_SOFTWAREIMAGE.fields_by_name['metadata'].message_type = _IMAGEMETADATA
+_IMAGEMETADATA.fields_by_name['version'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_IMAGEMETADATA.fields_by_name['release'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_IMAGEMETADATA.fields_by_name['flavor'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_IMAGEMETADATA.fields_by_name['variant'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_IMAGEMETADATA.fields_by_name['arch'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _EXTENSION.fields_by_name['name'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _EXTENSION.fields_by_name['version'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _EXTENSION.fields_by_name['reboot_required'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _EXTENSION.fields_by_name['present'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _EXTENSION.fields_by_name['installed'].enum_type = _EXTENSIONINSTALLSTATUS
+_EXTENSION.fields_by_name['status_detail'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_EXTENSION.fields_by_name['is_embedded'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _EXTENSIONS.fields_by_name['values'].message_type = _EXTENSION
 _COMPLIANCESTATUS.fields_by_name['software_image_compliance_code'].enum_type = _SOFTWARECOMPLIANCECODE
 _COMPLIANCESTATUS.fields_by_name['terminattr_compliance_code'].enum_type = _SOFTWARECOMPLIANCECODE
@@ -1339,6 +1446,7 @@ _IMAGEWARNING.fields_by_name['warning_code'].enum_type = _WARNINGCODE
 _IMAGEWARNING.fields_by_name['warning_msg'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _IMAGEWARNINGS.fields_by_name['values'].message_type = _IMAGEWARNING
 DESCRIPTOR.message_types_by_name['SoftwareImage'] = _SOFTWAREIMAGE
+DESCRIPTOR.message_types_by_name['ImageMetadata'] = _IMAGEMETADATA
 DESCRIPTOR.message_types_by_name['Extension'] = _EXTENSION
 DESCRIPTOR.message_types_by_name['Extensions'] = _EXTENSIONS
 DESCRIPTOR.message_types_by_name['ComplianceStatus'] = _COMPLIANCESTATUS
@@ -1370,6 +1478,13 @@ SoftwareImage = _reflection.GeneratedProtocolMessageType('SoftwareImage', (_mess
   # @@protoc_insertion_point(class_scope:arista.imagestatus.v1.SoftwareImage)
   })
 _sym_db.RegisterMessage(SoftwareImage)
+
+ImageMetadata = _reflection.GeneratedProtocolMessageType('ImageMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _IMAGEMETADATA,
+  '__module__' : 'arista.imagestatus.v1.imagestatus_pb2'
+  # @@protoc_insertion_point(class_scope:arista.imagestatus.v1.ImageMetadata)
+  })
+_sym_db.RegisterMessage(ImageMetadata)
 
 Extension = _reflection.GeneratedProtocolMessageType('Extension', (_message.Message,), {
   'DESCRIPTOR' : _EXTENSION,
@@ -1531,6 +1646,9 @@ _sym_db.RegisterMessage(ImageWarnings)
 
 
 DESCRIPTOR._options = None
+_WARNINGCODE.values_by_name["WARNING_CODE_TA_CV_INCOMPATIBLE"]._options = None
+_WARNINGCODE.values_by_name["WARNING_CODE_EOS_CV_INCOMPATIBLE"]._options = None
+_WARNINGCODE.values_by_name["WARNING_CODE_ARCH_INCOMPATIBLE"]._options = None
 _COMPLIANCESTATUSBYSUP_VALUESENTRY._options = None
 _SOFTWAREIMAGEDIFFSBYSUP_VALUESENTRY._options = None
 _TERMINATTRDIFFSBYSUP_VALUESENTRY._options = None
