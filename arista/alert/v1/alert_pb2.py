@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z&arista/resources/arista/alert.v1;alert',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1b\x61rista/alert.v1/alert.proto\x12\x0f\x61rista.alert.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"\xa9\x01\n\x0b\x41lertConfig\x12+\n\x08settings\x18\x01 \x01(\x0b\x32\x19.arista.alert.v1.Settings\x12%\n\x05rules\x18\x02 \x01(\x0b\x32\x16.arista.alert.v1.Rules\x12:\n\x10\x62roadcast_groups\x18\x03 \x01(\x0b\x32 .arista.alert.v1.BroadcastGroups:\n\xa2\x8e\x19\x02rw\x90\x8e\x19\x01\"\xf8\x01\n\x05\x41lert\x12;\n\x14\x63onfiguration_errors\x18\x01 \x01(\x0b\x32\x1d.arista.alert.v1.ConfigErrors\x12\x38\n\x0f\x65ndpoint_errors\x18\x02 \x01(\x0b\x32\x1f.arista.alert.v1.EndpointErrors\x12\x34\n\x10last_modified_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\n\xa2\x8e\x19\x02ro\x90\x8e\x19\x01\"<\n\x0c\x43onfigErrors\x12,\n\x06values\x18\x01 \x03(\x0b\x32\x1c.arista.alert.v1.ConfigError\"\x9c\x01\n\x0b\x43onfigError\x12*\n\x04path\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\nerror_type\x18\x02 \x01(\x0e\x32 .arista.alert.v1.ConfigErrorType\x12+\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"@\n\x0e\x45ndpointErrors\x12.\n\x06values\x18\x01 \x03(\x0b\x32\x1e.arista.alert.v1.EndpointError\"\x98\x02\n\rEndpointError\x12\x33\n\rendpoint_type\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12:\n\x14\x62roadcast_group_name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0c\x63onfig_index\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x36\n\nerror_type\x18\x04 \x01(\x0e\x32\".arista.alert.v1.EndpointErrorType\x12+\n\x05\x65rror\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xcf\x07\n\x08Settings\x12-\n\x05\x65mail\x18\x01 \x01(\x0b\x32\x1e.arista.alert.v1.EmailSettings\x12+\n\x04http\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12-\n\x05slack\x18\x03 \x01(\x0b\x32\x1e.arista.alert.v1.SlackSettings\x12\x35\n\tvictorops\x18\x04 \x01(\x0b\x32\".arista.alert.v1.VictoropsSettings\x12\x35\n\tpagerduty\x18\x05 \x01(\x0b\x32\".arista.alert.v1.PagerdutySettings\x12\x33\n\x08opsgenie\x18\x06 \x01(\x0b\x32!.arista.alert.v1.OpsgenieSettings\x12\x32\n\x05gchat\x18\x07 \x01(\x0b\x32#.arista.alert.v1.GoogleChatSettings\x12\x31\n\x07msteams\x18\x08 \x01(\x0b\x32 .arista.alert.v1.MsTeamsSettings\x12\x37\n\ninhibition\x18\t \x01(\x0b\x32#.arista.alert.v1.InhibitionSettings\x12.\n\x08\x62\x61se_url\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08timezone\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x06syslog\x18\x0c \x01(\x0b\x32\x1f.arista.alert.v1.SyslogSettings\x12+\n\x04snmp\x18\r \x01(\x0b\x32\x1d.arista.alert.v1.SNMPSettings\x12\x33\n\x08sendgrid\x18\x0e \x01(\x0b\x32!.arista.alert.v1.SendgridSettings\x12\x36\n\ncue_syslog\x18\x0f \x01(\x0b\x32\".arista.alert.v1.CueSyslogSettings\x12\x32\n\x08\x63ue_snmp\x18\x10 \x01(\x0b\x32 .arista.alert.v1.CueSNMPSettings\x12:\n\x0c\x63ue_sendgrid\x18\x11 \x01(\x0b\x32$.arista.alert.v1.CueSendgridSettings\x12-\n\thide_tags\x18\x12 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x04zoom\x18\x13 \x01(\x0b\x32\x1d.arista.alert.v1.ZoomSettings\"\xf6\x02\n\rEmailSettings\x12*\n\x04\x66rom\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tsmarthost\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rauth_username\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rauth_password\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x0brequire_tls\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12:\n\x16single_alert_per_email\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x31\n\x0c\x61zure_o_auth\x18\x07 \x01(\x0b\x32\x1b.arista.alert.v1.AzureOAuth\"\xa3\x01\n\nAzureOAuth\x12/\n\tclient_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\ttenant_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rclient_secret\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xd5\x01\n\x0cHttpSettings\x12.\n\x08username\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08password\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tproxy_url\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0e\x63ustom_headers\x18\x04 \x01(\x0b\x32\x1c.arista.alert.v1.HttpHeaders\"\x95\x01\n\x0bHttpHeaders\x12\x38\n\x06values\x18\x01 \x03(\x0b\x32(.arista.alert.v1.HttpHeaders.ValuesEntry\x1aL\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12,\n\x05value\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HeaderValues:\x02\x38\x01\"\x1e\n\x0cHeaderValues\x12\x0e\n\x06values\x18\x01 \x03(\t\":\n\rSlackSettings\x12)\n\x03url\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"i\n\x11VictoropsSettings\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x03url\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\">\n\x11PagerdutySettings\x12)\n\x03url\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"h\n\x10OpsgenieSettings\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x03url\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"?\n\x12GoogleChatSettings\x12)\n\x03url\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"<\n\x0fMsTeamsSettings\x12)\n\x03url\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xd6\x02\n\x0eSyslogSettings\x12-\n\x07network\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x08\x66\x61\x63ility\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12/\n\npriorities\x18\x04 \x01(\x0b\x32\x1b.arista.alert.v1.Priorities\x12)\n\x03tag\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\nper_device\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x07use_tls\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\xbd\x01\n\nPriorities\x12-\n\x08\x63ritical\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12*\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12)\n\x04warn\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12)\n\x04info\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\"n\n\x07\x43ueData\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.arista.alert.v1.CueData.ValuesEntry\x1a-\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xbc\x02\n\x11\x43ueSyslogSettings\x12-\n\x07network\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x04port\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12?\n\x0emessage_format\x18\x04 \x01(\x0e\x32\'.arista.alert.v1.CueSyslogMessageFormat\x12\x35\n\x11\x61ppend_bom_header\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12&\n\x04\x64\x61ta\x18\x06 \x01(\x0b\x32\x18.arista.alert.v1.CueData\"\xef\x01\n\x0cSNMPSettings\x12,\n\x06target\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x04port\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12/\n\ttransport\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x07version\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\'\n\x04\x61uth\x18\x05 \x01(\x0b\x32\x19.arista.alert.v1.SNMPAuth\"\xa3\x03\n\x08SNMPAuth\x12/\n\tcommunity\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08username\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12:\n\x0esecurity_level\x18\x03 \x01(\x0e\x32\".arista.alert.v1.SNMPSecurityLevel\x12\x42\n\x17\x61uthentication_protocol\x18\x04 \x01(\x0e\x32!.arista.alert.v1.SNMPAuthProtocol\x12?\n\x19\x61uthentication_passphrase\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12;\n\x10privacy_protocol\x18\x06 \x01(\x0e\x32!.arista.alert.v1.SNMPPrivProtocol\x12\x38\n\x12privacy_passphrase\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xac\x03\n\x0b\x43ueSNMPAuth\x12/\n\tcommunity\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08username\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12:\n\x0esecurity_level\x18\x03 \x01(\x0e\x32\".arista.alert.v1.SNMPSecurityLevel\x12\x45\n\x17\x61uthentication_protocol\x18\x04 \x01(\x0e\x32$.arista.alert.v1.CueSNMPAuthProtocol\x12?\n\x19\x61uthentication_passphrase\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12>\n\x10privacy_protocol\x18\x06 \x01(\x0e\x32$.arista.alert.v1.CueSNMPPrivProtocol\x12\x38\n\x12privacy_passphrase\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x9d\x02\n\x0f\x43ueSNMPSettings\x12,\n\x06target\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x04port\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12/\n\ttransport\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x07version\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12*\n\x04\x61uth\x18\x05 \x01(\x0b\x32\x1c.arista.alert.v1.CueSNMPAuth\x12&\n\x04\x64\x61ta\x18\x06 \x01(\x0b\x32\x18.arista.alert.v1.CueData\"m\n\x10SendgridSettings\x12-\n\x07\x61pi_key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04\x66rom\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"p\n\x13\x43ueSendgridSettings\x12-\n\x07\x61pi_key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04\x66rom\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"s\n\x0cZoomSettings\x12)\n\x03url\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x38\n\x12verification_token\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xa0\x01\n\x12InhibitionSettings\x12?\n\x06values\x18\x01 \x03(\x0b\x32/.arista.alert.v1.InhibitionSettings.ValuesEntry\x1aI\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12)\n\x05value\x18\x02 \x01(\x0b\x32\x1a.arista.alert.v1.EventList:\x02\x38\x01\"5\n\tEventList\x12(\n\x0b\x65vent_types\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\".\n\x05Rules\x12%\n\x06values\x18\x01 \x03(\x0b\x32\x15.arista.alert.v1.Rule\"\xcc\x01\n\x04Rule\x12.\n\x08sends_to\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x0ematch_criteria\x18\x02 \x01(\x0b\x32\x18.arista.alert.v1.Matches\x12\x33\n\x0f\x63ontinue_checks\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12-\n\x07\x63omment\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x8d\x02\n\x07Matches\x12\'\n\nseverities\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\x12$\n\x07\x64\x65vices\x18\x02 \x01(\x0b\x32\x13.fmp.RepeatedString\x12(\n\x0b\x65vent_types\x18\x03 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x31\n\x0b\x64\x65vice_tags\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tintf_tags\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12%\n\x08rule_ids\x18\x06 \x01(\x0b\x32\x13.fmp.RepeatedString\"\x9f\x01\n\x0f\x42roadcastGroups\x12<\n\x06values\x18\x01 \x03(\x0b\x32,.arista.alert.v1.BroadcastGroups.ValuesEntry\x1aN\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12.\n\x05value\x18\x02 \x01(\x0b\x32\x1f.arista.alert.v1.BroadcastGroup:\x02\x38\x01\"\xd8\x06\n\x0e\x42roadcastGroup\x12.\n\x05\x65mail\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.EmailEndpoints\x12\x32\n\x07webhook\x18\x02 \x01(\x0b\x32!.arista.alert.v1.WebhookEndpoints\x12.\n\x05slack\x18\x03 \x01(\x0b\x32\x1f.arista.alert.v1.SlackEndpoints\x12\x34\n\x08opsgenie\x18\x04 \x01(\x0b\x32\".arista.alert.v1.OpsgenieEndpoints\x12\x34\n\x08pushover\x18\x05 \x01(\x0b\x32\".arista.alert.v1.PushoverEndpoints\x12\x36\n\tpagerduty\x18\x06 \x01(\x0b\x32#.arista.alert.v1.PagerdutyEndpoints\x12\x36\n\tvictorops\x18\x07 \x01(\x0b\x32#.arista.alert.v1.VictorOpsEndpoints\x12\x33\n\x05gchat\x18\x08 \x01(\x0b\x32$.arista.alert.v1.GoogleChatEndpoints\x12\x32\n\x07msteams\x18\t \x01(\x0b\x32!.arista.alert.v1.MsTeamsEndpoints\x12\x34\n\x08sendgrid\x18\n \x01(\x0b\x32\".arista.alert.v1.SendgridEndpoints\x12\x30\n\x06syslog\x18\x0b \x01(\x0b\x32 .arista.alert.v1.SyslogEndpoints\x12,\n\x04snmp\x18\x0c \x01(\x0b\x32\x1e.arista.alert.v1.SNMPEndpoints\x12\x37\n\ncue_syslog\x18\r \x01(\x0b\x32#.arista.alert.v1.CueSyslogEndpoints\x12\x33\n\x08\x63ue_snmp\x18\x0e \x01(\x0b\x32!.arista.alert.v1.CueSnmpEndpoints\x12;\n\x0c\x63ue_sendgrid\x18\x0f \x01(\x0b\x32%.arista.alert.v1.CueSendgridEndpoints\x12,\n\x04zoom\x18\x10 \x01(\x0b\x32\x1e.arista.alert.v1.ZoomEndpoints\"@\n\x0e\x45mailEndpoints\x12.\n\x06values\x18\x01 \x03(\x0b\x32\x1e.arista.alert.v1.EmailEndpoint\"D\n\x10WebhookEndpoints\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .arista.alert.v1.WebhookEndpoint\"@\n\x0eSlackEndpoints\x12.\n\x06values\x18\x01 \x03(\x0b\x32\x1e.arista.alert.v1.SlackEndpoint\"F\n\x11OpsgenieEndpoints\x12\x31\n\x06values\x18\x01 \x03(\x0b\x32!.arista.alert.v1.OpsgenieEndpoint\"F\n\x11PushoverEndpoints\x12\x31\n\x06values\x18\x01 \x03(\x0b\x32!.arista.alert.v1.PushoverEndpoint\"H\n\x12PagerdutyEndpoints\x12\x32\n\x06values\x18\x01 \x03(\x0b\x32\".arista.alert.v1.PagerdutyEndpoint\"H\n\x12VictorOpsEndpoints\x12\x32\n\x06values\x18\x01 \x03(\x0b\x32\".arista.alert.v1.VictorOpsEndpoint\"J\n\x13GoogleChatEndpoints\x12\x33\n\x06values\x18\x01 \x03(\x0b\x32#.arista.alert.v1.GoogleChatEndpoint\"D\n\x10MsTeamsEndpoints\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .arista.alert.v1.MsTeamsEndpoint\"F\n\x11SendgridEndpoints\x12\x31\n\x06values\x18\x01 \x03(\x0b\x32!.arista.alert.v1.SendgridEndpoint\"L\n\x14\x43ueSendgridEndpoints\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.arista.alert.v1.CueSendgridEndpoint\"B\n\x0fSyslogEndpoints\x12/\n\x06values\x18\x01 \x03(\x0b\x32\x1f.arista.alert.v1.SyslogEndpoint\"H\n\x12\x43ueSyslogEndpoints\x12\x32\n\x06values\x18\x01 \x03(\x0b\x32\".arista.alert.v1.CueSyslogEndpoint\">\n\rSNMPEndpoints\x12-\n\x06values\x18\x01 \x03(\x0b\x32\x1d.arista.alert.v1.SNMPEndpoint\"D\n\x10\x43ueSnmpEndpoints\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .arista.alert.v1.CueSNMPEndpoint\">\n\rZoomEndpoints\x12-\n\x06values\x18\x01 \x03(\x0b\x32\x1d.arista.alert.v1.ZoomEndpoint\"l\n\rEmailEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12(\n\x02to\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x8a\x02\n\x0fWebhookEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12)\n\x03url\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12\x31\n\rsimple_output\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\x0csingle_alert\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\xb3\x01\n\rSlackEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\rhttp_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12\x39\n\x11settings_override\x18\x03 \x01(\x0b\x32\x1e.arista.alert.v1.SlackSettings\"\xb9\x01\n\x10OpsgenieEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\rhttp_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12<\n\x11settings_override\x18\x03 \x01(\x0b\x32!.arista.alert.v1.OpsgenieSettings\"\xd8\x01\n\x10PushoverEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05token\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08user_key\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x04 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\"\xee\x01\n\x11PagerdutyEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x31\n\x0brouting_key\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12=\n\x11settings_override\x18\x04 \x01(\x0b\x32\".arista.alert.v1.PagerdutySettings\"\xee\x01\n\x11VictorOpsEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x31\n\x0brouting_key\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12=\n\x11settings_override\x18\x04 \x01(\x0b\x32\".arista.alert.v1.VictoropsSettings\"\xbd\x01\n\x12GoogleChatEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\rhttp_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12>\n\x11settings_override\x18\x03 \x01(\x0b\x32#.arista.alert.v1.GoogleChatSettings\"\xb7\x01\n\x0fMsTeamsEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\rhttp_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12;\n\x11settings_override\x18\x03 \x01(\x0b\x32 .arista.alert.v1.MsTeamsSettings\"\xa5\x01\n\x10SendgridEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12(\n\x02to\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\"\xa8\x01\n\x13\x43ueSendgridEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12(\n\x02to\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\"\x7f\n\x0eSyslogEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12:\n\x11settings_override\x18\x02 \x01(\x0b\x32\x1f.arista.alert.v1.SyslogSettings\"\x85\x01\n\x11\x43ueSyslogEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12=\n\x11settings_override\x18\x02 \x01(\x0b\x32\".arista.alert.v1.CueSyslogSettings\"{\n\x0cSNMPEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x38\n\x11settings_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.SNMPSettings\"\x81\x01\n\x0f\x43ueSNMPEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12;\n\x11settings_override\x18\x02 \x01(\x0b\x32 .arista.alert.v1.CueSNMPSettings\"\xb1\x01\n\x0cZoomEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\rhttp_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12\x38\n\x11settings_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.ZoomSettings\"I\n\x0bTemplateKey\x12\x34\n\rtemplate_type\x18\x01 \x01(\x0e\x32\x1d.arista.alert.v1.TemplateType:\x04\x80\x8e\x19\x01\"w\n\x0eTemplateConfig\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12.\n\x08template\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\n\xfa\x8d\x19\x02rw\x90\x8e\x19\x01\"x\n\x0f\x44\x65\x66\x61ultTemplate\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12.\n\x08template\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\n\xfa\x8d\x19\x02ro\x90\x8e\x19\x01*\x99\x02\n\x0f\x43onfigErrorType\x12!\n\x1d\x43ONFIG_ERROR_TYPE_UNSPECIFIED\x10\x00\x12$\n CONFIG_ERROR_TYPE_INVALID_FORMAT\x10\x02\x12$\n CONFIG_ERROR_TYPE_INVALID_SYNTAX\x10\x03\x12&\n\"CONFIG_ERROR_TYPE_TEMPLATE_INVALID\x10\x04\x12#\n\x1f\x43ONFIG_ERROR_TYPE_ILLEGAL_VALUE\x10\x05\x12&\n\"CONFIG_ERROR_TYPE_MISSING_REQUIRED\x10\x06\x12\"\n\x1e\x43ONFIG_ERROR_TYPE_INVALID_TYPE\x10\x07*\xfd\x03\n\x11\x45ndpointErrorType\x12#\n\x1f\x45NDPOINT_ERROR_TYPE_UNSPECIFIED\x10\x00\x12\'\n#ENDPOINT_ERROR_TYPE_HTTP_POST_ERROR\x10\x01\x12*\n&ENDPOINT_ERROR_TYPE_JSON_MARSHAL_ERROR\x10\x02\x12,\n(ENDPOINT_ERROR_TYPE_INVALID_CONFIG_ERROR\x10\x03\x12&\n\"ENDPOINT_ERROR_TYPE_TEMPLATE_ERROR\x10\x04\x12*\n&ENDPOINT_ERROR_TYPE_BAD_RESPONSE_ERROR\x10\x05\x12\"\n\x1e\x45NDPOINT_ERROR_TYPE_SMTP_ERROR\x10\x06\x12(\n$ENDPOINT_ERROR_TYPE_CONNECTION_ERROR\x10\x07\x12%\n!ENDPOINT_ERROR_TYPE_TIMEOUT_ERROR\x10\x08\x12(\n$ENDPOINT_ERROR_TYPE_RATE_LIMIT_ERROR\x10\t\x12\'\n#ENDPOINT_ERROR_TYPE_ALERT_CAP_ERROR\x10\n\x12$\n ENDPOINT_ERROR_TYPE_O_AUTH_ERROR\x10\x0b*\x8d\x01\n\x16\x43ueSyslogMessageFormat\x12)\n%CUE_SYSLOG_MESSAGE_FORMAT_UNSPECIFIED\x10\x00\x12#\n\x1f\x43UE_SYSLOG_MESSAGE_FORMAT_PLAIN\x10\x01\x12#\n\x1f\x43UE_SYSLOG_MESSAGE_FORMAT_IDMEF\x10\x02*\xaa\x01\n\x11SNMPSecurityLevel\x12#\n\x1fSNMP_SECURITY_LEVEL_UNSPECIFIED\x10\x00\x12\'\n#SNMP_SECURITY_LEVEL_NO_AUTH_NO_PRIV\x10\x01\x12$\n SNMP_SECURITY_LEVEL_AUTH_NO_PRIV\x10\x02\x12!\n\x1dSNMP_SECURITY_LEVEL_AUTH_PRIV\x10\x03*\xee\x01\n\x10SNMPAuthProtocol\x12\"\n\x1eSNMP_AUTH_PROTOCOL_UNSPECIFIED\x10\x00\x12\x1a\n\x16SNMP_AUTH_PROTOCOL_MD5\x10\x01\x12\x1a\n\x16SNMP_AUTH_PROTOCOL_SHA\x10\x02\x12\x1e\n\x1aSNMP_AUTH_PROTOCOL_SHA_224\x10\x03\x12\x1e\n\x1aSNMP_AUTH_PROTOCOL_SHA_256\x10\x04\x12\x1e\n\x1aSNMP_AUTH_PROTOCOL_SHA_384\x10\x05\x12\x1e\n\x1aSNMP_AUTH_PROTOCOL_SHA_512\x10\x06*\xf0\x01\n\x10SNMPPrivProtocol\x12\"\n\x1eSNMP_PRIV_PROTOCOL_UNSPECIFIED\x10\x00\x12\x1a\n\x16SNMP_PRIV_PROTOCOL_DES\x10\x01\x12\x1a\n\x16SNMP_PRIV_PROTOCOL_AES\x10\x02\x12\x1e\n\x1aSNMP_PRIV_PROTOCOL_AES_192\x10\x03\x12\x1e\n\x1aSNMP_PRIV_PROTOCOL_AES_256\x10\x04\x12\x1f\n\x1bSNMP_PRIV_PROTOCOL_AES_192C\x10\x05\x12\x1f\n\x1bSNMP_PRIV_PROTOCOL_AES_256C\x10\x06*}\n\x13\x43ueSNMPAuthProtocol\x12&\n\"CUE_SNMP_AUTH_PROTOCOL_UNSPECIFIED\x10\x00\x12\x1e\n\x1a\x43UE_SNMP_AUTH_PROTOCOL_MD5\x10\x01\x12\x1e\n\x1a\x43UE_SNMP_AUTH_PROTOCOL_SHA\x10\x02*}\n\x13\x43ueSNMPPrivProtocol\x12&\n\"CUE_SNMP_PRIV_PROTOCOL_UNSPECIFIED\x10\x00\x12\x1e\n\x1a\x43UE_SNMP_PRIV_PROTOCOL_DES\x10\x01\x12\x1e\n\x1a\x43UE_SNMP_PRIV_PROTOCOL_AES\x10\x02*\x81\x04\n\x0cTemplateType\x12\x1d\n\x19TEMPLATE_TYPE_UNSPECIFIED\x10\x00\x12\x1c\n\x18TEMPLATE_TYPE_EMAIL_HTML\x10\x01\x12\x1c\n\x18TEMPLATE_TYPE_EMAIL_TEXT\x10\x02\x12\x1f\n\x1bTEMPLATE_TYPE_SLACK_MESSAGE\x10\x03\x12\"\n\x1eTEMPLATE_TYPE_PUSHOVER_MESSAGE\x10\x04\x12#\n\x1fTEMPLATE_TYPE_PAGERDUTY_SUMMARY\x10\x05\x12(\n$TEMPLATE_TYPE_VICTOROPS_DISPLAY_NAME\x10\x06\x12)\n%TEMPLATE_TYPE_VICTOROPS_STATE_MESSAGE\x10\x07\x12%\n!TEMPLATE_TYPE_GOOGLE_CHAT_MESSAGE\x10\x08\x12)\n%TEMPLATE_TYPE_MICROSOFT_TEAMS_MESSAGE\x10\t\x12\x1f\n\x1bTEMPLATE_TYPE_EMAIL_SUBJECT\x10\n\x12 \n\x1cTEMPLATE_TYPE_SYSLOG_MESSAGE\x10\x0b\x12\"\n\x1eTEMPLATE_TYPE_OPSGENIE_MESSAGE\x10\x0c\x12\x1e\n\x1aTEMPLATE_TYPE_ZOOM_MESSAGE\x10\rB(Z&arista/resources/arista/alert.v1;alertb\x06proto3'
+  serialized_pb=b'\n\x1b\x61rista/alert.v1/alert.proto\x12\x0f\x61rista.alert.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"\xa9\x01\n\x0b\x41lertConfig\x12+\n\x08settings\x18\x01 \x01(\x0b\x32\x19.arista.alert.v1.Settings\x12%\n\x05rules\x18\x02 \x01(\x0b\x32\x16.arista.alert.v1.Rules\x12:\n\x10\x62roadcast_groups\x18\x03 \x01(\x0b\x32 .arista.alert.v1.BroadcastGroups:\n\xa2\x8e\x19\x02rw\x90\x8e\x19\x01\"\xf8\x01\n\x05\x41lert\x12;\n\x14\x63onfiguration_errors\x18\x01 \x01(\x0b\x32\x1d.arista.alert.v1.ConfigErrors\x12\x38\n\x0f\x65ndpoint_errors\x18\x02 \x01(\x0b\x32\x1f.arista.alert.v1.EndpointErrors\x12\x34\n\x10last_modified_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\n\xa2\x8e\x19\x02ro\x90\x8e\x19\x01\"<\n\x0c\x43onfigErrors\x12,\n\x06values\x18\x01 \x03(\x0b\x32\x1c.arista.alert.v1.ConfigError\"\x9c\x01\n\x0b\x43onfigError\x12*\n\x04path\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\nerror_type\x18\x02 \x01(\x0e\x32 .arista.alert.v1.ConfigErrorType\x12+\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"@\n\x0e\x45ndpointErrors\x12.\n\x06values\x18\x01 \x03(\x0b\x32\x1e.arista.alert.v1.EndpointError\"\x98\x02\n\rEndpointError\x12\x33\n\rendpoint_type\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12:\n\x14\x62roadcast_group_name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0c\x63onfig_index\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x36\n\nerror_type\x18\x04 \x01(\x0e\x32\".arista.alert.v1.EndpointErrorType\x12+\n\x05\x65rror\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xcf\x07\n\x08Settings\x12-\n\x05\x65mail\x18\x01 \x01(\x0b\x32\x1e.arista.alert.v1.EmailSettings\x12+\n\x04http\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12-\n\x05slack\x18\x03 \x01(\x0b\x32\x1e.arista.alert.v1.SlackSettings\x12\x35\n\tvictorops\x18\x04 \x01(\x0b\x32\".arista.alert.v1.VictoropsSettings\x12\x35\n\tpagerduty\x18\x05 \x01(\x0b\x32\".arista.alert.v1.PagerdutySettings\x12\x33\n\x08opsgenie\x18\x06 \x01(\x0b\x32!.arista.alert.v1.OpsgenieSettings\x12\x32\n\x05gchat\x18\x07 \x01(\x0b\x32#.arista.alert.v1.GoogleChatSettings\x12\x31\n\x07msteams\x18\x08 \x01(\x0b\x32 .arista.alert.v1.MsTeamsSettings\x12\x37\n\ninhibition\x18\t \x01(\x0b\x32#.arista.alert.v1.InhibitionSettings\x12.\n\x08\x62\x61se_url\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08timezone\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x06syslog\x18\x0c \x01(\x0b\x32\x1f.arista.alert.v1.SyslogSettings\x12+\n\x04snmp\x18\r \x01(\x0b\x32\x1d.arista.alert.v1.SNMPSettings\x12\x33\n\x08sendgrid\x18\x0e \x01(\x0b\x32!.arista.alert.v1.SendgridSettings\x12\x36\n\ncue_syslog\x18\x0f \x01(\x0b\x32\".arista.alert.v1.CueSyslogSettings\x12\x32\n\x08\x63ue_snmp\x18\x10 \x01(\x0b\x32 .arista.alert.v1.CueSNMPSettings\x12:\n\x0c\x63ue_sendgrid\x18\x11 \x01(\x0b\x32$.arista.alert.v1.CueSendgridSettings\x12-\n\thide_tags\x18\x12 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x04zoom\x18\x13 \x01(\x0b\x32\x1d.arista.alert.v1.ZoomSettings\"\xf6\x02\n\rEmailSettings\x12*\n\x04\x66rom\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tsmarthost\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rauth_username\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rauth_password\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x0brequire_tls\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12:\n\x16single_alert_per_email\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x31\n\x0c\x61zure_o_auth\x18\x07 \x01(\x0b\x32\x1b.arista.alert.v1.AzureOAuth\"\xd3\x01\n\nAzureOAuth\x12/\n\tclient_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\ttenant_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rclient_secret\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08\x61uth_uri\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xd5\x01\n\x0cHttpSettings\x12.\n\x08username\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08password\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tproxy_url\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0e\x63ustom_headers\x18\x04 \x01(\x0b\x32\x1c.arista.alert.v1.HttpHeaders\"\x95\x01\n\x0bHttpHeaders\x12\x38\n\x06values\x18\x01 \x03(\x0b\x32(.arista.alert.v1.HttpHeaders.ValuesEntry\x1aL\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12,\n\x05value\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HeaderValues:\x02\x38\x01\"\x1e\n\x0cHeaderValues\x12\x0e\n\x06values\x18\x01 \x03(\t\":\n\rSlackSettings\x12)\n\x03url\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"i\n\x11VictoropsSettings\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x03url\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\">\n\x11PagerdutySettings\x12)\n\x03url\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"h\n\x10OpsgenieSettings\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x03url\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"?\n\x12GoogleChatSettings\x12)\n\x03url\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"<\n\x0fMsTeamsSettings\x12)\n\x03url\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xd6\x02\n\x0eSyslogSettings\x12-\n\x07network\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x08\x66\x61\x63ility\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12/\n\npriorities\x18\x04 \x01(\x0b\x32\x1b.arista.alert.v1.Priorities\x12)\n\x03tag\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\nper_device\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x07use_tls\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\xbd\x01\n\nPriorities\x12-\n\x08\x63ritical\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12*\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12)\n\x04warn\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12)\n\x04info\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\"n\n\x07\x43ueData\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.arista.alert.v1.CueData.ValuesEntry\x1a-\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xbc\x02\n\x11\x43ueSyslogSettings\x12-\n\x07network\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x04port\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12?\n\x0emessage_format\x18\x04 \x01(\x0e\x32\'.arista.alert.v1.CueSyslogMessageFormat\x12\x35\n\x11\x61ppend_bom_header\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12&\n\x04\x64\x61ta\x18\x06 \x01(\x0b\x32\x18.arista.alert.v1.CueData\"\xef\x01\n\x0cSNMPSettings\x12,\n\x06target\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x04port\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12/\n\ttransport\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x07version\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\'\n\x04\x61uth\x18\x05 \x01(\x0b\x32\x19.arista.alert.v1.SNMPAuth\"\xa3\x03\n\x08SNMPAuth\x12/\n\tcommunity\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08username\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12:\n\x0esecurity_level\x18\x03 \x01(\x0e\x32\".arista.alert.v1.SNMPSecurityLevel\x12\x42\n\x17\x61uthentication_protocol\x18\x04 \x01(\x0e\x32!.arista.alert.v1.SNMPAuthProtocol\x12?\n\x19\x61uthentication_passphrase\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12;\n\x10privacy_protocol\x18\x06 \x01(\x0e\x32!.arista.alert.v1.SNMPPrivProtocol\x12\x38\n\x12privacy_passphrase\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xac\x03\n\x0b\x43ueSNMPAuth\x12/\n\tcommunity\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08username\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12:\n\x0esecurity_level\x18\x03 \x01(\x0e\x32\".arista.alert.v1.SNMPSecurityLevel\x12\x45\n\x17\x61uthentication_protocol\x18\x04 \x01(\x0e\x32$.arista.alert.v1.CueSNMPAuthProtocol\x12?\n\x19\x61uthentication_passphrase\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12>\n\x10privacy_protocol\x18\x06 \x01(\x0e\x32$.arista.alert.v1.CueSNMPPrivProtocol\x12\x38\n\x12privacy_passphrase\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x9d\x02\n\x0f\x43ueSNMPSettings\x12,\n\x06target\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x04port\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12/\n\ttransport\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x07version\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12*\n\x04\x61uth\x18\x05 \x01(\x0b\x32\x1c.arista.alert.v1.CueSNMPAuth\x12&\n\x04\x64\x61ta\x18\x06 \x01(\x0b\x32\x18.arista.alert.v1.CueData\"m\n\x10SendgridSettings\x12-\n\x07\x61pi_key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04\x66rom\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"p\n\x13\x43ueSendgridSettings\x12-\n\x07\x61pi_key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04\x66rom\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"s\n\x0cZoomSettings\x12)\n\x03url\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x38\n\x12verification_token\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xa0\x01\n\x12InhibitionSettings\x12?\n\x06values\x18\x01 \x03(\x0b\x32/.arista.alert.v1.InhibitionSettings.ValuesEntry\x1aI\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12)\n\x05value\x18\x02 \x01(\x0b\x32\x1a.arista.alert.v1.EventList:\x02\x38\x01\"5\n\tEventList\x12(\n\x0b\x65vent_types\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\".\n\x05Rules\x12%\n\x06values\x18\x01 \x03(\x0b\x32\x15.arista.alert.v1.Rule\"\xcc\x01\n\x04Rule\x12.\n\x08sends_to\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x0ematch_criteria\x18\x02 \x01(\x0b\x32\x18.arista.alert.v1.Matches\x12\x33\n\x0f\x63ontinue_checks\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12-\n\x07\x63omment\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x8d\x02\n\x07Matches\x12\'\n\nseverities\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\x12$\n\x07\x64\x65vices\x18\x02 \x01(\x0b\x32\x13.fmp.RepeatedString\x12(\n\x0b\x65vent_types\x18\x03 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x31\n\x0b\x64\x65vice_tags\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tintf_tags\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12%\n\x08rule_ids\x18\x06 \x01(\x0b\x32\x13.fmp.RepeatedString\"\x9f\x01\n\x0f\x42roadcastGroups\x12<\n\x06values\x18\x01 \x03(\x0b\x32,.arista.alert.v1.BroadcastGroups.ValuesEntry\x1aN\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12.\n\x05value\x18\x02 \x01(\x0b\x32\x1f.arista.alert.v1.BroadcastGroup:\x02\x38\x01\"\xd8\x06\n\x0e\x42roadcastGroup\x12.\n\x05\x65mail\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.EmailEndpoints\x12\x32\n\x07webhook\x18\x02 \x01(\x0b\x32!.arista.alert.v1.WebhookEndpoints\x12.\n\x05slack\x18\x03 \x01(\x0b\x32\x1f.arista.alert.v1.SlackEndpoints\x12\x34\n\x08opsgenie\x18\x04 \x01(\x0b\x32\".arista.alert.v1.OpsgenieEndpoints\x12\x34\n\x08pushover\x18\x05 \x01(\x0b\x32\".arista.alert.v1.PushoverEndpoints\x12\x36\n\tpagerduty\x18\x06 \x01(\x0b\x32#.arista.alert.v1.PagerdutyEndpoints\x12\x36\n\tvictorops\x18\x07 \x01(\x0b\x32#.arista.alert.v1.VictorOpsEndpoints\x12\x33\n\x05gchat\x18\x08 \x01(\x0b\x32$.arista.alert.v1.GoogleChatEndpoints\x12\x32\n\x07msteams\x18\t \x01(\x0b\x32!.arista.alert.v1.MsTeamsEndpoints\x12\x34\n\x08sendgrid\x18\n \x01(\x0b\x32\".arista.alert.v1.SendgridEndpoints\x12\x30\n\x06syslog\x18\x0b \x01(\x0b\x32 .arista.alert.v1.SyslogEndpoints\x12,\n\x04snmp\x18\x0c \x01(\x0b\x32\x1e.arista.alert.v1.SNMPEndpoints\x12\x37\n\ncue_syslog\x18\r \x01(\x0b\x32#.arista.alert.v1.CueSyslogEndpoints\x12\x33\n\x08\x63ue_snmp\x18\x0e \x01(\x0b\x32!.arista.alert.v1.CueSnmpEndpoints\x12;\n\x0c\x63ue_sendgrid\x18\x0f \x01(\x0b\x32%.arista.alert.v1.CueSendgridEndpoints\x12,\n\x04zoom\x18\x10 \x01(\x0b\x32\x1e.arista.alert.v1.ZoomEndpoints\"@\n\x0e\x45mailEndpoints\x12.\n\x06values\x18\x01 \x03(\x0b\x32\x1e.arista.alert.v1.EmailEndpoint\"D\n\x10WebhookEndpoints\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .arista.alert.v1.WebhookEndpoint\"@\n\x0eSlackEndpoints\x12.\n\x06values\x18\x01 \x03(\x0b\x32\x1e.arista.alert.v1.SlackEndpoint\"F\n\x11OpsgenieEndpoints\x12\x31\n\x06values\x18\x01 \x03(\x0b\x32!.arista.alert.v1.OpsgenieEndpoint\"F\n\x11PushoverEndpoints\x12\x31\n\x06values\x18\x01 \x03(\x0b\x32!.arista.alert.v1.PushoverEndpoint\"H\n\x12PagerdutyEndpoints\x12\x32\n\x06values\x18\x01 \x03(\x0b\x32\".arista.alert.v1.PagerdutyEndpoint\"H\n\x12VictorOpsEndpoints\x12\x32\n\x06values\x18\x01 \x03(\x0b\x32\".arista.alert.v1.VictorOpsEndpoint\"J\n\x13GoogleChatEndpoints\x12\x33\n\x06values\x18\x01 \x03(\x0b\x32#.arista.alert.v1.GoogleChatEndpoint\"D\n\x10MsTeamsEndpoints\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .arista.alert.v1.MsTeamsEndpoint\"F\n\x11SendgridEndpoints\x12\x31\n\x06values\x18\x01 \x03(\x0b\x32!.arista.alert.v1.SendgridEndpoint\"L\n\x14\x43ueSendgridEndpoints\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.arista.alert.v1.CueSendgridEndpoint\"B\n\x0fSyslogEndpoints\x12/\n\x06values\x18\x01 \x03(\x0b\x32\x1f.arista.alert.v1.SyslogEndpoint\"H\n\x12\x43ueSyslogEndpoints\x12\x32\n\x06values\x18\x01 \x03(\x0b\x32\".arista.alert.v1.CueSyslogEndpoint\">\n\rSNMPEndpoints\x12-\n\x06values\x18\x01 \x03(\x0b\x32\x1d.arista.alert.v1.SNMPEndpoint\"D\n\x10\x43ueSnmpEndpoints\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32 .arista.alert.v1.CueSNMPEndpoint\">\n\rZoomEndpoints\x12-\n\x06values\x18\x01 \x03(\x0b\x32\x1d.arista.alert.v1.ZoomEndpoint\"l\n\rEmailEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12(\n\x02to\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x8a\x02\n\x0fWebhookEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12)\n\x03url\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12\x31\n\rsimple_output\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\x0csingle_alert\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\xb3\x01\n\rSlackEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\rhttp_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12\x39\n\x11settings_override\x18\x03 \x01(\x0b\x32\x1e.arista.alert.v1.SlackSettings\"\xb9\x01\n\x10OpsgenieEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\rhttp_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12<\n\x11settings_override\x18\x03 \x01(\x0b\x32!.arista.alert.v1.OpsgenieSettings\"\xd8\x01\n\x10PushoverEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05token\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08user_key\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x04 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\"\xee\x01\n\x11PagerdutyEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x31\n\x0brouting_key\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12=\n\x11settings_override\x18\x04 \x01(\x0b\x32\".arista.alert.v1.PagerdutySettings\"\xee\x01\n\x11VictorOpsEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x31\n\x0brouting_key\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12=\n\x11settings_override\x18\x04 \x01(\x0b\x32\".arista.alert.v1.VictoropsSettings\"\xbd\x01\n\x12GoogleChatEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\rhttp_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12>\n\x11settings_override\x18\x03 \x01(\x0b\x32#.arista.alert.v1.GoogleChatSettings\"\xb7\x01\n\x0fMsTeamsEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\rhttp_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12;\n\x11settings_override\x18\x03 \x01(\x0b\x32 .arista.alert.v1.MsTeamsSettings\"\xa5\x01\n\x10SendgridEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12(\n\x02to\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\"\xa8\x01\n\x13\x43ueSendgridEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12(\n\x02to\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\rhttp_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\"\x7f\n\x0eSyslogEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12:\n\x11settings_override\x18\x02 \x01(\x0b\x32\x1f.arista.alert.v1.SyslogSettings\"\x85\x01\n\x11\x43ueSyslogEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12=\n\x11settings_override\x18\x02 \x01(\x0b\x32\".arista.alert.v1.CueSyslogSettings\"{\n\x0cSNMPEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x38\n\x11settings_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.SNMPSettings\"\x81\x01\n\x0f\x43ueSNMPEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12;\n\x11settings_override\x18\x02 \x01(\x0b\x32 .arista.alert.v1.CueSNMPSettings\"\xb1\x01\n\x0cZoomEndpoint\x12\x31\n\rsend_resolved\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\rhttp_override\x18\x02 \x01(\x0b\x32\x1d.arista.alert.v1.HttpSettings\x12\x38\n\x11settings_override\x18\x03 \x01(\x0b\x32\x1d.arista.alert.v1.ZoomSettings\"I\n\x0bTemplateKey\x12\x34\n\rtemplate_type\x18\x01 \x01(\x0e\x32\x1d.arista.alert.v1.TemplateType:\x04\x80\x8e\x19\x01\"w\n\x0eTemplateConfig\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12.\n\x08template\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\n\xfa\x8d\x19\x02rw\x90\x8e\x19\x01\"x\n\x0f\x44\x65\x66\x61ultTemplate\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12.\n\x08template\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\n\xfa\x8d\x19\x02ro\x90\x8e\x19\x01*\x99\x02\n\x0f\x43onfigErrorType\x12!\n\x1d\x43ONFIG_ERROR_TYPE_UNSPECIFIED\x10\x00\x12$\n CONFIG_ERROR_TYPE_INVALID_FORMAT\x10\x02\x12$\n CONFIG_ERROR_TYPE_INVALID_SYNTAX\x10\x03\x12&\n\"CONFIG_ERROR_TYPE_TEMPLATE_INVALID\x10\x04\x12#\n\x1f\x43ONFIG_ERROR_TYPE_ILLEGAL_VALUE\x10\x05\x12&\n\"CONFIG_ERROR_TYPE_MISSING_REQUIRED\x10\x06\x12\"\n\x1e\x43ONFIG_ERROR_TYPE_INVALID_TYPE\x10\x07*\xfd\x03\n\x11\x45ndpointErrorType\x12#\n\x1f\x45NDPOINT_ERROR_TYPE_UNSPECIFIED\x10\x00\x12\'\n#ENDPOINT_ERROR_TYPE_HTTP_POST_ERROR\x10\x01\x12*\n&ENDPOINT_ERROR_TYPE_JSON_MARSHAL_ERROR\x10\x02\x12,\n(ENDPOINT_ERROR_TYPE_INVALID_CONFIG_ERROR\x10\x03\x12&\n\"ENDPOINT_ERROR_TYPE_TEMPLATE_ERROR\x10\x04\x12*\n&ENDPOINT_ERROR_TYPE_BAD_RESPONSE_ERROR\x10\x05\x12\"\n\x1e\x45NDPOINT_ERROR_TYPE_SMTP_ERROR\x10\x06\x12(\n$ENDPOINT_ERROR_TYPE_CONNECTION_ERROR\x10\x07\x12%\n!ENDPOINT_ERROR_TYPE_TIMEOUT_ERROR\x10\x08\x12(\n$ENDPOINT_ERROR_TYPE_RATE_LIMIT_ERROR\x10\t\x12\'\n#ENDPOINT_ERROR_TYPE_ALERT_CAP_ERROR\x10\n\x12$\n ENDPOINT_ERROR_TYPE_O_AUTH_ERROR\x10\x0b*\x8d\x01\n\x16\x43ueSyslogMessageFormat\x12)\n%CUE_SYSLOG_MESSAGE_FORMAT_UNSPECIFIED\x10\x00\x12#\n\x1f\x43UE_SYSLOG_MESSAGE_FORMAT_PLAIN\x10\x01\x12#\n\x1f\x43UE_SYSLOG_MESSAGE_FORMAT_IDMEF\x10\x02*\xaa\x01\n\x11SNMPSecurityLevel\x12#\n\x1fSNMP_SECURITY_LEVEL_UNSPECIFIED\x10\x00\x12\'\n#SNMP_SECURITY_LEVEL_NO_AUTH_NO_PRIV\x10\x01\x12$\n SNMP_SECURITY_LEVEL_AUTH_NO_PRIV\x10\x02\x12!\n\x1dSNMP_SECURITY_LEVEL_AUTH_PRIV\x10\x03*\xee\x01\n\x10SNMPAuthProtocol\x12\"\n\x1eSNMP_AUTH_PROTOCOL_UNSPECIFIED\x10\x00\x12\x1a\n\x16SNMP_AUTH_PROTOCOL_MD5\x10\x01\x12\x1a\n\x16SNMP_AUTH_PROTOCOL_SHA\x10\x02\x12\x1e\n\x1aSNMP_AUTH_PROTOCOL_SHA_224\x10\x03\x12\x1e\n\x1aSNMP_AUTH_PROTOCOL_SHA_256\x10\x04\x12\x1e\n\x1aSNMP_AUTH_PROTOCOL_SHA_384\x10\x05\x12\x1e\n\x1aSNMP_AUTH_PROTOCOL_SHA_512\x10\x06*\xf0\x01\n\x10SNMPPrivProtocol\x12\"\n\x1eSNMP_PRIV_PROTOCOL_UNSPECIFIED\x10\x00\x12\x1a\n\x16SNMP_PRIV_PROTOCOL_DES\x10\x01\x12\x1a\n\x16SNMP_PRIV_PROTOCOL_AES\x10\x02\x12\x1e\n\x1aSNMP_PRIV_PROTOCOL_AES_192\x10\x03\x12\x1e\n\x1aSNMP_PRIV_PROTOCOL_AES_256\x10\x04\x12\x1f\n\x1bSNMP_PRIV_PROTOCOL_AES_192C\x10\x05\x12\x1f\n\x1bSNMP_PRIV_PROTOCOL_AES_256C\x10\x06*}\n\x13\x43ueSNMPAuthProtocol\x12&\n\"CUE_SNMP_AUTH_PROTOCOL_UNSPECIFIED\x10\x00\x12\x1e\n\x1a\x43UE_SNMP_AUTH_PROTOCOL_MD5\x10\x01\x12\x1e\n\x1a\x43UE_SNMP_AUTH_PROTOCOL_SHA\x10\x02*}\n\x13\x43ueSNMPPrivProtocol\x12&\n\"CUE_SNMP_PRIV_PROTOCOL_UNSPECIFIED\x10\x00\x12\x1e\n\x1a\x43UE_SNMP_PRIV_PROTOCOL_DES\x10\x01\x12\x1e\n\x1a\x43UE_SNMP_PRIV_PROTOCOL_AES\x10\x02*\x81\x04\n\x0cTemplateType\x12\x1d\n\x19TEMPLATE_TYPE_UNSPECIFIED\x10\x00\x12\x1c\n\x18TEMPLATE_TYPE_EMAIL_HTML\x10\x01\x12\x1c\n\x18TEMPLATE_TYPE_EMAIL_TEXT\x10\x02\x12\x1f\n\x1bTEMPLATE_TYPE_SLACK_MESSAGE\x10\x03\x12\"\n\x1eTEMPLATE_TYPE_PUSHOVER_MESSAGE\x10\x04\x12#\n\x1fTEMPLATE_TYPE_PAGERDUTY_SUMMARY\x10\x05\x12(\n$TEMPLATE_TYPE_VICTOROPS_DISPLAY_NAME\x10\x06\x12)\n%TEMPLATE_TYPE_VICTOROPS_STATE_MESSAGE\x10\x07\x12%\n!TEMPLATE_TYPE_GOOGLE_CHAT_MESSAGE\x10\x08\x12)\n%TEMPLATE_TYPE_MICROSOFT_TEAMS_MESSAGE\x10\t\x12\x1f\n\x1bTEMPLATE_TYPE_EMAIL_SUBJECT\x10\n\x12 \n\x1cTEMPLATE_TYPE_SYSLOG_MESSAGE\x10\x0b\x12\"\n\x1eTEMPLATE_TYPE_OPSGENIE_MESSAGE\x10\x0c\x12\x1e\n\x1aTEMPLATE_TYPE_ZOOM_MESSAGE\x10\rB(Z&arista/resources/arista/alert.v1;alertb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,fmp_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -73,8 +73,8 @@ _CONFIGERRORTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=12310,
-  serialized_end=12591,
+  serialized_start=12358,
+  serialized_end=12639,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIGERRORTYPE)
 
@@ -149,8 +149,8 @@ _ENDPOINTERRORTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=12594,
-  serialized_end=13103,
+  serialized_start=12642,
+  serialized_end=13151,
 )
 _sym_db.RegisterEnumDescriptor(_ENDPOINTERRORTYPE)
 
@@ -180,8 +180,8 @@ _CUESYSLOGMESSAGEFORMAT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=13106,
-  serialized_end=13247,
+  serialized_start=13154,
+  serialized_end=13295,
 )
 _sym_db.RegisterEnumDescriptor(_CUESYSLOGMESSAGEFORMAT)
 
@@ -216,8 +216,8 @@ _SNMPSECURITYLEVEL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=13250,
-  serialized_end=13420,
+  serialized_start=13298,
+  serialized_end=13468,
 )
 _sym_db.RegisterEnumDescriptor(_SNMPSECURITYLEVEL)
 
@@ -267,8 +267,8 @@ _SNMPAUTHPROTOCOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=13423,
-  serialized_end=13661,
+  serialized_start=13471,
+  serialized_end=13709,
 )
 _sym_db.RegisterEnumDescriptor(_SNMPAUTHPROTOCOL)
 
@@ -318,8 +318,8 @@ _SNMPPRIVPROTOCOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=13664,
-  serialized_end=13904,
+  serialized_start=13712,
+  serialized_end=13952,
 )
 _sym_db.RegisterEnumDescriptor(_SNMPPRIVPROTOCOL)
 
@@ -349,8 +349,8 @@ _CUESNMPAUTHPROTOCOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=13906,
-  serialized_end=14031,
+  serialized_start=13954,
+  serialized_end=14079,
 )
 _sym_db.RegisterEnumDescriptor(_CUESNMPAUTHPROTOCOL)
 
@@ -380,8 +380,8 @@ _CUESNMPPRIVPROTOCOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=14033,
-  serialized_end=14158,
+  serialized_start=14081,
+  serialized_end=14206,
 )
 _sym_db.RegisterEnumDescriptor(_CUESNMPPRIVPROTOCOL)
 
@@ -466,8 +466,8 @@ _TEMPLATETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=14161,
-  serialized_end=14674,
+  serialized_start=14209,
+  serialized_end=14722,
 )
 _sym_db.RegisterEnumDescriptor(_TEMPLATETYPE)
 
@@ -1065,6 +1065,13 @@ _AZUREOAUTH = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='auth_uri', full_name='arista.alert.v1.AzureOAuth.auth_uri', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1078,7 +1085,7 @@ _AZUREOAUTH = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=2504,
-  serialized_end=2667,
+  serialized_end=2715,
 )
 
 
@@ -1130,8 +1137,8 @@ _HTTPSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2670,
-  serialized_end=2883,
+  serialized_start=2718,
+  serialized_end=2931,
 )
 
 
@@ -1169,8 +1176,8 @@ _HTTPHEADERS_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2959,
-  serialized_end=3035,
+  serialized_start=3007,
+  serialized_end=3083,
 )
 
 _HTTPHEADERS = _descriptor.Descriptor(
@@ -1200,8 +1207,8 @@ _HTTPHEADERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2886,
-  serialized_end=3035,
+  serialized_start=2934,
+  serialized_end=3083,
 )
 
 
@@ -1232,8 +1239,8 @@ _HEADERVALUES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3037,
-  serialized_end=3067,
+  serialized_start=3085,
+  serialized_end=3115,
 )
 
 
@@ -1264,8 +1271,8 @@ _SLACKSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3069,
-  serialized_end=3127,
+  serialized_start=3117,
+  serialized_end=3175,
 )
 
 
@@ -1303,8 +1310,8 @@ _VICTOROPSSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3129,
-  serialized_end=3234,
+  serialized_start=3177,
+  serialized_end=3282,
 )
 
 
@@ -1335,8 +1342,8 @@ _PAGERDUTYSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3236,
-  serialized_end=3298,
+  serialized_start=3284,
+  serialized_end=3346,
 )
 
 
@@ -1374,8 +1381,8 @@ _OPSGENIESETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3300,
-  serialized_end=3404,
+  serialized_start=3348,
+  serialized_end=3452,
 )
 
 
@@ -1406,8 +1413,8 @@ _GOOGLECHATSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3406,
-  serialized_end=3469,
+  serialized_start=3454,
+  serialized_end=3517,
 )
 
 
@@ -1438,8 +1445,8 @@ _MSTEAMSSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3471,
-  serialized_end=3531,
+  serialized_start=3519,
+  serialized_end=3579,
 )
 
 
@@ -1512,8 +1519,8 @@ _SYSLOGSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3534,
-  serialized_end=3876,
+  serialized_start=3582,
+  serialized_end=3924,
 )
 
 
@@ -1565,8 +1572,8 @@ _PRIORITIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3879,
-  serialized_end=4068,
+  serialized_start=3927,
+  serialized_end=4116,
 )
 
 
@@ -1604,8 +1611,8 @@ _CUEDATA_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4135,
-  serialized_end=4180,
+  serialized_start=4183,
+  serialized_end=4228,
 )
 
 _CUEDATA = _descriptor.Descriptor(
@@ -1635,8 +1642,8 @@ _CUEDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4070,
-  serialized_end=4180,
+  serialized_start=4118,
+  serialized_end=4228,
 )
 
 
@@ -1702,8 +1709,8 @@ _CUESYSLOGSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4183,
-  serialized_end=4499,
+  serialized_start=4231,
+  serialized_end=4547,
 )
 
 
@@ -1762,8 +1769,8 @@ _SNMPSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4502,
-  serialized_end=4741,
+  serialized_start=4550,
+  serialized_end=4789,
 )
 
 
@@ -1836,8 +1843,8 @@ _SNMPAUTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4744,
-  serialized_end=5163,
+  serialized_start=4792,
+  serialized_end=5211,
 )
 
 
@@ -1910,8 +1917,8 @@ _CUESNMPAUTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5166,
-  serialized_end=5594,
+  serialized_start=5214,
+  serialized_end=5642,
 )
 
 
@@ -1977,8 +1984,8 @@ _CUESNMPSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5597,
-  serialized_end=5882,
+  serialized_start=5645,
+  serialized_end=5930,
 )
 
 
@@ -2016,8 +2023,8 @@ _SENDGRIDSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5884,
-  serialized_end=5993,
+  serialized_start=5932,
+  serialized_end=6041,
 )
 
 
@@ -2055,8 +2062,8 @@ _CUESENDGRIDSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5995,
-  serialized_end=6107,
+  serialized_start=6043,
+  serialized_end=6155,
 )
 
 
@@ -2094,8 +2101,8 @@ _ZOOMSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6109,
-  serialized_end=6224,
+  serialized_start=6157,
+  serialized_end=6272,
 )
 
 
@@ -2133,8 +2140,8 @@ _INHIBITIONSETTINGS_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6314,
-  serialized_end=6387,
+  serialized_start=6362,
+  serialized_end=6435,
 )
 
 _INHIBITIONSETTINGS = _descriptor.Descriptor(
@@ -2164,8 +2171,8 @@ _INHIBITIONSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6227,
-  serialized_end=6387,
+  serialized_start=6275,
+  serialized_end=6435,
 )
 
 
@@ -2196,8 +2203,8 @@ _EVENTLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6389,
-  serialized_end=6442,
+  serialized_start=6437,
+  serialized_end=6490,
 )
 
 
@@ -2228,8 +2235,8 @@ _RULES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6444,
-  serialized_end=6490,
+  serialized_start=6492,
+  serialized_end=6538,
 )
 
 
@@ -2281,8 +2288,8 @@ _RULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6493,
-  serialized_end=6697,
+  serialized_start=6541,
+  serialized_end=6745,
 )
 
 
@@ -2348,8 +2355,8 @@ _MATCHES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6700,
-  serialized_end=6969,
+  serialized_start=6748,
+  serialized_end=7017,
 )
 
 
@@ -2387,8 +2394,8 @@ _BROADCASTGROUPS_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7053,
-  serialized_end=7131,
+  serialized_start=7101,
+  serialized_end=7179,
 )
 
 _BROADCASTGROUPS = _descriptor.Descriptor(
@@ -2418,8 +2425,8 @@ _BROADCASTGROUPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6972,
-  serialized_end=7131,
+  serialized_start=7020,
+  serialized_end=7179,
 )
 
 
@@ -2555,8 +2562,8 @@ _BROADCASTGROUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7134,
-  serialized_end=7990,
+  serialized_start=7182,
+  serialized_end=8038,
 )
 
 
@@ -2587,8 +2594,8 @@ _EMAILENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7992,
-  serialized_end=8056,
+  serialized_start=8040,
+  serialized_end=8104,
 )
 
 
@@ -2619,8 +2626,8 @@ _WEBHOOKENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8058,
-  serialized_end=8126,
+  serialized_start=8106,
+  serialized_end=8174,
 )
 
 
@@ -2651,8 +2658,8 @@ _SLACKENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8128,
-  serialized_end=8192,
+  serialized_start=8176,
+  serialized_end=8240,
 )
 
 
@@ -2683,8 +2690,8 @@ _OPSGENIEENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8194,
-  serialized_end=8264,
+  serialized_start=8242,
+  serialized_end=8312,
 )
 
 
@@ -2715,8 +2722,8 @@ _PUSHOVERENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8266,
-  serialized_end=8336,
+  serialized_start=8314,
+  serialized_end=8384,
 )
 
 
@@ -2747,8 +2754,8 @@ _PAGERDUTYENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8338,
-  serialized_end=8410,
+  serialized_start=8386,
+  serialized_end=8458,
 )
 
 
@@ -2779,8 +2786,8 @@ _VICTOROPSENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8412,
-  serialized_end=8484,
+  serialized_start=8460,
+  serialized_end=8532,
 )
 
 
@@ -2811,8 +2818,8 @@ _GOOGLECHATENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8486,
-  serialized_end=8560,
+  serialized_start=8534,
+  serialized_end=8608,
 )
 
 
@@ -2843,8 +2850,8 @@ _MSTEAMSENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8562,
-  serialized_end=8630,
+  serialized_start=8610,
+  serialized_end=8678,
 )
 
 
@@ -2875,8 +2882,8 @@ _SENDGRIDENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8632,
-  serialized_end=8702,
+  serialized_start=8680,
+  serialized_end=8750,
 )
 
 
@@ -2907,8 +2914,8 @@ _CUESENDGRIDENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8704,
-  serialized_end=8780,
+  serialized_start=8752,
+  serialized_end=8828,
 )
 
 
@@ -2939,8 +2946,8 @@ _SYSLOGENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8782,
-  serialized_end=8848,
+  serialized_start=8830,
+  serialized_end=8896,
 )
 
 
@@ -2971,8 +2978,8 @@ _CUESYSLOGENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8850,
-  serialized_end=8922,
+  serialized_start=8898,
+  serialized_end=8970,
 )
 
 
@@ -3003,8 +3010,8 @@ _SNMPENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8924,
-  serialized_end=8986,
+  serialized_start=8972,
+  serialized_end=9034,
 )
 
 
@@ -3035,8 +3042,8 @@ _CUESNMPENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8988,
-  serialized_end=9056,
+  serialized_start=9036,
+  serialized_end=9104,
 )
 
 
@@ -3067,8 +3074,8 @@ _ZOOMENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9058,
-  serialized_end=9120,
+  serialized_start=9106,
+  serialized_end=9168,
 )
 
 
@@ -3106,8 +3113,8 @@ _EMAILENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9122,
-  serialized_end=9230,
+  serialized_start=9170,
+  serialized_end=9278,
 )
 
 
@@ -3166,8 +3173,8 @@ _WEBHOOKENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9233,
-  serialized_end=9499,
+  serialized_start=9281,
+  serialized_end=9547,
 )
 
 
@@ -3212,8 +3219,8 @@ _SLACKENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9502,
-  serialized_end=9681,
+  serialized_start=9550,
+  serialized_end=9729,
 )
 
 
@@ -3258,8 +3265,8 @@ _OPSGENIEENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9684,
-  serialized_end=9869,
+  serialized_start=9732,
+  serialized_end=9917,
 )
 
 
@@ -3311,8 +3318,8 @@ _PUSHOVERENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9872,
-  serialized_end=10088,
+  serialized_start=9920,
+  serialized_end=10136,
 )
 
 
@@ -3364,8 +3371,8 @@ _PAGERDUTYENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10091,
-  serialized_end=10329,
+  serialized_start=10139,
+  serialized_end=10377,
 )
 
 
@@ -3417,8 +3424,8 @@ _VICTOROPSENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10332,
-  serialized_end=10570,
+  serialized_start=10380,
+  serialized_end=10618,
 )
 
 
@@ -3463,8 +3470,8 @@ _GOOGLECHATENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10573,
-  serialized_end=10762,
+  serialized_start=10621,
+  serialized_end=10810,
 )
 
 
@@ -3509,8 +3516,8 @@ _MSTEAMSENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10765,
-  serialized_end=10948,
+  serialized_start=10813,
+  serialized_end=10996,
 )
 
 
@@ -3555,8 +3562,8 @@ _SENDGRIDENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10951,
-  serialized_end=11116,
+  serialized_start=10999,
+  serialized_end=11164,
 )
 
 
@@ -3601,8 +3608,8 @@ _CUESENDGRIDENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11119,
-  serialized_end=11287,
+  serialized_start=11167,
+  serialized_end=11335,
 )
 
 
@@ -3640,8 +3647,8 @@ _SYSLOGENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11289,
-  serialized_end=11416,
+  serialized_start=11337,
+  serialized_end=11464,
 )
 
 
@@ -3679,8 +3686,8 @@ _CUESYSLOGENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11419,
-  serialized_end=11552,
+  serialized_start=11467,
+  serialized_end=11600,
 )
 
 
@@ -3718,8 +3725,8 @@ _SNMPENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11554,
-  serialized_end=11677,
+  serialized_start=11602,
+  serialized_end=11725,
 )
 
 
@@ -3757,8 +3764,8 @@ _CUESNMPENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11680,
-  serialized_end=11809,
+  serialized_start=11728,
+  serialized_end=11857,
 )
 
 
@@ -3803,8 +3810,8 @@ _ZOOMENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11812,
-  serialized_end=11989,
+  serialized_start=11860,
+  serialized_end=12037,
 )
 
 
@@ -3835,8 +3842,8 @@ _TEMPLATEKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11991,
-  serialized_end=12064,
+  serialized_start=12039,
+  serialized_end=12112,
 )
 
 
@@ -3874,8 +3881,8 @@ _TEMPLATECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12066,
-  serialized_end=12185,
+  serialized_start=12114,
+  serialized_end=12233,
 )
 
 
@@ -3913,8 +3920,8 @@ _DEFAULTTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12187,
-  serialized_end=12307,
+  serialized_start=12235,
+  serialized_end=12355,
 )
 
 _ALERTCONFIG.fields_by_name['settings'].message_type = _SETTINGS
@@ -3963,6 +3970,7 @@ _EMAILSETTINGS.fields_by_name['azure_o_auth'].message_type = _AZUREOAUTH
 _AZUREOAUTH.fields_by_name['client_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _AZUREOAUTH.fields_by_name['tenant_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _AZUREOAUTH.fields_by_name['client_secret'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_AZUREOAUTH.fields_by_name['auth_uri'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _HTTPSETTINGS.fields_by_name['username'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _HTTPSETTINGS.fields_by_name['password'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _HTTPSETTINGS.fields_by_name['proxy_url'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
