@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z.arista/resources/arista/workspace.v1;workspace',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#arista/workspace.v1/workspace.proto\x12\x13\x61rista.workspace.v1\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a)arista/configstatus.v1/configstatus.proto\x1a\'arista/imagestatus.v1/imagestatus.proto\"A\n\rRequestParams\x12\x30\n\nrequest_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x9f\x01\n\x08Response\x12\x33\n\x06status\x18\x01 \x01(\x0e\x32#.arista.workspace.v1.ResponseStatus\x12-\n\x07message\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x04\x63ode\x18\x03 \x01(\x0e\x32!.arista.workspace.v1.ResponseCode\"\x95\x01\n\tResponses\x12:\n\x06values\x18\x01 \x03(\x0b\x32*.arista.workspace.v1.Responses.ValuesEntry\x1aL\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12,\n\x05value\x18\x02 \x01(\x0b\x32\x1d.arista.workspace.v1.Response:\x02\x38\x01\"H\n\x0cWorkspaceKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x9b\x02\n\x0fWorkspaceConfig\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12\x32\n\x0c\x64isplay_name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07request\x18\x04 \x01(\x0e\x32\x1c.arista.workspace.v1.Request\x12:\n\x0erequest_params\x18\x05 \x01(\x0b\x32\".arista.workspace.v1.RequestParams:\x06\xfa\x8d\x19\x02rw\"\xd3\x05\n\tWorkspace\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x05state\x18\x06 \x01(\x0e\x32#.arista.workspace.v1.WorkspaceState\x12\x33\n\rlast_build_id\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\tresponses\x18\x08 \x01(\x0b\x32\x1e.arista.workspace.v1.Responses\x12#\n\x06\x63\x63_ids\x18\t \x01(\x0b\x32\x13.fmp.RepeatedString\x12/\n\x0bneeds_build\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x33\n\x0flast_rebased_at\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\x0cneeds_rebase\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x32\n\x0c\x64isplay_name\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x0e \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\xb4\x01\n\nInputError\x12.\n\x08\x66ield_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12!\n\x04path\x18\x02 \x01(\x0b\x32\x13.fmp.RepeatedString\x12$\n\x07members\x18\x03 \x01(\x0b\x32\x13.fmp.RepeatedString\x12-\n\x07message\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\">\n\x0bInputErrors\x12/\n\x06values\x18\x01 \x03(\x0b\x32\x1f.arista.workspace.v1.InputError\"\xbf\x01\n\x15InputValidationResult\x12=\n\x13input_schema_errors\x18\x01 \x01(\x0b\x32 .arista.workspace.v1.InputErrors\x12<\n\x12input_value_errors\x18\x02 \x01(\x0b\x32 .arista.workspace.v1.InputErrors\x12)\n\x0cother_errors\x18\x03 \x01(\x0b\x32\x13.fmp.RepeatedString\"\xbc\x01\n\x16InputValidationResults\x12G\n\x06values\x18\x01 \x03(\x0b\x32\x37.arista.workspace.v1.InputValidationResults.ValuesEntry\x1aY\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.arista.workspace.v1.InputValidationResult:\x02\x38\x01\"\xd3\x01\n\rTemplateError\x12.\n\x08line_num\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12/\n\texception\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06\x64\x65tail\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rexception_msg\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"D\n\x0eTemplateErrors\x12\x32\n\x06values\x18\x01 \x03(\x0b\x32\".arista.workspace.v1.TemplateError\"\xab\x02\n\x14\x43onfigletBuildResult\x12<\n\x0ftemplate_errors\x18\x01 \x01(\x0b\x32#.arista.workspace.v1.TemplateErrors\x12\x36\n\x10generated_config\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0bother_error\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0c\x65xecution_id\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x0cinput_errors\x18\x05 \x01(\x0b\x32 .arista.workspace.v1.InputErrors\"\xb9\x01\n\x15\x43onfigletBuildResults\x12\x46\n\x06values\x18\x01 \x03(\x0b\x32\x36.arista.workspace.v1.ConfigletBuildResults.ValuesEntry\x1aX\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32).arista.workspace.v1.ConfigletBuildResult:\x02\x38\x01\"\xfd\x01\n\x16\x43onfigValidationResult\x12\x36\n\x07summary\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.ConfigSummary\x12\x34\n\x06\x65rrors\x18\x02 \x01(\x0b\x32$.arista.configstatus.v1.ConfigErrors\x12\x36\n\x08warnings\x18\x03 \x01(\x0b\x32$.arista.configstatus.v1.ConfigErrors\x12=\n\x0e\x63onfig_sources\x18\x04 \x01(\x0b\x32%.arista.configstatus.v1.ConfigSources\"\xf2\x01\n\x15ImageValidationResult\x12\x34\n\x07summary\x18\x01 \x01(\x0b\x32#.arista.imagestatus.v1.ImageSummary\x12\x32\n\x06\x65rrors\x18\x02 \x01(\x0b\x32\".arista.imagestatus.v1.ImageErrors\x12\x36\n\x08warnings\x18\x03 \x01(\x0b\x32$.arista.imagestatus.v1.ImageWarnings\x12\x37\n\x11image_input_error\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xa3\x01\n\x0f\x42uildStageState\x12@\n\x06values\x18\x01 \x03(\x0b\x32\x30.arista.workspace.v1.BuildStageState.ValuesEntry\x1aN\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12.\n\x05value\x18\x02 \x01(\x0e\x32\x1f.arista.workspace.v1.BuildState:\x02\x38\x01\"}\n\x11WorkspaceBuildKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08\x62uild_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xb0\x01\n\x0eWorkspaceBuild\x12\x33\n\x03key\x18\x01 \x01(\x0b\x32&.arista.workspace.v1.WorkspaceBuildKey\x12.\n\x05state\x18\x02 \x01(\x0e\x32\x1f.arista.workspace.v1.BuildState\x12+\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02roJ\x04\x08\x03\x10\x04\"\xb5\x01\n\x18WorkspaceBuildDetailsKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08\x62uild_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tdevice_id\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xde\x05\n\x15WorkspaceBuildDetails\x12:\n\x03key\x18\x01 \x01(\x0b\x32-.arista.workspace.v1.WorkspaceBuildDetailsKey\x12.\n\x05state\x18\x02 \x01(\x0e\x32\x1f.arista.workspace.v1.BuildState\x12.\n\x05stage\x18\x03 \x01(\x0e\x32\x1f.arista.workspace.v1.BuildStage\x12M\n\x18input_validation_results\x18\x04 \x01(\x0b\x32+.arista.workspace.v1.InputValidationResults\x12K\n\x17\x63onfiglet_build_results\x18\x05 \x01(\x0b\x32*.arista.workspace.v1.ConfigletBuildResults\x12M\n\x18\x63onfig_validation_result\x18\x06 \x01(\x0b\x32+.arista.workspace.v1.ConfigValidationResult\x12K\n\x17image_validation_result\x18\x07 \x01(\x0b\x32*.arista.workspace.v1.ImageValidationResult\x12T\n\x1c\x63onfig_validation_skip_cause\x18\x08 \x01(\x0e\x32..arista.workspace.v1.ConfigValidationSkipCause\x12R\n\x1bimage_validation_skip_cause\x18\t \x01(\x0e\x32-.arista.workspace.v1.ImageValidationSkipCause\x12?\n\x11\x62uild_stage_state\x18\n \x01(\x0b\x32$.arista.workspace.v1.BuildStageState:\x06\xfa\x8d\x19\x02ro*\xcc\x01\n\x0eWorkspaceState\x12\x1f\n\x1bWORKSPACE_STATE_UNSPECIFIED\x10\x00\x12\x1b\n\x17WORKSPACE_STATE_PENDING\x10\x01\x12\x1d\n\x19WORKSPACE_STATE_SUBMITTED\x10\x02\x12\x1d\n\x19WORKSPACE_STATE_ABANDONED\x10\x03\x12\x1d\n\x19WORKSPACE_STATE_CONFLICTS\x10\x04\x12\x1f\n\x1bWORKSPACE_STATE_ROLLED_BACK\x10\x05*\xc2\x01\n\x07Request\x12\x17\n\x13REQUEST_UNSPECIFIED\x10\x00\x12\x17\n\x13REQUEST_START_BUILD\x10\x01\x12\x18\n\x14REQUEST_CANCEL_BUILD\x10\x02\x12\x12\n\x0eREQUEST_SUBMIT\x10\x03\x12\x13\n\x0fREQUEST_ABANDON\x10\x04\x12\x14\n\x10REQUEST_ROLLBACK\x10\x05\x12\x18\n\x14REQUEST_SUBMIT_FORCE\x10\x06\x12\x12\n\x0eREQUEST_REBASE\x10\x07*h\n\x0eResponseStatus\x12\x1f\n\x1bRESPONSE_STATUS_UNSPECIFIED\x10\x00\x12\x1b\n\x17RESPONSE_STATUS_SUCCESS\x10\x01\x12\x18\n\x14RESPONSE_STATUS_FAIL\x10\x02*W\n\x0cResponseCode\x12\x1d\n\x19RESPONSE_CODE_UNSPECIFIED\x10\x00\x12(\n$RESPONSE_CODE_INACTIVE_DEVICES_EXIST\x10\x01*\xa8\x01\n\nBuildState\x12\x1b\n\x17\x42UILD_STATE_UNSPECIFIED\x10\x00\x12\x1b\n\x17\x42UILD_STATE_IN_PROGRESS\x10\x01\x12\x18\n\x14\x42UILD_STATE_CANCELED\x10\x02\x12\x17\n\x13\x42UILD_STATE_SUCCESS\x10\x03\x12\x14\n\x10\x42UILD_STATE_FAIL\x10\x04\x12\x17\n\x13\x42UILD_STATE_SKIPPED\x10\x05*\xb1\x01\n\nBuildStage\x12\x1b\n\x17\x42UILD_STAGE_UNSPECIFIED\x10\x00\x12 \n\x1c\x42UILD_STAGE_INPUT_VALIDATION\x10\x01\x12\x1f\n\x1b\x42UILD_STAGE_CONFIGLET_BUILD\x10\x02\x12!\n\x1d\x42UILD_STAGE_CONFIG_VALIDATION\x10\x03\x12 \n\x1c\x42UILD_STAGE_IMAGE_VALIDATION\x10\x04*\xd9\x01\n\x19\x43onfigValidationSkipCause\x12,\n(CONFIG_VALIDATION_SKIP_CAUSE_UNSPECIFIED\x10\x00\x12)\n%CONFIG_VALIDATION_SKIP_CAUSE_INACTIVE\x10\x01\x12\x30\n,CONFIG_VALIDATION_SKIP_CAUSE_PRE_PROVISIONED\x10\x02\x12\x31\n-CONFIG_VALIDATION_SKIP_CAUSE_CONFIG_UNCHANGED\x10\x03*\xd3\x01\n\x18ImageValidationSkipCause\x12+\n\'IMAGE_VALIDATION_SKIP_CAUSE_UNSPECIFIED\x10\x00\x12(\n$IMAGE_VALIDATION_SKIP_CAUSE_INACTIVE\x10\x01\x12/\n+IMAGE_VALIDATION_SKIP_CAUSE_PRE_PROVISIONED\x10\x02\x12/\n+IMAGE_VALIDATION_SKIP_CAUSE_IMAGE_UNCHANGED\x10\x03\x42\x30Z.arista/resources/arista/workspace.v1;workspaceb\x06proto3'
+  serialized_pb=b'\n#arista/workspace.v1/workspace.proto\x12\x13\x61rista.workspace.v1\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a)arista/configstatus.v1/configstatus.proto\x1a\'arista/imagestatus.v1/imagestatus.proto\"A\n\rRequestParams\x12\x30\n\nrequest_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x9f\x01\n\x08Response\x12\x33\n\x06status\x18\x01 \x01(\x0e\x32#.arista.workspace.v1.ResponseStatus\x12-\n\x07message\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x04\x63ode\x18\x03 \x01(\x0e\x32!.arista.workspace.v1.ResponseCode\"\x95\x01\n\tResponses\x12:\n\x06values\x18\x01 \x03(\x0b\x32*.arista.workspace.v1.Responses.ValuesEntry\x1aL\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12,\n\x05value\x18\x02 \x01(\x0b\x32\x1d.arista.workspace.v1.Response:\x02\x38\x01\"H\n\x0cWorkspaceKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x9b\x02\n\x0fWorkspaceConfig\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12\x32\n\x0c\x64isplay_name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07request\x18\x04 \x01(\x0e\x32\x1c.arista.workspace.v1.Request\x12:\n\x0erequest_params\x18\x05 \x01(\x0b\x32\".arista.workspace.v1.RequestParams:\x06\xfa\x8d\x19\x02rw\"\xd3\x05\n\tWorkspace\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x05state\x18\x06 \x01(\x0e\x32#.arista.workspace.v1.WorkspaceState\x12\x33\n\rlast_build_id\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\tresponses\x18\x08 \x01(\x0b\x32\x1e.arista.workspace.v1.Responses\x12#\n\x06\x63\x63_ids\x18\t \x01(\x0b\x32\x13.fmp.RepeatedString\x12/\n\x0bneeds_build\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x33\n\x0flast_rebased_at\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\x0cneeds_rebase\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x32\n\x0c\x64isplay_name\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x0e \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\xb4\x01\n\nInputError\x12.\n\x08\x66ield_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12!\n\x04path\x18\x02 \x01(\x0b\x32\x13.fmp.RepeatedString\x12$\n\x07members\x18\x03 \x01(\x0b\x32\x13.fmp.RepeatedString\x12-\n\x07message\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\">\n\x0bInputErrors\x12/\n\x06values\x18\x01 \x03(\x0b\x32\x1f.arista.workspace.v1.InputError\"\xbf\x01\n\x15InputValidationResult\x12=\n\x13input_schema_errors\x18\x01 \x01(\x0b\x32 .arista.workspace.v1.InputErrors\x12<\n\x12input_value_errors\x18\x02 \x01(\x0b\x32 .arista.workspace.v1.InputErrors\x12)\n\x0cother_errors\x18\x03 \x01(\x0b\x32\x13.fmp.RepeatedString\"\xbc\x01\n\x16InputValidationResults\x12G\n\x06values\x18\x01 \x03(\x0b\x32\x37.arista.workspace.v1.InputValidationResults.ValuesEntry\x1aY\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.arista.workspace.v1.InputValidationResult:\x02\x38\x01\"\xd3\x01\n\rTemplateError\x12.\n\x08line_num\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12/\n\texception\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06\x64\x65tail\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rexception_msg\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"D\n\x0eTemplateErrors\x12\x32\n\x06values\x18\x01 \x03(\x0b\x32\".arista.workspace.v1.TemplateError\"\xab\x02\n\x14\x43onfigletBuildResult\x12<\n\x0ftemplate_errors\x18\x01 \x01(\x0b\x32#.arista.workspace.v1.TemplateErrors\x12\x36\n\x10generated_config\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0bother_error\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0c\x65xecution_id\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x0cinput_errors\x18\x05 \x01(\x0b\x32 .arista.workspace.v1.InputErrors\"\xb9\x01\n\x15\x43onfigletBuildResults\x12\x46\n\x06values\x18\x01 \x03(\x0b\x32\x36.arista.workspace.v1.ConfigletBuildResults.ValuesEntry\x1aX\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32).arista.workspace.v1.ConfigletBuildResult:\x02\x38\x01\"\xfd\x01\n\x16\x43onfigValidationResult\x12\x36\n\x07summary\x18\x01 \x01(\x0b\x32%.arista.configstatus.v1.ConfigSummary\x12\x34\n\x06\x65rrors\x18\x02 \x01(\x0b\x32$.arista.configstatus.v1.ConfigErrors\x12\x36\n\x08warnings\x18\x03 \x01(\x0b\x32$.arista.configstatus.v1.ConfigErrors\x12=\n\x0e\x63onfig_sources\x18\x04 \x01(\x0b\x32%.arista.configstatus.v1.ConfigSources\"\xf2\x01\n\x15ImageValidationResult\x12\x34\n\x07summary\x18\x01 \x01(\x0b\x32#.arista.imagestatus.v1.ImageSummary\x12\x32\n\x06\x65rrors\x18\x02 \x01(\x0b\x32\".arista.imagestatus.v1.ImageErrors\x12\x36\n\x08warnings\x18\x03 \x01(\x0b\x32$.arista.imagestatus.v1.ImageWarnings\x12\x37\n\x11image_input_error\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xa3\x01\n\x0f\x42uildStageState\x12@\n\x06values\x18\x01 \x03(\x0b\x32\x30.arista.workspace.v1.BuildStageState.ValuesEntry\x1aN\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12.\n\x05value\x18\x02 \x01(\x0e\x32\x1f.arista.workspace.v1.BuildState:\x02\x38\x01\"\xbf\x01\n\x0b\x41uthzResult\x12?\n\x1bhas_unauthorized_tag_change\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x42\n\x1ehas_unauthorized_device_change\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"}\n\x11WorkspaceBuildKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08\x62uild_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x98\x02\n\x0eWorkspaceBuild\x12\x33\n\x03key\x18\x01 \x01(\x0b\x32&.arista.workspace.v1.WorkspaceBuildKey\x12.\n\x05state\x18\x02 \x01(\x0e\x32\x1f.arista.workspace.v1.BuildState\x12+\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08\x62uilt_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x0c\x61uthz_result\x18\x06 \x01(\x0b\x32 .arista.workspace.v1.AuthzResult:\x06\xfa\x8d\x19\x02roJ\x04\x08\x03\x10\x04\"\xb5\x01\n\x18WorkspaceBuildDetailsKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x08\x62uild_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tdevice_id\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x9c\x06\n\x15WorkspaceBuildDetails\x12:\n\x03key\x18\x01 \x01(\x0b\x32-.arista.workspace.v1.WorkspaceBuildDetailsKey\x12.\n\x05state\x18\x02 \x01(\x0e\x32\x1f.arista.workspace.v1.BuildState\x12.\n\x05stage\x18\x03 \x01(\x0e\x32\x1f.arista.workspace.v1.BuildStage\x12M\n\x18input_validation_results\x18\x04 \x01(\x0b\x32+.arista.workspace.v1.InputValidationResults\x12K\n\x17\x63onfiglet_build_results\x18\x05 \x01(\x0b\x32*.arista.workspace.v1.ConfigletBuildResults\x12M\n\x18\x63onfig_validation_result\x18\x06 \x01(\x0b\x32+.arista.workspace.v1.ConfigValidationResult\x12K\n\x17image_validation_result\x18\x07 \x01(\x0b\x32*.arista.workspace.v1.ImageValidationResult\x12T\n\x1c\x63onfig_validation_skip_cause\x18\x08 \x01(\x0e\x32..arista.workspace.v1.ConfigValidationSkipCause\x12R\n\x1bimage_validation_skip_cause\x18\t \x01(\x0e\x32-.arista.workspace.v1.ImageValidationSkipCause\x12?\n\x11\x62uild_stage_state\x18\n \x01(\x0b\x32$.arista.workspace.v1.BuildStageState\x12<\n\x0c\x61uthz_status\x18\x0b \x01(\x0e\x32&.arista.workspace.v1.DeviceAuthzStatus:\x06\xfa\x8d\x19\x02ro*\xcc\x01\n\x0eWorkspaceState\x12\x1f\n\x1bWORKSPACE_STATE_UNSPECIFIED\x10\x00\x12\x1b\n\x17WORKSPACE_STATE_PENDING\x10\x01\x12\x1d\n\x19WORKSPACE_STATE_SUBMITTED\x10\x02\x12\x1d\n\x19WORKSPACE_STATE_ABANDONED\x10\x03\x12\x1d\n\x19WORKSPACE_STATE_CONFLICTS\x10\x04\x12\x1f\n\x1bWORKSPACE_STATE_ROLLED_BACK\x10\x05*\xc2\x01\n\x07Request\x12\x17\n\x13REQUEST_UNSPECIFIED\x10\x00\x12\x17\n\x13REQUEST_START_BUILD\x10\x01\x12\x18\n\x14REQUEST_CANCEL_BUILD\x10\x02\x12\x12\n\x0eREQUEST_SUBMIT\x10\x03\x12\x13\n\x0fREQUEST_ABANDON\x10\x04\x12\x14\n\x10REQUEST_ROLLBACK\x10\x05\x12\x18\n\x14REQUEST_SUBMIT_FORCE\x10\x06\x12\x12\n\x0eREQUEST_REBASE\x10\x07*h\n\x0eResponseStatus\x12\x1f\n\x1bRESPONSE_STATUS_UNSPECIFIED\x10\x00\x12\x1b\n\x17RESPONSE_STATUS_SUCCESS\x10\x01\x12\x18\n\x14RESPONSE_STATUS_FAIL\x10\x02*W\n\x0cResponseCode\x12\x1d\n\x19RESPONSE_CODE_UNSPECIFIED\x10\x00\x12(\n$RESPONSE_CODE_INACTIVE_DEVICES_EXIST\x10\x01*\xa8\x01\n\nBuildState\x12\x1b\n\x17\x42UILD_STATE_UNSPECIFIED\x10\x00\x12\x1b\n\x17\x42UILD_STATE_IN_PROGRESS\x10\x01\x12\x18\n\x14\x42UILD_STATE_CANCELED\x10\x02\x12\x17\n\x13\x42UILD_STATE_SUCCESS\x10\x03\x12\x14\n\x10\x42UILD_STATE_FAIL\x10\x04\x12\x17\n\x13\x42UILD_STATE_SKIPPED\x10\x05*\xb1\x01\n\nBuildStage\x12\x1b\n\x17\x42UILD_STAGE_UNSPECIFIED\x10\x00\x12 \n\x1c\x42UILD_STAGE_INPUT_VALIDATION\x10\x01\x12\x1f\n\x1b\x42UILD_STAGE_CONFIGLET_BUILD\x10\x02\x12!\n\x1d\x42UILD_STAGE_CONFIG_VALIDATION\x10\x03\x12 \n\x1c\x42UILD_STAGE_IMAGE_VALIDATION\x10\x04*\x82\x01\n\x11\x44\x65viceAuthzStatus\x12#\n\x1f\x44\x45VICE_AUTHZ_STATUS_UNSPECIFIED\x10\x00\x12\"\n\x1e\x44\x45VICE_AUTHZ_STATUS_AUTHORIZED\x10\x01\x12$\n DEVICE_AUTHZ_STATUS_UNAUTHORIZED\x10\x02*\xd9\x01\n\x19\x43onfigValidationSkipCause\x12,\n(CONFIG_VALIDATION_SKIP_CAUSE_UNSPECIFIED\x10\x00\x12)\n%CONFIG_VALIDATION_SKIP_CAUSE_INACTIVE\x10\x01\x12\x30\n,CONFIG_VALIDATION_SKIP_CAUSE_PRE_PROVISIONED\x10\x02\x12\x31\n-CONFIG_VALIDATION_SKIP_CAUSE_CONFIG_UNCHANGED\x10\x03*\xd3\x01\n\x18ImageValidationSkipCause\x12+\n\'IMAGE_VALIDATION_SKIP_CAUSE_UNSPECIFIED\x10\x00\x12(\n$IMAGE_VALIDATION_SKIP_CAUSE_INACTIVE\x10\x01\x12/\n+IMAGE_VALIDATION_SKIP_CAUSE_PRE_PROVISIONED\x10\x02\x12/\n+IMAGE_VALIDATION_SKIP_CAUSE_IMAGE_UNCHANGED\x10\x03\x42\x30Z.arista/resources/arista/workspace.v1;workspaceb\x06proto3'
   ,
   dependencies=[fmp_dot_extensions__pb2.DESCRIPTOR,fmp_dot_wrappers__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,arista_dot_configstatus_dot_v1_dot_configstatus__pb2.DESCRIPTOR,arista_dot_imagestatus_dot_v1_dot_imagestatus__pb2.DESCRIPTOR,])
 
@@ -70,8 +70,8 @@ _WORKSPACESTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5019,
-  serialized_end=5223,
+  serialized_start=5379,
+  serialized_end=5583,
 )
 _sym_db.RegisterEnumDescriptor(_WORKSPACESTATE)
 
@@ -126,8 +126,8 @@ _REQUEST = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5226,
-  serialized_end=5420,
+  serialized_start=5586,
+  serialized_end=5780,
 )
 _sym_db.RegisterEnumDescriptor(_REQUEST)
 
@@ -157,8 +157,8 @@ _RESPONSESTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5422,
-  serialized_end=5526,
+  serialized_start=5782,
+  serialized_end=5886,
 )
 _sym_db.RegisterEnumDescriptor(_RESPONSESTATUS)
 
@@ -183,8 +183,8 @@ _RESPONSECODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5528,
-  serialized_end=5615,
+  serialized_start=5888,
+  serialized_end=5975,
 )
 _sym_db.RegisterEnumDescriptor(_RESPONSECODE)
 
@@ -229,8 +229,8 @@ _BUILDSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5618,
-  serialized_end=5786,
+  serialized_start=5978,
+  serialized_end=6146,
 )
 _sym_db.RegisterEnumDescriptor(_BUILDSTATE)
 
@@ -270,12 +270,43 @@ _BUILDSTAGE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5789,
-  serialized_end=5966,
+  serialized_start=6149,
+  serialized_end=6326,
 )
 _sym_db.RegisterEnumDescriptor(_BUILDSTAGE)
 
 BuildStage = enum_type_wrapper.EnumTypeWrapper(_BUILDSTAGE)
+_DEVICEAUTHZSTATUS = _descriptor.EnumDescriptor(
+  name='DeviceAuthzStatus',
+  full_name='arista.workspace.v1.DeviceAuthzStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_AUTHZ_STATUS_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_AUTHZ_STATUS_AUTHORIZED', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_AUTHZ_STATUS_UNAUTHORIZED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=6329,
+  serialized_end=6459,
+)
+_sym_db.RegisterEnumDescriptor(_DEVICEAUTHZSTATUS)
+
+DeviceAuthzStatus = enum_type_wrapper.EnumTypeWrapper(_DEVICEAUTHZSTATUS)
 _CONFIGVALIDATIONSKIPCAUSE = _descriptor.EnumDescriptor(
   name='ConfigValidationSkipCause',
   full_name='arista.workspace.v1.ConfigValidationSkipCause',
@@ -306,8 +337,8 @@ _CONFIGVALIDATIONSKIPCAUSE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5969,
-  serialized_end=6186,
+  serialized_start=6462,
+  serialized_end=6679,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIGVALIDATIONSKIPCAUSE)
 
@@ -342,8 +373,8 @@ _IMAGEVALIDATIONSKIPCAUSE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6189,
-  serialized_end=6400,
+  serialized_start=6682,
+  serialized_end=6893,
 )
 _sym_db.RegisterEnumDescriptor(_IMAGEVALIDATIONSKIPCAUSE)
 
@@ -378,6 +409,9 @@ BUILD_STAGE_INPUT_VALIDATION = 1
 BUILD_STAGE_CONFIGLET_BUILD = 2
 BUILD_STAGE_CONFIG_VALIDATION = 3
 BUILD_STAGE_IMAGE_VALIDATION = 4
+DEVICE_AUTHZ_STATUS_UNSPECIFIED = 0
+DEVICE_AUTHZ_STATUS_AUTHORIZED = 1
+DEVICE_AUTHZ_STATUS_UNAUTHORIZED = 2
 CONFIG_VALIDATION_SKIP_CAUSE_UNSPECIFIED = 0
 CONFIG_VALIDATION_SKIP_CAUSE_INACTIVE = 1
 CONFIG_VALIDATION_SKIP_CAUSE_PRE_PROVISIONED = 2
@@ -1344,6 +1378,52 @@ _BUILDSTAGESTATE = _descriptor.Descriptor(
 )
 
 
+_AUTHZRESULT = _descriptor.Descriptor(
+  name='AuthzResult',
+  full_name='arista.workspace.v1.AuthzResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='has_unauthorized_tag_change', full_name='arista.workspace.v1.AuthzResult.has_unauthorized_tag_change', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='has_unauthorized_device_change', full_name='arista.workspace.v1.AuthzResult.has_unauthorized_device_change', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.workspace.v1.AuthzResult.error', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3792,
+  serialized_end=3983,
+)
+
+
 _WORKSPACEBUILDKEY = _descriptor.Descriptor(
   name='WorkspaceBuildKey',
   full_name='arista.workspace.v1.WorkspaceBuildKey',
@@ -1378,8 +1458,8 @@ _WORKSPACEBUILDKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3791,
-  serialized_end=3916,
+  serialized_start=3985,
+  serialized_end=4110,
 )
 
 
@@ -1412,6 +1492,20 @@ _WORKSPACEBUILD = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='built_by', full_name='arista.workspace.v1.WorkspaceBuild.built_by', index=3,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='authz_result', full_name='arista.workspace.v1.WorkspaceBuild.authz_result', index=4,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1424,8 +1518,8 @@ _WORKSPACEBUILD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3919,
-  serialized_end=4095,
+  serialized_start=4113,
+  serialized_end=4393,
 )
 
 
@@ -1470,8 +1564,8 @@ _WORKSPACEBUILDDETAILSKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4098,
-  serialized_end=4279,
+  serialized_start=4396,
+  serialized_end=4577,
 )
 
 
@@ -1553,6 +1647,13 @@ _WORKSPACEBUILDDETAILS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='authz_status', full_name='arista.workspace.v1.WorkspaceBuildDetails.authz_status', index=10,
+      number=11, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1565,8 +1666,8 @@ _WORKSPACEBUILDDETAILS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4282,
-  serialized_end=5016,
+  serialized_start=4580,
+  serialized_end=5376,
 )
 
 _REQUESTPARAMS.fields_by_name['request_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
@@ -1631,11 +1732,16 @@ _IMAGEVALIDATIONRESULT.fields_by_name['image_input_error'].message_type = google
 _BUILDSTAGESTATE_VALUESENTRY.fields_by_name['value'].enum_type = _BUILDSTATE
 _BUILDSTAGESTATE_VALUESENTRY.containing_type = _BUILDSTAGESTATE
 _BUILDSTAGESTATE.fields_by_name['values'].message_type = _BUILDSTAGESTATE_VALUESENTRY
+_AUTHZRESULT.fields_by_name['has_unauthorized_tag_change'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_AUTHZRESULT.fields_by_name['has_unauthorized_device_change'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_AUTHZRESULT.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WORKSPACEBUILDKEY.fields_by_name['workspace_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WORKSPACEBUILDKEY.fields_by_name['build_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WORKSPACEBUILD.fields_by_name['key'].message_type = _WORKSPACEBUILDKEY
 _WORKSPACEBUILD.fields_by_name['state'].enum_type = _BUILDSTATE
 _WORKSPACEBUILD.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_WORKSPACEBUILD.fields_by_name['built_by'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_WORKSPACEBUILD.fields_by_name['authz_result'].message_type = _AUTHZRESULT
 _WORKSPACEBUILDDETAILSKEY.fields_by_name['workspace_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WORKSPACEBUILDDETAILSKEY.fields_by_name['build_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WORKSPACEBUILDDETAILSKEY.fields_by_name['device_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
@@ -1649,6 +1755,7 @@ _WORKSPACEBUILDDETAILS.fields_by_name['image_validation_result'].message_type = 
 _WORKSPACEBUILDDETAILS.fields_by_name['config_validation_skip_cause'].enum_type = _CONFIGVALIDATIONSKIPCAUSE
 _WORKSPACEBUILDDETAILS.fields_by_name['image_validation_skip_cause'].enum_type = _IMAGEVALIDATIONSKIPCAUSE
 _WORKSPACEBUILDDETAILS.fields_by_name['build_stage_state'].message_type = _BUILDSTAGESTATE
+_WORKSPACEBUILDDETAILS.fields_by_name['authz_status'].enum_type = _DEVICEAUTHZSTATUS
 DESCRIPTOR.message_types_by_name['RequestParams'] = _REQUESTPARAMS
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
 DESCRIPTOR.message_types_by_name['Responses'] = _RESPONSES
@@ -1666,6 +1773,7 @@ DESCRIPTOR.message_types_by_name['ConfigletBuildResults'] = _CONFIGLETBUILDRESUL
 DESCRIPTOR.message_types_by_name['ConfigValidationResult'] = _CONFIGVALIDATIONRESULT
 DESCRIPTOR.message_types_by_name['ImageValidationResult'] = _IMAGEVALIDATIONRESULT
 DESCRIPTOR.message_types_by_name['BuildStageState'] = _BUILDSTAGESTATE
+DESCRIPTOR.message_types_by_name['AuthzResult'] = _AUTHZRESULT
 DESCRIPTOR.message_types_by_name['WorkspaceBuildKey'] = _WORKSPACEBUILDKEY
 DESCRIPTOR.message_types_by_name['WorkspaceBuild'] = _WORKSPACEBUILD
 DESCRIPTOR.message_types_by_name['WorkspaceBuildDetailsKey'] = _WORKSPACEBUILDDETAILSKEY
@@ -1676,6 +1784,7 @@ DESCRIPTOR.enum_types_by_name['ResponseStatus'] = _RESPONSESTATUS
 DESCRIPTOR.enum_types_by_name['ResponseCode'] = _RESPONSECODE
 DESCRIPTOR.enum_types_by_name['BuildState'] = _BUILDSTATE
 DESCRIPTOR.enum_types_by_name['BuildStage'] = _BUILDSTAGE
+DESCRIPTOR.enum_types_by_name['DeviceAuthzStatus'] = _DEVICEAUTHZSTATUS
 DESCRIPTOR.enum_types_by_name['ConfigValidationSkipCause'] = _CONFIGVALIDATIONSKIPCAUSE
 DESCRIPTOR.enum_types_by_name['ImageValidationSkipCause'] = _IMAGEVALIDATIONSKIPCAUSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -1830,6 +1939,13 @@ BuildStageState = _reflection.GeneratedProtocolMessageType('BuildStageState', (_
   })
 _sym_db.RegisterMessage(BuildStageState)
 _sym_db.RegisterMessage(BuildStageState.ValuesEntry)
+
+AuthzResult = _reflection.GeneratedProtocolMessageType('AuthzResult', (_message.Message,), {
+  'DESCRIPTOR' : _AUTHZRESULT,
+  '__module__' : 'arista.workspace.v1.workspace_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.AuthzResult)
+  })
+_sym_db.RegisterMessage(AuthzResult)
 
 WorkspaceBuildKey = _reflection.GeneratedProtocolMessageType('WorkspaceBuildKey', (_message.Message,), {
   'DESCRIPTOR' : _WORKSPACEBUILDKEY,
