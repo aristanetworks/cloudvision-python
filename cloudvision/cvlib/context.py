@@ -815,8 +815,12 @@ class Context:
         By default only devices in the topology are returned.
         '''
         devices = []
-        for devId, tags in self.tags._getAllDeviceTags().items():
-            if tags.get(tag.label) and (not tag.value or tag.value in tags[tag.label]):
+        # Note use list instead of .items()
+        # parallel thread might add/delete tags
+        for devId in list(allTags := self.tags._getAllDeviceTags()):
+            tags = allTags.get(devId, {})
+            if tags.get(tag.label) and (
+                    not tag.value or tag.value in tags.get(tag.label, [])):
                 if dev := self.topology._deviceMap.get(devId) if self.topology else None:
                     devices.append(dev)
                 elif not inTopology:

@@ -84,10 +84,12 @@ class Device:
         devTags: List[Tag] = []
         if not (ctxDevTags := ctx.tags._getDeviceTags(self.id)):
             return devTags
-        for tagLabel, values in ctxDevTags.items():
+        # Note use list instead of .items()
+        # parallel thread might add/delete tags
+        for tagLabel in list(ctxDevTags):
             if label and label != tagLabel:
                 continue
-            for value in values:
+            for value in ctxDevTags.get(tagLabel, []):
                 devTags.append(Tag(tagLabel, value))
         return devTags
 

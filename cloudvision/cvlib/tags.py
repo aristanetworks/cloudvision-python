@@ -77,8 +77,11 @@ class Tags:
         self.relevantTagAssigns: Dict = {}
 
     def _tagExists(self, label: str, value: str):
-        for dev, tags in self._getAllDeviceTags().items():
-            if tags.get(label) and value in tags[label]:
+        # Note use list instead of .items()
+        # parallel thread might add/delete tags
+        for dev in list(allTags := self._getAllDeviceTags()):
+            tags = allTags.get(dev, {})
+            if value in tags.get(label, []):
                 return True
         return False
 
