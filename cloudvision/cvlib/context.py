@@ -167,13 +167,6 @@ class Context:
         based on the current user auth token
         :return: cloudvision Connector client
         '''
-        # Use test api addresses for client if they were set
-        if self.connections.testAddresses:
-            testAddr = self.connections.testAddresses.get("apiServer")
-            if not testAddr:
-                return None
-            return GRPCClient(testAddr)
-
         if self.__connector:
             return self.__connector
         if self.connections.apiserverAddr is None or self.user is None:
@@ -191,29 +184,13 @@ class Context:
         :param: stub of the resource api to connect to
         :return: resource api client to the passed stub
         '''
-        def add_user_context(chann, default_org=False):
+        def add_user_context(chann):
             # If provided, add the user context to the grpc metadata
             # This allows the context to access services correctly
             if self.user is not None:
                 username_interceptor = addHeaderInterceptor(USERNAME, self.user.username)
-                if default_org:
-                    dataset_interceptor = addHeaderInterceptor(DATASET_TYPE, 'user')
-                    org_interceptor = addHeaderInterceptor(ORGANIZATION, 'Default')
-                    chann = grpc.intercept_channel(chann, username_interceptor,
-                                                   dataset_interceptor, org_interceptor)
-                else:
-                    chann = grpc.intercept_channel(chann, username_interceptor)
+                chann = grpc.intercept_channel(chann, username_interceptor)
             return chann
-
-        # Use test api addresses for client if they were set
-        if self.connections.testAddresses:
-            testAddr = self.connections.testAddresses.get(stub.__name__)
-            if not testAddr:
-                return None
-            chann = grpc.insecure_channel(testAddr)
-            chann = add_user_context(chann, default_org=True)
-            stubChann = stub(chann)
-            return stubChann
 
         if self.__serviceChann:
             return stub(self.__serviceChann)
