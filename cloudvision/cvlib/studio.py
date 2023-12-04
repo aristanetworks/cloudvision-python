@@ -67,8 +67,14 @@ def getStudioInputs(clientGetter, studioId: str, workspaceId: str, path: List[st
         resp = client.GetOne(req)
         inputs = json.loads(resp.value.inputs.value)
         return inputs
-    except Exception as e:
-        raise InputRequestException(path, e)
+    except RpcError as exc:
+        # If the state does not exist for the workspace, reraise the original
+        # exception as something went wrong
+        if exc.code() == StatusCode.NOT_FOUND:
+            raise InputNotFoundException(
+                path, (f"inputs for workspace '{workspaceId}', studio '{studioId}',"
+                       " path {path} does not exist")) from None
+        raise InputRequestException(path, f"Unable to retrieve inputs: {exc}") from None
 
 
 def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: List[str], value: str):
@@ -88,8 +94,8 @@ def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: Lis
     )
     try:
         client.Set(request=req)
-    except Exception as e:
-        raise InputUpdateException(inputPath, f"Value {value} was not set: {e}")
+    except RpcError as exc:
+        raise InputUpdateException(inputPath, f"Value {value} was not set: {exc}") from None
 
 
 def extractInputElems(inputs, inputPath: List[str], elems: List[str] = [],
