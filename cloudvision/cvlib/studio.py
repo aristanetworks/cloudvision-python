@@ -2,12 +2,13 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-from typing import Dict, List
+from typing import Any, Dict, List
 import json
 from fmp import wrappers_pb2 as fmp_wrappers
 import google.protobuf.wrappers_pb2 as pb
 from grpc import StatusCode, RpcError
 from arista.studio.v1 import models, services
+from arista.time.time_pb2 import TimeBounds
 
 from .constants import (
     MAINLINE_WS_ID,
@@ -18,7 +19,6 @@ from .constants import (
 from .exceptions import (
     InputException,
     InputNotFoundException,
-    InputRequestException,
     InputUpdateException
 )
 from .utils import extractJSONEncodedListArg
@@ -50,31 +50,130 @@ class Studio:
 
 def getStudioInputs(clientGetter, studioId: str, workspaceId: str, path: List[str] = []):
     '''
-    Uses the passed ctx.getApiClient function reference to
-    issue a get to the Studio inputs rAPI to get the
-    associated studio inputs using the passed path.
-    Path MUST be a non-None list, and omitting this argument retrieves the full studio input tree
+    Uses the passed ctx.getApiClient function reference to issue get the current input state for
+    given combination of studioId, workspaceId and path.
+    Path MUST be a non-None list, omitting this argument retrieves the full studio input tree.
+    This function falls back to mainline state at workspace creation time (or last rebase time)
+    to build up the state should the workspace studio state not be created yet and checks to see
+    if any deletes would affect the requested input.
+
+    Raises an InputNotFoundException if the input requested does not exist.
     '''
     if path is None:
         raise TypeError("Path must be a non-None value")
+
+    inputs = __getStudioInputs(clientGetter, studioId, workspaceId, path)
+    if not inputs:
+        # If we're searching for inputs on mainline and we receive none from the getAll,
+        # raise an exception
+        if workspaceId == MAINLINE_WS_ID:
+            raise InputNotFoundException(
+                path, f"Mainline inputs for studio {studioId} do not exist")
+
+        # Check the config endpoint for the workspace to ensure that
+        # the mainline value has not been deleted
+        # We need to check each individual subpath for deletes as they will take precedence
+        # We don't need to check the timestamps as if they have been overwritten, then
+        # state will exist and we will not reach here
+        for i in range(len(path) + 1):
+            subpath = path[:i]
+            try:
+                conf = __getStudioInputConfig(clientGetter, studioId, workspaceId, subpath)
+            except InputNotFoundException:
+                continue
+            if conf.remove.value:
+                raise InputNotFoundException(
+                    path, (f"Inputs for studio {studioId} at path {path} in "
+                           f"workspace {workspaceId} have been deleted"))
+
+        # Get the lastRebasedAt timestamp, or if that's null, then the createdAt timestamp
+        # of the workspace such that the correct mainline state is retrieved
+        wsTs = getWorkspaceLastSynced(clientGetter, workspaceId)
+        mainlineInputs = __getStudioInputs(clientGetter, studioId, MAINLINE_WS_ID, path,
+                                           start=wsTs, end=wsTs)
+        if not mainlineInputs:
+            raise InputNotFoundException(path, f"Inputs for studio {studioId} do not exist")
+
+        inputs = mainlineInputs
+
+    # In the case where a path has been specified, the inputs reflect that subtree from the root
+    # input, rather than from the specified path. We need to iterate through the inputs down to
+    # the path desired to return only the requested portion
+
+    finalInput = inputs
+    for pthElem in path:
+        try:
+            finalInput = finalInput[pthElem]
+        except TypeError:
+            # Stringified input path will stringify all elements, even integer values,
+            # so there are cases where list elements are attempted to be accessed with
+            # stringified indices. Attempt conversion to int and retry
+            try:
+                idx = int(pthElem)
+                finalInput = finalInput[idx]
+            except IndexError as idxE:
+                raise InputNotFoundException(path, f"'{pthElem}' {idxE}") from None
+            except (TypeError, ValueError):
+                raise InputNotFoundException(
+                    path, f"{pthElem} not present in inputs {finalInput}") from None
+        except (KeyError, IndexError) as e:
+            raise InputNotFoundException(
+                path, f"{pthElem} not present in inputs {finalInput}: {e}") from None
+
+    return finalInput
+
+
+def __getStudioInputs(clientGetter, studioId: str, workspaceId: str, path: List[str] = [],
+                      start=None, end=None):
     client = clientGetter(services.InputsServiceStub)
     wid = pb.StringValue(value=workspaceId)
     sid = pb.StringValue(value=studioId)
     key = models.InputsKey(studio_id=sid, workspace_id=wid,
                            path=fmp_wrappers.RepeatedString(values=path))
-    req = services.InputsRequest(key=key)
+    p_filter = models.Inputs(key=key)
+
+    startTs = None
+    endTs = None
+    if start:
+        startTs = start
+    if end:
+        endTs = end
+    timeBound = TimeBounds(start=startTs, end=endTs)
+    req = services.InputsStreamRequest(time=timeBound)
+    req.partial_eq_filter.append(p_filter)
+
+    inputs = None
+    # We need to issue the get requests as part of a GetAll to allow for truncated inputs
+    for res in client.GetAll(req):
+        inpResp = res.value
+        if not inpResp.inputs:
+            continue
+        path = inpResp.key.path.values
+        split = json.loads(inpResp.inputs.value)
+        inputs = mergeStudioInputs(inputs, path, split)
+
+    return inputs
+
+
+def __getStudioInputConfig(clientGetter, studioId: str, workspaceId: str, path: List[str] = []):
+    client = clientGetter(services.InputsConfigServiceStub)
+    wid = pb.StringValue(value=workspaceId)
+    sid = pb.StringValue(value=studioId)
+    key = models.InputsKey(studio_id=sid, workspace_id=wid,
+                           path=fmp_wrappers.RepeatedString(values=path))
+    req = services.InputsConfigRequest(key=key)
+
     try:
-        resp = client.GetOne(req)
-        inputs = json.loads(resp.value.inputs.value)
-        return inputs
-    except RpcError as exc:
-        # If the state does not exist for the workspace, reraise the original
-        # exception as something went wrong
-        if exc.code() == StatusCode.NOT_FOUND:
+        configResp = client.GetOne(req)
+    except RpcError as confExc:
+        # If the config does not exist for the workspace, return the mainline state
+        if confExc.code() == StatusCode.NOT_FOUND:
             raise InputNotFoundException(
-                path, (f"inputs for workspace '{workspaceId}', studio '{studioId}',"
-                       " path {path} does not exist")) from None
-        raise InputRequestException(path, f"Unable to retrieve inputs: {exc}") from None
+                path, (f"Config not found for input key with studio {studioId}"
+                       f"workspace {workspaceId} and path {path}"))
+        raise
+
+    return configResp.value
 
 
 def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: List[str], value: str):
@@ -255,7 +354,6 @@ def GetOneWithWS(apiClientGetter, stateStub, stateGetReq, configStub, confGetReq
         # Get the lastRebasedAt timestamp, or if that's null, then the createdAt timestamp
         # of the workspace such that the correct mainline state is retrieved
         wsTs = getWorkspaceLastSynced(apiClientGetter, stateGetReq.key.workspace_id.value)
-
         # Try again for the mainline state
         stateGetReq.key.workspace_id.value = MAINLINE_WS_ID
         stateGetReq.time = wsTs
@@ -289,3 +387,89 @@ def GetOneWithWS(apiClientGetter, stateStub, stateGetReq, configStub, confGetReq
             return None
 
     return result.value
+
+
+def mergeStudioInputs(rootInputs: Any, path: List[Any], inputsToInsert: Any):
+    '''
+    Due to grpc messaging limits, large inputs may be sent out to get requests
+    in chunks, and should be retrieved with a GetAll to ensure all inputs
+    for a given studio are received.
+
+    In the case where a studio resource returns inputs in multiple responses, they need to
+    be spliced together to form a cohesive input object.
+
+    Params:
+    - rootInputs:       The root object to insert the new inputs into
+    - path:             The path in the rootInputs to insert the inputs into
+    - inputsToInsert:   The inputs to insert into the root inputs
+
+    Returns:
+    - The updated root inputs
+    '''
+    prevElem: Any | None = None
+    prev = rootInputs
+    currElem = None
+    curr = rootInputs
+
+    # Walk down the path from the root to the value at the final element, creating any sub-objects
+    # or sub-lists along the way if they don't exist.
+    for currElem in path:
+        # This element is a list index...
+        if currElem.isnumeric():
+            # If the current value is not a list, set it to one.
+            if not isinstance(curr, list):
+                if prevElem is None:
+                    rootInputs = []
+                    curr = rootInputs
+                elif prevElem.isnumeric():
+                    prevElemInt = int(prevElem)
+                    prev[prevElemInt] = []
+                    curr = prev[prevElemInt]
+                else:
+                    prev[prevElem] = []
+                    curr = prev[prevElem]
+            # If this index is past the last index of the current list, extend the list until
+            # it is big enough for it.
+            currElemInt = int(currElem)
+            if currElemInt >= len(curr):
+                while len(curr) < currElemInt + 1:
+                    curr.append(None)
+            # Move to the value at the index.
+            prevElem = currElem
+            prev = curr
+            curr = curr[currElemInt]
+        # Otherwise this element is an object key...
+        else:
+            # If the current value is not an object, set it to one.
+            if not isinstance(curr, dict):
+                if prevElem is None:
+                    rootInputs = {}
+                    curr = rootInputs
+                elif prevElem.isnumeric():
+                    prevElemInt = int(prevElem)
+                    prev[prevElemInt] = {}
+                    curr = prev[prevElemInt]
+                else:
+                    prev[prevElem] = {}
+                    curr = prev[prevElem]
+            # If the current value does not contain this
+            # key, add it.
+            if currElem not in curr:
+                curr[currElem] = None
+            # Move to the value at the key.
+            prevElem = currElem
+            prev = curr
+            curr = curr[currElem]
+    # If the path leads to an object, then merge it with the previous object.
+    if isinstance(curr, dict):
+        curr.update(inputsToInsert)
+
+    # If it leads to any other type, then  simply set it to the inputsToInsert.
+    else:
+        if currElem is None:
+            rootInputs = inputsToInsert
+        elif currElem.isnumeric():
+            prev[int(currElem)] = inputsToInsert
+        else:
+            prev[currElem] = inputsToInsert
+    return rootInputs
