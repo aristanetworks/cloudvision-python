@@ -10,6 +10,7 @@ from grpc import StatusCode, RpcError
 from arista.studio.v1 import models, services
 
 from .constants import (
+    MAINLINE_WS_ID,
     INPUT_PATH_ARG,
     STUDIO_ID_ARG,
     WORKSPACE_ID_ARG,
@@ -21,8 +22,7 @@ from .exceptions import (
     InputUpdateException
 )
 from .utils import extractJSONEncodedListArg
-
-MAINLINE_WS_ID = ""
+from .workspace import getWorkspaceLastSynced
 
 
 class Studio:
@@ -252,8 +252,13 @@ def GetOneWithWS(apiClientGetter, stateStub, stateGetReq, configStub, confGetReq
         if stateGetReq.key.workspace_id.value == MAINLINE_WS_ID:
             raise
 
+        # Get the lastRebasedAt timestamp, or if that's null, then the createdAt timestamp
+        # of the workspace such that the correct mainline state is retrieved
+        wsTs = getWorkspaceLastSynced(apiClientGetter, stateGetReq.key.workspace_id.value)
+
         # Try again for the mainline state
         stateGetReq.key.workspace_id.value = MAINLINE_WS_ID
+        stateGetReq.time = wsTs
         try:
             result = stateClient.GetOne(stateGetReq)
         except RpcError as mainlineExc:

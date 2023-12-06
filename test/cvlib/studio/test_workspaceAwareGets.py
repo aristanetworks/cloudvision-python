@@ -3,10 +3,11 @@
 # that can be found in the COPYING file.
 
 import pytest
-from unittest.mock import MagicMock, PropertyMock
+import time
+from unittest.mock import MagicMock, PropertyMock, patch
 from grpc import StatusCode, RpcError
 from cloudvision.cvlib import GetOneWithWS
-from cloudvision.cvlib.studio import MAINLINE_WS_ID
+from cloudvision.cvlib.constants import MAINLINE_WS_ID
 
 
 rpcNotFound = RpcError()
@@ -128,13 +129,15 @@ def test_get_one(name, ws, stateReturn, stateVal, confReturn, confRm, errCode):
     # Set up the return value of the state, if present
     type(mockConfig.value).remove = PropertyMock(return_value=confRm)
 
-    if errCode:
-        with pytest.raises(RpcError) as excInfo:
-            GetOneWithWS(mockApiClientGetter, mockStub, mockGetReq, mockStub, mockGetReq)
-        assert excInfo.value.code() == errCode
-    else:
-        val = GetOneWithWS(mockApiClientGetter, mockStub, mockGetReq, mockStub, mockGetReq)
-        if confRm:
-            assert val is None
+    with patch('cloudvision.cvlib.studio.getWorkspaceLastSynced',
+               return_value=time.time()):
+        if errCode:
+            with pytest.raises(RpcError) as excInfo:
+                GetOneWithWS(mockApiClientGetter, mockStub, mockGetReq, mockStub, mockGetReq)
+            assert excInfo.value.code() == errCode
         else:
-            assert val == stateVal
+            val = GetOneWithWS(mockApiClientGetter, mockStub, mockGetReq, mockStub, mockGetReq)
+            if confRm:
+                assert val is None
+            else:
+                assert val == stateVal
