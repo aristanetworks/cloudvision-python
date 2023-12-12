@@ -7,22 +7,23 @@ from .changecontrol import ChangeControl
 from .connections import AuthAndEndpoints
 from .context import Context, LoggingLevel
 from .device import Device, Interface
-from .execution import Execution
 from .exceptions import *
+from .execution import Execution
 from .logger import Logger
 from .studio import (
+    GetOneWithWS,
     Studio,
-    setStudioInput,
-    setStudioInputs,
-    getStudioInputs,
+    StudioCustomData,
     extractInputElems,
     extractStudioInfoFromArgs,
-    GetOneWithWS,
     getSimpleResolverQueryValue,
+    getStudioInputs,
+    setStudioInput,
+    setStudioInputs,
 )
 from .tags import Tag, Tags
 from .topology import Connection, Topology
 from .user import User
 from .workspace import Workspace
 
-__version__ = "1.7.0"
+__version__ = "1.7.1"

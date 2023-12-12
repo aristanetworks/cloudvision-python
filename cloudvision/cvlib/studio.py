@@ -2,24 +2,26 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-from typing import Any, Dict, List, Tuple
 import json
-from fmp import wrappers_pb2 as fmp_wrappers
+from typing import Any, Dict, List, Tuple
+
 import google.protobuf.wrappers_pb2 as pb
-from grpc import StatusCode, RpcError
+from google.protobuf.timestamp_pb2 import Timestamp
+from grpc import RpcError, StatusCode
+
 from arista.studio.v1 import models, services
 from arista.time.time_pb2 import TimeBounds
+from cloudvision.Connector.codec import Path
+from cloudvision.Connector.grpc_client import create_notification
+from fmp import wrappers_pb2 as fmp_wrappers
 
-from .constants import (
-    MAINLINE_WS_ID,
-    INPUT_PATH_ARG,
-    STUDIO_ID_ARG,
-    WORKSPACE_ID_ARG,
-)
+from .constants import INPUT_PATH_ARG, MAINLINE_WS_ID, STUDIO_ID_ARG, WORKSPACE_ID_ARG
 from .exceptions import (
     InputException,
     InputNotFoundException,
-    InputUpdateException
+    InputUpdateException,
+    InvalidContextException,
+    InvalidCredentials,
 )
 from .utils import extractJSONEncodedListArg
 from .workspace import getWorkspaceLastSynced
@@ -46,6 +48,134 @@ class Studio:
         self.logger = logger
         self.execId = execId
         self.buildId = buildId
+
+
+class StudioCustomData:
+    '''
+    Object to store studio custom data context:
+    - context:   stores system and user-defined parameters.
+    - chunk_size: chunk size of stored data.
+    '''
+
+    def __init__(self, context):
+        self.context = context
+        self.chunk_size = 1000 * 1024
+
+    def __getBuildPath(self, studioId, path, key) -> List[str]:
+        '''
+        Builds a path for use in store/retrieve of studio custom data during a build
+        using the studioId, path and key provided by the user. All paths contain
+        "workspace/<wsId>/build/<buildId>/studio/<studioId>/customdata" as the root.
+        Raises InvalidContextException if not enough context information is present
+        to create a key
+        '''
+        if (studioId and self.context and self.context.studio
+                and self.context.studio.buildId):
+            workpaceId = self.context.getWorkspaceId()
+            return ["workspace", workpaceId, "status", "build",
+                    self.context.studio.buildId, "studio", studioId,
+                    "customdata"] + path + [key]
+        raise InvalidContextException(
+            "store/retrieve requires context with studio and"
+            + "build associated with it.")
+
+    def __getMainlinePath(self, studioId, path, key) -> List[str]:
+        '''
+        Builds a path for use in retrieve of studio custom data from mainline
+        using studioID, path and key. All paths contain
+        "/studio/<studioId>/customdata" as the root.
+        '''
+        return ["studio", studioId, "customdata"] + path + [key]
+
+    def store(self, data: str = "", path: List[str] = [], key: str = ""):
+        '''
+        store puts the passed studio custom data into a path in the Database.
+        The data is stored in 1MB chunks.
+
+        Params:
+        - data:      The string data to be stored.
+        - path:      The path to store the data at, in the form of a list of strings.
+                     paths have "workspace/<wsId>/build/<buildId>/studio/<studioId>/customdata"
+                     as the root.
+        - key:       The key to store the data at in the path.
+         '''
+        if not isinstance(data, str):
+            raise TypeError("only string data is allowed.")
+        if not self.context or not self.context.studio:
+            raise InvalidContextException("store requires a studio in the context.")
+        if not data:
+            raise ValueError("no data added.")
+        if not key:
+            raise ValueError("invalid key.")
+
+        ts = Timestamp()
+        ts.GetCurrentTime()
+        storagePath = self.__getBuildPath(self.context.studio.studioId, path, key)
+        # Generate the list of path pointer notifs that lead to the new entry
+        notifs = []
+        for i, pathElem in enumerate(storagePath):
+            # skip creation of workspace and build pointers
+            if i <= 4:
+                continue
+            pathPointerPath = storagePath[:i]
+            pathPointerUpdate = [(pathElem, Path(keys=storagePath[:i + 1]))]
+            notifs.append(create_notification(ts, pathPointerPath,
+                                              updates=pathPointerUpdate))
+
+        try:
+            self.context.getCvClient().publish(dId="cvp", notifs=notifs)
+            # publish data
+            for i in range(0, len(data), self.chunk_size):
+                update = [(f"{key}_{i // self.chunk_size}", data[i:i + self.chunk_size])]
+                notifs = [create_notification(ts, storagePath, updates=update)]
+                self.context.getCvClient().publish(dId="cvp", notifs=notifs)
+        except RpcError as exc:
+            # If the exception is not a permissions error, reraise the original
+            # exception as something went wrong
+            if exc.code() != StatusCode.PERMISSION_DENIED:
+                raise
+            raise InvalidCredentials(
+                f"Context user does not have permission to write to path '{storagePath}'")
+
+    def retrieve(self, studioId: str = "", path: List[str] = [], searchKey: str = ""):
+        '''
+        retrieve gets the custom data from a path and key written by a studio
+        in the Database.
+        Params:
+        - studioId:  The studioId of studio that generates the data to be retrieved.
+        - path:      The path to get the data from, path is a list of strings.
+        - key:       The key to get the data from in the path.
+        '''
+        if not studioId:
+            raise ValueError("studioId must be provided")
+        if not searchKey:
+            raise ValueError("invalid key.")
+        if not self.context:
+            raise InvalidContextException("retrieve requires context to be set")
+
+        try:
+            data = dict()
+            try:
+                storagePath = self.__getBuildPath(studioId, path, searchKey)
+                data = self.context.Get(storagePath, [], "cvp")
+            except InvalidContextException as e:
+                self.context.logger.info(
+                    self, "custom data not found in build:  {}".format(e.message))
+            # get data from mainline if data is not generated during build.
+            if not data:
+                self.context.logger.info(self, "reading custom data from mainline.")
+                storagePath = self.__getMainlinePath(studioId, path, searchKey)
+                data = self.context.Get(storagePath, [], "cvp")
+            return ''.join(data[k] for k in
+                           sorted(data.keys(), key=lambda x: int(x.split(f'{searchKey}_')[1]))
+                           if isinstance(data[k], str))
+        except RpcError as exc:
+            if exc.code() != StatusCode.PERMISSION_DENIED:
+                raise
+            raise InvalidCredentials(
+                f"Context user does not have permission to read from path '{storagePath}'")
+        except IndexError:
+            raise ValueError("Invalid Key format: {}".format(data.keys()))
 
 
 def getStudioInputs(clientGetter, studioId: str, workspaceId: str, path: List[str] = []):

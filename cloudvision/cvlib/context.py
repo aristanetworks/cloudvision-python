@@ -3,41 +3,41 @@
 # that can be found in the COPYING file.
 
 import json
-from logging import getLogger
-from enum import IntEnum
-from typing import List, Optional, Any, Dict
 import signal
-from time import process_time_ns
 from collections.abc import Callable
+from enum import IntEnum
+from logging import getLogger
+from time import process_time_ns
+from typing import Any, Dict, List, Optional
+
 import grpc
 import requests
-from grpc import StatusCode, RpcError
 from google.protobuf.timestamp_pb2 import Timestamp
+from grpc import RpcError, StatusCode
 
 from cloudvision.Connector.codec import Path
-from cloudvision.Connector.grpc_client import GRPCClient, create_notification, create_query
+from cloudvision.Connector.grpc_client import (
+    GRPCClient,
+    create_notification,
+    create_query,
+)
 
 from .action import Action
 from .changecontrol import ChangeControl
-from .connections import addHeaderInterceptor, AuthAndEndpoints
-from .constants import (
-    BUILD_ID_ARG,
-    STUDIO_ID_ARG,
-    STUDIO_IDS_ARG,
-    WORKSPACE_ID_ARG,
-)
+from .connections import AuthAndEndpoints, addHeaderInterceptor
+from .constants import BUILD_ID_ARG, STUDIO_ID_ARG, STUDIO_IDS_ARG, WORKSPACE_ID_ARG
 from .device import Device, Interface
-from .execution import Execution
 from .exceptions import (
     ConnectionFailed,
     DeviceCommandsFailed,
     InvalidContextException,
     InvalidCredentials,
-    TimeoutExpiry
+    TimeoutExpiry,
 )
+from .execution import Execution
 from .logger import Logger
-from .studio import Studio
-from .tags import Tags, Tag
+from .studio import Studio, StudioCustomData
+from .tags import Tag, Tags
 from .topology import Topology
 from .user import User
 from .utils import extractJSONEncodedListArg
@@ -112,6 +112,7 @@ class Context:
         self.stats: Dict = {}
         self.benchmarking = False
         self.tags = Tags(self)
+        self.studioCustomData = StudioCustomData(self)
         self.workspace: Optional[Workspace] = None
 
     def getDevice(self):
