@@ -9,6 +9,7 @@ import pytest
 from cloudvision.cvlib import (
     Context,
     Device,
+    Interface,
     Topology,
     Tags,
     Tag
@@ -25,11 +26,18 @@ from arista.tag.v2.services import (
 def convertListToStream(assignmentList):
     stream = []
     for assign in assignmentList:
-        device, tag, value = assign
         item = TagAssignmentStreamResponse()
-        item.value.key.device_id.value = device
-        item.value.key.label.value = tag
-        item.value.key.value.value = value
+        if len(assign) == 3:
+            device, tag, value = assign
+            item.value.key.device_id.value = device
+            item.value.key.label.value = tag
+            item.value.key.value.value = value
+        elif len(assign) == 4:
+            device, interface, tag, value = assign
+            item.value.key.device_id.value = device
+            item.value.key.interface_id.value = interface
+            item.value.key.label.value = tag
+            item.value.key.value.value = value
         stream.append(item)
     return stream
 
@@ -37,12 +45,20 @@ def convertListToStream(assignmentList):
 def convertListToConfigStream(assignmentConfigList):
     stream = []
     for assign in assignmentConfigList:
-        device, tag, value, remove = assign
         item = TagAssignmentConfigStreamResponse()
-        item.value.key.device_id.value = device
-        item.value.key.label.value = tag
-        item.value.key.value.value = value
-        item.value.remove.value = remove
+        if len(assign) == 4:
+            device, tag, value, remove = assign
+            item.value.key.device_id.value = device
+            item.value.key.label.value = tag
+            item.value.key.value.value = value
+            item.value.remove.value = remove
+        elif len(assign) == 5:
+            device, interface, tag, value, remove = assign
+            item.value.key.device_id.value = device
+            item.value.key.interface_id.value = interface
+            item.value.key.label.value = tag
+            item.value.key.value.value = value
+            item.value.remove.value = remove
         stream.append(item)
     return stream
 
@@ -790,4 +806,281 @@ def test_getDevicesByTag(name, cacheTags, getAllResp, topoDevices, tag,
     if error or expectedError:
         assert str(error) == str(expectedError)
     assert devices == expectedDevices
+    assert ctx.client.numGetAlls == expNumGetAlls
+
+
+getInterfacesByTagCases = [
+    # name
+    # cached tags
+    # tagv2 GetAll response
+    # devices in topology
+    # tag
+    # topology flag
+    # num GetAll calls
+    # expected interfaces
+    # expected Error
+    [
+        "get interfaces matching label with preloaded cache",
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+        },
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev3', 'Ethernet1', 'DC', 'DC2'),
+                             ('dev3', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev3', 'Ethernet1', 'NodeId', '1'),
+                             ]),
+        {'dev1': ['Ethernet1'], 'dev2': ['Ethernet1'], 'dev3': ['Ethernet1']},
+        Tag('DC', ''),
+        True,
+        0,
+        [Interface('Ethernet1', Device('dev1')),
+         Interface('Ethernet1', Device('dev2')),
+         Interface('Ethernet1', Device('dev3'))],
+        None
+    ],
+    [
+        "try get interfaces not matching label with preloaded cache",
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+        },
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev3', 'Ethernet1', 'DC', 'DC2'),
+                             ('dev3', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev3', 'Ethernet1', 'NodeId', '1'),
+                             ]),
+        {'dev1': ['Ethernet1'], 'dev2': ['Ethernet1'], 'dev3': ['Ethernet1']},
+        Tag('Role', ''),
+        True,
+        0,
+        [],
+        None
+    ],
+    [
+        "get interfaces matching label and value with preloaded cache",
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+        },
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev3', 'Ethernet1', 'DC', 'DC2'),
+                             ('dev3', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev3', 'Ethernet1', 'NodeId', '1'),
+                             ]),
+        {'dev1': ['Ethernet1'], 'dev2': ['Ethernet1'], 'dev3': ['Ethernet1']},
+        Tag('DC', 'DC1'),
+        True,
+        0,
+        [Interface('Ethernet1', Device('dev1')),
+         Interface('Ethernet1', Device('dev2'))],
+        None
+    ],
+    [
+        "get only interfaces of devices in topology matching label and value with preloaded cache",
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+        },
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev3', 'Ethernet1', 'DC', 'DC2'),
+                             ('dev3', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev3', 'Ethernet1', 'NodeId', '1'),
+                             ]),
+        {'dev1': ['Ethernet1'], 'dev3': ['Ethernet1']},
+        Tag('DC', 'DC1'),
+        True,
+        0,
+        [Interface('Ethernet1', Device('dev1'))],
+        None
+    ],
+    [
+        "get only interfaces in topology matching label and value with preloaded cache",
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+        },
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev3', 'Ethernet1', 'DC', 'DC2'),
+                             ('dev3', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev3', 'Ethernet1', 'NodeId', '1'),
+                             ]),
+        {'dev1': ['Ethernet1'], 'dev2': ['Ethernet2'], 'dev3': ['Ethernet1']},
+        Tag('DC', 'DC1'),
+        True,
+        0,
+        [Interface('Ethernet1', Device('dev1'))],
+        None
+    ],
+    [
+        "get interfaces of devices not in topology matching label and value with preloaded cache",
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+        },
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev3', 'Ethernet1', 'DC', 'DC2'),
+                             ('dev3', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev3', 'Ethernet1', 'NodeId', '1'),
+                             ]),
+        {'dev1': ['Ethernet1'], 'dev3': ['Ethernet1']},
+        Tag('DC', 'DC1'),
+        False,
+        0,
+        [Interface('Ethernet1', Device('dev1')),
+         Interface('Ethernet1', Device('dev2'))],
+        None
+    ],
+    [
+        "get interfaces not in topology matching label and value with preloaded cache",
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+        },
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev3', 'Ethernet1', 'DC', 'DC2'),
+                             ('dev3', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev3', 'Ethernet1', 'NodeId', '1'),
+                             ]),
+        {'dev1': [], 'dev3': ['Ethernet1']},
+        Tag('DC', 'DC1'),
+        False,
+        0,
+        [Interface('Ethernet1', Device('dev1')),
+         Interface('Ethernet1', Device('dev2'))],
+        None
+    ],
+    [
+        "try get interfaces with None label and value with preloaded cache",
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+        },
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev3', 'Ethernet1', 'DC', 'DC2'),
+                             ('dev3', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev3', 'Ethernet1', 'NodeId', '1'),
+                             ]),
+        {'dev1': ['Ethernet1'], 'dev2': ['Ethernet1'], 'dev3': ['Ethernet1']},
+        Tag('', 'DC1'),
+        True,
+        0,
+        [],
+        None
+    ],
+    [
+        "get interfaces matching label without preloaded cache",
+        {
+        },
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ]),
+        {'dev1': ['Ethernet1'], 'dev2': ['Ethernet1']},
+        Tag('DC', ''),
+        True,
+        2,
+        [Interface('Ethernet1', Device('dev1')),
+         Interface('Ethernet1', Device('dev2'))],
+        None
+    ],
+    [
+        "try get interfaces not matching label without preloaded cache",
+        {
+        },
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ]),
+        {'dev1': ['Ethernet1'], 'dev2': ['Ethernet1']},
+        Tag('Role', ''),
+        True,
+        2,
+        [],
+        None
+    ],
+]
+
+
+@pytest.mark.parametrize('name, cacheTags, getAllResp, topoDevices, tag, '
+                         + 'topoFlag, expNumGetAlls, expectedInterfaces, '
+                         + 'expectedError', getInterfacesByTagCases)
+def test_getInterfacesByTag(name, cacheTags, getAllResp, topoDevices, tag,
+                            topoFlag, expNumGetAlls, expectedInterfaces,
+                            expectedError):
+    error = None
+    tagInterfaces = []
+    ctx = mockCtx()
+    deviceMap = {}
+    for dev, interfaces in topoDevices.items():
+        deviceMap[dev] = Device(deviceId=dev)
+        for interface in interfaces:
+            deviceMap[dev].addInterface(interface)
+    topology = Topology(deviceMap)
+    ctx.setTopology(topology)
+    ctx.client.SetGetAllResponse(getAllResp)
+    ctx.tags._setRelevantInterfaceTagAssigns(cacheTags)
+    try:
+        tagInterfaces = ctx.getInterfacesByTag(tag, inTopology=topoFlag)
+    except Exception as e:
+        error = e
+    if error or expectedError:
+        assert str(error) == str(expectedError)
+    intfList = [(intf.name, intf._device.id) for intf in tagInterfaces or []]
+    expIntfList = [(intf.name, intf._device.id) for intf in expectedInterfaces or []]
+    assert intfList == expIntfList
     assert ctx.client.numGetAlls == expNumGetAlls

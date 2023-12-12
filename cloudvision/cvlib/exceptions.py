@@ -311,11 +311,14 @@ class TagOperationException(TagErrorException):
     Exception raised when an attempted tag operation is invalid
     """
 
-    def __init__(self, label: str, value: str, operation: str, devId: str = None):
+    def __init__(self, label: str, value: str, operation: str,
+                 devId: str = None, intfId: str = None):
         message = (f"invalid attempt to {operation} tag "
                    f"{self.expTagField(label)}:{self.expTagField(value)}")
         if devId:
             message = message + " for device " + devId
+        if intfId:
+            message = message + " on interface " + intfId
         super().__init__(message)
 
 
@@ -324,9 +327,11 @@ class TagMissingException(TagErrorException):
     Exception raised when a tag is missing from a device
     """
 
-    def __init__(self, label: str, devId: str):
+    def __init__(self, label: str, devId: str, intfId: str = None):
         message = (f"{self.expTagField(label)} tag missing"
                    f" for device {devId}")
+        if intfId:
+            message = message + " on interface " + intfId
         super().__init__(message)
 
 
@@ -335,9 +340,12 @@ class TagTooManyValuesException(TagErrorException):
     Exception raised when a tag has too many values assigned to a device
     """
 
-    def __init__(self, label: str, devId: str, currVals: List[str] = None):
+    def __init__(self, label: str, devId: str, currVals: List[str] = None,
+                 intfId: str = None):
         message = (f"{self.expTagField(label)} tag has too many values"
                    f" assigned to device {devId}")
+        if intfId:
+            message = message + " on interface " + intfId
         if currVals:
             message = message + ", assigned values: " + ", ".join(currVals)
         super().__init__(message)

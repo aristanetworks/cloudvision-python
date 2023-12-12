@@ -110,6 +110,25 @@ class Device:
         else:
             ctx.tags._unassignDeviceTagLabel(self.id, tag.label)
 
+    def getInterfacesByTag(self, ctx, tag: Tag, inTopology: bool = True):
+        '''
+        Returns list of interfaces that have the user tag assigned to them.
+        If tag.value is unspecified then returns interfaces having that label assigned.
+        By default only interfaces in the topology are returned.
+        '''
+        interfaces = []
+        # Note use list instead of .items()
+        # parallel thread might add/delete tags
+        for intfId in list(devIntfTags := ctx.tags._getAllInterfaceTags().get(self.id, {})):
+            tags = devIntfTags.get(intfId, {})
+            if tags.get(tag.label) and (
+                    not tag.value or tag.value in tags.get(tag.label, [])):
+                if intf := self.getInterface(intfId):
+                    interfaces.append(intf)
+                elif not inTopology:
+                    interfaces.append(Interface(name=intfId, device=self))
+        return interfaces
+
 
 # Interfaces and devices are defined together to avoid circular imports
 class Interface:
@@ -143,3 +162,52 @@ class Interface:
 
     def getPeerInfo(self):
         return self._peerDevice, self._peerInterface
+
+    def getSingleTag(self, ctx, label: str, required: bool = True):
+        '''
+        Returns a Tag of the label assigned to the interface.
+        Raises TagTooManyValuesException if there are multiple tags of the label assigned.
+        Raises TagMissingException if required is True and the tag is missing.
+        Returns None if required is False and the tag is missing.
+        '''
+        devName = str(self._device.hostName) if self._device.hostName else str(self._device.id)
+        values = ctx.tags._getInterfaceTags(self._device.id, self.name).get(label)
+        if values and len(values) > 1:
+            raise TagTooManyValuesException(label, devName, values, self.name)
+        if required and not values:
+            raise TagMissingException(label, devName, self.name)
+        return Tag(label, values[0]) if values else None
+
+    def getTags(self, ctx, label: str = None):
+        '''
+        Returns a list of Tags matching the specified label assigned to the interface.
+        If label is unspecified then it returns all Tags assigned to the interface.
+        '''
+        tags: List[Tag] = []
+        if not (ctxTags := ctx.tags._getInterfaceTags(self._device.id, self.name)):
+            return tags
+        # Note use list instead of .items()
+        # parallel thread might add/delete tags
+        for tagLabel in list(ctxTags):
+            if label and label != tagLabel:
+                continue
+            for value in ctxTags.get(tagLabel, []):
+                tags.append(Tag(tagLabel, value))
+        return tags
+
+    def _assignTag(self, ctx, tag: Tag, replaceValue: bool = True):
+        '''
+        Assign a Tag to an interface.
+        If replaceValue is True ensures only one value of label is assigned.
+        '''
+        ctx.tags._assignInterfaceTag(self._device.id, self.name, tag.label, tag.value, replaceValue)
+
+    def _unassignTag(self, ctx, tag: Tag):
+        '''
+        Unassign a Tag from an interface.
+        If tag.value is unspecified unassign all tags of label.
+        '''
+        if tag.value:
+            ctx.tags._unassignInterfaceTag(self._device.id, self.name, tag.label, tag.value)
+        else:
+            ctx.tags._unassignInterfaceTagLabel(self._device.id, self.name, tag.label)

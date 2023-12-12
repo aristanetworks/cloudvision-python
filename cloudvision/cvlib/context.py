@@ -26,7 +26,7 @@ from .constants import (
     STUDIO_IDS_ARG,
     WORKSPACE_ID_ARG,
 )
-from .device import Device
+from .device import Device, Interface
 from .execution import Execution
 from .exceptions import (
     ConnectionFailed,
@@ -803,3 +803,28 @@ class Context:
                 elif not inTopology:
                     devices.append(Device(deviceId=devId))
         return devices
+
+    def getInterfacesByTag(self, tag: Tag, inTopology: bool = True):
+        '''
+        Returns list of interfaces that have the user tag assigned to them.
+        If tag.value is unspecified then returns interfaces having that label assigned.
+        By default only interfaces in the topology are returned.
+        '''
+        interfaces = []
+        # Note use list instead of .items()
+        # parallel thread might add/delete tags
+        for devId in list(allTags := self.tags._getAllInterfaceTags()):
+            for intfId in list(devIntfTags := allTags.get(devId, {})):
+                tags = devIntfTags.get(intfId, {})
+                if tags.get(tag.label) and (
+                        not tag.value or tag.value in tags.get(tag.label, [])):
+                    if dev := self.topology._deviceMap.get(devId) if self.topology else None:
+                        if intf := dev.getInterface(intfId):
+                            interfaces.append(intf)
+                        elif not inTopology:
+                            interfaces.append(Interface(name=intfId, device=dev))
+                    elif not inTopology:
+                        interfaces.append(
+                            Interface(name=intfId,
+                                      device=Device(deviceId=devId)))
+        return interfaces
