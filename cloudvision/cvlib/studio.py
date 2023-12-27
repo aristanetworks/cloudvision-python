@@ -2,7 +2,7 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 import json
 from fmp import wrappers_pb2 as fmp_wrappers
 import google.protobuf.wrappers_pb2 as pb
@@ -195,6 +195,35 @@ def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: Lis
         client.Set(request=req)
     except RpcError as exc:
         raise InputUpdateException(inputPath, f"Value {value} was not set: {exc}") from None
+
+
+def setStudioInputs(clientGetter, studioId: str, workspaceId: str, inputs: List[Tuple]):
+    '''
+    Uses the passed ctx.getApiClient function reference to
+    issue a setSome to the Studio inputs rAPI with the associated InputsConfig
+    '''
+    client = clientGetter(services.InputsConfigServiceStub)
+    wid = pb.StringValue(value=workspaceId)
+    sid = pb.StringValue(value=studioId)
+    inputsConfigs = []
+    for path, value in inputs:
+        item = models.InputsConfig(
+            key=models.InputsKey(
+                workspace_id=wid,
+                studio_id=sid,
+                path=fmp_wrappers.RepeatedString(values=path)
+            ),
+            inputs=pb.StringValue(value=json.dumps(value))
+        )
+        inputsConfigs.append(item)
+    req = services.InputsConfigSetSomeRequest(
+        values=inputsConfigs
+    )
+    try:
+        for res in client.SetSome(request=req):
+            pass
+    except RpcError as exc:
+        raise InputUpdateException(err=f"Inputs {inputs} was not set: {exc}") from None
 
 
 def extractInputElems(inputs, inputPath: List[str], elems: List[str] = [],

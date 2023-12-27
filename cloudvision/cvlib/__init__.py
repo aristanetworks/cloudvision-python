@@ -13,6 +13,7 @@ from .logger import Logger
 from .studio import (
     Studio,
     setStudioInput,
+    setStudioInputs,
     getStudioInputs,
     extractInputElems,
     extractStudioInfoFromArgs,
