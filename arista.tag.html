@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.tag package &mdash; CloudVision Python 1.16.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e2aa0a4e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.tag.v1 package" href="arista.tag.v1.html" />
+    <link rel="prev" title="arista.subscriptions package" href="arista.subscriptions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+              <div class="version">
+                1.16.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+      <li class="breadcrumb-item active">arista.tag package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.tag.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-tag-package">
+<h1>arista.tag package<a class="headerlink" href="#arista-tag-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.tag.v1.html">arista.tag.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v1.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v1.services.html">arista.tag.v1.services package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.services.html#module-arista.tag.v1.services.gen_pb2">arista.tag.v1.services.gen_pb2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.services.html#module-arista.tag.v1.services.gen_pb2_grpc">arista.tag.v1.services.gen_pb2_grpc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.services.html#module-arista.tag.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v1.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v1.html#module-arista.tag.v1.tag_pb2">arista.tag.v1.tag_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag"><code class="docutils literal notranslate"><span class="pre">DeviceTag</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceTag.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.CREATOR_TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceTag.CREATOR_TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceTag.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceTag.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTag.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceTag.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceTag.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceTag.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceTag.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceTag.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceTag.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceTag.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceTag.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceTag.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceTag.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceTag.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceTag.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceTag.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceTag.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceTag.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.creator_type"><code class="docutils literal notranslate"><span class="pre">DeviceTag.creator_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTag.key"><code class="docutils literal notranslate"><span class="pre">DeviceTag.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentConfig.key"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentConfig.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.DEVICE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.DEVICE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.LABEL_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.LABEL_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.VALUE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.VALUE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.device_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.label"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagAssignmentKey.value"><code class="docutils literal notranslate"><span class="pre">DeviceTagAssignmentKey.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.DeviceTagConfig.key"><code class="docutils literal notranslate"><span class="pre">DeviceTagConfig.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag"><code class="docutils literal notranslate"><span class="pre">InterfaceTag</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.ByteSize"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.CREATOR_TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.CREATOR_TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.Clear"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.ClearField"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.FromString"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.HasField"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.IsInitialized"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.ListFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.MergeFrom"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.MergeFromString"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.SerializeToString"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.SetInParent"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.UnknownFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.WhichOneof"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.creator_type"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.creator_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTag.key"><code class="docutils literal notranslate"><span class="pre">InterfaceTag.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.Clear"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.FromString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.HasField"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentConfig.key"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentConfig.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.Clear"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.ClearField"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.DEVICE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.DEVICE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.FromString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.HasField"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.INTERFACE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.INTERFACE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.LABEL_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.LABEL_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.ListFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.VALUE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.VALUE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.device_id"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.device_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.interface_id"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.interface_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.label"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagAssignmentKey.value"><code class="docutils literal notranslate"><span class="pre">InterfaceTagAssignmentKey.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.Clear"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.FromString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.HasField"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.InterfaceTagConfig.key"><code class="docutils literal notranslate"><span class="pre">InterfaceTagConfig.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey"><code class="docutils literal notranslate"><span class="pre">TagKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">TagKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.Clear"><code class="docutils literal notranslate"><span class="pre">TagKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.ClearField"><code class="docutils literal notranslate"><span class="pre">TagKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">TagKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">TagKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.FromString"><code class="docutils literal notranslate"><span class="pre">TagKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.HasField"><code class="docutils literal notranslate"><span class="pre">TagKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">TagKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.LABEL_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagKey.LABEL_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.ListFields"><code class="docutils literal notranslate"><span class="pre">TagKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">TagKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">TagKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">TagKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">TagKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">TagKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">TagKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">TagKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.VALUE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagKey.VALUE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">TagKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.label"><code class="docutils literal notranslate"><span class="pre">TagKey.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v1.html#arista.tag.v1.tag_pb2.TagKey.value"><code class="docutils literal notranslate"><span class="pre">TagKey.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v1.html#module-arista.tag.v1.tag_pb2_grpc">arista.tag.v1.tag_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v1.html#module-arista.tag.v1">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="arista.tag.v2.html">arista.tag.v2 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v2.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html">arista.tag.v2.services package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#module-arista.tag.v2.services.gen_pb2">arista.tag.v2.services.gen_pb2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#module-arista.tag.v2.services.gen_pb2_grpc">arista.tag.v2.services.gen_pb2_grpc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#module-arista.tag.v2.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v2.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v2.html#module-arista.tag.v2.tag_pb2">arista.tag.v2.tag_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag"><code class="docutils literal notranslate"><span class="pre">Tag</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.ByteSize"><code class="docutils literal notranslate"><span class="pre">Tag.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.CREATOR_TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Tag.CREATOR_TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.Clear"><code class="docutils literal notranslate"><span class="pre">Tag.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.ClearField"><code class="docutils literal notranslate"><span class="pre">Tag.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Tag.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">Tag.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">Tag.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.FromString"><code class="docutils literal notranslate"><span class="pre">Tag.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.HasField"><code class="docutils literal notranslate"><span class="pre">Tag.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.IsInitialized"><code class="docutils literal notranslate"><span class="pre">Tag.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Tag.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.ListFields"><code class="docutils literal notranslate"><span class="pre">Tag.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.MergeFrom"><code class="docutils literal notranslate"><span class="pre">Tag.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.MergeFromString"><code class="docutils literal notranslate"><span class="pre">Tag.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">Tag.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">Tag.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.SerializeToString"><code class="docutils literal notranslate"><span class="pre">Tag.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.SetInParent"><code class="docutils literal notranslate"><span class="pre">Tag.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.UnknownFields"><code class="docutils literal notranslate"><span class="pre">Tag.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.WhichOneof"><code class="docutils literal notranslate"><span class="pre">Tag.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.creator_type"><code class="docutils literal notranslate"><span class="pre">Tag.creator_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.Tag.key"><code class="docutils literal notranslate"><span class="pre">Tag.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment"><code class="docutils literal notranslate"><span class="pre">TagAssignment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.ByteSize"><code class="docutils literal notranslate"><span class="pre">TagAssignment.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.Clear"><code class="docutils literal notranslate"><span class="pre">TagAssignment.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.ClearField"><code class="docutils literal notranslate"><span class="pre">TagAssignment.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignment.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">TagAssignment.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">TagAssignment.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.FromString"><code class="docutils literal notranslate"><span class="pre">TagAssignment.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.HasField"><code class="docutils literal notranslate"><span class="pre">TagAssignment.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.IsInitialized"><code class="docutils literal notranslate"><span class="pre">TagAssignment.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignment.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.ListFields"><code class="docutils literal notranslate"><span class="pre">TagAssignment.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.MergeFrom"><code class="docutils literal notranslate"><span class="pre">TagAssignment.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.MergeFromString"><code class="docutils literal notranslate"><span class="pre">TagAssignment.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">TagAssignment.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">TagAssignment.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.SerializeToString"><code class="docutils literal notranslate"><span class="pre">TagAssignment.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.SetInParent"><code class="docutils literal notranslate"><span class="pre">TagAssignment.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.TAG_CREATOR_TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignment.TAG_CREATOR_TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.UnknownFields"><code class="docutils literal notranslate"><span class="pre">TagAssignment.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.WhichOneof"><code class="docutils literal notranslate"><span class="pre">TagAssignment.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.key"><code class="docutils literal notranslate"><span class="pre">TagAssignment.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignment.tag_creator_type"><code class="docutils literal notranslate"><span class="pre">TagAssignment.tag_creator_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.Clear"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.FromString"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.HasField"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.REMOVE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.REMOVE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.key"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentConfig.remove"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.remove</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.Clear"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.ClearField"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.DEVICE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.DEVICE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.ELEMENT_SUB_TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.ELEMENT_SUB_TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.ELEMENT_TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.ELEMENT_TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.FromString"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.HasField"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.INTERFACE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.INTERFACE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.LABEL_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.LABEL_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.ListFields"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.VALUE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.VALUE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.WORKSPACE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.WORKSPACE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.device_id"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.device_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.element_sub_type"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.element_sub_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.element_type"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.element_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.interface_id"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.interface_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.label"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.value"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagAssignmentKey.workspace_id"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.workspace_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig"><code class="docutils literal notranslate"><span class="pre">TagConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">TagConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.Clear"><code class="docutils literal notranslate"><span class="pre">TagConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">TagConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">TagConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">TagConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.FromString"><code class="docutils literal notranslate"><span class="pre">TagConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.HasField"><code class="docutils literal notranslate"><span class="pre">TagConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">TagConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">TagConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">TagConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">TagConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.REMOVE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagConfig.REMOVE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">TagConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">TagConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">TagConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">TagConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">TagConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">TagConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.key"><code class="docutils literal notranslate"><span class="pre">TagConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagConfig.remove"><code class="docutils literal notranslate"><span class="pre">TagConfig.remove</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey"><code class="docutils literal notranslate"><span class="pre">TagKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">TagKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.Clear"><code class="docutils literal notranslate"><span class="pre">TagKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.ClearField"><code class="docutils literal notranslate"><span class="pre">TagKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">TagKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.ELEMENT_SUB_TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagKey.ELEMENT_SUB_TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.ELEMENT_TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagKey.ELEMENT_TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">TagKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.FromString"><code class="docutils literal notranslate"><span class="pre">TagKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.HasField"><code class="docutils literal notranslate"><span class="pre">TagKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">TagKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.LABEL_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagKey.LABEL_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.ListFields"><code class="docutils literal notranslate"><span class="pre">TagKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">TagKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">TagKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">TagKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">TagKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">TagKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">TagKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">TagKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.VALUE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagKey.VALUE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.WORKSPACE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">TagKey.WORKSPACE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">TagKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.element_sub_type"><code class="docutils literal notranslate"><span class="pre">TagKey.element_sub_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.element_type"><code class="docutils literal notranslate"><span class="pre">TagKey.element_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.label"><code class="docutils literal notranslate"><span class="pre">TagKey.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.value"><code class="docutils literal notranslate"><span class="pre">TagKey.value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.html#arista.tag.v2.tag_pb2.TagKey.workspace_id"><code class="docutils literal notranslate"><span class="pre">TagKey.workspace_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v2.html#module-arista.tag.v2.tag_pb2_grpc">arista.tag.v2.tag_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v2.html#module-arista.tag.v2">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-arista.tag">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.tag" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.subscriptions.html" class="btn btn-neutral float-left" title="arista.subscriptions package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.tag.v1.html" class="btn btn-neutral float-right" title="arista.tag.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

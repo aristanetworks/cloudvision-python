@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.lifecycle.v1 package &mdash; CloudVision Python 1.16.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e2aa0a4e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.lifecycle.v1.services package" href="arista.lifecycle.v1.services.html" />
+    <link rel="prev" title="arista.lifecycle package" href="arista.lifecycle.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+              <div class="version">
+                1.16.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.lifecycle.html">arista.lifecycle package</a></li>
+      <li class="breadcrumb-item active">arista.lifecycle.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.lifecycle.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-lifecycle-v1-package">
+<h1>arista.lifecycle.v1 package<a class="headerlink" href="#arista-lifecycle-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.lifecycle.v1.services.html">arista.lifecycle.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.lifecycle.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.lifecycle.v1.services.html#module-arista.lifecycle.v1.services.gen_pb2">arista.lifecycle.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.TIME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.TIME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.TIME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.TIME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.VALUE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.VALUE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.PARTIAL_EQ_FILTER_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.PARTIAL_EQ_FILTER_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.TIME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.TIME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.TIME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.TIME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.VALUE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.VALUE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.DeviceLifecycleSummaryStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.ByteSize"><code class="docutils literal notranslate"><span class="pre">MetaResponse.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.COUNT_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">MetaResponse.COUNT_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.Clear"><code class="docutils literal notranslate"><span class="pre">MetaResponse.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.ClearField"><code class="docutils literal notranslate"><span class="pre">MetaResponse.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">MetaResponse.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.FromString"><code class="docutils literal notranslate"><span class="pre">MetaResponse.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.HasField"><code class="docutils literal notranslate"><span class="pre">MetaResponse.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.IsInitialized"><code class="docutils literal notranslate"><span class="pre">MetaResponse.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.ListFields"><code class="docutils literal notranslate"><span class="pre">MetaResponse.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.MergeFrom"><code class="docutils literal notranslate"><span class="pre">MetaResponse.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.MergeFromString"><code class="docutils literal notranslate"><span class="pre">MetaResponse.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">MetaResponse.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">MetaResponse.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.SerializeToString"><code class="docutils literal notranslate"><span class="pre">MetaResponse.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.SetInParent"><code class="docutils literal notranslate"><span class="pre">MetaResponse.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.TIME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">MetaResponse.TIME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">MetaResponse.TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.UnknownFields"><code class="docutils literal notranslate"><span class="pre">MetaResponse.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.WhichOneof"><code class="docutils literal notranslate"><span class="pre">MetaResponse.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.count"><code class="docutils literal notranslate"><span class="pre">MetaResponse.count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.time"><code class="docutils literal notranslate"><span class="pre">MetaResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2.MetaResponse.type"><code class="docutils literal notranslate"><span class="pre">MetaResponse.type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.lifecycle.v1.services.html#module-arista.lifecycle.v1.services.gen_pb2_grpc">arista.lifecycle.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryService"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryService.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryService.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryServiceServicer"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.DeviceLifecycleSummaryServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.services.html#arista.lifecycle.v1.services.gen_pb2_grpc.add_DeviceLifecycleSummaryServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DeviceLifecycleSummaryServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.lifecycle.v1.services.html#module-arista.lifecycle.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.lifecycle.v1.lifecycle_pb2">
+<span id="arista-lifecycle-v1-lifecycle-pb2-module"></span><h2>arista.lifecycle.v1.lifecycle_pb2 module<a class="headerlink" href="#module-arista.lifecycle.v1.lifecycle_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.lifecycle.v1.lifecycle_pb2.</span></span><span class="sig-name descname"><span class="pre">DateAndModels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.ByteSize">
+<span class="sig-name descname"><span class="pre">ByteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.ByteSize" title="Link to this definition"></a></dt>
+<dd><p>Returns the serialized size of this message.</p>
+<p>Recursively calls ByteSize() on all contained messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of bytes required to serialize this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.Clear">
+<span class="sig-name descname"><span class="pre">Clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.Clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all data that was set in the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.ClearField">
+<span class="sig-name descname"><span class="pre">ClearField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.ClearField" title="Link to this definition"></a></dt>
+<dd><p>Clears the contents of a given field.</p>
+<p>Inside a oneof group, clears the field set. If the name neither refers to a
+defined field or oneof group, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.DATE_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">DATE_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.DATE_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.descriptor.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.DiscardUnknownFields">
+<span class="sig-name descname"><span class="pre">DiscardUnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.DiscardUnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Clears all fields in the <code class="xref py py-class docutils literal notranslate"><span class="pre">UnknownFieldSet</span></code>.</p>
+<p>This operation is recursive for nested message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.FindInitializationErrors">
+<span class="sig-name descname"><span class="pre">FindInitializationErrors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.FindInitializationErrors" title="Link to this definition"></a></dt>
+<dd><p>Finds required fields which are not initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings.  Each string is a path to an uninitialized field from
+the top-level message, e.g. “foo.bar[5].baz”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.FromString">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.FromString" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.HasField">
+<span class="sig-name descname"><span class="pre">HasField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.HasField" title="Link to this definition"></a></dt>
+<dd><p>Checks if a certain field is set for the message.</p>
+<p>For a oneof group, checks if any field inside is set. Note that if the
+field_name is not defined in the message descriptor, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> will
+be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether a value has been set for the named field.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.IsInitialized">
+<span class="sig-name descname"><span class="pre">IsInitialized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.IsInitialized" title="Link to this definition"></a></dt>
+<dd><p>Checks if all required fields of a message are set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>errors</strong> – A list which, if provided, will be populated with the field
+paths of all missing required fields.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True iff the specified message has all required fields set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.ListFields">
+<span class="sig-name descname"><span class="pre">ListFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.ListFields" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of (FieldDescriptor, value) tuples for present fields.</p>
+<p>A message field is non-empty if HasField() would return true. A singular
+primitive field is non-empty if HasField() would return true in proto2 or it
+is non zero in proto3. A repeated field is non-empty if it contains at least
+one element. The fields are ordered by field number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>field descriptors and values
+for all fields in the message which are not empty. The values vary by
+field type.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple(FieldDescriptor, value)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.MODELS_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">MODELS_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.MODELS_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.MergeFrom">
+<span class="sig-name descname"><span class="pre">MergeFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.MergeFrom" title="Link to this definition"></a></dt>
+<dd><p>Merges the contents of the specified message into current message.</p>
+<p>This method merges the contents of the specified message into the current
+message. Singular fields that are set in the specified message overwrite
+the corresponding fields in the current message. Repeated fields are
+appended. Singular sub-messages and groups are recursively merged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other_msg</strong> (<em>Message</em>) – A message to merge into the current message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.MergeFromString">
+<span class="sig-name descname"><span class="pre">MergeFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.MergeFromString" title="Link to this definition"></a></dt>
+<dd><p>Merges serialized protocol buffer data into this message.</p>
+<p>When we find a field in <cite>serialized</cite> that is already present
+in this message:</p>
+<ul class="simple">
+<li><p>If it’s a “repeated” field, we append to the end of our list.</p></li>
+<li><p>Else, if it’s a scalar, we overwrite our field.</p></li>
+<li><p>Else, (it’s a nonrepeated composite), we recursively merge
+into the existing composite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>serialized</strong> (<em>bytes</em>) – Any object that allows us to call
+<code class="docutils literal notranslate"><span class="pre">memoryview(serialized)</span></code> to access a string of bytes using the
+buffer interface.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of bytes read from <cite>serialized</cite>.
+For non-group messages, this will always be <cite>len(serialized)</cite>,
+but for messages which are actually groups, this will
+generally be less than <cite>len(serialized)</cite>, since we must
+stop when we reach an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag.  Note that if
+we <em>do</em> stop because of an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag, the number
+of bytes returned does not include the bytes
+for the <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>DecodeError</strong> – if the input cannot be parsed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.RegisterExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegisterExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.RegisterExtension" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.SerializePartialToString">
+<span class="sig-name descname"><span class="pre">SerializePartialToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.SerializePartialToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<p>This method is similar to SerializeToString but doesn’t check if the
+message is initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A serialized representation of the partial message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.SerializeToString">
+<span class="sig-name descname"><span class="pre">SerializeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.SerializeToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A binary string representation of the message if all of the required
+fields in the message are set (i.e. the message is initialized).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>EncodeError</strong> – if the message isn’t initialized (see <a class="reference internal" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.IsInitialized" title="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.IsInitialized"><code class="xref py py-func docutils literal notranslate"><span class="pre">IsInitialized()</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.SetInParent">
+<span class="sig-name descname"><span class="pre">SetInParent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.SetInParent" title="Link to this definition"></a></dt>
+<dd><p>Sets the _cached_byte_size_dirty bit to true,
+and propagates this to our listener iff this was a state change.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.UnknownFields">
+<span class="sig-name descname"><span class="pre">UnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.UnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Returns the UnknownFieldSet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unknown fields stored in this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>UnknownFieldSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.WhichOneof">
+<span class="sig-name descname"><span class="pre">WhichOneof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oneof_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.WhichOneof" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the currently set field inside a oneof, or None.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.date">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">date</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DateAndModels.models">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">models</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.models" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.lifecycle.v1.lifecycle_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceLifecycleSummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.ByteSize">
+<span class="sig-name descname"><span class="pre">ByteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.ByteSize" title="Link to this definition"></a></dt>
+<dd><p>Returns the serialized size of this message.</p>
+<p>Recursively calls ByteSize() on all contained messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of bytes required to serialize this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.Clear">
+<span class="sig-name descname"><span class="pre">Clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.Clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all data that was set in the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.ClearField">
+<span class="sig-name descname"><span class="pre">ClearField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.ClearField" title="Link to this definition"></a></dt>
+<dd><p>Clears the contents of a given field.</p>
+<p>Inside a oneof group, clears the field set. If the name neither refers to a
+defined field or oneof group, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.descriptor.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.DiscardUnknownFields">
+<span class="sig-name descname"><span class="pre">DiscardUnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.DiscardUnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Clears all fields in the <code class="xref py py-class docutils literal notranslate"><span class="pre">UnknownFieldSet</span></code>.</p>
+<p>This operation is recursive for nested message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.FindInitializationErrors">
+<span class="sig-name descname"><span class="pre">FindInitializationErrors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.FindInitializationErrors" title="Link to this definition"></a></dt>
+<dd><p>Finds required fields which are not initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings.  Each string is a path to an uninitialized field from
+the top-level message, e.g. “foo.bar[5].baz”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.FromString">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.FromString" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.HARDWARE_LIFECYCLE_SUMMARY_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">HARDWARE_LIFECYCLE_SUMMARY_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.HARDWARE_LIFECYCLE_SUMMARY_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.HasField">
+<span class="sig-name descname"><span class="pre">HasField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.HasField" title="Link to this definition"></a></dt>
+<dd><p>Checks if a certain field is set for the message.</p>
+<p>For a oneof group, checks if any field inside is set. Note that if the
+field_name is not defined in the message descriptor, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> will
+be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether a value has been set for the named field.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.IsInitialized">
+<span class="sig-name descname"><span class="pre">IsInitialized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.IsInitialized" title="Link to this definition"></a></dt>
+<dd><p>Checks if all required fields of a message are set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>errors</strong> – A list which, if provided, will be populated with the field
+paths of all missing required fields.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True iff the specified message has all required fields set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.KEY_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">KEY_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.KEY_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.ListFields">
+<span class="sig-name descname"><span class="pre">ListFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.ListFields" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of (FieldDescriptor, value) tuples for present fields.</p>
+<p>A message field is non-empty if HasField() would return true. A singular
+primitive field is non-empty if HasField() would return true in proto2 or it
+is non zero in proto3. A repeated field is non-empty if it contains at least
+one element. The fields are ordered by field number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>field descriptors and values
+for all fields in the message which are not empty. The values vary by
+field type.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple(FieldDescriptor, value)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.MergeFrom">
+<span class="sig-name descname"><span class="pre">MergeFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.MergeFrom" title="Link to this definition"></a></dt>
+<dd><p>Merges the contents of the specified message into current message.</p>
+<p>This method merges the contents of the specified message into the current
+message. Singular fields that are set in the specified message overwrite
+the corresponding fields in the current message. Repeated fields are
+appended. Singular sub-messages and groups are recursively merged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other_msg</strong> (<em>Message</em>) – A message to merge into the current message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.MergeFromString">
+<span class="sig-name descname"><span class="pre">MergeFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.MergeFromString" title="Link to this definition"></a></dt>
+<dd><p>Merges serialized protocol buffer data into this message.</p>
+<p>When we find a field in <cite>serialized</cite> that is already present
+in this message:</p>
+<ul class="simple">
+<li><p>If it’s a “repeated” field, we append to the end of our list.</p></li>
+<li><p>Else, if it’s a scalar, we overwrite our field.</p></li>
+<li><p>Else, (it’s a nonrepeated composite), we recursively merge
+into the existing composite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>serialized</strong> (<em>bytes</em>) – Any object that allows us to call
+<code class="docutils literal notranslate"><span class="pre">memoryview(serialized)</span></code> to access a string of bytes using the
+buffer interface.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of bytes read from <cite>serialized</cite>.
+For non-group messages, this will always be <cite>len(serialized)</cite>,
+but for messages which are actually groups, this will
+generally be less than <cite>len(serialized)</cite>, since we must
+stop when we reach an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag.  Note that if
+we <em>do</em> stop because of an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag, the number
+of bytes returned does not include the bytes
+for the <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>DecodeError</strong> – if the input cannot be parsed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.RegisterExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegisterExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.RegisterExtension" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SOFTWARE_EOL_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">SOFTWARE_EOL_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SOFTWARE_EOL_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SerializePartialToString">
+<span class="sig-name descname"><span class="pre">SerializePartialToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SerializePartialToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<p>This method is similar to SerializeToString but doesn’t check if the
+message is initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A serialized representation of the partial message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SerializeToString">
+<span class="sig-name descname"><span class="pre">SerializeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SerializeToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A binary string representation of the message if all of the required
+fields in the message are set (i.e. the message is initialized).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>EncodeError</strong> – if the message isn’t initialized (see <a class="reference internal" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.IsInitialized" title="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.IsInitialized"><code class="xref py py-func docutils literal notranslate"><span class="pre">IsInitialized()</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SetInParent">
+<span class="sig-name descname"><span class="pre">SetInParent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SetInParent" title="Link to this definition"></a></dt>
+<dd><p>Sets the _cached_byte_size_dirty bit to true,
+and propagates this to our listener iff this was a state change.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.UnknownFields">
+<span class="sig-name descname"><span class="pre">UnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.UnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Returns the UnknownFieldSet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unknown fields stored in this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>UnknownFieldSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.WhichOneof">
+<span class="sig-name descname"><span class="pre">WhichOneof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oneof_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.WhichOneof" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the currently set field inside a oneof, or None.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.hardware_lifecycle_summary">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hardware_lifecycle_summary</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.hardware_lifecycle_summary" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.key" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.software_eol">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">software_eol</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.software_eol" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.lifecycle.v1.lifecycle_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceLifecycleSummaryKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.ByteSize">
+<span class="sig-name descname"><span class="pre">ByteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.ByteSize" title="Link to this definition"></a></dt>
+<dd><p>Returns the serialized size of this message.</p>
+<p>Recursively calls ByteSize() on all contained messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of bytes required to serialize this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.Clear">
+<span class="sig-name descname"><span class="pre">Clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.Clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all data that was set in the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.ClearField">
+<span class="sig-name descname"><span class="pre">ClearField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.ClearField" title="Link to this definition"></a></dt>
+<dd><p>Clears the contents of a given field.</p>
+<p>Inside a oneof group, clears the field set. If the name neither refers to a
+defined field or oneof group, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.descriptor.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.DEVICE_ID_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">DEVICE_ID_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.DEVICE_ID_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.DiscardUnknownFields">
+<span class="sig-name descname"><span class="pre">DiscardUnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.DiscardUnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Clears all fields in the <code class="xref py py-class docutils literal notranslate"><span class="pre">UnknownFieldSet</span></code>.</p>
+<p>This operation is recursive for nested message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.FindInitializationErrors">
+<span class="sig-name descname"><span class="pre">FindInitializationErrors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.FindInitializationErrors" title="Link to this definition"></a></dt>
+<dd><p>Finds required fields which are not initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings.  Each string is a path to an uninitialized field from
+the top-level message, e.g. “foo.bar[5].baz”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.FromString">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.FromString" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.HasField">
+<span class="sig-name descname"><span class="pre">HasField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.HasField" title="Link to this definition"></a></dt>
+<dd><p>Checks if a certain field is set for the message.</p>
+<p>For a oneof group, checks if any field inside is set. Note that if the
+field_name is not defined in the message descriptor, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> will
+be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether a value has been set for the named field.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.IsInitialized">
+<span class="sig-name descname"><span class="pre">IsInitialized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.IsInitialized" title="Link to this definition"></a></dt>
+<dd><p>Checks if all required fields of a message are set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>errors</strong> – A list which, if provided, will be populated with the field
+paths of all missing required fields.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True iff the specified message has all required fields set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.ListFields">
+<span class="sig-name descname"><span class="pre">ListFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.ListFields" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of (FieldDescriptor, value) tuples for present fields.</p>
+<p>A message field is non-empty if HasField() would return true. A singular
+primitive field is non-empty if HasField() would return true in proto2 or it
+is non zero in proto3. A repeated field is non-empty if it contains at least
+one element. The fields are ordered by field number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>field descriptors and values
+for all fields in the message which are not empty. The values vary by
+field type.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple(FieldDescriptor, value)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.MergeFrom">
+<span class="sig-name descname"><span class="pre">MergeFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.MergeFrom" title="Link to this definition"></a></dt>
+<dd><p>Merges the contents of the specified message into current message.</p>
+<p>This method merges the contents of the specified message into the current
+message. Singular fields that are set in the specified message overwrite
+the corresponding fields in the current message. Repeated fields are
+appended. Singular sub-messages and groups are recursively merged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other_msg</strong> (<em>Message</em>) – A message to merge into the current message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.MergeFromString">
+<span class="sig-name descname"><span class="pre">MergeFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.MergeFromString" title="Link to this definition"></a></dt>
+<dd><p>Merges serialized protocol buffer data into this message.</p>
+<p>When we find a field in <cite>serialized</cite> that is already present
+in this message:</p>
+<ul class="simple">
+<li><p>If it’s a “repeated” field, we append to the end of our list.</p></li>
+<li><p>Else, if it’s a scalar, we overwrite our field.</p></li>
+<li><p>Else, (it’s a nonrepeated composite), we recursively merge
+into the existing composite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>serialized</strong> (<em>bytes</em>) – Any object that allows us to call
+<code class="docutils literal notranslate"><span class="pre">memoryview(serialized)</span></code> to access a string of bytes using the
+buffer interface.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of bytes read from <cite>serialized</cite>.
+For non-group messages, this will always be <cite>len(serialized)</cite>,
+but for messages which are actually groups, this will
+generally be less than <cite>len(serialized)</cite>, since we must
+stop when we reach an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag.  Note that if
+we <em>do</em> stop because of an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag, the number
+of bytes returned does not include the bytes
+for the <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>DecodeError</strong> – if the input cannot be parsed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.RegisterExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegisterExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.RegisterExtension" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.SerializePartialToString">
+<span class="sig-name descname"><span class="pre">SerializePartialToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.SerializePartialToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<p>This method is similar to SerializeToString but doesn’t check if the
+message is initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A serialized representation of the partial message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.SerializeToString">
+<span class="sig-name descname"><span class="pre">SerializeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.SerializeToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A binary string representation of the message if all of the required
+fields in the message are set (i.e. the message is initialized).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>EncodeError</strong> – if the message isn’t initialized (see <a class="reference internal" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.IsInitialized" title="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.IsInitialized"><code class="xref py py-func docutils literal notranslate"><span class="pre">IsInitialized()</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.SetInParent">
+<span class="sig-name descname"><span class="pre">SetInParent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.SetInParent" title="Link to this definition"></a></dt>
+<dd><p>Sets the _cached_byte_size_dirty bit to true,
+and propagates this to our listener iff this was a state change.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.UnknownFields">
+<span class="sig-name descname"><span class="pre">UnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.UnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Returns the UnknownFieldSet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unknown fields stored in this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>UnknownFieldSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.WhichOneof">
+<span class="sig-name descname"><span class="pre">WhichOneof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oneof_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.WhichOneof" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the currently set field inside a oneof, or None.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.device_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">device_id</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.device_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.lifecycle.v1.lifecycle_pb2.</span></span><span class="sig-name descname"><span class="pre">HardwareLifecycleSummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.ByteSize">
+<span class="sig-name descname"><span class="pre">ByteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.ByteSize" title="Link to this definition"></a></dt>
+<dd><p>Returns the serialized size of this message.</p>
+<p>Recursively calls ByteSize() on all contained messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of bytes required to serialize this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.Clear">
+<span class="sig-name descname"><span class="pre">Clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.Clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all data that was set in the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.ClearField">
+<span class="sig-name descname"><span class="pre">ClearField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.ClearField" title="Link to this definition"></a></dt>
+<dd><p>Clears the contents of a given field.</p>
+<p>Inside a oneof group, clears the field set. If the name neither refers to a
+defined field or oneof group, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.descriptor.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.DiscardUnknownFields">
+<span class="sig-name descname"><span class="pre">DiscardUnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.DiscardUnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Clears all fields in the <code class="xref py py-class docutils literal notranslate"><span class="pre">UnknownFieldSet</span></code>.</p>
+<p>This operation is recursive for nested message.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_HARDWARE_RMA_REQUESTS_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">END_OF_HARDWARE_RMA_REQUESTS_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_HARDWARE_RMA_REQUESTS_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_LIFE_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">END_OF_LIFE_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_LIFE_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_SALE_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">END_OF_SALE_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_SALE_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_TAC_SUPPORT_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">END_OF_TAC_SUPPORT_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_TAC_SUPPORT_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.FindInitializationErrors">
+<span class="sig-name descname"><span class="pre">FindInitializationErrors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.FindInitializationErrors" title="Link to this definition"></a></dt>
+<dd><p>Finds required fields which are not initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings.  Each string is a path to an uninitialized field from
+the top-level message, e.g. “foo.bar[5].baz”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.FromString">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.FromString" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.HasField">
+<span class="sig-name descname"><span class="pre">HasField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.HasField" title="Link to this definition"></a></dt>
+<dd><p>Checks if a certain field is set for the message.</p>
+<p>For a oneof group, checks if any field inside is set. Note that if the
+field_name is not defined in the message descriptor, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> will
+be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether a value has been set for the named field.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.IsInitialized">
+<span class="sig-name descname"><span class="pre">IsInitialized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.IsInitialized" title="Link to this definition"></a></dt>
+<dd><p>Checks if all required fields of a message are set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>errors</strong> – A list which, if provided, will be populated with the field
+paths of all missing required fields.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True iff the specified message has all required fields set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.ListFields">
+<span class="sig-name descname"><span class="pre">ListFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.ListFields" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of (FieldDescriptor, value) tuples for present fields.</p>
+<p>A message field is non-empty if HasField() would return true. A singular
+primitive field is non-empty if HasField() would return true in proto2 or it
+is non zero in proto3. A repeated field is non-empty if it contains at least
+one element. The fields are ordered by field number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>field descriptors and values
+for all fields in the message which are not empty. The values vary by
+field type.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple(FieldDescriptor, value)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.MergeFrom">
+<span class="sig-name descname"><span class="pre">MergeFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.MergeFrom" title="Link to this definition"></a></dt>
+<dd><p>Merges the contents of the specified message into current message.</p>
+<p>This method merges the contents of the specified message into the current
+message. Singular fields that are set in the specified message overwrite
+the corresponding fields in the current message. Repeated fields are
+appended. Singular sub-messages and groups are recursively merged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other_msg</strong> (<em>Message</em>) – A message to merge into the current message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.MergeFromString">
+<span class="sig-name descname"><span class="pre">MergeFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.MergeFromString" title="Link to this definition"></a></dt>
+<dd><p>Merges serialized protocol buffer data into this message.</p>
+<p>When we find a field in <cite>serialized</cite> that is already present
+in this message:</p>
+<ul class="simple">
+<li><p>If it’s a “repeated” field, we append to the end of our list.</p></li>
+<li><p>Else, if it’s a scalar, we overwrite our field.</p></li>
+<li><p>Else, (it’s a nonrepeated composite), we recursively merge
+into the existing composite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>serialized</strong> (<em>bytes</em>) – Any object that allows us to call
+<code class="docutils literal notranslate"><span class="pre">memoryview(serialized)</span></code> to access a string of bytes using the
+buffer interface.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of bytes read from <cite>serialized</cite>.
+For non-group messages, this will always be <cite>len(serialized)</cite>,
+but for messages which are actually groups, this will
+generally be less than <cite>len(serialized)</cite>, since we must
+stop when we reach an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag.  Note that if
+we <em>do</em> stop because of an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag, the number
+of bytes returned does not include the bytes
+for the <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>DecodeError</strong> – if the input cannot be parsed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.RegisterExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegisterExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.RegisterExtension" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.SerializePartialToString">
+<span class="sig-name descname"><span class="pre">SerializePartialToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.SerializePartialToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<p>This method is similar to SerializeToString but doesn’t check if the
+message is initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A serialized representation of the partial message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.SerializeToString">
+<span class="sig-name descname"><span class="pre">SerializeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.SerializeToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A binary string representation of the message if all of the required
+fields in the message are set (i.e. the message is initialized).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>EncodeError</strong> – if the message isn’t initialized (see <a class="reference internal" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.IsInitialized" title="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.IsInitialized"><code class="xref py py-func docutils literal notranslate"><span class="pre">IsInitialized()</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.SetInParent">
+<span class="sig-name descname"><span class="pre">SetInParent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.SetInParent" title="Link to this definition"></a></dt>
+<dd><p>Sets the _cached_byte_size_dirty bit to true,
+and propagates this to our listener iff this was a state change.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.UnknownFields">
+<span class="sig-name descname"><span class="pre">UnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.UnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Returns the UnknownFieldSet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unknown fields stored in this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>UnknownFieldSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.WhichOneof">
+<span class="sig-name descname"><span class="pre">WhichOneof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oneof_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.WhichOneof" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the currently set field inside a oneof, or None.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_hardware_rma_requests">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_of_hardware_rma_requests</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_hardware_rma_requests" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_life">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_of_life</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_life" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_sale">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_of_sale</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_sale" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_tac_support">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_of_tac_support</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_tac_support" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.lifecycle.v1.lifecycle_pb2.</span></span><span class="sig-name descname"><span class="pre">SoftwareEOL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.ByteSize">
+<span class="sig-name descname"><span class="pre">ByteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.ByteSize" title="Link to this definition"></a></dt>
+<dd><p>Returns the serialized size of this message.</p>
+<p>Recursively calls ByteSize() on all contained messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of bytes required to serialize this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.Clear">
+<span class="sig-name descname"><span class="pre">Clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.Clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all data that was set in the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.ClearField">
+<span class="sig-name descname"><span class="pre">ClearField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.ClearField" title="Link to this definition"></a></dt>
+<dd><p>Clears the contents of a given field.</p>
+<p>Inside a oneof group, clears the field set. If the name neither refers to a
+defined field or oneof group, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.descriptor.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.DiscardUnknownFields">
+<span class="sig-name descname"><span class="pre">DiscardUnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.DiscardUnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Clears all fields in the <code class="xref py py-class docutils literal notranslate"><span class="pre">UnknownFieldSet</span></code>.</p>
+<p>This operation is recursive for nested message.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.END_OF_SUPPORT_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">END_OF_SUPPORT_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.END_OF_SUPPORT_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.FindInitializationErrors">
+<span class="sig-name descname"><span class="pre">FindInitializationErrors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.FindInitializationErrors" title="Link to this definition"></a></dt>
+<dd><p>Finds required fields which are not initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings.  Each string is a path to an uninitialized field from
+the top-level message, e.g. “foo.bar[5].baz”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.FromString">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.FromString" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.HasField">
+<span class="sig-name descname"><span class="pre">HasField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.HasField" title="Link to this definition"></a></dt>
+<dd><p>Checks if a certain field is set for the message.</p>
+<p>For a oneof group, checks if any field inside is set. Note that if the
+field_name is not defined in the message descriptor, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> will
+be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether a value has been set for the named field.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.IsInitialized">
+<span class="sig-name descname"><span class="pre">IsInitialized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.IsInitialized" title="Link to this definition"></a></dt>
+<dd><p>Checks if all required fields of a message are set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>errors</strong> – A list which, if provided, will be populated with the field
+paths of all missing required fields.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True iff the specified message has all required fields set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.ListFields">
+<span class="sig-name descname"><span class="pre">ListFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.ListFields" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of (FieldDescriptor, value) tuples for present fields.</p>
+<p>A message field is non-empty if HasField() would return true. A singular
+primitive field is non-empty if HasField() would return true in proto2 or it
+is non zero in proto3. A repeated field is non-empty if it contains at least
+one element. The fields are ordered by field number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>field descriptors and values
+for all fields in the message which are not empty. The values vary by
+field type.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple(FieldDescriptor, value)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.MergeFrom">
+<span class="sig-name descname"><span class="pre">MergeFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.MergeFrom" title="Link to this definition"></a></dt>
+<dd><p>Merges the contents of the specified message into current message.</p>
+<p>This method merges the contents of the specified message into the current
+message. Singular fields that are set in the specified message overwrite
+the corresponding fields in the current message. Repeated fields are
+appended. Singular sub-messages and groups are recursively merged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other_msg</strong> (<em>Message</em>) – A message to merge into the current message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.MergeFromString">
+<span class="sig-name descname"><span class="pre">MergeFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.MergeFromString" title="Link to this definition"></a></dt>
+<dd><p>Merges serialized protocol buffer data into this message.</p>
+<p>When we find a field in <cite>serialized</cite> that is already present
+in this message:</p>
+<ul class="simple">
+<li><p>If it’s a “repeated” field, we append to the end of our list.</p></li>
+<li><p>Else, if it’s a scalar, we overwrite our field.</p></li>
+<li><p>Else, (it’s a nonrepeated composite), we recursively merge
+into the existing composite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>serialized</strong> (<em>bytes</em>) – Any object that allows us to call
+<code class="docutils literal notranslate"><span class="pre">memoryview(serialized)</span></code> to access a string of bytes using the
+buffer interface.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of bytes read from <cite>serialized</cite>.
+For non-group messages, this will always be <cite>len(serialized)</cite>,
+but for messages which are actually groups, this will
+generally be less than <cite>len(serialized)</cite>, since we must
+stop when we reach an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag.  Note that if
+we <em>do</em> stop because of an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag, the number
+of bytes returned does not include the bytes
+for the <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>DecodeError</strong> – if the input cannot be parsed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.RegisterExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegisterExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.RegisterExtension" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.SerializePartialToString">
+<span class="sig-name descname"><span class="pre">SerializePartialToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.SerializePartialToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<p>This method is similar to SerializeToString but doesn’t check if the
+message is initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A serialized representation of the partial message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.SerializeToString">
+<span class="sig-name descname"><span class="pre">SerializeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.SerializeToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A binary string representation of the message if all of the required
+fields in the message are set (i.e. the message is initialized).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>EncodeError</strong> – if the message isn’t initialized (see <a class="reference internal" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.IsInitialized" title="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.IsInitialized"><code class="xref py py-func docutils literal notranslate"><span class="pre">IsInitialized()</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.SetInParent">
+<span class="sig-name descname"><span class="pre">SetInParent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.SetInParent" title="Link to this definition"></a></dt>
+<dd><p>Sets the _cached_byte_size_dirty bit to true,
+and propagates this to our listener iff this was a state change.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.UnknownFields">
+<span class="sig-name descname"><span class="pre">UnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.UnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Returns the UnknownFieldSet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unknown fields stored in this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>UnknownFieldSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.VERSION_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">VERSION_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.VERSION_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.WhichOneof">
+<span class="sig-name descname"><span class="pre">WhichOneof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oneof_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.WhichOneof" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the currently set field inside a oneof, or None.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.end_of_support">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_of_support</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.end_of_support" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.version" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.lifecycle.v1.lifecycle_pb2_grpc">
+<span id="arista-lifecycle-v1-lifecycle-pb2-grpc-module"></span><h2>arista.lifecycle.v1.lifecycle_pb2_grpc module<a class="headerlink" href="#module-arista.lifecycle.v1.lifecycle_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.lifecycle.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.lifecycle.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.lifecycle.html" class="btn btn-neutral float-left" title="arista.lifecycle package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.lifecycle.v1.services.html" class="btn btn-neutral float-right" title="arista.lifecycle.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

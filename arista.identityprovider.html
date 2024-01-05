@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.identityprovider package &mdash; CloudVision Python 1.16.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e2aa0a4e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.identityprovider.v1 package" href="arista.identityprovider.v1.html" />
+    <link rel="prev" title="arista.event.v1.services package" href="arista.event.v1.services.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+              <div class="version">
+                1.16.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+      <li class="breadcrumb-item active">arista.identityprovider package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.identityprovider.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-identityprovider-package">
+<h1>arista.identityprovider package<a class="headerlink" href="#arista-identityprovider-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.identityprovider.v1.html">arista.identityprovider.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.identityprovider.v1.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html">arista.identityprovider.v1.services package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#module-arista.identityprovider.v1.services.gen_pb2">arista.identityprovider.v1.services.gen_pb2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#module-arista.identityprovider.v1.services.gen_pb2_grpc">arista.identityprovider.v1.services.gen_pb2_grpc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#module-arista.identityprovider.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.identityprovider.v1.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.identityprovider.v1.html#module-arista.identityprovider.v1.identityprovider_pb2">arista.identityprovider.v1.identityprovider_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig"><code class="docutils literal notranslate"><span class="pre">OAuthConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.ALGORITHMS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.ALGORITHMS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.BEARER_TOKEN_INTROSPECTION_ENDPOINT_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.BEARER_TOKEN_INTROSPECTION_ENDPOINT_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.CLIENT_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.CLIENT_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.CLIENT_SECRET_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.CLIENT_SECRET_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.Clear"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.ENDPOINT_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.ENDPOINT_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.FromString"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.HasField"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.JWKS_URI_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.JWKS_URI_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.LINK_TO_SHARED_PROVIDER_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.LINK_TO_SHARED_PROVIDER_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.PERMITTED_EMAIL_DOMAINS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.PERMITTED_EMAIL_DOMAINS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.ROLES_SCOPE_NAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.ROLES_SCOPE_NAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.algorithms"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.algorithms</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.bearer_token_introspection_endpoint"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.bearer_token_introspection_endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.client_id"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.client_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.client_secret"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.client_secret</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.endpoint"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.jwks_uri"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.jwks_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.key"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.link_to_shared_provider"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.link_to_shared_provider</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.permitted_email_domains"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.permitted_email_domains</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.roles_scope_name"><code class="docutils literal notranslate"><span class="pre">OAuthConfig.roles_scope_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey"><code class="docutils literal notranslate"><span class="pre">OAuthKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">OAuthKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.Clear"><code class="docutils literal notranslate"><span class="pre">OAuthKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.ClearField"><code class="docutils literal notranslate"><span class="pre">OAuthKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">OAuthKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">OAuthKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.FromString"><code class="docutils literal notranslate"><span class="pre">OAuthKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.HasField"><code class="docutils literal notranslate"><span class="pre">OAuthKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">OAuthKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.ListFields"><code class="docutils literal notranslate"><span class="pre">OAuthKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">OAuthKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">OAuthKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.PROVIDER_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">OAuthKey.PROVIDER_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">OAuthKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">OAuthKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">OAuthKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">OAuthKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">OAuthKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">OAuthKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.provider_id"><code class="docutils literal notranslate"><span class="pre">OAuthKey.provider_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig"><code class="docutils literal notranslate"><span class="pre">SAMLConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.AUTHREQ_BINDING_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.AUTHREQ_BINDING_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.Clear"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.EMAIL_ATTRNAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.EMAIL_ATTRNAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.FORCE_SAML_AUTHN_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.FORCE_SAML_AUTHN_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.FromString"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.HasField"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.IDP_ISSUER_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.IDP_ISSUER_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.IDP_METADATA_URL_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.IDP_METADATA_URL_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.LINK_TO_SHARED_PROVIDER_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.LINK_TO_SHARED_PROVIDER_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.ORG_ATTRNAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.ORG_ATTRNAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.PERMITTED_EMAIL_DOMAINS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.PERMITTED_EMAIL_DOMAINS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.ROLES_ATTRNAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.ROLES_ATTRNAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.authreq_binding"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.authreq_binding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.email_attrname"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.email_attrname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.force_saml_authn"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.force_saml_authn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.idp_issuer"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.idp_issuer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.idp_metadata_url"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.idp_metadata_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.key"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.link_to_shared_provider"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.link_to_shared_provider</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.org_attrname"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.org_attrname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.permitted_email_domains"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.permitted_email_domains</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.roles_attrname"><code class="docutils literal notranslate"><span class="pre">SAMLConfig.roles_attrname</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey"><code class="docutils literal notranslate"><span class="pre">SAMLKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">SAMLKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.Clear"><code class="docutils literal notranslate"><span class="pre">SAMLKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.ClearField"><code class="docutils literal notranslate"><span class="pre">SAMLKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">SAMLKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">SAMLKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.FromString"><code class="docutils literal notranslate"><span class="pre">SAMLKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.HasField"><code class="docutils literal notranslate"><span class="pre">SAMLKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">SAMLKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.ListFields"><code class="docutils literal notranslate"><span class="pre">SAMLKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">SAMLKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">SAMLKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.PROVIDER_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SAMLKey.PROVIDER_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">SAMLKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">SAMLKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">SAMLKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">SAMLKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">SAMLKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">SAMLKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.html#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.provider_id"><code class="docutils literal notranslate"><span class="pre">SAMLKey.provider_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.identityprovider.v1.html#module-arista.identityprovider.v1.identityprovider_pb2_grpc">arista.identityprovider.v1.identityprovider_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.identityprovider.v1.html#module-arista.identityprovider.v1">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-arista.identityprovider">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.identityprovider" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.event.v1.services.html" class="btn btn-neutral float-left" title="arista.event.v1.services package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.identityprovider.v1.html" class="btn btn-neutral float-right" title="arista.identityprovider.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

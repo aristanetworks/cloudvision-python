@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.redirector.v1.services package &mdash; CloudVision Python 1.16.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e2aa0a4e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.serviceaccount package" href="arista.serviceaccount.html" />
+    <link rel="prev" title="arista.redirector.v1 package" href="arista.redirector.v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+              <div class="version">
+                1.16.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.redirector.html">arista.redirector package</a></li>
+          <li class="breadcrumb-item"><a href="arista.redirector.v1.html">arista.redirector.v1 package</a></li>
+      <li class="breadcrumb-item active">arista.redirector.v1.services package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.redirector.v1.services.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-redirector-v1-services-package">
+<h1>arista.redirector.v1.services package<a class="headerlink" href="#arista-redirector-v1-services-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.redirector.v1.services.gen_pb2">
+<span id="arista-redirector-v1-services-gen-pb2-module"></span><h2>arista.redirector.v1.services.gen_pb2 module<a class="headerlink" href="#module-arista.redirector.v1.services.gen_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.redirector.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">AssignmentRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.ByteSize">
+<span class="sig-name descname"><span class="pre">ByteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.ByteSize" title="Link to this definition"></a></dt>
+<dd><p>Returns the serialized size of this message.</p>
+<p>Recursively calls ByteSize() on all contained messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of bytes required to serialize this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.Clear">
+<span class="sig-name descname"><span class="pre">Clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.Clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all data that was set in the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.ClearField">
+<span class="sig-name descname"><span class="pre">ClearField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.ClearField" title="Link to this definition"></a></dt>
+<dd><p>Clears the contents of a given field.</p>
+<p>Inside a oneof group, clears the field set. If the name neither refers to a
+defined field or oneof group, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.descriptor.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.DiscardUnknownFields">
+<span class="sig-name descname"><span class="pre">DiscardUnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.DiscardUnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Clears all fields in the <code class="xref py py-class docutils literal notranslate"><span class="pre">UnknownFieldSet</span></code>.</p>
+<p>This operation is recursive for nested message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.FindInitializationErrors">
+<span class="sig-name descname"><span class="pre">FindInitializationErrors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.FindInitializationErrors" title="Link to this definition"></a></dt>
+<dd><p>Finds required fields which are not initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings.  Each string is a path to an uninitialized field from
+the top-level message, e.g. “foo.bar[5].baz”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.FromString">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.FromString" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.HasField">
+<span class="sig-name descname"><span class="pre">HasField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.HasField" title="Link to this definition"></a></dt>
+<dd><p>Checks if a certain field is set for the message.</p>
+<p>For a oneof group, checks if any field inside is set. Note that if the
+field_name is not defined in the message descriptor, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> will
+be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether a value has been set for the named field.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.IsInitialized">
+<span class="sig-name descname"><span class="pre">IsInitialized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.IsInitialized" title="Link to this definition"></a></dt>
+<dd><p>Checks if all required fields of a message are set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>errors</strong> – A list which, if provided, will be populated with the field
+paths of all missing required fields.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True iff the specified message has all required fields set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.KEY_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">KEY_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.KEY_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.ListFields">
+<span class="sig-name descname"><span class="pre">ListFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.ListFields" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of (FieldDescriptor, value) tuples for present fields.</p>
+<p>A message field is non-empty if HasField() would return true. A singular
+primitive field is non-empty if HasField() would return true in proto2 or it
+is non zero in proto3. A repeated field is non-empty if it contains at least
+one element. The fields are ordered by field number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>field descriptors and values
+for all fields in the message which are not empty. The values vary by
+field type.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple(FieldDescriptor, value)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.MergeFrom">
+<span class="sig-name descname"><span class="pre">MergeFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.MergeFrom" title="Link to this definition"></a></dt>
+<dd><p>Merges the contents of the specified message into current message.</p>
+<p>This method merges the contents of the specified message into the current
+message. Singular fields that are set in the specified message overwrite
+the corresponding fields in the current message. Repeated fields are
+appended. Singular sub-messages and groups are recursively merged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other_msg</strong> (<em>Message</em>) – A message to merge into the current message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.MergeFromString">
+<span class="sig-name descname"><span class="pre">MergeFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.MergeFromString" title="Link to this definition"></a></dt>
+<dd><p>Merges serialized protocol buffer data into this message.</p>
+<p>When we find a field in <cite>serialized</cite> that is already present
+in this message:</p>
+<ul class="simple">
+<li><p>If it’s a “repeated” field, we append to the end of our list.</p></li>
+<li><p>Else, if it’s a scalar, we overwrite our field.</p></li>
+<li><p>Else, (it’s a nonrepeated composite), we recursively merge
+into the existing composite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>serialized</strong> (<em>bytes</em>) – Any object that allows us to call
+<code class="docutils literal notranslate"><span class="pre">memoryview(serialized)</span></code> to access a string of bytes using the
+buffer interface.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of bytes read from <cite>serialized</cite>.
+For non-group messages, this will always be <cite>len(serialized)</cite>,
+but for messages which are actually groups, this will
+generally be less than <cite>len(serialized)</cite>, since we must
+stop when we reach an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag.  Note that if
+we <em>do</em> stop because of an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag, the number
+of bytes returned does not include the bytes
+for the <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>DecodeError</strong> – if the input cannot be parsed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.RegisterExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegisterExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.RegisterExtension" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.SerializePartialToString">
+<span class="sig-name descname"><span class="pre">SerializePartialToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.SerializePartialToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<p>This method is similar to SerializeToString but doesn’t check if the
+message is initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A serialized representation of the partial message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.SerializeToString">
+<span class="sig-name descname"><span class="pre">SerializeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.SerializeToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A binary string representation of the message if all of the required
+fields in the message are set (i.e. the message is initialized).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>EncodeError</strong> – if the message isn’t initialized (see <a class="reference internal" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.IsInitialized" title="arista.redirector.v1.services.gen_pb2.AssignmentRequest.IsInitialized"><code class="xref py py-func docutils literal notranslate"><span class="pre">IsInitialized()</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.SetInParent">
+<span class="sig-name descname"><span class="pre">SetInParent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.SetInParent" title="Link to this definition"></a></dt>
+<dd><p>Sets the _cached_byte_size_dirty bit to true,
+and propagates this to our listener iff this was a state change.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.TIME_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">TIME_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.TIME_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.UnknownFields">
+<span class="sig-name descname"><span class="pre">UnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.UnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Returns the UnknownFieldSet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unknown fields stored in this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>UnknownFieldSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.WhichOneof">
+<span class="sig-name descname"><span class="pre">WhichOneof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oneof_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.WhichOneof" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the currently set field inside a oneof, or None.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.key" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentRequest.time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentRequest.time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.redirector.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">AssignmentResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.ByteSize">
+<span class="sig-name descname"><span class="pre">ByteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.ByteSize" title="Link to this definition"></a></dt>
+<dd><p>Returns the serialized size of this message.</p>
+<p>Recursively calls ByteSize() on all contained messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of bytes required to serialize this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.Clear">
+<span class="sig-name descname"><span class="pre">Clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.Clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all data that was set in the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.ClearField">
+<span class="sig-name descname"><span class="pre">ClearField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.ClearField" title="Link to this definition"></a></dt>
+<dd><p>Clears the contents of a given field.</p>
+<p>Inside a oneof group, clears the field set. If the name neither refers to a
+defined field or oneof group, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.descriptor.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.DiscardUnknownFields">
+<span class="sig-name descname"><span class="pre">DiscardUnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.DiscardUnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Clears all fields in the <code class="xref py py-class docutils literal notranslate"><span class="pre">UnknownFieldSet</span></code>.</p>
+<p>This operation is recursive for nested message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.FindInitializationErrors">
+<span class="sig-name descname"><span class="pre">FindInitializationErrors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.FindInitializationErrors" title="Link to this definition"></a></dt>
+<dd><p>Finds required fields which are not initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings.  Each string is a path to an uninitialized field from
+the top-level message, e.g. “foo.bar[5].baz”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.FromString">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.FromString" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.HasField">
+<span class="sig-name descname"><span class="pre">HasField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.HasField" title="Link to this definition"></a></dt>
+<dd><p>Checks if a certain field is set for the message.</p>
+<p>For a oneof group, checks if any field inside is set. Note that if the
+field_name is not defined in the message descriptor, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> will
+be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether a value has been set for the named field.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.IsInitialized">
+<span class="sig-name descname"><span class="pre">IsInitialized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.IsInitialized" title="Link to this definition"></a></dt>
+<dd><p>Checks if all required fields of a message are set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>errors</strong> – A list which, if provided, will be populated with the field
+paths of all missing required fields.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True iff the specified message has all required fields set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.ListFields">
+<span class="sig-name descname"><span class="pre">ListFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.ListFields" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of (FieldDescriptor, value) tuples for present fields.</p>
+<p>A message field is non-empty if HasField() would return true. A singular
+primitive field is non-empty if HasField() would return true in proto2 or it
+is non zero in proto3. A repeated field is non-empty if it contains at least
+one element. The fields are ordered by field number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>field descriptors and values
+for all fields in the message which are not empty. The values vary by
+field type.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple(FieldDescriptor, value)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.MergeFrom">
+<span class="sig-name descname"><span class="pre">MergeFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.MergeFrom" title="Link to this definition"></a></dt>
+<dd><p>Merges the contents of the specified message into current message.</p>
+<p>This method merges the contents of the specified message into the current
+message. Singular fields that are set in the specified message overwrite
+the corresponding fields in the current message. Repeated fields are
+appended. Singular sub-messages and groups are recursively merged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other_msg</strong> (<em>Message</em>) – A message to merge into the current message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.MergeFromString">
+<span class="sig-name descname"><span class="pre">MergeFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.MergeFromString" title="Link to this definition"></a></dt>
+<dd><p>Merges serialized protocol buffer data into this message.</p>
+<p>When we find a field in <cite>serialized</cite> that is already present
+in this message:</p>
+<ul class="simple">
+<li><p>If it’s a “repeated” field, we append to the end of our list.</p></li>
+<li><p>Else, if it’s a scalar, we overwrite our field.</p></li>
+<li><p>Else, (it’s a nonrepeated composite), we recursively merge
+into the existing composite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>serialized</strong> (<em>bytes</em>) – Any object that allows us to call
+<code class="docutils literal notranslate"><span class="pre">memoryview(serialized)</span></code> to access a string of bytes using the
+buffer interface.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of bytes read from <cite>serialized</cite>.
+For non-group messages, this will always be <cite>len(serialized)</cite>,
+but for messages which are actually groups, this will
+generally be less than <cite>len(serialized)</cite>, since we must
+stop when we reach an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag.  Note that if
+we <em>do</em> stop because of an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag, the number
+of bytes returned does not include the bytes
+for the <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>DecodeError</strong> – if the input cannot be parsed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.RegisterExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegisterExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.RegisterExtension" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.SerializePartialToString">
+<span class="sig-name descname"><span class="pre">SerializePartialToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.SerializePartialToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<p>This method is similar to SerializeToString but doesn’t check if the
+message is initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A serialized representation of the partial message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.SerializeToString">
+<span class="sig-name descname"><span class="pre">SerializeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.SerializeToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A binary string representation of the message if all of the required
+fields in the message are set (i.e. the message is initialized).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>EncodeError</strong> – if the message isn’t initialized (see <a class="reference internal" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.IsInitialized" title="arista.redirector.v1.services.gen_pb2.AssignmentResponse.IsInitialized"><code class="xref py py-func docutils literal notranslate"><span class="pre">IsInitialized()</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.SetInParent">
+<span class="sig-name descname"><span class="pre">SetInParent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.SetInParent" title="Link to this definition"></a></dt>
+<dd><p>Sets the _cached_byte_size_dirty bit to true,
+and propagates this to our listener iff this was a state change.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.TIME_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">TIME_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.TIME_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.UnknownFields">
+<span class="sig-name descname"><span class="pre">UnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.UnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Returns the UnknownFieldSet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unknown fields stored in this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>UnknownFieldSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.VALUE_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">VALUE_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.VALUE_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.WhichOneof">
+<span class="sig-name descname"><span class="pre">WhichOneof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oneof_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.WhichOneof" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the currently set field inside a oneof, or None.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentResponse.value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentResponse.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.redirector.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">AssignmentStreamRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.ByteSize">
+<span class="sig-name descname"><span class="pre">ByteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.ByteSize" title="Link to this definition"></a></dt>
+<dd><p>Returns the serialized size of this message.</p>
+<p>Recursively calls ByteSize() on all contained messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of bytes required to serialize this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.Clear">
+<span class="sig-name descname"><span class="pre">Clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.Clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all data that was set in the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.ClearField">
+<span class="sig-name descname"><span class="pre">ClearField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.ClearField" title="Link to this definition"></a></dt>
+<dd><p>Clears the contents of a given field.</p>
+<p>Inside a oneof group, clears the field set. If the name neither refers to a
+defined field or oneof group, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.descriptor.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.DiscardUnknownFields">
+<span class="sig-name descname"><span class="pre">DiscardUnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.DiscardUnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Clears all fields in the <code class="xref py py-class docutils literal notranslate"><span class="pre">UnknownFieldSet</span></code>.</p>
+<p>This operation is recursive for nested message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.FindInitializationErrors">
+<span class="sig-name descname"><span class="pre">FindInitializationErrors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.FindInitializationErrors" title="Link to this definition"></a></dt>
+<dd><p>Finds required fields which are not initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings.  Each string is a path to an uninitialized field from
+the top-level message, e.g. “foo.bar[5].baz”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.FromString">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.FromString" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.HasField">
+<span class="sig-name descname"><span class="pre">HasField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.HasField" title="Link to this definition"></a></dt>
+<dd><p>Checks if a certain field is set for the message.</p>
+<p>For a oneof group, checks if any field inside is set. Note that if the
+field_name is not defined in the message descriptor, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> will
+be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether a value has been set for the named field.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.IsInitialized">
+<span class="sig-name descname"><span class="pre">IsInitialized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.IsInitialized" title="Link to this definition"></a></dt>
+<dd><p>Checks if all required fields of a message are set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>errors</strong> – A list which, if provided, will be populated with the field
+paths of all missing required fields.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True iff the specified message has all required fields set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.ListFields">
+<span class="sig-name descname"><span class="pre">ListFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.ListFields" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of (FieldDescriptor, value) tuples for present fields.</p>
+<p>A message field is non-empty if HasField() would return true. A singular
+primitive field is non-empty if HasField() would return true in proto2 or it
+is non zero in proto3. A repeated field is non-empty if it contains at least
+one element. The fields are ordered by field number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>field descriptors and values
+for all fields in the message which are not empty. The values vary by
+field type.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple(FieldDescriptor, value)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.MergeFrom">
+<span class="sig-name descname"><span class="pre">MergeFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.MergeFrom" title="Link to this definition"></a></dt>
+<dd><p>Merges the contents of the specified message into current message.</p>
+<p>This method merges the contents of the specified message into the current
+message. Singular fields that are set in the specified message overwrite
+the corresponding fields in the current message. Repeated fields are
+appended. Singular sub-messages and groups are recursively merged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other_msg</strong> (<em>Message</em>) – A message to merge into the current message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.MergeFromString">
+<span class="sig-name descname"><span class="pre">MergeFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.MergeFromString" title="Link to this definition"></a></dt>
+<dd><p>Merges serialized protocol buffer data into this message.</p>
+<p>When we find a field in <cite>serialized</cite> that is already present
+in this message:</p>
+<ul class="simple">
+<li><p>If it’s a “repeated” field, we append to the end of our list.</p></li>
+<li><p>Else, if it’s a scalar, we overwrite our field.</p></li>
+<li><p>Else, (it’s a nonrepeated composite), we recursively merge
+into the existing composite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>serialized</strong> (<em>bytes</em>) – Any object that allows us to call
+<code class="docutils literal notranslate"><span class="pre">memoryview(serialized)</span></code> to access a string of bytes using the
+buffer interface.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of bytes read from <cite>serialized</cite>.
+For non-group messages, this will always be <cite>len(serialized)</cite>,
+but for messages which are actually groups, this will
+generally be less than <cite>len(serialized)</cite>, since we must
+stop when we reach an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag.  Note that if
+we <em>do</em> stop because of an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag, the number
+of bytes returned does not include the bytes
+for the <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>DecodeError</strong> – if the input cannot be parsed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.PARTIAL_EQ_FILTER_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">PARTIAL_EQ_FILTER_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.PARTIAL_EQ_FILTER_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.RegisterExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegisterExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.RegisterExtension" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.SerializePartialToString">
+<span class="sig-name descname"><span class="pre">SerializePartialToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.SerializePartialToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<p>This method is similar to SerializeToString but doesn’t check if the
+message is initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A serialized representation of the partial message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.SerializeToString">
+<span class="sig-name descname"><span class="pre">SerializeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.SerializeToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A binary string representation of the message if all of the required
+fields in the message are set (i.e. the message is initialized).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>EncodeError</strong> – if the message isn’t initialized (see <a class="reference internal" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.IsInitialized" title="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.IsInitialized"><code class="xref py py-func docutils literal notranslate"><span class="pre">IsInitialized()</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.SetInParent">
+<span class="sig-name descname"><span class="pre">SetInParent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.SetInParent" title="Link to this definition"></a></dt>
+<dd><p>Sets the _cached_byte_size_dirty bit to true,
+and propagates this to our listener iff this was a state change.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.TIME_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">TIME_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.TIME_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.UnknownFields">
+<span class="sig-name descname"><span class="pre">UnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.UnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Returns the UnknownFieldSet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unknown fields stored in this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>UnknownFieldSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.WhichOneof">
+<span class="sig-name descname"><span class="pre">WhichOneof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oneof_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.WhichOneof" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the currently set field inside a oneof, or None.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.partial_eq_filter">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">partial_eq_filter</span></span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.partial_eq_filter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamRequest.time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.redirector.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">AssignmentStreamResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.ByteSize">
+<span class="sig-name descname"><span class="pre">ByteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.ByteSize" title="Link to this definition"></a></dt>
+<dd><p>Returns the serialized size of this message.</p>
+<p>Recursively calls ByteSize() on all contained messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of bytes required to serialize this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.Clear">
+<span class="sig-name descname"><span class="pre">Clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.Clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all data that was set in the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.ClearField">
+<span class="sig-name descname"><span class="pre">ClearField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.ClearField" title="Link to this definition"></a></dt>
+<dd><p>Clears the contents of a given field.</p>
+<p>Inside a oneof group, clears the field set. If the name neither refers to a
+defined field or oneof group, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google.protobuf.descriptor.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code> for this message type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.DiscardUnknownFields">
+<span class="sig-name descname"><span class="pre">DiscardUnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.DiscardUnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Clears all fields in the <code class="xref py py-class docutils literal notranslate"><span class="pre">UnknownFieldSet</span></code>.</p>
+<p>This operation is recursive for nested message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.FindInitializationErrors">
+<span class="sig-name descname"><span class="pre">FindInitializationErrors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.FindInitializationErrors" title="Link to this definition"></a></dt>
+<dd><p>Finds required fields which are not initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings.  Each string is a path to an uninitialized field from
+the top-level message, e.g. “foo.bar[5].baz”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.FromString">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.FromString" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.HasField">
+<span class="sig-name descname"><span class="pre">HasField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.HasField" title="Link to this definition"></a></dt>
+<dd><p>Checks if a certain field is set for the message.</p>
+<p>For a oneof group, checks if any field inside is set. Note that if the
+field_name is not defined in the message descriptor, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> will
+be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field_name</strong> (<em>str</em>) – The name of the field to check for presence.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether a value has been set for the named field.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.IsInitialized">
+<span class="sig-name descname"><span class="pre">IsInitialized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.IsInitialized" title="Link to this definition"></a></dt>
+<dd><p>Checks if all required fields of a message are set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>errors</strong> – A list which, if provided, will be populated with the field
+paths of all missing required fields.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True iff the specified message has all required fields set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.ListFields">
+<span class="sig-name descname"><span class="pre">ListFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.ListFields" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of (FieldDescriptor, value) tuples for present fields.</p>
+<p>A message field is non-empty if HasField() would return true. A singular
+primitive field is non-empty if HasField() would return true in proto2 or it
+is non zero in proto3. A repeated field is non-empty if it contains at least
+one element. The fields are ordered by field number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>field descriptors and values
+for all fields in the message which are not empty. The values vary by
+field type.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple(FieldDescriptor, value)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.MergeFrom">
+<span class="sig-name descname"><span class="pre">MergeFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.MergeFrom" title="Link to this definition"></a></dt>
+<dd><p>Merges the contents of the specified message into current message.</p>
+<p>This method merges the contents of the specified message into the current
+message. Singular fields that are set in the specified message overwrite
+the corresponding fields in the current message. Repeated fields are
+appended. Singular sub-messages and groups are recursively merged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other_msg</strong> (<em>Message</em>) – A message to merge into the current message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.MergeFromString">
+<span class="sig-name descname"><span class="pre">MergeFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.MergeFromString" title="Link to this definition"></a></dt>
+<dd><p>Merges serialized protocol buffer data into this message.</p>
+<p>When we find a field in <cite>serialized</cite> that is already present
+in this message:</p>
+<ul class="simple">
+<li><p>If it’s a “repeated” field, we append to the end of our list.</p></li>
+<li><p>Else, if it’s a scalar, we overwrite our field.</p></li>
+<li><p>Else, (it’s a nonrepeated composite), we recursively merge
+into the existing composite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>serialized</strong> (<em>bytes</em>) – Any object that allows us to call
+<code class="docutils literal notranslate"><span class="pre">memoryview(serialized)</span></code> to access a string of bytes using the
+buffer interface.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of bytes read from <cite>serialized</cite>.
+For non-group messages, this will always be <cite>len(serialized)</cite>,
+but for messages which are actually groups, this will
+generally be less than <cite>len(serialized)</cite>, since we must
+stop when we reach an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag.  Note that if
+we <em>do</em> stop because of an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag, the number
+of bytes returned does not include the bytes
+for the <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>DecodeError</strong> – if the input cannot be parsed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.RegisterExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegisterExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.RegisterExtension" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.SerializePartialToString">
+<span class="sig-name descname"><span class="pre">SerializePartialToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.SerializePartialToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<p>This method is similar to SerializeToString but doesn’t check if the
+message is initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A serialized representation of the partial message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.SerializeToString">
+<span class="sig-name descname"><span class="pre">SerializeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.SerializeToString" title="Link to this definition"></a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deterministic</strong> (<em>bool</em>) – If true, requests deterministic serialization
+of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A binary string representation of the message if all of the required
+fields in the message are set (i.e. the message is initialized).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>EncodeError</strong> – if the message isn’t initialized (see <a class="reference internal" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.IsInitialized" title="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.IsInitialized"><code class="xref py py-func docutils literal notranslate"><span class="pre">IsInitialized()</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.SetInParent">
+<span class="sig-name descname"><span class="pre">SetInParent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.SetInParent" title="Link to this definition"></a></dt>
+<dd><p>Sets the _cached_byte_size_dirty bit to true,
+and propagates this to our listener iff this was a state change.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.TIME_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">TIME_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.TIME_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.TYPE_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">TYPE_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.TYPE_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.UnknownFields">
+<span class="sig-name descname"><span class="pre">UnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.UnknownFields" title="Link to this definition"></a></dt>
+<dd><p>Returns the UnknownFieldSet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unknown fields stored in this message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>UnknownFieldSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.VALUE_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">VALUE_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.VALUE_FIELD_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.WhichOneof">
+<span class="sig-name descname"><span class="pre">WhichOneof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oneof_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.WhichOneof" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the currently set field inside a oneof, or None.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2.AssignmentStreamResponse.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.redirector.v1.services.gen_pb2_grpc">
+<span id="arista-redirector-v1-services-gen-pb2-grpc-module"></span><h2>arista.redirector.v1.services.gen_pb2_grpc module<a class="headerlink" href="#module-arista.redirector.v1.services.gen_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2_grpc.AssignmentService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.redirector.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">AssignmentService</span></span><a class="reference internal" href="_modules/arista/redirector/v1/services/gen_pb2_grpc.html#AssignmentService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2_grpc.AssignmentService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2_grpc.AssignmentService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/redirector/v1/services/gen_pb2_grpc.html#AssignmentService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2_grpc.AssignmentService.GetAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2_grpc.AssignmentService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/redirector/v1/services/gen_pb2_grpc.html#AssignmentService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2_grpc.AssignmentService.GetOne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2_grpc.AssignmentService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/redirector/v1/services/gen_pb2_grpc.html#AssignmentService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2_grpc.AssignmentService.Subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2_grpc.AssignmentServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.redirector.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">AssignmentServiceServicer</span></span><a class="reference internal" href="_modules/arista/redirector/v1/services/gen_pb2_grpc.html#AssignmentServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2_grpc.AssignmentServiceServicer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2_grpc.AssignmentServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/redirector/v1/services/gen_pb2_grpc.html#AssignmentServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2_grpc.AssignmentServiceServicer.GetAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2_grpc.AssignmentServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/redirector/v1/services/gen_pb2_grpc.html#AssignmentServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2_grpc.AssignmentServiceServicer.GetOne" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2_grpc.AssignmentServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/redirector/v1/services/gen_pb2_grpc.html#AssignmentServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2_grpc.AssignmentServiceServicer.Subscribe" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2_grpc.AssignmentServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.redirector.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">AssignmentServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/redirector/v1/services/gen_pb2_grpc.html#AssignmentServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2_grpc.AssignmentServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.redirector.v1.services.gen_pb2_grpc.add_AssignmentServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.redirector.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_AssignmentServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/redirector/v1/services/gen_pb2_grpc.html#add_AssignmentServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.redirector.v1.services.gen_pb2_grpc.add_AssignmentServiceServicer_to_server" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-arista.redirector.v1.services">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.redirector.v1.services" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.redirector.v1.html" class="btn btn-neutral float-left" title="arista.redirector.v1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.serviceaccount.html" class="btn btn-neutral float-right" title="arista.serviceaccount package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

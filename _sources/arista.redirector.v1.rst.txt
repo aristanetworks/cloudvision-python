@@ -1,0 +1,37 @@
+arista.redirector.v1 package
+============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.redirector.v1.services
+
+Submodules
+----------
+
+arista.redirector.v1.redirector\_pb2 module
+-------------------------------------------
+
+.. automodule:: arista.redirector.v1.redirector_pb2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+arista.redirector.v1.redirector\_pb2\_grpc module
+-------------------------------------------------
+
+.. automodule:: arista.redirector.v1.redirector_pb2_grpc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: arista.redirector.v1
+   :members:
+   :undoc-members:
+   :show-inheritance:

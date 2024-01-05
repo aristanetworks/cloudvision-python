@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.inventory package &mdash; CloudVision Python 1.16.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e2aa0a4e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.inventory.v1 package" href="arista.inventory.v1.html" />
+    <link rel="prev" title="arista.imagestatus.v1.services package" href="arista.imagestatus.v1.services.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+              <div class="version">
+                1.16.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+      <li class="breadcrumb-item active">arista.inventory package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.inventory.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-inventory-package">
+<h1>arista.inventory package<a class="headerlink" href="#arista-inventory-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.inventory.v1.html">arista.inventory.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html">arista.inventory.v1.services package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#module-arista.inventory.v1.services.gen_pb2">arista.inventory.v1.services.gen_pb2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#module-arista.inventory.v1.services.gen_pb2_grpc">arista.inventory.v1.services.gen_pb2_grpc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#module-arista.inventory.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.html#module-arista.inventory.v1.inventory_pb2">arista.inventory.v1.inventory_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device"><code class="docutils literal notranslate"><span class="pre">Device</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.BOOT_TIME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.BOOT_TIME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.ByteSize"><code class="docutils literal notranslate"><span class="pre">Device.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.Clear"><code class="docutils literal notranslate"><span class="pre">Device.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.ClearField"><code class="docutils literal notranslate"><span class="pre">Device.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Device.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.DOMAIN_NAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.DOMAIN_NAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">Device.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.EXTENDED_ATTRIBUTES_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.EXTENDED_ATTRIBUTES_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.FQDN_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.FQDN_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">Device.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.FromString"><code class="docutils literal notranslate"><span class="pre">Device.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.HARDWARE_REVISION_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.HARDWARE_REVISION_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.HOSTNAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.HOSTNAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.HasField"><code class="docutils literal notranslate"><span class="pre">Device.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.IsInitialized"><code class="docutils literal notranslate"><span class="pre">Device.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.ListFields"><code class="docutils literal notranslate"><span class="pre">Device.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.MODEL_NAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.MODEL_NAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.MergeFrom"><code class="docutils literal notranslate"><span class="pre">Device.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.MergeFromString"><code class="docutils literal notranslate"><span class="pre">Device.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">Device.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.SOFTWARE_VERSION_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.SOFTWARE_VERSION_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.STREAMING_STATUS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.STREAMING_STATUS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.SYSTEM_MAC_ADDRESS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Device.SYSTEM_MAC_ADDRESS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">Device.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.SerializeToString"><code class="docutils literal notranslate"><span class="pre">Device.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.SetInParent"><code class="docutils literal notranslate"><span class="pre">Device.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.UnknownFields"><code class="docutils literal notranslate"><span class="pre">Device.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.WhichOneof"><code class="docutils literal notranslate"><span class="pre">Device.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.boot_time"><code class="docutils literal notranslate"><span class="pre">Device.boot_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.domain_name"><code class="docutils literal notranslate"><span class="pre">Device.domain_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.extended_attributes"><code class="docutils literal notranslate"><span class="pre">Device.extended_attributes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.fqdn"><code class="docutils literal notranslate"><span class="pre">Device.fqdn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.hardware_revision"><code class="docutils literal notranslate"><span class="pre">Device.hardware_revision</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.hostname"><code class="docutils literal notranslate"><span class="pre">Device.hostname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.key"><code class="docutils literal notranslate"><span class="pre">Device.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.model_name"><code class="docutils literal notranslate"><span class="pre">Device.model_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.software_version"><code class="docutils literal notranslate"><span class="pre">Device.software_version</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.streaming_status"><code class="docutils literal notranslate"><span class="pre">Device.streaming_status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.Device.system_mac_address"><code class="docutils literal notranslate"><span class="pre">Device.system_mac_address</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.OPTIONS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.OPTIONS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.OptionsEntry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceConfiguration.options"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.options</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.ERROR_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.ERROR_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.STATUS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.STATUS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.STATUS_MESSAGE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.STATUS_MESSAGE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.error"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.status"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.status_message"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.status_message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.DEVICE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.DEVICE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.FORCE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.FORCE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.device_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.force"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.force</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey"><code class="docutils literal notranslate"><span class="pre">DeviceKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.DEVICE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceKey.DEVICE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceKey.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceKey.device_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.DEVICE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.DEVICE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.ERROR_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.ERROR_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.STATUS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.STATUS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.STATUS_MESSAGE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.STATUS_MESSAGE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.device_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.error"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.status"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboarding.status_message"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.status_message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.DEVICE_CONFIG_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.DEVICE_CONFIG_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.DEVICE_TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.DEVICE_TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.HOSTNAME_OR_IP_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.HOSTNAME_OR_IP_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.device_config"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.device_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.device_type"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.device_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.hostname_or_ip"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.hostname_or_ip</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.ByteSize"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.Clear"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.ClearField"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.FEATURE_ENABLED_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.FEATURE_ENABLED_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.FeatureEnabledEntry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.FromString"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.HasField"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.IsInitialized"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.ListFields"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.MergeFrom"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.MergeFromString"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.SerializeToString"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.SetInParent"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.UnknownFields"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.WhichOneof"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ExtendedAttributes.feature_enabled"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.feature_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.ByteSize"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.Clear"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.ClearField"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.ERROR_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.ERROR_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.FromString"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.HasField"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.IP_ADDRESS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.IP_ADDRESS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.IsInitialized"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.ListFields"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.MergeFrom"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.MergeFromString"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.PROVISIONING_GROUP_NAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.PROVISIONING_GROUP_NAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.STATUS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.STATUS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.SerializeToString"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.SetInParent"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.UnknownFields"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.WhichOneof"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.ZTP_MODE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.ZTP_MODE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.error"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.ip_address"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.ip_address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.key"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.provisioning_group_name"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.provisioning_group_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.status"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.ProvisionedDevice.ztp_mode"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.ztp_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey"><code class="docutils literal notranslate"><span class="pre">UUIDKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">UUIDKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.Clear"><code class="docutils literal notranslate"><span class="pre">UUIDKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.ClearField"><code class="docutils literal notranslate"><span class="pre">UUIDKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UUIDKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">UUIDKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">UUIDKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.FromString"><code class="docutils literal notranslate"><span class="pre">UUIDKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.HasField"><code class="docutils literal notranslate"><span class="pre">UUIDKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">UUIDKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.ListFields"><code class="docutils literal notranslate"><span class="pre">UUIDKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">UUIDKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">UUIDKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.REQUEST_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">UUIDKey.REQUEST_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">UUIDKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">UUIDKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">UUIDKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">UUIDKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">UUIDKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">UUIDKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.html#arista.inventory.v1.inventory_pb2.UUIDKey.request_id"><code class="docutils literal notranslate"><span class="pre">UUIDKey.request_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.html#module-arista.inventory.v1.inventory_pb2_grpc">arista.inventory.v1.inventory_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.html#module-arista.inventory.v1">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-arista.inventory">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.inventory" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.imagestatus.v1.services.html" class="btn btn-neutral float-left" title="arista.imagestatus.v1.services package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.inventory.v1.html" class="btn btn-neutral float-right" title="arista.inventory.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

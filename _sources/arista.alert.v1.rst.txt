@@ -1,0 +1,37 @@
+arista.alert.v1 package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.alert.v1.services
+
+Submodules
+----------
+
+arista.alert.v1.alert\_pb2 module
+---------------------------------
+
+.. automodule:: arista.alert.v1.alert_pb2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+arista.alert.v1.alert\_pb2\_grpc module
+---------------------------------------
+
+.. automodule:: arista.alert.v1.alert_pb2_grpc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: arista.alert.v1
+   :members:
+   :undoc-members:
+   :show-inheritance:

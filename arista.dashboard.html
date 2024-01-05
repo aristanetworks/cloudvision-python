@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.dashboard package &mdash; CloudVision Python 1.16.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e2aa0a4e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.dashboard.v1 package" href="arista.dashboard.v1.html" />
+    <link rel="prev" title="arista.configstatus.v1.services package" href="arista.configstatus.v1.services.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+              <div class="version">
+                1.16.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+      <li class="breadcrumb-item active">arista.dashboard package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.dashboard.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-dashboard-package">
+<h1>arista.dashboard package<a class="headerlink" href="#arista-dashboard-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.dashboard.v1.html">arista.dashboard.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.dashboard.v1.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html">arista.dashboard.v1.services package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#module-arista.dashboard.v1.services.gen_pb2">arista.dashboard.v1.services.gen_pb2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#module-arista.dashboard.v1.services.gen_pb2_grpc">arista.dashboard.v1.services.gen_pb2_grpc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#module-arista.dashboard.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.dashboard.v1.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.dashboard.v1.html#module-arista.dashboard.v1.dashboard_pb2">arista.dashboard.v1.dashboard_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard"><code class="docutils literal notranslate"><span class="pre">Dashboard</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.ByteSize"><code class="docutils literal notranslate"><span class="pre">Dashboard.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.CREATED_AT_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dashboard.CREATED_AT_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.CREATED_BY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dashboard.CREATED_BY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.Clear"><code class="docutils literal notranslate"><span class="pre">Dashboard.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.ClearField"><code class="docutils literal notranslate"><span class="pre">Dashboard.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.DESCRIPTION_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dashboard.DESCRIPTION_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Dashboard.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">Dashboard.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">Dashboard.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.FromString"><code class="docutils literal notranslate"><span class="pre">Dashboard.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.HasField"><code class="docutils literal notranslate"><span class="pre">Dashboard.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.IsInitialized"><code class="docutils literal notranslate"><span class="pre">Dashboard.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dashboard.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.LAST_MODIFIED_AT_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dashboard.LAST_MODIFIED_AT_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.LAST_MODIFIED_BY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dashboard.LAST_MODIFIED_BY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.ListFields"><code class="docutils literal notranslate"><span class="pre">Dashboard.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.META_DATA_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dashboard.META_DATA_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.MergeFrom"><code class="docutils literal notranslate"><span class="pre">Dashboard.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.MergeFromString"><code class="docutils literal notranslate"><span class="pre">Dashboard.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.NAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dashboard.NAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">Dashboard.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">Dashboard.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.SerializeToString"><code class="docutils literal notranslate"><span class="pre">Dashboard.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.SetInParent"><code class="docutils literal notranslate"><span class="pre">Dashboard.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.UnknownFields"><code class="docutils literal notranslate"><span class="pre">Dashboard.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.WIDGETS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dashboard.WIDGETS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.WhichOneof"><code class="docutils literal notranslate"><span class="pre">Dashboard.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.created_at"><code class="docutils literal notranslate"><span class="pre">Dashboard.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.created_by"><code class="docutils literal notranslate"><span class="pre">Dashboard.created_by</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.description"><code class="docutils literal notranslate"><span class="pre">Dashboard.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.key"><code class="docutils literal notranslate"><span class="pre">Dashboard.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.last_modified_at"><code class="docutils literal notranslate"><span class="pre">Dashboard.last_modified_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.last_modified_by"><code class="docutils literal notranslate"><span class="pre">Dashboard.last_modified_by</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.meta_data"><code class="docutils literal notranslate"><span class="pre">Dashboard.meta_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.name"><code class="docutils literal notranslate"><span class="pre">Dashboard.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dashboard.widgets"><code class="docutils literal notranslate"><span class="pre">Dashboard.widgets</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig"><code class="docutils literal notranslate"><span class="pre">DashboardConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.Clear"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.DESCRIPTION_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.DESCRIPTION_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.FromString"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.HasField"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.NAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.NAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.WIDGETS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.WIDGETS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.description"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.key"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.name"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardConfig.widgets"><code class="docutils literal notranslate"><span class="pre">DashboardConfig.widgets</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey"><code class="docutils literal notranslate"><span class="pre">DashboardKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">DashboardKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.Clear"><code class="docutils literal notranslate"><span class="pre">DashboardKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.ClearField"><code class="docutils literal notranslate"><span class="pre">DashboardKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.DASHBOARD_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DashboardKey.DASHBOARD_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DashboardKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DashboardKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.FromString"><code class="docutils literal notranslate"><span class="pre">DashboardKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.HasField"><code class="docutils literal notranslate"><span class="pre">DashboardKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DashboardKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.ListFields"><code class="docutils literal notranslate"><span class="pre">DashboardKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DashboardKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DashboardKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DashboardKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DashboardKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DashboardKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">DashboardKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DashboardKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DashboardKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardKey.dashboard_id"><code class="docutils literal notranslate"><span class="pre">DashboardKey.dashboard_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.ByteSize"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.Clear"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.ClearField"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.FROM_PACKAGE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.FROM_PACKAGE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.FromString"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.HasField"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.LEGACY_KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.LEGACY_KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.LEGACY_VERSION_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.LEGACY_VERSION_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.ListFields"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.SCHEMA_VERSION_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.SCHEMA_VERSION_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.SetInParent"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.from_package"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.from_package</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.legacy_key"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.legacy_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.legacy_version"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.legacy_version</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.schema_version"><code class="docutils literal notranslate"><span class="pre">DashboardMetadata.schema_version</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions"><code class="docutils literal notranslate"><span class="pre">Dimensions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.ByteSize"><code class="docutils literal notranslate"><span class="pre">Dimensions.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.Clear"><code class="docutils literal notranslate"><span class="pre">Dimensions.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.ClearField"><code class="docutils literal notranslate"><span class="pre">Dimensions.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Dimensions.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">Dimensions.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">Dimensions.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.FromString"><code class="docutils literal notranslate"><span class="pre">Dimensions.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.HEIGHT_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dimensions.HEIGHT_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.HasField"><code class="docutils literal notranslate"><span class="pre">Dimensions.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.IsInitialized"><code class="docutils literal notranslate"><span class="pre">Dimensions.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.ListFields"><code class="docutils literal notranslate"><span class="pre">Dimensions.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.MergeFrom"><code class="docutils literal notranslate"><span class="pre">Dimensions.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.MergeFromString"><code class="docutils literal notranslate"><span class="pre">Dimensions.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">Dimensions.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">Dimensions.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.SerializeToString"><code class="docutils literal notranslate"><span class="pre">Dimensions.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.SetInParent"><code class="docutils literal notranslate"><span class="pre">Dimensions.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.UnknownFields"><code class="docutils literal notranslate"><span class="pre">Dimensions.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.WIDTH_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Dimensions.WIDTH_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.WhichOneof"><code class="docutils literal notranslate"><span class="pre">Dimensions.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.height"><code class="docutils literal notranslate"><span class="pre">Dimensions.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Dimensions.width"><code class="docutils literal notranslate"><span class="pre">Dimensions.width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter"><code class="docutils literal notranslate"><span class="pre">Filter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.ByteSize"><code class="docutils literal notranslate"><span class="pre">Filter.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.Clear"><code class="docutils literal notranslate"><span class="pre">Filter.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.ClearField"><code class="docutils literal notranslate"><span class="pre">Filter.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Filter.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">Filter.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">Filter.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.FromString"><code class="docutils literal notranslate"><span class="pre">Filter.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.HasField"><code class="docutils literal notranslate"><span class="pre">Filter.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.IsInitialized"><code class="docutils literal notranslate"><span class="pre">Filter.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.ListFields"><code class="docutils literal notranslate"><span class="pre">Filter.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.MergeFrom"><code class="docutils literal notranslate"><span class="pre">Filter.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.MergeFromString"><code class="docutils literal notranslate"><span class="pre">Filter.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">Filter.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">Filter.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.SerializeToString"><code class="docutils literal notranslate"><span class="pre">Filter.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.SetInParent"><code class="docutils literal notranslate"><span class="pre">Filter.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.TAGS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Filter.TAGS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.UnknownFields"><code class="docutils literal notranslate"><span class="pre">Filter.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.WhichOneof"><code class="docutils literal notranslate"><span class="pre">Filter.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Filter.tags"><code class="docutils literal notranslate"><span class="pre">Filter.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.Clear"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.DEFAULT_DASHBOARD_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.DEFAULT_DASHBOARD_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.FromString"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.HasField"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.default_dashboard"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfig.default_dashboard</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position"><code class="docutils literal notranslate"><span class="pre">Position</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.ByteSize"><code class="docutils literal notranslate"><span class="pre">Position.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.Clear"><code class="docutils literal notranslate"><span class="pre">Position.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.ClearField"><code class="docutils literal notranslate"><span class="pre">Position.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Position.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">Position.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">Position.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.FromString"><code class="docutils literal notranslate"><span class="pre">Position.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.HasField"><code class="docutils literal notranslate"><span class="pre">Position.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.IsInitialized"><code class="docutils literal notranslate"><span class="pre">Position.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.ListFields"><code class="docutils literal notranslate"><span class="pre">Position.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.MergeFrom"><code class="docutils literal notranslate"><span class="pre">Position.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.MergeFromString"><code class="docutils literal notranslate"><span class="pre">Position.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">Position.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">Position.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.SerializeToString"><code class="docutils literal notranslate"><span class="pre">Position.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.SetInParent"><code class="docutils literal notranslate"><span class="pre">Position.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.UnknownFields"><code class="docutils literal notranslate"><span class="pre">Position.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.WhichOneof"><code class="docutils literal notranslate"><span class="pre">Position.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.X_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Position.X_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.Y_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Position.Y_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.x"><code class="docutils literal notranslate"><span class="pre">Position.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Position.y"><code class="docutils literal notranslate"><span class="pre">Position.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget"><code class="docutils literal notranslate"><span class="pre">Widget</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.ByteSize"><code class="docutils literal notranslate"><span class="pre">Widget.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.Clear"><code class="docutils literal notranslate"><span class="pre">Widget.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.ClearField"><code class="docutils literal notranslate"><span class="pre">Widget.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Widget.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.DIMENSIONS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Widget.DIMENSIONS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">Widget.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">Widget.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.FromString"><code class="docutils literal notranslate"><span class="pre">Widget.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.HasField"><code class="docutils literal notranslate"><span class="pre">Widget.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Widget.ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.INPUTS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Widget.INPUTS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.IsInitialized"><code class="docutils literal notranslate"><span class="pre">Widget.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.LOCATION_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Widget.LOCATION_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.ListFields"><code class="docutils literal notranslate"><span class="pre">Widget.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.MergeFrom"><code class="docutils literal notranslate"><span class="pre">Widget.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.MergeFromString"><code class="docutils literal notranslate"><span class="pre">Widget.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.NAME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Widget.NAME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.PARENT_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Widget.PARENT_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.POSITION_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Widget.POSITION_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">Widget.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.STYLES_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Widget.STYLES_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">Widget.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.SerializeToString"><code class="docutils literal notranslate"><span class="pre">Widget.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.SetInParent"><code class="docutils literal notranslate"><span class="pre">Widget.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Widget.TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.UnknownFields"><code class="docutils literal notranslate"><span class="pre">Widget.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.WhichOneof"><code class="docutils literal notranslate"><span class="pre">Widget.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.dimensions"><code class="docutils literal notranslate"><span class="pre">Widget.dimensions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.id"><code class="docutils literal notranslate"><span class="pre">Widget.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.inputs"><code class="docutils literal notranslate"><span class="pre">Widget.inputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.location"><code class="docutils literal notranslate"><span class="pre">Widget.location</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.name"><code class="docutils literal notranslate"><span class="pre">Widget.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.parent"><code class="docutils literal notranslate"><span class="pre">Widget.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.position"><code class="docutils literal notranslate"><span class="pre">Widget.position</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.styles"><code class="docutils literal notranslate"><span class="pre">Widget.styles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widget.type"><code class="docutils literal notranslate"><span class="pre">Widget.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles"><code class="docutils literal notranslate"><span class="pre">WidgetStyles</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.BACKGROUND_COLOR_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.BACKGROUND_COLOR_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.ByteSize"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.Clear"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.ClearField"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.FromString"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.HIDE_HORIZONTAL_BAR_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.HIDE_HORIZONTAL_BAR_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.HIDE_TITLE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.HIDE_TITLE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.HasField"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.IsInitialized"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.ListFields"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.MergeFrom"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.MergeFromString"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.SerializeToString"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.SetInParent"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.TITLE_SIZE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.TITLE_SIZE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.UnknownFields"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.WhichOneof"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.background_color"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.background_color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.hide_horizontal_bar"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.hide_horizontal_bar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.hide_title"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.hide_title</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.WidgetStyles.title_size"><code class="docutils literal notranslate"><span class="pre">WidgetStyles.title_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets"><code class="docutils literal notranslate"><span class="pre">Widgets</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.ByteSize"><code class="docutils literal notranslate"><span class="pre">Widgets.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.Clear"><code class="docutils literal notranslate"><span class="pre">Widgets.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.ClearField"><code class="docutils literal notranslate"><span class="pre">Widgets.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Widgets.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">Widgets.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">Widgets.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.FromString"><code class="docutils literal notranslate"><span class="pre">Widgets.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.HasField"><code class="docutils literal notranslate"><span class="pre">Widgets.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.IsInitialized"><code class="docutils literal notranslate"><span class="pre">Widgets.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.ListFields"><code class="docutils literal notranslate"><span class="pre">Widgets.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.MergeFrom"><code class="docutils literal notranslate"><span class="pre">Widgets.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.MergeFromString"><code class="docutils literal notranslate"><span class="pre">Widgets.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">Widgets.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">Widgets.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.SerializeToString"><code class="docutils literal notranslate"><span class="pre">Widgets.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.SetInParent"><code class="docutils literal notranslate"><span class="pre">Widgets.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.UnknownFields"><code class="docutils literal notranslate"><span class="pre">Widgets.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.VALUES_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Widgets.VALUES_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.WhichOneof"><code class="docutils literal notranslate"><span class="pre">Widgets.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.html#arista.dashboard.v1.dashboard_pb2.Widgets.values"><code class="docutils literal notranslate"><span class="pre">Widgets.values</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.dashboard.v1.html#module-arista.dashboard.v1.dashboard_pb2_grpc">arista.dashboard.v1.dashboard_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.dashboard.v1.html#module-arista.dashboard.v1">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-arista.dashboard">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.dashboard" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.configstatus.v1.services.html" class="btn btn-neutral float-left" title="arista.configstatus.v1.services package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.dashboard.v1.html" class="btn btn-neutral float-right" title="arista.dashboard.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.lifecycle package &mdash; CloudVision Python 1.16.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e2aa0a4e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.lifecycle.v1 package" href="arista.lifecycle.v1.html" />
+    <link rel="prev" title="arista.inventory.v1.services package" href="arista.inventory.v1.services.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+              <div class="version">
+                1.16.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+      <li class="breadcrumb-item active">arista.lifecycle package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.lifecycle.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-lifecycle-package">
+<h1>arista.lifecycle package<a class="headerlink" href="#arista-lifecycle-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.lifecycle.v1.html">arista.lifecycle.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.lifecycle.v1.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.services.html">arista.lifecycle.v1.services package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#module-arista.lifecycle.v1.services.gen_pb2">arista.lifecycle.v1.services.gen_pb2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#module-arista.lifecycle.v1.services.gen_pb2_grpc">arista.lifecycle.v1.services.gen_pb2_grpc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.services.html#module-arista.lifecycle.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.lifecycle.v1.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.lifecycle.v1.html#module-arista.lifecycle.v1.lifecycle_pb2">arista.lifecycle.v1.lifecycle_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels"><code class="docutils literal notranslate"><span class="pre">DateAndModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.ByteSize"><code class="docutils literal notranslate"><span class="pre">DateAndModels.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.Clear"><code class="docutils literal notranslate"><span class="pre">DateAndModels.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.ClearField"><code class="docutils literal notranslate"><span class="pre">DateAndModels.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.DATE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DateAndModels.DATE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DateAndModels.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DateAndModels.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DateAndModels.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.FromString"><code class="docutils literal notranslate"><span class="pre">DateAndModels.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.HasField"><code class="docutils literal notranslate"><span class="pre">DateAndModels.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DateAndModels.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.ListFields"><code class="docutils literal notranslate"><span class="pre">DateAndModels.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.MODELS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DateAndModels.MODELS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DateAndModels.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DateAndModels.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DateAndModels.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DateAndModels.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DateAndModels.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.SetInParent"><code class="docutils literal notranslate"><span class="pre">DateAndModels.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DateAndModels.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DateAndModels.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.date"><code class="docutils literal notranslate"><span class="pre">DateAndModels.date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DateAndModels.models"><code class="docutils literal notranslate"><span class="pre">DateAndModels.models</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.HARDWARE_LIFECYCLE_SUMMARY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.HARDWARE_LIFECYCLE_SUMMARY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SOFTWARE_EOL_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.SOFTWARE_EOL_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.hardware_lifecycle_summary"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.hardware_lifecycle_summary</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.key"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummary.software_eol"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummary.software_eol</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.Clear"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.ClearField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.DEVICE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.DEVICE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.FromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.HasField"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.ListFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.DeviceLifecycleSummaryKey.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceLifecycleSummaryKey.device_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.ByteSize"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.Clear"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.ClearField"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_HARDWARE_RMA_REQUESTS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.END_OF_HARDWARE_RMA_REQUESTS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_LIFE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.END_OF_LIFE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_SALE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.END_OF_SALE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.END_OF_TAC_SUPPORT_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.END_OF_TAC_SUPPORT_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.FromString"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.HasField"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.IsInitialized"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.ListFields"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.MergeFrom"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.MergeFromString"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.SerializeToString"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.SetInParent"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.UnknownFields"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.WhichOneof"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_hardware_rma_requests"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.end_of_hardware_rma_requests</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_life"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.end_of_life</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_sale"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.end_of_sale</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.HardwareLifecycleSummary.end_of_tac_support"><code class="docutils literal notranslate"><span class="pre">HardwareLifecycleSummary.end_of_tac_support</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.ByteSize"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.Clear"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.ClearField"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.END_OF_SUPPORT_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.END_OF_SUPPORT_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.FromString"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.HasField"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.IsInitialized"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.ListFields"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.MergeFrom"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.MergeFromString"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.SerializeToString"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.SetInParent"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.UnknownFields"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.VERSION_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.VERSION_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.WhichOneof"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.end_of_support"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.end_of_support</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.v1.html#arista.lifecycle.v1.lifecycle_pb2.SoftwareEOL.version"><code class="docutils literal notranslate"><span class="pre">SoftwareEOL.version</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.lifecycle.v1.html#module-arista.lifecycle.v1.lifecycle_pb2_grpc">arista.lifecycle.v1.lifecycle_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.lifecycle.v1.html#module-arista.lifecycle.v1">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-arista.lifecycle">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.lifecycle" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.inventory.v1.services.html" class="btn btn-neutral float-left" title="arista.inventory.v1.services package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.lifecycle.v1.html" class="btn btn-neutral float-right" title="arista.lifecycle.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

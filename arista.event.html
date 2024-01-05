@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.event package &mdash; CloudVision Python 1.16.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e2aa0a4e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.event.v1 package" href="arista.event.v1.html" />
+    <link rel="prev" title="arista.endpointlocation.v1.services package" href="arista.endpointlocation.v1.services.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+              <div class="version">
+                1.16.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+      <li class="breadcrumb-item active">arista.event package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.event.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-event-package">
+<h1>arista.event package<a class="headerlink" href="#arista-event-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.event.v1.html">arista.event.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.event.v1.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html">arista.event.v1.services package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#module-arista.event.v1.services.gen_pb2">arista.event.v1.services.gen_pb2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#module-arista.event.v1.services.gen_pb2_grpc">arista.event.v1.services.gen_pb2_grpc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#module-arista.event.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.event.v1.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.event.v1.html#module-arista.event.v1.event_pb2">arista.event.v1.event_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event"><code class="docutils literal notranslate"><span class="pre">Event</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.ACK_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.ACK_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.ByteSize"><code class="docutils literal notranslate"><span class="pre">Event.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.COMPONENTS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.COMPONENTS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.Clear"><code class="docutils literal notranslate"><span class="pre">Event.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.ClearField"><code class="docutils literal notranslate"><span class="pre">Event.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.DATA_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.DATA_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.DESCRIPTION_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.DESCRIPTION_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Event.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">Event.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.EVENT_TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.EVENT_TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">Event.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.FromString"><code class="docutils literal notranslate"><span class="pre">Event.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.HasField"><code class="docutils literal notranslate"><span class="pre">Event.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.IsInitialized"><code class="docutils literal notranslate"><span class="pre">Event.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.LAST_UPDATED_TIME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.LAST_UPDATED_TIME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.ListFields"><code class="docutils literal notranslate"><span class="pre">Event.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.MergeFrom"><code class="docutils literal notranslate"><span class="pre">Event.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.MergeFromString"><code class="docutils literal notranslate"><span class="pre">Event.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.NOTES_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.NOTES_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.READ_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.READ_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.RULE_ID_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.RULE_ID_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">Event.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.SEVERITY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.SEVERITY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">Event.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.SerializeToString"><code class="docutils literal notranslate"><span class="pre">Event.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.SetInParent"><code class="docutils literal notranslate"><span class="pre">Event.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.TITLE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">Event.TITLE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.UnknownFields"><code class="docutils literal notranslate"><span class="pre">Event.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.WhichOneof"><code class="docutils literal notranslate"><span class="pre">Event.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.ack"><code class="docutils literal notranslate"><span class="pre">Event.ack</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.components"><code class="docutils literal notranslate"><span class="pre">Event.components</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.data"><code class="docutils literal notranslate"><span class="pre">Event.data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.description"><code class="docutils literal notranslate"><span class="pre">Event.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.event_type"><code class="docutils literal notranslate"><span class="pre">Event.event_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.key"><code class="docutils literal notranslate"><span class="pre">Event.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.last_updated_time"><code class="docutils literal notranslate"><span class="pre">Event.last_updated_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.notes"><code class="docutils literal notranslate"><span class="pre">Event.notes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.read"><code class="docutils literal notranslate"><span class="pre">Event.read</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.rule_id"><code class="docutils literal notranslate"><span class="pre">Event.rule_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.severity"><code class="docutils literal notranslate"><span class="pre">Event.severity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.Event.title"><code class="docutils literal notranslate"><span class="pre">Event.title</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck"><code class="docutils literal notranslate"><span class="pre">EventAck</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.ACKER_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventAck.ACKER_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.ACK_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventAck.ACK_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.ACK_TIME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventAck.ACK_TIME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventAck.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.Clear"><code class="docutils literal notranslate"><span class="pre">EventAck.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.ClearField"><code class="docutils literal notranslate"><span class="pre">EventAck.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAck.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventAck.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventAck.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.FromString"><code class="docutils literal notranslate"><span class="pre">EventAck.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.HasField"><code class="docutils literal notranslate"><span class="pre">EventAck.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventAck.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.ListFields"><code class="docutils literal notranslate"><span class="pre">EventAck.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventAck.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventAck.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventAck.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventAck.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventAck.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventAck.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventAck.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventAck.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.ack"><code class="docutils literal notranslate"><span class="pre">EventAck.ack</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.ack_time"><code class="docutils literal notranslate"><span class="pre">EventAck.ack_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAck.acker"><code class="docutils literal notranslate"><span class="pre">EventAck.acker</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.ACK_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.ACK_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.Clear"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.FromString"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.HasField"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.NOTES_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.NOTES_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.READ_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.READ_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.ack"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.ack</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.key"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.notes"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.notes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventAnnotationConfig.read"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfig.read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent"><code class="docutils literal notranslate"><span class="pre">EventComponent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventComponent.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.COMPONENTS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventComponent.COMPONENTS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.Clear"><code class="docutils literal notranslate"><span class="pre">EventComponent.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.ClearField"><code class="docutils literal notranslate"><span class="pre">EventComponent.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.ComponentsEntry"><code class="docutils literal notranslate"><span class="pre">EventComponent.ComponentsEntry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventComponent.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventComponent.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventComponent.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.FromString"><code class="docutils literal notranslate"><span class="pre">EventComponent.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.HasField"><code class="docutils literal notranslate"><span class="pre">EventComponent.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventComponent.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.ListFields"><code class="docutils literal notranslate"><span class="pre">EventComponent.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventComponent.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventComponent.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventComponent.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventComponent.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventComponent.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventComponent.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.TYPE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventComponent.TYPE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventComponent.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventComponent.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.components"><code class="docutils literal notranslate"><span class="pre">EventComponent.components</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponent.type"><code class="docutils literal notranslate"><span class="pre">EventComponent.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents"><code class="docutils literal notranslate"><span class="pre">EventComponents</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventComponents.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.COMPONENTS_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventComponents.COMPONENTS_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.Clear"><code class="docutils literal notranslate"><span class="pre">EventComponents.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.ClearField"><code class="docutils literal notranslate"><span class="pre">EventComponents.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventComponents.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventComponents.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventComponents.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.FromString"><code class="docutils literal notranslate"><span class="pre">EventComponents.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.HasField"><code class="docutils literal notranslate"><span class="pre">EventComponents.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventComponents.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.ListFields"><code class="docutils literal notranslate"><span class="pre">EventComponents.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventComponents.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventComponents.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventComponents.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventComponents.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventComponents.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventComponents.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventComponents.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventComponents.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventComponents.components"><code class="docutils literal notranslate"><span class="pre">EventComponents.components</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData"><code class="docutils literal notranslate"><span class="pre">EventData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventData.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.Clear"><code class="docutils literal notranslate"><span class="pre">EventData.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.ClearField"><code class="docutils literal notranslate"><span class="pre">EventData.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.DATA_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventData.DATA_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventData.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.DataEntry"><code class="docutils literal notranslate"><span class="pre">EventData.DataEntry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventData.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventData.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.FromString"><code class="docutils literal notranslate"><span class="pre">EventData.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.HasField"><code class="docutils literal notranslate"><span class="pre">EventData.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventData.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.ListFields"><code class="docutils literal notranslate"><span class="pre">EventData.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventData.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventData.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventData.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventData.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventData.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventData.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventData.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventData.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventData.data"><code class="docutils literal notranslate"><span class="pre">EventData.data</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey"><code class="docutils literal notranslate"><span class="pre">EventKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventKey.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.Clear"><code class="docutils literal notranslate"><span class="pre">EventKey.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.ClearField"><code class="docutils literal notranslate"><span class="pre">EventKey.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventKey.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventKey.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventKey.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.FromString"><code class="docutils literal notranslate"><span class="pre">EventKey.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.HasField"><code class="docutils literal notranslate"><span class="pre">EventKey.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventKey.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.KEY_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventKey.KEY_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.ListFields"><code class="docutils literal notranslate"><span class="pre">EventKey.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventKey.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventKey.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventKey.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventKey.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventKey.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventKey.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.TIMESTAMP_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventKey.TIMESTAMP_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventKey.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventKey.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.key"><code class="docutils literal notranslate"><span class="pre">EventKey.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventKey.timestamp"><code class="docutils literal notranslate"><span class="pre">EventKey.timestamp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote"><code class="docutils literal notranslate"><span class="pre">EventNote</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventNote.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.Clear"><code class="docutils literal notranslate"><span class="pre">EventNote.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.ClearField"><code class="docutils literal notranslate"><span class="pre">EventNote.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventNote.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventNote.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventNote.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.FromString"><code class="docutils literal notranslate"><span class="pre">EventNote.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.HasField"><code class="docutils literal notranslate"><span class="pre">EventNote.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventNote.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.ListFields"><code class="docutils literal notranslate"><span class="pre">EventNote.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventNote.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventNote.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.NOTE_CREATOR_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventNote.NOTE_CREATOR_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.NOTE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventNote.NOTE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventNote.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventNote.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventNote.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventNote.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventNote.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventNote.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.note"><code class="docutils literal notranslate"><span class="pre">EventNote.note</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNote.note_creator"><code class="docutils literal notranslate"><span class="pre">EventNote.note_creator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.Clear"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.FromString"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.HasField"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.NOTE_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.NOTE_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNoteConfig.note"><code class="docutils literal notranslate"><span class="pre">EventNoteConfig.note</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes"><code class="docutils literal notranslate"><span class="pre">EventNotes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventNotes.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.Clear"><code class="docutils literal notranslate"><span class="pre">EventNotes.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.ClearField"><code class="docutils literal notranslate"><span class="pre">EventNotes.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventNotes.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventNotes.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventNotes.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.FromString"><code class="docutils literal notranslate"><span class="pre">EventNotes.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.HasField"><code class="docutils literal notranslate"><span class="pre">EventNotes.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventNotes.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.ListFields"><code class="docutils literal notranslate"><span class="pre">EventNotes.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventNotes.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventNotes.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.NOTES_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventNotes.NOTES_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.NotesEntry"><code class="docutils literal notranslate"><span class="pre">EventNotes.NotesEntry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventNotes.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventNotes.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventNotes.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventNotes.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventNotes.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventNotes.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotes.notes"><code class="docutils literal notranslate"><span class="pre">EventNotes.notes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.Clear"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.ClearField"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.FromString"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.HasField"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.ListFields"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.NOTES_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.NOTES_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.NotesEntry"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.NotesEntry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventNotesConfig.notes"><code class="docutils literal notranslate"><span class="pre">EventNotesConfig.notes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead"><code class="docutils literal notranslate"><span class="pre">EventRead</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.ByteSize"><code class="docutils literal notranslate"><span class="pre">EventRead.ByteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.Clear"><code class="docutils literal notranslate"><span class="pre">EventRead.Clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.ClearField"><code class="docutils literal notranslate"><span class="pre">EventRead.ClearField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventRead.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.DiscardUnknownFields"><code class="docutils literal notranslate"><span class="pre">EventRead.DiscardUnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.FindInitializationErrors"><code class="docutils literal notranslate"><span class="pre">EventRead.FindInitializationErrors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.FromString"><code class="docutils literal notranslate"><span class="pre">EventRead.FromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.HasField"><code class="docutils literal notranslate"><span class="pre">EventRead.HasField()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.IsInitialized"><code class="docutils literal notranslate"><span class="pre">EventRead.IsInitialized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.ListFields"><code class="docutils literal notranslate"><span class="pre">EventRead.ListFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.MergeFrom"><code class="docutils literal notranslate"><span class="pre">EventRead.MergeFrom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.MergeFromString"><code class="docutils literal notranslate"><span class="pre">EventRead.MergeFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.READER_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventRead.READER_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.READ_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventRead.READ_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.READ_TIME_FIELD_NUMBER"><code class="docutils literal notranslate"><span class="pre">EventRead.READ_TIME_FIELD_NUMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.RegisterExtension"><code class="docutils literal notranslate"><span class="pre">EventRead.RegisterExtension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.SerializePartialToString"><code class="docutils literal notranslate"><span class="pre">EventRead.SerializePartialToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.SerializeToString"><code class="docutils literal notranslate"><span class="pre">EventRead.SerializeToString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.SetInParent"><code class="docutils literal notranslate"><span class="pre">EventRead.SetInParent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.UnknownFields"><code class="docutils literal notranslate"><span class="pre">EventRead.UnknownFields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.WhichOneof"><code class="docutils literal notranslate"><span class="pre">EventRead.WhichOneof()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.read"><code class="docutils literal notranslate"><span class="pre">EventRead.read</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.read_time"><code class="docutils literal notranslate"><span class="pre">EventRead.read_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.html#arista.event.v1.event_pb2.EventRead.reader"><code class="docutils literal notranslate"><span class="pre">EventRead.reader</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.event.v1.html#module-arista.event.v1.event_pb2_grpc">arista.event.v1.event_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.event.v1.html#module-arista.event.v1">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-arista.event">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.event" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.endpointlocation.v1.services.html" class="btn btn-neutral float-left" title="arista.endpointlocation.v1.services package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.event.v1.html" class="btn btn-neutral float-right" title="arista.event.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
