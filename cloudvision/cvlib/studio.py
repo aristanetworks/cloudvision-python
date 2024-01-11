@@ -65,7 +65,7 @@ class StudioCustomData:
         '''
         Builds a path for use in store/retrieve of studio custom data during a build
         using the studioId, path and key provided by the user. All paths contain
-        "workspace/<wsId>/build/<buildId>/studio/<studioId>/customdata" as the root.
+        "workspace/<wsId>/build/<buildId>/studio/<studioId>/customData" as the root.
         Raises InvalidContextException if not enough context information is present
         to create a key
         '''
@@ -74,7 +74,7 @@ class StudioCustomData:
             workpaceId = self.context.getWorkspaceId()
             return ["workspace", workpaceId, "status", "build",
                     self.context.studio.buildId, "studio", studioId,
-                    "customdata"] + path + [key]
+                    "customData"] + path + [key]
         raise InvalidContextException(
             "store/retrieve requires context with studio and"
             + "build associated with it.")
@@ -83,9 +83,9 @@ class StudioCustomData:
         '''
         Builds a path for use in retrieve of studio custom data from mainline
         using studioID, path and key. All paths contain
-        "/studio/<studioId>/customdata" as the root.
+        "/studio/<studioId>/customData" as the root.
         '''
-        return ["studio", studioId, "customdata"] + path + [key]
+        return ["studio", studioId, "customData"] + path + [key]
 
     def store(self, data: str = "", path: List[str] = [], key: str = ""):
         '''
@@ -95,7 +95,7 @@ class StudioCustomData:
         Params:
         - data:      The string data to be stored.
         - path:      The path to store the data at, in the form of a list of strings.
-                     paths have "workspace/<wsId>/build/<buildId>/studio/<studioId>/customdata"
+                     paths have "workspace/<wsId>/build/<buildId>/studio/<studioId>/customData"
                      as the root.
         - key:       The key to store the data at in the path.
          '''

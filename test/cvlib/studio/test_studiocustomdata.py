@@ -83,14 +83,14 @@ cases = [
                        "studio"],
             "studio1": ["workspace", "workspace1", "status", "build", "build1",
                         "studio", "studio1"],
-            "customdata": ["workspace", "workspace1", "status", "build", "build1",
-                           "studio", "studio1", "customdata"],
+            "customData": ["workspace", "workspace1", "status", "build", "build1",
+                           "studio", "studio1", "customData"],
             "path1": ["workspace", "workspace1", "status", "build", "build1",
-                      "studio", "studio1", "customdata", "path1"],
+                      "studio", "studio1", "customData", "path1"],
             "path2": ["workspace", "workspace1", "status", "build", "build1",
-                      "studio", "studio1", "customdata", "path1", "path2"],
+                      "studio", "studio1", "customData", "path1", "path2"],
             "key": ["workspace", "workspace1", "status", "build", "build1",
-                    "studio", "studio1", "customdata", "path1", "path2", "key"]},
+                    "studio", "studio1", "customData", "path1", "path2", "key"]},
     ]
 ]
 
