@@ -8,7 +8,14 @@ import google.protobuf.wrappers_pb2 as pb
 from google.protobuf.timestamp_pb2 import Timestamp
 from grpc import StatusCode, RpcError
 
-from cloudvision.cvlib import getStudioInputs, InputNotFoundException
+from cloudvision.cvlib import (
+    getStudioInputs,
+    setStudioInput,
+    setStudioInputs,
+    InputException,
+    InputNotFoundException,
+    InputUpdateException,
+)
 from cloudvision.cvlib.constants import MAINLINE_WS_ID
 from cloudvision.cvlib.studio import mergeStudioInputs
 
@@ -289,3 +296,66 @@ def test_mergeStudioInputs(name, inputTupleList, expectedInputs):
     for path, inputToInsert in inputTupleList:
         inputs = mergeStudioInputs(inputs, path, inputToInsert)
     assert inputs == expectedInputs
+
+
+setCases = [
+    # Elements in cases are in the following order
+    # name
+    # value to set
+    # return value/exception for config set call
+    # expected exception
+    # expected exception type (for handler)
+    [
+        "success, value is None",
+        None,
+        None,
+        None,
+        None,
+    ],
+    [
+        "failure, value is not json serializable",
+        bytes([1, 2, 3, 4]),
+        None,
+        InputException(
+            "Cannot set value as input: Object of type bytes is not JSON serializable"),
+        InputException,
+    ],
+    [
+        "success, value to set is string",
+        "test string",
+        None,
+        None,
+        None,
+    ],
+    [
+        "failure, value to set is string, but set failure",
+        "test string",
+        rpcInternal,
+        InputUpdateException(["a", "b", "c"], "Value test string was not set: "),
+        InputUpdateException,
+    ],
+]
+
+
+@pytest.mark.parametrize('name, value, setReturn, expException, expExceptionType', setCases)
+def test_setStudioInputs(name, value, setReturn, expException, expExceptionType):
+    mockApiClientGetter = MagicMock(name="clientGetter")
+    mockConfigClient = MagicMock(name="configClient")
+
+    mockApiClientGetter.return_value = mockConfigClient
+    mockConfigClient.Set = MagicMock(name="confSet", side_effect=setReturn)
+    mockConfigClient.SetSome = MagicMock(name="confSetSome", side_effect=setReturn)
+
+    if expException:
+        with pytest.raises(expExceptionType) as excInfo:
+            setStudioInput(
+                mockApiClientGetter, "test_studio_id", "test-WS-ID", ["a", "b", "c"], value)
+        assert excInfo.value.message == expException.message
+        with pytest.raises(expExceptionType) as excInfoSetSome:
+            setStudioInputs(
+                mockApiClientGetter, "test_studio_id", "test-WS-ID", [(["a", "b", "c"], value)])
+        assert excInfoSetSome.value.message == expException.message
+    else:
+        setStudioInput(mockApiClientGetter, "test_studio_id", "test-WS-ID", ["a", "b", "c"], value)
+        setStudioInputs(
+            mockApiClientGetter, "test_studio_id", "test-WS-ID", [(["a", "b", "c"], value)])

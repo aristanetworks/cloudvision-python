@@ -311,6 +311,11 @@ def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: Lis
     Uses the passed ctx.getApiClient function reference to
     issue a set to the Studio inputs rAPI with the associated input path and value
     '''
+    try:
+        serialized = json.dumps(value)
+    except TypeError as e:
+        raise InputException(
+            message=f"Cannot set value as input: {e}", inputPath=inputPath) from None
     client = clientGetter(services.InputsConfigServiceStub)
     wid = pb.StringValue(value=workspaceId)
     sid = pb.StringValue(value=studioId)
@@ -319,7 +324,7 @@ def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: Lis
                            path=fmp_wrappers.RepeatedString(values=inputPath))
 
     req = services.InputsConfigSetRequest(
-        value=models.InputsConfig(key=key, inputs=pb.StringValue(value=json.dumps(value)))
+        value=models.InputsConfig(key=key, inputs=pb.StringValue(value=serialized))
     )
     try:
         client.Set(request=req)
@@ -337,13 +342,18 @@ def setStudioInputs(clientGetter, studioId: str, workspaceId: str, inputs: List[
     sid = pb.StringValue(value=studioId)
     inputsConfigs = []
     for path, value in inputs:
+        try:
+            serialized = json.dumps(value)
+        except TypeError as e:
+            raise InputException(
+                message=f"Cannot set value as input: {e}", inputPath=path) from None
         item = models.InputsConfig(
             key=models.InputsKey(
                 workspace_id=wid,
                 studio_id=sid,
                 path=fmp_wrappers.RepeatedString(values=path)
             ),
-            inputs=pb.StringValue(value=json.dumps(value))
+            inputs=pb.StringValue(value=serialized)
         )
         inputsConfigs.append(item)
     req = services.InputsConfigSetSomeRequest(
