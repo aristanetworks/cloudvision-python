@@ -160,10 +160,10 @@ class StudioCustomData:
                 data = self.context.Get(storagePath, [], "cvp")
             except InvalidContextException as e:
                 self.context.logger.info(
-                    self, "custom data not found in build:  {}".format(e.message))
+                    self.context, "custom data not found in build:  {}".format(e.message))
             # get data from mainline if data is not generated during build.
             if not data:
-                self.context.logger.info(self, "reading custom data from mainline.")
+                self.context.logger.info(self.context, "reading custom data from mainline.")
                 storagePath = self.__getMainlinePath(studioId, path, searchKey)
                 data = self.context.Get(storagePath, [], "cvp")
             return ''.join(data[k] for k in
