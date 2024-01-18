@@ -120,8 +120,7 @@ getSingleTagCases = [
     # err
     [
         "get tag that is assigned correctly to interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet2', 'NodeId', '1'),
@@ -140,8 +139,7 @@ getSingleTagCases = [
     ],
     [
         "get tag that is assigned to interface with too many values",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC', 'DC2'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -161,8 +159,7 @@ getSingleTagCases = [
     ],
     [
         "get required tag that isn't assigned to interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet2', 'NodeId', '1'),
@@ -181,8 +178,7 @@ getSingleTagCases = [
     ],
     [
         "get unrequired tag that isn't assigned to interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet2', 'NodeId', '1'),
@@ -201,8 +197,7 @@ getSingleTagCases = [
     ],
     [
         "try get required tag for interface that has no tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet2', 'NodeId', '1'),
@@ -221,8 +216,7 @@ getSingleTagCases = [
     ],
     [
         "try get unrequired tag for interface that has no tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet2', 'NodeId', '1'),
@@ -331,8 +325,7 @@ getTagsCases = [
     # expected Error
     [
         "get all interface tags for interface that has tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -350,8 +343,7 @@ getTagsCases = [
     ],
     [
         "get specific label interface tags for interface that has tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -369,8 +361,7 @@ getTagsCases = [
     ],
     [
         "get all interface tags for dev3 ethernet1 that has no tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -388,8 +379,7 @@ getTagsCases = [
     ],
     [
         "get specific label interface tags for dev3 ethernet1 that has no tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -475,8 +465,7 @@ assignTagsCases = [
     # expected Error
     [
         "assign new tag to interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -501,8 +490,7 @@ assignTagsCases = [
     ],
     [
         "assign a new value of existing label to interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -527,8 +515,7 @@ assignTagsCases = [
     ],
     [
         "replace value with new value of existing label for interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -552,8 +539,7 @@ assignTagsCases = [
     ],
     [
         "replace value with already assigned value of another interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -577,8 +563,7 @@ assignTagsCases = [
     ],
     [
         "assign already assigned tag to same interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -602,8 +587,7 @@ assignTagsCases = [
     ],
     [
         "assign tag with invalid label to interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -627,8 +611,7 @@ assignTagsCases = [
     ],
     [
         "assign tag with invalid value to interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -752,8 +735,7 @@ unassignTagsCases = [
     # expected Error
     [
         "unassign tag from interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -775,8 +757,7 @@ unassignTagsCases = [
     ],
     [
         "unassign one of two values for a label from interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC', 'DC2'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -800,8 +781,7 @@ unassignTagsCases = [
     ],
     [
         "unassign all values for a label from interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC', 'DC2'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -824,8 +804,7 @@ unassignTagsCases = [
     ],
     [
         "unassign a value that's not assigned for a label from interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -848,8 +827,7 @@ unassignTagsCases = [
     ],
     [
         "unassign a tag that's not assigned from interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -872,8 +850,7 @@ unassignTagsCases = [
     ],
     [
         "unassign tag with invalid label from interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),
@@ -896,8 +873,7 @@ unassignTagsCases = [
     ],
     [
         "unassign tag with invalid label and valid value from interface",
-        {
-        },
+        None,
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('J1', 'Ethernet1', 'NodeId', '1'),

@@ -19,7 +19,10 @@ from arista.tag.v2.services import (
     TagAssignmentServiceStub,
     TagAssignmentConfigServiceStub,
     TagAssignmentStreamResponse,
-    TagAssignmentConfigStreamResponse
+    TagAssignmentConfigStreamResponse,
+    TagAssignmentConfigSetSomeResponse,
+    TagConfigServiceStub,
+    TagConfigSetSomeResponse
 )
 
 
@@ -106,6 +109,12 @@ class mockClient:
     def Set(self, request):
         return
 
+    def SetSome(self, request):
+        if self.stub == TagConfigServiceStub:
+            return [TagConfigSetSomeResponse]
+        if self.stub == TagAssignmentConfigServiceStub:
+            return [TagAssignmentConfigSetSomeResponse]
+
 
 class mockCtx(Context):
     def __init__(self):
@@ -147,8 +156,7 @@ getAllDeviceTagsCases = [
     ],
     [
         "no pre-existing cache",
-        {
-        },
+        None,
         None,
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
@@ -232,8 +240,7 @@ getDeviceTagsCases = [
     ],
     [
         "no preloaded tags",
-        {
-        },
+        None,
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
                              ('dev1', 'NodeId', '1'),
@@ -248,8 +255,7 @@ getDeviceTagsCases = [
     ],
     [
         "no preloaded tags, device has no tags",
-        {
-        },
+        None,
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
                              ('dev1', 'NodeId', '1'),
@@ -402,8 +408,8 @@ assignUnassignDeviceTagCases = [
 @pytest.mark.parametrize('name, getAllResp, deviceId, oper, operLabel, operValue, '
                          + 'replace, expNumGetAlls, expectedTags, expectedError',
                          assignUnassignDeviceTagCases)
-def test_changeDeviceTags(name, getAllResp, deviceId, oper, operLabel, operValue,
-                          replace, expNumGetAlls, expectedTags, expectedError):
+def test_changeDeviceTag(name, getAllResp, deviceId, oper, operLabel, operValue,
+                         replace, expNumGetAlls, expectedTags, expectedError):
     error = None
     ctx = mockCtx()
     ctx.client.SetGetAllResponse(getAllResp)
@@ -748,8 +754,7 @@ getDevicesByTagCases = [
     ],
     [
         "get devices matching label without preloaded cache",
-        {
-        },
+        None,
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
                              ('dev1', 'NodeId', '1'),
@@ -766,8 +771,7 @@ getDevicesByTagCases = [
     ],
     [
         "try get devices not matching label without preloaded cache",
-        {
-        },
+        None,
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
                              ('dev1', 'NodeId', '1'),
@@ -1018,8 +1022,7 @@ getInterfacesByTagCases = [
     ],
     [
         "get interfaces matching label without preloaded cache",
-        {
-        },
+        None,
         convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
                              ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('dev1', 'Ethernet1', 'NodeId', '1'),
@@ -1037,8 +1040,7 @@ getInterfacesByTagCases = [
     ],
     [
         "try get interfaces not matching label without preloaded cache",
-        {
-        },
+        None,
         convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
                              ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
                              ('dev1', 'Ethernet1', 'NodeId', '1'),
@@ -1083,4 +1085,881 @@ def test_getInterfacesByTag(name, cacheTags, getAllResp, topoDevices, tag,
     intfList = [(intf.name, intf._device.id) for intf in tagInterfaces or []]
     expIntfList = [(intf.name, intf._device.id) for intf in expectedInterfaces or []]
     assert intfList == expIntfList
+    assert ctx.client.numGetAlls == expNumGetAlls
+
+
+assignUnassignDeviceTagsCases = [
+    # name
+    # tagv2 GetAll response
+    # assigns as List of (deviceId, label, value, replace)
+    # unassigns as List of (deviceId, label, value)
+    # operation ('assign', 'unassign')
+    # num GetAll calls
+    # expected tags
+    # expected error
+    [
+        "assign additional Role tag value",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Role', 'Core', False)],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
+                     'Role':['Spine', 'Core']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
+                     'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "assign multiple additional Role tag values to same device",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Role', 'Core', False), ('dev1', 'Role', 'RR', False)],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
+                     'Role':['Spine', 'Core', 'RR']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
+                     'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "assign multiple additional Role tag values to multiple devices",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Role', 'Core', False), ('dev1', 'Role', 'RR', False),
+         ('dev2', 'Role', 'Edge', False), ('dev2', 'Role', 'RR', False),
+         ],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
+                     'Role':['Spine', 'Core', 'RR']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
+                     'Role':['Leaf', 'Edge', 'RR']},
+        },
+        None
+    ],
+    [
+        "assign multiple additional new tags to multiple devices",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'AS', '65000', False), ('dev1', 'RouterId', '10.0.0.1', False),
+         ('dev2', 'AS', '65001', False), ('dev2', 'RouterId', '11.0.0.1', False),
+         ],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
+                     'Role':['Spine'], 'AS': ['65000'], 'RouterId': ['10.0.0.1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
+                     'Role':['Leaf'], 'AS': ['65001'], 'RouterId': ['11.0.0.1']},
+        },
+        None
+    ],
+    [
+        "assign replacement Role tag value",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Role', 'Core', True)],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
+                     'Role':['Core']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
+                     'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "assign multiple replacement Role tag values",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Role', 'Core', True), ('dev1', 'Role', 'RR', True)],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
+                     'Role':['RR']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
+                     'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "assign multiple replacement tag values to multiple devices",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Role', 'RR', True), ('dev1', 'DC-Pod', 'POD2', True),
+         ('dev2', 'NodeId', '3', True), ('dev2', 'DC-Pod', 'POD2', True),
+         ],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId':['1'],
+                     'Role':['RR']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId':['3'],
+                     'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "assign multiple additional and replacement tag values to multiple devices",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Role', 'RR', False), ('dev1', 'DC-Pod', 'POD2', True),
+         ('dev2', 'NodeId', '3', True), ('dev2', 'DC-Pod', 'POD2', True),
+         ('dev2', 'Role', 'Edge', False),
+         ],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId':['1'],
+                     'Role':['Spine', 'RR']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId':['3'],
+                     'Role':['Leaf', 'Edge']},
+        },
+        None
+    ],
+    [
+        "unassign second Role tag value",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev1', 'Role', 'Core'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        None,
+        [('dev1', 'Role', 'Core')],
+        'unassign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
+                     'Role':['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
+                     'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "unassign last Role tag value",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        None,
+        [('dev1', 'Role', 'Spine')],
+        'unassign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
+                     'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "unassign tag label that's not assigned",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        None,
+        [('dev1', 'AS', '65000')],
+        'unassign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
+                     'Role':['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
+                     'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "unassign tag value that's not assigned",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        None,
+        [('dev1', 'Role', 'Core')],
+        'unassign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
+                     'Role':['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
+                     'Role':['Leaf']},
+        },
+        None
+    ],
+    [
+        "unassign all role and nodeId tags from multiple devices",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev1', 'Role', 'Core'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ('dev2', 'Role', 'Edge'),
+                             ]),
+        None,
+        [('dev1', 'Role', None), ('dev2', 'Role', None),
+         ('dev1', 'NodeId', None), ('dev2', 'NodeId', None),
+         ],
+        'unassign',
+        2,
+        {
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1']}
+        },
+        None
+    ],
+    [
+        "unassign all tags across multiple devices",
+        convertListToStream([('dev1', 'DC', 'DC1'),
+                             ('dev1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'NodeId', '1'),
+                             ('dev1', 'Role', 'Spine'),
+                             ('dev2', 'DC', 'DC1'),
+                             ('dev2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'NodeId', '2'),
+                             ('dev2', 'Role', 'Leaf'),
+                             ]),
+        None,
+        [('dev1', 'DC', 'DC1'), ('dev1', 'DC-Pod', 'POD1'),
+         ('dev1', 'NodeId', '1'), ('dev1', 'Role', 'Spine'),
+         ('dev2', 'DC', 'DC1'), ('dev2', 'DC-Pod', 'POD1'),
+         ('dev2', 'NodeId', '2'), ('dev2', 'Role', 'Leaf'),
+         ],
+        'unassign',
+        2,
+        {
+        },
+        None
+    ],
+]
+
+
+@pytest.mark.parametrize('name, getAllResp, assigns, unassigns, oper, '
+                         + 'expNumGetAlls, expectedTags, expectedError',
+                         assignUnassignDeviceTagsCases)
+def test_changeDeviceTags(name, getAllResp, assigns, unassigns, oper,
+                          expNumGetAlls, expectedTags, expectedError):
+    error = None
+    ctx = mockCtx()
+    ctx.client.SetGetAllResponse(getAllResp)
+    try:
+        if oper == 'assign':
+            ctx.tags._assignDeviceTags(assigns)
+        elif oper == 'unassign':
+            ctx.tags._unassignDeviceTags(unassigns)
+    except Exception as e:
+        error = e
+    devTags = ctx.tags._getAllDeviceTags()
+    if error or expectedError:
+        assert str(error) == str(expectedError)
+    assert devTags == expectedTags
+    assert ctx.client.numGetAlls == expNumGetAlls
+
+
+assignUnassignInterfaceTagCases = [
+    # name
+    # tagv2 GetAll response
+    # device id
+    # interface id
+    # operation ('assign', 'unassign')
+    # operation tag label
+    # operation tag value
+    # replace flag
+    # num GetAll calls
+    # expected tags
+    # expected error
+    [
+        "assign additional Role tag value",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        'dev1',
+        'Ethernet1',
+        'assign',
+        'Role',
+        'Core',
+        False,
+        2,
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine', 'Core']},
+        None
+    ],
+    [
+        "assign replacement Role tag value",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        'dev1',
+        'Ethernet1',
+        'assign',
+        'Role',
+        'Core',
+        True,
+        2,
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Core']},
+        None
+    ],
+    [
+        "unassign second Role tag value",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev1', 'Ethernet1', 'Role', 'Core'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        'dev1',
+        'Ethernet1',
+        'unassign',
+        'Role',
+        'Core',
+        False,
+        2,
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine']},
+        None
+    ],
+    [
+        "unassign last Role tag value",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        'dev1',
+        'Ethernet1',
+        'unassign',
+        'Role',
+        'Spine',
+        False,
+        2,
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        None
+    ],
+    [
+        "unassign tag value that's not assigned",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        'dev1',
+        'Ethernet1',
+        'unassign',
+        'Role',
+        'Core',
+        False,
+        2,
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine']},
+        None
+    ],
+]
+
+
+@pytest.mark.parametrize('name, getAllResp, deviceId, interfaceId, oper, operLabel, '
+                         + 'operValue, replace, expNumGetAlls, expectedTags, '
+                         + 'expectedError',
+                         assignUnassignInterfaceTagCases)
+def test_changeInterfaceTag(name, getAllResp, deviceId, interfaceId, oper, operLabel,
+                            operValue, replace, expNumGetAlls, expectedTags,
+                            expectedError):
+    error = None
+    ctx = mockCtx()
+    ctx.client.SetGetAllResponse(getAllResp)
+    try:
+        if oper == 'assign':
+            ctx.tags._assignInterfaceTag(deviceId, interfaceId, operLabel, operValue,
+                                         replaceValue=replace)
+        elif oper == 'unassign':
+            ctx.tags._unassignInterfaceTag(deviceId, interfaceId, operLabel, operValue)
+    except Exception as e:
+        error = e
+    intfTags = ctx.tags._getInterfaceTags(deviceId, interfaceId)
+    if error or expectedError:
+        assert str(error) == str(expectedError)
+    assert intfTags == expectedTags
+    assert ctx.client.numGetAlls == expNumGetAlls
+
+
+assignUnassignInterfaceTagsCases = [
+    # name
+    # tagv2 GetAll response
+    # assigns as List of (deviceId, interfaceId, label, value, replace)
+    # unassigns as List of (deviceId, interfaceId, label, value)
+    # operation ('assign', 'unassign')
+    # num GetAll calls
+    # expected tags
+    # expected error
+    [
+        "assign additional Role tag value",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Ethernet1', 'Role', 'Core', False)],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                                   'Role': ['Spine', 'Core']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                                   'Role': ['Leaf']}},
+        },
+        None
+    ],
+    [
+        "assign multiple additional Role tag values to same interface",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Ethernet1', 'Role', 'Core', False),
+         ('dev1', 'Ethernet1', 'Role', 'RR', False)
+         ],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                                   'Role': ['Spine', 'Core', 'RR']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                                   'Role': ['Leaf']}},
+        },
+        None
+    ],
+    [
+        "assign multiple additional Role tag values to multiple interfaces",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Ethernet1', 'Role', 'Core', False),
+         ('dev1', 'Ethernet1', 'Role', 'RR', False),
+         ('dev1', 'Ethernet2', 'Role', 'Core', False),
+         ('dev1', 'Ethernet2', 'Role', 'RR', False),
+         ('dev2', 'Ethernet1', 'Role', 'Edge', False),
+         ('dev2', 'Ethernet1', 'Role', 'RR', False)
+         ],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                                   'Role': ['Spine', 'Core', 'RR']},
+                     'Ethernet2': {'Role': ['Core', 'RR']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                                   'Role': ['Leaf', 'Edge', 'RR']}},
+        },
+        None
+    ],
+    [
+        "assign replacement Role tag value",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Ethernet1', 'Role', 'Core', True)],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                                   'Role': ['Core']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                                   'Role': ['Leaf']}},
+        },
+        None
+    ],
+    [
+        "assign multiple replacement Role tag values to multiple interfaces",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Ethernet1', 'Role', 'Core', True),
+         ('dev1', 'Ethernet1', 'Role', 'RR', True),
+         ('dev1', 'Ethernet2', 'Role', 'Core', True),
+         ('dev1', 'Ethernet2', 'Role', 'RR', True)
+         ],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                                   'Role': ['RR']},
+                     'Ethernet2': {'Role': ['RR']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                                   'Role': ['Leaf']}},
+        },
+        None
+    ],
+    [
+        "assign multiple additional and replacement tag values to multiple interfaces",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ('dev2', 'Ethernet2', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet2', 'NodeId', '3'),
+                             ('dev2', 'Ethernet2', 'Role', 'Leaf'),
+                             ]),
+        [('dev1', 'Ethernet1', 'Role', 'RR', False),
+         ('dev1', 'Ethernet1', 'DC-Pod', 'POD2', True),
+         ('dev1', 'Ethernet2', 'NodeId', '2', True),
+         ('dev1', 'Ethernet2', 'Role', 'Core', True),
+         ('dev1', 'Ethernet2', 'Role', 'RR', True),
+         ('dev2', 'Ethernet1', 'NodeId', '3', True),
+         ('dev2', 'Ethernet1', 'Role', 'Edge', False),
+         ('dev2', 'Ethernet2', 'NodeId', '4', True),
+         ('dev2', 'Ethernet2', 'Role', 'Edge', False),
+         ],
+        None,
+        'assign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId': ['1'],
+                                   'Role':['Spine', 'RR']},
+                     'Ethernet2': {'NodeId': ['2'], 'Role': ['RR']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['3'],
+                                   'Role': ['Leaf', 'Edge']},
+                     'Ethernet2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['4'],
+                                   'Role': ['Leaf', 'Edge']}},
+        },
+        None
+    ],
+    [
+        "unassign second Role tag value",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev1', 'Ethernet1', 'Role', 'Core'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        None,
+        [('dev1', 'Ethernet1', 'Role', 'Core')],
+        'unassign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                                   'Role': ['Spine']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                                   'Role': ['Leaf']}},
+        },
+        None
+    ],
+    [
+        "unassign last Role tag value",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        None,
+        [('dev1', 'Ethernet1', 'Role', 'Spine')],
+        'unassign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                                   'Role': ['Leaf']}},
+        },
+        None
+    ],
+    [
+        "unassign tag label that's not assigned",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        None,
+        [('dev1', 'Ethernet1', 'AS', '65000')],
+        'unassign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                                   'Role': ['Spine']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                                   'Role': ['Leaf']}},
+        },
+        None
+    ],
+    [
+        "unassign tag value that's not assigned",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ]),
+        None,
+        [('dev1', 'Ethernet1', 'Role', 'Core')],
+        'unassign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                                   'Role': ['Spine']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                                   'Role': ['Leaf']}},
+        },
+        None
+    ],
+    [
+        "unassign all role and nodeId tags from multiple interfaces",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev1', 'Ethernet1', 'Role', 'Core'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ('dev2', 'Ethernet1', 'Role', 'Edge'),
+                             ('dev2', 'Ethernet2', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet2', 'NodeId', '3'),
+                             ('dev2', 'Ethernet2', 'Role', 'Leaf'),
+                             ('dev2', 'Ethernet2', 'Role', 'Edge'),
+                             ]),
+        None,
+        [('dev1', 'Ethernet1', 'Role', None),
+         ('dev1', 'Ethernet1', 'NodeId', None),
+         ('dev2', 'Ethernet1', 'Role', None),
+         ('dev2', 'Ethernet1', 'NodeId', None),
+         ('dev2', 'Ethernet2', 'Role', None),
+         ('dev2', 'Ethernet2', 'NodeId', None),
+         ],
+        'unassign',
+        2,
+        {
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1']},
+                     'Ethernet2': {'DC': ['DC1'], 'DC-Pod': ['POD1']}},
+        },
+        None
+    ],
+    [
+        "unassign all tags across multiple interfaces",
+        convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev1', 'Ethernet1', 'NodeId', '1'),
+                             ('dev1', 'Ethernet1', 'Role', 'Spine'),
+                             ('dev2', 'Ethernet1', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet1', 'NodeId', '2'),
+                             ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+                             ('dev2', 'Ethernet2', 'DC', 'DC1'),
+                             ('dev2', 'Ethernet2', 'DC-Pod', 'POD1'),
+                             ('dev2', 'Ethernet2', 'NodeId', '3'),
+                             ('dev2', 'Ethernet2', 'Role', 'Leaf'),
+                             ]),
+        None,
+        [('dev1', 'Ethernet1', 'DC', 'DC1'),
+         ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
+         ('dev1', 'Ethernet1', 'NodeId', '1'),
+         ('dev1', 'Ethernet1', 'Role', 'Spine'),
+         ('dev2', 'Ethernet1', 'DC', 'DC1'),
+         ('dev2', 'Ethernet1', 'DC-Pod', 'POD1'),
+         ('dev2', 'Ethernet1', 'NodeId', '2'),
+         ('dev2', 'Ethernet1', 'Role', 'Leaf'),
+         ('dev2', 'Ethernet2', 'DC', 'DC1'),
+         ('dev2', 'Ethernet2', 'DC-Pod', 'POD1'),
+         ('dev2', 'Ethernet2', 'NodeId', '3'),
+         ('dev2', 'Ethernet2', 'Role', 'Leaf'),
+         ],
+        'unassign',
+        2,
+        {
+        },
+        None
+    ],
+]
+
+
+@pytest.mark.parametrize('name, getAllResp, assigns, unassigns, oper, '
+                         + 'expNumGetAlls, expectedTags, expectedError',
+                         assignUnassignInterfaceTagsCases)
+def test_changeInterfaceTags(name, getAllResp, assigns, unassigns, oper,
+                             expNumGetAlls, expectedTags, expectedError):
+    error = None
+    ctx = mockCtx()
+    ctx.client.SetGetAllResponse(getAllResp)
+    try:
+        if oper == 'assign':
+            ctx.tags._assignInterfaceTags(assigns)
+        elif oper == 'unassign':
+            ctx.tags._unassignInterfaceTags(unassigns)
+    except Exception as e:
+        error = e
+    intfTags = ctx.tags._getAllInterfaceTags()
+    if error or expectedError:
+        assert str(error) == str(expectedError)
+    assert intfTags == expectedTags
     assert ctx.client.numGetAlls == expNumGetAlls

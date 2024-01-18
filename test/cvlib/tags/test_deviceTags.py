@@ -117,8 +117,7 @@ getSingleTagCases = [
     # err
     [
         "get tag that is assigned correctly to device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -136,8 +135,7 @@ getSingleTagCases = [
     ],
     [
         "get tag that is assigned to device with too many values",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC', 'DC2'),
                              ('J1', 'DC-Pod', 'POD1'),
@@ -156,8 +154,7 @@ getSingleTagCases = [
     ],
     [
         "get required tag that isn't assigned to device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -175,8 +172,7 @@ getSingleTagCases = [
     ],
     [
         "get unrequired tag that isn't assigned to device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -194,8 +190,7 @@ getSingleTagCases = [
     ],
     [
         "try get required tag for device that has no tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -213,8 +208,7 @@ getSingleTagCases = [
     ],
     [
         "try get unrequired tag for device that has no tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -315,8 +309,7 @@ getTagsCases = [
     # expected Error
     [
         "get all device tags for device that has tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -333,8 +326,7 @@ getTagsCases = [
     ],
     [
         "get specific label device tags for device that has tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -351,8 +343,7 @@ getTagsCases = [
     ],
     [
         "get all device tags for dev3 that has no tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -369,8 +360,7 @@ getTagsCases = [
     ],
     [
         "get specific label device tags for dev3 that has no tags",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -448,8 +438,7 @@ assignTagsCases = [
     # expected Error
     [
         "assign new tag to device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -473,8 +462,7 @@ assignTagsCases = [
     ],
     [
         "assign a new value of existing label to device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -498,8 +486,7 @@ assignTagsCases = [
     ],
     [
         "replace value with new value of existing label for device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -522,8 +509,7 @@ assignTagsCases = [
     ],
     [
         "replace value with already assigned value of another device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -546,8 +532,7 @@ assignTagsCases = [
     ],
     [
         "assign already assigned tag to same device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -570,8 +555,7 @@ assignTagsCases = [
     ],
     [
         "assign tag with invalid label to device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -594,8 +578,7 @@ assignTagsCases = [
     ],
     [
         "assign tag with invalid value to device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -714,8 +697,7 @@ unassignTagsCases = [
     # expected Error
     [
         "unassign tag from device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -736,8 +718,7 @@ unassignTagsCases = [
     ],
     [
         "unassign one of two values for a label from device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC', 'DC2'),
                              ('J1', 'DC-Pod', 'POD1'),
@@ -760,8 +741,7 @@ unassignTagsCases = [
     ],
     [
         "unassign all values for a label from device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC', 'DC2'),
                              ('J1', 'DC-Pod', 'POD1'),
@@ -783,8 +763,7 @@ unassignTagsCases = [
     ],
     [
         "unassign a value that's not assigned for a label from device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -806,8 +785,7 @@ unassignTagsCases = [
     ],
     [
         "unassign a tag that's not assigned from device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -829,8 +807,7 @@ unassignTagsCases = [
     ],
     [
         "unassign tag with invalid label from device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),
@@ -852,8 +829,7 @@ unassignTagsCases = [
     ],
     [
         "unassign tag with invalid label and valid value from device",
-        {
-        },
+        None,
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
                              ('J1', 'NodeId', '1'),

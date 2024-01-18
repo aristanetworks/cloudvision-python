@@ -2,20 +2,24 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-from typing import Dict
+from grpc import RpcError
+from typing import Dict, List, Tuple
 
 from arista.tag.v2.services import (
     TagAssignmentServiceStub,
     TagAssignmentStreamRequest,
     TagConfigServiceStub,
     TagConfigSetRequest,
+    TagConfigSetSomeRequest,
     TagAssignmentConfigStreamRequest,
     TagAssignmentConfigServiceStub,
-    TagAssignmentConfigSetRequest
+    TagAssignmentConfigSetRequest,
+    TagAssignmentConfigSetSomeRequest
 )
 from arista.tag.v2.tag_pb2 import (
     TagAssignment,
     TagAssignmentConfig,
+    TagConfig,
     ELEMENT_TYPE_DEVICE,
     ELEMENT_TYPE_INTERFACE,
     CREATOR_TYPE_USER
@@ -78,8 +82,8 @@ class Tags:
 
     def __init__(self, context):
         self.ctx = context
-        self.relevantTagAssigns: Dict = {}
-        self.relevantIntfTagAssigns: Dict = {}
+        self.relevantTagAssigns: Dict = None
+        self.relevantIntfTagAssigns: Dict = None
 
     def _getTagUpdatesFromWorkspace(self, etype=ELEMENT_TYPE_DEVICE):
         '''
@@ -124,6 +128,98 @@ class Tags:
         setRequest.value.key.value.value = value
         tagClient = self.ctx.getApiClient(TagConfigServiceStub)
         tagClient.Set(setRequest)
+
+    def _createTags(self, etype: int, tags: List[Tuple], configsPerReq=1000):
+        '''
+        _createTags creates multiple tags if they don't already exist,
+        of the specified ElementType, in the workspace.
+        The input tags is a List of Tuples of (label, value)
+        '''
+        # remove from the list if the tag already exists
+        for (label, value) in tags[:]:
+            if not label or not value:
+                raise TagOperationException(label, value, 'create')
+            if etype == ELEMENT_TYPE_DEVICE and self._deviceTagExists(label, value):
+                tags.remove((label, value))
+            if etype == ELEMENT_TYPE_INTERFACE and self._interfaceTagExists(label, value):
+                tags.remove((label, value))
+        if not tags:
+            return
+        # create the tags
+        tagConfigs = []
+        wsID = self.ctx.getWorkspaceId()
+        for (label, value) in tags:
+            tagConfig = TagConfig()
+            tagConfig.key.workspace_id.value = wsID
+            tagConfig.key.element_type = etype
+            tagConfig.key.label.value = label
+            tagConfig.key.value.value = value
+            tagConfigs.append(tagConfig)
+        res = []
+        # chunk each SetSome request to a maximum of configsPerReq
+        for start in range(0, len(tagConfigs), configsPerReq):
+            setSomeRequest = TagConfigSetSomeRequest(
+                values=tagConfigs[start:start + configsPerReq]
+            )
+            tagClient = self.ctx.getApiClient(TagConfigServiceStub)
+            try:
+                for res in tagClient.SetSome(setSomeRequest):
+                    pass
+            except RpcError:
+                raise TagOperationException('', '', 'create')
+
+    def _assignTagSet(self, etype: int, tagAssign: Tuple, remove: bool = False):
+        '''
+        _assignTagSet assigns a tag.
+        The input tagAssign is a tuple of the form:
+            (deviceId, interfaceId, label, value)
+        If remove is True, then unassigns the tag.
+        '''
+        (deviceId, interfaceId, label, value) = tagAssign
+        setRequest = TagAssignmentConfigSetRequest()
+        wsID = self.ctx.getWorkspaceId()
+        setRequest.value.key.workspace_id.value = wsID
+        setRequest.value.key.element_type = etype
+        setRequest.value.key.label.value = label
+        setRequest.value.key.value.value = value
+        setRequest.value.key.device_id.value = deviceId
+        setRequest.value.key.interface_id.value = interfaceId
+        setRequest.value.remove.value = remove
+        tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
+        tagClient.Set(setRequest)
+
+    def _assignTagsSets(self, etype: int, tagAssigns: List[Tuple],
+                        remove: bool = False, configsPerReq: int = 1000):
+        '''
+        _assignTagsSets assigns/unassigns multiple tags.
+        The input tagAssigns is a List of Tuples of the form:
+            (deviceId, interfaceId, label, value)
+        If remove is True, then unassigns the tags.
+        '''
+        tagAssConfigs = []
+        wsID = self.ctx.getWorkspaceId()
+        for (deviceId, interfaceId, label, value) in tagAssigns:
+            tagAssConfig = TagAssignmentConfig()
+            tagAssConfig.key.workspace_id.value = wsID
+            tagAssConfig.key.element_type = etype
+            tagAssConfig.key.label.value = label
+            tagAssConfig.key.value.value = value
+            tagAssConfig.key.device_id.value = deviceId
+            tagAssConfig.key.interface_id.value = interfaceId
+            tagAssConfig.remove.value = remove
+            tagAssConfigs.append(tagAssConfig)
+        res = []
+        # chunk each SetSome request to a maximum of configsPerReq
+        for start in range(0, len(tagAssConfigs), configsPerReq):
+            setSomeRequest = TagAssignmentConfigSetSomeRequest(
+                values=tagAssConfigs[start:start + configsPerReq]
+            )
+            tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
+            try:
+                for res in tagClient.SetSome(setSomeRequest):
+                    pass
+            except RpcError:
+                raise TagOperationException('', '', 'assign')
 
     # The following are methods for device Tags
 
@@ -196,29 +292,6 @@ class Tags:
                 self.relevantTagAssigns[deviceId][label].append(value)
         return self.relevantTagAssigns
 
-    def _assignDeviceTagSet(self, deviceId: str, label: str, value: str):
-        '''
-        _assignDeviceTagSet assigns a device tag if it isn't already assigned
-        '''
-        # check if the tag is already assigned to this device
-        if self._deviceTagAssigned(deviceId, label, value):
-            return
-        # create the tag
-        self._createTag(ELEMENT_TYPE_DEVICE, label, value)
-        # assign the tag
-        setRequest = TagAssignmentConfigSetRequest()
-        wsID = self.ctx.getWorkspaceId()
-        setRequest.value.key.workspace_id.value = wsID
-        setRequest.value.key.element_type = ELEMENT_TYPE_DEVICE
-        setRequest.value.key.label.value = label
-        setRequest.value.key.value.value = value
-        setRequest.value.key.device_id.value = deviceId
-        setRequest.value.remove.value = False
-        tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
-        tagClient.Set(setRequest)
-        # assign the tag in cache
-        self._assignDevTagInCache(deviceId, label, value)
-
     def _setRelevantTagAssigns(self, tags: Dict):
         '''
         Sets the relevantTagAssigns of the context.
@@ -236,10 +309,11 @@ class Tags:
 
     def _getAllDeviceTags(self):
         '''
-        _getAllDeviceTags returns a map of all assigned device tags available in the workspace,
+        _getAllDeviceTags returns a map of all assigned device tags available
+        in the workspace.
         The returned map is of the form: map[deviceId]map[label]=[value1,value2,..]
         '''
-        if self.relevantTagAssigns:
+        if self.relevantTagAssigns is not None:
             return self.relevantTagAssigns
         self._getAllDeviceTagsFromMainline()
         workspaceUpdates = self._getTagUpdatesFromWorkspace()
@@ -250,14 +324,16 @@ class Tags:
                 self._assignDevTagInCache(deviceId, label, value)
         return self.relevantTagAssigns
 
-    def _assignDeviceTag(self, deviceId: str, label: str, value: str, replaceValue: bool = True):
+    def _assignDeviceTag(self, deviceId: str, label: str, value: str,
+                         replaceValue: bool = True):
         '''
-        _assignDeviceTag assigns a device tag if it isn't already assigned,
-        enforcing that only one value of the tag is assigned to the device,
-        unless the replaceValue argument is set to False
+        _assignDeviceTag assigns a device tag if it isn't already assigned.
+        If replaceValue is True ensures one value of tag is assigned to device.
+        If replaceValue is False multiple values of tag can be assigned to device.
         '''
         # first make sure this device's tags have been loaded in cache
         self._getDeviceTags(deviceId)
+        # identify unassigns for replace cases
         if not label or not value or not deviceId:
             raise TagOperationException(label, value, 'assign', deviceId)
         if replaceValue:
@@ -265,7 +341,15 @@ class Tags:
             for cvalue in current_values:
                 if cvalue != value:
                     self._unassignDeviceTag(deviceId, label, cvalue)
-        self._assignDeviceTagSet(deviceId, label, value)
+        # check if the tag is already assigned to this device
+        if self._deviceTagAssigned(deviceId, label, value):
+            return
+        # create the tag
+        self._createTag(ELEMENT_TYPE_DEVICE, label, value)
+        # assign the tag
+        self._assignTagSet(ELEMENT_TYPE_DEVICE, (deviceId, '', label, value))
+        # assign the tag in cache
+        self._assignDevTagInCache(deviceId, label, value)
 
     def _unassignDeviceTag(self, deviceId: str, label: str, value: str):
         '''
@@ -279,16 +363,8 @@ class Tags:
         if not self._deviceTagAssigned(deviceId, label, value):
             return
         # unassign the tag
-        setRequest = TagAssignmentConfigSetRequest()
-        wsID = self.ctx.getWorkspaceId()
-        setRequest.value.key.workspace_id.value = wsID
-        setRequest.value.key.element_type = ELEMENT_TYPE_DEVICE
-        setRequest.value.key.label.value = label
-        setRequest.value.key.value.value = value
-        setRequest.value.key.device_id.value = deviceId
-        setRequest.value.remove.value = True
-        tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
-        tagClient.Set(setRequest)
+        self._assignTagSet(ELEMENT_TYPE_DEVICE,
+                           (deviceId, '', label, value), remove=True)
         # unassign the tag in cache
         self._unassignDevTagInCache(deviceId, label, value)
 
@@ -296,11 +372,90 @@ class Tags:
         '''
         _unassignDeviceTagLabel unassigns all device tags of a label
         '''
-        current_values = list(self._getDeviceTags(deviceId).get(label, []))
         if not label or not deviceId:
             raise TagOperationException(label, '', 'unassign', deviceId)
+        current_values = list(self._getDeviceTags(deviceId).get(label, []))
         for cvalue in current_values:
             self._unassignDeviceTag(deviceId, label, cvalue)
+
+    def _assignDeviceTags(self, tagAssignReplaces: List[Tuple]):
+        '''
+        _assignDeviceTags assigns multiple device tags if not already assigned.
+        The input tagAssignReplaces is a List of Tuple of the form:
+            (deviceId, label, value, replaceValue)
+        If replaceValue is True ensures one value of tag is assigned to device.
+        If replaceValue is False multiple values of tag can be assigned to device.
+        '''
+        if not tagAssignReplaces:
+            return
+        tagUnAssigns: List[Tuple] = []
+        tagAssigns: List[Tuple] = []
+        tagAssignsDict: Dict = {}
+        # first make sure device tags have been loaded in cache
+        self._getAllDeviceTags()
+        # identify unassigns for replace cases
+        for (deviceId, label, value, replaceValue) in tagAssignReplaces:
+            if not label or not value or not deviceId:
+                raise TagOperationException(label, value, 'assign', deviceId)
+            if replaceValue:
+                current_values = list(self._getDeviceTags(deviceId).get(label, []))
+                for cvalue in current_values:
+                    if cvalue != value:
+                        tagUnAssigns.append((deviceId, label, cvalue))
+                if (cvalues := tagAssignsDict.get(deviceId, {}).get(label)):
+                    for cvalue in cvalues:
+                        tagAssigns.remove((deviceId, '', label, cvalue))
+                    tagAssignsDict[deviceId].pop(label)
+            tagAssignsDict.setdefault(deviceId, {}).setdefault(label, []).append(value)
+            tagAssigns.append((deviceId, '', label, value))
+        self._unassignDeviceTags(tagUnAssigns)
+        # remove from the list if the tag assignmnet already exists
+        uniqueTags: List[Tuple] = []
+        for (deviceId, _, label, value) in tagAssigns[:]:
+            if self._deviceTagAssigned(deviceId, label, value):
+                tagAssigns.remove((deviceId, '', label, value))
+            elif (label, value) not in uniqueTags:
+                uniqueTags.append((label, value))
+        if not tagAssigns:
+            return
+        # create the tags
+        self._createTags(ELEMENT_TYPE_DEVICE, uniqueTags)
+        # assign the tags
+        self._assignTagsSets(ELEMENT_TYPE_DEVICE, tagAssigns)
+        # assign the tags in cache
+        for (deviceId, _, label, value) in tagAssigns:
+            self._assignDevTagInCache(deviceId, label, value)
+
+    def _unassignDeviceTags(self, tagUnAssignsIn: List[Tuple]):
+        '''
+        _unassignDeviceTags unassigns multiple device tags if currently assigned.
+        The input tagUnAssigns is a List of Tuples of the form:
+            (deviceId, label, value)
+        If value is None then unassigns all values of that label
+        '''
+        if not tagUnAssignsIn:
+            return
+        # first make sure device tags have been loaded in cache
+        self._getAllDeviceTags()
+        tagUnAssigns: List[Tuple] = []
+        # remove from the list if the tag assignment doesn't exist
+        for (deviceId, label, value) in tagUnAssignsIn:
+            if not label or not deviceId:
+                raise TagOperationException(label, '', 'unassign', deviceId)
+            # check if the tag is assigned to this device
+            if not value:
+                current_values = list(self._getDeviceTags(deviceId).get(label, []))
+                for cvalue in current_values:
+                    tagUnAssigns.append((deviceId, '', label, cvalue))
+            elif self._deviceTagAssigned(deviceId, label, value):
+                tagUnAssigns.append((deviceId, '', label, value))
+        if not tagUnAssigns:
+            return
+        # unassign the tags
+        self._assignTagsSets(ELEMENT_TYPE_DEVICE, tagUnAssigns, remove=True)
+        # unassign the tags in cache
+        for (deviceId, _, label, value) in tagUnAssigns:
+            self._unassignDevTagInCache(deviceId, label, value)
 
     # The following are methods for interface Tags
 
@@ -405,7 +560,7 @@ class Tags:
         in the workspace.  The returned map is of the form:
             map[deviceId]map[interfaceId]map[label]=[value1,value2,..]
         '''
-        if self.relevantIntfTagAssigns:
+        if self.relevantIntfTagAssigns is not None:
             return self.relevantIntfTagAssigns
         self._getAllInterfaceTagsFromMainline()
         workspaceUpdates = self._getTagUpdatesFromWorkspace(ELEMENT_TYPE_INTERFACE)
@@ -416,36 +571,12 @@ class Tags:
                 self._assignIntfTagInCache(deviceId, interfaceId, label, value)
         return self.relevantIntfTagAssigns
 
-    def _assignInterfaceTagSet(self, deviceId: str, interfaceId: str, label: str, value: str):
+    def _assignInterfaceTag(self, deviceId: str, interfaceId: str, label: str,
+                            value: str, replaceValue: bool = True):
         '''
-        _assignInterfaceTagSet assigns a interface tag if it isn't already assigned
-        '''
-        # check if the tag is already assigned to this device
-        if self._interfaceTagAssigned(deviceId, interfaceId, label, value):
-            return
-        # create the tag
-        self._createTag(ELEMENT_TYPE_INTERFACE, label, value)
-        # assign the tag
-        setRequest = TagAssignmentConfigSetRequest()
-        wsID = self.ctx.getWorkspaceId()
-        setRequest.value.key.workspace_id.value = wsID
-        setRequest.value.key.element_type = ELEMENT_TYPE_INTERFACE
-        setRequest.value.key.label.value = label
-        setRequest.value.key.value.value = value
-        setRequest.value.key.device_id.value = deviceId
-        setRequest.value.key.interface_id.value = interfaceId
-        setRequest.value.remove.value = False
-        tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
-        tagClient.Set(setRequest)
-        # assign the tag in cache
-        self._assignIntfTagInCache(deviceId, interfaceId, label, value)
-
-    def _assignInterfaceTag(self, deviceId: str, interfaceId: str, label: str, value: str,
-                            replaceValue: bool = True):
-        '''
-        _assignInterfaceTag assigns a interface tag if it isn't already assigned,
-        enforcing that only one value of the tag is assigned to the interface,
-        unless the replaceValue argument is set to False
+        _assignInterfaceTag assigns aninterface tag if it isn't already assigned.
+        If replaceValue is True ensures one value of tag is assigned to interface.
+        If replaceValue is False multiple values of tag can be assigned to interface.
         '''
         # first make sure this device's tags have been loaded in cache
         self._getInterfaceTags(deviceId, interfaceId)
@@ -456,7 +587,16 @@ class Tags:
             for cvalue in current_values:
                 if cvalue != value:
                     self._unassignInterfaceTag(deviceId, interfaceId, label, cvalue)
-        self._assignInterfaceTagSet(deviceId, interfaceId, label, value)
+        # check if the tag is already assigned to this device
+        if self._interfaceTagAssigned(deviceId, interfaceId, label, value):
+            return
+        # create the tag
+        self._createTag(ELEMENT_TYPE_INTERFACE, label, value)
+        # assign the tag
+        self._assignTagSet(ELEMENT_TYPE_INTERFACE,
+                           (deviceId, interfaceId, label, value))
+        # assign the tag in cache
+        self._assignIntfTagInCache(deviceId, interfaceId, label, value)
 
     def _unassignInterfaceTag(self, deviceId: str, interfaceId: str, label: str, value: str):
         '''
@@ -470,17 +610,8 @@ class Tags:
         if not self._interfaceTagAssigned(deviceId, interfaceId, label, value):
             return
         # unassign the tag
-        setRequest = TagAssignmentConfigSetRequest()
-        wsID = self.ctx.getWorkspaceId()
-        setRequest.value.key.workspace_id.value = wsID
-        setRequest.value.key.element_type = ELEMENT_TYPE_INTERFACE
-        setRequest.value.key.label.value = label
-        setRequest.value.key.value.value = value
-        setRequest.value.key.device_id.value = deviceId
-        setRequest.value.key.interface_id.value = interfaceId
-        setRequest.value.remove.value = True
-        tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
-        tagClient.Set(setRequest)
+        self._assignTagSet(ELEMENT_TYPE_INTERFACE,
+                           (deviceId, interfaceId, label, value), remove=True)
         # unassign the tag in cache
         self._unassignIntfTagInCache(deviceId, interfaceId, label, value)
 
@@ -488,8 +619,93 @@ class Tags:
         '''
         _unassignInterfaceTagLabel unassigns all interface tags of a label
         '''
-        current_values = list(self._getInterfaceTags(deviceId, interfaceId).get(label, []))
         if not label or not deviceId or not interfaceId:
             raise TagOperationException(label, '', 'unassign', deviceId, interfaceId)
+        current_values = list(self._getInterfaceTags(deviceId, interfaceId).get(label, []))
         for cvalue in current_values:
             self._unassignInterfaceTag(deviceId, interfaceId, label, cvalue)
+
+    def _assignInterfaceTags(self, tagAssignReplaces: List[Tuple]):
+        '''
+        _assignInterfaceTags assigns multiple interface tags if not already assigned.
+        The input tagAssignReplaces is a List of Tuple of the form:
+            (deviceId, interfaceId, label, value, replaceValue)
+        If replaceValue is True ensures one value of tag is assigned to interface.
+        If replaceValue is False multiple values of tag can be assigned to interface.
+        '''
+        if not tagAssignReplaces:
+            return
+        tagUnAssigns: List[Tuple] = []
+        tagAssigns: List[Tuple] = []
+        tagAssignsDict: Dict = {}
+        # first make sure interface tags have been loaded in cache
+        self._getAllInterfaceTags()
+        # identify unassigns for replace cases
+        for (deviceId, interfaceId, label, value, replaceValue) in tagAssignReplaces:
+            if not label or not value or not deviceId or not interfaceId:
+                raise TagOperationException(label, value, 'assign',
+                                            deviceId, interfaceId)
+            if replaceValue:
+                current_values = list(self._getInterfaceTags(deviceId,
+                                      interfaceId).get(label, []))
+                for cvalue in current_values:
+                    if cvalue != value:
+                        tagUnAssigns.append((deviceId, interfaceId, label, cvalue))
+                if (cvalues := tagAssignsDict.get(deviceId, {}).get(
+                        interfaceId, {}).get(label)):
+                    for cvalue in cvalues:
+                        tagAssigns.remove((deviceId, interfaceId, label, cvalue))
+                    tagAssignsDict[deviceId][interfaceId].pop(label)
+            tagAssignsDict.setdefault(deviceId, {}).setdefault(
+                interfaceId, {}).setdefault(label, []).append(value)
+            tagAssigns.append((deviceId, interfaceId, label, value))
+        self._unassignInterfaceTags(tagUnAssigns)
+        # remove from the list if the tag assignmnet already exists
+        uniqueTags: List[Tuple] = []
+        for (deviceId, interfaceId, label, value) in tagAssigns[:]:
+            if self._interfaceTagAssigned(deviceId, interfaceId, label, value):
+                tagAssigns.remove((deviceId, interfaceId, label, value))
+            elif (label, value) not in uniqueTags:
+                uniqueTags.append((label, value))
+        if not tagAssigns:
+            return
+        # create the tags
+        self._createTags(ELEMENT_TYPE_INTERFACE, uniqueTags)
+        # assign the tags
+        self._assignTagsSets(ELEMENT_TYPE_INTERFACE, tagAssigns)
+        # assign the tags in cache
+        for (deviceId, interfaceId, label, value) in tagAssigns:
+            self._assignIntfTagInCache(deviceId, interfaceId, label, value)
+
+    def _unassignInterfaceTags(self, tagUnAssignsIn: List[Tuple]):
+        '''
+        _unassignInterfaceTags unassigns multiple interface tags if currently assigned.
+        The input tagUnAssigns is a List of Tuples of the form:
+            (deviceId, interfaceId, label, value)
+        If value is None then unassigns all values of that label
+        '''
+        if not tagUnAssignsIn:
+            return
+        # first make sure interface tags have been loaded in cache
+        self._getAllInterfaceTags()
+        tagUnAssigns: List[Tuple] = []
+        # remove from the list if the tag assignment doesn't exist
+        for (deviceId, interfaceId, label, value) in tagUnAssignsIn:
+            if not label or not deviceId or not interfaceId:
+                raise TagOperationException(label, '', 'unassign',
+                                            deviceId, interfaceId)
+            # check if the tag is assigned to this interface
+            if not value:
+                current_values = list(self._getInterfaceTags(deviceId,
+                                      interfaceId).get(label, []))
+                for cvalue in current_values:
+                    tagUnAssigns.append((deviceId, interfaceId, label, cvalue))
+            elif self._interfaceTagAssigned(deviceId, interfaceId, label, value):
+                tagUnAssigns.append((deviceId, interfaceId, label, value))
+        if not tagUnAssigns:
+            return
+        # unassign the tags
+        self._assignTagsSets(ELEMENT_TYPE_INTERFACE, tagUnAssigns, remove=True)
+        # unassign the tags in cache
+        for (deviceId, interfaceId, label, value) in tagUnAssigns:
+            self._unassignIntfTagInCache(deviceId, interfaceId, label, value)
