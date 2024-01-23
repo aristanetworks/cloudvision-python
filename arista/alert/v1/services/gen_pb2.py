@@ -25,11 +25,57 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z&arista/resources/arista/alert.v1;alert',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\"arista/alert.v1/services.gen.proto\x12\x0f\x61rista.alert.v1\x1a\x1b\x61rista/alert.v1/alert.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"8\n\x0c\x41lertRequest\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"`\n\rAlertResponse\x12%\n\x05value\x18\x01 \x01(\x0b\x32\x16.arista.alert.v1.Alert\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\";\n\x12\x41lertStreamRequest\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x95\x01\n\x13\x41lertStreamResponse\x12%\n\x05value\x18\x01 \x01(\x0b\x32\x16.arista.alert.v1.Alert\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\">\n\x12\x41lertConfigRequest\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"l\n\x13\x41lertConfigResponse\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.AlertConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"A\n\x18\x41lertConfigStreamRequest\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa1\x01\n\x19\x41lertConfigStreamResponse\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.AlertConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"D\n\x15\x41lertConfigSetRequest\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.AlertConfig\"o\n\x16\x41lertConfigSetResponse\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.AlertConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"l\n\x15TemplateConfigRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"r\n\x16TemplateConfigResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"D\n\x1bTemplateConfigStreamRequest\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa7\x01\n\x1cTemplateConfigStreamResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"J\n\x18TemplateConfigSetRequest\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\"u\n\x19TemplateConfigSetResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"O\n\x1cTemplateConfigSetSomeRequest\x12/\n\x06values\x18\x01 \x03(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\"Y\n\x1dTemplateConfigSetSomeResponse\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"H\n\x1bTemplateConfigDeleteRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\"s\n\x1cTemplateConfigDeleteResponse\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\" \n\x1eTemplateConfigDeleteAllRequest\"\xc3\x01\n\x1fTemplateConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x03key\x18\x03 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xb1\x01\n\x0c\x41lertService\x12G\n\x06GetOne\x12\x1d.arista.alert.v1.AlertRequest\x1a\x1e.arista.alert.v1.AlertResponse\x12X\n\tSubscribe\x12#.arista.alert.v1.AlertStreamRequest\x1a$.arista.alert.v1.AlertStreamResponse0\x01\x32\xa7\x02\n\x12\x41lertConfigService\x12S\n\x06GetOne\x12#.arista.alert.v1.AlertConfigRequest\x1a$.arista.alert.v1.AlertConfigResponse\x12\x64\n\tSubscribe\x12).arista.alert.v1.AlertConfigStreamRequest\x1a*.arista.alert.v1.AlertConfigStreamResponse0\x01\x12V\n\x03Set\x12&.arista.alert.v1.AlertConfigSetRequest\x1a\'.arista.alert.v1.AlertConfigSetResponse2\xea\x05\n\x15TemplateConfigService\x12Y\n\x06GetOne\x12&.arista.alert.v1.TemplateConfigRequest\x1a\'.arista.alert.v1.TemplateConfigResponse\x12g\n\x06GetAll\x12,.arista.alert.v1.TemplateConfigStreamRequest\x1a-.arista.alert.v1.TemplateConfigStreamResponse0\x01\x12j\n\tSubscribe\x12,.arista.alert.v1.TemplateConfigStreamRequest\x1a-.arista.alert.v1.TemplateConfigStreamResponse0\x01\x12\\\n\x03Set\x12).arista.alert.v1.TemplateConfigSetRequest\x1a*.arista.alert.v1.TemplateConfigSetResponse\x12j\n\x07SetSome\x12-.arista.alert.v1.TemplateConfigSetSomeRequest\x1a..arista.alert.v1.TemplateConfigSetSomeResponse0\x01\x12\x65\n\x06\x44\x65lete\x12,.arista.alert.v1.TemplateConfigDeleteRequest\x1a-.arista.alert.v1.TemplateConfigDeleteResponse\x12p\n\tDeleteAll\x12/.arista.alert.v1.TemplateConfigDeleteAllRequest\x1a\x30.arista.alert.v1.TemplateConfigDeleteAllResponse0\x01\x42(Z&arista/resources/arista/alert.v1;alertb\x06proto3'
+  serialized_pb=b'\n\"arista/alert.v1/services.gen.proto\x12\x0f\x61rista.alert.v1\x1a\x1b\x61rista/alert.v1/alert.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x94\x01\n\x0cMetaResponse\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x02 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\x12+\n\x05\x63ount\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"8\n\x0c\x41lertRequest\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"`\n\rAlertResponse\x12%\n\x05value\x18\x01 \x01(\x0b\x32\x16.arista.alert.v1.Alert\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\";\n\x12\x41lertStreamRequest\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x95\x01\n\x13\x41lertStreamResponse\x12%\n\x05value\x18\x01 \x01(\x0b\x32\x16.arista.alert.v1.Alert\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\">\n\x12\x41lertConfigRequest\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"l\n\x13\x41lertConfigResponse\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.AlertConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"A\n\x18\x41lertConfigStreamRequest\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa1\x01\n\x19\x41lertConfigStreamResponse\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.AlertConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"D\n\x15\x41lertConfigSetRequest\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.AlertConfig\"o\n\x16\x41lertConfigSetResponse\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.AlertConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"m\n\x16\x44\x65\x66\x61ultTemplateRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"t\n\x17\x44\x65\x66\x61ultTemplateResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.alert.v1.DefaultTemplate\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"r\n\x1a\x44\x65\x66\x61ultTemplateSomeRequest\x12*\n\x04keys\x18\x01 \x03(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa5\x01\n\x1b\x44\x65\x66\x61ultTemplateSomeResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.alert.v1.DefaultTemplate\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"E\n\x1c\x44\x65\x66\x61ultTemplateStreamRequest\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa9\x01\n\x1d\x44\x65\x66\x61ultTemplateStreamResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.alert.v1.DefaultTemplate\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"l\n\x15TemplateConfigRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"r\n\x16TemplateConfigResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x19TemplateConfigSomeRequest\x12*\n\x04keys\x18\x01 \x03(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa3\x01\n\x1aTemplateConfigSomeResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"D\n\x1bTemplateConfigStreamRequest\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa7\x01\n\x1cTemplateConfigStreamResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"J\n\x18TemplateConfigSetRequest\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\"u\n\x19TemplateConfigSetResponse\x12.\n\x05value\x18\x01 \x01(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"O\n\x1cTemplateConfigSetSomeRequest\x12/\n\x06values\x18\x01 \x03(\x0b\x32\x1f.arista.alert.v1.TemplateConfig\"Y\n\x1dTemplateConfigSetSomeResponse\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"H\n\x1bTemplateConfigDeleteRequest\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\"s\n\x1cTemplateConfigDeleteResponse\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"M\n\x1fTemplateConfigDeleteSomeRequest\x12*\n\x04keys\x18\x01 \x03(\x0b\x32\x1c.arista.alert.v1.TemplateKey\"\\\n TemplateConfigDeleteSomeResponse\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\" \n\x1eTemplateConfigDeleteAllRequest\"\xc3\x01\n\x1fTemplateConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x03key\x18\x03 \x01(\x0b\x32\x1c.arista.alert.v1.TemplateKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xdf\x02\n\x0c\x41lertService\x12G\n\x06GetOne\x12\x1d.arista.alert.v1.AlertRequest\x1a\x1e.arista.alert.v1.AlertResponse\x12U\n\x06GetAll\x12#.arista.alert.v1.AlertStreamRequest\x1a$.arista.alert.v1.AlertStreamResponse0\x01\x12X\n\tSubscribe\x12#.arista.alert.v1.AlertStreamRequest\x1a$.arista.alert.v1.AlertStreamResponse0\x01\x12U\n\rSubscribeMeta\x12#.arista.alert.v1.AlertStreamRequest\x1a\x1d.arista.alert.v1.MetaResponse0\x01\x32\xe7\x03\n\x12\x41lertConfigService\x12S\n\x06GetOne\x12#.arista.alert.v1.AlertConfigRequest\x1a$.arista.alert.v1.AlertConfigResponse\x12\x61\n\x06GetAll\x12).arista.alert.v1.AlertConfigStreamRequest\x1a*.arista.alert.v1.AlertConfigStreamResponse0\x01\x12\x64\n\tSubscribe\x12).arista.alert.v1.AlertConfigStreamRequest\x1a*.arista.alert.v1.AlertConfigStreamResponse0\x01\x12[\n\rSubscribeMeta\x12).arista.alert.v1.AlertConfigStreamRequest\x1a\x1d.arista.alert.v1.MetaResponse0\x01\x12V\n\x03Set\x12&.arista.alert.v1.AlertConfigSetRequest\x1a\'.arista.alert.v1.AlertConfigSetResponse2\xf0\x04\n\x16\x44\x65\x66\x61ultTemplateService\x12[\n\x06GetOne\x12\'.arista.alert.v1.DefaultTemplateRequest\x1a(.arista.alert.v1.DefaultTemplateResponse\x12\x66\n\x07GetSome\x12+.arista.alert.v1.DefaultTemplateSomeRequest\x1a,.arista.alert.v1.DefaultTemplateSomeResponse0\x01\x12i\n\x06GetAll\x12-.arista.alert.v1.DefaultTemplateStreamRequest\x1a..arista.alert.v1.DefaultTemplateStreamResponse0\x01\x12l\n\tSubscribe\x12-.arista.alert.v1.DefaultTemplateStreamRequest\x1a..arista.alert.v1.DefaultTemplateStreamResponse0\x01\x12W\n\x07GetMeta\x12-.arista.alert.v1.DefaultTemplateStreamRequest\x1a\x1d.arista.alert.v1.MetaResponse\x12_\n\rSubscribeMeta\x12-.arista.alert.v1.DefaultTemplateStreamRequest\x1a\x1d.arista.alert.v1.MetaResponse0\x01\x32\xfd\x08\n\x15TemplateConfigService\x12Y\n\x06GetOne\x12&.arista.alert.v1.TemplateConfigRequest\x1a\'.arista.alert.v1.TemplateConfigResponse\x12\x64\n\x07GetSome\x12*.arista.alert.v1.TemplateConfigSomeRequest\x1a+.arista.alert.v1.TemplateConfigSomeResponse0\x01\x12g\n\x06GetAll\x12,.arista.alert.v1.TemplateConfigStreamRequest\x1a-.arista.alert.v1.TemplateConfigStreamResponse0\x01\x12j\n\tSubscribe\x12,.arista.alert.v1.TemplateConfigStreamRequest\x1a-.arista.alert.v1.TemplateConfigStreamResponse0\x01\x12V\n\x07GetMeta\x12,.arista.alert.v1.TemplateConfigStreamRequest\x1a\x1d.arista.alert.v1.MetaResponse\x12^\n\rSubscribeMeta\x12,.arista.alert.v1.TemplateConfigStreamRequest\x1a\x1d.arista.alert.v1.MetaResponse0\x01\x12\\\n\x03Set\x12).arista.alert.v1.TemplateConfigSetRequest\x1a*.arista.alert.v1.TemplateConfigSetResponse\x12j\n\x07SetSome\x12-.arista.alert.v1.TemplateConfigSetSomeRequest\x1a..arista.alert.v1.TemplateConfigSetSomeResponse0\x01\x12\x65\n\x06\x44\x65lete\x12,.arista.alert.v1.TemplateConfigDeleteRequest\x1a-.arista.alert.v1.TemplateConfigDeleteResponse\x12s\n\nDeleteSome\x12\x30.arista.alert.v1.TemplateConfigDeleteSomeRequest\x1a\x31.arista.alert.v1.TemplateConfigDeleteSomeResponse0\x01\x12p\n\tDeleteAll\x12/.arista.alert.v1.TemplateConfigDeleteAllRequest\x1a\x30.arista.alert.v1.TemplateConfigDeleteAllResponse0\x01\x42(Z&arista/resources/arista/alert.v1;alertb\x06proto3'
   ,
   dependencies=[arista_dot_alert_dot_v1_dot_alert__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,fmp_dot_deletes__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
+
+
+_METARESPONSE = _descriptor.Descriptor(
+  name='MetaResponse',
+  full_name='arista.alert.v1.MetaResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.alert.v1.MetaResponse.time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.alert.v1.MetaResponse.type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='arista.alert.v1.MetaResponse.count', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=235,
+  serialized_end=383,
+)
 
 
 _ALERTREQUEST = _descriptor.Descriptor(
@@ -59,8 +105,8 @@ _ALERTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=234,
-  serialized_end=290,
+  serialized_start=385,
+  serialized_end=441,
 )
 
 
@@ -98,8 +144,8 @@ _ALERTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=292,
-  serialized_end=388,
+  serialized_start=443,
+  serialized_end=539,
 )
 
 
@@ -130,8 +176,8 @@ _ALERTSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=390,
-  serialized_end=449,
+  serialized_start=541,
+  serialized_end=600,
 )
 
 
@@ -176,8 +222,8 @@ _ALERTSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=452,
-  serialized_end=601,
+  serialized_start=603,
+  serialized_end=752,
 )
 
 
@@ -208,8 +254,8 @@ _ALERTCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=603,
-  serialized_end=665,
+  serialized_start=754,
+  serialized_end=816,
 )
 
 
@@ -247,8 +293,8 @@ _ALERTCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=667,
-  serialized_end=775,
+  serialized_start=818,
+  serialized_end=926,
 )
 
 
@@ -279,8 +325,8 @@ _ALERTCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=777,
-  serialized_end=842,
+  serialized_start=928,
+  serialized_end=993,
 )
 
 
@@ -325,8 +371,8 @@ _ALERTCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=845,
-  serialized_end=1006,
+  serialized_start=996,
+  serialized_end=1157,
 )
 
 
@@ -357,8 +403,8 @@ _ALERTCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1008,
-  serialized_end=1076,
+  serialized_start=1159,
+  serialized_end=1227,
 )
 
 
@@ -396,8 +442,249 @@ _ALERTCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1078,
-  serialized_end=1189,
+  serialized_start=1229,
+  serialized_end=1340,
+)
+
+
+_DEFAULTTEMPLATEREQUEST = _descriptor.Descriptor(
+  name='DefaultTemplateRequest',
+  full_name='arista.alert.v1.DefaultTemplateRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.alert.v1.DefaultTemplateRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.alert.v1.DefaultTemplateRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1342,
+  serialized_end=1451,
+)
+
+
+_DEFAULTTEMPLATERESPONSE = _descriptor.Descriptor(
+  name='DefaultTemplateResponse',
+  full_name='arista.alert.v1.DefaultTemplateResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.alert.v1.DefaultTemplateResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.alert.v1.DefaultTemplateResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1453,
+  serialized_end=1569,
+)
+
+
+_DEFAULTTEMPLATESOMEREQUEST = _descriptor.Descriptor(
+  name='DefaultTemplateSomeRequest',
+  full_name='arista.alert.v1.DefaultTemplateSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.alert.v1.DefaultTemplateSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.alert.v1.DefaultTemplateSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1571,
+  serialized_end=1685,
+)
+
+
+_DEFAULTTEMPLATESOMERESPONSE = _descriptor.Descriptor(
+  name='DefaultTemplateSomeResponse',
+  full_name='arista.alert.v1.DefaultTemplateSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.alert.v1.DefaultTemplateSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.alert.v1.DefaultTemplateSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.alert.v1.DefaultTemplateSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1688,
+  serialized_end=1853,
+)
+
+
+_DEFAULTTEMPLATESTREAMREQUEST = _descriptor.Descriptor(
+  name='DefaultTemplateStreamRequest',
+  full_name='arista.alert.v1.DefaultTemplateStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.alert.v1.DefaultTemplateStreamRequest.time', index=0,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1855,
+  serialized_end=1924,
+)
+
+
+_DEFAULTTEMPLATESTREAMRESPONSE = _descriptor.Descriptor(
+  name='DefaultTemplateStreamResponse',
+  full_name='arista.alert.v1.DefaultTemplateStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.alert.v1.DefaultTemplateStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.alert.v1.DefaultTemplateStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.alert.v1.DefaultTemplateStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1927,
+  serialized_end=2096,
 )
 
 
@@ -435,8 +722,8 @@ _TEMPLATECONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1191,
-  serialized_end=1299,
+  serialized_start=2098,
+  serialized_end=2206,
 )
 
 
@@ -474,8 +761,93 @@ _TEMPLATECONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1301,
-  serialized_end=1415,
+  serialized_start=2208,
+  serialized_end=2322,
+)
+
+
+_TEMPLATECONFIGSOMEREQUEST = _descriptor.Descriptor(
+  name='TemplateConfigSomeRequest',
+  full_name='arista.alert.v1.TemplateConfigSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.alert.v1.TemplateConfigSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.alert.v1.TemplateConfigSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2324,
+  serialized_end=2437,
+)
+
+
+_TEMPLATECONFIGSOMERESPONSE = _descriptor.Descriptor(
+  name='TemplateConfigSomeResponse',
+  full_name='arista.alert.v1.TemplateConfigSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.alert.v1.TemplateConfigSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.alert.v1.TemplateConfigSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.alert.v1.TemplateConfigSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2440,
+  serialized_end=2603,
 )
 
 
@@ -506,8 +878,8 @@ _TEMPLATECONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1417,
-  serialized_end=1485,
+  serialized_start=2605,
+  serialized_end=2673,
 )
 
 
@@ -552,8 +924,8 @@ _TEMPLATECONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1488,
-  serialized_end=1655,
+  serialized_start=2676,
+  serialized_end=2843,
 )
 
 
@@ -584,8 +956,8 @@ _TEMPLATECONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1657,
-  serialized_end=1731,
+  serialized_start=2845,
+  serialized_end=2919,
 )
 
 
@@ -623,8 +995,8 @@ _TEMPLATECONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1733,
-  serialized_end=1850,
+  serialized_start=2921,
+  serialized_end=3038,
 )
 
 
@@ -655,8 +1027,8 @@ _TEMPLATECONFIGSETSOMEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1852,
-  serialized_end=1931,
+  serialized_start=3040,
+  serialized_end=3119,
 )
 
 
@@ -694,8 +1066,8 @@ _TEMPLATECONFIGSETSOMERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1933,
-  serialized_end=2022,
+  serialized_start=3121,
+  serialized_end=3210,
 )
 
 
@@ -726,8 +1098,8 @@ _TEMPLATECONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2024,
-  serialized_end=2096,
+  serialized_start=3212,
+  serialized_end=3284,
 )
 
 
@@ -765,8 +1137,79 @@ _TEMPLATECONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2098,
-  serialized_end=2213,
+  serialized_start=3286,
+  serialized_end=3401,
+)
+
+
+_TEMPLATECONFIGDELETESOMEREQUEST = _descriptor.Descriptor(
+  name='TemplateConfigDeleteSomeRequest',
+  full_name='arista.alert.v1.TemplateConfigDeleteSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.alert.v1.TemplateConfigDeleteSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3403,
+  serialized_end=3480,
+)
+
+
+_TEMPLATECONFIGDELETESOMERESPONSE = _descriptor.Descriptor(
+  name='TemplateConfigDeleteSomeResponse',
+  full_name='arista.alert.v1.TemplateConfigDeleteSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.alert.v1.TemplateConfigDeleteSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.alert.v1.TemplateConfigDeleteSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3482,
+  serialized_end=3574,
 )
 
 
@@ -790,8 +1233,8 @@ _TEMPLATECONFIGDELETEALLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2215,
-  serialized_end=2247,
+  serialized_start=3576,
+  serialized_end=3608,
 )
 
 
@@ -843,10 +1286,13 @@ _TEMPLATECONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2250,
-  serialized_end=2445,
+  serialized_start=3611,
+  serialized_end=3806,
 )
 
+_METARESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_METARESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_METARESPONSE.fields_by_name['count'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _ALERTREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _ALERTRESPONSE.fields_by_name['value'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._ALERT
 _ALERTRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -864,10 +1310,28 @@ _ALERTCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscri
 _ALERTCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._ALERTCONFIG
 _ALERTCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._ALERTCONFIG
 _ALERTCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DEFAULTTEMPLATEREQUEST.fields_by_name['key'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATEKEY
+_DEFAULTTEMPLATEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DEFAULTTEMPLATERESPONSE.fields_by_name['value'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._DEFAULTTEMPLATE
+_DEFAULTTEMPLATERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DEFAULTTEMPLATESOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATEKEY
+_DEFAULTTEMPLATESOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DEFAULTTEMPLATESOMERESPONSE.fields_by_name['value'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._DEFAULTTEMPLATE
+_DEFAULTTEMPLATESOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_DEFAULTTEMPLATESOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DEFAULTTEMPLATESTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_DEFAULTTEMPLATESTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._DEFAULTTEMPLATE
+_DEFAULTTEMPLATESTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DEFAULTTEMPLATESTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
 _TEMPLATECONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATEKEY
 _TEMPLATECONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TEMPLATECONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATECONFIG
 _TEMPLATECONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TEMPLATECONFIGSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATEKEY
+_TEMPLATECONFIGSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TEMPLATECONFIGSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATECONFIG
+_TEMPLATECONFIGSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_TEMPLATECONFIGSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TEMPLATECONFIGSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _TEMPLATECONFIGSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATECONFIG
 _TEMPLATECONFIGSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -880,10 +1344,13 @@ _TEMPLATECONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_a
 _TEMPLATECONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATEKEY
 _TEMPLATECONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATEKEY
 _TEMPLATECONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TEMPLATECONFIGDELETESOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATEKEY
+_TEMPLATECONFIGDELETESOMERESPONSE.fields_by_name['key'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATEKEY
 _TEMPLATECONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
 _TEMPLATECONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _TEMPLATECONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_alert_dot_v1_dot_alert__pb2._TEMPLATEKEY
 _TEMPLATECONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+DESCRIPTOR.message_types_by_name['MetaResponse'] = _METARESPONSE
 DESCRIPTOR.message_types_by_name['AlertRequest'] = _ALERTREQUEST
 DESCRIPTOR.message_types_by_name['AlertResponse'] = _ALERTRESPONSE
 DESCRIPTOR.message_types_by_name['AlertStreamRequest'] = _ALERTSTREAMREQUEST
@@ -894,8 +1361,16 @@ DESCRIPTOR.message_types_by_name['AlertConfigStreamRequest'] = _ALERTCONFIGSTREA
 DESCRIPTOR.message_types_by_name['AlertConfigStreamResponse'] = _ALERTCONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['AlertConfigSetRequest'] = _ALERTCONFIGSETREQUEST
 DESCRIPTOR.message_types_by_name['AlertConfigSetResponse'] = _ALERTCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['DefaultTemplateRequest'] = _DEFAULTTEMPLATEREQUEST
+DESCRIPTOR.message_types_by_name['DefaultTemplateResponse'] = _DEFAULTTEMPLATERESPONSE
+DESCRIPTOR.message_types_by_name['DefaultTemplateSomeRequest'] = _DEFAULTTEMPLATESOMEREQUEST
+DESCRIPTOR.message_types_by_name['DefaultTemplateSomeResponse'] = _DEFAULTTEMPLATESOMERESPONSE
+DESCRIPTOR.message_types_by_name['DefaultTemplateStreamRequest'] = _DEFAULTTEMPLATESTREAMREQUEST
+DESCRIPTOR.message_types_by_name['DefaultTemplateStreamResponse'] = _DEFAULTTEMPLATESTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['TemplateConfigRequest'] = _TEMPLATECONFIGREQUEST
 DESCRIPTOR.message_types_by_name['TemplateConfigResponse'] = _TEMPLATECONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['TemplateConfigSomeRequest'] = _TEMPLATECONFIGSOMEREQUEST
+DESCRIPTOR.message_types_by_name['TemplateConfigSomeResponse'] = _TEMPLATECONFIGSOMERESPONSE
 DESCRIPTOR.message_types_by_name['TemplateConfigStreamRequest'] = _TEMPLATECONFIGSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['TemplateConfigStreamResponse'] = _TEMPLATECONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['TemplateConfigSetRequest'] = _TEMPLATECONFIGSETREQUEST
@@ -904,9 +1379,18 @@ DESCRIPTOR.message_types_by_name['TemplateConfigSetSomeRequest'] = _TEMPLATECONF
 DESCRIPTOR.message_types_by_name['TemplateConfigSetSomeResponse'] = _TEMPLATECONFIGSETSOMERESPONSE
 DESCRIPTOR.message_types_by_name['TemplateConfigDeleteRequest'] = _TEMPLATECONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['TemplateConfigDeleteResponse'] = _TEMPLATECONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['TemplateConfigDeleteSomeRequest'] = _TEMPLATECONFIGDELETESOMEREQUEST
+DESCRIPTOR.message_types_by_name['TemplateConfigDeleteSomeResponse'] = _TEMPLATECONFIGDELETESOMERESPONSE
 DESCRIPTOR.message_types_by_name['TemplateConfigDeleteAllRequest'] = _TEMPLATECONFIGDELETEALLREQUEST
 DESCRIPTOR.message_types_by_name['TemplateConfigDeleteAllResponse'] = _TEMPLATECONFIGDELETEALLRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+MetaResponse = _reflection.GeneratedProtocolMessageType('MetaResponse', (_message.Message,), {
+  'DESCRIPTOR' : _METARESPONSE,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.MetaResponse)
+  })
+_sym_db.RegisterMessage(MetaResponse)
 
 AlertRequest = _reflection.GeneratedProtocolMessageType('AlertRequest', (_message.Message,), {
   'DESCRIPTOR' : _ALERTREQUEST,
@@ -978,6 +1462,48 @@ AlertConfigSetResponse = _reflection.GeneratedProtocolMessageType('AlertConfigSe
   })
 _sym_db.RegisterMessage(AlertConfigSetResponse)
 
+DefaultTemplateRequest = _reflection.GeneratedProtocolMessageType('DefaultTemplateRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DEFAULTTEMPLATEREQUEST,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.DefaultTemplateRequest)
+  })
+_sym_db.RegisterMessage(DefaultTemplateRequest)
+
+DefaultTemplateResponse = _reflection.GeneratedProtocolMessageType('DefaultTemplateResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DEFAULTTEMPLATERESPONSE,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.DefaultTemplateResponse)
+  })
+_sym_db.RegisterMessage(DefaultTemplateResponse)
+
+DefaultTemplateSomeRequest = _reflection.GeneratedProtocolMessageType('DefaultTemplateSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DEFAULTTEMPLATESOMEREQUEST,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.DefaultTemplateSomeRequest)
+  })
+_sym_db.RegisterMessage(DefaultTemplateSomeRequest)
+
+DefaultTemplateSomeResponse = _reflection.GeneratedProtocolMessageType('DefaultTemplateSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DEFAULTTEMPLATESOMERESPONSE,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.DefaultTemplateSomeResponse)
+  })
+_sym_db.RegisterMessage(DefaultTemplateSomeResponse)
+
+DefaultTemplateStreamRequest = _reflection.GeneratedProtocolMessageType('DefaultTemplateStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DEFAULTTEMPLATESTREAMREQUEST,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.DefaultTemplateStreamRequest)
+  })
+_sym_db.RegisterMessage(DefaultTemplateStreamRequest)
+
+DefaultTemplateStreamResponse = _reflection.GeneratedProtocolMessageType('DefaultTemplateStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DEFAULTTEMPLATESTREAMRESPONSE,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.DefaultTemplateStreamResponse)
+  })
+_sym_db.RegisterMessage(DefaultTemplateStreamResponse)
+
 TemplateConfigRequest = _reflection.GeneratedProtocolMessageType('TemplateConfigRequest', (_message.Message,), {
   'DESCRIPTOR' : _TEMPLATECONFIGREQUEST,
   '__module__' : 'arista.alert.v1.services.gen_pb2'
@@ -991,6 +1517,20 @@ TemplateConfigResponse = _reflection.GeneratedProtocolMessageType('TemplateConfi
   # @@protoc_insertion_point(class_scope:arista.alert.v1.TemplateConfigResponse)
   })
 _sym_db.RegisterMessage(TemplateConfigResponse)
+
+TemplateConfigSomeRequest = _reflection.GeneratedProtocolMessageType('TemplateConfigSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TEMPLATECONFIGSOMEREQUEST,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.TemplateConfigSomeRequest)
+  })
+_sym_db.RegisterMessage(TemplateConfigSomeRequest)
+
+TemplateConfigSomeResponse = _reflection.GeneratedProtocolMessageType('TemplateConfigSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TEMPLATECONFIGSOMERESPONSE,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.TemplateConfigSomeResponse)
+  })
+_sym_db.RegisterMessage(TemplateConfigSomeResponse)
 
 TemplateConfigStreamRequest = _reflection.GeneratedProtocolMessageType('TemplateConfigStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _TEMPLATECONFIGSTREAMREQUEST,
@@ -1048,6 +1588,20 @@ TemplateConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('Templat
   })
 _sym_db.RegisterMessage(TemplateConfigDeleteResponse)
 
+TemplateConfigDeleteSomeRequest = _reflection.GeneratedProtocolMessageType('TemplateConfigDeleteSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TEMPLATECONFIGDELETESOMEREQUEST,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.TemplateConfigDeleteSomeRequest)
+  })
+_sym_db.RegisterMessage(TemplateConfigDeleteSomeRequest)
+
+TemplateConfigDeleteSomeResponse = _reflection.GeneratedProtocolMessageType('TemplateConfigDeleteSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TEMPLATECONFIGDELETESOMERESPONSE,
+  '__module__' : 'arista.alert.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.alert.v1.TemplateConfigDeleteSomeResponse)
+  })
+_sym_db.RegisterMessage(TemplateConfigDeleteSomeResponse)
+
 TemplateConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('TemplateConfigDeleteAllRequest', (_message.Message,), {
   'DESCRIPTOR' : _TEMPLATECONFIGDELETEALLREQUEST,
   '__module__' : 'arista.alert.v1.services.gen_pb2'
@@ -1072,8 +1626,8 @@ _ALERTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2448,
-  serialized_end=2625,
+  serialized_start=3809,
+  serialized_end=4160,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1086,12 +1640,32 @@ _ALERTSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='Subscribe',
-    full_name='arista.alert.v1.AlertService.Subscribe',
+    name='GetAll',
+    full_name='arista.alert.v1.AlertService.GetAll',
     index=1,
     containing_service=None,
     input_type=_ALERTSTREAMREQUEST,
     output_type=_ALERTSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.alert.v1.AlertService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_ALERTSTREAMREQUEST,
+    output_type=_ALERTSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.alert.v1.AlertService.SubscribeMeta',
+    index=3,
+    containing_service=None,
+    input_type=_ALERTSTREAMREQUEST,
+    output_type=_METARESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1108,8 +1682,8 @@ _ALERTCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2628,
-  serialized_end=2923,
+  serialized_start=4163,
+  serialized_end=4650,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1122,8 +1696,8 @@ _ALERTCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='Subscribe',
-    full_name='arista.alert.v1.AlertConfigService.Subscribe',
+    name='GetAll',
+    full_name='arista.alert.v1.AlertConfigService.GetAll',
     index=1,
     containing_service=None,
     input_type=_ALERTCONFIGSTREAMREQUEST,
@@ -1132,9 +1706,29 @@ _ALERTCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.alert.v1.AlertConfigService.Subscribe',
+    index=2,
+    containing_service=None,
+    input_type=_ALERTCONFIGSTREAMREQUEST,
+    output_type=_ALERTCONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.alert.v1.AlertConfigService.SubscribeMeta',
+    index=3,
+    containing_service=None,
+    input_type=_ALERTCONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Set',
     full_name='arista.alert.v1.AlertConfigService.Set',
-    index=2,
+    index=4,
     containing_service=None,
     input_type=_ALERTCONFIGSETREQUEST,
     output_type=_ALERTCONFIGSETRESPONSE,
@@ -1147,15 +1741,91 @@ _sym_db.RegisterServiceDescriptor(_ALERTCONFIGSERVICE)
 DESCRIPTOR.services_by_name['AlertConfigService'] = _ALERTCONFIGSERVICE
 
 
-_TEMPLATECONFIGSERVICE = _descriptor.ServiceDescriptor(
-  name='TemplateConfigService',
-  full_name='arista.alert.v1.TemplateConfigService',
+_DEFAULTTEMPLATESERVICE = _descriptor.ServiceDescriptor(
+  name='DefaultTemplateService',
+  full_name='arista.alert.v1.DefaultTemplateService',
   file=DESCRIPTOR,
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2926,
-  serialized_end=3672,
+  serialized_start=4653,
+  serialized_end=5277,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.alert.v1.DefaultTemplateService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_DEFAULTTEMPLATEREQUEST,
+    output_type=_DEFAULTTEMPLATERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.alert.v1.DefaultTemplateService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_DEFAULTTEMPLATESOMEREQUEST,
+    output_type=_DEFAULTTEMPLATESOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.alert.v1.DefaultTemplateService.GetAll',
+    index=2,
+    containing_service=None,
+    input_type=_DEFAULTTEMPLATESTREAMREQUEST,
+    output_type=_DEFAULTTEMPLATESTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.alert.v1.DefaultTemplateService.Subscribe',
+    index=3,
+    containing_service=None,
+    input_type=_DEFAULTTEMPLATESTREAMREQUEST,
+    output_type=_DEFAULTTEMPLATESTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.alert.v1.DefaultTemplateService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_DEFAULTTEMPLATESTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.alert.v1.DefaultTemplateService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_DEFAULTTEMPLATESTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_DEFAULTTEMPLATESERVICE)
+
+DESCRIPTOR.services_by_name['DefaultTemplateService'] = _DEFAULTTEMPLATESERVICE
+
+
+_TEMPLATECONFIGSERVICE = _descriptor.ServiceDescriptor(
+  name='TemplateConfigService',
+  full_name='arista.alert.v1.TemplateConfigService',
+  file=DESCRIPTOR,
+  index=3,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=5280,
+  serialized_end=6429,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1168,9 +1838,19 @@ _TEMPLATECONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.alert.v1.TemplateConfigService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_TEMPLATECONFIGSOMEREQUEST,
+    output_type=_TEMPLATECONFIGSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.alert.v1.TemplateConfigService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_TEMPLATECONFIGSTREAMREQUEST,
     output_type=_TEMPLATECONFIGSTREAMRESPONSE,
@@ -1180,7 +1860,7 @@ _TEMPLATECONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.alert.v1.TemplateConfigService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_TEMPLATECONFIGSTREAMREQUEST,
     output_type=_TEMPLATECONFIGSTREAMRESPONSE,
@@ -1188,9 +1868,29 @@ _TEMPLATECONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.alert.v1.TemplateConfigService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_TEMPLATECONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.alert.v1.TemplateConfigService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_TEMPLATECONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Set',
     full_name='arista.alert.v1.TemplateConfigService.Set',
-    index=3,
+    index=6,
     containing_service=None,
     input_type=_TEMPLATECONFIGSETREQUEST,
     output_type=_TEMPLATECONFIGSETRESPONSE,
@@ -1200,7 +1900,7 @@ _TEMPLATECONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='SetSome',
     full_name='arista.alert.v1.TemplateConfigService.SetSome',
-    index=4,
+    index=7,
     containing_service=None,
     input_type=_TEMPLATECONFIGSETSOMEREQUEST,
     output_type=_TEMPLATECONFIGSETSOMERESPONSE,
@@ -1210,7 +1910,7 @@ _TEMPLATECONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Delete',
     full_name='arista.alert.v1.TemplateConfigService.Delete',
-    index=5,
+    index=8,
     containing_service=None,
     input_type=_TEMPLATECONFIGDELETEREQUEST,
     output_type=_TEMPLATECONFIGDELETERESPONSE,
@@ -1218,9 +1918,19 @@ _TEMPLATECONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='DeleteSome',
+    full_name='arista.alert.v1.TemplateConfigService.DeleteSome',
+    index=9,
+    containing_service=None,
+    input_type=_TEMPLATECONFIGDELETESOMEREQUEST,
+    output_type=_TEMPLATECONFIGDELETESOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='DeleteAll',
     full_name='arista.alert.v1.TemplateConfigService.DeleteAll',
-    index=6,
+    index=10,
     containing_service=None,
     input_type=_TEMPLATECONFIGDELETEALLREQUEST,
     output_type=_TEMPLATECONFIGDELETEALLRESPONSE,
