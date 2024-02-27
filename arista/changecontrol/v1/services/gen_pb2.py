@@ -14,7 +14,9 @@ _sym_db = _symbol_database.Default()
 from arista.changecontrol.v1 import changecontrol_pb2 as arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2
 from arista.time import time_pb2 as arista_dot_time_dot_time__pb2
 from arista.subscriptions import subscriptions_pb2 as arista_dot_subscriptions_dot_subscriptions__pb2
+from fmp import deletes_pb2 as fmp_dot_deletes__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,11 +25,57 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z6arista/resources/arista/changecontrol.v1;changecontrol',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n*arista/changecontrol.v1/services.gen.proto\x12\x17\x61rista.changecontrol.v1\x1a+arista/changecontrol.v1/changecontrol.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"x\n\x14\x41pproveConfigRequest\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x15\x41pproveConfigResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x86\x01\n\x1a\x41pproveConfigStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xad\x01\n\x1b\x41pproveConfigStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"P\n\x17\x41pproveConfigSetRequest\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\"{\n\x18\x41pproveConfigSetResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"T\n\x1a\x41pproveConfigDeleteRequest\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\"\x7f\n\x1b\x41pproveConfigDeleteResponse\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x14\x43hangeControlRequest\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x15\x43hangeControlResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ChangeControl\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x86\x01\n\x1a\x43hangeControlStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.changecontrol.v1.ChangeControl\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xad\x01\n\x1b\x43hangeControlStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ChangeControl\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"~\n\x1a\x43hangeControlConfigRequest\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1b\x43hangeControlConfigResponse\x12;\n\x05value\x18\x01 \x01(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n ChangeControlConfigStreamRequest\x12G\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb9\x01\n!ChangeControlConfigStreamResponse\x12;\n\x05value\x18\x01 \x01(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"\\\n\x1d\x43hangeControlConfigSetRequest\x12;\n\x05value\x18\x01 \x01(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\"\x87\x01\n\x1e\x43hangeControlConfigSetResponse\x12;\n\x05value\x18\x01 \x01(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"Z\n ChangeControlConfigDeleteRequest\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\"\x85\x01\n!ChangeControlConfigDeleteResponse\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xd1\x04\n\x14\x41pproveConfigService\x12g\n\x06GetOne\x12-.arista.changecontrol.v1.ApproveConfigRequest\x1a..arista.changecontrol.v1.ApproveConfigResponse\x12u\n\x06GetAll\x12\x33.arista.changecontrol.v1.ApproveConfigStreamRequest\x1a\x34.arista.changecontrol.v1.ApproveConfigStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.changecontrol.v1.ApproveConfigStreamRequest\x1a\x34.arista.changecontrol.v1.ApproveConfigStreamResponse0\x01\x12j\n\x03Set\x12\x30.arista.changecontrol.v1.ApproveConfigSetRequest\x1a\x31.arista.changecontrol.v1.ApproveConfigSetResponse\x12s\n\x06\x44\x65lete\x12\x33.arista.changecontrol.v1.ApproveConfigDeleteRequest\x1a\x34.arista.changecontrol.v1.ApproveConfigDeleteResponse2\xf0\x02\n\x14\x43hangeControlService\x12g\n\x06GetOne\x12-.arista.changecontrol.v1.ChangeControlRequest\x1a..arista.changecontrol.v1.ChangeControlResponse\x12u\n\x06GetAll\x12\x33.arista.changecontrol.v1.ChangeControlStreamRequest\x1a\x34.arista.changecontrol.v1.ChangeControlStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.changecontrol.v1.ChangeControlStreamRequest\x1a\x34.arista.changecontrol.v1.ChangeControlStreamResponse0\x01\x32\x95\x05\n\x1a\x43hangeControlConfigService\x12s\n\x06GetOne\x12\x33.arista.changecontrol.v1.ChangeControlConfigRequest\x1a\x34.arista.changecontrol.v1.ChangeControlConfigResponse\x12\x81\x01\n\x06GetAll\x12\x39.arista.changecontrol.v1.ChangeControlConfigStreamRequest\x1a:.arista.changecontrol.v1.ChangeControlConfigStreamResponse0\x01\x12\x84\x01\n\tSubscribe\x12\x39.arista.changecontrol.v1.ChangeControlConfigStreamRequest\x1a:.arista.changecontrol.v1.ChangeControlConfigStreamResponse0\x01\x12v\n\x03Set\x12\x36.arista.changecontrol.v1.ChangeControlConfigSetRequest\x1a\x37.arista.changecontrol.v1.ChangeControlConfigSetResponse\x12\x7f\n\x06\x44\x65lete\x12\x39.arista.changecontrol.v1.ChangeControlConfigDeleteRequest\x1a:.arista.changecontrol.v1.ChangeControlConfigDeleteResponseB8Z6arista/resources/arista/changecontrol.v1;changecontrolb\x06proto3'
+  serialized_pb=b'\n*arista/changecontrol.v1/services.gen.proto\x12\x17\x61rista.changecontrol.v1\x1a+arista/changecontrol.v1/changecontrol.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x94\x01\n\x0cMetaResponse\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x02 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\x12+\n\x05\x63ount\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"x\n\x14\x41pproveConfigRequest\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x15\x41pproveConfigResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x18\x41pproveConfigSomeRequest\x12\x37\n\x04keys\x18\x01 \x03(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa9\x01\n\x19\x41pproveConfigSomeResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x86\x01\n\x1a\x41pproveConfigStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xad\x01\n\x1b\x41pproveConfigStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"P\n\x17\x41pproveConfigSetRequest\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\"{\n\x18\x41pproveConfigSetResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"U\n\x1b\x41pproveConfigSetSomeRequest\x12\x36\n\x06values\x18\x01 \x03(\x0b\x32&.arista.changecontrol.v1.ApproveConfig\"e\n\x1c\x41pproveConfigSetSomeResponse\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"T\n\x1a\x41pproveConfigDeleteRequest\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\"\x7f\n\x1b\x41pproveConfigDeleteResponse\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"Y\n\x1e\x41pproveConfigDeleteSomeRequest\x12\x37\n\x04keys\x18\x01 \x03(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\"h\n\x1f\x41pproveConfigDeleteSomeResponse\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"\x1f\n\x1d\x41pproveConfigDeleteAllRequest\"\xcf\x01\n\x1e\x41pproveConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x03key\x18\x03 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x14\x43hangeControlRequest\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x15\x43hangeControlResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ChangeControl\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x18\x43hangeControlSomeRequest\x12\x37\n\x04keys\x18\x01 \x03(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa9\x01\n\x19\x43hangeControlSomeResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ChangeControl\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xb7\x01\n\x1a\x43hangeControlStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.changecontrol.v1.ChangeControl\x12/\n\x06\x66ilter\x18\x02 \x01(\x0b\x32\x1f.arista.changecontrol.v1.Filter\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xad\x01\n\x1b\x43hangeControlStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.changecontrol.v1.ChangeControl\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"~\n\x1a\x43hangeControlConfigRequest\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1b\x43hangeControlConfigResponse\x12;\n\x05value\x18\x01 \x01(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x83\x01\n\x1e\x43hangeControlConfigSomeRequest\x12\x37\n\x04keys\x18\x01 \x03(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xb5\x01\n\x1f\x43hangeControlConfigSomeResponse\x12;\n\x05value\x18\x01 \x01(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n ChangeControlConfigStreamRequest\x12G\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb9\x01\n!ChangeControlConfigStreamResponse\x12;\n\x05value\x18\x01 \x01(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"\\\n\x1d\x43hangeControlConfigSetRequest\x12;\n\x05value\x18\x01 \x01(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\"\x87\x01\n\x1e\x43hangeControlConfigSetResponse\x12;\n\x05value\x18\x01 \x01(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"a\n!ChangeControlConfigSetSomeRequest\x12<\n\x06values\x18\x01 \x03(\x0b\x32,.arista.changecontrol.v1.ChangeControlConfig\"k\n\"ChangeControlConfigSetSomeResponse\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"Z\n ChangeControlConfigDeleteRequest\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\"\x85\x01\n!ChangeControlConfigDeleteResponse\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"_\n$ChangeControlConfigDeleteSomeRequest\x12\x37\n\x04keys\x18\x01 \x03(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\"n\n%ChangeControlConfigDeleteSomeResponse\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"%\n#ChangeControlConfigDeleteAllRequest\"\xd5\x01\n$ChangeControlConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x03key\x18\x03 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\x99\n\n\x14\x41pproveConfigService\x12g\n\x06GetOne\x12-.arista.changecontrol.v1.ApproveConfigRequest\x1a..arista.changecontrol.v1.ApproveConfigResponse\x12r\n\x07GetSome\x12\x31.arista.changecontrol.v1.ApproveConfigSomeRequest\x1a\x32.arista.changecontrol.v1.ApproveConfigSomeResponse0\x01\x12u\n\x06GetAll\x12\x33.arista.changecontrol.v1.ApproveConfigStreamRequest\x1a\x34.arista.changecontrol.v1.ApproveConfigStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.changecontrol.v1.ApproveConfigStreamRequest\x1a\x34.arista.changecontrol.v1.ApproveConfigStreamResponse0\x01\x12\x65\n\x07GetMeta\x12\x33.arista.changecontrol.v1.ApproveConfigStreamRequest\x1a%.arista.changecontrol.v1.MetaResponse\x12m\n\rSubscribeMeta\x12\x33.arista.changecontrol.v1.ApproveConfigStreamRequest\x1a%.arista.changecontrol.v1.MetaResponse0\x01\x12j\n\x03Set\x12\x30.arista.changecontrol.v1.ApproveConfigSetRequest\x1a\x31.arista.changecontrol.v1.ApproveConfigSetResponse\x12x\n\x07SetSome\x12\x34.arista.changecontrol.v1.ApproveConfigSetSomeRequest\x1a\x35.arista.changecontrol.v1.ApproveConfigSetSomeResponse0\x01\x12s\n\x06\x44\x65lete\x12\x33.arista.changecontrol.v1.ApproveConfigDeleteRequest\x1a\x34.arista.changecontrol.v1.ApproveConfigDeleteResponse\x12\x81\x01\n\nDeleteSome\x12\x37.arista.changecontrol.v1.ApproveConfigDeleteSomeRequest\x1a\x38.arista.changecontrol.v1.ApproveConfigDeleteSomeResponse0\x01\x12~\n\tDeleteAll\x12\x36.arista.changecontrol.v1.ApproveConfigDeleteAllRequest\x1a\x37.arista.changecontrol.v1.ApproveConfigDeleteAllResponse0\x01\x32\xba\x05\n\x14\x43hangeControlService\x12g\n\x06GetOne\x12-.arista.changecontrol.v1.ChangeControlRequest\x1a..arista.changecontrol.v1.ChangeControlResponse\x12r\n\x07GetSome\x12\x31.arista.changecontrol.v1.ChangeControlSomeRequest\x1a\x32.arista.changecontrol.v1.ChangeControlSomeResponse0\x01\x12u\n\x06GetAll\x12\x33.arista.changecontrol.v1.ChangeControlStreamRequest\x1a\x34.arista.changecontrol.v1.ChangeControlStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.changecontrol.v1.ChangeControlStreamRequest\x1a\x34.arista.changecontrol.v1.ChangeControlStreamResponse0\x01\x12\x65\n\x07GetMeta\x12\x33.arista.changecontrol.v1.ChangeControlStreamRequest\x1a%.arista.changecontrol.v1.MetaResponse\x12m\n\rSubscribeMeta\x12\x33.arista.changecontrol.v1.ChangeControlStreamRequest\x1a%.arista.changecontrol.v1.MetaResponse0\x01\x32\x9b\x0b\n\x1a\x43hangeControlConfigService\x12s\n\x06GetOne\x12\x33.arista.changecontrol.v1.ChangeControlConfigRequest\x1a\x34.arista.changecontrol.v1.ChangeControlConfigResponse\x12~\n\x07GetSome\x12\x37.arista.changecontrol.v1.ChangeControlConfigSomeRequest\x1a\x38.arista.changecontrol.v1.ChangeControlConfigSomeResponse0\x01\x12\x81\x01\n\x06GetAll\x12\x39.arista.changecontrol.v1.ChangeControlConfigStreamRequest\x1a:.arista.changecontrol.v1.ChangeControlConfigStreamResponse0\x01\x12\x84\x01\n\tSubscribe\x12\x39.arista.changecontrol.v1.ChangeControlConfigStreamRequest\x1a:.arista.changecontrol.v1.ChangeControlConfigStreamResponse0\x01\x12k\n\x07GetMeta\x12\x39.arista.changecontrol.v1.ChangeControlConfigStreamRequest\x1a%.arista.changecontrol.v1.MetaResponse\x12s\n\rSubscribeMeta\x12\x39.arista.changecontrol.v1.ChangeControlConfigStreamRequest\x1a%.arista.changecontrol.v1.MetaResponse0\x01\x12v\n\x03Set\x12\x36.arista.changecontrol.v1.ChangeControlConfigSetRequest\x1a\x37.arista.changecontrol.v1.ChangeControlConfigSetResponse\x12\x84\x01\n\x07SetSome\x12:.arista.changecontrol.v1.ChangeControlConfigSetSomeRequest\x1a;.arista.changecontrol.v1.ChangeControlConfigSetSomeResponse0\x01\x12\x7f\n\x06\x44\x65lete\x12\x39.arista.changecontrol.v1.ChangeControlConfigDeleteRequest\x1a:.arista.changecontrol.v1.ChangeControlConfigDeleteResponse\x12\x8d\x01\n\nDeleteSome\x12=.arista.changecontrol.v1.ChangeControlConfigDeleteSomeRequest\x1a>.arista.changecontrol.v1.ChangeControlConfigDeleteSomeResponse0\x01\x12\x8a\x01\n\tDeleteAll\x12<.arista.changecontrol.v1.ChangeControlConfigDeleteAllRequest\x1a=.arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse0\x01\x42\x38Z6arista/resources/arista/changecontrol.v1;changecontrolb\x06proto3'
   ,
-  dependencies=[arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,fmp_dot_deletes__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
+
+
+_METARESPONSE = _descriptor.Descriptor(
+  name='MetaResponse',
+  full_name='arista.changecontrol.v1.MetaResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.changecontrol.v1.MetaResponse.time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.changecontrol.v1.MetaResponse.type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='arista.changecontrol.v1.MetaResponse.count', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=267,
+  serialized_end=415,
+)
 
 
 _APPROVECONFIGREQUEST = _descriptor.Descriptor(
@@ -64,8 +112,8 @@ _APPROVECONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=215,
-  serialized_end=335,
+  serialized_start=417,
+  serialized_end=537,
 )
 
 
@@ -103,8 +151,93 @@ _APPROVECONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=337,
-  serialized_end=457,
+  serialized_start=539,
+  serialized_end=659,
+)
+
+
+_APPROVECONFIGSOMEREQUEST = _descriptor.Descriptor(
+  name='ApproveConfigSomeRequest',
+  full_name='arista.changecontrol.v1.ApproveConfigSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.changecontrol.v1.ApproveConfigSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.changecontrol.v1.ApproveConfigSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=661,
+  serialized_end=786,
+)
+
+
+_APPROVECONFIGSOMERESPONSE = _descriptor.Descriptor(
+  name='ApproveConfigSomeResponse',
+  full_name='arista.changecontrol.v1.ApproveConfigSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.changecontrol.v1.ApproveConfigSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.changecontrol.v1.ApproveConfigSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.changecontrol.v1.ApproveConfigSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=789,
+  serialized_end=958,
 )
 
 
@@ -142,8 +275,8 @@ _APPROVECONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=460,
-  serialized_end=594,
+  serialized_start=961,
+  serialized_end=1095,
 )
 
 
@@ -188,8 +321,8 @@ _APPROVECONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=597,
-  serialized_end=770,
+  serialized_start=1098,
+  serialized_end=1271,
 )
 
 
@@ -220,8 +353,8 @@ _APPROVECONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=772,
-  serialized_end=852,
+  serialized_start=1273,
+  serialized_end=1353,
 )
 
 
@@ -259,8 +392,79 @@ _APPROVECONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=854,
-  serialized_end=977,
+  serialized_start=1355,
+  serialized_end=1478,
+)
+
+
+_APPROVECONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='ApproveConfigSetSomeRequest',
+  full_name='arista.changecontrol.v1.ApproveConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.changecontrol.v1.ApproveConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1480,
+  serialized_end=1565,
+)
+
+
+_APPROVECONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='ApproveConfigSetSomeResponse',
+  full_name='arista.changecontrol.v1.ApproveConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.changecontrol.v1.ApproveConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.changecontrol.v1.ApproveConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1567,
+  serialized_end=1668,
 )
 
 
@@ -291,8 +495,8 @@ _APPROVECONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=979,
-  serialized_end=1063,
+  serialized_start=1670,
+  serialized_end=1754,
 )
 
 
@@ -330,8 +534,157 @@ _APPROVECONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1065,
-  serialized_end=1192,
+  serialized_start=1756,
+  serialized_end=1883,
+)
+
+
+_APPROVECONFIGDELETESOMEREQUEST = _descriptor.Descriptor(
+  name='ApproveConfigDeleteSomeRequest',
+  full_name='arista.changecontrol.v1.ApproveConfigDeleteSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.changecontrol.v1.ApproveConfigDeleteSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1885,
+  serialized_end=1974,
+)
+
+
+_APPROVECONFIGDELETESOMERESPONSE = _descriptor.Descriptor(
+  name='ApproveConfigDeleteSomeResponse',
+  full_name='arista.changecontrol.v1.ApproveConfigDeleteSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.changecontrol.v1.ApproveConfigDeleteSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.changecontrol.v1.ApproveConfigDeleteSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1976,
+  serialized_end=2080,
+)
+
+
+_APPROVECONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='ApproveConfigDeleteAllRequest',
+  full_name='arista.changecontrol.v1.ApproveConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2082,
+  serialized_end=2113,
+)
+
+
+_APPROVECONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='ApproveConfigDeleteAllResponse',
+  full_name='arista.changecontrol.v1.ApproveConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.changecontrol.v1.ApproveConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.changecontrol.v1.ApproveConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.changecontrol.v1.ApproveConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.changecontrol.v1.ApproveConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2116,
+  serialized_end=2323,
 )
 
 
@@ -369,8 +722,8 @@ _CHANGECONTROLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1194,
-  serialized_end=1314,
+  serialized_start=2325,
+  serialized_end=2445,
 )
 
 
@@ -408,8 +761,93 @@ _CHANGECONTROLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1316,
-  serialized_end=1436,
+  serialized_start=2447,
+  serialized_end=2567,
+)
+
+
+_CHANGECONTROLSOMEREQUEST = _descriptor.Descriptor(
+  name='ChangeControlSomeRequest',
+  full_name='arista.changecontrol.v1.ChangeControlSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.changecontrol.v1.ChangeControlSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.changecontrol.v1.ChangeControlSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2569,
+  serialized_end=2694,
+)
+
+
+_CHANGECONTROLSOMERESPONSE = _descriptor.Descriptor(
+  name='ChangeControlSomeResponse',
+  full_name='arista.changecontrol.v1.ChangeControlSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.changecontrol.v1.ChangeControlSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.changecontrol.v1.ChangeControlSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.changecontrol.v1.ChangeControlSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2697,
+  serialized_end=2866,
 )
 
 
@@ -429,7 +867,14 @@ _CHANGECONTROLSTREAMREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='time', full_name='arista.changecontrol.v1.ChangeControlStreamRequest.time', index=1,
+      name='filter', full_name='arista.changecontrol.v1.ChangeControlStreamRequest.filter', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.changecontrol.v1.ChangeControlStreamRequest.time', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -447,8 +892,8 @@ _CHANGECONTROLSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1439,
-  serialized_end=1573,
+  serialized_start=2869,
+  serialized_end=3052,
 )
 
 
@@ -493,8 +938,8 @@ _CHANGECONTROLSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1576,
-  serialized_end=1749,
+  serialized_start=3055,
+  serialized_end=3228,
 )
 
 
@@ -532,8 +977,8 @@ _CHANGECONTROLCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1751,
-  serialized_end=1877,
+  serialized_start=3230,
+  serialized_end=3356,
 )
 
 
@@ -571,8 +1016,93 @@ _CHANGECONTROLCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1880,
-  serialized_end=2012,
+  serialized_start=3359,
+  serialized_end=3491,
+)
+
+
+_CHANGECONTROLCONFIGSOMEREQUEST = _descriptor.Descriptor(
+  name='ChangeControlConfigSomeRequest',
+  full_name='arista.changecontrol.v1.ChangeControlConfigSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.changecontrol.v1.ChangeControlConfigSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.changecontrol.v1.ChangeControlConfigSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3494,
+  serialized_end=3625,
+)
+
+
+_CHANGECONTROLCONFIGSOMERESPONSE = _descriptor.Descriptor(
+  name='ChangeControlConfigSomeResponse',
+  full_name='arista.changecontrol.v1.ChangeControlConfigSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.changecontrol.v1.ChangeControlConfigSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.changecontrol.v1.ChangeControlConfigSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.changecontrol.v1.ChangeControlConfigSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3628,
+  serialized_end=3809,
 )
 
 
@@ -610,8 +1140,8 @@ _CHANGECONTROLCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2015,
-  serialized_end=2161,
+  serialized_start=3812,
+  serialized_end=3958,
 )
 
 
@@ -656,8 +1186,8 @@ _CHANGECONTROLCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2164,
-  serialized_end=2349,
+  serialized_start=3961,
+  serialized_end=4146,
 )
 
 
@@ -688,8 +1218,8 @@ _CHANGECONTROLCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2351,
-  serialized_end=2443,
+  serialized_start=4148,
+  serialized_end=4240,
 )
 
 
@@ -727,8 +1257,79 @@ _CHANGECONTROLCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2446,
-  serialized_end=2581,
+  serialized_start=4243,
+  serialized_end=4378,
+)
+
+
+_CHANGECONTROLCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='ChangeControlConfigSetSomeRequest',
+  full_name='arista.changecontrol.v1.ChangeControlConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.changecontrol.v1.ChangeControlConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4380,
+  serialized_end=4477,
+)
+
+
+_CHANGECONTROLCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='ChangeControlConfigSetSomeResponse',
+  full_name='arista.changecontrol.v1.ChangeControlConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.changecontrol.v1.ChangeControlConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.changecontrol.v1.ChangeControlConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4479,
+  serialized_end=4586,
 )
 
 
@@ -759,8 +1360,8 @@ _CHANGECONTROLCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2583,
-  serialized_end=2673,
+  serialized_start=4588,
+  serialized_end=4678,
 )
 
 
@@ -798,14 +1399,171 @@ _CHANGECONTROLCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2676,
-  serialized_end=2809,
+  serialized_start=4681,
+  serialized_end=4814,
 )
 
+
+_CHANGECONTROLCONFIGDELETESOMEREQUEST = _descriptor.Descriptor(
+  name='ChangeControlConfigDeleteSomeRequest',
+  full_name='arista.changecontrol.v1.ChangeControlConfigDeleteSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.changecontrol.v1.ChangeControlConfigDeleteSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4816,
+  serialized_end=4911,
+)
+
+
+_CHANGECONTROLCONFIGDELETESOMERESPONSE = _descriptor.Descriptor(
+  name='ChangeControlConfigDeleteSomeResponse',
+  full_name='arista.changecontrol.v1.ChangeControlConfigDeleteSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.changecontrol.v1.ChangeControlConfigDeleteSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.changecontrol.v1.ChangeControlConfigDeleteSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4913,
+  serialized_end=5023,
+)
+
+
+_CHANGECONTROLCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='ChangeControlConfigDeleteAllRequest',
+  full_name='arista.changecontrol.v1.ChangeControlConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5025,
+  serialized_end=5062,
+)
+
+
+_CHANGECONTROLCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='ChangeControlConfigDeleteAllResponse',
+  full_name='arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5065,
+  serialized_end=5278,
+)
+
+_METARESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_METARESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_METARESPONSE.fields_by_name['count'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _APPROVECONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
 _APPROVECONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _APPROVECONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._APPROVECONFIG
 _APPROVECONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_APPROVECONFIGSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
+_APPROVECONFIGSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_APPROVECONFIGSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._APPROVECONFIG
+_APPROVECONFIGSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_APPROVECONFIGSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _APPROVECONFIGSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._APPROVECONFIG
 _APPROVECONFIGSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _APPROVECONFIGSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._APPROVECONFIG
@@ -814,14 +1572,28 @@ _APPROVECONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subsc
 _APPROVECONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._APPROVECONFIG
 _APPROVECONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._APPROVECONFIG
 _APPROVECONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_APPROVECONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._APPROVECONFIG
+_APPROVECONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
 _APPROVECONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
 _APPROVECONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
 _APPROVECONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_APPROVECONFIGDELETESOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
+_APPROVECONFIGDELETESOMERESPONSE.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
+_APPROVECONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_APPROVECONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_APPROVECONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
+_APPROVECONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CHANGECONTROLREQUEST.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
 _CHANGECONTROLREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CHANGECONTROLRESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROL
 _CHANGECONTROLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CHANGECONTROLSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
+_CHANGECONTROLSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CHANGECONTROLSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROL
+_CHANGECONTROLSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_CHANGECONTROLSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CHANGECONTROLSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROL
+_CHANGECONTROLSTREAMREQUEST.fields_by_name['filter'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._FILTER
 _CHANGECONTROLSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _CHANGECONTROLSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROL
 _CHANGECONTROLSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -830,6 +1602,11 @@ _CHANGECONTROLCONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_chan
 _CHANGECONTROLCONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CHANGECONTROLCONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLCONFIG
 _CHANGECONTROLCONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CHANGECONTROLCONFIGSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
+_CHANGECONTROLCONFIGSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CHANGECONTROLCONFIGSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLCONFIG
+_CHANGECONTROLCONFIGSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_CHANGECONTROLCONFIGSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CHANGECONTROLCONFIGSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLCONFIG
 _CHANGECONTROLCONFIGSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _CHANGECONTROLCONFIGSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLCONFIG
@@ -838,30 +1615,64 @@ _CHANGECONTROLCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot
 _CHANGECONTROLCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLCONFIG
 _CHANGECONTROLCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLCONFIG
 _CHANGECONTROLCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CHANGECONTROLCONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLCONFIG
+_CHANGECONTROLCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
 _CHANGECONTROLCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
 _CHANGECONTROLCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
 _CHANGECONTROLCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CHANGECONTROLCONFIGDELETESOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
+_CHANGECONTROLCONFIGDELETESOMERESPONSE.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
+_CHANGECONTROLCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_CHANGECONTROLCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_CHANGECONTROLCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_changecontrol_dot_v1_dot_changecontrol__pb2._CHANGECONTROLKEY
+_CHANGECONTROLCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+DESCRIPTOR.message_types_by_name['MetaResponse'] = _METARESPONSE
 DESCRIPTOR.message_types_by_name['ApproveConfigRequest'] = _APPROVECONFIGREQUEST
 DESCRIPTOR.message_types_by_name['ApproveConfigResponse'] = _APPROVECONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['ApproveConfigSomeRequest'] = _APPROVECONFIGSOMEREQUEST
+DESCRIPTOR.message_types_by_name['ApproveConfigSomeResponse'] = _APPROVECONFIGSOMERESPONSE
 DESCRIPTOR.message_types_by_name['ApproveConfigStreamRequest'] = _APPROVECONFIGSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['ApproveConfigStreamResponse'] = _APPROVECONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['ApproveConfigSetRequest'] = _APPROVECONFIGSETREQUEST
 DESCRIPTOR.message_types_by_name['ApproveConfigSetResponse'] = _APPROVECONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['ApproveConfigSetSomeRequest'] = _APPROVECONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['ApproveConfigSetSomeResponse'] = _APPROVECONFIGSETSOMERESPONSE
 DESCRIPTOR.message_types_by_name['ApproveConfigDeleteRequest'] = _APPROVECONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['ApproveConfigDeleteResponse'] = _APPROVECONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['ApproveConfigDeleteSomeRequest'] = _APPROVECONFIGDELETESOMEREQUEST
+DESCRIPTOR.message_types_by_name['ApproveConfigDeleteSomeResponse'] = _APPROVECONFIGDELETESOMERESPONSE
+DESCRIPTOR.message_types_by_name['ApproveConfigDeleteAllRequest'] = _APPROVECONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['ApproveConfigDeleteAllResponse'] = _APPROVECONFIGDELETEALLRESPONSE
 DESCRIPTOR.message_types_by_name['ChangeControlRequest'] = _CHANGECONTROLREQUEST
 DESCRIPTOR.message_types_by_name['ChangeControlResponse'] = _CHANGECONTROLRESPONSE
+DESCRIPTOR.message_types_by_name['ChangeControlSomeRequest'] = _CHANGECONTROLSOMEREQUEST
+DESCRIPTOR.message_types_by_name['ChangeControlSomeResponse'] = _CHANGECONTROLSOMERESPONSE
 DESCRIPTOR.message_types_by_name['ChangeControlStreamRequest'] = _CHANGECONTROLSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['ChangeControlStreamResponse'] = _CHANGECONTROLSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['ChangeControlConfigRequest'] = _CHANGECONTROLCONFIGREQUEST
 DESCRIPTOR.message_types_by_name['ChangeControlConfigResponse'] = _CHANGECONTROLCONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['ChangeControlConfigSomeRequest'] = _CHANGECONTROLCONFIGSOMEREQUEST
+DESCRIPTOR.message_types_by_name['ChangeControlConfigSomeResponse'] = _CHANGECONTROLCONFIGSOMERESPONSE
 DESCRIPTOR.message_types_by_name['ChangeControlConfigStreamRequest'] = _CHANGECONTROLCONFIGSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['ChangeControlConfigStreamResponse'] = _CHANGECONTROLCONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['ChangeControlConfigSetRequest'] = _CHANGECONTROLCONFIGSETREQUEST
 DESCRIPTOR.message_types_by_name['ChangeControlConfigSetResponse'] = _CHANGECONTROLCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['ChangeControlConfigSetSomeRequest'] = _CHANGECONTROLCONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['ChangeControlConfigSetSomeResponse'] = _CHANGECONTROLCONFIGSETSOMERESPONSE
 DESCRIPTOR.message_types_by_name['ChangeControlConfigDeleteRequest'] = _CHANGECONTROLCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['ChangeControlConfigDeleteResponse'] = _CHANGECONTROLCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['ChangeControlConfigDeleteSomeRequest'] = _CHANGECONTROLCONFIGDELETESOMEREQUEST
+DESCRIPTOR.message_types_by_name['ChangeControlConfigDeleteSomeResponse'] = _CHANGECONTROLCONFIGDELETESOMERESPONSE
+DESCRIPTOR.message_types_by_name['ChangeControlConfigDeleteAllRequest'] = _CHANGECONTROLCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['ChangeControlConfigDeleteAllResponse'] = _CHANGECONTROLCONFIGDELETEALLRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+MetaResponse = _reflection.GeneratedProtocolMessageType('MetaResponse', (_message.Message,), {
+  'DESCRIPTOR' : _METARESPONSE,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.MetaResponse)
+  })
+_sym_db.RegisterMessage(MetaResponse)
 
 ApproveConfigRequest = _reflection.GeneratedProtocolMessageType('ApproveConfigRequest', (_message.Message,), {
   'DESCRIPTOR' : _APPROVECONFIGREQUEST,
@@ -876,6 +1687,20 @@ ApproveConfigResponse = _reflection.GeneratedProtocolMessageType('ApproveConfigR
   # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ApproveConfigResponse)
   })
 _sym_db.RegisterMessage(ApproveConfigResponse)
+
+ApproveConfigSomeRequest = _reflection.GeneratedProtocolMessageType('ApproveConfigSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _APPROVECONFIGSOMEREQUEST,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ApproveConfigSomeRequest)
+  })
+_sym_db.RegisterMessage(ApproveConfigSomeRequest)
+
+ApproveConfigSomeResponse = _reflection.GeneratedProtocolMessageType('ApproveConfigSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _APPROVECONFIGSOMERESPONSE,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ApproveConfigSomeResponse)
+  })
+_sym_db.RegisterMessage(ApproveConfigSomeResponse)
 
 ApproveConfigStreamRequest = _reflection.GeneratedProtocolMessageType('ApproveConfigStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _APPROVECONFIGSTREAMREQUEST,
@@ -905,6 +1730,20 @@ ApproveConfigSetResponse = _reflection.GeneratedProtocolMessageType('ApproveConf
   })
 _sym_db.RegisterMessage(ApproveConfigSetResponse)
 
+ApproveConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('ApproveConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _APPROVECONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ApproveConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(ApproveConfigSetSomeRequest)
+
+ApproveConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('ApproveConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _APPROVECONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ApproveConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(ApproveConfigSetSomeResponse)
+
 ApproveConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('ApproveConfigDeleteRequest', (_message.Message,), {
   'DESCRIPTOR' : _APPROVECONFIGDELETEREQUEST,
   '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
@@ -919,6 +1758,34 @@ ApproveConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('ApproveC
   })
 _sym_db.RegisterMessage(ApproveConfigDeleteResponse)
 
+ApproveConfigDeleteSomeRequest = _reflection.GeneratedProtocolMessageType('ApproveConfigDeleteSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _APPROVECONFIGDELETESOMEREQUEST,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ApproveConfigDeleteSomeRequest)
+  })
+_sym_db.RegisterMessage(ApproveConfigDeleteSomeRequest)
+
+ApproveConfigDeleteSomeResponse = _reflection.GeneratedProtocolMessageType('ApproveConfigDeleteSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _APPROVECONFIGDELETESOMERESPONSE,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ApproveConfigDeleteSomeResponse)
+  })
+_sym_db.RegisterMessage(ApproveConfigDeleteSomeResponse)
+
+ApproveConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('ApproveConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _APPROVECONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ApproveConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(ApproveConfigDeleteAllRequest)
+
+ApproveConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('ApproveConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _APPROVECONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ApproveConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(ApproveConfigDeleteAllResponse)
+
 ChangeControlRequest = _reflection.GeneratedProtocolMessageType('ChangeControlRequest', (_message.Message,), {
   'DESCRIPTOR' : _CHANGECONTROLREQUEST,
   '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
@@ -932,6 +1799,20 @@ ChangeControlResponse = _reflection.GeneratedProtocolMessageType('ChangeControlR
   # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlResponse)
   })
 _sym_db.RegisterMessage(ChangeControlResponse)
+
+ChangeControlSomeRequest = _reflection.GeneratedProtocolMessageType('ChangeControlSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CHANGECONTROLSOMEREQUEST,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlSomeRequest)
+  })
+_sym_db.RegisterMessage(ChangeControlSomeRequest)
+
+ChangeControlSomeResponse = _reflection.GeneratedProtocolMessageType('ChangeControlSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CHANGECONTROLSOMERESPONSE,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlSomeResponse)
+  })
+_sym_db.RegisterMessage(ChangeControlSomeResponse)
 
 ChangeControlStreamRequest = _reflection.GeneratedProtocolMessageType('ChangeControlStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _CHANGECONTROLSTREAMREQUEST,
@@ -961,6 +1842,20 @@ ChangeControlConfigResponse = _reflection.GeneratedProtocolMessageType('ChangeCo
   })
 _sym_db.RegisterMessage(ChangeControlConfigResponse)
 
+ChangeControlConfigSomeRequest = _reflection.GeneratedProtocolMessageType('ChangeControlConfigSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CHANGECONTROLCONFIGSOMEREQUEST,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlConfigSomeRequest)
+  })
+_sym_db.RegisterMessage(ChangeControlConfigSomeRequest)
+
+ChangeControlConfigSomeResponse = _reflection.GeneratedProtocolMessageType('ChangeControlConfigSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CHANGECONTROLCONFIGSOMERESPONSE,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlConfigSomeResponse)
+  })
+_sym_db.RegisterMessage(ChangeControlConfigSomeResponse)
+
 ChangeControlConfigStreamRequest = _reflection.GeneratedProtocolMessageType('ChangeControlConfigStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _CHANGECONTROLCONFIGSTREAMREQUEST,
   '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
@@ -989,6 +1884,20 @@ ChangeControlConfigSetResponse = _reflection.GeneratedProtocolMessageType('Chang
   })
 _sym_db.RegisterMessage(ChangeControlConfigSetResponse)
 
+ChangeControlConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('ChangeControlConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CHANGECONTROLCONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(ChangeControlConfigSetSomeRequest)
+
+ChangeControlConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('ChangeControlConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CHANGECONTROLCONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(ChangeControlConfigSetSomeResponse)
+
 ChangeControlConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('ChangeControlConfigDeleteRequest', (_message.Message,), {
   'DESCRIPTOR' : _CHANGECONTROLCONFIGDELETEREQUEST,
   '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
@@ -1003,6 +1912,34 @@ ChangeControlConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('Ch
   })
 _sym_db.RegisterMessage(ChangeControlConfigDeleteResponse)
 
+ChangeControlConfigDeleteSomeRequest = _reflection.GeneratedProtocolMessageType('ChangeControlConfigDeleteSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CHANGECONTROLCONFIGDELETESOMEREQUEST,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlConfigDeleteSomeRequest)
+  })
+_sym_db.RegisterMessage(ChangeControlConfigDeleteSomeRequest)
+
+ChangeControlConfigDeleteSomeResponse = _reflection.GeneratedProtocolMessageType('ChangeControlConfigDeleteSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CHANGECONTROLCONFIGDELETESOMERESPONSE,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlConfigDeleteSomeResponse)
+  })
+_sym_db.RegisterMessage(ChangeControlConfigDeleteSomeResponse)
+
+ChangeControlConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('ChangeControlConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CHANGECONTROLCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(ChangeControlConfigDeleteAllRequest)
+
+ChangeControlConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('ChangeControlConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CHANGECONTROLCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.changecontrol.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(ChangeControlConfigDeleteAllResponse)
+
 
 DESCRIPTOR._options = None
 
@@ -1013,8 +1950,8 @@ _APPROVECONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2812,
-  serialized_end=3405,
+  serialized_start=5281,
+  serialized_end=6586,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1027,9 +1964,19 @@ _APPROVECONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.changecontrol.v1.ApproveConfigService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_APPROVECONFIGSOMEREQUEST,
+    output_type=_APPROVECONFIGSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.changecontrol.v1.ApproveConfigService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_APPROVECONFIGSTREAMREQUEST,
     output_type=_APPROVECONFIGSTREAMRESPONSE,
@@ -1039,7 +1986,7 @@ _APPROVECONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.changecontrol.v1.ApproveConfigService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_APPROVECONFIGSTREAMREQUEST,
     output_type=_APPROVECONFIGSTREAMRESPONSE,
@@ -1047,9 +1994,29 @@ _APPROVECONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.changecontrol.v1.ApproveConfigService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_APPROVECONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.changecontrol.v1.ApproveConfigService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_APPROVECONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Set',
     full_name='arista.changecontrol.v1.ApproveConfigService.Set',
-    index=3,
+    index=6,
     containing_service=None,
     input_type=_APPROVECONFIGSETREQUEST,
     output_type=_APPROVECONFIGSETRESPONSE,
@@ -1057,12 +2024,42 @@ _APPROVECONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.changecontrol.v1.ApproveConfigService.SetSome',
+    index=7,
+    containing_service=None,
+    input_type=_APPROVECONFIGSETSOMEREQUEST,
+    output_type=_APPROVECONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Delete',
     full_name='arista.changecontrol.v1.ApproveConfigService.Delete',
-    index=4,
+    index=8,
     containing_service=None,
     input_type=_APPROVECONFIGDELETEREQUEST,
     output_type=_APPROVECONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteSome',
+    full_name='arista.changecontrol.v1.ApproveConfigService.DeleteSome',
+    index=9,
+    containing_service=None,
+    input_type=_APPROVECONFIGDELETESOMEREQUEST,
+    output_type=_APPROVECONFIGDELETESOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.changecontrol.v1.ApproveConfigService.DeleteAll',
+    index=10,
+    containing_service=None,
+    input_type=_APPROVECONFIGDELETEALLREQUEST,
+    output_type=_APPROVECONFIGDELETEALLRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1079,8 +2076,8 @@ _CHANGECONTROLSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3408,
-  serialized_end=3776,
+  serialized_start=6589,
+  serialized_end=7287,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1093,9 +2090,19 @@ _CHANGECONTROLSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.changecontrol.v1.ChangeControlService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_CHANGECONTROLSOMEREQUEST,
+    output_type=_CHANGECONTROLSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.changecontrol.v1.ChangeControlService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_CHANGECONTROLSTREAMREQUEST,
     output_type=_CHANGECONTROLSTREAMRESPONSE,
@@ -1105,10 +2112,30 @@ _CHANGECONTROLSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.changecontrol.v1.ChangeControlService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_CHANGECONTROLSTREAMREQUEST,
     output_type=_CHANGECONTROLSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.changecontrol.v1.ChangeControlService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_CHANGECONTROLSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.changecontrol.v1.ChangeControlService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_CHANGECONTROLSTREAMREQUEST,
+    output_type=_METARESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1125,8 +2152,8 @@ _CHANGECONTROLCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3779,
-  serialized_end=4440,
+  serialized_start=7290,
+  serialized_end=8725,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1139,9 +2166,19 @@ _CHANGECONTROLCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.changecontrol.v1.ChangeControlConfigService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_CHANGECONTROLCONFIGSOMEREQUEST,
+    output_type=_CHANGECONTROLCONFIGSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.changecontrol.v1.ChangeControlConfigService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_CHANGECONTROLCONFIGSTREAMREQUEST,
     output_type=_CHANGECONTROLCONFIGSTREAMRESPONSE,
@@ -1151,7 +2188,7 @@ _CHANGECONTROLCONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.changecontrol.v1.ChangeControlConfigService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_CHANGECONTROLCONFIGSTREAMREQUEST,
     output_type=_CHANGECONTROLCONFIGSTREAMRESPONSE,
@@ -1159,9 +2196,29 @@ _CHANGECONTROLCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.changecontrol.v1.ChangeControlConfigService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_CHANGECONTROLCONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.changecontrol.v1.ChangeControlConfigService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_CHANGECONTROLCONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Set',
     full_name='arista.changecontrol.v1.ChangeControlConfigService.Set',
-    index=3,
+    index=6,
     containing_service=None,
     input_type=_CHANGECONTROLCONFIGSETREQUEST,
     output_type=_CHANGECONTROLCONFIGSETRESPONSE,
@@ -1169,12 +2226,42 @@ _CHANGECONTROLCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.changecontrol.v1.ChangeControlConfigService.SetSome',
+    index=7,
+    containing_service=None,
+    input_type=_CHANGECONTROLCONFIGSETSOMEREQUEST,
+    output_type=_CHANGECONTROLCONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Delete',
     full_name='arista.changecontrol.v1.ChangeControlConfigService.Delete',
-    index=4,
+    index=8,
     containing_service=None,
     input_type=_CHANGECONTROLCONFIGDELETEREQUEST,
     output_type=_CHANGECONTROLCONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteSome',
+    full_name='arista.changecontrol.v1.ChangeControlConfigService.DeleteSome',
+    index=9,
+    containing_service=None,
+    input_type=_CHANGECONTROLCONFIGDELETESOMEREQUEST,
+    output_type=_CHANGECONTROLCONFIGDELETESOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.changecontrol.v1.ChangeControlConfigService.DeleteAll',
+    index=10,
+    containing_service=None,
+    input_type=_CHANGECONTROLCONFIGDELETEALLREQUEST,
+    output_type=_CHANGECONTROLCONFIGDELETEALLRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

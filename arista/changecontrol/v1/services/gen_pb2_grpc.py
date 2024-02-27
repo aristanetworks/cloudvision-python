@@ -19,6 +19,11 @@ class ApproveConfigServiceStub(object):
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.changecontrol.v1.ApproveConfigService/GetSome',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.changecontrol.v1.ApproveConfigService/GetAll',
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamRequest.SerializeToString,
@@ -29,15 +34,40 @@ class ApproveConfigServiceStub(object):
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.changecontrol.v1.ApproveConfigService/GetMeta',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.changecontrol.v1.ApproveConfigService/SubscribeMeta',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
         self.Set = channel.unary_unary(
                 '/arista.changecontrol.v1.ApproveConfigService/Set',
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.changecontrol.v1.ApproveConfigService/SetSome',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.changecontrol.v1.ApproveConfigService/Delete',
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteResponse.FromString,
+                )
+        self.DeleteSome = channel.unary_stream(
+                '/arista.changecontrol.v1.ApproveConfigService/DeleteSome',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteSomeResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.changecontrol.v1.ApproveConfigService/DeleteAll',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllResponse.FromString,
                 )
 
 
@@ -45,6 +75,12 @@ class ApproveConfigServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -62,13 +98,43 @@ class ApproveConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Set(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -82,6 +148,11 @@ def add_ApproveConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigResponse.SerializeToString,
             ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSomeRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSomeResponse.SerializeToString,
+            ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamRequest.FromString,
@@ -92,15 +163,40 @@ def add_ApproveConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamResponse.SerializeToString,
             ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
             'Set': grpc.unary_unary_rpc_method_handler(
                     servicer.Set,
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetResponse.SerializeToString,
             ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetSomeResponse.SerializeToString,
+            ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteSome,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteSomeRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteSomeResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -126,6 +222,23 @@ class ApproveConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.changecontrol.v1.ApproveConfigService/GetOne',
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigRequest.SerializeToString,
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ApproveConfigService/GetSome',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSomeRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -164,6 +277,40 @@ class ApproveConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.changecontrol.v1.ApproveConfigService/GetMeta',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ApproveConfigService/SubscribeMeta',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Set(request,
             target,
             options=(),
@@ -177,6 +324,23 @@ class ApproveConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.changecontrol.v1.ApproveConfigService/Set',
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetRequest.SerializeToString,
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ApproveConfigService/SetSome',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetSomeRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigSetSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -197,6 +361,40 @@ class ApproveConfigService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def DeleteSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ApproveConfigService/DeleteSome',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteSomeRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ApproveConfigService/DeleteAll',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ApproveConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class ChangeControlServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -212,6 +410,11 @@ class ChangeControlServiceStub(object):
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlService/GetSome',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.changecontrol.v1.ChangeControlService/GetAll',
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamRequest.SerializeToString,
@@ -222,12 +425,28 @@ class ChangeControlServiceStub(object):
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.changecontrol.v1.ChangeControlService/GetMeta',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlService/SubscribeMeta',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
 
 
 class ChangeControlServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -245,6 +464,18 @@ class ChangeControlServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ChangeControlServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -252,6 +483,11 @@ def add_ChangeControlServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSomeRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -262,6 +498,16 @@ def add_ChangeControlServiceServicer_to_server(servicer, server):
                     servicer.Subscribe,
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -287,6 +533,23 @@ class ChangeControlService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.changecontrol.v1.ChangeControlService/GetOne',
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlRequest.SerializeToString,
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ChangeControlService/GetSome',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSomeRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -324,6 +587,40 @@ class ChangeControlService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.changecontrol.v1.ChangeControlService/GetMeta',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ChangeControlService/SubscribeMeta',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class ChangeControlConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -339,6 +636,11 @@ class ChangeControlConfigServiceStub(object):
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlConfigService/GetSome',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.changecontrol.v1.ChangeControlConfigService/GetAll',
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamRequest.SerializeToString,
@@ -349,15 +651,40 @@ class ChangeControlConfigServiceStub(object):
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.changecontrol.v1.ChangeControlConfigService/GetMeta',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlConfigService/SubscribeMeta',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
         self.Set = channel.unary_unary(
                 '/arista.changecontrol.v1.ChangeControlConfigService/Set',
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlConfigService/SetSome',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.changecontrol.v1.ChangeControlConfigService/Delete',
                 request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteResponse.FromString,
+                )
+        self.DeleteSome = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlConfigService/DeleteSome',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteSomeResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlConfigService/DeleteAll',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllResponse.FromString,
                 )
 
 
@@ -365,6 +692,12 @@ class ChangeControlConfigServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -382,13 +715,43 @@ class ChangeControlConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Set(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -402,6 +765,11 @@ def add_ChangeControlConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigResponse.SerializeToString,
             ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSomeRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSomeResponse.SerializeToString,
+            ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamRequest.FromString,
@@ -412,15 +780,40 @@ def add_ChangeControlConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamResponse.SerializeToString,
             ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
             'Set': grpc.unary_unary_rpc_method_handler(
                     servicer.Set,
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSetRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSetResponse.SerializeToString,
             ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSetSomeResponse.SerializeToString,
+            ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteSome,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteSomeRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteSomeResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -446,6 +839,23 @@ class ChangeControlConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.changecontrol.v1.ChangeControlConfigService/GetOne',
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigRequest.SerializeToString,
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ChangeControlConfigService/GetSome',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSomeRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -484,6 +894,40 @@ class ChangeControlConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.changecontrol.v1.ChangeControlConfigService/GetMeta',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ChangeControlConfigService/SubscribeMeta',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Set(request,
             target,
             options=(),
@@ -501,6 +945,23 @@ class ChangeControlConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ChangeControlConfigService/SetSome',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSetSomeRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Delete(request,
             target,
             options=(),
@@ -514,5 +975,39 @@ class ChangeControlConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.changecontrol.v1.ChangeControlConfigService/Delete',
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteRequest.SerializeToString,
             arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ChangeControlConfigService/DeleteSome',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteSomeRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.changecontrol.v1.ChangeControlConfigService/DeleteAll',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

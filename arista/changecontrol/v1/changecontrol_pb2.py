@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z6arista/resources/arista/changecontrol.v1;changecontrol',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n+arista/changecontrol.v1/changecontrol.proto\x12\x17\x61rista.changecontrol.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"=\n\x16RepeatedRepeatedString\x12#\n\x06values\x18\x01 \x03(\x0b\x32\x13.fmp.RepeatedString\"B\n\x10\x43hangeControlKey\x12(\n\x02id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x87\x01\n\x06\x41\x63tion\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07timeout\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\"\n\x04\x61rgs\x18\x03 \x01(\x0b\x32\x14.fmp.MapStringString\"\xa9\x01\n\x0bStageConfig\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x06\x61\x63tion\x18\x02 \x01(\x0b\x32\x1f.arista.changecontrol.v1.Action\x12=\n\x04rows\x18\x03 \x01(\x0b\x32/.arista.changecontrol.v1.RepeatedRepeatedString\"\xaa\x01\n\x0eStageConfigMap\x12\x43\n\x06values\x18\x01 \x03(\x0b\x32\x33.arista.changecontrol.v1.StageConfigMap.ValuesEntry\x1aS\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.arista.changecontrol.v1.StageConfig:\x02\x38\x01\"\xd5\x01\n\x0c\x43hangeConfig\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rroot_stage_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x37\n\x06stages\x18\x03 \x01(\x0b\x32\'.arista.changecontrol.v1.StageConfigMap\x12+\n\x05notes\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"d\n\nFlagConfig\x12)\n\x05value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05notes\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"m\n\x13TimestampFlagConfig\x12)\n\x05value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x05notes\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x80\x02\n\x13\x43hangeControlConfig\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12\x35\n\x06\x63hange\x18\x02 \x01(\x0b\x32%.arista.changecontrol.v1.ChangeConfig\x12\x32\n\x05start\x18\x03 \x01(\x0b\x32#.arista.changecontrol.v1.FlagConfig\x12>\n\x08schedule\x18\x04 \x01(\x0b\x32,.arista.changecontrol.v1.TimestampFlagConfig:\x06\xfa\x8d\x19\x02rw\"\x86\x02\n\x05Stage\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x06\x61\x63tion\x18\x02 \x01(\x0b\x32\x1f.arista.changecontrol.v1.Action\x12=\n\x04rows\x18\x03 \x01(\x0b\x32/.arista.changecontrol.v1.RepeatedRepeatedString\x12\x34\n\x06status\x18\x04 \x01(\x0e\x32$.arista.changecontrol.v1.StageStatus\x12+\n\x05\x65rror\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x98\x01\n\x08StageMap\x12=\n\x06values\x18\x01 \x03(\x0b\x32-.arista.changecontrol.v1.StageMap.ValuesEntry\x1aM\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12-\n\x05value\x18\x02 \x01(\x0b\x32\x1e.arista.changecontrol.v1.Stage:\x02\x38\x01\"\x9f\x02\n\x06\x43hange\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rroot_stage_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x06stages\x18\x03 \x01(\x0b\x32!.arista.changecontrol.v1.StageMap\x12+\n\x05notes\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12*\n\x04user\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xb4\x01\n\x04\x46lag\x12)\n\x05value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05notes\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12*\n\x04user\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xbd\x01\n\rTimestampFlag\x12)\n\x05value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x05notes\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12*\n\x04user\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x83\x03\n\rChangeControl\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12/\n\x06\x63hange\x18\x02 \x01(\x0b\x32\x1f.arista.changecontrol.v1.Change\x12.\n\x07\x61pprove\x18\x03 \x01(\x0b\x32\x1d.arista.changecontrol.v1.Flag\x12,\n\x05start\x18\x04 \x01(\x0b\x32\x1d.arista.changecontrol.v1.Flag\x12<\n\x06status\x18\x05 \x01(\x0e\x32,.arista.changecontrol.v1.ChangeControlStatus\x12+\n\x05\x65rror\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x38\n\x08schedule\x18\x07 \x01(\x0b\x32&.arista.changecontrol.v1.TimestampFlag:\x06\xfa\x8d\x19\x02ro\"\xb2\x01\n\rApproveConfig\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12\x34\n\x07\x61pprove\x18\x02 \x01(\x0b\x32#.arista.changecontrol.v1.FlagConfig\x12+\n\x07version\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x06\xfa\x8d\x19\x02rw*a\n\x0bStageStatus\x12\x1c\n\x18STAGE_STATUS_UNSPECIFIED\x10\x00\x12\x18\n\x14STAGE_STATUS_RUNNING\x10\x01\x12\x1a\n\x16STAGE_STATUS_COMPLETED\x10\x02*\xa9\x01\n\x13\x43hangeControlStatus\x12%\n!CHANGE_CONTROL_STATUS_UNSPECIFIED\x10\x00\x12!\n\x1d\x43HANGE_CONTROL_STATUS_RUNNING\x10\x01\x12#\n\x1f\x43HANGE_CONTROL_STATUS_COMPLETED\x10\x02\x12#\n\x1f\x43HANGE_CONTROL_STATUS_SCHEDULED\x10\x03\x42\x38Z6arista/resources/arista/changecontrol.v1;changecontrolb\x06proto3'
+  serialized_pb=b'\n+arista/changecontrol.v1/changecontrol.proto\x12\x17\x61rista.changecontrol.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"=\n\x16RepeatedRepeatedString\x12#\n\x06values\x18\x01 \x03(\x0b\x32\x13.fmp.RepeatedString\"B\n\x10\x43hangeControlKey\x12(\n\x02id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x87\x01\n\x06\x41\x63tion\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07timeout\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\"\n\x04\x61rgs\x18\x03 \x01(\x0b\x32\x14.fmp.MapStringString\"\xa9\x01\n\x0bStageConfig\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x06\x61\x63tion\x18\x02 \x01(\x0b\x32\x1f.arista.changecontrol.v1.Action\x12=\n\x04rows\x18\x03 \x01(\x0b\x32/.arista.changecontrol.v1.RepeatedRepeatedString\"\xaa\x01\n\x0eStageConfigMap\x12\x43\n\x06values\x18\x01 \x03(\x0b\x32\x33.arista.changecontrol.v1.StageConfigMap.ValuesEntry\x1aS\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.arista.changecontrol.v1.StageConfig:\x02\x38\x01\"\xd5\x01\n\x0c\x43hangeConfig\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rroot_stage_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x37\n\x06stages\x18\x03 \x01(\x0b\x32\'.arista.changecontrol.v1.StageConfigMap\x12+\n\x05notes\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"d\n\nFlagConfig\x12)\n\x05value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05notes\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"m\n\x13TimestampFlagConfig\x12)\n\x05value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x05notes\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x80\x02\n\x13\x43hangeControlConfig\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12\x35\n\x06\x63hange\x18\x02 \x01(\x0b\x32%.arista.changecontrol.v1.ChangeConfig\x12\x32\n\x05start\x18\x03 \x01(\x0b\x32#.arista.changecontrol.v1.FlagConfig\x12>\n\x08schedule\x18\x04 \x01(\x0b\x32,.arista.changecontrol.v1.TimestampFlagConfig:\x06\xfa\x8d\x19\x02rw\"\xe4\x02\n\x05Stage\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x06\x61\x63tion\x18\x02 \x01(\x0b\x32\x1f.arista.changecontrol.v1.Action\x12=\n\x04rows\x18\x03 \x01(\x0b\x32/.arista.changecontrol.v1.RepeatedRepeatedString\x12\x34\n\x06status\x18\x04 \x01(\x0e\x32$.arista.changecontrol.v1.StageStatus\x12+\n\x05\x65rror\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\nstart_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x98\x01\n\x08StageMap\x12=\n\x06values\x18\x01 \x03(\x0b\x32-.arista.changecontrol.v1.StageMap.ValuesEntry\x1aM\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12-\n\x05value\x18\x02 \x01(\x0b\x32\x1e.arista.changecontrol.v1.Stage:\x02\x38\x01\"\x9f\x02\n\x06\x43hange\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x33\n\rroot_stage_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x06stages\x18\x03 \x01(\x0b\x32!.arista.changecontrol.v1.StageMap\x12+\n\x05notes\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12*\n\x04user\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xb4\x01\n\x04\x46lag\x12)\n\x05value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05notes\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12*\n\x04user\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xbd\x01\n\rTimestampFlag\x12)\n\x05value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x05notes\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12*\n\x04user\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"1\n\x06\x46ilter\x12\'\n\ndevice_ids\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\"\xb6\x03\n\rChangeControl\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12/\n\x06\x63hange\x18\x02 \x01(\x0b\x32\x1f.arista.changecontrol.v1.Change\x12.\n\x07\x61pprove\x18\x03 \x01(\x0b\x32\x1d.arista.changecontrol.v1.Flag\x12,\n\x05start\x18\x04 \x01(\x0b\x32\x1d.arista.changecontrol.v1.Flag\x12<\n\x06status\x18\x05 \x01(\x0e\x32,.arista.changecontrol.v1.ChangeControlStatus\x12+\n\x05\x65rror\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x38\n\x08schedule\x18\x07 \x01(\x0b\x32&.arista.changecontrol.v1.TimestampFlag\x12\'\n\ndevice_ids\x18\x08 \x01(\x0b\x32\x13.fmp.RepeatedString:\x10\xfa\x8d\x19\x02ro\x8a\x8e\x19\x06\x46ilter\"\xb2\x01\n\rApproveConfig\x12\x36\n\x03key\x18\x01 \x01(\x0b\x32).arista.changecontrol.v1.ChangeControlKey\x12\x34\n\x07\x61pprove\x18\x02 \x01(\x0b\x32#.arista.changecontrol.v1.FlagConfig\x12+\n\x07version\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x06\xfa\x8d\x19\x02rw*a\n\x0bStageStatus\x12\x1c\n\x18STAGE_STATUS_UNSPECIFIED\x10\x00\x12\x18\n\x14STAGE_STATUS_RUNNING\x10\x01\x12\x1a\n\x16STAGE_STATUS_COMPLETED\x10\x02*\xa9\x01\n\x13\x43hangeControlStatus\x12%\n!CHANGE_CONTROL_STATUS_UNSPECIFIED\x10\x00\x12!\n\x1d\x43HANGE_CONTROL_STATUS_RUNNING\x10\x01\x12#\n\x1f\x43HANGE_CONTROL_STATUS_COMPLETED\x10\x02\x12#\n\x1f\x43HANGE_CONTROL_STATUS_SCHEDULED\x10\x03\x42\x38Z6arista/resources/arista/changecontrol.v1;changecontrolb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,fmp_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -53,8 +53,8 @@ _STAGESTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3137,
-  serialized_end=3234,
+  serialized_start=3333,
+  serialized_end=3430,
 )
 _sym_db.RegisterEnumDescriptor(_STAGESTATUS)
 
@@ -89,8 +89,8 @@ _CHANGECONTROLSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3237,
-  serialized_end=3406,
+  serialized_start=3433,
+  serialized_end=3602,
 )
 _sym_db.RegisterEnumDescriptor(_CHANGECONTROLSTATUS)
 
@@ -558,6 +558,20 @@ _STAGE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='arista.changecontrol.v1.Stage.start_time', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='arista.changecontrol.v1.Stage.end_time', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -571,7 +585,7 @@ _STAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1482,
-  serialized_end=1744,
+  serialized_end=1838,
 )
 
 
@@ -609,8 +623,8 @@ _STAGEMAP_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1822,
-  serialized_end=1899,
+  serialized_start=1916,
+  serialized_end=1993,
 )
 
 _STAGEMAP = _descriptor.Descriptor(
@@ -640,8 +654,8 @@ _STAGEMAP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1747,
-  serialized_end=1899,
+  serialized_start=1841,
+  serialized_end=1993,
 )
 
 
@@ -707,8 +721,8 @@ _CHANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1902,
-  serialized_end=2189,
+  serialized_start=1996,
+  serialized_end=2283,
 )
 
 
@@ -760,8 +774,8 @@ _FLAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2192,
-  serialized_end=2372,
+  serialized_start=2286,
+  serialized_end=2466,
 )
 
 
@@ -813,8 +827,40 @@ _TIMESTAMPFLAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2375,
-  serialized_end=2564,
+  serialized_start=2469,
+  serialized_end=2658,
+)
+
+
+_FILTER = _descriptor.Descriptor(
+  name='Filter',
+  full_name='arista.changecontrol.v1.Filter',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='device_ids', full_name='arista.changecontrol.v1.Filter.device_ids', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2660,
+  serialized_end=2709,
 )
 
 
@@ -875,20 +921,27 @@ _CHANGECONTROL = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='device_ids', full_name='arista.changecontrol.v1.ChangeControl.device_ids', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=b'\372\215\031\002ro',
+  serialized_options=b'\372\215\031\002ro\212\216\031\006Filter',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2567,
-  serialized_end=2954,
+  serialized_start=2712,
+  serialized_end=3150,
 )
 
 
@@ -933,8 +986,8 @@ _APPROVECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2957,
-  serialized_end=3135,
+  serialized_start=3153,
+  serialized_end=3331,
 )
 
 _REPEATEDREPEATEDSTRING.fields_by_name['values'].message_type = fmp_dot_wrappers__pb2._REPEATEDSTRING
@@ -965,6 +1018,8 @@ _STAGE.fields_by_name['action'].message_type = _ACTION
 _STAGE.fields_by_name['rows'].message_type = _REPEATEDREPEATEDSTRING
 _STAGE.fields_by_name['status'].enum_type = _STAGESTATUS
 _STAGE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_STAGE.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_STAGE.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _STAGEMAP_VALUESENTRY.fields_by_name['value'].message_type = _STAGE
 _STAGEMAP_VALUESENTRY.containing_type = _STAGEMAP
 _STAGEMAP.fields_by_name['values'].message_type = _STAGEMAP_VALUESENTRY
@@ -982,6 +1037,7 @@ _TIMESTAMPFLAG.fields_by_name['value'].message_type = google_dot_protobuf_dot_ti
 _TIMESTAMPFLAG.fields_by_name['notes'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _TIMESTAMPFLAG.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TIMESTAMPFLAG.fields_by_name['user'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_FILTER.fields_by_name['device_ids'].message_type = fmp_dot_wrappers__pb2._REPEATEDSTRING
 _CHANGECONTROL.fields_by_name['key'].message_type = _CHANGECONTROLKEY
 _CHANGECONTROL.fields_by_name['change'].message_type = _CHANGE
 _CHANGECONTROL.fields_by_name['approve'].message_type = _FLAG
@@ -989,6 +1045,7 @@ _CHANGECONTROL.fields_by_name['start'].message_type = _FLAG
 _CHANGECONTROL.fields_by_name['status'].enum_type = _CHANGECONTROLSTATUS
 _CHANGECONTROL.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _CHANGECONTROL.fields_by_name['schedule'].message_type = _TIMESTAMPFLAG
+_CHANGECONTROL.fields_by_name['device_ids'].message_type = fmp_dot_wrappers__pb2._REPEATEDSTRING
 _APPROVECONFIG.fields_by_name['key'].message_type = _CHANGECONTROLKEY
 _APPROVECONFIG.fields_by_name['approve'].message_type = _FLAGCONFIG
 _APPROVECONFIG.fields_by_name['version'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -1006,6 +1063,7 @@ DESCRIPTOR.message_types_by_name['StageMap'] = _STAGEMAP
 DESCRIPTOR.message_types_by_name['Change'] = _CHANGE
 DESCRIPTOR.message_types_by_name['Flag'] = _FLAG
 DESCRIPTOR.message_types_by_name['TimestampFlag'] = _TIMESTAMPFLAG
+DESCRIPTOR.message_types_by_name['Filter'] = _FILTER
 DESCRIPTOR.message_types_by_name['ChangeControl'] = _CHANGECONTROL
 DESCRIPTOR.message_types_by_name['ApproveConfig'] = _APPROVECONFIG
 DESCRIPTOR.enum_types_by_name['StageStatus'] = _STAGESTATUS
@@ -1125,6 +1183,13 @@ TimestampFlag = _reflection.GeneratedProtocolMessageType('TimestampFlag', (_mess
   # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.TimestampFlag)
   })
 _sym_db.RegisterMessage(TimestampFlag)
+
+Filter = _reflection.GeneratedProtocolMessageType('Filter', (_message.Message,), {
+  'DESCRIPTOR' : _FILTER,
+  '__module__' : 'arista.changecontrol.v1.changecontrol_pb2'
+  # @@protoc_insertion_point(class_scope:arista.changecontrol.v1.Filter)
+  })
+_sym_db.RegisterMessage(Filter)
 
 ChangeControl = _reflection.GeneratedProtocolMessageType('ChangeControl', (_message.Message,), {
   'DESCRIPTOR' : _CHANGECONTROL,
