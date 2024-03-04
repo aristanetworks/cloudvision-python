@@ -6,7 +6,7 @@ pytest==7.1.2
 numpy==1.26.4
 pyyaml==6.0.1
 flake8==3.8.4
-grpcio-tools==1.46.0
+grpcio-tools>=1.53.2
 twine==4.0.1
 types-attrs>=19.1.0
 wheel==0.38.4

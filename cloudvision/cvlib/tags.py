@@ -20,9 +20,10 @@ from arista.tag.v2.tag_pb2 import (
     TagAssignment,
     TagAssignmentConfig,
     TagConfig,
+    ElementType,
     ELEMENT_TYPE_DEVICE,
     ELEMENT_TYPE_INTERFACE,
-    CREATOR_TYPE_USER
+    CREATOR_TYPE_USER,
 )
 from arista.time.time_pb2 import TimeBounds
 from .exceptions import (
@@ -126,7 +127,10 @@ class Tags:
         setRequest = TagConfigSetRequest()
         wsID = self.ctx.getWorkspaceId()
         setRequest.value.key.workspace_id.value = wsID
-        setRequest.value.key.element_type = etype
+        # Mypy complains about this not being an int, with
+        # (expression has type "int", variable has type "ValueType")
+        # but ValueType = typing.NewType('ValueType', builtins.int), so just ignore it
+        setRequest.value.key.element_type = etype  # type: ignore
         setRequest.value.key.label.value = label
         setRequest.value.key.value.value = value
         tagClient = self.ctx.getApiClient(TagConfigServiceStub)
@@ -154,7 +158,10 @@ class Tags:
         for (label, value) in tags:
             tagConfig = TagConfig()
             tagConfig.key.workspace_id.value = wsID
-            tagConfig.key.element_type = etype
+            # Mypy complains about this not being an int, with
+            # (expression has type "int", variable has type "ValueType")
+            # but ValueType = typing.NewType('ValueType', builtins.int), so just ignore it
+            tagConfig.key.element_type = etype  # type: ignore
             tagConfig.key.label.value = label
             tagConfig.key.value.value = value
             tagConfigs.append(tagConfig)
@@ -182,7 +189,10 @@ class Tags:
         setRequest = TagAssignmentConfigSetRequest()
         wsID = self.ctx.getWorkspaceId()
         setRequest.value.key.workspace_id.value = wsID
-        setRequest.value.key.element_type = etype
+        # Mypy complains about this not being an int, with
+        # (expression has type "int", variable has type "ValueType")
+        # but ValueType = typing.NewType('ValueType', builtins.int), so just ignore it
+        setRequest.value.key.element_type = etype  # type: ignore
         setRequest.value.key.label.value = label
         setRequest.value.key.value.value = value
         setRequest.value.key.device_id.value = deviceId
@@ -204,7 +214,10 @@ class Tags:
         for (deviceId, interfaceId, label, value) in tagAssigns:
             tagAssConfig = TagAssignmentConfig()
             tagAssConfig.key.workspace_id.value = wsID
-            tagAssConfig.key.element_type = etype
+            # Mypy complains about this not being an int, with
+            # (expression has type "int", variable has type "ValueType")
+            # but ValueType = typing.NewType('ValueType', builtins.int), so just ignore it
+            tagAssConfig.key.element_type = etype  # type: ignore
             tagAssConfig.key.label.value = label
             tagAssConfig.key.value.value = value
             tagAssConfig.key.device_id.value = deviceId
