@@ -17,6 +17,7 @@ with open("requirements.txt", "r") as fh:
 
 setuptools.setup(
     name="cloudvision",
+    python_requires='>=3.7.0',
     version=version,
     description="A Python library for Arista's CloudVision APIs.",
     maintainer_email="support@arista.com",

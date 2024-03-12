@@ -27,7 +27,7 @@ python setup.py install
 
 ### Requirements
 
-- CloudVision Resource APIs: Python 2.7+ or Python 3.7+
+- CloudVision Resource APIs: Python 3.7+
 - CloudVision Connector: Python 3.7+
 - Examples: Python 3.7+
 
