@@ -109,6 +109,20 @@ class DeviceCommandsFailed(ScriptException):
         self.errMsg = errMsg
 
 
+class LoggingFailed(ScriptException):
+    """Exception raised when a logging request fails."""
+
+    __noReasonFail = "Failed to post log with no reason specified"
+
+    def __init__(self, message: str = ""):
+        super().__init__(message)
+
+    def __str__(self):
+        if not self.message:
+            return self.__noReasonFail
+        return f"Failed to post log: {self.message}"
+
+
 class TimeoutExpiry(ScriptException):
     """
     Exception to raise when alarm signals are used in scripts as timers so that script writers
