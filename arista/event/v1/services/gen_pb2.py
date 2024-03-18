@@ -25,11 +25,57 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z&arista/resources/arista/event.v1;event',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\"arista/event.v1/services.gen.proto\x12\x0f\x61rista.event.v1\x1a\x1b\x61rista/event.v1/event.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"`\n\x0c\x45ventRequest\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"`\n\rEventResponse\x12%\n\x05value\x18\x01 \x01(\x0b\x32\x16.arista.event.v1.Event\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"n\n\x12\x45ventStreamRequest\x12\x31\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x16.arista.event.v1.Event\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x95\x01\n\x13\x45ventStreamResponse\x12%\n\x05value\x18\x01 \x01(\x0b\x32\x16.arista.event.v1.Event\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"p\n\x1c\x45ventAnnotationConfigRequest\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x80\x01\n\x1d\x45ventAnnotationConfigResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.event.v1.EventAnnotationConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x8e\x01\n\"EventAnnotationConfigStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.event.v1.EventAnnotationConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb5\x01\n#EventAnnotationConfigStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.event.v1.EventAnnotationConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"X\n\x1f\x45ventAnnotationConfigSetRequest\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.event.v1.EventAnnotationConfig\"\x83\x01\n EventAnnotationConfigSetResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.event.v1.EventAnnotationConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"]\n#EventAnnotationConfigSetSomeRequest\x12\x36\n\x06values\x18\x01 \x03(\x0b\x32&.arista.event.v1.EventAnnotationConfig\"]\n$EventAnnotationConfigSetSomeResponse\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"L\n\"EventAnnotationConfigDeleteRequest\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\"w\n#EventAnnotationConfigDeleteResponse\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\'\n%EventAnnotationConfigDeleteAllRequest\"\xc7\x01\n&EventAnnotationConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12&\n\x03key\x18\x03 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\x88\x02\n\x0c\x45ventService\x12G\n\x06GetOne\x12\x1d.arista.event.v1.EventRequest\x1a\x1e.arista.event.v1.EventResponse\x12U\n\x06GetAll\x12#.arista.event.v1.EventStreamRequest\x1a$.arista.event.v1.EventStreamResponse0\x01\x12X\n\tSubscribe\x12#.arista.event.v1.EventStreamRequest\x1a$.arista.event.v1.EventStreamResponse0\x01\x32\xd3\x06\n\x1c\x45ventAnnotationConfigService\x12g\n\x06GetOne\x12-.arista.event.v1.EventAnnotationConfigRequest\x1a..arista.event.v1.EventAnnotationConfigResponse\x12u\n\x06GetAll\x12\x33.arista.event.v1.EventAnnotationConfigStreamRequest\x1a\x34.arista.event.v1.EventAnnotationConfigStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.event.v1.EventAnnotationConfigStreamRequest\x1a\x34.arista.event.v1.EventAnnotationConfigStreamResponse0\x01\x12j\n\x03Set\x12\x30.arista.event.v1.EventAnnotationConfigSetRequest\x1a\x31.arista.event.v1.EventAnnotationConfigSetResponse\x12x\n\x07SetSome\x12\x34.arista.event.v1.EventAnnotationConfigSetSomeRequest\x1a\x35.arista.event.v1.EventAnnotationConfigSetSomeResponse0\x01\x12s\n\x06\x44\x65lete\x12\x33.arista.event.v1.EventAnnotationConfigDeleteRequest\x1a\x34.arista.event.v1.EventAnnotationConfigDeleteResponse\x12~\n\tDeleteAll\x12\x36.arista.event.v1.EventAnnotationConfigDeleteAllRequest\x1a\x37.arista.event.v1.EventAnnotationConfigDeleteAllResponse0\x01\x42(Z&arista/resources/arista/event.v1;eventb\x06proto3'
+  serialized_pb=b'\n\"arista/event.v1/services.gen.proto\x12\x0f\x61rista.event.v1\x1a\x1b\x61rista/event.v1/event.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x94\x01\n\x0cMetaResponse\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x02 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\x12+\n\x05\x63ount\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"`\n\x0c\x45ventRequest\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"`\n\rEventResponse\x12%\n\x05value\x18\x01 \x01(\x0b\x32\x16.arista.event.v1.Event\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x10\x45ventSomeRequest\x12\'\n\x04keys\x18\x01 \x03(\x0b\x32\x19.arista.event.v1.EventKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x91\x01\n\x11\x45ventSomeResponse\x12%\n\x05value\x18\x01 \x01(\x0b\x32\x16.arista.event.v1.Event\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"n\n\x12\x45ventStreamRequest\x12\x31\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x16.arista.event.v1.Event\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x95\x01\n\x13\x45ventStreamResponse\x12%\n\x05value\x18\x01 \x01(\x0b\x32\x16.arista.event.v1.Event\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"p\n\x1c\x45ventAnnotationConfigRequest\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x80\x01\n\x1d\x45ventAnnotationConfigResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.event.v1.EventAnnotationConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"u\n EventAnnotationConfigSomeRequest\x12\'\n\x04keys\x18\x01 \x03(\x0b\x32\x19.arista.event.v1.EventKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xb1\x01\n!EventAnnotationConfigSomeResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.event.v1.EventAnnotationConfig\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x8e\x01\n\"EventAnnotationConfigStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.event.v1.EventAnnotationConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb5\x01\n#EventAnnotationConfigStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.event.v1.EventAnnotationConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"X\n\x1f\x45ventAnnotationConfigSetRequest\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.event.v1.EventAnnotationConfig\"\x83\x01\n EventAnnotationConfigSetResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.event.v1.EventAnnotationConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"]\n#EventAnnotationConfigSetSomeRequest\x12\x36\n\x06values\x18\x01 \x03(\x0b\x32&.arista.event.v1.EventAnnotationConfig\"]\n$EventAnnotationConfigSetSomeResponse\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"L\n\"EventAnnotationConfigDeleteRequest\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\"w\n#EventAnnotationConfigDeleteResponse\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"Q\n&EventAnnotationConfigDeleteSomeRequest\x12\'\n\x04keys\x18\x01 \x03(\x0b\x32\x19.arista.event.v1.EventKey\"`\n\'EventAnnotationConfigDeleteSomeResponse\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"\'\n%EventAnnotationConfigDeleteAllRequest\"\xc7\x01\n&EventAnnotationConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12&\n\x03key\x18\x03 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"~\n\x1eUserEventCreationConfigRequest\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.event.v1.UserEventCreationKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1fUserEventCreationConfigResponse\x12\x37\n\x05value\x18\x01 \x01(\x0b\x32(.arista.event.v1.UserEventCreationConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x83\x01\n\"UserEventCreationConfigSomeRequest\x12\x33\n\x04keys\x18\x01 \x03(\x0b\x32%.arista.event.v1.UserEventCreationKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xb5\x01\n#UserEventCreationConfigSomeResponse\x12\x37\n\x05value\x18\x01 \x01(\x0b\x32(.arista.event.v1.UserEventCreationConfig\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n$UserEventCreationConfigStreamRequest\x12\x43\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32(.arista.event.v1.UserEventCreationConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb9\x01\n%UserEventCreationConfigStreamResponse\x12\x37\n\x05value\x18\x01 \x01(\x0b\x32(.arista.event.v1.UserEventCreationConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"\\\n!UserEventCreationConfigSetRequest\x12\x37\n\x05value\x18\x01 \x01(\x0b\x32(.arista.event.v1.UserEventCreationConfig\"\x87\x01\n\"UserEventCreationConfigSetResponse\x12\x37\n\x05value\x18\x01 \x01(\x0b\x32(.arista.event.v1.UserEventCreationConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"a\n%UserEventCreationConfigSetSomeRequest\x12\x38\n\x06values\x18\x01 \x03(\x0b\x32(.arista.event.v1.UserEventCreationConfig\"k\n&UserEventCreationConfigSetSomeResponse\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.event.v1.UserEventCreationKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"Z\n$UserEventCreationConfigDeleteRequest\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.event.v1.UserEventCreationKey\"\x85\x01\n%UserEventCreationConfigDeleteResponse\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.event.v1.UserEventCreationKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"_\n(UserEventCreationConfigDeleteSomeRequest\x12\x33\n\x04keys\x18\x01 \x03(\x0b\x32%.arista.event.v1.UserEventCreationKey\"n\n)UserEventCreationConfigDeleteSomeResponse\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.event.v1.UserEventCreationKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\")\n\'UserEventCreationConfigDeleteAllRequest\"\xd5\x01\n(UserEventCreationConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x03key\x18\x03 \x01(\x0b\x32%.arista.event.v1.UserEventCreationKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\x82\x04\n\x0c\x45ventService\x12G\n\x06GetOne\x12\x1d.arista.event.v1.EventRequest\x1a\x1e.arista.event.v1.EventResponse\x12R\n\x07GetSome\x12!.arista.event.v1.EventSomeRequest\x1a\".arista.event.v1.EventSomeResponse0\x01\x12U\n\x06GetAll\x12#.arista.event.v1.EventStreamRequest\x1a$.arista.event.v1.EventStreamResponse0\x01\x12X\n\tSubscribe\x12#.arista.event.v1.EventStreamRequest\x1a$.arista.event.v1.EventStreamResponse0\x01\x12M\n\x07GetMeta\x12#.arista.event.v1.EventStreamRequest\x1a\x1d.arista.event.v1.MetaResponse\x12U\n\rSubscribeMeta\x12#.arista.event.v1.EventStreamRequest\x1a\x1d.arista.event.v1.MetaResponse0\x01\x32\x91\n\n\x1c\x45ventAnnotationConfigService\x12g\n\x06GetOne\x12-.arista.event.v1.EventAnnotationConfigRequest\x1a..arista.event.v1.EventAnnotationConfigResponse\x12r\n\x07GetSome\x12\x31.arista.event.v1.EventAnnotationConfigSomeRequest\x1a\x32.arista.event.v1.EventAnnotationConfigSomeResponse0\x01\x12u\n\x06GetAll\x12\x33.arista.event.v1.EventAnnotationConfigStreamRequest\x1a\x34.arista.event.v1.EventAnnotationConfigStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.event.v1.EventAnnotationConfigStreamRequest\x1a\x34.arista.event.v1.EventAnnotationConfigStreamResponse0\x01\x12]\n\x07GetMeta\x12\x33.arista.event.v1.EventAnnotationConfigStreamRequest\x1a\x1d.arista.event.v1.MetaResponse\x12\x65\n\rSubscribeMeta\x12\x33.arista.event.v1.EventAnnotationConfigStreamRequest\x1a\x1d.arista.event.v1.MetaResponse0\x01\x12j\n\x03Set\x12\x30.arista.event.v1.EventAnnotationConfigSetRequest\x1a\x31.arista.event.v1.EventAnnotationConfigSetResponse\x12x\n\x07SetSome\x12\x34.arista.event.v1.EventAnnotationConfigSetSomeRequest\x1a\x35.arista.event.v1.EventAnnotationConfigSetSomeResponse0\x01\x12s\n\x06\x44\x65lete\x12\x33.arista.event.v1.EventAnnotationConfigDeleteRequest\x1a\x34.arista.event.v1.EventAnnotationConfigDeleteResponse\x12\x81\x01\n\nDeleteSome\x12\x37.arista.event.v1.EventAnnotationConfigDeleteSomeRequest\x1a\x38.arista.event.v1.EventAnnotationConfigDeleteSomeResponse0\x01\x12~\n\tDeleteAll\x12\x36.arista.event.v1.EventAnnotationConfigDeleteAllRequest\x1a\x37.arista.event.v1.EventAnnotationConfigDeleteAllResponse0\x01\x32\xbc\n\n\x1eUserEventCreationConfigService\x12k\n\x06GetOne\x12/.arista.event.v1.UserEventCreationConfigRequest\x1a\x30.arista.event.v1.UserEventCreationConfigResponse\x12v\n\x07GetSome\x12\x33.arista.event.v1.UserEventCreationConfigSomeRequest\x1a\x34.arista.event.v1.UserEventCreationConfigSomeResponse0\x01\x12y\n\x06GetAll\x12\x35.arista.event.v1.UserEventCreationConfigStreamRequest\x1a\x36.arista.event.v1.UserEventCreationConfigStreamResponse0\x01\x12|\n\tSubscribe\x12\x35.arista.event.v1.UserEventCreationConfigStreamRequest\x1a\x36.arista.event.v1.UserEventCreationConfigStreamResponse0\x01\x12_\n\x07GetMeta\x12\x35.arista.event.v1.UserEventCreationConfigStreamRequest\x1a\x1d.arista.event.v1.MetaResponse\x12g\n\rSubscribeMeta\x12\x35.arista.event.v1.UserEventCreationConfigStreamRequest\x1a\x1d.arista.event.v1.MetaResponse0\x01\x12n\n\x03Set\x12\x32.arista.event.v1.UserEventCreationConfigSetRequest\x1a\x33.arista.event.v1.UserEventCreationConfigSetResponse\x12|\n\x07SetSome\x12\x36.arista.event.v1.UserEventCreationConfigSetSomeRequest\x1a\x37.arista.event.v1.UserEventCreationConfigSetSomeResponse0\x01\x12w\n\x06\x44\x65lete\x12\x35.arista.event.v1.UserEventCreationConfigDeleteRequest\x1a\x36.arista.event.v1.UserEventCreationConfigDeleteResponse\x12\x85\x01\n\nDeleteSome\x12\x39.arista.event.v1.UserEventCreationConfigDeleteSomeRequest\x1a:.arista.event.v1.UserEventCreationConfigDeleteSomeResponse0\x01\x12\x82\x01\n\tDeleteAll\x12\x38.arista.event.v1.UserEventCreationConfigDeleteAllRequest\x1a\x39.arista.event.v1.UserEventCreationConfigDeleteAllResponse0\x01\x42(Z&arista/resources/arista/event.v1;eventb\x06proto3'
   ,
   dependencies=[arista_dot_event_dot_v1_dot_event__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,fmp_dot_deletes__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
+
+
+_METARESPONSE = _descriptor.Descriptor(
+  name='MetaResponse',
+  full_name='arista.event.v1.MetaResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.MetaResponse.time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.event.v1.MetaResponse.type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='arista.event.v1.MetaResponse.count', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=235,
+  serialized_end=383,
+)
 
 
 _EVENTREQUEST = _descriptor.Descriptor(
@@ -66,8 +112,8 @@ _EVENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=234,
-  serialized_end=330,
+  serialized_start=385,
+  serialized_end=481,
 )
 
 
@@ -105,8 +151,93 @@ _EVENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=332,
-  serialized_end=428,
+  serialized_start=483,
+  serialized_end=579,
+)
+
+
+_EVENTSOMEREQUEST = _descriptor.Descriptor(
+  name='EventSomeRequest',
+  full_name='arista.event.v1.EventSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.event.v1.EventSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.EventSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=581,
+  serialized_end=682,
+)
+
+
+_EVENTSOMERESPONSE = _descriptor.Descriptor(
+  name='EventSomeResponse',
+  full_name='arista.event.v1.EventSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.event.v1.EventSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.event.v1.EventSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.EventSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=685,
+  serialized_end=830,
 )
 
 
@@ -144,8 +275,8 @@ _EVENTSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=430,
-  serialized_end=540,
+  serialized_start=832,
+  serialized_end=942,
 )
 
 
@@ -190,8 +321,8 @@ _EVENTSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=543,
-  serialized_end=692,
+  serialized_start=945,
+  serialized_end=1094,
 )
 
 
@@ -229,8 +360,8 @@ _EVENTANNOTATIONCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=694,
-  serialized_end=806,
+  serialized_start=1096,
+  serialized_end=1208,
 )
 
 
@@ -268,8 +399,93 @@ _EVENTANNOTATIONCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=809,
-  serialized_end=937,
+  serialized_start=1211,
+  serialized_end=1339,
+)
+
+
+_EVENTANNOTATIONCONFIGSOMEREQUEST = _descriptor.Descriptor(
+  name='EventAnnotationConfigSomeRequest',
+  full_name='arista.event.v1.EventAnnotationConfigSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.event.v1.EventAnnotationConfigSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.EventAnnotationConfigSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1341,
+  serialized_end=1458,
+)
+
+
+_EVENTANNOTATIONCONFIGSOMERESPONSE = _descriptor.Descriptor(
+  name='EventAnnotationConfigSomeResponse',
+  full_name='arista.event.v1.EventAnnotationConfigSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.event.v1.EventAnnotationConfigSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.event.v1.EventAnnotationConfigSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.EventAnnotationConfigSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1461,
+  serialized_end=1638,
 )
 
 
@@ -307,8 +523,8 @@ _EVENTANNOTATIONCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=940,
-  serialized_end=1082,
+  serialized_start=1641,
+  serialized_end=1783,
 )
 
 
@@ -353,8 +569,8 @@ _EVENTANNOTATIONCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1085,
-  serialized_end=1266,
+  serialized_start=1786,
+  serialized_end=1967,
 )
 
 
@@ -385,8 +601,8 @@ _EVENTANNOTATIONCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1268,
-  serialized_end=1356,
+  serialized_start=1969,
+  serialized_end=2057,
 )
 
 
@@ -424,8 +640,8 @@ _EVENTANNOTATIONCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1359,
-  serialized_end=1490,
+  serialized_start=2060,
+  serialized_end=2191,
 )
 
 
@@ -456,8 +672,8 @@ _EVENTANNOTATIONCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1492,
-  serialized_end=1585,
+  serialized_start=2193,
+  serialized_end=2286,
 )
 
 
@@ -495,8 +711,8 @@ _EVENTANNOTATIONCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1587,
-  serialized_end=1680,
+  serialized_start=2288,
+  serialized_end=2381,
 )
 
 
@@ -527,8 +743,8 @@ _EVENTANNOTATIONCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1682,
-  serialized_end=1758,
+  serialized_start=2383,
+  serialized_end=2459,
 )
 
 
@@ -566,8 +782,79 @@ _EVENTANNOTATIONCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1760,
-  serialized_end=1879,
+  serialized_start=2461,
+  serialized_end=2580,
+)
+
+
+_EVENTANNOTATIONCONFIGDELETESOMEREQUEST = _descriptor.Descriptor(
+  name='EventAnnotationConfigDeleteSomeRequest',
+  full_name='arista.event.v1.EventAnnotationConfigDeleteSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.event.v1.EventAnnotationConfigDeleteSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2582,
+  serialized_end=2663,
+)
+
+
+_EVENTANNOTATIONCONFIGDELETESOMERESPONSE = _descriptor.Descriptor(
+  name='EventAnnotationConfigDeleteSomeResponse',
+  full_name='arista.event.v1.EventAnnotationConfigDeleteSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.event.v1.EventAnnotationConfigDeleteSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.event.v1.EventAnnotationConfigDeleteSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2665,
+  serialized_end=2761,
 )
 
 
@@ -591,8 +878,8 @@ _EVENTANNOTATIONCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1881,
-  serialized_end=1920,
+  serialized_start=2763,
+  serialized_end=2802,
 )
 
 
@@ -644,14 +931,632 @@ _EVENTANNOTATIONCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1923,
-  serialized_end=2122,
+  serialized_start=2805,
+  serialized_end=3004,
 )
 
+
+_USEREVENTCREATIONCONFIGREQUEST = _descriptor.Descriptor(
+  name='UserEventCreationConfigRequest',
+  full_name='arista.event.v1.UserEventCreationConfigRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.event.v1.UserEventCreationConfigRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.UserEventCreationConfigRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3006,
+  serialized_end=3132,
+)
+
+
+_USEREVENTCREATIONCONFIGRESPONSE = _descriptor.Descriptor(
+  name='UserEventCreationConfigResponse',
+  full_name='arista.event.v1.UserEventCreationConfigResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.event.v1.UserEventCreationConfigResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.UserEventCreationConfigResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3135,
+  serialized_end=3267,
+)
+
+
+_USEREVENTCREATIONCONFIGSOMEREQUEST = _descriptor.Descriptor(
+  name='UserEventCreationConfigSomeRequest',
+  full_name='arista.event.v1.UserEventCreationConfigSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.event.v1.UserEventCreationConfigSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.UserEventCreationConfigSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3270,
+  serialized_end=3401,
+)
+
+
+_USEREVENTCREATIONCONFIGSOMERESPONSE = _descriptor.Descriptor(
+  name='UserEventCreationConfigSomeResponse',
+  full_name='arista.event.v1.UserEventCreationConfigSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.event.v1.UserEventCreationConfigSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.event.v1.UserEventCreationConfigSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.UserEventCreationConfigSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3404,
+  serialized_end=3585,
+)
+
+
+_USEREVENTCREATIONCONFIGSTREAMREQUEST = _descriptor.Descriptor(
+  name='UserEventCreationConfigStreamRequest',
+  full_name='arista.event.v1.UserEventCreationConfigStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.event.v1.UserEventCreationConfigStreamRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.UserEventCreationConfigStreamRequest.time', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3588,
+  serialized_end=3734,
+)
+
+
+_USEREVENTCREATIONCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
+  name='UserEventCreationConfigStreamResponse',
+  full_name='arista.event.v1.UserEventCreationConfigStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.event.v1.UserEventCreationConfigStreamResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.UserEventCreationConfigStreamResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.event.v1.UserEventCreationConfigStreamResponse.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3737,
+  serialized_end=3922,
+)
+
+
+_USEREVENTCREATIONCONFIGSETREQUEST = _descriptor.Descriptor(
+  name='UserEventCreationConfigSetRequest',
+  full_name='arista.event.v1.UserEventCreationConfigSetRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.event.v1.UserEventCreationConfigSetRequest.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3924,
+  serialized_end=4016,
+)
+
+
+_USEREVENTCREATIONCONFIGSETRESPONSE = _descriptor.Descriptor(
+  name='UserEventCreationConfigSetResponse',
+  full_name='arista.event.v1.UserEventCreationConfigSetResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.event.v1.UserEventCreationConfigSetResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.UserEventCreationConfigSetResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4019,
+  serialized_end=4154,
+)
+
+
+_USEREVENTCREATIONCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
+  name='UserEventCreationConfigSetSomeRequest',
+  full_name='arista.event.v1.UserEventCreationConfigSetSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.event.v1.UserEventCreationConfigSetSomeRequest.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4156,
+  serialized_end=4253,
+)
+
+
+_USEREVENTCREATIONCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
+  name='UserEventCreationConfigSetSomeResponse',
+  full_name='arista.event.v1.UserEventCreationConfigSetSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.event.v1.UserEventCreationConfigSetSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.event.v1.UserEventCreationConfigSetSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4255,
+  serialized_end=4362,
+)
+
+
+_USEREVENTCREATIONCONFIGDELETEREQUEST = _descriptor.Descriptor(
+  name='UserEventCreationConfigDeleteRequest',
+  full_name='arista.event.v1.UserEventCreationConfigDeleteRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.event.v1.UserEventCreationConfigDeleteRequest.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4364,
+  serialized_end=4454,
+)
+
+
+_USEREVENTCREATIONCONFIGDELETERESPONSE = _descriptor.Descriptor(
+  name='UserEventCreationConfigDeleteResponse',
+  full_name='arista.event.v1.UserEventCreationConfigDeleteResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.event.v1.UserEventCreationConfigDeleteResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.UserEventCreationConfigDeleteResponse.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4457,
+  serialized_end=4590,
+)
+
+
+_USEREVENTCREATIONCONFIGDELETESOMEREQUEST = _descriptor.Descriptor(
+  name='UserEventCreationConfigDeleteSomeRequest',
+  full_name='arista.event.v1.UserEventCreationConfigDeleteSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.event.v1.UserEventCreationConfigDeleteSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4592,
+  serialized_end=4687,
+)
+
+
+_USEREVENTCREATIONCONFIGDELETESOMERESPONSE = _descriptor.Descriptor(
+  name='UserEventCreationConfigDeleteSomeResponse',
+  full_name='arista.event.v1.UserEventCreationConfigDeleteSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.event.v1.UserEventCreationConfigDeleteSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.event.v1.UserEventCreationConfigDeleteSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4689,
+  serialized_end=4799,
+)
+
+
+_USEREVENTCREATIONCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='UserEventCreationConfigDeleteAllRequest',
+  full_name='arista.event.v1.UserEventCreationConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4801,
+  serialized_end=4842,
+)
+
+
+_USEREVENTCREATIONCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
+  name='UserEventCreationConfigDeleteAllResponse',
+  full_name='arista.event.v1.UserEventCreationConfigDeleteAllResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.event.v1.UserEventCreationConfigDeleteAllResponse.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.event.v1.UserEventCreationConfigDeleteAllResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.event.v1.UserEventCreationConfigDeleteAllResponse.key', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.event.v1.UserEventCreationConfigDeleteAllResponse.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4845,
+  serialized_end=5058,
+)
+
+_METARESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_METARESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_METARESPONSE.fields_by_name['count'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _EVENTREQUEST.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTKEY
 _EVENTREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EVENTRESPONSE.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENT
 _EVENTRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_EVENTSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTKEY
+_EVENTSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_EVENTSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENT
+_EVENTSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_EVENTSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EVENTSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENT
 _EVENTSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _EVENTSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENT
@@ -661,6 +1566,11 @@ _EVENTANNOTATIONCONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_ev
 _EVENTANNOTATIONCONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EVENTANNOTATIONCONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTANNOTATIONCONFIG
 _EVENTANNOTATIONCONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_EVENTANNOTATIONCONFIGSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTKEY
+_EVENTANNOTATIONCONFIGSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_EVENTANNOTATIONCONFIGSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTANNOTATIONCONFIG
+_EVENTANNOTATIONCONFIGSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_EVENTANNOTATIONCONFIGSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EVENTANNOTATIONCONFIGSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTANNOTATIONCONFIG
 _EVENTANNOTATIONCONFIGSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _EVENTANNOTATIONCONFIGSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTANNOTATIONCONFIG
@@ -674,16 +1584,51 @@ _EVENTANNOTATIONCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arist
 _EVENTANNOTATIONCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTKEY
 _EVENTANNOTATIONCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTKEY
 _EVENTANNOTATIONCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_EVENTANNOTATIONCONFIGDELETESOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTKEY
+_EVENTANNOTATIONCONFIGDELETESOMERESPONSE.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTKEY
 _EVENTANNOTATIONCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
 _EVENTANNOTATIONCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _EVENTANNOTATIONCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._EVENTKEY
 _EVENTANNOTATIONCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_USEREVENTCREATIONCONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONKEY
+_USEREVENTCREATIONCONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_USEREVENTCREATIONCONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONCONFIG
+_USEREVENTCREATIONCONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_USEREVENTCREATIONCONFIGSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONKEY
+_USEREVENTCREATIONCONFIGSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_USEREVENTCREATIONCONFIGSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONCONFIG
+_USEREVENTCREATIONCONFIGSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_USEREVENTCREATIONCONFIGSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_USEREVENTCREATIONCONFIGSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONCONFIG
+_USEREVENTCREATIONCONFIGSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
+_USEREVENTCREATIONCONFIGSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONCONFIG
+_USEREVENTCREATIONCONFIGSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_USEREVENTCREATIONCONFIGSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_USEREVENTCREATIONCONFIGSETREQUEST.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONCONFIG
+_USEREVENTCREATIONCONFIGSETRESPONSE.fields_by_name['value'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONCONFIG
+_USEREVENTCREATIONCONFIGSETRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_USEREVENTCREATIONCONFIGSETSOMEREQUEST.fields_by_name['values'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONCONFIG
+_USEREVENTCREATIONCONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONKEY
+_USEREVENTCREATIONCONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONKEY
+_USEREVENTCREATIONCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONKEY
+_USEREVENTCREATIONCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_USEREVENTCREATIONCONFIGDELETESOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONKEY
+_USEREVENTCREATIONCONFIGDELETESOMERESPONSE.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONKEY
+_USEREVENTCREATIONCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
+_USEREVENTCREATIONCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_USEREVENTCREATIONCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_event_dot_v1_dot_event__pb2._USEREVENTCREATIONKEY
+_USEREVENTCREATIONCONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+DESCRIPTOR.message_types_by_name['MetaResponse'] = _METARESPONSE
 DESCRIPTOR.message_types_by_name['EventRequest'] = _EVENTREQUEST
 DESCRIPTOR.message_types_by_name['EventResponse'] = _EVENTRESPONSE
+DESCRIPTOR.message_types_by_name['EventSomeRequest'] = _EVENTSOMEREQUEST
+DESCRIPTOR.message_types_by_name['EventSomeResponse'] = _EVENTSOMERESPONSE
 DESCRIPTOR.message_types_by_name['EventStreamRequest'] = _EVENTSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['EventStreamResponse'] = _EVENTSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['EventAnnotationConfigRequest'] = _EVENTANNOTATIONCONFIGREQUEST
 DESCRIPTOR.message_types_by_name['EventAnnotationConfigResponse'] = _EVENTANNOTATIONCONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['EventAnnotationConfigSomeRequest'] = _EVENTANNOTATIONCONFIGSOMEREQUEST
+DESCRIPTOR.message_types_by_name['EventAnnotationConfigSomeResponse'] = _EVENTANNOTATIONCONFIGSOMERESPONSE
 DESCRIPTOR.message_types_by_name['EventAnnotationConfigStreamRequest'] = _EVENTANNOTATIONCONFIGSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['EventAnnotationConfigStreamResponse'] = _EVENTANNOTATIONCONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['EventAnnotationConfigSetRequest'] = _EVENTANNOTATIONCONFIGSETREQUEST
@@ -692,9 +1637,34 @@ DESCRIPTOR.message_types_by_name['EventAnnotationConfigSetSomeRequest'] = _EVENT
 DESCRIPTOR.message_types_by_name['EventAnnotationConfigSetSomeResponse'] = _EVENTANNOTATIONCONFIGSETSOMERESPONSE
 DESCRIPTOR.message_types_by_name['EventAnnotationConfigDeleteRequest'] = _EVENTANNOTATIONCONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['EventAnnotationConfigDeleteResponse'] = _EVENTANNOTATIONCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['EventAnnotationConfigDeleteSomeRequest'] = _EVENTANNOTATIONCONFIGDELETESOMEREQUEST
+DESCRIPTOR.message_types_by_name['EventAnnotationConfigDeleteSomeResponse'] = _EVENTANNOTATIONCONFIGDELETESOMERESPONSE
 DESCRIPTOR.message_types_by_name['EventAnnotationConfigDeleteAllRequest'] = _EVENTANNOTATIONCONFIGDELETEALLREQUEST
 DESCRIPTOR.message_types_by_name['EventAnnotationConfigDeleteAllResponse'] = _EVENTANNOTATIONCONFIGDELETEALLRESPONSE
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigRequest'] = _USEREVENTCREATIONCONFIGREQUEST
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigResponse'] = _USEREVENTCREATIONCONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigSomeRequest'] = _USEREVENTCREATIONCONFIGSOMEREQUEST
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigSomeResponse'] = _USEREVENTCREATIONCONFIGSOMERESPONSE
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigStreamRequest'] = _USEREVENTCREATIONCONFIGSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigStreamResponse'] = _USEREVENTCREATIONCONFIGSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigSetRequest'] = _USEREVENTCREATIONCONFIGSETREQUEST
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigSetResponse'] = _USEREVENTCREATIONCONFIGSETRESPONSE
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigSetSomeRequest'] = _USEREVENTCREATIONCONFIGSETSOMEREQUEST
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigSetSomeResponse'] = _USEREVENTCREATIONCONFIGSETSOMERESPONSE
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigDeleteRequest'] = _USEREVENTCREATIONCONFIGDELETEREQUEST
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigDeleteResponse'] = _USEREVENTCREATIONCONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigDeleteSomeRequest'] = _USEREVENTCREATIONCONFIGDELETESOMEREQUEST
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigDeleteSomeResponse'] = _USEREVENTCREATIONCONFIGDELETESOMERESPONSE
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigDeleteAllRequest'] = _USEREVENTCREATIONCONFIGDELETEALLREQUEST
+DESCRIPTOR.message_types_by_name['UserEventCreationConfigDeleteAllResponse'] = _USEREVENTCREATIONCONFIGDELETEALLRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+MetaResponse = _reflection.GeneratedProtocolMessageType('MetaResponse', (_message.Message,), {
+  'DESCRIPTOR' : _METARESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.MetaResponse)
+  })
+_sym_db.RegisterMessage(MetaResponse)
 
 EventRequest = _reflection.GeneratedProtocolMessageType('EventRequest', (_message.Message,), {
   'DESCRIPTOR' : _EVENTREQUEST,
@@ -709,6 +1679,20 @@ EventResponse = _reflection.GeneratedProtocolMessageType('EventResponse', (_mess
   # @@protoc_insertion_point(class_scope:arista.event.v1.EventResponse)
   })
 _sym_db.RegisterMessage(EventResponse)
+
+EventSomeRequest = _reflection.GeneratedProtocolMessageType('EventSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EVENTSOMEREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.EventSomeRequest)
+  })
+_sym_db.RegisterMessage(EventSomeRequest)
+
+EventSomeResponse = _reflection.GeneratedProtocolMessageType('EventSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EVENTSOMERESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.EventSomeResponse)
+  })
+_sym_db.RegisterMessage(EventSomeResponse)
 
 EventStreamRequest = _reflection.GeneratedProtocolMessageType('EventStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _EVENTSTREAMREQUEST,
@@ -737,6 +1721,20 @@ EventAnnotationConfigResponse = _reflection.GeneratedProtocolMessageType('EventA
   # @@protoc_insertion_point(class_scope:arista.event.v1.EventAnnotationConfigResponse)
   })
 _sym_db.RegisterMessage(EventAnnotationConfigResponse)
+
+EventAnnotationConfigSomeRequest = _reflection.GeneratedProtocolMessageType('EventAnnotationConfigSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EVENTANNOTATIONCONFIGSOMEREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.EventAnnotationConfigSomeRequest)
+  })
+_sym_db.RegisterMessage(EventAnnotationConfigSomeRequest)
+
+EventAnnotationConfigSomeResponse = _reflection.GeneratedProtocolMessageType('EventAnnotationConfigSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EVENTANNOTATIONCONFIGSOMERESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.EventAnnotationConfigSomeResponse)
+  })
+_sym_db.RegisterMessage(EventAnnotationConfigSomeResponse)
 
 EventAnnotationConfigStreamRequest = _reflection.GeneratedProtocolMessageType('EventAnnotationConfigStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _EVENTANNOTATIONCONFIGSTREAMREQUEST,
@@ -794,6 +1792,20 @@ EventAnnotationConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('
   })
 _sym_db.RegisterMessage(EventAnnotationConfigDeleteResponse)
 
+EventAnnotationConfigDeleteSomeRequest = _reflection.GeneratedProtocolMessageType('EventAnnotationConfigDeleteSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EVENTANNOTATIONCONFIGDELETESOMEREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.EventAnnotationConfigDeleteSomeRequest)
+  })
+_sym_db.RegisterMessage(EventAnnotationConfigDeleteSomeRequest)
+
+EventAnnotationConfigDeleteSomeResponse = _reflection.GeneratedProtocolMessageType('EventAnnotationConfigDeleteSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EVENTANNOTATIONCONFIGDELETESOMERESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.EventAnnotationConfigDeleteSomeResponse)
+  })
+_sym_db.RegisterMessage(EventAnnotationConfigDeleteSomeResponse)
+
 EventAnnotationConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('EventAnnotationConfigDeleteAllRequest', (_message.Message,), {
   'DESCRIPTOR' : _EVENTANNOTATIONCONFIGDELETEALLREQUEST,
   '__module__' : 'arista.event.v1.services.gen_pb2'
@@ -808,6 +1820,118 @@ EventAnnotationConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageTyp
   })
 _sym_db.RegisterMessage(EventAnnotationConfigDeleteAllResponse)
 
+UserEventCreationConfigRequest = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigRequest', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigRequest)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigRequest)
+
+UserEventCreationConfigResponse = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigResponse', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGRESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigResponse)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigResponse)
+
+UserEventCreationConfigSomeRequest = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGSOMEREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigSomeRequest)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigSomeRequest)
+
+UserEventCreationConfigSomeResponse = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGSOMERESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigSomeResponse)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigSomeResponse)
+
+UserEventCreationConfigStreamRequest = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGSTREAMREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigStreamRequest)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigStreamRequest)
+
+UserEventCreationConfigStreamResponse = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGSTREAMRESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigStreamResponse)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigStreamResponse)
+
+UserEventCreationConfigSetRequest = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigSetRequest', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGSETREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigSetRequest)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigSetRequest)
+
+UserEventCreationConfigSetResponse = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigSetResponse', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGSETRESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigSetResponse)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigSetResponse)
+
+UserEventCreationConfigSetSomeRequest = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigSetSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGSETSOMEREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigSetSomeRequest)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigSetSomeRequest)
+
+UserEventCreationConfigSetSomeResponse = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigSetSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGSETSOMERESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigSetSomeResponse)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigSetSomeResponse)
+
+UserEventCreationConfigDeleteRequest = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigDeleteRequest', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGDELETEREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigDeleteRequest)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigDeleteRequest)
+
+UserEventCreationConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigDeleteResponse', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGDELETERESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigDeleteResponse)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigDeleteResponse)
+
+UserEventCreationConfigDeleteSomeRequest = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigDeleteSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGDELETESOMEREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigDeleteSomeRequest)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigDeleteSomeRequest)
+
+UserEventCreationConfigDeleteSomeResponse = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigDeleteSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGDELETESOMERESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigDeleteSomeResponse)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigDeleteSomeResponse)
+
+UserEventCreationConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigDeleteAllRequest', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGDELETEALLREQUEST,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigDeleteAllRequest)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigDeleteAllRequest)
+
+UserEventCreationConfigDeleteAllResponse = _reflection.GeneratedProtocolMessageType('UserEventCreationConfigDeleteAllResponse', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIGDELETEALLRESPONSE,
+  '__module__' : 'arista.event.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfigDeleteAllResponse)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfigDeleteAllResponse)
+
 
 DESCRIPTOR._options = None
 
@@ -818,8 +1942,8 @@ _EVENTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2125,
-  serialized_end=2389,
+  serialized_start=5061,
+  serialized_end=5575,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -832,9 +1956,19 @@ _EVENTSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.event.v1.EventService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_EVENTSOMEREQUEST,
+    output_type=_EVENTSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.event.v1.EventService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_EVENTSTREAMREQUEST,
     output_type=_EVENTSTREAMRESPONSE,
@@ -844,10 +1978,30 @@ _EVENTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.event.v1.EventService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_EVENTSTREAMREQUEST,
     output_type=_EVENTSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.event.v1.EventService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_EVENTSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.event.v1.EventService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_EVENTSTREAMREQUEST,
+    output_type=_METARESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -864,8 +2018,8 @@ _EVENTANNOTATIONCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2392,
-  serialized_end=3243,
+  serialized_start=5578,
+  serialized_end=6875,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -878,9 +2032,19 @@ _EVENTANNOTATIONCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.event.v1.EventAnnotationConfigService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_EVENTANNOTATIONCONFIGSOMEREQUEST,
+    output_type=_EVENTANNOTATIONCONFIGSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.event.v1.EventAnnotationConfigService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_EVENTANNOTATIONCONFIGSTREAMREQUEST,
     output_type=_EVENTANNOTATIONCONFIGSTREAMRESPONSE,
@@ -890,7 +2054,7 @@ _EVENTANNOTATIONCONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.event.v1.EventAnnotationConfigService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_EVENTANNOTATIONCONFIGSTREAMREQUEST,
     output_type=_EVENTANNOTATIONCONFIGSTREAMRESPONSE,
@@ -898,9 +2062,29 @@ _EVENTANNOTATIONCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.event.v1.EventAnnotationConfigService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_EVENTANNOTATIONCONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.event.v1.EventAnnotationConfigService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_EVENTANNOTATIONCONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Set',
     full_name='arista.event.v1.EventAnnotationConfigService.Set',
-    index=3,
+    index=6,
     containing_service=None,
     input_type=_EVENTANNOTATIONCONFIGSETREQUEST,
     output_type=_EVENTANNOTATIONCONFIGSETRESPONSE,
@@ -910,7 +2094,7 @@ _EVENTANNOTATIONCONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='SetSome',
     full_name='arista.event.v1.EventAnnotationConfigService.SetSome',
-    index=4,
+    index=7,
     containing_service=None,
     input_type=_EVENTANNOTATIONCONFIGSETSOMEREQUEST,
     output_type=_EVENTANNOTATIONCONFIGSETSOMERESPONSE,
@@ -920,7 +2104,7 @@ _EVENTANNOTATIONCONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Delete',
     full_name='arista.event.v1.EventAnnotationConfigService.Delete',
-    index=5,
+    index=8,
     containing_service=None,
     input_type=_EVENTANNOTATIONCONFIGDELETEREQUEST,
     output_type=_EVENTANNOTATIONCONFIGDELETERESPONSE,
@@ -928,9 +2112,19 @@ _EVENTANNOTATIONCONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='DeleteSome',
+    full_name='arista.event.v1.EventAnnotationConfigService.DeleteSome',
+    index=9,
+    containing_service=None,
+    input_type=_EVENTANNOTATIONCONFIGDELETESOMEREQUEST,
+    output_type=_EVENTANNOTATIONCONFIGDELETESOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='DeleteAll',
     full_name='arista.event.v1.EventAnnotationConfigService.DeleteAll',
-    index=6,
+    index=10,
     containing_service=None,
     input_type=_EVENTANNOTATIONCONFIGDELETEALLREQUEST,
     output_type=_EVENTANNOTATIONCONFIGDELETEALLRESPONSE,
@@ -941,5 +2135,131 @@ _EVENTANNOTATIONCONFIGSERVICE = _descriptor.ServiceDescriptor(
 _sym_db.RegisterServiceDescriptor(_EVENTANNOTATIONCONFIGSERVICE)
 
 DESCRIPTOR.services_by_name['EventAnnotationConfigService'] = _EVENTANNOTATIONCONFIGSERVICE
+
+
+_USEREVENTCREATIONCONFIGSERVICE = _descriptor.ServiceDescriptor(
+  name='UserEventCreationConfigService',
+  full_name='arista.event.v1.UserEventCreationConfigService',
+  file=DESCRIPTOR,
+  index=2,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=6878,
+  serialized_end=8218,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='GetOne',
+    full_name='arista.event.v1.UserEventCreationConfigService.GetOne',
+    index=0,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGREQUEST,
+    output_type=_USEREVENTCREATIONCONFIGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.event.v1.UserEventCreationConfigService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGSOMEREQUEST,
+    output_type=_USEREVENTCREATIONCONFIGSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAll',
+    full_name='arista.event.v1.UserEventCreationConfigService.GetAll',
+    index=2,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGSTREAMREQUEST,
+    output_type=_USEREVENTCREATIONCONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Subscribe',
+    full_name='arista.event.v1.UserEventCreationConfigService.Subscribe',
+    index=3,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGSTREAMREQUEST,
+    output_type=_USEREVENTCREATIONCONFIGSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.event.v1.UserEventCreationConfigService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.event.v1.UserEventCreationConfigService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Set',
+    full_name='arista.event.v1.UserEventCreationConfigService.Set',
+    index=6,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGSETREQUEST,
+    output_type=_USEREVENTCREATIONCONFIGSETRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetSome',
+    full_name='arista.event.v1.UserEventCreationConfigService.SetSome',
+    index=7,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGSETSOMEREQUEST,
+    output_type=_USEREVENTCREATIONCONFIGSETSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Delete',
+    full_name='arista.event.v1.UserEventCreationConfigService.Delete',
+    index=8,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGDELETEREQUEST,
+    output_type=_USEREVENTCREATIONCONFIGDELETERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteSome',
+    full_name='arista.event.v1.UserEventCreationConfigService.DeleteSome',
+    index=9,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGDELETESOMEREQUEST,
+    output_type=_USEREVENTCREATIONCONFIGDELETESOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteAll',
+    full_name='arista.event.v1.UserEventCreationConfigService.DeleteAll',
+    index=10,
+    containing_service=None,
+    input_type=_USEREVENTCREATIONCONFIGDELETEALLREQUEST,
+    output_type=_USEREVENTCREATIONCONFIGDELETEALLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_USEREVENTCREATIONCONFIGSERVICE)
+
+DESCRIPTOR.services_by_name['UserEventCreationConfigService'] = _USEREVENTCREATIONCONFIGSERVICE
 
 # @@protoc_insertion_point(module_scope)

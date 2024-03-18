@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z&arista/resources/arista/event.v1;event',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1b\x61rista/event.v1/event.proto\x12\x0f\x61rista.event.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\"\xb6\x01\n\x0e\x45ventComponent\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x1e.arista.event.v1.ComponentType\x12\x43\n\ncomponents\x18\x02 \x03(\x0b\x32/.arista.event.v1.EventComponent.ComponentsEntry\x1a\x31\n\x0f\x43omponentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"F\n\x0f\x45ventComponents\x12\x33\n\ncomponents\x18\x01 \x03(\x0b\x32\x1f.arista.event.v1.EventComponent\"\x8e\x01\n\x08\x45ventAck\x12\'\n\x03\x61\x63k\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05\x61\x63ker\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x08\x61\x63k_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n\tEventRead\x12(\n\x04read\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12,\n\x06reader\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\tread_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"=\n\x0f\x45ventNoteConfig\x12*\n\x04note\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"k\n\tEventNote\x12*\n\x04note\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0cnote_creator\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"j\n\x08\x45ventKey\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\ttimestamp\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x04\x80\x8e\x19\x01\"l\n\tEventData\x12\x32\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32$.arista.event.v1.EventData.DataEntry\x1a+\n\tDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x9f\x01\n\x10\x45ventNotesConfig\x12;\n\x05notes\x18\x01 \x03(\x0b\x32,.arista.event.v1.EventNotesConfig.NotesEntry\x1aN\n\nNotesEntry\x12\x0b\n\x03key\x18\x01 \x01(\x03\x12/\n\x05value\x18\x02 \x01(\x0b\x32 .arista.event.v1.EventNoteConfig:\x02\x38\x01\"\xcc\x01\n\x15\x45ventAnnotationConfig\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12\'\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\x05notes\x18\x03 \x01(\x0b\x32!.arista.event.v1.EventNotesConfig\x12(\n\x04read\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02rw\"\x8d\x01\n\nEventNotes\x12\x35\n\x05notes\x18\x01 \x03(\x0b\x32&.arista.event.v1.EventNotes.NotesEntry\x1aH\n\nNotesEntry\x12\x0b\n\x03key\x18\x01 \x01(\x03\x12)\n\x05value\x18\x02 \x01(\x0b\x32\x1a.arista.event.v1.EventNote:\x02\x38\x01\"\xbf\x04\n\x05\x45vent\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12\x30\n\x08severity\x18\x02 \x01(\x0e\x32\x1e.arista.event.v1.EventSeverity\x12+\n\x05title\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\nevent_type\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04\x64\x61ta\x18\x06 \x01(\x0b\x32\x1a.arista.event.v1.EventData\x12\x34\n\ncomponents\x18\x07 \x01(\x0b\x32 .arista.event.v1.EventComponents\x12&\n\x03\x61\x63k\x18\x08 \x01(\x0b\x32\x19.arista.event.v1.EventAck\x12*\n\x05notes\x18\t \x01(\x0b\x32\x1b.arista.event.v1.EventNotes\x12\x35\n\x11last_updated_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12(\n\x04read\x18\x0b \x01(\x0b\x32\x1a.arista.event.v1.EventRead\x12-\n\x07rule_id\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro*\x9b\x01\n\rEventSeverity\x12\x1e\n\x1a\x45VENT_SEVERITY_UNSPECIFIED\x10\x00\x12\x17\n\x13\x45VENT_SEVERITY_INFO\x10\x01\x12\x1a\n\x16\x45VENT_SEVERITY_WARNING\x10\x02\x12\x18\n\x14\x45VENT_SEVERITY_ERROR\x10\x03\x12\x1b\n\x17\x45VENT_SEVERITY_CRITICAL\x10\x04*\x85\x03\n\rComponentType\x12\x1e\n\x1a\x43OMPONENT_TYPE_UNSPECIFIED\x10\x00\x12\x19\n\x15\x43OMPONENT_TYPE_DEVICE\x10\x01\x12\x1c\n\x18\x43OMPONENT_TYPE_INTERFACE\x10\x02\x12\x1a\n\x16\x43OMPONENT_TYPE_TURBINE\x10\x03\x12\x16\n\x12\x43OMPONENT_TYPE_DVS\x10\x04\x12 \n\x1c\x43OMPONENT_TYPE_DVS_INTERFACE\x10\x05\x12\x15\n\x11\x43OMPONENT_TYPE_VM\x10\x06\x12\x1f\n\x1b\x43OMPONENT_TYPE_VM_INTERFACE\x10\x07\x12\"\n\x1e\x43OMPONENT_TYPE_WORKLOAD_SERVER\x10\x08\x12,\n(COMPONENT_TYPE_WORKLOAD_SERVER_INTERFACE\x10\t\x12\x1e\n\x1a\x43OMPONENT_TYPE_APPLICATION\x10\n\x12\x1b\n\x17\x43OMPONENT_TYPE_CVP_NODE\x10\x0b\x42(Z&arista/resources/arista/event.v1;eventb\x06proto3'
+  serialized_pb=b'\n\x1b\x61rista/event.v1/event.proto\x12\x0f\x61rista.event.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\"\xb6\x01\n\x0e\x45ventComponent\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x1e.arista.event.v1.ComponentType\x12\x43\n\ncomponents\x18\x02 \x03(\x0b\x32/.arista.event.v1.EventComponent.ComponentsEntry\x1a\x31\n\x0f\x43omponentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"F\n\x0f\x45ventComponents\x12\x33\n\ncomponents\x18\x01 \x03(\x0b\x32\x1f.arista.event.v1.EventComponent\"\x8e\x01\n\x08\x45ventAck\x12\'\n\x03\x61\x63k\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05\x61\x63ker\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x08\x61\x63k_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n\tEventRead\x12(\n\x04read\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12,\n\x06reader\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\tread_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"=\n\x0f\x45ventNoteConfig\x12*\n\x04note\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"k\n\tEventNote\x12*\n\x04note\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0cnote_creator\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"j\n\x08\x45ventKey\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\ttimestamp\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x04\x80\x8e\x19\x01\"l\n\tEventData\x12\x32\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32$.arista.event.v1.EventData.DataEntry\x1a+\n\tDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x9f\x01\n\x10\x45ventNotesConfig\x12;\n\x05notes\x18\x01 \x03(\x0b\x32,.arista.event.v1.EventNotesConfig.NotesEntry\x1aN\n\nNotesEntry\x12\x0b\n\x03key\x18\x01 \x01(\x03\x12/\n\x05value\x18\x02 \x01(\x0b\x32 .arista.event.v1.EventNoteConfig:\x02\x38\x01\"\xcc\x01\n\x15\x45ventAnnotationConfig\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12\'\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\x05notes\x18\x03 \x01(\x0b\x32!.arista.event.v1.EventNotesConfig\x12(\n\x04read\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02rw\"\x8d\x01\n\nEventNotes\x12\x35\n\x05notes\x18\x01 \x03(\x0b\x32&.arista.event.v1.EventNotes.NotesEntry\x1aH\n\nNotesEntry\x12\x0b\n\x03key\x18\x01 \x01(\x03\x12)\n\x05value\x18\x02 \x01(\x0b\x32\x1a.arista.event.v1.EventNote:\x02\x38\x01\"\xbf\x04\n\x05\x45vent\x12&\n\x03key\x18\x01 \x01(\x0b\x32\x19.arista.event.v1.EventKey\x12\x30\n\x08severity\x18\x02 \x01(\x0e\x32\x1e.arista.event.v1.EventSeverity\x12+\n\x05title\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\nevent_type\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04\x64\x61ta\x18\x06 \x01(\x0b\x32\x1a.arista.event.v1.EventData\x12\x34\n\ncomponents\x18\x07 \x01(\x0b\x32 .arista.event.v1.EventComponents\x12&\n\x03\x61\x63k\x18\x08 \x01(\x0b\x32\x19.arista.event.v1.EventAck\x12*\n\x05notes\x18\t \x01(\x0b\x32\x1b.arista.event.v1.EventNotes\x12\x35\n\x11last_updated_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12(\n\x04read\x18\x0b \x01(\x0b\x32\x1a.arista.event.v1.EventRead\x12-\n\x07rule_id\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"G\n\x14UserEventCreationKey\x12)\n\x03key\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xae\x03\n\x17UserEventCreationConfig\x12\x32\n\x03key\x18\x01 \x01(\x0b\x32%.arista.event.v1.UserEventCreationKey\x12\x30\n\x08severity\x18\x02 \x01(\x0e\x32\x1e.arista.event.v1.EventSeverity\x12+\n\x05title\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\nevent_type\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07rule_id\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\ncomponents\x18\x07 \x01(\x0b\x32 .arista.event.v1.EventComponents\x12.\n\nstart_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x06\xfa\x8d\x19\x02rw*\xb5\x01\n\rEventSeverity\x12\x1e\n\x1a\x45VENT_SEVERITY_UNSPECIFIED\x10\x00\x12\x17\n\x13\x45VENT_SEVERITY_INFO\x10\x01\x12\x1a\n\x16\x45VENT_SEVERITY_WARNING\x10\x02\x12\x18\n\x14\x45VENT_SEVERITY_ERROR\x10\x03\x12\x1b\n\x17\x45VENT_SEVERITY_CRITICAL\x10\x04\x12\x18\n\x14\x45VENT_SEVERITY_DEBUG\x10\x05*\x85\x03\n\rComponentType\x12\x1e\n\x1a\x43OMPONENT_TYPE_UNSPECIFIED\x10\x00\x12\x19\n\x15\x43OMPONENT_TYPE_DEVICE\x10\x01\x12\x1c\n\x18\x43OMPONENT_TYPE_INTERFACE\x10\x02\x12\x1a\n\x16\x43OMPONENT_TYPE_TURBINE\x10\x03\x12\x16\n\x12\x43OMPONENT_TYPE_VDS\x10\x04\x12 \n\x1c\x43OMPONENT_TYPE_VDS_INTERFACE\x10\x05\x12\x15\n\x11\x43OMPONENT_TYPE_VM\x10\x06\x12\x1f\n\x1b\x43OMPONENT_TYPE_VM_INTERFACE\x10\x07\x12\"\n\x1e\x43OMPONENT_TYPE_WORKLOAD_SERVER\x10\x08\x12,\n(COMPONENT_TYPE_WORKLOAD_SERVER_INTERFACE\x10\t\x12\x1e\n\x1a\x43OMPONENT_TYPE_APPLICATION\x10\n\x12\x1b\n\x17\x43OMPONENT_TYPE_CVP_NODE\x10\x0b\x42(Z&arista/resources/arista/event.v1;eventb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,])
 
@@ -59,11 +59,16 @@ _EVENTSEVERITY = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EVENT_SEVERITY_DEBUG', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2168,
-  serialized_end=2323,
+  serialized_start=2674,
+  serialized_end=2855,
 )
 _sym_db.RegisterEnumDescriptor(_EVENTSEVERITY)
 
@@ -96,12 +101,12 @@ _COMPONENTTYPE = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='COMPONENT_TYPE_DVS', index=4, number=4,
+      name='COMPONENT_TYPE_VDS', index=4, number=4,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='COMPONENT_TYPE_DVS_INTERFACE', index=5, number=5,
+      name='COMPONENT_TYPE_VDS_INTERFACE', index=5, number=5,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
@@ -138,8 +143,8 @@ _COMPONENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2326,
-  serialized_end=2715,
+  serialized_start=2858,
+  serialized_end=3247,
 )
 _sym_db.RegisterEnumDescriptor(_COMPONENTTYPE)
 
@@ -149,12 +154,13 @@ EVENT_SEVERITY_INFO = 1
 EVENT_SEVERITY_WARNING = 2
 EVENT_SEVERITY_ERROR = 3
 EVENT_SEVERITY_CRITICAL = 4
+EVENT_SEVERITY_DEBUG = 5
 COMPONENT_TYPE_UNSPECIFIED = 0
 COMPONENT_TYPE_DEVICE = 1
 COMPONENT_TYPE_INTERFACE = 2
 COMPONENT_TYPE_TURBINE = 3
-COMPONENT_TYPE_DVS = 4
-COMPONENT_TYPE_DVS_INTERFACE = 5
+COMPONENT_TYPE_VDS = 4
+COMPONENT_TYPE_VDS_INTERFACE = 5
 COMPONENT_TYPE_VM = 6
 COMPONENT_TYPE_VM_INTERFACE = 7
 COMPONENT_TYPE_WORKLOAD_SERVER = 8
@@ -846,6 +852,119 @@ _EVENT = _descriptor.Descriptor(
   serialized_end=2165,
 )
 
+
+_USEREVENTCREATIONKEY = _descriptor.Descriptor(
+  name='UserEventCreationKey',
+  full_name='arista.event.v1.UserEventCreationKey',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.event.v1.UserEventCreationKey.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\200\216\031\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2167,
+  serialized_end=2238,
+)
+
+
+_USEREVENTCREATIONCONFIG = _descriptor.Descriptor(
+  name='UserEventCreationConfig',
+  full_name='arista.event.v1.UserEventCreationConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.event.v1.UserEventCreationConfig.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='severity', full_name='arista.event.v1.UserEventCreationConfig.severity', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='title', full_name='arista.event.v1.UserEventCreationConfig.title', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='arista.event.v1.UserEventCreationConfig.description', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='event_type', full_name='arista.event.v1.UserEventCreationConfig.event_type', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rule_id', full_name='arista.event.v1.UserEventCreationConfig.rule_id', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='components', full_name='arista.event.v1.UserEventCreationConfig.components', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='arista.event.v1.UserEventCreationConfig.start_time', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\372\215\031\002rw',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2241,
+  serialized_end=2671,
+)
+
 _EVENTCOMPONENT_COMPONENTSENTRY.containing_type = _EVENTCOMPONENT
 _EVENTCOMPONENT.fields_by_name['type'].enum_type = _COMPONENTTYPE
 _EVENTCOMPONENT.fields_by_name['components'].message_type = _EVENTCOMPONENT_COMPONENTSENTRY
@@ -885,6 +1004,15 @@ _EVENT.fields_by_name['notes'].message_type = _EVENTNOTES
 _EVENT.fields_by_name['last_updated_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EVENT.fields_by_name['read'].message_type = _EVENTREAD
 _EVENT.fields_by_name['rule_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_USEREVENTCREATIONKEY.fields_by_name['key'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_USEREVENTCREATIONCONFIG.fields_by_name['key'].message_type = _USEREVENTCREATIONKEY
+_USEREVENTCREATIONCONFIG.fields_by_name['severity'].enum_type = _EVENTSEVERITY
+_USEREVENTCREATIONCONFIG.fields_by_name['title'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_USEREVENTCREATIONCONFIG.fields_by_name['description'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_USEREVENTCREATIONCONFIG.fields_by_name['event_type'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_USEREVENTCREATIONCONFIG.fields_by_name['rule_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_USEREVENTCREATIONCONFIG.fields_by_name['components'].message_type = _EVENTCOMPONENTS
+_USEREVENTCREATIONCONFIG.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['EventComponent'] = _EVENTCOMPONENT
 DESCRIPTOR.message_types_by_name['EventComponents'] = _EVENTCOMPONENTS
 DESCRIPTOR.message_types_by_name['EventAck'] = _EVENTACK
@@ -897,6 +1025,8 @@ DESCRIPTOR.message_types_by_name['EventNotesConfig'] = _EVENTNOTESCONFIG
 DESCRIPTOR.message_types_by_name['EventAnnotationConfig'] = _EVENTANNOTATIONCONFIG
 DESCRIPTOR.message_types_by_name['EventNotes'] = _EVENTNOTES
 DESCRIPTOR.message_types_by_name['Event'] = _EVENT
+DESCRIPTOR.message_types_by_name['UserEventCreationKey'] = _USEREVENTCREATIONKEY
+DESCRIPTOR.message_types_by_name['UserEventCreationConfig'] = _USEREVENTCREATIONCONFIG
 DESCRIPTOR.enum_types_by_name['EventSeverity'] = _EVENTSEVERITY
 DESCRIPTOR.enum_types_by_name['ComponentType'] = _COMPONENTTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -1017,6 +1147,20 @@ Event = _reflection.GeneratedProtocolMessageType('Event', (_message.Message,), {
   })
 _sym_db.RegisterMessage(Event)
 
+UserEventCreationKey = _reflection.GeneratedProtocolMessageType('UserEventCreationKey', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONKEY,
+  '__module__' : 'arista.event.v1.event_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationKey)
+  })
+_sym_db.RegisterMessage(UserEventCreationKey)
+
+UserEventCreationConfig = _reflection.GeneratedProtocolMessageType('UserEventCreationConfig', (_message.Message,), {
+  'DESCRIPTOR' : _USEREVENTCREATIONCONFIG,
+  '__module__' : 'arista.event.v1.event_pb2'
+  # @@protoc_insertion_point(class_scope:arista.event.v1.UserEventCreationConfig)
+  })
+_sym_db.RegisterMessage(UserEventCreationConfig)
+
 
 DESCRIPTOR._options = None
 _EVENTCOMPONENT_COMPONENTSENTRY._options = None
@@ -1026,4 +1170,6 @@ _EVENTNOTESCONFIG_NOTESENTRY._options = None
 _EVENTANNOTATIONCONFIG._options = None
 _EVENTNOTES_NOTESENTRY._options = None
 _EVENT._options = None
+_USEREVENTCREATIONKEY._options = None
+_USEREVENTCREATIONCONFIG._options = None
 # @@protoc_insertion_point(module_scope)

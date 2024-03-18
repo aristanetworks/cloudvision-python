@@ -19,6 +19,11 @@ class EventServiceStub(object):
                 request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventRequest.SerializeToString,
                 response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.event.v1.EventService/GetSome',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.event.v1.EventService/GetAll',
                 request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamRequest.SerializeToString,
@@ -29,12 +34,28 @@ class EventServiceStub(object):
                 request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.event.v1.EventService/GetMeta',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.event.v1.EventService/SubscribeMeta',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
 
 
 class EventServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -52,6 +73,18 @@ class EventServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_EventServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -59,6 +92,11 @@ def add_EventServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventRequest.FromString,
                     response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventSomeRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventSomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -69,6 +107,16 @@ def add_EventServiceServicer_to_server(servicer, server):
                     servicer.Subscribe,
                     request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamRequest.FromString,
                     response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -94,6 +142,23 @@ class EventService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.event.v1.EventService/GetOne',
             arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventRequest.SerializeToString,
             arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.EventService/GetSome',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventSomeRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -131,6 +196,40 @@ class EventService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.event.v1.EventService/GetMeta',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.EventService/SubscribeMeta',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventStreamRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class EventAnnotationConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -146,6 +245,11 @@ class EventAnnotationConfigServiceStub(object):
                 request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigRequest.SerializeToString,
                 response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.event.v1.EventAnnotationConfigService/GetSome',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.event.v1.EventAnnotationConfigService/GetAll',
                 request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.SerializeToString,
@@ -155,6 +259,16 @@ class EventAnnotationConfigServiceStub(object):
                 '/arista.event.v1.EventAnnotationConfigService/Subscribe',
                 request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamResponse.FromString,
+                )
+        self.GetMeta = channel.unary_unary(
+                '/arista.event.v1.EventAnnotationConfigService/GetMeta',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.event.v1.EventAnnotationConfigService/SubscribeMeta',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
                 )
         self.Set = channel.unary_unary(
                 '/arista.event.v1.EventAnnotationConfigService/Set',
@@ -170,6 +284,11 @@ class EventAnnotationConfigServiceStub(object):
                 '/arista.event.v1.EventAnnotationConfigService/Delete',
                 request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteResponse.FromString,
+                )
+        self.DeleteSome = channel.unary_stream(
+                '/arista.event.v1.EventAnnotationConfigService/DeleteSome',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteSomeResponse.FromString,
                 )
         self.DeleteAll = channel.unary_stream(
                 '/arista.event.v1.EventAnnotationConfigService/DeleteAll',
@@ -187,6 +306,12 @@ class EventAnnotationConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -194,6 +319,18 @@ class EventAnnotationConfigServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -217,6 +354,12 @@ class EventAnnotationConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -231,6 +374,11 @@ def add_EventAnnotationConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigRequest.FromString,
                     response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigResponse.SerializeToString,
             ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigSomeRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigSomeResponse.SerializeToString,
+            ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
                     request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.FromString,
@@ -240,6 +388,16 @@ def add_EventAnnotationConfigServiceServicer_to_server(servicer, server):
                     servicer.Subscribe,
                     request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.FromString,
                     response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
             ),
             'Set': grpc.unary_unary_rpc_method_handler(
                     servicer.Set,
@@ -255,6 +413,11 @@ def add_EventAnnotationConfigServiceServicer_to_server(servicer, server):
                     servicer.Delete,
                     request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteSome,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteSomeRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteSomeResponse.SerializeToString,
             ),
             'DeleteAll': grpc.unary_stream_rpc_method_handler(
                     servicer.DeleteAll,
@@ -289,6 +452,23 @@ class EventAnnotationConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.EventAnnotationConfigService/GetSome',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigSomeRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetAll(request,
             target,
             options=(),
@@ -319,6 +499,40 @@ class EventAnnotationConfigService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.event.v1.EventAnnotationConfigService/Subscribe',
             arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.SerializeToString,
             arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.event.v1.EventAnnotationConfigService/GetMeta',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.EventAnnotationConfigService/SubscribeMeta',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigStreamRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -374,6 +588,23 @@ class EventAnnotationConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.EventAnnotationConfigService/DeleteSome',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteSomeRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def DeleteAll(request,
             target,
             options=(),
@@ -387,5 +618,396 @@ class EventAnnotationConfigService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.event.v1.EventAnnotationConfigService/DeleteAll',
             arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteAllRequest.SerializeToString,
             arista_dot_event_dot_v1_dot_services_dot_gen__pb2.EventAnnotationConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class UserEventCreationConfigServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.event.v1.UserEventCreationConfigService/GetOne',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigResponse.FromString,
+                )
+        self.GetSome = channel.unary_stream(
+                '/arista.event.v1.UserEventCreationConfigService/GetSome',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSomeResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.event.v1.UserEventCreationConfigService/GetAll',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.event.v1.UserEventCreationConfigService/Subscribe',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamResponse.FromString,
+                )
+        self.GetMeta = channel.unary_unary(
+                '/arista.event.v1.UserEventCreationConfigService/GetMeta',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.event.v1.UserEventCreationConfigService/SubscribeMeta',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.Set = channel.unary_unary(
+                '/arista.event.v1.UserEventCreationConfigService/Set',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetResponse.FromString,
+                )
+        self.SetSome = channel.unary_stream(
+                '/arista.event.v1.UserEventCreationConfigService/SetSome',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetSomeResponse.FromString,
+                )
+        self.Delete = channel.unary_unary(
+                '/arista.event.v1.UserEventCreationConfigService/Delete',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteResponse.FromString,
+                )
+        self.DeleteSome = channel.unary_stream(
+                '/arista.event.v1.UserEventCreationConfigService/DeleteSome',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteSomeResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.event.v1.UserEventCreationConfigService/DeleteAll',
+                request_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteAllResponse.FromString,
+                )
+
+
+class UserEventCreationConfigServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Set(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_UserEventCreationConfigServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSomeRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSomeResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'Set': grpc.unary_unary_rpc_method_handler(
+                    servicer.Set,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetSomeResponse.SerializeToString,
+            ),
+            'Delete': grpc.unary_unary_rpc_method_handler(
+                    servicer.Delete,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteSome,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteSomeRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteSomeResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteAllResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.event.v1.UserEventCreationConfigService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class UserEventCreationConfigService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.event.v1.UserEventCreationConfigService/GetOne',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.UserEventCreationConfigService/GetSome',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSomeRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.UserEventCreationConfigService/GetAll',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.UserEventCreationConfigService/Subscribe',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.event.v1.UserEventCreationConfigService/GetMeta',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.UserEventCreationConfigService/SubscribeMeta',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigStreamRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Set(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.event.v1.UserEventCreationConfigService/Set',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.UserEventCreationConfigService/SetSome',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetSomeRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Delete(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.event.v1.UserEventCreationConfigService/Delete',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.UserEventCreationConfigService/DeleteSome',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteSomeRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.event.v1.UserEventCreationConfigService/DeleteAll',
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteAllRequest.SerializeToString,
+            arista_dot_event_dot_v1_dot_services_dot_gen__pb2.UserEventCreationConfigDeleteAllResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
