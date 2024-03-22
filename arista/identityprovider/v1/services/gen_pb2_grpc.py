@@ -19,6 +19,11 @@ class OAuthConfigServiceStub(object):
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.identityprovider.v1.OAuthConfigService/GetSome',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.identityprovider.v1.OAuthConfigService/GetAll',
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamRequest.SerializeToString,
@@ -29,15 +34,35 @@ class OAuthConfigServiceStub(object):
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.identityprovider.v1.OAuthConfigService/GetMeta',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.identityprovider.v1.OAuthConfigService/SubscribeMeta',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
         self.Set = channel.unary_unary(
                 '/arista.identityprovider.v1.OAuthConfigService/Set',
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.identityprovider.v1.OAuthConfigService/SetSome',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.identityprovider.v1.OAuthConfigService/Delete',
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteResponse.FromString,
+                )
+        self.DeleteSome = channel.unary_stream(
+                '/arista.identityprovider.v1.OAuthConfigService/DeleteSome',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteSomeResponse.FromString,
                 )
         self.DeleteAll = channel.unary_stream(
                 '/arista.identityprovider.v1.OAuthConfigService/DeleteAll',
@@ -55,6 +80,12 @@ class OAuthConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -67,13 +98,37 @@ class OAuthConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Set(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -93,6 +148,11 @@ def add_OAuthConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigResponse.SerializeToString,
             ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSomeRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSomeResponse.SerializeToString,
+            ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamRequest.FromString,
@@ -103,15 +163,35 @@ def add_OAuthConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamResponse.SerializeToString,
             ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
             'Set': grpc.unary_unary_rpc_method_handler(
                     servicer.Set,
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetResponse.SerializeToString,
             ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeResponse.SerializeToString,
+            ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteSome,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteSomeRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteSomeResponse.SerializeToString,
             ),
             'DeleteAll': grpc.unary_stream_rpc_method_handler(
                     servicer.DeleteAll,
@@ -142,6 +222,23 @@ class OAuthConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.identityprovider.v1.OAuthConfigService/GetOne',
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigRequest.SerializeToString,
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.OAuthConfigService/GetSome',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSomeRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -180,6 +277,40 @@ class OAuthConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.identityprovider.v1.OAuthConfigService/GetMeta',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.OAuthConfigService/SubscribeMeta',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigStreamRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Set(request,
             target,
             options=(),
@@ -197,6 +328,23 @@ class OAuthConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.OAuthConfigService/SetSome',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Delete(request,
             target,
             options=(),
@@ -210,6 +358,23 @@ class OAuthConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.identityprovider.v1.OAuthConfigService/Delete',
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteRequest.SerializeToString,
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.OAuthConfigService/DeleteSome',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteSomeRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -245,6 +410,11 @@ class SAMLConfigServiceStub(object):
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.identityprovider.v1.SAMLConfigService/GetSome',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.identityprovider.v1.SAMLConfigService/GetAll',
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamRequest.SerializeToString,
@@ -255,15 +425,35 @@ class SAMLConfigServiceStub(object):
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.identityprovider.v1.SAMLConfigService/GetMeta',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.identityprovider.v1.SAMLConfigService/SubscribeMeta',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
         self.Set = channel.unary_unary(
                 '/arista.identityprovider.v1.SAMLConfigService/Set',
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetResponse.FromString,
                 )
+        self.SetSome = channel.unary_stream(
+                '/arista.identityprovider.v1.SAMLConfigService/SetSome',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/arista.identityprovider.v1.SAMLConfigService/Delete',
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteResponse.FromString,
+                )
+        self.DeleteSome = channel.unary_stream(
+                '/arista.identityprovider.v1.SAMLConfigService/DeleteSome',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteSomeResponse.FromString,
                 )
         self.DeleteAll = channel.unary_stream(
                 '/arista.identityprovider.v1.SAMLConfigService/DeleteAll',
@@ -281,6 +471,12 @@ class SAMLConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetAll(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -293,13 +489,37 @@ class SAMLConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Set(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -319,6 +539,11 @@ def add_SAMLConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigResponse.SerializeToString,
             ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSomeRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSomeResponse.SerializeToString,
+            ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamRequest.FromString,
@@ -329,15 +554,35 @@ def add_SAMLConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamResponse.SerializeToString,
             ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
             'Set': grpc.unary_unary_rpc_method_handler(
                     servicer.Set,
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetResponse.SerializeToString,
             ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeResponse.SerializeToString,
+            ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteSome,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteSomeRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteSomeResponse.SerializeToString,
             ),
             'DeleteAll': grpc.unary_stream_rpc_method_handler(
                     servicer.DeleteAll,
@@ -368,6 +613,23 @@ class SAMLConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.identityprovider.v1.SAMLConfigService/GetOne',
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigRequest.SerializeToString,
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.SAMLConfigService/GetSome',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSomeRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -406,6 +668,40 @@ class SAMLConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.identityprovider.v1.SAMLConfigService/GetMeta',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.SAMLConfigService/SubscribeMeta',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigStreamRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Set(request,
             target,
             options=(),
@@ -423,6 +719,23 @@ class SAMLConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.SAMLConfigService/SetSome',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Delete(request,
             target,
             options=(),
@@ -436,6 +749,23 @@ class SAMLConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.identityprovider.v1.SAMLConfigService/Delete',
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteRequest.SerializeToString,
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.SAMLConfigService/DeleteSome',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteSomeRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
