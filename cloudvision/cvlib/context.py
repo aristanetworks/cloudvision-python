@@ -32,6 +32,7 @@ from .exceptions import (
     DeviceCommandsFailed,
     InvalidContextException,
     InvalidCredentials,
+    LoggingFailed,
     TimeoutExpiry,
 )
 from .execution import Execution
@@ -608,7 +609,8 @@ class Context:
             return linefmt.format(args)
         return ''
 
-    def alog(self, message, userName=None, customKey=None, tags: Dict[str, str] = None):
+    def alog(self, message, userName=None, customKey=None, tags: Dict[str, str] = None,
+             ignoreFailures=False):
         """
         Creates an audit log entry in CloudVision, with the provided info.
         The context's associated device name and id will be added to the audit log metadata
@@ -622,58 +624,86 @@ class Context:
             tags:       A string dictionary of additional custom tags to add to the audit log
                         entry. The action ID is always added as a tag to the audit log
         """
-        self.logger.alog(self, message, userName, customKey, tags)
+        try:
+            self.logger.alog(self, message, userName, customKey, tags)
+        except LoggingFailed:
+            if not ignoreFailures:
+                raise
 
-    def trace(self, msg):
+    def trace(self, msg, ignoreFailures=False):
         """
         Creates a trace level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
         """
         if self.getLoggingLevel() > LoggingLevel.Trace:
             return
-        self.logger.trace(self, msg)
+        try:
+            self.logger.trace(self, msg)
+        except LoggingFailed:
+            if not ignoreFailures:
+                raise
 
-    def debug(self, msg):
+    def debug(self, msg, ignoreFailures=False):
         """
         Creates a debug level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
         """
         if self.getLoggingLevel() > LoggingLevel.Debug:
             return
-        self.logger.debug(self, msg)
+        try:
+            self.logger.debug(self, msg)
+        except LoggingFailed:
+            if not ignoreFailures:
+                raise
 
-    def info(self, msg):
+    def info(self, msg, ignoreFailures=False):
         """
         Creates an info level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
         """
         if self.getLoggingLevel() > LoggingLevel.Info:
             return
-        self.logger.info(self, msg)
+        try:
+            self.logger.info(self, msg)
+        except LoggingFailed:
+            if not ignoreFailures:
+                raise
 
-    def warning(self, msg):
+    def warning(self, msg, ignoreFailures=False):
         """
         Creates a warning level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
         """
         if self.getLoggingLevel() > LoggingLevel.Warn:
             return
-        self.logger.warning(self, msg)
+        try:
+            self.logger.warning(self, msg)
+        except LoggingFailed:
+            if not ignoreFailures:
+                raise
 
-    def error(self, msg):
+    def error(self, msg, ignoreFailures=False):
         """
         Creates an error level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
         """
         if self.getLoggingLevel() > LoggingLevel.Error:
             return
-        self.logger.error(self, msg)
+        try:
+            self.logger.error(self, msg)
+        except LoggingFailed:
+            if not ignoreFailures:
+                raise
 
-    def critical(self, msg):
+    def critical(self, msg, ignoreFailures=False):
         """
         Creates a critical level log
         """
-        self.logger.critical(self, msg)
+        try:
+            self.logger.critical(self, msg)
+        except LoggingFailed:
+            if not ignoreFailures:
+                raise
 
     def keepBlankLines(self, preserve=True):
         # This function is only relevant for Studio Templates.
