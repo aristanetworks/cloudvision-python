@@ -324,6 +324,14 @@ class Context:
             errMsg = resp["errorMessage"]
             raise DeviceCommandsFailed((f"Commands failed to run on device \"{device.id}\","
                                         f" returned {errCode}:\"{errMsg}\""), errCode, errMsg)
+
+        # Check that none of the commands have outright failed
+        for i, cmdResp in enumerate(resp):
+            err = cmdResp.get("error")
+            if err:
+                raise DeviceCommandsFailed((f"Command \"{commandsList[i]}\" failed to run on "
+                                           f"device \"{device.id}\", returned {err}"))
+
         return resp
 
     @staticmethod

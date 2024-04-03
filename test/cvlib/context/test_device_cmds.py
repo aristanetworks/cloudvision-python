@@ -3,12 +3,13 @@
 # that can be found in the COPYING file.
 
 import pytest
-
-from unittest import mock
+from http import HTTPStatus
+from unittest.mock import Mock, patch
 
 from cloudvision.cvlib import (
     Action,
     ActionContext,
+    AuthAndEndpoints,
     Context,
     Device,
     User
@@ -66,7 +67,7 @@ def test_get_host_name_exception(name, device, exception, expected, returnVals):
         device=device,
     )
 
-    ctx.runDeviceCmds = mock.Mock(return_value=returnVals)
+    ctx.runDeviceCmds = Mock(return_value=returnVals)
 
     with pytest.raises(exception) as excinfo:
         ctx.getDeviceHostname(ctx.device)
@@ -82,7 +83,7 @@ action = Action(
 device = Device(ip="123.456.789", deviceId="JP123456",
                 deviceMac="00-B0-D0-63-C2-26")
 
-cases_run_device_cmds = [
+cases_run_device_cmds_exp = [
     (
         "no action",
         None,
@@ -111,7 +112,7 @@ cases_run_device_cmds = [
 ]
 
 
-@pytest.mark.parametrize('name, device, action, expected', cases_run_device_cmds)
+@pytest.mark.parametrize('name, device, action, expected', cases_run_device_cmds_exp)
 def test_runDeviceCmds_exception(name, device, action, expected):
     ctx = Context(
         user=User("test_user", "123"),
@@ -122,3 +123,67 @@ def test_runDeviceCmds_exception(name, device, action, expected):
     with pytest.raises(InvalidContextException) as excinfo:
         ctx.runDeviceCmds(["enable", "show hostname"], ctx.device)
     assert expected in str(excinfo.value)
+
+
+cases_run_device_cmds = [
+    (
+        "failure in request",
+        {'errorCode': '341604', 'errorMessage': 'Invalid request'},
+        True,
+        f"Commands failed to run on device \"{device.id}\", returned 341604:\"Invalid request\""
+    ),
+    (
+        "Command failed",
+        [
+            {"response": "", "error": ""},
+            {"response": "", "error": "Ambiguous command (at token 1)"},
+        ],
+        True,
+        (f"Command \"testCommand\" failed to run on device \"{device.id}\","
+         " returned Ambiguous command (at token 1)")
+    ),
+    (
+        "Command passed",
+        [
+            {"response": "", "error": ""},
+            {"response": "Test command success", "error": ""},
+        ],
+        False,
+        "Test command success"
+    ),
+]
+
+
+@pytest.mark.parametrize('name, mockedResp, exception, expected', cases_run_device_cmds)
+def test_runDeviceCmds(name, mockedResp, exception, expected):
+
+    conns = AuthAndEndpoints(
+        serviceAddr="localhost",
+        commandEndpoint="commands",
+    )
+    ctx = Context(
+        user=User("test_user", "123"),
+        connections=conns,
+        device=device,
+        action=action,
+    )
+
+    def mocked_request_resp(*args, **kwargs):
+        class MockResponse:
+            def __init__(self, data, status_code):
+                self.json_data = data
+                self.status_code = status_code
+
+            def json(self):
+                return self.json_data
+
+        return MockResponse(mockedResp, HTTPStatus.OK)
+
+    with patch('cloudvision.cvlib.context.requests.post', side_effect=mocked_request_resp):
+        if exception:
+            with pytest.raises(DeviceCommandsFailed) as excinfo:
+                ctx.runDeviceCmds(["enable", "testCommand"])
+            assert expected in str(excinfo.value), "Unexpected exception"
+        else:
+            resp = ctx.runDeviceCmds(["enable", "testCommand"])
+            assert expected == resp[1]["response"], "Response is not expected"
