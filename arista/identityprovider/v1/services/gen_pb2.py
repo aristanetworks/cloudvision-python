@@ -23,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='arista/identityprovider.v1/services.gen.proto',
   package='arista.identityprovider.v1',
   syntax='proto3',
-  serialized_options=b'Z<arista/resources/arista/identityprovider.v1;identityprovider',
+  serialized_options=b'ZXgithub.com/aristanetworks/cloudvision-go/api/arista/identityprovider.v1;identityprovider',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n-arista/identityprovider.v1/services.gen.proto\x12\x1a\x61rista.identityprovider.v1\x1a\x31\x61rista/identityprovider.v1/identityprovider.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x94\x01\n\x0cMetaResponse\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x02 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\x12+\n\x05\x63ount\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"q\n\x12OAuthConfigRequest\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"w\n\x13OAuthConfigResponse\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"v\n\x16OAuthConfigSomeRequest\x12\x32\n\x04keys\x18\x01 \x03(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa8\x01\n\x17OAuthConfigSomeResponse\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x85\x01\n\x18OAuthConfigStreamRequest\x12\x42\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xac\x01\n\x19OAuthConfigStreamResponse\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"O\n\x15OAuthConfigSetRequest\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\"z\n\x16OAuthConfigSetResponse\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"T\n\x19OAuthConfigSetSomeRequest\x12\x37\n\x06values\x18\x01 \x03(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\"^\n\x1aOAuthConfigSetSomeResponse\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"M\n\x18OAuthConfigDeleteRequest\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\"x\n\x19OAuthConfigDeleteResponse\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"R\n\x1cOAuthConfigDeleteSomeRequest\x12\x32\n\x04keys\x18\x01 \x03(\x0b\x32$.arista.identityprovider.v1.OAuthKey\"a\n\x1dOAuthConfigDeleteSomeResponse\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"\x1d\n\x1bOAuthConfigDeleteAllRequest\"\xc8\x01\n\x1cOAuthConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x03key\x18\x03 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x11SAMLConfigRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"u\n\x12SAMLConfigResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"t\n\x15SAMLConfigSomeRequest\x12\x31\n\x04keys\x18\x01 \x03(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa6\x01\n\x16SAMLConfigSomeResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x83\x01\n\x17SAMLConfigStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xaa\x01\n\x18SAMLConfigStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"M\n\x14SAMLConfigSetRequest\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\"x\n\x15SAMLConfigSetResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"R\n\x18SAMLConfigSetSomeRequest\x12\x36\n\x06values\x18\x01 \x03(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\"\\\n\x19SAMLConfigSetSomeResponse\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"K\n\x17SAMLConfigDeleteRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\"v\n\x18SAMLConfigDeleteResponse\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"P\n\x1bSAMLConfigDeleteSomeRequest\x12\x31\n\x04keys\x18\x01 \x03(\x0b\x32#.arista.identityprovider.v1.SAMLKey\"_\n\x1cSAMLConfigDeleteSomeResponse\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"\x1c\n\x1aSAMLConfigDeleteAllRequest\"\xc6\x01\n\x1bSAMLConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x03key\x18\x03 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xb2\n\n\x12OAuthConfigService\x12i\n\x06GetOne\x12..arista.identityprovider.v1.OAuthConfigRequest\x1a/.arista.identityprovider.v1.OAuthConfigResponse\x12t\n\x07GetSome\x12\x32.arista.identityprovider.v1.OAuthConfigSomeRequest\x1a\x33.arista.identityprovider.v1.OAuthConfigSomeResponse0\x01\x12w\n\x06GetAll\x12\x34.arista.identityprovider.v1.OAuthConfigStreamRequest\x1a\x35.arista.identityprovider.v1.OAuthConfigStreamResponse0\x01\x12z\n\tSubscribe\x12\x34.arista.identityprovider.v1.OAuthConfigStreamRequest\x1a\x35.arista.identityprovider.v1.OAuthConfigStreamResponse0\x01\x12i\n\x07GetMeta\x12\x34.arista.identityprovider.v1.OAuthConfigStreamRequest\x1a(.arista.identityprovider.v1.MetaResponse\x12q\n\rSubscribeMeta\x12\x34.arista.identityprovider.v1.OAuthConfigStreamRequest\x1a(.arista.identityprovider.v1.MetaResponse0\x01\x12l\n\x03Set\x12\x31.arista.identityprovider.v1.OAuthConfigSetRequest\x1a\x32.arista.identityprovider.v1.OAuthConfigSetResponse\x12z\n\x07SetSome\x12\x35.arista.identityprovider.v1.OAuthConfigSetSomeRequest\x1a\x36.arista.identityprovider.v1.OAuthConfigSetSomeResponse0\x01\x12u\n\x06\x44\x65lete\x12\x34.arista.identityprovider.v1.OAuthConfigDeleteRequest\x1a\x35.arista.identityprovider.v1.OAuthConfigDeleteResponse\x12\x83\x01\n\nDeleteSome\x12\x38.arista.identityprovider.v1.OAuthConfigDeleteSomeRequest\x1a\x39.arista.identityprovider.v1.OAuthConfigDeleteSomeResponse0\x01\x12\x80\x01\n\tDeleteAll\x12\x37.arista.identityprovider.v1.OAuthConfigDeleteAllRequest\x1a\x38.arista.identityprovider.v1.OAuthConfigDeleteAllResponse0\x01\x32\x9c\n\n\x11SAMLConfigService\x12g\n\x06GetOne\x12-.arista.identityprovider.v1.SAMLConfigRequest\x1a..arista.identityprovider.v1.SAMLConfigResponse\x12r\n\x07GetSome\x12\x31.arista.identityprovider.v1.SAMLConfigSomeRequest\x1a\x32.arista.identityprovider.v1.SAMLConfigSomeResponse0\x01\x12u\n\x06GetAll\x12\x33.arista.identityprovider.v1.SAMLConfigStreamRequest\x1a\x34.arista.identityprovider.v1.SAMLConfigStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.identityprovider.v1.SAMLConfigStreamRequest\x1a\x34.arista.identityprovider.v1.SAMLConfigStreamResponse0\x01\x12h\n\x07GetMeta\x12\x33.arista.identityprovider.v1.SAMLConfigStreamRequest\x1a(.arista.identityprovider.v1.MetaResponse\x12p\n\rSubscribeMeta\x12\x33.arista.identityprovider.v1.SAMLConfigStreamRequest\x1a(.arista.identityprovider.v1.MetaResponse0\x01\x12j\n\x03Set\x12\x30.arista.identityprovider.v1.SAMLConfigSetRequest\x1a\x31.arista.identityprovider.v1.SAMLConfigSetResponse\x12x\n\x07SetSome\x12\x34.arista.identityprovider.v1.SAMLConfigSetSomeRequest\x1a\x35.arista.identityprovider.v1.SAMLConfigSetSomeResponse0\x01\x12s\n\x06\x44\x65lete\x12\x33.arista.identityprovider.v1.SAMLConfigDeleteRequest\x1a\x34.arista.identityprovider.v1.SAMLConfigDeleteResponse\x12\x81\x01\n\nDeleteSome\x12\x37.arista.identityprovider.v1.SAMLConfigDeleteSomeRequest\x1a\x38.arista.identityprovider.v1.SAMLConfigDeleteSomeResponse0\x01\x12~\n\tDeleteAll\x12\x36.arista.identityprovider.v1.SAMLConfigDeleteAllRequest\x1a\x37.arista.identityprovider.v1.SAMLConfigDeleteAllResponse0\x01\x42>Z<arista/resources/arista/identityprovider.v1;identityproviderb\x06proto3'
+  serialized_pb=b'\n-arista/identityprovider.v1/services.gen.proto\x12\x1a\x61rista.identityprovider.v1\x1a\x31\x61rista/identityprovider.v1/identityprovider.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x94\x01\n\x0cMetaResponse\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x02 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\x12+\n\x05\x63ount\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"q\n\x12OAuthConfigRequest\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"w\n\x13OAuthConfigResponse\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"v\n\x16OAuthConfigSomeRequest\x12\x32\n\x04keys\x18\x01 \x03(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa8\x01\n\x17OAuthConfigSomeResponse\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x85\x01\n\x18OAuthConfigStreamRequest\x12\x42\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xac\x01\n\x19OAuthConfigStreamResponse\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"O\n\x15OAuthConfigSetRequest\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\"z\n\x16OAuthConfigSetResponse\x12\x36\n\x05value\x18\x01 \x01(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"T\n\x19OAuthConfigSetSomeRequest\x12\x37\n\x06values\x18\x01 \x03(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\"^\n\x1aOAuthConfigSetSomeResponse\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"M\n\x18OAuthConfigDeleteRequest\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\"x\n\x19OAuthConfigDeleteResponse\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"R\n\x1cOAuthConfigDeleteSomeRequest\x12\x32\n\x04keys\x18\x01 \x03(\x0b\x32$.arista.identityprovider.v1.OAuthKey\"a\n\x1dOAuthConfigDeleteSomeResponse\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"a\n\x1bOAuthConfigDeleteAllRequest\x12\x42\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\'.arista.identityprovider.v1.OAuthConfig\"\xc8\x01\n\x1cOAuthConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x03key\x18\x03 \x01(\x0b\x32$.arista.identityprovider.v1.OAuthKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x11SAMLConfigRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"u\n\x12SAMLConfigResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"t\n\x15SAMLConfigSomeRequest\x12\x31\n\x04keys\x18\x01 \x03(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa6\x01\n\x16SAMLConfigSomeResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x83\x01\n\x17SAMLConfigStreamRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xaa\x01\n\x18SAMLConfigStreamResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"M\n\x14SAMLConfigSetRequest\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\"x\n\x15SAMLConfigSetResponse\x12\x35\n\x05value\x18\x01 \x01(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"R\n\x18SAMLConfigSetSomeRequest\x12\x36\n\x06values\x18\x01 \x03(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\"\\\n\x19SAMLConfigSetSomeResponse\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"K\n\x17SAMLConfigDeleteRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\"v\n\x18SAMLConfigDeleteResponse\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"P\n\x1bSAMLConfigDeleteSomeRequest\x12\x31\n\x04keys\x18\x01 \x03(\x0b\x32#.arista.identityprovider.v1.SAMLKey\"_\n\x1cSAMLConfigDeleteSomeResponse\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"_\n\x1aSAMLConfigDeleteAllRequest\x12\x41\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32&.arista.identityprovider.v1.SAMLConfig\"\xc6\x01\n\x1bSAMLConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\x03key\x18\x03 \x01(\x0b\x32#.arista.identityprovider.v1.SAMLKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xb2\n\n\x12OAuthConfigService\x12i\n\x06GetOne\x12..arista.identityprovider.v1.OAuthConfigRequest\x1a/.arista.identityprovider.v1.OAuthConfigResponse\x12t\n\x07GetSome\x12\x32.arista.identityprovider.v1.OAuthConfigSomeRequest\x1a\x33.arista.identityprovider.v1.OAuthConfigSomeResponse0\x01\x12w\n\x06GetAll\x12\x34.arista.identityprovider.v1.OAuthConfigStreamRequest\x1a\x35.arista.identityprovider.v1.OAuthConfigStreamResponse0\x01\x12z\n\tSubscribe\x12\x34.arista.identityprovider.v1.OAuthConfigStreamRequest\x1a\x35.arista.identityprovider.v1.OAuthConfigStreamResponse0\x01\x12i\n\x07GetMeta\x12\x34.arista.identityprovider.v1.OAuthConfigStreamRequest\x1a(.arista.identityprovider.v1.MetaResponse\x12q\n\rSubscribeMeta\x12\x34.arista.identityprovider.v1.OAuthConfigStreamRequest\x1a(.arista.identityprovider.v1.MetaResponse0\x01\x12l\n\x03Set\x12\x31.arista.identityprovider.v1.OAuthConfigSetRequest\x1a\x32.arista.identityprovider.v1.OAuthConfigSetResponse\x12z\n\x07SetSome\x12\x35.arista.identityprovider.v1.OAuthConfigSetSomeRequest\x1a\x36.arista.identityprovider.v1.OAuthConfigSetSomeResponse0\x01\x12u\n\x06\x44\x65lete\x12\x34.arista.identityprovider.v1.OAuthConfigDeleteRequest\x1a\x35.arista.identityprovider.v1.OAuthConfigDeleteResponse\x12\x83\x01\n\nDeleteSome\x12\x38.arista.identityprovider.v1.OAuthConfigDeleteSomeRequest\x1a\x39.arista.identityprovider.v1.OAuthConfigDeleteSomeResponse0\x01\x12\x80\x01\n\tDeleteAll\x12\x37.arista.identityprovider.v1.OAuthConfigDeleteAllRequest\x1a\x38.arista.identityprovider.v1.OAuthConfigDeleteAllResponse0\x01\x32\x9c\n\n\x11SAMLConfigService\x12g\n\x06GetOne\x12-.arista.identityprovider.v1.SAMLConfigRequest\x1a..arista.identityprovider.v1.SAMLConfigResponse\x12r\n\x07GetSome\x12\x31.arista.identityprovider.v1.SAMLConfigSomeRequest\x1a\x32.arista.identityprovider.v1.SAMLConfigSomeResponse0\x01\x12u\n\x06GetAll\x12\x33.arista.identityprovider.v1.SAMLConfigStreamRequest\x1a\x34.arista.identityprovider.v1.SAMLConfigStreamResponse0\x01\x12x\n\tSubscribe\x12\x33.arista.identityprovider.v1.SAMLConfigStreamRequest\x1a\x34.arista.identityprovider.v1.SAMLConfigStreamResponse0\x01\x12h\n\x07GetMeta\x12\x33.arista.identityprovider.v1.SAMLConfigStreamRequest\x1a(.arista.identityprovider.v1.MetaResponse\x12p\n\rSubscribeMeta\x12\x33.arista.identityprovider.v1.SAMLConfigStreamRequest\x1a(.arista.identityprovider.v1.MetaResponse0\x01\x12j\n\x03Set\x12\x30.arista.identityprovider.v1.SAMLConfigSetRequest\x1a\x31.arista.identityprovider.v1.SAMLConfigSetResponse\x12x\n\x07SetSome\x12\x34.arista.identityprovider.v1.SAMLConfigSetSomeRequest\x1a\x35.arista.identityprovider.v1.SAMLConfigSetSomeResponse0\x01\x12s\n\x06\x44\x65lete\x12\x33.arista.identityprovider.v1.SAMLConfigDeleteRequest\x1a\x34.arista.identityprovider.v1.SAMLConfigDeleteResponse\x12\x81\x01\n\nDeleteSome\x12\x37.arista.identityprovider.v1.SAMLConfigDeleteSomeRequest\x1a\x38.arista.identityprovider.v1.SAMLConfigDeleteSomeResponse0\x01\x12~\n\tDeleteAll\x12\x36.arista.identityprovider.v1.SAMLConfigDeleteAllRequest\x1a\x37.arista.identityprovider.v1.SAMLConfigDeleteAllResponse0\x01\x42ZZXgithub.com/aristanetworks/cloudvision-go/api/arista/identityprovider.v1;identityproviderb\x06proto3'
   ,
   dependencies=[arista_dot_identityprovider_dot_v1_dot_identityprovider__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,fmp_dot_deletes__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -618,6 +618,13 @@ _OAUTHCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.identityprovider.v1.OAuthConfigDeleteAllRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -631,7 +638,7 @@ _OAUTHCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=2038,
-  serialized_end=2067,
+  serialized_end=2135,
 )
 
 
@@ -683,8 +690,8 @@ _OAUTHCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2070,
-  serialized_end=2270,
+  serialized_start=2138,
+  serialized_end=2338,
 )
 
 
@@ -722,8 +729,8 @@ _SAMLCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2272,
-  serialized_end=2383,
+  serialized_start=2340,
+  serialized_end=2451,
 )
 
 
@@ -761,8 +768,8 @@ _SAMLCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2385,
-  serialized_end=2502,
+  serialized_start=2453,
+  serialized_end=2570,
 )
 
 
@@ -800,8 +807,8 @@ _SAMLCONFIGSOMEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2504,
-  serialized_end=2620,
+  serialized_start=2572,
+  serialized_end=2688,
 )
 
 
@@ -846,8 +853,8 @@ _SAMLCONFIGSOMERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2623,
-  serialized_end=2789,
+  serialized_start=2691,
+  serialized_end=2857,
 )
 
 
@@ -885,8 +892,8 @@ _SAMLCONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2792,
-  serialized_end=2923,
+  serialized_start=2860,
+  serialized_end=2991,
 )
 
 
@@ -931,8 +938,8 @@ _SAMLCONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2926,
-  serialized_end=3096,
+  serialized_start=2994,
+  serialized_end=3164,
 )
 
 
@@ -963,8 +970,8 @@ _SAMLCONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3098,
-  serialized_end=3175,
+  serialized_start=3166,
+  serialized_end=3243,
 )
 
 
@@ -1002,8 +1009,8 @@ _SAMLCONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3177,
-  serialized_end=3297,
+  serialized_start=3245,
+  serialized_end=3365,
 )
 
 
@@ -1034,8 +1041,8 @@ _SAMLCONFIGSETSOMEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3299,
-  serialized_end=3381,
+  serialized_start=3367,
+  serialized_end=3449,
 )
 
 
@@ -1073,8 +1080,8 @@ _SAMLCONFIGSETSOMERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3383,
-  serialized_end=3475,
+  serialized_start=3451,
+  serialized_end=3543,
 )
 
 
@@ -1105,8 +1112,8 @@ _SAMLCONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3477,
-  serialized_end=3552,
+  serialized_start=3545,
+  serialized_end=3620,
 )
 
 
@@ -1144,8 +1151,8 @@ _SAMLCONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3554,
-  serialized_end=3672,
+  serialized_start=3622,
+  serialized_end=3740,
 )
 
 
@@ -1176,8 +1183,8 @@ _SAMLCONFIGDELETESOMEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3674,
-  serialized_end=3754,
+  serialized_start=3742,
+  serialized_end=3822,
 )
 
 
@@ -1215,8 +1222,8 @@ _SAMLCONFIGDELETESOMERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3756,
-  serialized_end=3851,
+  serialized_start=3824,
+  serialized_end=3919,
 )
 
 
@@ -1228,6 +1235,13 @@ _SAMLCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.identityprovider.v1.SAMLConfigDeleteAllRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1240,8 +1254,8 @@ _SAMLCONFIGDELETEALLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3853,
-  serialized_end=3881,
+  serialized_start=3921,
+  serialized_end=4016,
 )
 
 
@@ -1293,8 +1307,8 @@ _SAMLCONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3884,
-  serialized_end=4082,
+  serialized_start=4019,
+  serialized_end=4217,
 )
 
 _METARESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -1324,6 +1338,7 @@ _OAUTHCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_ident
 _OAUTHCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _OAUTHCONFIGDELETESOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_identityprovider_dot_v1_dot_identityprovider__pb2._OAUTHKEY
 _OAUTHCONFIGDELETESOMERESPONSE.fields_by_name['key'].message_type = arista_dot_identityprovider_dot_v1_dot_identityprovider__pb2._OAUTHKEY
+_OAUTHCONFIGDELETEALLREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_identityprovider_dot_v1_dot_identityprovider__pb2._OAUTHCONFIG
 _OAUTHCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
 _OAUTHCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _OAUTHCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_identityprovider_dot_v1_dot_identityprovider__pb2._OAUTHKEY
@@ -1352,6 +1367,7 @@ _SAMLCONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_identi
 _SAMLCONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _SAMLCONFIGDELETESOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_identityprovider_dot_v1_dot_identityprovider__pb2._SAMLKEY
 _SAMLCONFIGDELETESOMERESPONSE.fields_by_name['key'].message_type = arista_dot_identityprovider_dot_v1_dot_identityprovider__pb2._SAMLKEY
+_SAMLCONFIGDELETEALLREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_identityprovider_dot_v1_dot_identityprovider__pb2._SAMLCONFIG
 _SAMLCONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
 _SAMLCONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _SAMLCONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_identityprovider_dot_v1_dot_identityprovider__pb2._SAMLKEY
@@ -1632,8 +1648,8 @@ _OAUTHCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=4085,
-  serialized_end=5415,
+  serialized_start=4220,
+  serialized_end=5550,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1758,8 +1774,8 @@ _SAMLCONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=5418,
-  serialized_end=6726,
+  serialized_start=5553,
+  serialized_end=6861,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
