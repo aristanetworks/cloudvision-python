@@ -24,5 +24,6 @@ jobs:
       with:
         publish_branch: gh-pages
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        exclude_assets: '.github,.doctrees'
         publish_dir: _build/
         force_orphan: true
