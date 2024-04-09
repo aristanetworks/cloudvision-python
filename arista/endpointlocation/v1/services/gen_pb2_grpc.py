@@ -19,6 +19,11 @@ class EndpointLocationServiceStub(object):
                 request_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationRequest.SerializeToString,
                 response_deserializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.endpointlocation.v1.EndpointLocationService/GetSome',
+                request_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.endpointlocation.v1.EndpointLocationService/GetAll',
                 request_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamRequest.SerializeToString,
@@ -29,12 +34,28 @@ class EndpointLocationServiceStub(object):
                 request_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.endpointlocation.v1.EndpointLocationService/GetMeta',
+                request_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.endpointlocation.v1.EndpointLocationService/SubscribeMeta',
+                request_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
 
 
 class EndpointLocationServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -52,6 +73,18 @@ class EndpointLocationServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_EndpointLocationServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -59,6 +92,11 @@ def add_EndpointLocationServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationRequest.FromString,
                     response_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationSomeRequest.FromString,
+                    response_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationSomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -69,6 +107,16 @@ def add_EndpointLocationServiceServicer_to_server(servicer, server):
                     servicer.Subscribe,
                     request_deserializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamRequest.FromString,
                     response_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamRequest.FromString,
+                    response_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamRequest.FromString,
+                    response_serializer=arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -94,6 +142,23 @@ class EndpointLocationService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.endpointlocation.v1.EndpointLocationService/GetOne',
             arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationRequest.SerializeToString,
             arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.endpointlocation.v1.EndpointLocationService/GetSome',
+            arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationSomeRequest.SerializeToString,
+            arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -128,5 +193,39 @@ class EndpointLocationService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.endpointlocation.v1.EndpointLocationService/Subscribe',
             arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamRequest.SerializeToString,
             arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.endpointlocation.v1.EndpointLocationService/GetMeta',
+            arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamRequest.SerializeToString,
+            arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.endpointlocation.v1.EndpointLocationService/SubscribeMeta',
+            arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.EndpointLocationStreamRequest.SerializeToString,
+            arista_dot_endpointlocation_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
