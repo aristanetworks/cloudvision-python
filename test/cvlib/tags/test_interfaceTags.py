@@ -24,6 +24,9 @@ from arista.tag.v2.services import (
     TagAssignmentStreamResponse,
     TagAssignmentConfigStreamResponse
 )
+from arista.workspace.v1.services import (
+    WorkspaceResponse
+)
 
 
 def convertListToStream(assignmentList):
@@ -82,6 +85,9 @@ class mockClient:
                 if item.value.key.label.value not in labelFilters:
                     response.remove(item)
         return response
+
+    def GetOne(self, _):
+        return WorkspaceResponse()
 
     def SetGetAllResponse(self, response):
         self.tagResponse = response

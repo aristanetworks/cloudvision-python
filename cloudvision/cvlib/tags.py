@@ -24,9 +24,12 @@ from arista.tag.v2.tag_pb2 import (
     ELEMENT_TYPE_INTERFACE,
     CREATOR_TYPE_USER
 )
-
+from arista.time.time_pb2 import TimeBounds
 from .exceptions import (
     TagOperationException
+)
+from .workspace import (
+    getWorkspaceLastSynced
 )
 
 MAINLINE_ID = ""
@@ -272,9 +275,12 @@ class Tags:
         in the mainline.  Also sets the local cache to this map.
         The returned map is of the form: map[deviceId]map[label]=[value1,value2,..]
         '''
+        wsTs = getWorkspaceLastSynced(self.ctx.getApiClient,
+                                      self.ctx.getWorkspaceId())
+        timeBound = TimeBounds(end=wsTs)
         self.relevantTagAssigns = {}
         tagClient = self.ctx.getApiClient(TagAssignmentServiceStub)
-        tagRequest = TagAssignmentStreamRequest()
+        tagRequest = TagAssignmentStreamRequest(time=timeBound)
         tagFilter = TagAssignment()
         tagFilter.tag_creator_type = CREATOR_TYPE_USER
         tagFilter.key.element_type = ELEMENT_TYPE_DEVICE
@@ -516,9 +522,12 @@ class Tags:
         The returned map is of the form:
             map[deviceId]map[interfaceId]map[label]=[value1,value2,..]
         '''
+        wsTs = getWorkspaceLastSynced(self.ctx.getApiClient,
+                                      self.ctx.getWorkspaceId())
+        timeBound = TimeBounds(end=wsTs)
         self.relevantIntfTagAssigns = {}
         tagClient = self.ctx.getApiClient(TagAssignmentServiceStub)
-        tagRequest = TagAssignmentStreamRequest()
+        tagRequest = TagAssignmentStreamRequest(time=timeBound)
         tagFilter = TagAssignment()
         tagFilter.tag_creator_type = CREATOR_TYPE_USER
         tagFilter.key.element_type = ELEMENT_TYPE_INTERFACE
