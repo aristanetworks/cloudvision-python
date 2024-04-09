@@ -625,12 +625,13 @@ class Context:
         if it is available in the context.
 
         Args:
-            message:    The string message for the audit log entry
-            userName:   The user to make the audit log entry under. If unspecified, will
-                        use the context's user's username
-            customKey:  A custom key that will be used to alias the audit log entry if provided
-            tags:       A string dictionary of additional custom tags to add to the audit log
-                        entry. The action ID is always added as a tag to the audit log
+            message:        The string message for the audit log entry
+            userName:       The user to make the audit log entry under. If unspecified, will
+                            use the context's user's username
+            customKey:      A custom key that will be used to alias the audit log entry if provided
+            tags:           A string dictionary of additional custom tags to add to the audit log
+                            entry. The action ID is always added as a tag to the audit log
+            ignoreFailures: Prevents logging exceptions from being raised
         """
         try:
             self.logger.alog(self, message, userName, customKey, tags)
@@ -642,6 +643,7 @@ class Context:
         """
         Creates a trace level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
+        Setting `ignoreFailures` prevents logging exceptions from being raised
         """
         if self.getLoggingLevel() > LoggingLevel.Trace:
             return
@@ -655,6 +657,7 @@ class Context:
         """
         Creates a debug level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
+        Setting `ignoreFailures` prevents logging exceptions from being raised
         """
         if self.getLoggingLevel() > LoggingLevel.Debug:
             return
@@ -668,6 +671,7 @@ class Context:
         """
         Creates an info level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
+        Setting `ignoreFailures` prevents logging exceptions from being raised
         """
         if self.getLoggingLevel() > LoggingLevel.Info:
             return
@@ -681,6 +685,7 @@ class Context:
         """
         Creates a warning level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
+        Setting `ignoreFailures` prevents logging exceptions from being raised
         """
         if self.getLoggingLevel() > LoggingLevel.Warn:
             return
@@ -694,6 +699,7 @@ class Context:
         """
         Creates an error level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
+        Setting `ignoreFailures` prevents logging exceptions from being raised
         """
         if self.getLoggingLevel() > LoggingLevel.Error:
             return
@@ -706,6 +712,7 @@ class Context:
     def critical(self, msg, ignoreFailures=False):
         """
         Creates a critical level log
+        Setting `ignoreFailures` prevents logging exceptions from being raised
         """
         try:
             self.logger.critical(self, msg)
