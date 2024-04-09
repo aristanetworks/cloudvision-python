@@ -19,6 +19,11 @@ class AssignmentServiceStub(object):
                 request_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentRequest.SerializeToString,
                 response_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.redirector.v1.AssignmentService/GetSome',
+                request_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.redirector.v1.AssignmentService/GetAll',
                 request_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.SerializeToString,
@@ -29,12 +34,28 @@ class AssignmentServiceStub(object):
                 request_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.redirector.v1.AssignmentService/GetMeta',
+                request_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.redirector.v1.AssignmentService/SubscribeMeta',
+                request_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
 
 
 class AssignmentServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -52,6 +73,18 @@ class AssignmentServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AssignmentServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -59,6 +92,11 @@ def add_AssignmentServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentRequest.FromString,
                     response_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentSomeRequest.FromString,
+                    response_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentSomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -69,6 +107,16 @@ def add_AssignmentServiceServicer_to_server(servicer, server):
                     servicer.Subscribe,
                     request_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.FromString,
                     response_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.FromString,
+                    response_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.FromString,
+                    response_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -94,6 +142,23 @@ class AssignmentService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.redirector.v1.AssignmentService/GetOne',
             arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentRequest.SerializeToString,
             arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.redirector.v1.AssignmentService/GetSome',
+            arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentSomeRequest.SerializeToString,
+            arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -128,5 +193,39 @@ class AssignmentService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.redirector.v1.AssignmentService/Subscribe',
             arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.SerializeToString,
             arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.redirector.v1.AssignmentService/GetMeta',
+            arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.SerializeToString,
+            arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.redirector.v1.AssignmentService/SubscribeMeta',
+            arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.SerializeToString,
+            arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

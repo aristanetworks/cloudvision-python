@@ -15,19 +15,66 @@ from arista.redirector.v1 import redirector_pb2 as arista_dot_redirector_dot_v1_
 from arista.time import time_pb2 as arista_dot_time_dot_time__pb2
 from arista.subscriptions import subscriptions_pb2 as arista_dot_subscriptions_dot_subscriptions__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='arista/redirector.v1/services.gen.proto',
   package='arista.redirector.v1',
   syntax='proto3',
-  serialized_options=b'Z0arista/resources/arista/redirector.v1;redirector',
+  serialized_options=b'ZLgithub.com/aristanetworks/cloudvision-go/api/arista/redirector.v1;redirector',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'arista/redirector.v1/services.gen.proto\x12\x14\x61rista.redirector.v1\x1a%arista/redirector.v1/redirector.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"o\n\x11\x41ssignmentRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.redirector.v1.AssignmentKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x12\x41ssignmentResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.redirector.v1.Assignment\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x17\x41ssignmentStreamRequest\x12;\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32 .arista.redirector.v1.Assignment\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa4\x01\n\x18\x41ssignmentStreamResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.redirector.v1.Assignment\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation2\xc9\x02\n\x11\x41ssignmentService\x12[\n\x06GetOne\x12\'.arista.redirector.v1.AssignmentRequest\x1a(.arista.redirector.v1.AssignmentResponse\x12i\n\x06GetAll\x12-.arista.redirector.v1.AssignmentStreamRequest\x1a..arista.redirector.v1.AssignmentStreamResponse0\x01\x12l\n\tSubscribe\x12-.arista.redirector.v1.AssignmentStreamRequest\x1a..arista.redirector.v1.AssignmentStreamResponse0\x01\x42\x32Z0arista/resources/arista/redirector.v1;redirectorb\x06proto3'
+  serialized_pb=b'\n\'arista/redirector.v1/services.gen.proto\x12\x14\x61rista.redirector.v1\x1a%arista/redirector.v1/redirector.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x94\x01\n\x0cMetaResponse\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x02 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\x12+\n\x05\x63ount\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"o\n\x11\x41ssignmentRequest\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.redirector.v1.AssignmentKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x12\x41ssignmentResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.redirector.v1.Assignment\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"t\n\x15\x41ssignmentSomeRequest\x12\x31\n\x04keys\x18\x01 \x03(\x0b\x32#.arista.redirector.v1.AssignmentKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa0\x01\n\x16\x41ssignmentSomeResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.redirector.v1.Assignment\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"}\n\x17\x41ssignmentStreamRequest\x12;\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32 .arista.redirector.v1.Assignment\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa4\x01\n\x18\x41ssignmentStreamResponse\x12/\n\x05value\x18\x01 \x01(\x0b\x32 .arista.redirector.v1.Assignment\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation2\xf5\x04\n\x11\x41ssignmentService\x12[\n\x06GetOne\x12\'.arista.redirector.v1.AssignmentRequest\x1a(.arista.redirector.v1.AssignmentResponse\x12\x66\n\x07GetSome\x12+.arista.redirector.v1.AssignmentSomeRequest\x1a,.arista.redirector.v1.AssignmentSomeResponse0\x01\x12i\n\x06GetAll\x12-.arista.redirector.v1.AssignmentStreamRequest\x1a..arista.redirector.v1.AssignmentStreamResponse0\x01\x12l\n\tSubscribe\x12-.arista.redirector.v1.AssignmentStreamRequest\x1a..arista.redirector.v1.AssignmentStreamResponse0\x01\x12\\\n\x07GetMeta\x12-.arista.redirector.v1.AssignmentStreamRequest\x1a\".arista.redirector.v1.MetaResponse\x12\x64\n\rSubscribeMeta\x12-.arista.redirector.v1.AssignmentStreamRequest\x1a\".arista.redirector.v1.MetaResponse0\x01\x42NZLgithub.com/aristanetworks/cloudvision-go/api/arista/redirector.v1;redirectorb\x06proto3'
   ,
-  dependencies=[arista_dot_redirector_dot_v1_dot_redirector__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[arista_dot_redirector_dot_v1_dot_redirector__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
+
+
+_METARESPONSE = _descriptor.Descriptor(
+  name='MetaResponse',
+  full_name='arista.redirector.v1.MetaResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.redirector.v1.MetaResponse.time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.redirector.v1.MetaResponse.type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='arista.redirector.v1.MetaResponse.count', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=236,
+  serialized_end=384,
+)
 
 
 _ASSIGNMENTREQUEST = _descriptor.Descriptor(
@@ -64,8 +111,8 @@ _ASSIGNMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=203,
-  serialized_end=314,
+  serialized_start=386,
+  serialized_end=497,
 )
 
 
@@ -103,8 +150,93 @@ _ASSIGNMENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=316,
-  serialized_end=427,
+  serialized_start=499,
+  serialized_end=610,
+)
+
+
+_ASSIGNMENTSOMEREQUEST = _descriptor.Descriptor(
+  name='AssignmentSomeRequest',
+  full_name='arista.redirector.v1.AssignmentSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.redirector.v1.AssignmentSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.redirector.v1.AssignmentSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=612,
+  serialized_end=728,
+)
+
+
+_ASSIGNMENTSOMERESPONSE = _descriptor.Descriptor(
+  name='AssignmentSomeResponse',
+  full_name='arista.redirector.v1.AssignmentSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.redirector.v1.AssignmentSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.redirector.v1.AssignmentSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.redirector.v1.AssignmentSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=731,
+  serialized_end=891,
 )
 
 
@@ -142,8 +274,8 @@ _ASSIGNMENTSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=429,
-  serialized_end=554,
+  serialized_start=893,
+  serialized_end=1018,
 )
 
 
@@ -188,24 +320,42 @@ _ASSIGNMENTSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=557,
-  serialized_end=721,
+  serialized_start=1021,
+  serialized_end=1185,
 )
 
+_METARESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_METARESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_METARESPONSE.fields_by_name['count'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _ASSIGNMENTREQUEST.fields_by_name['key'].message_type = arista_dot_redirector_dot_v1_dot_redirector__pb2._ASSIGNMENTKEY
 _ASSIGNMENTREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _ASSIGNMENTRESPONSE.fields_by_name['value'].message_type = arista_dot_redirector_dot_v1_dot_redirector__pb2._ASSIGNMENT
 _ASSIGNMENTRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_ASSIGNMENTSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_redirector_dot_v1_dot_redirector__pb2._ASSIGNMENTKEY
+_ASSIGNMENTSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_ASSIGNMENTSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_redirector_dot_v1_dot_redirector__pb2._ASSIGNMENT
+_ASSIGNMENTSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_ASSIGNMENTSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _ASSIGNMENTSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_redirector_dot_v1_dot_redirector__pb2._ASSIGNMENT
 _ASSIGNMENTSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _ASSIGNMENTSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_redirector_dot_v1_dot_redirector__pb2._ASSIGNMENT
 _ASSIGNMENTSTREAMRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _ASSIGNMENTSTREAMRESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+DESCRIPTOR.message_types_by_name['MetaResponse'] = _METARESPONSE
 DESCRIPTOR.message_types_by_name['AssignmentRequest'] = _ASSIGNMENTREQUEST
 DESCRIPTOR.message_types_by_name['AssignmentResponse'] = _ASSIGNMENTRESPONSE
+DESCRIPTOR.message_types_by_name['AssignmentSomeRequest'] = _ASSIGNMENTSOMEREQUEST
+DESCRIPTOR.message_types_by_name['AssignmentSomeResponse'] = _ASSIGNMENTSOMERESPONSE
 DESCRIPTOR.message_types_by_name['AssignmentStreamRequest'] = _ASSIGNMENTSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['AssignmentStreamResponse'] = _ASSIGNMENTSTREAMRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+MetaResponse = _reflection.GeneratedProtocolMessageType('MetaResponse', (_message.Message,), {
+  'DESCRIPTOR' : _METARESPONSE,
+  '__module__' : 'arista.redirector.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.redirector.v1.MetaResponse)
+  })
+_sym_db.RegisterMessage(MetaResponse)
 
 AssignmentRequest = _reflection.GeneratedProtocolMessageType('AssignmentRequest', (_message.Message,), {
   'DESCRIPTOR' : _ASSIGNMENTREQUEST,
@@ -220,6 +370,20 @@ AssignmentResponse = _reflection.GeneratedProtocolMessageType('AssignmentRespons
   # @@protoc_insertion_point(class_scope:arista.redirector.v1.AssignmentResponse)
   })
 _sym_db.RegisterMessage(AssignmentResponse)
+
+AssignmentSomeRequest = _reflection.GeneratedProtocolMessageType('AssignmentSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ASSIGNMENTSOMEREQUEST,
+  '__module__' : 'arista.redirector.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.redirector.v1.AssignmentSomeRequest)
+  })
+_sym_db.RegisterMessage(AssignmentSomeRequest)
+
+AssignmentSomeResponse = _reflection.GeneratedProtocolMessageType('AssignmentSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _ASSIGNMENTSOMERESPONSE,
+  '__module__' : 'arista.redirector.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.redirector.v1.AssignmentSomeResponse)
+  })
+_sym_db.RegisterMessage(AssignmentSomeResponse)
 
 AssignmentStreamRequest = _reflection.GeneratedProtocolMessageType('AssignmentStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _ASSIGNMENTSTREAMREQUEST,
@@ -245,8 +409,8 @@ _ASSIGNMENTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=724,
-  serialized_end=1053,
+  serialized_start=1188,
+  serialized_end=1817,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -259,9 +423,19 @@ _ASSIGNMENTSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.redirector.v1.AssignmentService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_ASSIGNMENTSOMEREQUEST,
+    output_type=_ASSIGNMENTSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.redirector.v1.AssignmentService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_ASSIGNMENTSTREAMREQUEST,
     output_type=_ASSIGNMENTSTREAMRESPONSE,
@@ -271,10 +445,30 @@ _ASSIGNMENTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.redirector.v1.AssignmentService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_ASSIGNMENTSTREAMREQUEST,
     output_type=_ASSIGNMENTSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.redirector.v1.AssignmentService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_ASSIGNMENTSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.redirector.v1.AssignmentService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_ASSIGNMENTSTREAMREQUEST,
+    output_type=_METARESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

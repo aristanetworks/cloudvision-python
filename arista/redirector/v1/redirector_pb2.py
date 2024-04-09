@@ -20,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='arista/redirector.v1/redirector.proto',
   package='arista.redirector.v1',
   syntax='proto3',
-  serialized_options=b'Z0arista/resources/arista/redirector.v1;redirector',
+  serialized_options=b'ZLgithub.com/aristanetworks/cloudvision-go/api/arista/redirector.v1;redirector',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n%arista/redirector.v1/redirector.proto\x12\x14\x61rista.redirector.v1\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"F\n\rAssignmentKey\x12/\n\tsystem_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"x\n\nAssignment\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.redirector.v1.AssignmentKey\x12\x30\n\x08\x63lusters\x18\x02 \x01(\x0b\x32\x1e.arista.redirector.v1.Clusters:\x06\xfa\x8d\x19\x02ro\"9\n\x08\x43lusters\x12-\n\x06values\x18\x02 \x03(\x0b\x32\x1d.arista.redirector.v1.Cluster\"Y\n\x07\x43luster\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\"\n\x05hosts\x18\x02 \x01(\x0b\x32\x13.fmp.RepeatedStringB2Z0arista/resources/arista/redirector.v1;redirectorb\x06proto3'
+  serialized_pb=b'\n%arista/redirector.v1/redirector.proto\x12\x14\x61rista.redirector.v1\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\"F\n\rAssignmentKey\x12/\n\tsystem_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"x\n\nAssignment\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.redirector.v1.AssignmentKey\x12\x30\n\x08\x63lusters\x18\x02 \x01(\x0b\x32\x1e.arista.redirector.v1.Clusters:\x06\xfa\x8d\x19\x02ro\"9\n\x08\x43lusters\x12-\n\x06values\x18\x02 \x03(\x0b\x32\x1d.arista.redirector.v1.Cluster\"Y\n\x07\x43luster\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\"\n\x05hosts\x18\x02 \x01(\x0b\x32\x13.fmp.RepeatedStringBNZLgithub.com/aristanetworks/cloudvision-go/api/arista/redirector.v1;redirectorb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_extensions__pb2.DESCRIPTOR,fmp_dot_wrappers__pb2.DESCRIPTOR,])
 
