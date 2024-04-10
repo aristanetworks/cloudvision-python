@@ -23,13 +23,59 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='arista/workspace.v1/services.gen.proto',
   package='arista.workspace.v1',
   syntax='proto3',
-  serialized_options=b'Z.arista/resources/arista/workspace.v1;workspace',
+  serialized_options=b'ZJgithub.com/aristanetworks/cloudvision-go/api/arista/workspace.v1;workspace',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n&arista/workspace.v1/services.gen.proto\x12\x13\x61rista.workspace.v1\x1a#arista/workspace.v1/workspace.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"l\n\x10WorkspaceRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"l\n\x11WorkspaceResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.workspace.v1.Workspace\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"z\n\x16WorkspaceStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.workspace.v1.Workspace\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa1\x01\n\x17WorkspaceStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.workspace.v1.Workspace\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"v\n\x15WorkspaceBuildRequest\x12\x33\n\x03key\x18\x01 \x01(\x0b\x32&.arista.workspace.v1.WorkspaceBuildKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"v\n\x16WorkspaceBuildResponse\x12\x32\n\x05value\x18\x01 \x01(\x0b\x32#.arista.workspace.v1.WorkspaceBuild\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1bWorkspaceBuildStreamRequest\x12>\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32#.arista.workspace.v1.WorkspaceBuild\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xab\x01\n\x1cWorkspaceBuildStreamResponse\x12\x32\n\x05value\x18\x01 \x01(\x0b\x32#.arista.workspace.v1.WorkspaceBuild\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"\x84\x01\n\x1cWorkspaceBuildDetailsRequest\x12:\n\x03key\x18\x01 \x01(\x0b\x32-.arista.workspace.v1.WorkspaceBuildDetailsKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1dWorkspaceBuildDetailsResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.workspace.v1.WorkspaceBuildDetails\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n\"WorkspaceBuildDetailsStreamRequest\x12\x45\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32*.arista.workspace.v1.WorkspaceBuildDetails\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb9\x01\n#WorkspaceBuildDetailsStreamResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.workspace.v1.WorkspaceBuildDetails\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"r\n\x16WorkspaceConfigRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x17WorkspaceConfigResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x86\x01\n\x1cWorkspaceConfigStreamRequest\x12?\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xad\x01\n\x1dWorkspaceConfigStreamResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"P\n\x19WorkspaceConfigSetRequest\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\"{\n\x1aWorkspaceConfigSetResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"U\n\x1dWorkspaceConfigSetSomeRequest\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\"_\n\x1eWorkspaceConfigSetSomeResponse\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"N\n\x1cWorkspaceConfigDeleteRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\"y\n\x1dWorkspaceConfigDeleteResponse\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"!\n\x1fWorkspaceConfigDeleteAllRequest\"\xc9\x01\n WorkspaceConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x03key\x18\x03 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xbc\x02\n\x10WorkspaceService\x12W\n\x06GetOne\x12%.arista.workspace.v1.WorkspaceRequest\x1a&.arista.workspace.v1.WorkspaceResponse\x12\x65\n\x06GetAll\x12+.arista.workspace.v1.WorkspaceStreamRequest\x1a,.arista.workspace.v1.WorkspaceStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.workspace.v1.WorkspaceStreamRequest\x1a,.arista.workspace.v1.WorkspaceStreamResponse0\x01\x32\xdf\x02\n\x15WorkspaceBuildService\x12\x61\n\x06GetOne\x12*.arista.workspace.v1.WorkspaceBuildRequest\x1a+.arista.workspace.v1.WorkspaceBuildResponse\x12o\n\x06GetAll\x12\x30.arista.workspace.v1.WorkspaceBuildStreamRequest\x1a\x31.arista.workspace.v1.WorkspaceBuildStreamResponse0\x01\x12r\n\tSubscribe\x12\x30.arista.workspace.v1.WorkspaceBuildStreamRequest\x1a\x31.arista.workspace.v1.WorkspaceBuildStreamResponse0\x01\x32\x91\x03\n\x1cWorkspaceBuildDetailsService\x12o\n\x06GetOne\x12\x31.arista.workspace.v1.WorkspaceBuildDetailsRequest\x1a\x32.arista.workspace.v1.WorkspaceBuildDetailsResponse\x12}\n\x06GetAll\x12\x37.arista.workspace.v1.WorkspaceBuildDetailsStreamRequest\x1a\x38.arista.workspace.v1.WorkspaceBuildDetailsStreamResponse0\x01\x12\x80\x01\n\tSubscribe\x12\x37.arista.workspace.v1.WorkspaceBuildDetailsStreamRequest\x1a\x38.arista.workspace.v1.WorkspaceBuildDetailsStreamResponse0\x01\x32\xb1\x06\n\x16WorkspaceConfigService\x12\x63\n\x06GetOne\x12+.arista.workspace.v1.WorkspaceConfigRequest\x1a,.arista.workspace.v1.WorkspaceConfigResponse\x12q\n\x06GetAll\x12\x31.arista.workspace.v1.WorkspaceConfigStreamRequest\x1a\x32.arista.workspace.v1.WorkspaceConfigStreamResponse0\x01\x12t\n\tSubscribe\x12\x31.arista.workspace.v1.WorkspaceConfigStreamRequest\x1a\x32.arista.workspace.v1.WorkspaceConfigStreamResponse0\x01\x12\x66\n\x03Set\x12..arista.workspace.v1.WorkspaceConfigSetRequest\x1a/.arista.workspace.v1.WorkspaceConfigSetResponse\x12t\n\x07SetSome\x12\x32.arista.workspace.v1.WorkspaceConfigSetSomeRequest\x1a\x33.arista.workspace.v1.WorkspaceConfigSetSomeResponse0\x01\x12o\n\x06\x44\x65lete\x12\x31.arista.workspace.v1.WorkspaceConfigDeleteRequest\x1a\x32.arista.workspace.v1.WorkspaceConfigDeleteResponse\x12z\n\tDeleteAll\x12\x34.arista.workspace.v1.WorkspaceConfigDeleteAllRequest\x1a\x35.arista.workspace.v1.WorkspaceConfigDeleteAllResponse0\x01\x42\x30Z.arista/resources/arista/workspace.v1;workspaceb\x06proto3'
+  serialized_pb=b'\n&arista/workspace.v1/services.gen.proto\x12\x13\x61rista.workspace.v1\x1a#arista/workspace.v1/workspace.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x11\x66mp/deletes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x94\x01\n\x0cMetaResponse\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x02 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\x12+\n\x05\x63ount\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"l\n\x10WorkspaceRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"l\n\x11WorkspaceResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.workspace.v1.Workspace\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"q\n\x14WorkspaceSomeRequest\x12/\n\x04keys\x18\x01 \x03(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x9d\x01\n\x15WorkspaceSomeResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.workspace.v1.Workspace\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"z\n\x16WorkspaceStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.workspace.v1.Workspace\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xa1\x01\n\x17WorkspaceStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.workspace.v1.Workspace\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"v\n\x15WorkspaceBuildRequest\x12\x33\n\x03key\x18\x01 \x01(\x0b\x32&.arista.workspace.v1.WorkspaceBuildKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"v\n\x16WorkspaceBuildResponse\x12\x32\n\x05value\x18\x01 \x01(\x0b\x32#.arista.workspace.v1.WorkspaceBuild\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"{\n\x19WorkspaceBuildSomeRequest\x12\x34\n\x04keys\x18\x01 \x03(\x0b\x32&.arista.workspace.v1.WorkspaceBuildKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa7\x01\n\x1aWorkspaceBuildSomeResponse\x12\x32\n\x05value\x18\x01 \x01(\x0b\x32#.arista.workspace.v1.WorkspaceBuild\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1bWorkspaceBuildStreamRequest\x12>\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32#.arista.workspace.v1.WorkspaceBuild\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xab\x01\n\x1cWorkspaceBuildStreamResponse\x12\x32\n\x05value\x18\x01 \x01(\x0b\x32#.arista.workspace.v1.WorkspaceBuild\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"\x84\x01\n\x1cWorkspaceBuildDetailsRequest\x12:\n\x03key\x18\x01 \x01(\x0b\x32-.arista.workspace.v1.WorkspaceBuildDetailsKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x1dWorkspaceBuildDetailsResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.workspace.v1.WorkspaceBuildDetails\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x89\x01\n WorkspaceBuildDetailsSomeRequest\x12;\n\x04keys\x18\x01 \x03(\x0b\x32-.arista.workspace.v1.WorkspaceBuildDetailsKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xb5\x01\n!WorkspaceBuildDetailsSomeResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.workspace.v1.WorkspaceBuildDetails\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x92\x01\n\"WorkspaceBuildDetailsStreamRequest\x12\x45\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32*.arista.workspace.v1.WorkspaceBuildDetails\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xb9\x01\n#WorkspaceBuildDetailsStreamResponse\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32*.arista.workspace.v1.WorkspaceBuildDetails\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"r\n\x16WorkspaceConfigRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x17WorkspaceConfigResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"w\n\x1aWorkspaceConfigSomeRequest\x12/\n\x04keys\x18\x01 \x03(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa9\x01\n\x1bWorkspaceConfigSomeResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x86\x01\n\x1cWorkspaceConfigStreamRequest\x12?\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\xad\x01\n\x1dWorkspaceConfigStreamResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"P\n\x19WorkspaceConfigSetRequest\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\"{\n\x1aWorkspaceConfigSetResponse\x12\x33\n\x05value\x18\x01 \x01(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"U\n\x1dWorkspaceConfigSetSomeRequest\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\"_\n\x1eWorkspaceConfigSetSomeResponse\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"N\n\x1cWorkspaceConfigDeleteRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\"y\n\x1dWorkspaceConfigDeleteResponse\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"S\n WorkspaceConfigDeleteSomeRequest\x12/\n\x04keys\x18\x01 \x03(\x0b\x32!.arista.workspace.v1.WorkspaceKey\"b\n!WorkspaceConfigDeleteSomeResponse\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"b\n\x1fWorkspaceConfigDeleteAllRequest\x12?\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32$.arista.workspace.v1.WorkspaceConfig\"\xc9\x01\n WorkspaceConfigDeleteAllResponse\x12\x1e\n\x04type\x18\x01 \x01(\x0e\x32\x10.fmp.DeleteError\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x03key\x18\x03 \x01(\x0b\x32!.arista.workspace.v1.WorkspaceKey\x12(\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xde\x04\n\x10WorkspaceService\x12W\n\x06GetOne\x12%.arista.workspace.v1.WorkspaceRequest\x1a&.arista.workspace.v1.WorkspaceResponse\x12\x62\n\x07GetSome\x12).arista.workspace.v1.WorkspaceSomeRequest\x1a*.arista.workspace.v1.WorkspaceSomeResponse0\x01\x12\x65\n\x06GetAll\x12+.arista.workspace.v1.WorkspaceStreamRequest\x1a,.arista.workspace.v1.WorkspaceStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.workspace.v1.WorkspaceStreamRequest\x1a,.arista.workspace.v1.WorkspaceStreamResponse0\x01\x12Y\n\x07GetMeta\x12+.arista.workspace.v1.WorkspaceStreamRequest\x1a!.arista.workspace.v1.MetaResponse\x12\x61\n\rSubscribeMeta\x12+.arista.workspace.v1.WorkspaceStreamRequest\x1a!.arista.workspace.v1.MetaResponse0\x01\x32\x95\x05\n\x15WorkspaceBuildService\x12\x61\n\x06GetOne\x12*.arista.workspace.v1.WorkspaceBuildRequest\x1a+.arista.workspace.v1.WorkspaceBuildResponse\x12l\n\x07GetSome\x12..arista.workspace.v1.WorkspaceBuildSomeRequest\x1a/.arista.workspace.v1.WorkspaceBuildSomeResponse0\x01\x12o\n\x06GetAll\x12\x30.arista.workspace.v1.WorkspaceBuildStreamRequest\x1a\x31.arista.workspace.v1.WorkspaceBuildStreamResponse0\x01\x12r\n\tSubscribe\x12\x30.arista.workspace.v1.WorkspaceBuildStreamRequest\x1a\x31.arista.workspace.v1.WorkspaceBuildStreamResponse0\x01\x12^\n\x07GetMeta\x12\x30.arista.workspace.v1.WorkspaceBuildStreamRequest\x1a!.arista.workspace.v1.MetaResponse\x12\x66\n\rSubscribeMeta\x12\x30.arista.workspace.v1.WorkspaceBuildStreamRequest\x1a!.arista.workspace.v1.MetaResponse0\x01\x32\xe3\x05\n\x1cWorkspaceBuildDetailsService\x12o\n\x06GetOne\x12\x31.arista.workspace.v1.WorkspaceBuildDetailsRequest\x1a\x32.arista.workspace.v1.WorkspaceBuildDetailsResponse\x12z\n\x07GetSome\x12\x35.arista.workspace.v1.WorkspaceBuildDetailsSomeRequest\x1a\x36.arista.workspace.v1.WorkspaceBuildDetailsSomeResponse0\x01\x12}\n\x06GetAll\x12\x37.arista.workspace.v1.WorkspaceBuildDetailsStreamRequest\x1a\x38.arista.workspace.v1.WorkspaceBuildDetailsStreamResponse0\x01\x12\x80\x01\n\tSubscribe\x12\x37.arista.workspace.v1.WorkspaceBuildDetailsStreamRequest\x1a\x38.arista.workspace.v1.WorkspaceBuildDetailsStreamResponse0\x01\x12\x65\n\x07GetMeta\x12\x37.arista.workspace.v1.WorkspaceBuildDetailsStreamRequest\x1a!.arista.workspace.v1.MetaResponse\x12m\n\rSubscribeMeta\x12\x37.arista.workspace.v1.WorkspaceBuildDetailsStreamRequest\x1a!.arista.workspace.v1.MetaResponse0\x01\x32\xea\t\n\x16WorkspaceConfigService\x12\x63\n\x06GetOne\x12+.arista.workspace.v1.WorkspaceConfigRequest\x1a,.arista.workspace.v1.WorkspaceConfigResponse\x12n\n\x07GetSome\x12/.arista.workspace.v1.WorkspaceConfigSomeRequest\x1a\x30.arista.workspace.v1.WorkspaceConfigSomeResponse0\x01\x12q\n\x06GetAll\x12\x31.arista.workspace.v1.WorkspaceConfigStreamRequest\x1a\x32.arista.workspace.v1.WorkspaceConfigStreamResponse0\x01\x12t\n\tSubscribe\x12\x31.arista.workspace.v1.WorkspaceConfigStreamRequest\x1a\x32.arista.workspace.v1.WorkspaceConfigStreamResponse0\x01\x12_\n\x07GetMeta\x12\x31.arista.workspace.v1.WorkspaceConfigStreamRequest\x1a!.arista.workspace.v1.MetaResponse\x12g\n\rSubscribeMeta\x12\x31.arista.workspace.v1.WorkspaceConfigStreamRequest\x1a!.arista.workspace.v1.MetaResponse0\x01\x12\x66\n\x03Set\x12..arista.workspace.v1.WorkspaceConfigSetRequest\x1a/.arista.workspace.v1.WorkspaceConfigSetResponse\x12t\n\x07SetSome\x12\x32.arista.workspace.v1.WorkspaceConfigSetSomeRequest\x1a\x33.arista.workspace.v1.WorkspaceConfigSetSomeResponse0\x01\x12o\n\x06\x44\x65lete\x12\x31.arista.workspace.v1.WorkspaceConfigDeleteRequest\x1a\x32.arista.workspace.v1.WorkspaceConfigDeleteResponse\x12}\n\nDeleteSome\x12\x35.arista.workspace.v1.WorkspaceConfigDeleteSomeRequest\x1a\x36.arista.workspace.v1.WorkspaceConfigDeleteSomeResponse0\x01\x12z\n\tDeleteAll\x12\x34.arista.workspace.v1.WorkspaceConfigDeleteAllRequest\x1a\x35.arista.workspace.v1.WorkspaceConfigDeleteAllResponse0\x01\x42LZJgithub.com/aristanetworks/cloudvision-go/api/arista/workspace.v1;workspaceb\x06proto3'
   ,
   dependencies=[arista_dot_workspace_dot_v1_dot_workspace__pb2.DESCRIPTOR,arista_dot_time_dot_time__pb2.DESCRIPTOR,arista_dot_subscriptions_dot_subscriptions__pb2.DESCRIPTOR,fmp_dot_deletes__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
+
+
+_METARESPONSE = _descriptor.Descriptor(
+  name='MetaResponse',
+  full_name='arista.workspace.v1.MetaResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.workspace.v1.MetaResponse.time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='arista.workspace.v1.MetaResponse.type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='arista.workspace.v1.MetaResponse.count', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=251,
+  serialized_end=399,
+)
 
 
 _WORKSPACEREQUEST = _descriptor.Descriptor(
@@ -66,8 +112,8 @@ _WORKSPACEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=250,
-  serialized_end=358,
+  serialized_start=401,
+  serialized_end=509,
 )
 
 
@@ -105,8 +151,93 @@ _WORKSPACERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=360,
-  serialized_end=468,
+  serialized_start=511,
+  serialized_end=619,
+)
+
+
+_WORKSPACESOMEREQUEST = _descriptor.Descriptor(
+  name='WorkspaceSomeRequest',
+  full_name='arista.workspace.v1.WorkspaceSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.workspace.v1.WorkspaceSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.workspace.v1.WorkspaceSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=621,
+  serialized_end=734,
+)
+
+
+_WORKSPACESOMERESPONSE = _descriptor.Descriptor(
+  name='WorkspaceSomeResponse',
+  full_name='arista.workspace.v1.WorkspaceSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.workspace.v1.WorkspaceSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.workspace.v1.WorkspaceSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.workspace.v1.WorkspaceSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=737,
+  serialized_end=894,
 )
 
 
@@ -144,8 +275,8 @@ _WORKSPACESTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=470,
-  serialized_end=592,
+  serialized_start=896,
+  serialized_end=1018,
 )
 
 
@@ -190,8 +321,8 @@ _WORKSPACESTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=595,
-  serialized_end=756,
+  serialized_start=1021,
+  serialized_end=1182,
 )
 
 
@@ -229,8 +360,8 @@ _WORKSPACEBUILDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=758,
-  serialized_end=876,
+  serialized_start=1184,
+  serialized_end=1302,
 )
 
 
@@ -268,8 +399,93 @@ _WORKSPACEBUILDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=878,
-  serialized_end=996,
+  serialized_start=1304,
+  serialized_end=1422,
+)
+
+
+_WORKSPACEBUILDSOMEREQUEST = _descriptor.Descriptor(
+  name='WorkspaceBuildSomeRequest',
+  full_name='arista.workspace.v1.WorkspaceBuildSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.workspace.v1.WorkspaceBuildSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.workspace.v1.WorkspaceBuildSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1424,
+  serialized_end=1547,
+)
+
+
+_WORKSPACEBUILDSOMERESPONSE = _descriptor.Descriptor(
+  name='WorkspaceBuildSomeResponse',
+  full_name='arista.workspace.v1.WorkspaceBuildSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.workspace.v1.WorkspaceBuildSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.workspace.v1.WorkspaceBuildSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.workspace.v1.WorkspaceBuildSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1550,
+  serialized_end=1717,
 )
 
 
@@ -307,8 +523,8 @@ _WORKSPACEBUILDSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=999,
-  serialized_end=1131,
+  serialized_start=1720,
+  serialized_end=1852,
 )
 
 
@@ -353,8 +569,8 @@ _WORKSPACEBUILDSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1134,
-  serialized_end=1305,
+  serialized_start=1855,
+  serialized_end=2026,
 )
 
 
@@ -392,8 +608,8 @@ _WORKSPACEBUILDDETAILSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1308,
-  serialized_end=1440,
+  serialized_start=2029,
+  serialized_end=2161,
 )
 
 
@@ -431,8 +647,93 @@ _WORKSPACEBUILDDETAILSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1443,
-  serialized_end=1575,
+  serialized_start=2164,
+  serialized_end=2296,
+)
+
+
+_WORKSPACEBUILDDETAILSSOMEREQUEST = _descriptor.Descriptor(
+  name='WorkspaceBuildDetailsSomeRequest',
+  full_name='arista.workspace.v1.WorkspaceBuildDetailsSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.workspace.v1.WorkspaceBuildDetailsSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.workspace.v1.WorkspaceBuildDetailsSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2299,
+  serialized_end=2436,
+)
+
+
+_WORKSPACEBUILDDETAILSSOMERESPONSE = _descriptor.Descriptor(
+  name='WorkspaceBuildDetailsSomeResponse',
+  full_name='arista.workspace.v1.WorkspaceBuildDetailsSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.workspace.v1.WorkspaceBuildDetailsSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.workspace.v1.WorkspaceBuildDetailsSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.workspace.v1.WorkspaceBuildDetailsSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2439,
+  serialized_end=2620,
 )
 
 
@@ -470,8 +771,8 @@ _WORKSPACEBUILDDETAILSSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1578,
-  serialized_end=1724,
+  serialized_start=2623,
+  serialized_end=2769,
 )
 
 
@@ -516,8 +817,8 @@ _WORKSPACEBUILDDETAILSSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1727,
-  serialized_end=1912,
+  serialized_start=2772,
+  serialized_end=2957,
 )
 
 
@@ -555,8 +856,8 @@ _WORKSPACECONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1914,
-  serialized_end=2028,
+  serialized_start=2959,
+  serialized_end=3073,
 )
 
 
@@ -594,8 +895,93 @@ _WORKSPACECONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2030,
-  serialized_end=2150,
+  serialized_start=3075,
+  serialized_end=3195,
+)
+
+
+_WORKSPACECONFIGSOMEREQUEST = _descriptor.Descriptor(
+  name='WorkspaceConfigSomeRequest',
+  full_name='arista.workspace.v1.WorkspaceConfigSomeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.workspace.v1.WorkspaceConfigSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.workspace.v1.WorkspaceConfigSomeRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3197,
+  serialized_end=3316,
+)
+
+
+_WORKSPACECONFIGSOMERESPONSE = _descriptor.Descriptor(
+  name='WorkspaceConfigSomeResponse',
+  full_name='arista.workspace.v1.WorkspaceConfigSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.workspace.v1.WorkspaceConfigSomeResponse.value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.workspace.v1.WorkspaceConfigSomeResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='arista.workspace.v1.WorkspaceConfigSomeResponse.time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3319,
+  serialized_end=3488,
 )
 
 
@@ -633,8 +1019,8 @@ _WORKSPACECONFIGSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2153,
-  serialized_end=2287,
+  serialized_start=3491,
+  serialized_end=3625,
 )
 
 
@@ -679,8 +1065,8 @@ _WORKSPACECONFIGSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2290,
-  serialized_end=2463,
+  serialized_start=3628,
+  serialized_end=3801,
 )
 
 
@@ -711,8 +1097,8 @@ _WORKSPACECONFIGSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2465,
-  serialized_end=2545,
+  serialized_start=3803,
+  serialized_end=3883,
 )
 
 
@@ -750,8 +1136,8 @@ _WORKSPACECONFIGSETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2547,
-  serialized_end=2670,
+  serialized_start=3885,
+  serialized_end=4008,
 )
 
 
@@ -782,8 +1168,8 @@ _WORKSPACECONFIGSETSOMEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2672,
-  serialized_end=2757,
+  serialized_start=4010,
+  serialized_end=4095,
 )
 
 
@@ -821,8 +1207,8 @@ _WORKSPACECONFIGSETSOMERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2759,
-  serialized_end=2854,
+  serialized_start=4097,
+  serialized_end=4192,
 )
 
 
@@ -853,8 +1239,8 @@ _WORKSPACECONFIGDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2856,
-  serialized_end=2934,
+  serialized_start=4194,
+  serialized_end=4272,
 )
 
 
@@ -892,19 +1278,26 @@ _WORKSPACECONFIGDELETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2936,
-  serialized_end=3057,
+  serialized_start=4274,
+  serialized_end=4395,
 )
 
 
-_WORKSPACECONFIGDELETEALLREQUEST = _descriptor.Descriptor(
-  name='WorkspaceConfigDeleteAllRequest',
-  full_name='arista.workspace.v1.WorkspaceConfigDeleteAllRequest',
+_WORKSPACECONFIGDELETESOMEREQUEST = _descriptor.Descriptor(
+  name='WorkspaceConfigDeleteSomeRequest',
+  full_name='arista.workspace.v1.WorkspaceConfigDeleteSomeRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='keys', full_name='arista.workspace.v1.WorkspaceConfigDeleteSomeRequest.keys', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -917,8 +1310,79 @@ _WORKSPACECONFIGDELETEALLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3059,
-  serialized_end=3092,
+  serialized_start=4397,
+  serialized_end=4480,
+)
+
+
+_WORKSPACECONFIGDELETESOMERESPONSE = _descriptor.Descriptor(
+  name='WorkspaceConfigDeleteSomeResponse',
+  full_name='arista.workspace.v1.WorkspaceConfigDeleteSomeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.workspace.v1.WorkspaceConfigDeleteSomeResponse.key', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='arista.workspace.v1.WorkspaceConfigDeleteSomeResponse.error', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4482,
+  serialized_end=4580,
+)
+
+
+_WORKSPACECONFIGDELETEALLREQUEST = _descriptor.Descriptor(
+  name='WorkspaceConfigDeleteAllRequest',
+  full_name='arista.workspace.v1.WorkspaceConfigDeleteAllRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='partial_eq_filter', full_name='arista.workspace.v1.WorkspaceConfigDeleteAllRequest.partial_eq_filter', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4582,
+  serialized_end=4680,
 )
 
 
@@ -970,14 +1434,22 @@ _WORKSPACECONFIGDELETEALLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3095,
-  serialized_end=3296,
+  serialized_start=4683,
+  serialized_end=4884,
 )
 
+_METARESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_METARESPONSE.fields_by_name['type'].enum_type = arista_dot_subscriptions_dot_subscriptions__pb2._OPERATION
+_METARESPONSE.fields_by_name['count'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _WORKSPACEREQUEST.fields_by_name['key'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEKEY
 _WORKSPACEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _WORKSPACERESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACE
 _WORKSPACERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_WORKSPACESOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEKEY
+_WORKSPACESOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_WORKSPACESOMERESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACE
+_WORKSPACESOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_WORKSPACESOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _WORKSPACESTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACE
 _WORKSPACESTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _WORKSPACESTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACE
@@ -987,6 +1459,11 @@ _WORKSPACEBUILDREQUEST.fields_by_name['key'].message_type = arista_dot_workspace
 _WORKSPACEBUILDREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _WORKSPACEBUILDRESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEBUILD
 _WORKSPACEBUILDRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_WORKSPACEBUILDSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEBUILDKEY
+_WORKSPACEBUILDSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_WORKSPACEBUILDSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEBUILD
+_WORKSPACEBUILDSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_WORKSPACEBUILDSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _WORKSPACEBUILDSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEBUILD
 _WORKSPACEBUILDSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _WORKSPACEBUILDSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEBUILD
@@ -996,6 +1473,11 @@ _WORKSPACEBUILDDETAILSREQUEST.fields_by_name['key'].message_type = arista_dot_wo
 _WORKSPACEBUILDDETAILSREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _WORKSPACEBUILDDETAILSRESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEBUILDDETAILS
 _WORKSPACEBUILDDETAILSRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_WORKSPACEBUILDDETAILSSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEBUILDDETAILSKEY
+_WORKSPACEBUILDDETAILSSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_WORKSPACEBUILDDETAILSSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEBUILDDETAILS
+_WORKSPACEBUILDDETAILSSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_WORKSPACEBUILDDETAILSSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _WORKSPACEBUILDDETAILSSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEBUILDDETAILS
 _WORKSPACEBUILDDETAILSSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _WORKSPACEBUILDDETAILSSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEBUILDDETAILS
@@ -1005,6 +1487,11 @@ _WORKSPACECONFIGREQUEST.fields_by_name['key'].message_type = arista_dot_workspac
 _WORKSPACECONFIGREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _WORKSPACECONFIGRESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACECONFIG
 _WORKSPACECONFIGRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_WORKSPACECONFIGSOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEKEY
+_WORKSPACECONFIGSOMEREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_WORKSPACECONFIGSOMERESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACECONFIG
+_WORKSPACECONFIGSOMERESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_WORKSPACECONFIGSOMERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _WORKSPACECONFIGSTREAMREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACECONFIG
 _WORKSPACECONFIGSTREAMREQUEST.fields_by_name['time'].message_type = arista_dot_time_dot_time__pb2._TIMEBOUNDS
 _WORKSPACECONFIGSTREAMRESPONSE.fields_by_name['value'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACECONFIG
@@ -1018,24 +1505,36 @@ _WORKSPACECONFIGSETSOMERESPONSE.fields_by_name['key'].message_type = arista_dot_
 _WORKSPACECONFIGDELETEREQUEST.fields_by_name['key'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEKEY
 _WORKSPACECONFIGDELETERESPONSE.fields_by_name['key'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEKEY
 _WORKSPACECONFIGDELETERESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_WORKSPACECONFIGDELETESOMEREQUEST.fields_by_name['keys'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEKEY
+_WORKSPACECONFIGDELETESOMERESPONSE.fields_by_name['key'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEKEY
+_WORKSPACECONFIGDELETEALLREQUEST.fields_by_name['partial_eq_filter'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACECONFIG
 _WORKSPACECONFIGDELETEALLRESPONSE.fields_by_name['type'].enum_type = fmp_dot_deletes__pb2._DELETEERROR
 _WORKSPACECONFIGDELETEALLRESPONSE.fields_by_name['error'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _WORKSPACECONFIGDELETEALLRESPONSE.fields_by_name['key'].message_type = arista_dot_workspace_dot_v1_dot_workspace__pb2._WORKSPACEKEY
 _WORKSPACECONFIGDELETEALLRESPONSE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+DESCRIPTOR.message_types_by_name['MetaResponse'] = _METARESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceRequest'] = _WORKSPACEREQUEST
 DESCRIPTOR.message_types_by_name['WorkspaceResponse'] = _WORKSPACERESPONSE
+DESCRIPTOR.message_types_by_name['WorkspaceSomeRequest'] = _WORKSPACESOMEREQUEST
+DESCRIPTOR.message_types_by_name['WorkspaceSomeResponse'] = _WORKSPACESOMERESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceStreamRequest'] = _WORKSPACESTREAMREQUEST
 DESCRIPTOR.message_types_by_name['WorkspaceStreamResponse'] = _WORKSPACESTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceBuildRequest'] = _WORKSPACEBUILDREQUEST
 DESCRIPTOR.message_types_by_name['WorkspaceBuildResponse'] = _WORKSPACEBUILDRESPONSE
+DESCRIPTOR.message_types_by_name['WorkspaceBuildSomeRequest'] = _WORKSPACEBUILDSOMEREQUEST
+DESCRIPTOR.message_types_by_name['WorkspaceBuildSomeResponse'] = _WORKSPACEBUILDSOMERESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceBuildStreamRequest'] = _WORKSPACEBUILDSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['WorkspaceBuildStreamResponse'] = _WORKSPACEBUILDSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceBuildDetailsRequest'] = _WORKSPACEBUILDDETAILSREQUEST
 DESCRIPTOR.message_types_by_name['WorkspaceBuildDetailsResponse'] = _WORKSPACEBUILDDETAILSRESPONSE
+DESCRIPTOR.message_types_by_name['WorkspaceBuildDetailsSomeRequest'] = _WORKSPACEBUILDDETAILSSOMEREQUEST
+DESCRIPTOR.message_types_by_name['WorkspaceBuildDetailsSomeResponse'] = _WORKSPACEBUILDDETAILSSOMERESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceBuildDetailsStreamRequest'] = _WORKSPACEBUILDDETAILSSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['WorkspaceBuildDetailsStreamResponse'] = _WORKSPACEBUILDDETAILSSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceConfigRequest'] = _WORKSPACECONFIGREQUEST
 DESCRIPTOR.message_types_by_name['WorkspaceConfigResponse'] = _WORKSPACECONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['WorkspaceConfigSomeRequest'] = _WORKSPACECONFIGSOMEREQUEST
+DESCRIPTOR.message_types_by_name['WorkspaceConfigSomeResponse'] = _WORKSPACECONFIGSOMERESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceConfigStreamRequest'] = _WORKSPACECONFIGSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['WorkspaceConfigStreamResponse'] = _WORKSPACECONFIGSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceConfigSetRequest'] = _WORKSPACECONFIGSETREQUEST
@@ -1044,9 +1543,18 @@ DESCRIPTOR.message_types_by_name['WorkspaceConfigSetSomeRequest'] = _WORKSPACECO
 DESCRIPTOR.message_types_by_name['WorkspaceConfigSetSomeResponse'] = _WORKSPACECONFIGSETSOMERESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceConfigDeleteRequest'] = _WORKSPACECONFIGDELETEREQUEST
 DESCRIPTOR.message_types_by_name['WorkspaceConfigDeleteResponse'] = _WORKSPACECONFIGDELETERESPONSE
+DESCRIPTOR.message_types_by_name['WorkspaceConfigDeleteSomeRequest'] = _WORKSPACECONFIGDELETESOMEREQUEST
+DESCRIPTOR.message_types_by_name['WorkspaceConfigDeleteSomeResponse'] = _WORKSPACECONFIGDELETESOMERESPONSE
 DESCRIPTOR.message_types_by_name['WorkspaceConfigDeleteAllRequest'] = _WORKSPACECONFIGDELETEALLREQUEST
 DESCRIPTOR.message_types_by_name['WorkspaceConfigDeleteAllResponse'] = _WORKSPACECONFIGDELETEALLRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+MetaResponse = _reflection.GeneratedProtocolMessageType('MetaResponse', (_message.Message,), {
+  'DESCRIPTOR' : _METARESPONSE,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.MetaResponse)
+  })
+_sym_db.RegisterMessage(MetaResponse)
 
 WorkspaceRequest = _reflection.GeneratedProtocolMessageType('WorkspaceRequest', (_message.Message,), {
   'DESCRIPTOR' : _WORKSPACEREQUEST,
@@ -1061,6 +1569,20 @@ WorkspaceResponse = _reflection.GeneratedProtocolMessageType('WorkspaceResponse'
   # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceResponse)
   })
 _sym_db.RegisterMessage(WorkspaceResponse)
+
+WorkspaceSomeRequest = _reflection.GeneratedProtocolMessageType('WorkspaceSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _WORKSPACESOMEREQUEST,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceSomeRequest)
+  })
+_sym_db.RegisterMessage(WorkspaceSomeRequest)
+
+WorkspaceSomeResponse = _reflection.GeneratedProtocolMessageType('WorkspaceSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _WORKSPACESOMERESPONSE,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceSomeResponse)
+  })
+_sym_db.RegisterMessage(WorkspaceSomeResponse)
 
 WorkspaceStreamRequest = _reflection.GeneratedProtocolMessageType('WorkspaceStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _WORKSPACESTREAMREQUEST,
@@ -1090,6 +1612,20 @@ WorkspaceBuildResponse = _reflection.GeneratedProtocolMessageType('WorkspaceBuil
   })
 _sym_db.RegisterMessage(WorkspaceBuildResponse)
 
+WorkspaceBuildSomeRequest = _reflection.GeneratedProtocolMessageType('WorkspaceBuildSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _WORKSPACEBUILDSOMEREQUEST,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceBuildSomeRequest)
+  })
+_sym_db.RegisterMessage(WorkspaceBuildSomeRequest)
+
+WorkspaceBuildSomeResponse = _reflection.GeneratedProtocolMessageType('WorkspaceBuildSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _WORKSPACEBUILDSOMERESPONSE,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceBuildSomeResponse)
+  })
+_sym_db.RegisterMessage(WorkspaceBuildSomeResponse)
+
 WorkspaceBuildStreamRequest = _reflection.GeneratedProtocolMessageType('WorkspaceBuildStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _WORKSPACEBUILDSTREAMREQUEST,
   '__module__' : 'arista.workspace.v1.services.gen_pb2'
@@ -1118,6 +1654,20 @@ WorkspaceBuildDetailsResponse = _reflection.GeneratedProtocolMessageType('Worksp
   })
 _sym_db.RegisterMessage(WorkspaceBuildDetailsResponse)
 
+WorkspaceBuildDetailsSomeRequest = _reflection.GeneratedProtocolMessageType('WorkspaceBuildDetailsSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _WORKSPACEBUILDDETAILSSOMEREQUEST,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceBuildDetailsSomeRequest)
+  })
+_sym_db.RegisterMessage(WorkspaceBuildDetailsSomeRequest)
+
+WorkspaceBuildDetailsSomeResponse = _reflection.GeneratedProtocolMessageType('WorkspaceBuildDetailsSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _WORKSPACEBUILDDETAILSSOMERESPONSE,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceBuildDetailsSomeResponse)
+  })
+_sym_db.RegisterMessage(WorkspaceBuildDetailsSomeResponse)
+
 WorkspaceBuildDetailsStreamRequest = _reflection.GeneratedProtocolMessageType('WorkspaceBuildDetailsStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _WORKSPACEBUILDDETAILSSTREAMREQUEST,
   '__module__' : 'arista.workspace.v1.services.gen_pb2'
@@ -1145,6 +1695,20 @@ WorkspaceConfigResponse = _reflection.GeneratedProtocolMessageType('WorkspaceCon
   # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceConfigResponse)
   })
 _sym_db.RegisterMessage(WorkspaceConfigResponse)
+
+WorkspaceConfigSomeRequest = _reflection.GeneratedProtocolMessageType('WorkspaceConfigSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _WORKSPACECONFIGSOMEREQUEST,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceConfigSomeRequest)
+  })
+_sym_db.RegisterMessage(WorkspaceConfigSomeRequest)
+
+WorkspaceConfigSomeResponse = _reflection.GeneratedProtocolMessageType('WorkspaceConfigSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _WORKSPACECONFIGSOMERESPONSE,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceConfigSomeResponse)
+  })
+_sym_db.RegisterMessage(WorkspaceConfigSomeResponse)
 
 WorkspaceConfigStreamRequest = _reflection.GeneratedProtocolMessageType('WorkspaceConfigStreamRequest', (_message.Message,), {
   'DESCRIPTOR' : _WORKSPACECONFIGSTREAMREQUEST,
@@ -1202,6 +1766,20 @@ WorkspaceConfigDeleteResponse = _reflection.GeneratedProtocolMessageType('Worksp
   })
 _sym_db.RegisterMessage(WorkspaceConfigDeleteResponse)
 
+WorkspaceConfigDeleteSomeRequest = _reflection.GeneratedProtocolMessageType('WorkspaceConfigDeleteSomeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _WORKSPACECONFIGDELETESOMEREQUEST,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceConfigDeleteSomeRequest)
+  })
+_sym_db.RegisterMessage(WorkspaceConfigDeleteSomeRequest)
+
+WorkspaceConfigDeleteSomeResponse = _reflection.GeneratedProtocolMessageType('WorkspaceConfigDeleteSomeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _WORKSPACECONFIGDELETESOMERESPONSE,
+  '__module__' : 'arista.workspace.v1.services.gen_pb2'
+  # @@protoc_insertion_point(class_scope:arista.workspace.v1.WorkspaceConfigDeleteSomeResponse)
+  })
+_sym_db.RegisterMessage(WorkspaceConfigDeleteSomeResponse)
+
 WorkspaceConfigDeleteAllRequest = _reflection.GeneratedProtocolMessageType('WorkspaceConfigDeleteAllRequest', (_message.Message,), {
   'DESCRIPTOR' : _WORKSPACECONFIGDELETEALLREQUEST,
   '__module__' : 'arista.workspace.v1.services.gen_pb2'
@@ -1226,8 +1804,8 @@ _WORKSPACESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3299,
-  serialized_end=3615,
+  serialized_start=4887,
+  serialized_end=5493,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1240,9 +1818,19 @@ _WORKSPACESERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.workspace.v1.WorkspaceService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_WORKSPACESOMEREQUEST,
+    output_type=_WORKSPACESOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.workspace.v1.WorkspaceService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_WORKSPACESTREAMREQUEST,
     output_type=_WORKSPACESTREAMRESPONSE,
@@ -1252,10 +1840,30 @@ _WORKSPACESERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.workspace.v1.WorkspaceService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_WORKSPACESTREAMREQUEST,
     output_type=_WORKSPACESTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.workspace.v1.WorkspaceService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_WORKSPACESTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.workspace.v1.WorkspaceService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_WORKSPACESTREAMREQUEST,
+    output_type=_METARESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1272,8 +1880,8 @@ _WORKSPACEBUILDSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3618,
-  serialized_end=3969,
+  serialized_start=5496,
+  serialized_end=6157,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1286,9 +1894,19 @@ _WORKSPACEBUILDSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.workspace.v1.WorkspaceBuildService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_WORKSPACEBUILDSOMEREQUEST,
+    output_type=_WORKSPACEBUILDSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.workspace.v1.WorkspaceBuildService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_WORKSPACEBUILDSTREAMREQUEST,
     output_type=_WORKSPACEBUILDSTREAMRESPONSE,
@@ -1298,10 +1916,30 @@ _WORKSPACEBUILDSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.workspace.v1.WorkspaceBuildService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_WORKSPACEBUILDSTREAMREQUEST,
     output_type=_WORKSPACEBUILDSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.workspace.v1.WorkspaceBuildService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_WORKSPACEBUILDSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.workspace.v1.WorkspaceBuildService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_WORKSPACEBUILDSTREAMREQUEST,
+    output_type=_METARESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1318,8 +1956,8 @@ _WORKSPACEBUILDDETAILSSERVICE = _descriptor.ServiceDescriptor(
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3972,
-  serialized_end=4373,
+  serialized_start=6160,
+  serialized_end=6899,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1332,9 +1970,19 @@ _WORKSPACEBUILDDETAILSSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.workspace.v1.WorkspaceBuildDetailsService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_WORKSPACEBUILDDETAILSSOMEREQUEST,
+    output_type=_WORKSPACEBUILDDETAILSSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.workspace.v1.WorkspaceBuildDetailsService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_WORKSPACEBUILDDETAILSSTREAMREQUEST,
     output_type=_WORKSPACEBUILDDETAILSSTREAMRESPONSE,
@@ -1344,10 +1992,30 @@ _WORKSPACEBUILDDETAILSSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.workspace.v1.WorkspaceBuildDetailsService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_WORKSPACEBUILDDETAILSSTREAMREQUEST,
     output_type=_WORKSPACEBUILDDETAILSSTREAMRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.workspace.v1.WorkspaceBuildDetailsService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_WORKSPACEBUILDDETAILSSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.workspace.v1.WorkspaceBuildDetailsService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_WORKSPACEBUILDDETAILSSTREAMREQUEST,
+    output_type=_METARESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1364,8 +2032,8 @@ _WORKSPACECONFIGSERVICE = _descriptor.ServiceDescriptor(
   index=3,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=4376,
-  serialized_end=5193,
+  serialized_start=6902,
+  serialized_end=8160,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOne',
@@ -1378,9 +2046,19 @@ _WORKSPACECONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetSome',
+    full_name='arista.workspace.v1.WorkspaceConfigService.GetSome',
+    index=1,
+    containing_service=None,
+    input_type=_WORKSPACECONFIGSOMEREQUEST,
+    output_type=_WORKSPACECONFIGSOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAll',
     full_name='arista.workspace.v1.WorkspaceConfigService.GetAll',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_WORKSPACECONFIGSTREAMREQUEST,
     output_type=_WORKSPACECONFIGSTREAMRESPONSE,
@@ -1390,7 +2068,7 @@ _WORKSPACECONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Subscribe',
     full_name='arista.workspace.v1.WorkspaceConfigService.Subscribe',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_WORKSPACECONFIGSTREAMREQUEST,
     output_type=_WORKSPACECONFIGSTREAMRESPONSE,
@@ -1398,9 +2076,29 @@ _WORKSPACECONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetMeta',
+    full_name='arista.workspace.v1.WorkspaceConfigService.GetMeta',
+    index=4,
+    containing_service=None,
+    input_type=_WORKSPACECONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SubscribeMeta',
+    full_name='arista.workspace.v1.WorkspaceConfigService.SubscribeMeta',
+    index=5,
+    containing_service=None,
+    input_type=_WORKSPACECONFIGSTREAMREQUEST,
+    output_type=_METARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Set',
     full_name='arista.workspace.v1.WorkspaceConfigService.Set',
-    index=3,
+    index=6,
     containing_service=None,
     input_type=_WORKSPACECONFIGSETREQUEST,
     output_type=_WORKSPACECONFIGSETRESPONSE,
@@ -1410,7 +2108,7 @@ _WORKSPACECONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='SetSome',
     full_name='arista.workspace.v1.WorkspaceConfigService.SetSome',
-    index=4,
+    index=7,
     containing_service=None,
     input_type=_WORKSPACECONFIGSETSOMEREQUEST,
     output_type=_WORKSPACECONFIGSETSOMERESPONSE,
@@ -1420,7 +2118,7 @@ _WORKSPACECONFIGSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Delete',
     full_name='arista.workspace.v1.WorkspaceConfigService.Delete',
-    index=5,
+    index=8,
     containing_service=None,
     input_type=_WORKSPACECONFIGDELETEREQUEST,
     output_type=_WORKSPACECONFIGDELETERESPONSE,
@@ -1428,9 +2126,19 @@ _WORKSPACECONFIGSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='DeleteSome',
+    full_name='arista.workspace.v1.WorkspaceConfigService.DeleteSome',
+    index=9,
+    containing_service=None,
+    input_type=_WORKSPACECONFIGDELETESOMEREQUEST,
+    output_type=_WORKSPACECONFIGDELETESOMERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='DeleteAll',
     full_name='arista.workspace.v1.WorkspaceConfigService.DeleteAll',
-    index=6,
+    index=10,
     containing_service=None,
     input_type=_WORKSPACECONFIGDELETEALLREQUEST,
     output_type=_WORKSPACECONFIGDELETEALLRESPONSE,
