@@ -16,8 +16,9 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-[tool.setuptools]
-packages = ["arista", "cloudvision", "fmp"]
+[tool.setuptools.packages.find]
+include = ["arista*", "cloudvision*", "fmp*"]
+namespaces = false
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }

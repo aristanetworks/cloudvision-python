@@ -17,8 +17,7 @@ clean:
 	rm -r cloudvision.egg-info build dist
 
 dist:
-	python3 setup.py sdist
-	python3 setup.py bdist_wheel
+	python3 -m build
 
 dev-setup:
 	pip3 install -r requirements-dev.txt
