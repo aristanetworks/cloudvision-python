@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cloudvision"
-version = "1.19.0"
+version = "1.19.1"
 dynamic = ["dependencies", "optional-dependencies"]
 description = "A Python library for Arista's CloudVision APIs and Provisioning Action integrations."
 requires-python = ">=3.7.0"
