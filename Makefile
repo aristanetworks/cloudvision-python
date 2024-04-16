@@ -24,5 +24,5 @@ dev-setup:
 
 lint:
 	flake8 .
-	mypy --exclude build --exclude .venv .
+	mypy --install-types --non-interactive --exclude build --exclude .venv .
 	./check_copyright.sh
