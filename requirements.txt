@@ -5,9 +5,3 @@ msgpack>=1.0.3
 protobuf>=4.22.5,<5.0
 requests>=2.20.1
 typing-extensions>=4.2.0
-# Using older types-protobuf version as if anything beyond 4 is installed, mypy
-# state that google proto stubs are not installed, e.g. 
-# "Library stubs not installed for 'google.protobuf.timestamp_pb2'"
-types-protobuf>=3.20.4.6,<4.0
-types-PyYAML>=6.0.7
-types-requests>=2.27.25
