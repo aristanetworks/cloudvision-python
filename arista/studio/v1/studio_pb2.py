@@ -14,7 +14,6 @@ _sym_db = _symbol_database.Default()
 
 from fmp import extensions_pb2 as fmp_dot_extensions__pb2
 from fmp import wrappers_pb2 as fmp_dot_wrappers__pb2
-from fmp import yang_pb2 as fmp_dot_yang__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
@@ -23,12 +22,58 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='arista/studio.v1/studio.proto',
   package='arista.studio.v1',
   syntax='proto3',
-  serialized_options=b'Z(arista/resources/arista/studio.v1;studio\272\232\031\023repeated-key-fields',
+  serialized_options=b'ZDgithub.com/aristanetworks/cloudvision-go/api/arista/studio.v1;studio\272\232\031\023repeated-key-fields',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1d\x61rista/studio.v1/studio.proto\x12\x10\x61rista.studio.v1\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\x1a\x0e\x66mp/yang.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"v\n\tStudioKey\x12/\n\tstudio_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0cworkspace_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xb6\x02\n\x0cStudioConfig\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x32\n\x0c\x64isplay_name\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x08template\x18\x05 \x01(\x0b\x32\x1a.arista.studio.v1.Template\x12\x33\n\x0cinput_schema\x18\x06 \x01(\x0b\x32\x1d.arista.studio.v1.InputSchema:\x06\xfa\x8d\x19\x02rw\"\xd7\x01\n\rStudioSummary\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12\x32\n\x0c\x64isplay_name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\timmutable\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02ro\"\xda\x03\n\x06Studio\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0c\x64isplay_name\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x08template\x18\x08 \x01(\x0b\x32\x1a.arista.studio.v1.Template\x12\x33\n\x0cinput_schema\x18\t \x01(\x0b\x32\x1d.arista.studio.v1.InputSchema:\x06\xfa\x8d\x19\x02roJ\x04\x08\n\x10\x0b\"\x9f\x01\n\x12\x41ssignedTagsConfig\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05query\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02rw\"\xbd\x02\n\x0c\x41ssignedTags\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x05query\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\x99\x01\n\tInputsKey\x12/\n\tstudio_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0cworkspace_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12!\n\x04path\x18\x03 \x01(\x0b\x32\x13.fmp.RepeatedString:\x04\x80\x8e\x19\x01\"\x9a\x01\n\x0cInputsConfig\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12,\n\x06inputs\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02rw\"\xb8\x02\n\x06Inputs\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06inputs\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"d\n\x08Template\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x1e.arista.studio.v1.TemplateType\x12*\n\x04\x62ody\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"K\n\x16\x42ooleanInputFieldProps\x12\x31\n\rdefault_value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\x8d\x02\n\x16IntegerInputFieldProps\x12\x32\n\rdefault_value\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12*\n\x0estatic_options\x18\x02 \x01(\x0b\x32\x12.fmp.RepeatedInt64\x12+\n\x05range\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x0f\x64ynamic_options\x18\x04 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x38\n\x14\x65xtra_values_allowed\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\xde\x01\n\x14\x46loatInputFieldProps\x12\x32\n\rdefault_value\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.FloatValue\x12*\n\x0estatic_options\x18\x03 \x01(\x0b\x32\x12.fmp.RepeatedFloat\x12,\n\x0f\x64ynamic_options\x18\x04 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x38\n\x14\x65xtra_values_allowed\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\x9b\x03\n\x15StringInputFieldProps\x12\x33\n\rdefault_value\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x0estatic_options\x18\x03 \x01(\x0b\x32\x13.fmp.RepeatedString\x12,\n\x0f\x64ynamic_options\x18\x04 \x01(\x0b\x32\x13.fmp.RepeatedString\x12,\n\x06length\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07pattern\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06\x66ormat\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\tis_secret\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x38\n\x14\x65xtra_values_allowed\x18\t \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"<\n\x14GroupInputFieldProps\x12$\n\x07members\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\"{\n\x19\x43ollectionInputFieldProps\x12\x33\n\rbase_field_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x03key\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xbd\x02\n\x17ResolverInputFieldProps\x12\x33\n\rbase_field_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12@\n\x0c\x64isplay_mode\x18\x02 \x01(\x0e\x32*.arista.studio.v1.ResolverFieldDisplayMode\x12<\n\ninput_mode\x18\x03 \x01(\x0e\x32(.arista.studio.v1.ResolverFieldInputMode\x12\x35\n\x0finput_tag_label\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x10tag_filter_query\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x8d\x02\n\x19TagMatcherInputFieldProps\x12?\n\x10tag_matcher_mode\x18\x01 \x01(\x0e\x32%.arista.studio.v1.TagMatcherFieldMode\x12\x37\n\x11tag_matcher_label\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x10tag_filter_query\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12>\n\x1aresolver_filtering_allowed\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\xe8\x06\n\nInputField\x12(\n\x02id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x04type\x18\x02 \x01(\x0e\x32 .arista.studio.v1.InputFieldType\x12*\n\x04name\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x05label\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x08required\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12?\n\rboolean_props\x18\x07 \x01(\x0b\x32(.arista.studio.v1.BooleanInputFieldProps\x12?\n\rinteger_props\x18\x08 \x01(\x0b\x32(.arista.studio.v1.IntegerInputFieldProps\x12;\n\x0b\x66loat_props\x18\t \x01(\x0b\x32&.arista.studio.v1.FloatInputFieldProps\x12=\n\x0cstring_props\x18\n \x01(\x0b\x32\'.arista.studio.v1.StringInputFieldProps\x12;\n\x0bgroup_props\x18\x0b \x01(\x0b\x32&.arista.studio.v1.GroupInputFieldProps\x12\x45\n\x10\x63ollection_props\x18\x0c \x01(\x0b\x32+.arista.studio.v1.CollectionInputFieldProps\x12\x41\n\x0eresolver_props\x18\r \x01(\x0b\x32).arista.studio.v1.ResolverInputFieldProps\x12\x39\n\x13\x61uto_fill_action_id\x18\x0e \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x46\n\x11tag_matcher_props\x18\x0f \x01(\x0b\x32+.arista.studio.v1.TagMatcherInputFieldProps\"\x95\x01\n\x0bInputFields\x12\x39\n\x06values\x18\x01 \x03(\x0b\x32).arista.studio.v1.InputFields.ValuesEntry\x1aK\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12+\n\x05value\x18\x02 \x01(\x0b\x32\x1c.arista.studio.v1.InputField:\x02\x38\x01\"5\n\x06Layout\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"f\n\x0bInputSchema\x12-\n\x06\x66ields\x18\x01 \x01(\x0b\x32\x1d.arista.studio.v1.InputFields\x12(\n\x06layout\x18\x02 \x01(\x0b\x32\x18.arista.studio.v1.Layout\"q\n\x0bSecretInput\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12\x30\n\nplain_text\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\x80\x02\n\nDeviceInfo\x12/\n\tdevice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x30\n\nmodel_name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12$\n\x0bmac_address\x18\x03 \x01(\x0b\x32\x0f.fmp.MACAddress\x12.\n\x08hostname\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x39\n\x0finterface_infos\x18\x05 \x01(\x0b\x32 .arista.studio.v1.InterfaceInfos\"\xf5\x01\n\rInterfaceInfo\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x38\n\x12neighbor_device_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12=\n\x17neighbor_interface_name\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12?\n\x12topology_operation\x18\x04 \x01(\x0e\x32#.arista.studio.v1.TopologyOperation\"A\n\x0eInterfaceInfos\x12/\n\x06values\x18\x01 \x03(\x0b\x32\x1f.arista.studio.v1.InterfaceInfo\"}\n\x10TopologyInputKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tdevice_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x81\x01\n\x13TopologyInputConfig\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.studio.v1.TopologyInputKey\x12\x31\n\x0b\x64\x65vice_info\x18\x02 \x01(\x0b\x32\x1c.arista.studio.v1.DeviceInfo:\x06\xfa\x8d\x19\x02rw\"{\n\rTopologyInput\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.studio.v1.TopologyInputKey\x12\x31\n\x0b\x64\x65vice_info\x18\x02 \x01(\x0b\x32\x1c.arista.studio.v1.DeviceInfo:\x06\xfa\x8d\x19\x02ro\"~\n\x11TopologyUpdateKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tupdate_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x88\x01\n\x14TopologyUpdateConfig\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.TopologyUpdateKey\x12\x36\n\x06status\x18\x02 \x01(\x0e\x32&.arista.studio.v1.TopologyUpdateStatus:\x06\xfa\x8d\x19\x02rw\"\xb3\x02\n\x0eTopologyUpdate\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.TopologyUpdateKey\x12;\n\x10topology_element\x18\x02 \x01(\x0e\x32!.arista.studio.v1.TopologyElement\x12?\n\x12topology_operation\x18\x03 \x01(\x0e\x32#.arista.studio.v1.TopologyOperation\x12\x36\n\x06status\x18\x04 \x01(\x0e\x32&.arista.studio.v1.TopologyUpdateStatus\x12\x31\n\x0b\x64\x65scription\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"H\n\x0cWorkspaceKey\x12\x32\n\x0cworkspace_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"~\n\x18TopologyUpdateSyncConfig\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.WorkspaceKey\x12-\n\tsync_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x06\xfa\x8d\x19\x02rw\"x\n\x12TopologyUpdateSync\x12+\n\x03key\x18\x01 \x01(\x0b\x32\x1e.arista.studio.v1.WorkspaceKey\x12-\n\tsync_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x06\xfa\x8d\x19\x02ro\"\xb4\x01\n\x11\x41utofillActionKey\x12/\n\tstudio_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0cworkspace_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0einput_field_id\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xa9\x02\n\x14\x41utofillActionConfig\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.AutofillActionKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12/\n\taction_id\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12G\n\x12\x61rgument_providers\x18\x05 \x01(\x0b\x32+.arista.studio.v1.AutofillArgumentProviders:\x06\xfa\x8d\x19\x02rw\"\xc7\x03\n\x0e\x41utofillAction\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.AutofillActionKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\taction_id\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12G\n\x12\x61rgument_providers\x18\x08 \x01(\x0b\x32+.arista.studio.v1.AutofillArgumentProviders:\x06\xfa\x8d\x19\x02ro\"\xbf\x01\n\x19\x41utofillArgumentProviders\x12G\n\x06values\x18\x01 \x03(\x0b\x32\x37.arista.studio.v1.AutofillArgumentProviders.ValuesEntry\x1aY\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.arista.studio.v1.AutofillArgumentProvider:\x02\x38\x01\"}\n\x18\x41utofillArgumentProvider\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.arista.studio.v1.AutofillProviderType\x12+\n\x05value\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue*t\n\x0cTemplateType\x12\x1d\n\x19TEMPLATE_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12TEMPLATE_TYPE_MAKO\x10\x01\x12\x17\n\x13TEMPLATE_TYPE_JINJA\x10\x02\x12\x14\n\x10TEMPLATE_TYPE_GO\x10\x03*\xa5\x02\n\x0eInputFieldType\x12 \n\x1cINPUT_FIELD_TYPE_UNSPECIFIED\x10\x00\x12\x1c\n\x18INPUT_FIELD_TYPE_BOOLEAN\x10\x01\x12\x1c\n\x18INPUT_FIELD_TYPE_INTEGER\x10\x02\x12\x1a\n\x16INPUT_FIELD_TYPE_FLOAT\x10\x03\x12\x1b\n\x17INPUT_FIELD_TYPE_STRING\x10\x04\x12\x1a\n\x16INPUT_FIELD_TYPE_GROUP\x10\x05\x12\x1f\n\x1bINPUT_FIELD_TYPE_COLLECTION\x10\x06\x12\x1d\n\x19INPUT_FIELD_TYPE_RESOLVER\x10\x07\x12 \n\x1cINPUT_FIELD_TYPE_TAG_MATCHER\x10\x08*\x8b\x02\n\x16ResolverFieldInputMode\x12)\n%RESOLVER_FIELD_INPUT_MODE_UNSPECIFIED\x10\x00\x12/\n+RESOLVER_FIELD_INPUT_MODE_SINGLE_DEVICE_TAG\x10\x01\x12\x32\n.RESOLVER_FIELD_INPUT_MODE_SINGLE_INTERFACE_TAG\x10\x02\x12.\n*RESOLVER_FIELD_INPUT_MODE_MULTI_DEVICE_TAG\x10\x03\x12\x31\n-RESOLVER_FIELD_INPUT_MODE_MULTI_INTERFACE_TAG\x10\x04*\x94\x01\n\x18ResolverFieldDisplayMode\x12+\n\'RESOLVER_FIELD_DISPLAY_MODE_UNSPECIFIED\x10\x00\x12#\n\x1fRESOLVER_FIELD_DISPLAY_MODE_ALL\x10\x01\x12&\n\"RESOLVER_FIELD_DISPLAY_MODE_SPARSE\x10\x02*\xf9\x01\n\x13TagMatcherFieldMode\x12&\n\"TAG_MATCHER_FIELD_MODE_UNSPECIFIED\x10\x00\x12,\n(TAG_MATCHER_FIELD_MODE_SINGLE_DEVICE_TAG\x10\x01\x12/\n+TAG_MATCHER_FIELD_MODE_SINGLE_INTERFACE_TAG\x10\x02\x12+\n\'TAG_MATCHER_FIELD_MODE_MULTI_DEVICE_TAG\x10\x03\x12.\n*TAG_MATCHER_FIELD_MODE_MULTI_INTERFACE_TAG\x10\x04*\x91\x01\n\x0fTopologyElement\x12 \n\x1cTOPOLOGY_ELEMENT_UNSPECIFIED\x10\x00\x12\x1b\n\x17TOPOLOGY_ELEMENT_DEVICE\x10\x01\x12\x1e\n\x1aTOPOLOGY_ELEMENT_INTERFACE\x10\x02\x12\x1f\n\x1bTOPOLOGY_ELEMENT_CONNECTION\x10\x03*\x96\x01\n\x11TopologyOperation\x12\"\n\x1eTOPOLOGY_OPERATION_UNSPECIFIED\x10\x00\x12\x1c\n\x18TOPOLOGY_OPERATION_ADDED\x10\x01\x12\x1f\n\x1bTOPOLOGY_OPERATION_MODIFIED\x10\x02\x12\x1e\n\x1aTOPOLOGY_OPERATION_REMOVED\x10\x03*\xa7\x01\n\x14TopologyUpdateStatus\x12&\n\"TOPOLOGY_UPDATE_STATUS_UNSPECIFIED\x10\x00\x12\x1e\n\x1aTOPOLOGY_UPDATE_STATUS_NEW\x10\x01\x12#\n\x1fTOPOLOGY_UPDATE_STATUS_ACCEPTED\x10\x02\x12\"\n\x1eTOPOLOGY_UPDATE_STATUS_IGNORED\x10\x03*\xb3\x01\n\x14\x41utofillProviderType\x12&\n\"AUTOFILL_PROVIDER_TYPE_UNSPECIFIED\x10\x00\x12)\n%AUTOFILL_PROVIDER_TYPE_USER_SPECIFIED\x10\x01\x12%\n!AUTOFILL_PROVIDER_TYPE_PREDEFINED\x10\x02\x12!\n\x1d\x41UTOFILL_PROVIDER_TYPE_LINKED\x10\x03\x42\x41Z(arista/resources/arista/studio.v1;studio\xba\x9a\x19\x13repeated-key-fieldsb\x06proto3'
+  serialized_pb=b'\n\x1d\x61rista/studio.v1/studio.proto\x12\x10\x61rista.studio.v1\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"v\n\tStudioKey\x12/\n\tstudio_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0cworkspace_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xb6\x02\n\x0cStudioConfig\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x32\n\x0c\x64isplay_name\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x08template\x18\x05 \x01(\x0b\x32\x1a.arista.studio.v1.Template\x12\x33\n\x0cinput_schema\x18\x06 \x01(\x0b\x32\x1d.arista.studio.v1.InputSchema:\x06\xfa\x8d\x19\x02rw\"\xb1\x02\n\rStudioSummary\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12\x32\n\x0c\x64isplay_name\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\timmutable\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12,\n\x08\x65ntities\x18\x05 \x01(\x0b\x32\x1a.arista.studio.v1.Entities\x12*\n\x06in_use\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02ro\"\xd6\x01\n\x06\x45ntity\x12\x31\n\x0b\x65ntity_type\x18\x01 \x01(\x0e\x32\x1c.arista.studio.v1.EntityType\x12\x34\n\x10last_modified_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x07removed\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\x8b\x01\n\x08\x45ntities\x12\x36\n\x06values\x18\x01 \x03(\x0b\x32&.arista.studio.v1.Entities.ValuesEntry\x1aG\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\'\n\x05value\x18\x02 \x01(\x0b\x32\x18.arista.studio.v1.Entity:\x02\x38\x01\"\x8e\x04\n\x06Studio\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0c\x64isplay_name\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x08template\x18\x08 \x01(\x0b\x32\x1a.arista.studio.v1.Template\x12\x33\n\x0cinput_schema\x18\t \x01(\x0b\x32\x1d.arista.studio.v1.InputSchema\x12\x32\n\x0c\x66rom_package\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02roJ\x04\x08\n\x10\x0b\"\x9f\x01\n\x12\x41ssignedTagsConfig\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12+\n\x05query\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02rw\"\xbd\x02\n\x0c\x41ssignedTags\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.StudioKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x05query\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\x99\x01\n\tInputsKey\x12/\n\tstudio_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0cworkspace_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12!\n\x04path\x18\x03 \x01(\x0b\x32\x13.fmp.RepeatedString:\x04\x80\x8e\x19\x01\"\x9a\x01\n\x0cInputsConfig\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12,\n\x06inputs\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02rw\"\xb8\x02\n\x06Inputs\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06inputs\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"d\n\x08Template\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x1e.arista.studio.v1.TemplateType\x12*\n\x04\x62ody\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"K\n\x16\x42ooleanInputFieldProps\x12\x31\n\rdefault_value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\x8d\x02\n\x16IntegerInputFieldProps\x12\x32\n\rdefault_value\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12*\n\x0estatic_options\x18\x02 \x01(\x0b\x32\x12.fmp.RepeatedInt64\x12+\n\x05range\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x0f\x64ynamic_options\x18\x04 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x38\n\x14\x65xtra_values_allowed\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\xde\x01\n\x14\x46loatInputFieldProps\x12\x32\n\rdefault_value\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.FloatValue\x12*\n\x0estatic_options\x18\x03 \x01(\x0b\x32\x12.fmp.RepeatedFloat\x12,\n\x0f\x64ynamic_options\x18\x04 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x38\n\x14\x65xtra_values_allowed\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\x9b\x03\n\x15StringInputFieldProps\x12\x33\n\rdefault_value\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x0estatic_options\x18\x03 \x01(\x0b\x32\x13.fmp.RepeatedString\x12,\n\x0f\x64ynamic_options\x18\x04 \x01(\x0b\x32\x13.fmp.RepeatedString\x12,\n\x06length\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\x07pattern\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06\x66ormat\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\tis_secret\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x38\n\x14\x65xtra_values_allowed\x18\t \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"<\n\x14GroupInputFieldProps\x12$\n\x07members\x18\x01 \x01(\x0b\x32\x13.fmp.RepeatedString\"{\n\x19\x43ollectionInputFieldProps\x12\x33\n\rbase_field_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12)\n\x03key\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xbd\x02\n\x17ResolverInputFieldProps\x12\x33\n\rbase_field_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12@\n\x0c\x64isplay_mode\x18\x02 \x01(\x0e\x32*.arista.studio.v1.ResolverFieldDisplayMode\x12<\n\ninput_mode\x18\x03 \x01(\x0e\x32(.arista.studio.v1.ResolverFieldInputMode\x12\x35\n\x0finput_tag_label\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x10tag_filter_query\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\x8d\x02\n\x19TagMatcherInputFieldProps\x12?\n\x10tag_matcher_mode\x18\x01 \x01(\x0e\x32%.arista.studio.v1.TagMatcherFieldMode\x12\x37\n\x11tag_matcher_label\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x36\n\x10tag_filter_query\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12>\n\x1aresolver_filtering_allowed\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\xe8\x06\n\nInputField\x12(\n\x02id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12.\n\x04type\x18\x02 \x01(\x0e\x32 .arista.studio.v1.InputFieldType\x12*\n\x04name\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x05label\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x08required\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12?\n\rboolean_props\x18\x07 \x01(\x0b\x32(.arista.studio.v1.BooleanInputFieldProps\x12?\n\rinteger_props\x18\x08 \x01(\x0b\x32(.arista.studio.v1.IntegerInputFieldProps\x12;\n\x0b\x66loat_props\x18\t \x01(\x0b\x32&.arista.studio.v1.FloatInputFieldProps\x12=\n\x0cstring_props\x18\n \x01(\x0b\x32\'.arista.studio.v1.StringInputFieldProps\x12;\n\x0bgroup_props\x18\x0b \x01(\x0b\x32&.arista.studio.v1.GroupInputFieldProps\x12\x45\n\x10\x63ollection_props\x18\x0c \x01(\x0b\x32+.arista.studio.v1.CollectionInputFieldProps\x12\x41\n\x0eresolver_props\x18\r \x01(\x0b\x32).arista.studio.v1.ResolverInputFieldProps\x12\x39\n\x13\x61uto_fill_action_id\x18\x0e \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x46\n\x11tag_matcher_props\x18\x0f \x01(\x0b\x32+.arista.studio.v1.TagMatcherInputFieldProps\"\x95\x01\n\x0bInputFields\x12\x39\n\x06values\x18\x01 \x03(\x0b\x32).arista.studio.v1.InputFields.ValuesEntry\x1aK\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12+\n\x05value\x18\x02 \x01(\x0b\x32\x1c.arista.studio.v1.InputField:\x02\x38\x01\"5\n\x06Layout\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"f\n\x0bInputSchema\x12-\n\x06\x66ields\x18\x01 \x01(\x0b\x32\x1d.arista.studio.v1.InputFields\x12(\n\x06layout\x18\x02 \x01(\x0b\x32\x18.arista.studio.v1.Layout\"q\n\x0bSecretInput\x12(\n\x03key\x18\x01 \x01(\x0b\x32\x1b.arista.studio.v1.InputsKey\x12\x30\n\nplain_text\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x06\xfa\x8d\x19\x02ro\"\xb4\x01\n\x11\x41utofillActionKey\x12/\n\tstudio_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x32\n\x0cworkspace_id\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x0einput_field_id\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xa9\x02\n\x14\x41utofillActionConfig\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.AutofillActionKey\x12*\n\x06remove\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12/\n\taction_id\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12G\n\x12\x61rgument_providers\x18\x05 \x01(\x0b\x32+.arista.studio.v1.AutofillArgumentProviders:\x06\xfa\x8d\x19\x02rw\"\xc7\x03\n\x0e\x41utofillAction\x12\x30\n\x03key\x18\x01 \x01(\x0b\x32#.arista.studio.v1.AutofillActionKey\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x34\n\x10last_modified_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x10last_modified_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\taction_id\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12G\n\x12\x61rgument_providers\x18\x08 \x01(\x0b\x32+.arista.studio.v1.AutofillArgumentProviders:\x06\xfa\x8d\x19\x02ro\"\xbf\x01\n\x19\x41utofillArgumentProviders\x12G\n\x06values\x18\x01 \x03(\x0b\x32\x37.arista.studio.v1.AutofillArgumentProviders.ValuesEntry\x1aY\n\x0bValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.arista.studio.v1.AutofillArgumentProvider:\x02\x38\x01\"}\n\x18\x41utofillArgumentProvider\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.arista.studio.v1.AutofillProviderType\x12+\n\x05value\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue*\xb5\x01\n\nEntityType\x12\x1b\n\x17\x45NTITY_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12\x45NTITY_TYPE_STUDIO\x10\x01\x12\x16\n\x12\x45NTITY_TYPE_INPUTS\x10\x02\x12\x1d\n\x19\x45NTITY_TYPE_ASSIGNED_TAGS\x10\x03\x12\x1a\n\x16\x45NTITY_TYPE_BUILD_HOOK\x10\x04\x12\x1f\n\x1b\x45NTITY_TYPE_AUTOFILL_ACTION\x10\x05*t\n\x0cTemplateType\x12\x1d\n\x19TEMPLATE_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12TEMPLATE_TYPE_MAKO\x10\x01\x12\x17\n\x13TEMPLATE_TYPE_JINJA\x10\x02\x12\x14\n\x10TEMPLATE_TYPE_GO\x10\x03*\xa5\x02\n\x0eInputFieldType\x12 \n\x1cINPUT_FIELD_TYPE_UNSPECIFIED\x10\x00\x12\x1c\n\x18INPUT_FIELD_TYPE_BOOLEAN\x10\x01\x12\x1c\n\x18INPUT_FIELD_TYPE_INTEGER\x10\x02\x12\x1a\n\x16INPUT_FIELD_TYPE_FLOAT\x10\x03\x12\x1b\n\x17INPUT_FIELD_TYPE_STRING\x10\x04\x12\x1a\n\x16INPUT_FIELD_TYPE_GROUP\x10\x05\x12\x1f\n\x1bINPUT_FIELD_TYPE_COLLECTION\x10\x06\x12\x1d\n\x19INPUT_FIELD_TYPE_RESOLVER\x10\x07\x12 \n\x1cINPUT_FIELD_TYPE_TAG_MATCHER\x10\x08*\x8b\x02\n\x16ResolverFieldInputMode\x12)\n%RESOLVER_FIELD_INPUT_MODE_UNSPECIFIED\x10\x00\x12/\n+RESOLVER_FIELD_INPUT_MODE_SINGLE_DEVICE_TAG\x10\x01\x12\x32\n.RESOLVER_FIELD_INPUT_MODE_SINGLE_INTERFACE_TAG\x10\x02\x12.\n*RESOLVER_FIELD_INPUT_MODE_MULTI_DEVICE_TAG\x10\x03\x12\x31\n-RESOLVER_FIELD_INPUT_MODE_MULTI_INTERFACE_TAG\x10\x04*\x94\x01\n\x18ResolverFieldDisplayMode\x12+\n\'RESOLVER_FIELD_DISPLAY_MODE_UNSPECIFIED\x10\x00\x12#\n\x1fRESOLVER_FIELD_DISPLAY_MODE_ALL\x10\x01\x12&\n\"RESOLVER_FIELD_DISPLAY_MODE_SPARSE\x10\x02*\xf9\x01\n\x13TagMatcherFieldMode\x12&\n\"TAG_MATCHER_FIELD_MODE_UNSPECIFIED\x10\x00\x12,\n(TAG_MATCHER_FIELD_MODE_SINGLE_DEVICE_TAG\x10\x01\x12/\n+TAG_MATCHER_FIELD_MODE_SINGLE_INTERFACE_TAG\x10\x02\x12+\n\'TAG_MATCHER_FIELD_MODE_MULTI_DEVICE_TAG\x10\x03\x12.\n*TAG_MATCHER_FIELD_MODE_MULTI_INTERFACE_TAG\x10\x04*\xb3\x01\n\x14\x41utofillProviderType\x12&\n\"AUTOFILL_PROVIDER_TYPE_UNSPECIFIED\x10\x00\x12)\n%AUTOFILL_PROVIDER_TYPE_USER_SPECIFIED\x10\x01\x12%\n!AUTOFILL_PROVIDER_TYPE_PREDEFINED\x10\x02\x12!\n\x1d\x41UTOFILL_PROVIDER_TYPE_LINKED\x10\x03\x42]ZDgithub.com/aristanetworks/cloudvision-go/api/arista/studio.v1;studio\xba\x9a\x19\x13repeated-key-fieldsb\x06proto3'
   ,
-  dependencies=[fmp_dot_extensions__pb2.DESCRIPTOR,fmp_dot_wrappers__pb2.DESCRIPTOR,fmp_dot_yang__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
+  dependencies=[fmp_dot_extensions__pb2.DESCRIPTOR,fmp_dot_wrappers__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
+_ENTITYTYPE = _descriptor.EnumDescriptor(
+  name='EntityType',
+  full_name='arista.studio.v1.EntityType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='ENTITY_TYPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ENTITY_TYPE_STUDIO', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ENTITY_TYPE_INPUTS', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ENTITY_TYPE_ASSIGNED_TAGS', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ENTITY_TYPE_BUILD_HOOK', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ENTITY_TYPE_AUTOFILL_ACTION', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=7330,
+  serialized_end=7511,
+)
+_sym_db.RegisterEnumDescriptor(_ENTITYTYPE)
+
+EntityType = enum_type_wrapper.EnumTypeWrapper(_ENTITYTYPE)
 _TEMPLATETYPE = _descriptor.EnumDescriptor(
   name='TemplateType',
   full_name='arista.studio.v1.TemplateType',
@@ -59,8 +104,8 @@ _TEMPLATETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=8703,
-  serialized_end=8819,
+  serialized_start=7513,
+  serialized_end=7629,
 )
 _sym_db.RegisterEnumDescriptor(_TEMPLATETYPE)
 
@@ -120,8 +165,8 @@ _INPUTFIELDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=8822,
-  serialized_end=9115,
+  serialized_start=7632,
+  serialized_end=7925,
 )
 _sym_db.RegisterEnumDescriptor(_INPUTFIELDTYPE)
 
@@ -161,8 +206,8 @@ _RESOLVERFIELDINPUTMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9118,
-  serialized_end=9385,
+  serialized_start=7928,
+  serialized_end=8195,
 )
 _sym_db.RegisterEnumDescriptor(_RESOLVERFIELDINPUTMODE)
 
@@ -192,8 +237,8 @@ _RESOLVERFIELDDISPLAYMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9388,
-  serialized_end=9536,
+  serialized_start=8198,
+  serialized_end=8346,
 )
 _sym_db.RegisterEnumDescriptor(_RESOLVERFIELDDISPLAYMODE)
 
@@ -233,120 +278,12 @@ _TAGMATCHERFIELDMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9539,
-  serialized_end=9788,
+  serialized_start=8349,
+  serialized_end=8598,
 )
 _sym_db.RegisterEnumDescriptor(_TAGMATCHERFIELDMODE)
 
 TagMatcherFieldMode = enum_type_wrapper.EnumTypeWrapper(_TAGMATCHERFIELDMODE)
-_TOPOLOGYELEMENT = _descriptor.EnumDescriptor(
-  name='TopologyElement',
-  full_name='arista.studio.v1.TopologyElement',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_ELEMENT_UNSPECIFIED', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_ELEMENT_DEVICE', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_ELEMENT_INTERFACE', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_ELEMENT_CONNECTION', index=3, number=3,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=9791,
-  serialized_end=9936,
-)
-_sym_db.RegisterEnumDescriptor(_TOPOLOGYELEMENT)
-
-TopologyElement = enum_type_wrapper.EnumTypeWrapper(_TOPOLOGYELEMENT)
-_TOPOLOGYOPERATION = _descriptor.EnumDescriptor(
-  name='TopologyOperation',
-  full_name='arista.studio.v1.TopologyOperation',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_OPERATION_UNSPECIFIED', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_OPERATION_ADDED', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_OPERATION_MODIFIED', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_OPERATION_REMOVED', index=3, number=3,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=9939,
-  serialized_end=10089,
-)
-_sym_db.RegisterEnumDescriptor(_TOPOLOGYOPERATION)
-
-TopologyOperation = enum_type_wrapper.EnumTypeWrapper(_TOPOLOGYOPERATION)
-_TOPOLOGYUPDATESTATUS = _descriptor.EnumDescriptor(
-  name='TopologyUpdateStatus',
-  full_name='arista.studio.v1.TopologyUpdateStatus',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_UPDATE_STATUS_UNSPECIFIED', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_UPDATE_STATUS_NEW', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_UPDATE_STATUS_ACCEPTED', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='TOPOLOGY_UPDATE_STATUS_IGNORED', index=3, number=3,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=10092,
-  serialized_end=10259,
-)
-_sym_db.RegisterEnumDescriptor(_TOPOLOGYUPDATESTATUS)
-
-TopologyUpdateStatus = enum_type_wrapper.EnumTypeWrapper(_TOPOLOGYUPDATESTATUS)
 _AUTOFILLPROVIDERTYPE = _descriptor.EnumDescriptor(
   name='AutofillProviderType',
   full_name='arista.studio.v1.AutofillProviderType',
@@ -377,12 +314,18 @@ _AUTOFILLPROVIDERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10262,
-  serialized_end=10441,
+  serialized_start=8601,
+  serialized_end=8780,
 )
 _sym_db.RegisterEnumDescriptor(_AUTOFILLPROVIDERTYPE)
 
 AutofillProviderType = enum_type_wrapper.EnumTypeWrapper(_AUTOFILLPROVIDERTYPE)
+ENTITY_TYPE_UNSPECIFIED = 0
+ENTITY_TYPE_STUDIO = 1
+ENTITY_TYPE_INPUTS = 2
+ENTITY_TYPE_ASSIGNED_TAGS = 3
+ENTITY_TYPE_BUILD_HOOK = 4
+ENTITY_TYPE_AUTOFILL_ACTION = 5
 TEMPLATE_TYPE_UNSPECIFIED = 0
 TEMPLATE_TYPE_MAKO = 1
 TEMPLATE_TYPE_JINJA = 2
@@ -409,18 +352,6 @@ TAG_MATCHER_FIELD_MODE_SINGLE_DEVICE_TAG = 1
 TAG_MATCHER_FIELD_MODE_SINGLE_INTERFACE_TAG = 2
 TAG_MATCHER_FIELD_MODE_MULTI_DEVICE_TAG = 3
 TAG_MATCHER_FIELD_MODE_MULTI_INTERFACE_TAG = 4
-TOPOLOGY_ELEMENT_UNSPECIFIED = 0
-TOPOLOGY_ELEMENT_DEVICE = 1
-TOPOLOGY_ELEMENT_INTERFACE = 2
-TOPOLOGY_ELEMENT_CONNECTION = 3
-TOPOLOGY_OPERATION_UNSPECIFIED = 0
-TOPOLOGY_OPERATION_ADDED = 1
-TOPOLOGY_OPERATION_MODIFIED = 2
-TOPOLOGY_OPERATION_REMOVED = 3
-TOPOLOGY_UPDATE_STATUS_UNSPECIFIED = 0
-TOPOLOGY_UPDATE_STATUS_NEW = 1
-TOPOLOGY_UPDATE_STATUS_ACCEPTED = 2
-TOPOLOGY_UPDATE_STATUS_IGNORED = 3
 AUTOFILL_PROVIDER_TYPE_UNSPECIFIED = 0
 AUTOFILL_PROVIDER_TYPE_USER_SPECIFIED = 1
 AUTOFILL_PROVIDER_TYPE_PREDEFINED = 2
@@ -462,8 +393,8 @@ _STUDIOKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=174,
-  serialized_end=292,
+  serialized_start=158,
+  serialized_end=276,
 )
 
 
@@ -529,8 +460,8 @@ _STUDIOCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=295,
-  serialized_end=605,
+  serialized_start=279,
+  serialized_end=589,
 )
 
 
@@ -570,6 +501,20 @@ _STUDIOSUMMARY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='entities', full_name='arista.studio.v1.StudioSummary.entities', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='in_use', full_name='arista.studio.v1.StudioSummary.in_use', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -582,8 +527,131 @@ _STUDIOSUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=608,
-  serialized_end=823,
+  serialized_start=592,
+  serialized_end=897,
+)
+
+
+_ENTITY = _descriptor.Descriptor(
+  name='Entity',
+  full_name='arista.studio.v1.Entity',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='entity_type', full_name='arista.studio.v1.Entity.entity_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_modified_at', full_name='arista.studio.v1.Entity.last_modified_at', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_modified_by', full_name='arista.studio.v1.Entity.last_modified_by', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='removed', full_name='arista.studio.v1.Entity.removed', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=900,
+  serialized_end=1114,
+)
+
+
+_ENTITIES_VALUESENTRY = _descriptor.Descriptor(
+  name='ValuesEntry',
+  full_name='arista.studio.v1.Entities.ValuesEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='arista.studio.v1.Entities.ValuesEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='arista.studio.v1.Entities.ValuesEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1185,
+  serialized_end=1256,
+)
+
+_ENTITIES = _descriptor.Descriptor(
+  name='Entities',
+  full_name='arista.studio.v1.Entities',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='arista.studio.v1.Entities.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_ENTITIES_VALUESENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1117,
+  serialized_end=1256,
 )
 
 
@@ -658,6 +726,13 @@ _STUDIO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='from_package', full_name='arista.studio.v1.Studio.from_package', index=9,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -670,8 +745,8 @@ _STUDIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=826,
-  serialized_end=1300,
+  serialized_start=1259,
+  serialized_end=1785,
 )
 
 
@@ -716,8 +791,8 @@ _ASSIGNEDTAGSCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1303,
-  serialized_end=1462,
+  serialized_start=1788,
+  serialized_end=1947,
 )
 
 
@@ -783,8 +858,8 @@ _ASSIGNEDTAGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1465,
-  serialized_end=1782,
+  serialized_start=1950,
+  serialized_end=2267,
 )
 
 
@@ -829,8 +904,8 @@ _INPUTSKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1785,
-  serialized_end=1938,
+  serialized_start=2270,
+  serialized_end=2423,
 )
 
 
@@ -875,8 +950,8 @@ _INPUTSCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1941,
-  serialized_end=2095,
+  serialized_start=2426,
+  serialized_end=2580,
 )
 
 
@@ -942,8 +1017,8 @@ _INPUTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2098,
-  serialized_end=2410,
+  serialized_start=2583,
+  serialized_end=2895,
 )
 
 
@@ -981,8 +1056,8 @@ _TEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2412,
-  serialized_end=2512,
+  serialized_start=2897,
+  serialized_end=2997,
 )
 
 
@@ -1013,8 +1088,8 @@ _BOOLEANINPUTFIELDPROPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2514,
-  serialized_end=2589,
+  serialized_start=2999,
+  serialized_end=3074,
 )
 
 
@@ -1073,8 +1148,8 @@ _INTEGERINPUTFIELDPROPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2592,
-  serialized_end=2861,
+  serialized_start=3077,
+  serialized_end=3346,
 )
 
 
@@ -1126,8 +1201,8 @@ _FLOATINPUTFIELDPROPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2864,
-  serialized_end=3086,
+  serialized_start=3349,
+  serialized_end=3571,
 )
 
 
@@ -1207,8 +1282,8 @@ _STRINGINPUTFIELDPROPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3089,
-  serialized_end=3500,
+  serialized_start=3574,
+  serialized_end=3985,
 )
 
 
@@ -1239,8 +1314,8 @@ _GROUPINPUTFIELDPROPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3502,
-  serialized_end=3562,
+  serialized_start=3987,
+  serialized_end=4047,
 )
 
 
@@ -1278,8 +1353,8 @@ _COLLECTIONINPUTFIELDPROPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3564,
-  serialized_end=3687,
+  serialized_start=4049,
+  serialized_end=4172,
 )
 
 
@@ -1338,8 +1413,8 @@ _RESOLVERINPUTFIELDPROPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3690,
-  serialized_end=4007,
+  serialized_start=4175,
+  serialized_end=4492,
 )
 
 
@@ -1391,8 +1466,8 @@ _TAGMATCHERINPUTFIELDPROPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4010,
-  serialized_end=4279,
+  serialized_start=4495,
+  serialized_end=4764,
 )
 
 
@@ -1521,8 +1596,8 @@ _INPUTFIELD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4282,
-  serialized_end=5154,
+  serialized_start=4767,
+  serialized_end=5639,
 )
 
 
@@ -1560,8 +1635,8 @@ _INPUTFIELDS_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5231,
-  serialized_end=5306,
+  serialized_start=5716,
+  serialized_end=5791,
 )
 
 _INPUTFIELDS = _descriptor.Descriptor(
@@ -1591,8 +1666,8 @@ _INPUTFIELDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5157,
-  serialized_end=5306,
+  serialized_start=5642,
+  serialized_end=5791,
 )
 
 
@@ -1623,8 +1698,8 @@ _LAYOUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5308,
-  serialized_end=5361,
+  serialized_start=5793,
+  serialized_end=5846,
 )
 
 
@@ -1662,8 +1737,8 @@ _INPUTSCHEMA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5363,
-  serialized_end=5465,
+  serialized_start=5848,
+  serialized_end=5950,
 )
 
 
@@ -1701,518 +1776,8 @@ _SECRETINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5467,
-  serialized_end=5580,
-)
-
-
-_DEVICEINFO = _descriptor.Descriptor(
-  name='DeviceInfo',
-  full_name='arista.studio.v1.DeviceInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='device_id', full_name='arista.studio.v1.DeviceInfo.device_id', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='model_name', full_name='arista.studio.v1.DeviceInfo.model_name', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='mac_address', full_name='arista.studio.v1.DeviceInfo.mac_address', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='hostname', full_name='arista.studio.v1.DeviceInfo.hostname', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='interface_infos', full_name='arista.studio.v1.DeviceInfo.interface_infos', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=5583,
-  serialized_end=5839,
-)
-
-
-_INTERFACEINFO = _descriptor.Descriptor(
-  name='InterfaceInfo',
-  full_name='arista.studio.v1.InterfaceInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='arista.studio.v1.InterfaceInfo.name', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='neighbor_device_id', full_name='arista.studio.v1.InterfaceInfo.neighbor_device_id', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='neighbor_interface_name', full_name='arista.studio.v1.InterfaceInfo.neighbor_interface_name', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='topology_operation', full_name='arista.studio.v1.InterfaceInfo.topology_operation', index=3,
-      number=4, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=5842,
-  serialized_end=6087,
-)
-
-
-_INTERFACEINFOS = _descriptor.Descriptor(
-  name='InterfaceInfos',
-  full_name='arista.studio.v1.InterfaceInfos',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='values', full_name='arista.studio.v1.InterfaceInfos.values', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=6089,
-  serialized_end=6154,
-)
-
-
-_TOPOLOGYINPUTKEY = _descriptor.Descriptor(
-  name='TopologyInputKey',
-  full_name='arista.studio.v1.TopologyInputKey',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='workspace_id', full_name='arista.studio.v1.TopologyInputKey.workspace_id', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='device_id', full_name='arista.studio.v1.TopologyInputKey.device_id', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\200\216\031\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=6156,
-  serialized_end=6281,
-)
-
-
-_TOPOLOGYINPUTCONFIG = _descriptor.Descriptor(
-  name='TopologyInputConfig',
-  full_name='arista.studio.v1.TopologyInputConfig',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='arista.studio.v1.TopologyInputConfig.key', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='device_info', full_name='arista.studio.v1.TopologyInputConfig.device_info', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\372\215\031\002rw',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=6284,
-  serialized_end=6413,
-)
-
-
-_TOPOLOGYINPUT = _descriptor.Descriptor(
-  name='TopologyInput',
-  full_name='arista.studio.v1.TopologyInput',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='arista.studio.v1.TopologyInput.key', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='device_info', full_name='arista.studio.v1.TopologyInput.device_info', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\372\215\031\002ro',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=6415,
-  serialized_end=6538,
-)
-
-
-_TOPOLOGYUPDATEKEY = _descriptor.Descriptor(
-  name='TopologyUpdateKey',
-  full_name='arista.studio.v1.TopologyUpdateKey',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='workspace_id', full_name='arista.studio.v1.TopologyUpdateKey.workspace_id', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='update_id', full_name='arista.studio.v1.TopologyUpdateKey.update_id', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\200\216\031\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=6540,
-  serialized_end=6666,
-)
-
-
-_TOPOLOGYUPDATECONFIG = _descriptor.Descriptor(
-  name='TopologyUpdateConfig',
-  full_name='arista.studio.v1.TopologyUpdateConfig',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='arista.studio.v1.TopologyUpdateConfig.key', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='status', full_name='arista.studio.v1.TopologyUpdateConfig.status', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\372\215\031\002rw',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=6669,
-  serialized_end=6805,
-)
-
-
-_TOPOLOGYUPDATE = _descriptor.Descriptor(
-  name='TopologyUpdate',
-  full_name='arista.studio.v1.TopologyUpdate',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='arista.studio.v1.TopologyUpdate.key', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='topology_element', full_name='arista.studio.v1.TopologyUpdate.topology_element', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='topology_operation', full_name='arista.studio.v1.TopologyUpdate.topology_operation', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='status', full_name='arista.studio.v1.TopologyUpdate.status', index=3,
-      number=4, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='arista.studio.v1.TopologyUpdate.description', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\372\215\031\002ro',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=6808,
-  serialized_end=7115,
-)
-
-
-_WORKSPACEKEY = _descriptor.Descriptor(
-  name='WorkspaceKey',
-  full_name='arista.studio.v1.WorkspaceKey',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='workspace_id', full_name='arista.studio.v1.WorkspaceKey.workspace_id', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\200\216\031\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=7117,
-  serialized_end=7189,
-)
-
-
-_TOPOLOGYUPDATESYNCCONFIG = _descriptor.Descriptor(
-  name='TopologyUpdateSyncConfig',
-  full_name='arista.studio.v1.TopologyUpdateSyncConfig',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='arista.studio.v1.TopologyUpdateSyncConfig.key', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='sync_time', full_name='arista.studio.v1.TopologyUpdateSyncConfig.sync_time', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\372\215\031\002rw',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=7191,
-  serialized_end=7317,
-)
-
-
-_TOPOLOGYUPDATESYNC = _descriptor.Descriptor(
-  name='TopologyUpdateSync',
-  full_name='arista.studio.v1.TopologyUpdateSync',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='arista.studio.v1.TopologyUpdateSync.key', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='sync_time', full_name='arista.studio.v1.TopologyUpdateSync.sync_time', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\372\215\031\002ro',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=7319,
-  serialized_end=7439,
+  serialized_start=5952,
+  serialized_end=6065,
 )
 
 
@@ -2257,8 +1822,8 @@ _AUTOFILLACTIONKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7442,
-  serialized_end=7622,
+  serialized_start=6068,
+  serialized_end=6248,
 )
 
 
@@ -2317,8 +1882,8 @@ _AUTOFILLACTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7625,
-  serialized_end=7922,
+  serialized_start=6251,
+  serialized_end=6548,
 )
 
 
@@ -2398,8 +1963,8 @@ _AUTOFILLACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7925,
-  serialized_end=8380,
+  serialized_start=6551,
+  serialized_end=7006,
 )
 
 
@@ -2437,8 +2002,8 @@ _AUTOFILLARGUMENTPROVIDERS_VALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8485,
-  serialized_end=8574,
+  serialized_start=7111,
+  serialized_end=7200,
 )
 
 _AUTOFILLARGUMENTPROVIDERS = _descriptor.Descriptor(
@@ -2468,8 +2033,8 @@ _AUTOFILLARGUMENTPROVIDERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8383,
-  serialized_end=8574,
+  serialized_start=7009,
+  serialized_end=7200,
 )
 
 
@@ -2507,8 +2072,8 @@ _AUTOFILLARGUMENTPROVIDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8576,
-  serialized_end=8701,
+  serialized_start=7202,
+  serialized_end=7327,
 )
 
 _STUDIOKEY.fields_by_name['studio_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
@@ -2523,6 +2088,15 @@ _STUDIOSUMMARY.fields_by_name['key'].message_type = _STUDIOKEY
 _STUDIOSUMMARY.fields_by_name['display_name'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _STUDIOSUMMARY.fields_by_name['description'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _STUDIOSUMMARY.fields_by_name['immutable'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_STUDIOSUMMARY.fields_by_name['entities'].message_type = _ENTITIES
+_STUDIOSUMMARY.fields_by_name['in_use'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_ENTITY.fields_by_name['entity_type'].enum_type = _ENTITYTYPE
+_ENTITY.fields_by_name['last_modified_at'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_ENTITY.fields_by_name['last_modified_by'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_ENTITY.fields_by_name['removed'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_ENTITIES_VALUESENTRY.fields_by_name['value'].message_type = _ENTITY
+_ENTITIES_VALUESENTRY.containing_type = _ENTITIES
+_ENTITIES.fields_by_name['values'].message_type = _ENTITIES_VALUESENTRY
 _STUDIO.fields_by_name['key'].message_type = _STUDIOKEY
 _STUDIO.fields_by_name['created_at'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _STUDIO.fields_by_name['created_by'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
@@ -2532,6 +2106,7 @@ _STUDIO.fields_by_name['display_name'].message_type = google_dot_protobuf_dot_wr
 _STUDIO.fields_by_name['description'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _STUDIO.fields_by_name['template'].message_type = _TEMPLATE
 _STUDIO.fields_by_name['input_schema'].message_type = _INPUTSCHEMA
+_STUDIO.fields_by_name['from_package'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _ASSIGNEDTAGSCONFIG.fields_by_name['key'].message_type = _STUDIOKEY
 _ASSIGNEDTAGSCONFIG.fields_by_name['remove'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _ASSIGNEDTAGSCONFIG.fields_by_name['query'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
@@ -2608,36 +2183,6 @@ _INPUTSCHEMA.fields_by_name['fields'].message_type = _INPUTFIELDS
 _INPUTSCHEMA.fields_by_name['layout'].message_type = _LAYOUT
 _SECRETINPUT.fields_by_name['key'].message_type = _INPUTSKEY
 _SECRETINPUT.fields_by_name['plain_text'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_DEVICEINFO.fields_by_name['device_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_DEVICEINFO.fields_by_name['model_name'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_DEVICEINFO.fields_by_name['mac_address'].message_type = fmp_dot_yang__pb2._MACADDRESS
-_DEVICEINFO.fields_by_name['hostname'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_DEVICEINFO.fields_by_name['interface_infos'].message_type = _INTERFACEINFOS
-_INTERFACEINFO.fields_by_name['name'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_INTERFACEINFO.fields_by_name['neighbor_device_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_INTERFACEINFO.fields_by_name['neighbor_interface_name'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_INTERFACEINFO.fields_by_name['topology_operation'].enum_type = _TOPOLOGYOPERATION
-_INTERFACEINFOS.fields_by_name['values'].message_type = _INTERFACEINFO
-_TOPOLOGYINPUTKEY.fields_by_name['workspace_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_TOPOLOGYINPUTKEY.fields_by_name['device_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_TOPOLOGYINPUTCONFIG.fields_by_name['key'].message_type = _TOPOLOGYINPUTKEY
-_TOPOLOGYINPUTCONFIG.fields_by_name['device_info'].message_type = _DEVICEINFO
-_TOPOLOGYINPUT.fields_by_name['key'].message_type = _TOPOLOGYINPUTKEY
-_TOPOLOGYINPUT.fields_by_name['device_info'].message_type = _DEVICEINFO
-_TOPOLOGYUPDATEKEY.fields_by_name['workspace_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_TOPOLOGYUPDATEKEY.fields_by_name['update_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_TOPOLOGYUPDATECONFIG.fields_by_name['key'].message_type = _TOPOLOGYUPDATEKEY
-_TOPOLOGYUPDATECONFIG.fields_by_name['status'].enum_type = _TOPOLOGYUPDATESTATUS
-_TOPOLOGYUPDATE.fields_by_name['key'].message_type = _TOPOLOGYUPDATEKEY
-_TOPOLOGYUPDATE.fields_by_name['topology_element'].enum_type = _TOPOLOGYELEMENT
-_TOPOLOGYUPDATE.fields_by_name['topology_operation'].enum_type = _TOPOLOGYOPERATION
-_TOPOLOGYUPDATE.fields_by_name['status'].enum_type = _TOPOLOGYUPDATESTATUS
-_TOPOLOGYUPDATE.fields_by_name['description'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_WORKSPACEKEY.fields_by_name['workspace_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_TOPOLOGYUPDATESYNCCONFIG.fields_by_name['key'].message_type = _WORKSPACEKEY
-_TOPOLOGYUPDATESYNCCONFIG.fields_by_name['sync_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_TOPOLOGYUPDATESYNC.fields_by_name['key'].message_type = _WORKSPACEKEY
-_TOPOLOGYUPDATESYNC.fields_by_name['sync_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _AUTOFILLACTIONKEY.fields_by_name['studio_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _AUTOFILLACTIONKEY.fields_by_name['workspace_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _AUTOFILLACTIONKEY.fields_by_name['input_field_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
@@ -2662,6 +2207,8 @@ _AUTOFILLARGUMENTPROVIDER.fields_by_name['value'].message_type = google_dot_prot
 DESCRIPTOR.message_types_by_name['StudioKey'] = _STUDIOKEY
 DESCRIPTOR.message_types_by_name['StudioConfig'] = _STUDIOCONFIG
 DESCRIPTOR.message_types_by_name['StudioSummary'] = _STUDIOSUMMARY
+DESCRIPTOR.message_types_by_name['Entity'] = _ENTITY
+DESCRIPTOR.message_types_by_name['Entities'] = _ENTITIES
 DESCRIPTOR.message_types_by_name['Studio'] = _STUDIO
 DESCRIPTOR.message_types_by_name['AssignedTagsConfig'] = _ASSIGNEDTAGSCONFIG
 DESCRIPTOR.message_types_by_name['AssignedTags'] = _ASSIGNEDTAGS
@@ -2682,31 +2229,17 @@ DESCRIPTOR.message_types_by_name['InputFields'] = _INPUTFIELDS
 DESCRIPTOR.message_types_by_name['Layout'] = _LAYOUT
 DESCRIPTOR.message_types_by_name['InputSchema'] = _INPUTSCHEMA
 DESCRIPTOR.message_types_by_name['SecretInput'] = _SECRETINPUT
-DESCRIPTOR.message_types_by_name['DeviceInfo'] = _DEVICEINFO
-DESCRIPTOR.message_types_by_name['InterfaceInfo'] = _INTERFACEINFO
-DESCRIPTOR.message_types_by_name['InterfaceInfos'] = _INTERFACEINFOS
-DESCRIPTOR.message_types_by_name['TopologyInputKey'] = _TOPOLOGYINPUTKEY
-DESCRIPTOR.message_types_by_name['TopologyInputConfig'] = _TOPOLOGYINPUTCONFIG
-DESCRIPTOR.message_types_by_name['TopologyInput'] = _TOPOLOGYINPUT
-DESCRIPTOR.message_types_by_name['TopologyUpdateKey'] = _TOPOLOGYUPDATEKEY
-DESCRIPTOR.message_types_by_name['TopologyUpdateConfig'] = _TOPOLOGYUPDATECONFIG
-DESCRIPTOR.message_types_by_name['TopologyUpdate'] = _TOPOLOGYUPDATE
-DESCRIPTOR.message_types_by_name['WorkspaceKey'] = _WORKSPACEKEY
-DESCRIPTOR.message_types_by_name['TopologyUpdateSyncConfig'] = _TOPOLOGYUPDATESYNCCONFIG
-DESCRIPTOR.message_types_by_name['TopologyUpdateSync'] = _TOPOLOGYUPDATESYNC
 DESCRIPTOR.message_types_by_name['AutofillActionKey'] = _AUTOFILLACTIONKEY
 DESCRIPTOR.message_types_by_name['AutofillActionConfig'] = _AUTOFILLACTIONCONFIG
 DESCRIPTOR.message_types_by_name['AutofillAction'] = _AUTOFILLACTION
 DESCRIPTOR.message_types_by_name['AutofillArgumentProviders'] = _AUTOFILLARGUMENTPROVIDERS
 DESCRIPTOR.message_types_by_name['AutofillArgumentProvider'] = _AUTOFILLARGUMENTPROVIDER
+DESCRIPTOR.enum_types_by_name['EntityType'] = _ENTITYTYPE
 DESCRIPTOR.enum_types_by_name['TemplateType'] = _TEMPLATETYPE
 DESCRIPTOR.enum_types_by_name['InputFieldType'] = _INPUTFIELDTYPE
 DESCRIPTOR.enum_types_by_name['ResolverFieldInputMode'] = _RESOLVERFIELDINPUTMODE
 DESCRIPTOR.enum_types_by_name['ResolverFieldDisplayMode'] = _RESOLVERFIELDDISPLAYMODE
 DESCRIPTOR.enum_types_by_name['TagMatcherFieldMode'] = _TAGMATCHERFIELDMODE
-DESCRIPTOR.enum_types_by_name['TopologyElement'] = _TOPOLOGYELEMENT
-DESCRIPTOR.enum_types_by_name['TopologyOperation'] = _TOPOLOGYOPERATION
-DESCRIPTOR.enum_types_by_name['TopologyUpdateStatus'] = _TOPOLOGYUPDATESTATUS
 DESCRIPTOR.enum_types_by_name['AutofillProviderType'] = _AUTOFILLPROVIDERTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -2730,6 +2263,28 @@ StudioSummary = _reflection.GeneratedProtocolMessageType('StudioSummary', (_mess
   # @@protoc_insertion_point(class_scope:arista.studio.v1.StudioSummary)
   })
 _sym_db.RegisterMessage(StudioSummary)
+
+Entity = _reflection.GeneratedProtocolMessageType('Entity', (_message.Message,), {
+  'DESCRIPTOR' : _ENTITY,
+  '__module__' : 'arista.studio.v1.studio_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.Entity)
+  })
+_sym_db.RegisterMessage(Entity)
+
+Entities = _reflection.GeneratedProtocolMessageType('Entities', (_message.Message,), {
+
+  'ValuesEntry' : _reflection.GeneratedProtocolMessageType('ValuesEntry', (_message.Message,), {
+    'DESCRIPTOR' : _ENTITIES_VALUESENTRY,
+    '__module__' : 'arista.studio.v1.studio_pb2'
+    # @@protoc_insertion_point(class_scope:arista.studio.v1.Entities.ValuesEntry)
+    })
+  ,
+  'DESCRIPTOR' : _ENTITIES,
+  '__module__' : 'arista.studio.v1.studio_pb2'
+  # @@protoc_insertion_point(class_scope:arista.studio.v1.Entities)
+  })
+_sym_db.RegisterMessage(Entities)
+_sym_db.RegisterMessage(Entities.ValuesEntry)
 
 Studio = _reflection.GeneratedProtocolMessageType('Studio', (_message.Message,), {
   'DESCRIPTOR' : _STUDIO,
@@ -2879,90 +2434,6 @@ SecretInput = _reflection.GeneratedProtocolMessageType('SecretInput', (_message.
   })
 _sym_db.RegisterMessage(SecretInput)
 
-DeviceInfo = _reflection.GeneratedProtocolMessageType('DeviceInfo', (_message.Message,), {
-  'DESCRIPTOR' : _DEVICEINFO,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.DeviceInfo)
-  })
-_sym_db.RegisterMessage(DeviceInfo)
-
-InterfaceInfo = _reflection.GeneratedProtocolMessageType('InterfaceInfo', (_message.Message,), {
-  'DESCRIPTOR' : _INTERFACEINFO,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.InterfaceInfo)
-  })
-_sym_db.RegisterMessage(InterfaceInfo)
-
-InterfaceInfos = _reflection.GeneratedProtocolMessageType('InterfaceInfos', (_message.Message,), {
-  'DESCRIPTOR' : _INTERFACEINFOS,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.InterfaceInfos)
-  })
-_sym_db.RegisterMessage(InterfaceInfos)
-
-TopologyInputKey = _reflection.GeneratedProtocolMessageType('TopologyInputKey', (_message.Message,), {
-  'DESCRIPTOR' : _TOPOLOGYINPUTKEY,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputKey)
-  })
-_sym_db.RegisterMessage(TopologyInputKey)
-
-TopologyInputConfig = _reflection.GeneratedProtocolMessageType('TopologyInputConfig', (_message.Message,), {
-  'DESCRIPTOR' : _TOPOLOGYINPUTCONFIG,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInputConfig)
-  })
-_sym_db.RegisterMessage(TopologyInputConfig)
-
-TopologyInput = _reflection.GeneratedProtocolMessageType('TopologyInput', (_message.Message,), {
-  'DESCRIPTOR' : _TOPOLOGYINPUT,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyInput)
-  })
-_sym_db.RegisterMessage(TopologyInput)
-
-TopologyUpdateKey = _reflection.GeneratedProtocolMessageType('TopologyUpdateKey', (_message.Message,), {
-  'DESCRIPTOR' : _TOPOLOGYUPDATEKEY,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateKey)
-  })
-_sym_db.RegisterMessage(TopologyUpdateKey)
-
-TopologyUpdateConfig = _reflection.GeneratedProtocolMessageType('TopologyUpdateConfig', (_message.Message,), {
-  'DESCRIPTOR' : _TOPOLOGYUPDATECONFIG,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateConfig)
-  })
-_sym_db.RegisterMessage(TopologyUpdateConfig)
-
-TopologyUpdate = _reflection.GeneratedProtocolMessageType('TopologyUpdate', (_message.Message,), {
-  'DESCRIPTOR' : _TOPOLOGYUPDATE,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdate)
-  })
-_sym_db.RegisterMessage(TopologyUpdate)
-
-WorkspaceKey = _reflection.GeneratedProtocolMessageType('WorkspaceKey', (_message.Message,), {
-  'DESCRIPTOR' : _WORKSPACEKEY,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.WorkspaceKey)
-  })
-_sym_db.RegisterMessage(WorkspaceKey)
-
-TopologyUpdateSyncConfig = _reflection.GeneratedProtocolMessageType('TopologyUpdateSyncConfig', (_message.Message,), {
-  'DESCRIPTOR' : _TOPOLOGYUPDATESYNCCONFIG,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSyncConfig)
-  })
-_sym_db.RegisterMessage(TopologyUpdateSyncConfig)
-
-TopologyUpdateSync = _reflection.GeneratedProtocolMessageType('TopologyUpdateSync', (_message.Message,), {
-  'DESCRIPTOR' : _TOPOLOGYUPDATESYNC,
-  '__module__' : 'arista.studio.v1.studio_pb2'
-  # @@protoc_insertion_point(class_scope:arista.studio.v1.TopologyUpdateSync)
-  })
-_sym_db.RegisterMessage(TopologyUpdateSync)
-
 AutofillActionKey = _reflection.GeneratedProtocolMessageType('AutofillActionKey', (_message.Message,), {
   'DESCRIPTOR' : _AUTOFILLACTIONKEY,
   '__module__' : 'arista.studio.v1.studio_pb2'
@@ -3011,6 +2482,7 @@ DESCRIPTOR._options = None
 _STUDIOKEY._options = None
 _STUDIOCONFIG._options = None
 _STUDIOSUMMARY._options = None
+_ENTITIES_VALUESENTRY._options = None
 _STUDIO._options = None
 _ASSIGNEDTAGSCONFIG._options = None
 _ASSIGNEDTAGS._options = None
@@ -3019,15 +2491,6 @@ _INPUTSCONFIG._options = None
 _INPUTS._options = None
 _INPUTFIELDS_VALUESENTRY._options = None
 _SECRETINPUT._options = None
-_TOPOLOGYINPUTKEY._options = None
-_TOPOLOGYINPUTCONFIG._options = None
-_TOPOLOGYINPUT._options = None
-_TOPOLOGYUPDATEKEY._options = None
-_TOPOLOGYUPDATECONFIG._options = None
-_TOPOLOGYUPDATE._options = None
-_WORKSPACEKEY._options = None
-_TOPOLOGYUPDATESYNCCONFIG._options = None
-_TOPOLOGYUPDATESYNC._options = None
 _AUTOFILLACTIONKEY._options = None
 _AUTOFILLACTIONCONFIG._options = None
 _AUTOFILLACTION._options = None
