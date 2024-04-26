@@ -1,7 +1,8 @@
 cryptography>=42.0.4,<43.0.0
 grpcio>=1.53.0
 msgpack>=1.0.3
-protobuf>=4.22.5
+# Protobuf version 5+ causes exceptions when loading fmp/extensions_pb2.py
+protobuf>=4.22.5,<5.0
 requests>=2.20.1
 typing-extensions>=4.2.0
 # Using older types-protobuf version as if anything beyond 4 is installed, mypy
