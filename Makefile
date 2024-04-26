@@ -20,9 +20,9 @@ dist:
 	python3 -m build
 
 dev-setup:
-	pip3 install -r requirements-dev.txt
+	pip3 install .[dev]
 
 lint:
 	flake8 .
-	mypy --install-types --non-interactive --exclude build --exclude .venv .
+	mypy --exclude build --exclude .venv .
 	./check_copyright.sh
