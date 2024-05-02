@@ -16,7 +16,9 @@ CUSTOM_FILTER_FIELD_NUMBER: builtins.int
 NO_DEFAULT_FILTER_FIELD_NUMBER: builtins.int
 REQUIRE_SET_KEY_FIELD_NUMBER: builtins.int
 UNKEYED_MODEL_FIELD_NUMBER: builtins.int
+PAGINATED_FIELD_NUMBER: builtins.int
 CHILD_RESOURCE_FIELD_NUMBER: builtins.int
+SORTABLE_FIELD_NUMBER: builtins.int
 DISABLE_YANG_FIELD_NUMBER: builtins.int
 model: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.MessageOptions, typing.Text]
 """TODO: will need an official number from Google, just like gNMI extensions
@@ -33,6 +35,10 @@ require_set_key: google.protobuf.internal.extension_dict._ExtensionFieldDescript
 
 unkeyed_model: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.MessageOptions, typing.Text]
 
+paginated: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.MessageOptions, builtins.bool]
+
 child_resource: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, typing.Text]
+
+sortable: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, typing.Text]
 
 disable_yang: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FileOptions, typing.Text]
