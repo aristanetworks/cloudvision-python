@@ -17,13 +17,12 @@ clean:
 	rm -r cloudvision.egg-info build dist
 
 dist:
-	python3 setup.py sdist
-	python3 setup.py bdist_wheel
+	python3 -m build
 
 dev-setup:
-	pip3 install -r requirements-dev.txt
+	pip3 install .[dev]
 
 lint:
 	flake8 .
-	mypy --exclude build .
+	mypy --exclude build --exclude .venv .
 	./check_copyright.sh

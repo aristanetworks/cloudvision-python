@@ -1,0 +1,27 @@
+// Copyright (c) 2018 Arista Networks, Inc.
+// Use of this source code is governed by the Apache License 2.0
+// that can be found in the COPYING file.
+
+syntax = "proto3";
+
+option go_package = "arista/aeris/ca/gen";
+
+message CSR {
+	bytes csr = 1;
+}
+
+message CRT {
+	bytes crt = 1;
+}
+
+service CertificateAuthority {
+	// Enroll is called by client passing Certificate Signing Request (CSR)
+	// containing its personal certificate to be signed. The server returns
+	// back the certificate (CRT) to authenticate into IngestGateway or Router.
+    rpc Enroll (CSR) returns (CRT);
+
+	// Reenroll is called by client passing Certificate Signing Request (CSR)
+	// when it wants to renew its personal certificate. The server returns
+	// a new certificate (CRT).
+    rpc Reenroll (CSR) returns (CRT);
+}

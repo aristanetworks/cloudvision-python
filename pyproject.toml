@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=62.1.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloudvision"
+version = "1.20.0"
+dynamic = ["dependencies", "optional-dependencies"]
+description = "A Python library for Arista's CloudVision APIs and Provisioning Action integrations."
+requires-python = ">=3.7.0"
+readme = "README.md"
+maintainers = [{ name = "Support", email = "support@arista.com" }]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools.packages.find]
+include = ["arista*", "cloudvision*", "fmp*"]
+namespaces = false
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+optional-dependencies = { dev = { file = ["requirements-dev.txt"] } }
+
+[project.urls]
+Documentation = "https://aristanetworks.github.io/cloudvision-python/"
+Source = "https://github.com/aristanetworks/cloudvision-python"
+
+[tool.isort]
+profile = "black"

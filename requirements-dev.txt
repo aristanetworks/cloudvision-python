@@ -1,12 +1,19 @@
--r requirements.txt
 isort==5.11.4
-black==22.12.0
+black==24.3.0
 mypy-protobuf==3.2.0
-mypy==0.950
+mypy==0.981
 pytest==7.1.2
-numpy==1.22.3
-pyyaml==5.4.1
+numpy==1.26.4
+pyyaml==6.0.1
 flake8==3.8.4
-grpcio-tools==1.46.0
+grpcio-tools>=1.53.2
 twine==4.0.1
+types-attrs>=19.1.0
+# Using older types-protobuf version as if anything beyond 4 is installed, mypy
+# state that google proto stubs are not installed, e.g.
+# "Library stubs not installed for 'google.protobuf.timestamp_pb2'"
+types-protobuf>=3.20.4.6,<4.0
+types-PyYAML>=6.0.7
+types-requests>=2.27.25
+types-setuptools>=69.0.0.0
 wheel==0.38.4
