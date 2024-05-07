@@ -579,7 +579,6 @@ class UserEventCreationConfig(google.protobuf.message.Message):
     SEVERITY_FIELD_NUMBER: builtins.int
     TITLE_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
-    EVENT_TYPE_FIELD_NUMBER: builtins.int
     RULE_ID_FIELD_NUMBER: builtins.int
     COMPONENTS_FIELD_NUMBER: builtins.int
     START_TIME_FIELD_NUMBER: builtins.int
@@ -599,10 +598,6 @@ class UserEventCreationConfig(google.protobuf.message.Message):
         """description is the description of the event"""
         pass
     @property
-    def event_type(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """event_type is the type of the event"""
-        pass
-    @property
     def rule_id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """rule_id is the label of the rule associated with the event"""
         pass
@@ -620,11 +615,10 @@ class UserEventCreationConfig(google.protobuf.message.Message):
         severity: global___EventSeverity.ValueType = ...,
         title: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         description: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
-        event_type: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         rule_id: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         components: typing.Optional[global___EventComponents] = ...,
         start_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["components",b"components","description",b"description","event_type",b"event_type","key",b"key","rule_id",b"rule_id","start_time",b"start_time","title",b"title"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["components",b"components","description",b"description","event_type",b"event_type","key",b"key","rule_id",b"rule_id","severity",b"severity","start_time",b"start_time","title",b"title"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["components",b"components","description",b"description","key",b"key","rule_id",b"rule_id","start_time",b"start_time","title",b"title"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["components",b"components","description",b"description","key",b"key","rule_id",b"rule_id","severity",b"severity","start_time",b"start_time","title",b"title"]) -> None: ...
 global___UserEventCreationConfig = UserEventCreationConfig
