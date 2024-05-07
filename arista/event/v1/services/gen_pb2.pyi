@@ -560,8 +560,19 @@ global___EventAnnotationConfigDeleteSomeResponse = EventAnnotationConfigDeleteSo
 
 class EventAnnotationConfigDeleteAllRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.event.v1.event_pb2.EventAnnotationConfig]:
+        """PartialEqFilter provides a way to server-side filter a DeleteAll.
+        This requires all provided fields to be equal to the response.
+        A filtered DeleteAll will use GetAll with filter to find things to delete.
+        """
+        pass
     def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.event.v1.event_pb2.EventAnnotationConfig]] = ...,
         ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter"]) -> None: ...
 global___EventAnnotationConfigDeleteAllRequest = EventAnnotationConfigDeleteAllRequest
 
 class EventAnnotationConfigDeleteAllResponse(google.protobuf.message.Message):
@@ -571,7 +582,9 @@ class EventAnnotationConfigDeleteAllResponse(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     type: fmp.deletes_pb2.DeleteError.ValueType
-    """This describes the class of delete error."""
+    """This describes the class of delete error.
+    A DeleteAllResponse is only sent when there is an error.
+    """
 
     @property
     def error(self) -> google.protobuf.wrappers_pb2.StringValue:
@@ -931,8 +944,19 @@ global___UserEventCreationConfigDeleteSomeResponse = UserEventCreationConfigDele
 
 class UserEventCreationConfigDeleteAllRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.event.v1.event_pb2.UserEventCreationConfig]:
+        """PartialEqFilter provides a way to server-side filter a DeleteAll.
+        This requires all provided fields to be equal to the response.
+        A filtered DeleteAll will use GetAll with filter to find things to delete.
+        """
+        pass
     def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.event.v1.event_pb2.UserEventCreationConfig]] = ...,
         ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter"]) -> None: ...
 global___UserEventCreationConfigDeleteAllRequest = UserEventCreationConfigDeleteAllRequest
 
 class UserEventCreationConfigDeleteAllResponse(google.protobuf.message.Message):
@@ -942,7 +966,9 @@ class UserEventCreationConfigDeleteAllResponse(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     type: fmp.deletes_pb2.DeleteError.ValueType
-    """This describes the class of delete error."""
+    """This describes the class of delete error.
+    A DeleteAllResponse is only sent when there is an error.
+    """
 
     @property
     def error(self) -> google.protobuf.wrappers_pb2.StringValue:
