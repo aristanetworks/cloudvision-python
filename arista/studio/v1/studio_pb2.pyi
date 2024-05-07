@@ -38,6 +38,16 @@ class _EntityTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     ENTITY_TYPE_AUTOFILL_ACTION: _EntityType.ValueType  # 5
     """ENTITY_TYPE_AUTOFILL_ACTION indicates the AutofillAction entity type."""
 
+    ENTITY_TYPE_CONFIGLET: _EntityType.ValueType  # 6
+    """ENTITY_TYPE_CONFIGLET indicates the Configlet entity type for
+    static config studio.
+    """
+
+    ENTITY_TYPE_CONFIGLET_ASSIGNMENT: _EntityType.ValueType  # 7
+    """ENTITY_TYPE_CONFIGLET_ASSIGNMENT indicates the ConfigletAssignment
+    entity type for static config studio.
+    """
+
 class EntityType(_EntityType, metaclass=_EntityTypeEnumTypeWrapper):
     """EntityType enumerates the set of entity types."""
     pass
@@ -59,6 +69,16 @@ ENTITY_TYPE_BUILD_HOOK: EntityType.ValueType  # 4
 
 ENTITY_TYPE_AUTOFILL_ACTION: EntityType.ValueType  # 5
 """ENTITY_TYPE_AUTOFILL_ACTION indicates the AutofillAction entity type."""
+
+ENTITY_TYPE_CONFIGLET: EntityType.ValueType  # 6
+"""ENTITY_TYPE_CONFIGLET indicates the Configlet entity type for
+static config studio.
+"""
+
+ENTITY_TYPE_CONFIGLET_ASSIGNMENT: EntityType.ValueType  # 7
+"""ENTITY_TYPE_CONFIGLET_ASSIGNMENT indicates the ConfigletAssignment
+entity type for static config studio.
+"""
 
 global___EntityType = EntityType
 
