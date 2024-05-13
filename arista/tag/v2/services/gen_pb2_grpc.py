@@ -44,6 +44,16 @@ class TagServiceStub(object):
                 request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.MetaResponse.FromString,
                 )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.tag.v2.TagService/GetAllBatched',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.tag.v2.TagService/SubscribeBatched',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamResponse.FromString,
+                )
 
 
 class TagServiceServicer(object):
@@ -85,6 +95,18 @@ class TagServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TagServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -117,6 +139,16 @@ def add_TagServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagStreamRequest.FromString,
                     response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -230,6 +262,40 @@ class TagService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagService/GetAllBatched',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagService/SubscribeBatched',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class TagAssignmentServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -269,6 +335,16 @@ class TagAssignmentServiceStub(object):
                 '/arista.tag.v2.TagAssignmentService/SubscribeMeta',
                 request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.tag.v2.TagAssignmentService/GetAllBatched',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.tag.v2.TagAssignmentService/SubscribeBatched',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamResponse.FromString,
                 )
 
 
@@ -311,6 +387,18 @@ class TagAssignmentServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TagAssignmentServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -343,6 +431,16 @@ def add_TagAssignmentServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentStreamRequest.FromString,
                     response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -456,6 +554,40 @@ class TagAssignmentService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagAssignmentService/GetAllBatched',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagAssignmentService/SubscribeBatched',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class TagAssignmentConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -520,6 +652,16 @@ class TagAssignmentConfigServiceStub(object):
                 '/arista.tag.v2.TagAssignmentConfigService/DeleteAll',
                 request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteAllRequest.SerializeToString,
                 response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteAllResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.tag.v2.TagAssignmentConfigService/GetAllBatched',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.tag.v2.TagAssignmentConfigService/SubscribeBatched',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamResponse.FromString,
                 )
 
 
@@ -592,6 +734,18 @@ class TagAssignmentConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TagAssignmentConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -649,6 +803,16 @@ def add_TagAssignmentConfigServiceServicer_to_server(servicer, server):
                     servicer.DeleteAll,
                     request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteAllRequest.FromString,
                     response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigDeleteAllResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -847,6 +1011,40 @@ class TagAssignmentConfigService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagAssignmentConfigService/GetAllBatched',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagAssignmentConfigService/SubscribeBatched',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagAssignmentConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class TagConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -911,6 +1109,16 @@ class TagConfigServiceStub(object):
                 '/arista.tag.v2.TagConfigService/DeleteAll',
                 request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllRequest.SerializeToString,
                 response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.tag.v2.TagConfigService/GetAllBatched',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.tag.v2.TagConfigService/SubscribeBatched',
+                request_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamResponse.FromString,
                 )
 
 
@@ -983,6 +1191,18 @@ class TagConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TagConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1040,6 +1260,16 @@ def add_TagConfigServiceServicer_to_server(servicer, server):
                     servicer.DeleteAll,
                     request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllRequest.FromString,
                     response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1235,5 +1465,39 @@ class TagConfigService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagConfigService/DeleteAll',
             arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllRequest.SerializeToString,
             arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagConfigService/GetAllBatched',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.tag.v2.TagConfigService/SubscribeBatched',
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_tag_dot_v2_dot_services_dot_gen__pb2.TagConfigBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
