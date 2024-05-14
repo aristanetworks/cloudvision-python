@@ -44,6 +44,16 @@ class WorkspaceServiceStub(object):
                 request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
                 )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceService/GetAllBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceService/SubscribeBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamResponse.FromString,
+                )
 
 
 class WorkspaceServiceServicer(object):
@@ -85,6 +95,18 @@ class WorkspaceServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WorkspaceServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -117,6 +139,16 @@ def add_WorkspaceServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceStreamRequest.FromString,
                     response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -230,6 +262,40 @@ class WorkspaceService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceService/GetAllBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceService/SubscribeBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class WorkspaceBuildServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -269,6 +335,16 @@ class WorkspaceBuildServiceStub(object):
                 '/arista.workspace.v1.WorkspaceBuildService/SubscribeMeta',
                 request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceBuildService/GetAllBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceBuildService/SubscribeBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamResponse.FromString,
                 )
 
 
@@ -311,6 +387,18 @@ class WorkspaceBuildServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WorkspaceBuildServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -343,6 +431,16 @@ def add_WorkspaceBuildServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildStreamRequest.FromString,
                     response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -456,6 +554,40 @@ class WorkspaceBuildService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceBuildService/GetAllBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceBuildService/SubscribeBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class WorkspaceBuildDetailsServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -495,6 +627,16 @@ class WorkspaceBuildDetailsServiceStub(object):
                 '/arista.workspace.v1.WorkspaceBuildDetailsService/SubscribeMeta',
                 request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceBuildDetailsService/GetAllBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceBuildDetailsService/SubscribeBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamResponse.FromString,
                 )
 
 
@@ -537,6 +679,18 @@ class WorkspaceBuildDetailsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WorkspaceBuildDetailsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -569,6 +723,16 @@ def add_WorkspaceBuildDetailsServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsStreamRequest.FromString,
                     response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -682,6 +846,40 @@ class WorkspaceBuildDetailsService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceBuildDetailsService/GetAllBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceBuildDetailsService/SubscribeBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceBuildDetailsBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class WorkspaceConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -746,6 +944,16 @@ class WorkspaceConfigServiceStub(object):
                 '/arista.workspace.v1.WorkspaceConfigService/DeleteAll',
                 request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllRequest.SerializeToString,
                 response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceConfigService/GetAllBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceConfigService/SubscribeBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamResponse.FromString,
                 )
 
 
@@ -818,6 +1026,18 @@ class WorkspaceConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WorkspaceConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -875,6 +1095,16 @@ def add_WorkspaceConfigServiceServicer_to_server(servicer, server):
                     servicer.DeleteAll,
                     request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllRequest.FromString,
                     response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1070,5 +1300,39 @@ class WorkspaceConfigService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceConfigService/DeleteAll',
             arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllRequest.SerializeToString,
             arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceConfigService/GetAllBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceConfigService/SubscribeBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

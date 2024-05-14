@@ -504,6 +504,11 @@ class _ImageValidationSkipCauseEnumTypeWrapper(google.protobuf.internal.enum_typ
     skipped because the device has no image changes in the workspace.
     """
 
+    IMAGE_VALIDATION_SKIP_CAUSE_NO_PROPOSED_SOFTWARE: _ImageValidationSkipCause.ValueType  # 4
+    """IMAGE_VALIDATION_SKIP_CAUSE_NO_PROPOSED_SOFTWARE indicates that the stage was
+    skipped because the device has no proposed software changes in the workspace.
+    """
+
 class ImageValidationSkipCause(_ImageValidationSkipCause, metaclass=_ImageValidationSkipCauseEnumTypeWrapper):
     """ImageValidationSkipCause enumerates the set of reasons a device can skip the image
     validation stage.
@@ -528,6 +533,11 @@ skipped because the device is pre-provisioned.
 IMAGE_VALIDATION_SKIP_CAUSE_IMAGE_UNCHANGED: ImageValidationSkipCause.ValueType  # 3
 """IMAGE_VALIDATION_SKIP_CAUSE_IMAGE_UNCHANGED indicates that the stage was
 skipped because the device has no image changes in the workspace.
+"""
+
+IMAGE_VALIDATION_SKIP_CAUSE_NO_PROPOSED_SOFTWARE: ImageValidationSkipCause.ValueType  # 4
+"""IMAGE_VALIDATION_SKIP_CAUSE_NO_PROPOSED_SOFTWARE indicates that the stage was
+skipped because the device has no proposed software changes in the workspace.
 """
 
 global___ImageValidationSkipCause = ImageValidationSkipCause
