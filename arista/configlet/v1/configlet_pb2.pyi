@@ -97,6 +97,8 @@ class Configlet(google.protobuf.message.Message):
     CREATED_BY_FIELD_NUMBER: builtins.int
     LAST_MODIFIED_AT_FIELD_NUMBER: builtins.int
     LAST_MODIFIED_BY_FIELD_NUMBER: builtins.int
+    DIGEST_FIELD_NUMBER: builtins.int
+    SIZE_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___ConfigletKey: ...
     @property
@@ -133,6 +135,14 @@ class Configlet(google.protobuf.message.Message):
     def last_modified_by(self) -> google.protobuf.wrappers_pb2.StringValue:
         """last_modified_by is the user who last modified the Configlet."""
         pass
+    @property
+    def digest(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """digest is the sha256 hash of the configlet body encoded in hexadecimal."""
+        pass
+    @property
+    def size(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """size of configlet of body in bytes."""
+        pass
     def __init__(self,
         *,
         key: typing.Optional[global___ConfigletKey] = ...,
@@ -144,9 +154,11 @@ class Configlet(google.protobuf.message.Message):
         created_by: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         last_modified_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
         last_modified_by: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        digest: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["body",b"body","created_at",b"created_at","created_by",b"created_by","description",b"description","display_name",b"display_name","key",b"key","last_modified_at",b"last_modified_at","last_modified_by",b"last_modified_by","migrated_from",b"migrated_from"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["body",b"body","created_at",b"created_at","created_by",b"created_by","description",b"description","display_name",b"display_name","key",b"key","last_modified_at",b"last_modified_at","last_modified_by",b"last_modified_by","migrated_from",b"migrated_from"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["body",b"body","created_at",b"created_at","created_by",b"created_by","description",b"description","digest",b"digest","display_name",b"display_name","key",b"key","last_modified_at",b"last_modified_at","last_modified_by",b"last_modified_by","migrated_from",b"migrated_from","size",b"size"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["body",b"body","created_at",b"created_at","created_by",b"created_by","description",b"description","digest",b"digest","display_name",b"display_name","key",b"key","last_modified_at",b"last_modified_at","last_modified_by",b"last_modified_by","migrated_from",b"migrated_from","size",b"size"]) -> None: ...
 global___Configlet = Configlet
 
 class ConfigletConfig(google.protobuf.message.Message):
