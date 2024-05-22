@@ -16,24 +16,35 @@ from arista.imagestatus.v1 import imagestatus_pb2 as arista_dot_imagestatus_dot_
 from arista.time import time_pb2 as arista_dot_time_dot_time__pb2
 from arista.subscriptions import subscriptions_pb2 as arista_dot_subscriptions_dot_subscriptions__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(arista/imagestatus.v1/services.gen.proto\x12\x15\x61rista.imagestatus.v1\x1a\'arista/imagestatus.v1/imagestatus.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"j\n\x0eSummaryRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.imagestatus.v1.SummaryKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"j\n\x0fSummaryResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.imagestatus.v1.Summary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x14SummaryStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.imagestatus.v1.Summary\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x9f\x01\n\x15SummaryStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.imagestatus.v1.Summary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation2\xba\x02\n\x0eSummaryService\x12W\n\x06GetOne\x12%.arista.imagestatus.v1.SummaryRequest\x1a&.arista.imagestatus.v1.SummaryResponse\x12\x65\n\x06GetAll\x12+.arista.imagestatus.v1.SummaryStreamRequest\x1a,.arista.imagestatus.v1.SummaryStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.imagestatus.v1.SummaryStreamRequest\x1a,.arista.imagestatus.v1.SummaryStreamResponse0\x01\x42\x66\n\x19\x63om.arista.imagestatus.v1B\x13ImagestatusServicesP\x01Z2arista/resources/arista/imagestatus.v1;imagestatusb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(arista/imagestatus.v1/services.gen.proto\x12\x15\x61rista.imagestatus.v1\x1a\'arista/imagestatus.v1/imagestatus.proto\x1a\x16\x61rista/time/time.proto\x1a(arista/subscriptions/subscriptions.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x94\x01\n\x0cMetaResponse\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x02 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\x12+\n\x05\x63ount\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"j\n\x0eSummaryRequest\x12.\n\x03key\x18\x01 \x01(\x0b\x32!.arista.imagestatus.v1.SummaryKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"j\n\x0fSummaryResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.imagestatus.v1.Summary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"o\n\x12SummarySomeRequest\x12/\n\x04keys\x18\x01 \x03(\x0b\x32!.arista.imagestatus.v1.SummaryKey\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x9b\x01\n\x13SummarySomeResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.imagestatus.v1.Summary\x12+\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"x\n\x14SummaryStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.imagestatus.v1.Summary\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\"\x9f\x01\n\x15SummaryStreamResponse\x12-\n\x05value\x18\x01 \x01(\x0b\x32\x1e.arista.imagestatus.v1.Summary\x12(\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\x04type\x18\x03 \x01(\x0e\x32\x1f.arista.subscriptions.Operation\"\xb3\x01\n\x1bSummaryBatchedStreamRequest\x12\x39\n\x11partial_eq_filter\x18\x01 \x03(\x0b\x32\x1e.arista.imagestatus.v1.Summary\x12%\n\x04time\x18\x03 \x01(\x0b\x32\x17.arista.time.TimeBounds\x12\x32\n\x0cmax_messages\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"_\n\x1cSummaryBatchedStreamResponse\x12?\n\tresponses\x18\x01 \x03(\x0b\x32,.arista.imagestatus.v1.SummaryStreamResponse2\xdb\x06\n\x0eSummaryService\x12W\n\x06GetOne\x12%.arista.imagestatus.v1.SummaryRequest\x1a&.arista.imagestatus.v1.SummaryResponse\x12\x62\n\x07GetSome\x12).arista.imagestatus.v1.SummarySomeRequest\x1a*.arista.imagestatus.v1.SummarySomeResponse0\x01\x12\x65\n\x06GetAll\x12+.arista.imagestatus.v1.SummaryStreamRequest\x1a,.arista.imagestatus.v1.SummaryStreamResponse0\x01\x12h\n\tSubscribe\x12+.arista.imagestatus.v1.SummaryStreamRequest\x1a,.arista.imagestatus.v1.SummaryStreamResponse0\x01\x12[\n\x07GetMeta\x12+.arista.imagestatus.v1.SummaryStreamRequest\x1a#.arista.imagestatus.v1.MetaResponse\x12\x63\n\rSubscribeMeta\x12+.arista.imagestatus.v1.SummaryStreamRequest\x1a#.arista.imagestatus.v1.MetaResponse0\x01\x12z\n\rGetAllBatched\x12\x32.arista.imagestatus.v1.SummaryBatchedStreamRequest\x1a\x33.arista.imagestatus.v1.SummaryBatchedStreamResponse0\x01\x12}\n\x10SubscribeBatched\x12\x32.arista.imagestatus.v1.SummaryBatchedStreamRequest\x1a\x33.arista.imagestatus.v1.SummaryBatchedStreamResponse0\x01\x42\x82\x01\n\x19\x63om.arista.imagestatus.v1B\x13ImagestatusServicesP\x01ZNgithub.com/aristanetworks/cloudvision-go/api/arista/imagestatus.v1;imagestatusb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'arista.imagestatus.v1.services.gen_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\031com.arista.imagestatus.v1B\023ImagestatusServicesP\001Z2arista/resources/arista/imagestatus.v1;imagestatus'
-  _globals['_SUMMARYREQUEST']._serialized_start=207
-  _globals['_SUMMARYREQUEST']._serialized_end=313
-  _globals['_SUMMARYRESPONSE']._serialized_start=315
-  _globals['_SUMMARYRESPONSE']._serialized_end=421
-  _globals['_SUMMARYSTREAMREQUEST']._serialized_start=423
-  _globals['_SUMMARYSTREAMREQUEST']._serialized_end=543
-  _globals['_SUMMARYSTREAMRESPONSE']._serialized_start=546
-  _globals['_SUMMARYSTREAMRESPONSE']._serialized_end=705
-  _globals['_SUMMARYSERVICE']._serialized_start=708
-  _globals['_SUMMARYSERVICE']._serialized_end=1022
+  _globals['DESCRIPTOR']._serialized_options = b'\n\031com.arista.imagestatus.v1B\023ImagestatusServicesP\001ZNgithub.com/aristanetworks/cloudvision-go/api/arista/imagestatus.v1;imagestatus'
+  _globals['_METARESPONSE']._serialized_start=240
+  _globals['_METARESPONSE']._serialized_end=388
+  _globals['_SUMMARYREQUEST']._serialized_start=390
+  _globals['_SUMMARYREQUEST']._serialized_end=496
+  _globals['_SUMMARYRESPONSE']._serialized_start=498
+  _globals['_SUMMARYRESPONSE']._serialized_end=604
+  _globals['_SUMMARYSOMEREQUEST']._serialized_start=606
+  _globals['_SUMMARYSOMEREQUEST']._serialized_end=717
+  _globals['_SUMMARYSOMERESPONSE']._serialized_start=720
+  _globals['_SUMMARYSOMERESPONSE']._serialized_end=875
+  _globals['_SUMMARYSTREAMREQUEST']._serialized_start=877
+  _globals['_SUMMARYSTREAMREQUEST']._serialized_end=997
+  _globals['_SUMMARYSTREAMRESPONSE']._serialized_start=1000
+  _globals['_SUMMARYSTREAMRESPONSE']._serialized_end=1159
+  _globals['_SUMMARYBATCHEDSTREAMREQUEST']._serialized_start=1162
+  _globals['_SUMMARYBATCHEDSTREAMREQUEST']._serialized_end=1341
+  _globals['_SUMMARYBATCHEDSTREAMRESPONSE']._serialized_start=1343
+  _globals['_SUMMARYBATCHEDSTREAMRESPONSE']._serialized_end=1438
+  _globals['_SUMMARYSERVICE']._serialized_start=1441
+  _globals['_SUMMARYSERVICE']._serialized_end=2300
 # @@protoc_insertion_point(module_scope)

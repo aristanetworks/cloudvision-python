@@ -376,6 +376,11 @@ class _WarningCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     TerminAttr version is below CloudVision's minimum supported version.
     """
 
+    WARNING_CODE_TA_STUDIO_INCOMPATIBLE: _WarningCode.ValueType  # 15
+    """WARNING_CODE_TA_STUDIO_INCOMPATIBLE represents cases where the TerminAttr is incompatible
+    with Software Management Studio.
+    """
+
 class WarningCode(_WarningCode, metaclass=_WarningCodeEnumTypeWrapper):
     """WarningCode indicates warnings produced during image validations."""
     pass
@@ -449,6 +454,11 @@ supports the SKUs.
 WARNING_CODE_RUNNING_TA_BELOW_MIN_SUPPORTED_VERSION: WarningCode.ValueType  # 14
 """WARNING_CODE_RUNNING_TA_BELOW_MIN_SUPPORTED_VERSION represents cases where the running
 TerminAttr version is below CloudVision's minimum supported version.
+"""
+
+WARNING_CODE_TA_STUDIO_INCOMPATIBLE: WarningCode.ValueType  # 15
+"""WARNING_CODE_TA_STUDIO_INCOMPATIBLE represents cases where the TerminAttr is incompatible
+with Software Management Studio.
 """
 
 global___WarningCode = WarningCode

@@ -19,6 +19,11 @@ class SummaryServiceStub(object):
                 request_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryRequest.SerializeToString,
                 response_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.imagestatus.v1.SummaryService/GetSome',
+                request_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummarySomeRequest.SerializeToString,
+                response_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummarySomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.imagestatus.v1.SummaryService/GetAll',
                 request_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamRequest.SerializeToString,
@@ -29,12 +34,38 @@ class SummaryServiceStub(object):
                 request_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.imagestatus.v1.SummaryService/GetMeta',
+                request_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.imagestatus.v1.SummaryService/SubscribeMeta',
+                request_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.imagestatus.v1.SummaryService/GetAllBatched',
+                request_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.imagestatus.v1.SummaryService/SubscribeBatched',
+                request_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamResponse.FromString,
+                )
 
 
 class SummaryServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -52,6 +83,30 @@ class SummaryServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SummaryServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -59,6 +114,11 @@ def add_SummaryServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryRequest.FromString,
                     response_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummarySomeRequest.FromString,
+                    response_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummarySomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -69,6 +129,26 @@ def add_SummaryServiceServicer_to_server(servicer, server):
                     servicer.Subscribe,
                     request_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamRequest.FromString,
                     response_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamRequest.FromString,
+                    response_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamRequest.FromString,
+                    response_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -94,6 +174,23 @@ class SummaryService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.imagestatus.v1.SummaryService/GetOne',
             arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryRequest.SerializeToString,
             arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.imagestatus.v1.SummaryService/GetSome',
+            arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummarySomeRequest.SerializeToString,
+            arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummarySomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -128,5 +225,73 @@ class SummaryService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.imagestatus.v1.SummaryService/Subscribe',
             arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamRequest.SerializeToString,
             arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.imagestatus.v1.SummaryService/GetMeta',
+            arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamRequest.SerializeToString,
+            arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.imagestatus.v1.SummaryService/SubscribeMeta',
+            arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryStreamRequest.SerializeToString,
+            arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.imagestatus.v1.SummaryService/GetAllBatched',
+            arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamRequest.SerializeToString,
+            arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.imagestatus.v1.SummaryService/SubscribeBatched',
+            arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamRequest.SerializeToString,
+            arista_dot_imagestatus_dot_v1_dot_services_dot_gen__pb2.SummaryBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
