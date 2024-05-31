@@ -141,7 +141,7 @@ class Configlet(google.protobuf.message.Message):
         pass
     @property
     def size(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """size of configlet of body in bytes."""
+        """size of configlet body in bytes."""
         pass
     def __init__(self,
         *,

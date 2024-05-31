@@ -560,8 +560,19 @@ global___AccountConfigDeleteSomeResponse = AccountConfigDeleteSomeResponse
 
 class AccountConfigDeleteAllRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.serviceaccount.v1.serviceaccount_pb2.AccountConfig]:
+        """PartialEqFilter provides a way to server-side filter a DeleteAll.
+        This requires all provided fields to be equal to the response.
+        A filtered DeleteAll will use GetAll with filter to find things to delete.
+        """
+        pass
     def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.serviceaccount.v1.serviceaccount_pb2.AccountConfig]] = ...,
         ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter"]) -> None: ...
 global___AccountConfigDeleteAllRequest = AccountConfigDeleteAllRequest
 
 class AccountConfigDeleteAllResponse(google.protobuf.message.Message):
@@ -571,7 +582,9 @@ class AccountConfigDeleteAllResponse(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     type: fmp.deletes_pb2.DeleteError.ValueType
-    """This describes the class of delete error."""
+    """This describes the class of delete error.
+    A DeleteAllResponse is only sent when there is an error.
+    """
 
     @property
     def error(self) -> google.protobuf.wrappers_pb2.StringValue:
@@ -1109,8 +1122,19 @@ global___TokenConfigDeleteSomeResponse = TokenConfigDeleteSomeResponse
 
 class TokenConfigDeleteAllRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.serviceaccount.v1.serviceaccount_pb2.TokenConfig]:
+        """PartialEqFilter provides a way to server-side filter a DeleteAll.
+        This requires all provided fields to be equal to the response.
+        A filtered DeleteAll will use GetAll with filter to find things to delete.
+        """
+        pass
     def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.serviceaccount.v1.serviceaccount_pb2.TokenConfig]] = ...,
         ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter"]) -> None: ...
 global___TokenConfigDeleteAllRequest = TokenConfigDeleteAllRequest
 
 class TokenConfigDeleteAllResponse(google.protobuf.message.Message):
@@ -1120,7 +1144,9 @@ class TokenConfigDeleteAllResponse(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     type: fmp.deletes_pb2.DeleteError.ValueType
-    """This describes the class of delete error."""
+    """This describes the class of delete error.
+    A DeleteAllResponse is only sent when there is an error.
+    """
 
     @property
     def error(self) -> google.protobuf.wrappers_pb2.StringValue:

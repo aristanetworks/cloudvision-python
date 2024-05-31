@@ -69,6 +69,16 @@ class OAuthConfigServiceStub(object):
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteAllRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteAllResponse.FromString,
                 )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.identityprovider.v1.OAuthConfigService/GetAllBatched',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.identityprovider.v1.OAuthConfigService/SubscribeBatched',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamResponse.FromString,
+                )
 
 
 class OAuthConfigServiceServicer(object):
@@ -140,6 +150,18 @@ class OAuthConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OAuthConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -197,6 +219,16 @@ def add_OAuthConfigServiceServicer_to_server(servicer, server):
                     servicer.DeleteAll,
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteAllRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigDeleteAllResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -395,6 +427,40 @@ class OAuthConfigService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.OAuthConfigService/GetAllBatched',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.OAuthConfigService/SubscribeBatched',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.OAuthConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class SAMLConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -459,6 +525,16 @@ class SAMLConfigServiceStub(object):
                 '/arista.identityprovider.v1.SAMLConfigService/DeleteAll',
                 request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteAllRequest.SerializeToString,
                 response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteAllResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.identityprovider.v1.SAMLConfigService/GetAllBatched',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.identityprovider.v1.SAMLConfigService/SubscribeBatched',
+                request_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamResponse.FromString,
                 )
 
 
@@ -531,6 +607,18 @@ class SAMLConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SAMLConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -588,6 +676,16 @@ def add_SAMLConfigServiceServicer_to_server(servicer, server):
                     servicer.DeleteAll,
                     request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteAllRequest.FromString,
                     response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteAllResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -783,5 +881,39 @@ class SAMLConfigService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.SAMLConfigService/DeleteAll',
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteAllRequest.SerializeToString,
             arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.SAMLConfigService/GetAllBatched',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.identityprovider.v1.SAMLConfigService/SubscribeBatched',
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2.SAMLConfigBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

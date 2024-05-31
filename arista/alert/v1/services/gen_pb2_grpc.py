@@ -34,6 +34,16 @@ class AlertServiceStub(object):
                 request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
                 )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.alert.v1.AlertService/GetAllBatched',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.alert.v1.AlertService/SubscribeBatched',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamResponse.FromString,
+                )
 
 
 class AlertServiceServicer(object):
@@ -63,6 +73,18 @@ class AlertServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AlertServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -85,6 +107,16 @@ def add_AlertServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertStreamRequest.FromString,
                     response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -164,6 +196,40 @@ class AlertService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.alert.v1.AlertService/GetAllBatched',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.alert.v1.AlertService/SubscribeBatched',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class AlertConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -198,6 +264,16 @@ class AlertConfigServiceStub(object):
                 '/arista.alert.v1.AlertConfigService/Set',
                 request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigSetResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.alert.v1.AlertConfigService/GetAllBatched',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.alert.v1.AlertConfigService/SubscribeBatched',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamResponse.FromString,
                 )
 
 
@@ -234,6 +310,18 @@ class AlertConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AlertConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -261,6 +349,16 @@ def add_AlertConfigServiceServicer_to_server(servicer, server):
                     servicer.Set,
                     request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigSetRequest.FromString,
                     response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigSetResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -357,6 +455,40 @@ class AlertConfigService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.alert.v1.AlertConfigService/GetAllBatched',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.alert.v1.AlertConfigService/SubscribeBatched',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.AlertConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class DefaultTemplateServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -396,6 +528,16 @@ class DefaultTemplateServiceStub(object):
                 '/arista.alert.v1.DefaultTemplateService/SubscribeMeta',
                 request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.alert.v1.DefaultTemplateService/GetAllBatched',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.alert.v1.DefaultTemplateService/SubscribeBatched',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamResponse.FromString,
                 )
 
 
@@ -438,6 +580,18 @@ class DefaultTemplateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DefaultTemplateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -470,6 +624,16 @@ def add_DefaultTemplateServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateStreamRequest.FromString,
                     response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -583,6 +747,40 @@ class DefaultTemplateService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.alert.v1.DefaultTemplateService/GetAllBatched',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.alert.v1.DefaultTemplateService/SubscribeBatched',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.DefaultTemplateBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class TemplateConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -647,6 +845,16 @@ class TemplateConfigServiceStub(object):
                 '/arista.alert.v1.TemplateConfigService/DeleteAll',
                 request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigDeleteAllRequest.SerializeToString,
                 response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigDeleteAllResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.alert.v1.TemplateConfigService/GetAllBatched',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.alert.v1.TemplateConfigService/SubscribeBatched',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamResponse.FromString,
                 )
 
 
@@ -719,6 +927,18 @@ class TemplateConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TemplateConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -776,6 +996,16 @@ def add_TemplateConfigServiceServicer_to_server(servicer, server):
                     servicer.DeleteAll,
                     request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigDeleteAllRequest.FromString,
                     response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigDeleteAllResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -971,5 +1201,39 @@ class TemplateConfigService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.alert.v1.TemplateConfigService/DeleteAll',
             arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigDeleteAllRequest.SerializeToString,
             arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.alert.v1.TemplateConfigService/GetAllBatched',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.alert.v1.TemplateConfigService/SubscribeBatched',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.TemplateConfigBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
