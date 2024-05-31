@@ -19,6 +19,11 @@ class DeviceServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.inventory.v1.DeviceService/GetSome',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.inventory.v1.DeviceService/GetAll',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamRequest.SerializeToString,
@@ -29,12 +34,38 @@ class DeviceServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.inventory.v1.DeviceService/GetMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.inventory.v1.DeviceService/SubscribeMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.inventory.v1.DeviceService/GetAllBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.inventory.v1.DeviceService/SubscribeBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamResponse.FromString,
+                )
 
 
 class DeviceServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -52,6 +83,30 @@ class DeviceServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DeviceServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -59,6 +114,11 @@ def add_DeviceServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceSomeRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceSomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -69,6 +129,26 @@ def add_DeviceServiceServicer_to_server(servicer, server):
                     servicer.Subscribe,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -94,6 +174,23 @@ class DeviceService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceService/GetOne',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceService/GetSome',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceSomeRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -131,6 +228,74 @@ class DeviceService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceService/GetMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceService/SubscribeMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceService/GetAllBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceService/SubscribeBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class DeviceDecommissioningServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -146,6 +311,11 @@ class DeviceDecommissioningServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningService/GetSome',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.inventory.v1.DeviceDecommissioningService/GetAll',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamRequest.SerializeToString,
@@ -156,12 +326,38 @@ class DeviceDecommissioningServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.inventory.v1.DeviceDecommissioningService/GetMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningService/SubscribeMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningService/GetAllBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningService/SubscribeBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamResponse.FromString,
+                )
 
 
 class DeviceDecommissioningServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -179,6 +375,30 @@ class DeviceDecommissioningServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DeviceDecommissioningServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -186,6 +406,11 @@ def add_DeviceDecommissioningServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningSomeRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningSomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -196,6 +421,26 @@ def add_DeviceDecommissioningServiceServicer_to_server(servicer, server):
                     servicer.Subscribe,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -221,6 +466,23 @@ class DeviceDecommissioningService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceDecommissioningService/GetOne',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningService/GetSome',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningSomeRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -258,6 +520,74 @@ class DeviceDecommissioningService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceDecommissioningService/GetMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningService/SubscribeMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningService/GetAllBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningService/SubscribeBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class DeviceDecommissioningConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -273,6 +603,11 @@ class DeviceDecommissioningConfigServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningConfigService/GetSome',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.inventory.v1.DeviceDecommissioningConfigService/GetAll',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamRequest.SerializeToString,
@@ -283,20 +618,50 @@ class DeviceDecommissioningConfigServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.inventory.v1.DeviceDecommissioningConfigService/GetMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningConfigService/SubscribeMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
         self.Set = channel.unary_unary(
                 '/arista.inventory.v1.DeviceDecommissioningConfigService/Set',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetResponse.FromString,
+                )
+        self.SetSome = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningConfigService/SetSome',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetSomeResponse.FromString,
                 )
         self.Delete = channel.unary_unary(
                 '/arista.inventory.v1.DeviceDecommissioningConfigService/Delete',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteResponse.FromString,
                 )
+        self.DeleteSome = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningConfigService/DeleteSome',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteSomeResponse.FromString,
+                )
         self.DeleteAll = channel.unary_stream(
                 '/arista.inventory.v1.DeviceDecommissioningConfigService/DeleteAll',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningConfigService/GetAllBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.inventory.v1.DeviceDecommissioningConfigService/SubscribeBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamResponse.FromString,
                 )
 
 
@@ -304,6 +669,12 @@ class DeviceDecommissioningConfigServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -321,7 +692,25 @@ class DeviceDecommissioningConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Set(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -333,7 +722,25 @@ class DeviceDecommissioningConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -347,6 +754,11 @@ def add_DeviceDecommissioningConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigResponse.SerializeToString,
             ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSomeRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSomeResponse.SerializeToString,
+            ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamRequest.FromString,
@@ -357,20 +769,50 @@ def add_DeviceDecommissioningConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamResponse.SerializeToString,
             ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
             'Set': grpc.unary_unary_rpc_method_handler(
                     servicer.Set,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetSomeResponse.SerializeToString,
             ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteResponse.SerializeToString,
             ),
+            'DeleteSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteSome,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteSomeRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteSomeResponse.SerializeToString,
+            ),
             'DeleteAll': grpc.unary_stream_rpc_method_handler(
                     servicer.DeleteAll,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -396,6 +838,23 @@ class DeviceDecommissioningConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/GetOne',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/GetSome',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSomeRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -434,6 +893,40 @@ class DeviceDecommissioningConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/GetMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/SubscribeMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Set(request,
             target,
             options=(),
@@ -447,6 +940,23 @@ class DeviceDecommissioningConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/Set',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/SetSome',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetSomeRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigSetSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -468,6 +978,23 @@ class DeviceDecommissioningConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/DeleteSome',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteSomeRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def DeleteAll(request,
             target,
             options=(),
@@ -481,6 +1008,40 @@ class DeviceDecommissioningConfigService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/DeleteAll',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/GetAllBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceDecommissioningConfigService/SubscribeBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceDecommissioningConfigBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -499,6 +1060,11 @@ class DeviceOnboardingServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingService/GetSome',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.inventory.v1.DeviceOnboardingService/GetAll',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamRequest.SerializeToString,
@@ -509,12 +1075,38 @@ class DeviceOnboardingServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.inventory.v1.DeviceOnboardingService/GetMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingService/SubscribeMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingService/GetAllBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingService/SubscribeBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamResponse.FromString,
+                )
 
 
 class DeviceOnboardingServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -532,6 +1124,30 @@ class DeviceOnboardingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DeviceOnboardingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -539,6 +1155,11 @@ def add_DeviceOnboardingServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingSomeRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingSomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -549,6 +1170,26 @@ def add_DeviceOnboardingServiceServicer_to_server(servicer, server):
                     servicer.Subscribe,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -574,6 +1215,23 @@ class DeviceOnboardingService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceOnboardingService/GetOne',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingService/GetSome',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingSomeRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -611,6 +1269,74 @@ class DeviceOnboardingService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceOnboardingService/GetMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingService/SubscribeMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingService/GetAllBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingService/SubscribeBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class DeviceOnboardingConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -626,6 +1352,11 @@ class DeviceOnboardingConfigServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingConfigService/GetSome',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.inventory.v1.DeviceOnboardingConfigService/GetAll',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamRequest.SerializeToString,
@@ -636,20 +1367,50 @@ class DeviceOnboardingConfigServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.inventory.v1.DeviceOnboardingConfigService/GetMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingConfigService/SubscribeMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
         self.Set = channel.unary_unary(
                 '/arista.inventory.v1.DeviceOnboardingConfigService/Set',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetResponse.FromString,
+                )
+        self.SetSome = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingConfigService/SetSome',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetSomeResponse.FromString,
                 )
         self.Delete = channel.unary_unary(
                 '/arista.inventory.v1.DeviceOnboardingConfigService/Delete',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteResponse.FromString,
                 )
+        self.DeleteSome = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingConfigService/DeleteSome',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteSomeResponse.FromString,
+                )
         self.DeleteAll = channel.unary_stream(
                 '/arista.inventory.v1.DeviceOnboardingConfigService/DeleteAll',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingConfigService/GetAllBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.inventory.v1.DeviceOnboardingConfigService/SubscribeBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamResponse.FromString,
                 )
 
 
@@ -657,6 +1418,12 @@ class DeviceOnboardingConfigServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -674,7 +1441,25 @@ class DeviceOnboardingConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Set(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -686,7 +1471,25 @@ class DeviceOnboardingConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -700,6 +1503,11 @@ def add_DeviceOnboardingConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigResponse.SerializeToString,
             ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSomeRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSomeResponse.SerializeToString,
+            ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamRequest.FromString,
@@ -710,20 +1518,50 @@ def add_DeviceOnboardingConfigServiceServicer_to_server(servicer, server):
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamResponse.SerializeToString,
             ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
             'Set': grpc.unary_unary_rpc_method_handler(
                     servicer.Set,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetSomeResponse.SerializeToString,
             ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteResponse.SerializeToString,
             ),
+            'DeleteSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteSome,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteSomeRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteSomeResponse.SerializeToString,
+            ),
             'DeleteAll': grpc.unary_stream_rpc_method_handler(
                     servicer.DeleteAll,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -749,6 +1587,23 @@ class DeviceOnboardingConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/GetOne',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/GetSome',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSomeRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -787,6 +1642,40 @@ class DeviceOnboardingConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/GetMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/SubscribeMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Set(request,
             target,
             options=(),
@@ -800,6 +1689,23 @@ class DeviceOnboardingConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/Set',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/SetSome',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetSomeRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigSetSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -821,6 +1727,23 @@ class DeviceOnboardingConfigService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/DeleteSome',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteSomeRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def DeleteAll(request,
             target,
             options=(),
@@ -834,6 +1757,40 @@ class DeviceOnboardingConfigService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/DeleteAll',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/GetAllBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.DeviceOnboardingConfigService/SubscribeBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.DeviceOnboardingConfigBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -852,6 +1809,11 @@ class ProvisionedDeviceServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceResponse.FromString,
                 )
+        self.GetSome = channel.unary_stream(
+                '/arista.inventory.v1.ProvisionedDeviceService/GetSome',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceSomeResponse.FromString,
+                )
         self.GetAll = channel.unary_stream(
                 '/arista.inventory.v1.ProvisionedDeviceService/GetAll',
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamRequest.SerializeToString,
@@ -862,12 +1824,38 @@ class ProvisionedDeviceServiceStub(object):
                 request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamResponse.FromString,
                 )
+        self.GetMeta = channel.unary_unary(
+                '/arista.inventory.v1.ProvisionedDeviceService/GetMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.inventory.v1.ProvisionedDeviceService/SubscribeMeta',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.inventory.v1.ProvisionedDeviceService/GetAllBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.inventory.v1.ProvisionedDeviceService/SubscribeBatched',
+                request_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamResponse.FromString,
+                )
 
 
 class ProvisionedDeviceServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -885,6 +1873,30 @@ class ProvisionedDeviceServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ProvisionedDeviceServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -892,6 +1904,11 @@ def add_ProvisionedDeviceServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceSomeRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceSomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -902,6 +1919,26 @@ def add_ProvisionedDeviceServiceServicer_to_server(servicer, server):
                     servicer.Subscribe,
                     request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamRequest.FromString,
                     response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -927,6 +1964,23 @@ class ProvisionedDeviceService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.ProvisionedDeviceService/GetOne',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.ProvisionedDeviceService/GetSome',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceSomeRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceSomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -961,5 +2015,73 @@ class ProvisionedDeviceService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.ProvisionedDeviceService/Subscribe',
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamRequest.SerializeToString,
             arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.inventory.v1.ProvisionedDeviceService/GetMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.ProvisionedDeviceService/SubscribeMeta',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.ProvisionedDeviceService/GetAllBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.inventory.v1.ProvisionedDeviceService/SubscribeBatched',
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamRequest.SerializeToString,
+            arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2.ProvisionedDeviceBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

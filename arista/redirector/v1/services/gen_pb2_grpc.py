@@ -44,6 +44,16 @@ class AssignmentServiceStub(object):
                 request_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
                 )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.redirector.v1.AssignmentService/GetAllBatched',
+                request_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.redirector.v1.AssignmentService/SubscribeBatched',
+                request_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamResponse.FromString,
+                )
 
 
 class AssignmentServiceServicer(object):
@@ -85,6 +95,18 @@ class AssignmentServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AssignmentServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -117,6 +139,16 @@ def add_AssignmentServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.FromString,
                     response_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -227,5 +259,39 @@ class AssignmentService(object):
         return grpc.experimental.unary_stream(request, target, '/arista.redirector.v1.AssignmentService/SubscribeMeta',
             arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentStreamRequest.SerializeToString,
             arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.redirector.v1.AssignmentService/GetAllBatched',
+            arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamRequest.SerializeToString,
+            arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.redirector.v1.AssignmentService/SubscribeBatched',
+            arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamRequest.SerializeToString,
+            arista_dot_redirector_dot_v1_dot_services_dot_gen__pb2.AssignmentBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

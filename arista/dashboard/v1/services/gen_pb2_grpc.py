@@ -44,6 +44,16 @@ class DashboardServiceStub(object):
                 request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
                 )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.dashboard.v1.DashboardService/GetAllBatched',
+                request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.dashboard.v1.DashboardService/SubscribeBatched',
+                request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamResponse.FromString,
+                )
 
 
 class DashboardServiceServicer(object):
@@ -85,6 +95,18 @@ class DashboardServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DashboardServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -117,6 +139,16 @@ def add_DashboardServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardStreamRequest.FromString,
                     response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -230,6 +262,40 @@ class DashboardService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.dashboard.v1.DashboardService/GetAllBatched',
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamRequest.SerializeToString,
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.dashboard.v1.DashboardService/SubscribeBatched',
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamRequest.SerializeToString,
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class DashboardConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -294,6 +360,16 @@ class DashboardConfigServiceStub(object):
                 '/arista.dashboard.v1.DashboardConfigService/DeleteAll',
                 request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteAllRequest.SerializeToString,
                 response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteAllResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.dashboard.v1.DashboardConfigService/GetAllBatched',
+                request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.dashboard.v1.DashboardConfigService/SubscribeBatched',
+                request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamResponse.FromString,
                 )
 
 
@@ -366,6 +442,18 @@ class DashboardConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DashboardConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -423,6 +511,16 @@ def add_DashboardConfigServiceServicer_to_server(servicer, server):
                     servicer.DeleteAll,
                     request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteAllRequest.FromString,
                     response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigDeleteAllResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -621,6 +719,40 @@ class DashboardConfigService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.dashboard.v1.DashboardConfigService/GetAllBatched',
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.dashboard.v1.DashboardConfigService/SubscribeBatched',
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.DashboardConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class GlobalDashboardConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -655,6 +787,16 @@ class GlobalDashboardConfigServiceStub(object):
                 '/arista.dashboard.v1.GlobalDashboardConfigService/Set',
                 request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigSetRequest.SerializeToString,
                 response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigSetResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.dashboard.v1.GlobalDashboardConfigService/GetAllBatched',
+                request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.dashboard.v1.GlobalDashboardConfigService/SubscribeBatched',
+                request_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamResponse.FromString,
                 )
 
 
@@ -691,6 +833,18 @@ class GlobalDashboardConfigServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_GlobalDashboardConfigServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -718,6 +872,16 @@ def add_GlobalDashboardConfigServiceServicer_to_server(servicer, server):
                     servicer.Set,
                     request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigSetRequest.FromString,
                     response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigSetResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -811,5 +975,39 @@ class GlobalDashboardConfigService(object):
         return grpc.experimental.unary_unary(request, target, '/arista.dashboard.v1.GlobalDashboardConfigService/Set',
             arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigSetRequest.SerializeToString,
             arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.dashboard.v1.GlobalDashboardConfigService/GetAllBatched',
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.dashboard.v1.GlobalDashboardConfigService/SubscribeBatched',
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2.GlobalDashboardConfigBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -17,6 +17,36 @@ import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+class MetaResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    TIME_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    COUNT_FIELD_NUMBER: builtins.int
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time holds the timestamp of the last item included in the metadata calculation."""
+        pass
+    type: arista.subscriptions.subscriptions_pb2.Operation.ValueType
+    """Operation indicates how the value in this response should be considered.
+    Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+    once all initial data is streamed and the client begins to receive modification updates,
+    you should not see INITIAL again.
+    """
+
+    @property
+    def count(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """Count is the number of items present under the conditions of the request."""
+        pass
+    def __init__(self,
+        *,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
+        count: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["count",b"count","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["count",b"count","time",b"time","type",b"type"]) -> None: ...
+global___MetaResponse = MetaResponse
+
 class DeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
@@ -69,6 +99,58 @@ class DeviceResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> None: ...
 global___DeviceResponse = DeviceResponse
 
+class DeviceSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEYS_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.DeviceKey]: ...
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+        pass
+    def __init__(self,
+        *,
+        keys: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.DeviceKey]] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys","time",b"time"]) -> None: ...
+global___DeviceSomeRequest = DeviceSomeRequest
+
+class DeviceSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.inventory.v1.inventory_pb2.Device:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+        pass
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """Error is an optional field.
+        It should be filled when there is an error in the GetSome process.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.inventory.v1.inventory_pb2.Device] = ...,
+        error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> None: ...
+global___DeviceSomeResponse = DeviceSomeResponse
+
 class DeviceStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
@@ -86,6 +168,17 @@ class DeviceStreamRequest(google.protobuf.message.Message):
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
         If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each Device at end.
+            * Each Device response is fully-specified (all fields set).
+          * start: Returns the state of each Device at start, followed by updates until now.
+            * Each Device response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each Device at start, followed by updates
+            until end.
+            * Each Device response at start is fully-specified, but updates until end may
+              be partial.
 
         This field is not allowed in the Subscribe RPC.
         """
@@ -131,6 +224,74 @@ class DeviceStreamResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___DeviceStreamResponse = DeviceStreamResponse
+
+class DeviceBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.Device]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each Device at end.
+            * Each Device response is fully-specified (all fields set).
+          * start: Returns the state of each Device at start, followed by updates until now.
+            * Each Device response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each Device at start, followed by updates
+            until end.
+            * Each Device response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.Device]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___DeviceBatchedStreamRequest = DeviceBatchedStreamRequest
+
+class DeviceBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___DeviceStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___DeviceBatchedStreamResponse = DeviceBatchedStreamResponse
 
 class DeviceDecommissioningRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -184,6 +345,58 @@ class DeviceDecommissioningResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> None: ...
 global___DeviceDecommissioningResponse = DeviceDecommissioningResponse
 
+class DeviceDecommissioningSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEYS_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.UUIDKey]: ...
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+        pass
+    def __init__(self,
+        *,
+        keys: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.UUIDKey]] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys","time",b"time"]) -> None: ...
+global___DeviceDecommissioningSomeRequest = DeviceDecommissioningSomeRequest
+
+class DeviceDecommissioningSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.inventory.v1.inventory_pb2.DeviceDecommissioning:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+        pass
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """Error is an optional field.
+        It should be filled when there is an error in the GetSome process.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.inventory.v1.inventory_pb2.DeviceDecommissioning] = ...,
+        error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> None: ...
+global___DeviceDecommissioningSomeResponse = DeviceDecommissioningSomeResponse
+
 class DeviceDecommissioningStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
@@ -201,6 +414,17 @@ class DeviceDecommissioningStreamRequest(google.protobuf.message.Message):
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
         If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each DeviceDecommissioning at end.
+            * Each DeviceDecommissioning response is fully-specified (all fields set).
+          * start: Returns the state of each DeviceDecommissioning at start, followed by updates until now.
+            * Each DeviceDecommissioning response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each DeviceDecommissioning at start, followed by updates
+            until end.
+            * Each DeviceDecommissioning response at start is fully-specified, but updates until end may
+              be partial.
 
         This field is not allowed in the Subscribe RPC.
         """
@@ -246,6 +470,74 @@ class DeviceDecommissioningStreamResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___DeviceDecommissioningStreamResponse = DeviceDecommissioningStreamResponse
+
+class DeviceDecommissioningBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.DeviceDecommissioning]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each DeviceDecommissioning at end.
+            * Each DeviceDecommissioning response is fully-specified (all fields set).
+          * start: Returns the state of each DeviceDecommissioning at start, followed by updates until now.
+            * Each DeviceDecommissioning response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each DeviceDecommissioning at start, followed by updates
+            until end.
+            * Each DeviceDecommissioning response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.DeviceDecommissioning]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___DeviceDecommissioningBatchedStreamRequest = DeviceDecommissioningBatchedStreamRequest
+
+class DeviceDecommissioningBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceDecommissioningStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___DeviceDecommissioningStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___DeviceDecommissioningBatchedStreamResponse = DeviceDecommissioningBatchedStreamResponse
 
 class DeviceDecommissioningConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -299,6 +591,58 @@ class DeviceDecommissioningConfigResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> None: ...
 global___DeviceDecommissioningConfigResponse = DeviceDecommissioningConfigResponse
 
+class DeviceDecommissioningConfigSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEYS_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.UUIDKey]: ...
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+        pass
+    def __init__(self,
+        *,
+        keys: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.UUIDKey]] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys","time",b"time"]) -> None: ...
+global___DeviceDecommissioningConfigSomeRequest = DeviceDecommissioningConfigSomeRequest
+
+class DeviceDecommissioningConfigSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+        pass
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """Error is an optional field.
+        It should be filled when there is an error in the GetSome process.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig] = ...,
+        error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> None: ...
+global___DeviceDecommissioningConfigSomeResponse = DeviceDecommissioningConfigSomeResponse
+
 class DeviceDecommissioningConfigStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
@@ -316,6 +660,17 @@ class DeviceDecommissioningConfigStreamRequest(google.protobuf.message.Message):
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
         If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each DeviceDecommissioningConfig at end.
+            * Each DeviceDecommissioningConfig response is fully-specified (all fields set).
+          * start: Returns the state of each DeviceDecommissioningConfig at start, followed by updates until now.
+            * Each DeviceDecommissioningConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each DeviceDecommissioningConfig at start, followed by updates
+            until end.
+            * Each DeviceDecommissioningConfig response at start is fully-specified, but updates until end may
+              be partial.
 
         This field is not allowed in the Subscribe RPC.
         """
@@ -362,6 +717,74 @@ class DeviceDecommissioningConfigStreamResponse(google.protobuf.message.Message)
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___DeviceDecommissioningConfigStreamResponse = DeviceDecommissioningConfigStreamResponse
 
+class DeviceDecommissioningConfigBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each DeviceDecommissioningConfig at end.
+            * Each DeviceDecommissioningConfig response is fully-specified (all fields set).
+          * start: Returns the state of each DeviceDecommissioningConfig at start, followed by updates until now.
+            * Each DeviceDecommissioningConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each DeviceDecommissioningConfig at start, followed by updates
+            until end.
+            * Each DeviceDecommissioningConfig response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___DeviceDecommissioningConfigBatchedStreamRequest = DeviceDecommissioningConfigBatchedStreamRequest
+
+class DeviceDecommissioningConfigBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceDecommissioningConfigStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___DeviceDecommissioningConfigStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___DeviceDecommissioningConfigBatchedStreamResponse = DeviceDecommissioningConfigBatchedStreamResponse
+
 class DeviceDecommissioningConfigSetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     VALUE_FIELD_NUMBER: builtins.int
@@ -407,6 +830,42 @@ class DeviceDecommissioningConfigSetResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> None: ...
 global___DeviceDecommissioningConfigSetResponse = DeviceDecommissioningConfigSetResponse
 
+class DeviceDecommissioningConfigSetSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig]:
+        """value contains a list of DeviceDecommissioningConfig values to write.
+        It is possible to provide more values than can fit within either:
+            - the maxiumum send size of the client
+            - the maximum receive size of the server
+        If this error occurs you must reduce the number of values sent.
+        See gRPC "maximum message size" documentation for more information.
+        """
+        pass
+    def __init__(self,
+        *,
+        values: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["values",b"values"]) -> None: ...
+global___DeviceDecommissioningConfigSetSomeRequest = DeviceDecommissioningConfigSetSomeRequest
+
+class DeviceDecommissioningConfigSetSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEY_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.inventory.v1.inventory_pb2.UUIDKey: ...
+    error: typing.Text
+    def __init__(self,
+        *,
+        key: typing.Optional[arista.inventory.v1.inventory_pb2.UUIDKey] = ...,
+        error: typing.Text = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["key",b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","key",b"key"]) -> None: ...
+global___DeviceDecommissioningConfigSetSomeResponse = DeviceDecommissioningConfigSetSomeResponse
+
 class DeviceDecommissioningConfigDeleteRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
@@ -450,10 +909,52 @@ class DeviceDecommissioningConfigDeleteResponse(google.protobuf.message.Message)
     def ClearField(self, field_name: typing_extensions.Literal["key",b"key","time",b"time"]) -> None: ...
 global___DeviceDecommissioningConfigDeleteResponse = DeviceDecommissioningConfigDeleteResponse
 
+class DeviceDecommissioningConfigDeleteSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEYS_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.UUIDKey]:
+        """key contains a list of DeviceDecommissioningConfig keys to delete"""
+        pass
+    def __init__(self,
+        *,
+        keys: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.UUIDKey]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys"]) -> None: ...
+global___DeviceDecommissioningConfigDeleteSomeRequest = DeviceDecommissioningConfigDeleteSomeRequest
+
+class DeviceDecommissioningConfigDeleteSomeResponse(google.protobuf.message.Message):
+    """DeviceDecommissioningConfigDeleteSomeResponse is only sent when there is an error."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEY_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.inventory.v1.inventory_pb2.UUIDKey: ...
+    error: typing.Text
+    def __init__(self,
+        *,
+        key: typing.Optional[arista.inventory.v1.inventory_pb2.UUIDKey] = ...,
+        error: typing.Text = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["key",b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","key",b"key"]) -> None: ...
+global___DeviceDecommissioningConfigDeleteSomeResponse = DeviceDecommissioningConfigDeleteSomeResponse
+
 class DeviceDecommissioningConfigDeleteAllRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig]:
+        """PartialEqFilter provides a way to server-side filter a DeleteAll.
+        This requires all provided fields to be equal to the response.
+        A filtered DeleteAll will use GetAll with filter to find things to delete.
+        """
+        pass
     def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig]] = ...,
         ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter"]) -> None: ...
 global___DeviceDecommissioningConfigDeleteAllRequest = DeviceDecommissioningConfigDeleteAllRequest
 
 class DeviceDecommissioningConfigDeleteAllResponse(google.protobuf.message.Message):
@@ -463,7 +964,9 @@ class DeviceDecommissioningConfigDeleteAllResponse(google.protobuf.message.Messa
     KEY_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     type: fmp.deletes_pb2.DeleteError.ValueType
-    """This describes the class of delete error."""
+    """This describes the class of delete error.
+    A DeleteAllResponse is only sent when there is an error.
+    """
 
     @property
     def error(self) -> google.protobuf.wrappers_pb2.StringValue:
@@ -540,6 +1043,58 @@ class DeviceOnboardingResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> None: ...
 global___DeviceOnboardingResponse = DeviceOnboardingResponse
 
+class DeviceOnboardingSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEYS_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.UUIDKey]: ...
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+        pass
+    def __init__(self,
+        *,
+        keys: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.UUIDKey]] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys","time",b"time"]) -> None: ...
+global___DeviceOnboardingSomeRequest = DeviceOnboardingSomeRequest
+
+class DeviceOnboardingSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.inventory.v1.inventory_pb2.DeviceOnboarding:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+        pass
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """Error is an optional field.
+        It should be filled when there is an error in the GetSome process.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.inventory.v1.inventory_pb2.DeviceOnboarding] = ...,
+        error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> None: ...
+global___DeviceOnboardingSomeResponse = DeviceOnboardingSomeResponse
+
 class DeviceOnboardingStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
@@ -557,6 +1112,17 @@ class DeviceOnboardingStreamRequest(google.protobuf.message.Message):
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
         If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each DeviceOnboarding at end.
+            * Each DeviceOnboarding response is fully-specified (all fields set).
+          * start: Returns the state of each DeviceOnboarding at start, followed by updates until now.
+            * Each DeviceOnboarding response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each DeviceOnboarding at start, followed by updates
+            until end.
+            * Each DeviceOnboarding response at start is fully-specified, but updates until end may
+              be partial.
 
         This field is not allowed in the Subscribe RPC.
         """
@@ -602,6 +1168,74 @@ class DeviceOnboardingStreamResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___DeviceOnboardingStreamResponse = DeviceOnboardingStreamResponse
+
+class DeviceOnboardingBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.DeviceOnboarding]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each DeviceOnboarding at end.
+            * Each DeviceOnboarding response is fully-specified (all fields set).
+          * start: Returns the state of each DeviceOnboarding at start, followed by updates until now.
+            * Each DeviceOnboarding response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each DeviceOnboarding at start, followed by updates
+            until end.
+            * Each DeviceOnboarding response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.DeviceOnboarding]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___DeviceOnboardingBatchedStreamRequest = DeviceOnboardingBatchedStreamRequest
+
+class DeviceOnboardingBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceOnboardingStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___DeviceOnboardingStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___DeviceOnboardingBatchedStreamResponse = DeviceOnboardingBatchedStreamResponse
 
 class DeviceOnboardingConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -655,6 +1289,58 @@ class DeviceOnboardingConfigResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> None: ...
 global___DeviceOnboardingConfigResponse = DeviceOnboardingConfigResponse
 
+class DeviceOnboardingConfigSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEYS_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.UUIDKey]: ...
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+        pass
+    def __init__(self,
+        *,
+        keys: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.UUIDKey]] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys","time",b"time"]) -> None: ...
+global___DeviceOnboardingConfigSomeRequest = DeviceOnboardingConfigSomeRequest
+
+class DeviceOnboardingConfigSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+        pass
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """Error is an optional field.
+        It should be filled when there is an error in the GetSome process.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig] = ...,
+        error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> None: ...
+global___DeviceOnboardingConfigSomeResponse = DeviceOnboardingConfigSomeResponse
+
 class DeviceOnboardingConfigStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
@@ -672,6 +1358,17 @@ class DeviceOnboardingConfigStreamRequest(google.protobuf.message.Message):
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
         If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each DeviceOnboardingConfig at end.
+            * Each DeviceOnboardingConfig response is fully-specified (all fields set).
+          * start: Returns the state of each DeviceOnboardingConfig at start, followed by updates until now.
+            * Each DeviceOnboardingConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each DeviceOnboardingConfig at start, followed by updates
+            until end.
+            * Each DeviceOnboardingConfig response at start is fully-specified, but updates until end may
+              be partial.
 
         This field is not allowed in the Subscribe RPC.
         """
@@ -718,6 +1415,74 @@ class DeviceOnboardingConfigStreamResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___DeviceOnboardingConfigStreamResponse = DeviceOnboardingConfigStreamResponse
 
+class DeviceOnboardingConfigBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each DeviceOnboardingConfig at end.
+            * Each DeviceOnboardingConfig response is fully-specified (all fields set).
+          * start: Returns the state of each DeviceOnboardingConfig at start, followed by updates until now.
+            * Each DeviceOnboardingConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each DeviceOnboardingConfig at start, followed by updates
+            until end.
+            * Each DeviceOnboardingConfig response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___DeviceOnboardingConfigBatchedStreamRequest = DeviceOnboardingConfigBatchedStreamRequest
+
+class DeviceOnboardingConfigBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceOnboardingConfigStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___DeviceOnboardingConfigStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___DeviceOnboardingConfigBatchedStreamResponse = DeviceOnboardingConfigBatchedStreamResponse
+
 class DeviceOnboardingConfigSetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     VALUE_FIELD_NUMBER: builtins.int
@@ -763,6 +1528,42 @@ class DeviceOnboardingConfigSetResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> None: ...
 global___DeviceOnboardingConfigSetResponse = DeviceOnboardingConfigSetResponse
 
+class DeviceOnboardingConfigSetSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig]:
+        """value contains a list of DeviceOnboardingConfig values to write.
+        It is possible to provide more values than can fit within either:
+            - the maxiumum send size of the client
+            - the maximum receive size of the server
+        If this error occurs you must reduce the number of values sent.
+        See gRPC "maximum message size" documentation for more information.
+        """
+        pass
+    def __init__(self,
+        *,
+        values: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["values",b"values"]) -> None: ...
+global___DeviceOnboardingConfigSetSomeRequest = DeviceOnboardingConfigSetSomeRequest
+
+class DeviceOnboardingConfigSetSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEY_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.inventory.v1.inventory_pb2.UUIDKey: ...
+    error: typing.Text
+    def __init__(self,
+        *,
+        key: typing.Optional[arista.inventory.v1.inventory_pb2.UUIDKey] = ...,
+        error: typing.Text = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["key",b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","key",b"key"]) -> None: ...
+global___DeviceOnboardingConfigSetSomeResponse = DeviceOnboardingConfigSetSomeResponse
+
 class DeviceOnboardingConfigDeleteRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
@@ -806,10 +1607,52 @@ class DeviceOnboardingConfigDeleteResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["key",b"key","time",b"time"]) -> None: ...
 global___DeviceOnboardingConfigDeleteResponse = DeviceOnboardingConfigDeleteResponse
 
+class DeviceOnboardingConfigDeleteSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEYS_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.UUIDKey]:
+        """key contains a list of DeviceOnboardingConfig keys to delete"""
+        pass
+    def __init__(self,
+        *,
+        keys: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.UUIDKey]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys"]) -> None: ...
+global___DeviceOnboardingConfigDeleteSomeRequest = DeviceOnboardingConfigDeleteSomeRequest
+
+class DeviceOnboardingConfigDeleteSomeResponse(google.protobuf.message.Message):
+    """DeviceOnboardingConfigDeleteSomeResponse is only sent when there is an error."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEY_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.inventory.v1.inventory_pb2.UUIDKey: ...
+    error: typing.Text
+    def __init__(self,
+        *,
+        key: typing.Optional[arista.inventory.v1.inventory_pb2.UUIDKey] = ...,
+        error: typing.Text = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["key",b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","key",b"key"]) -> None: ...
+global___DeviceOnboardingConfigDeleteSomeResponse = DeviceOnboardingConfigDeleteSomeResponse
+
 class DeviceOnboardingConfigDeleteAllRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig]:
+        """PartialEqFilter provides a way to server-side filter a DeleteAll.
+        This requires all provided fields to be equal to the response.
+        A filtered DeleteAll will use GetAll with filter to find things to delete.
+        """
+        pass
     def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig]] = ...,
         ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter"]) -> None: ...
 global___DeviceOnboardingConfigDeleteAllRequest = DeviceOnboardingConfigDeleteAllRequest
 
 class DeviceOnboardingConfigDeleteAllResponse(google.protobuf.message.Message):
@@ -819,7 +1662,9 @@ class DeviceOnboardingConfigDeleteAllResponse(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     type: fmp.deletes_pb2.DeleteError.ValueType
-    """This describes the class of delete error."""
+    """This describes the class of delete error.
+    A DeleteAllResponse is only sent when there is an error.
+    """
 
     @property
     def error(self) -> google.protobuf.wrappers_pb2.StringValue:
@@ -896,6 +1741,58 @@ class ProvisionedDeviceResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> None: ...
 global___ProvisionedDeviceResponse = ProvisionedDeviceResponse
 
+class ProvisionedDeviceSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEYS_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.DeviceKey]: ...
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+        pass
+    def __init__(self,
+        *,
+        keys: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.DeviceKey]] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys","time",b"time"]) -> None: ...
+global___ProvisionedDeviceSomeRequest = ProvisionedDeviceSomeRequest
+
+class ProvisionedDeviceSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.inventory.v1.inventory_pb2.ProvisionedDevice:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+        pass
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """Error is an optional field.
+        It should be filled when there is an error in the GetSome process.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.inventory.v1.inventory_pb2.ProvisionedDevice] = ...,
+        error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> None: ...
+global___ProvisionedDeviceSomeResponse = ProvisionedDeviceSomeResponse
+
 class ProvisionedDeviceStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
@@ -913,6 +1810,17 @@ class ProvisionedDeviceStreamRequest(google.protobuf.message.Message):
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
         If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each ProvisionedDevice at end.
+            * Each ProvisionedDevice response is fully-specified (all fields set).
+          * start: Returns the state of each ProvisionedDevice at start, followed by updates until now.
+            * Each ProvisionedDevice response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each ProvisionedDevice at start, followed by updates
+            until end.
+            * Each ProvisionedDevice response at start is fully-specified, but updates until end may
+              be partial.
 
         This field is not allowed in the Subscribe RPC.
         """
@@ -958,3 +1866,71 @@ class ProvisionedDeviceStreamResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___ProvisionedDeviceStreamResponse = ProvisionedDeviceStreamResponse
+
+class ProvisionedDeviceBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.inventory.v1.inventory_pb2.ProvisionedDevice]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each ProvisionedDevice at end.
+            * Each ProvisionedDevice response is fully-specified (all fields set).
+          * start: Returns the state of each ProvisionedDevice at start, followed by updates until now.
+            * Each ProvisionedDevice response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each ProvisionedDevice at start, followed by updates
+            until end.
+            * Each ProvisionedDevice response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.inventory.v1.inventory_pb2.ProvisionedDevice]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___ProvisionedDeviceBatchedStreamRequest = ProvisionedDeviceBatchedStreamRequest
+
+class ProvisionedDeviceBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProvisionedDeviceStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___ProvisionedDeviceStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___ProvisionedDeviceBatchedStreamResponse = ProvisionedDeviceBatchedStreamResponse

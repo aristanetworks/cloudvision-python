@@ -225,6 +225,74 @@ class AssignedTagsStreamResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___AssignedTagsStreamResponse = AssignedTagsStreamResponse
 
+class AssignedTagsBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.studio.v1.studio_pb2.AssignedTags]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each AssignedTags at end.
+            * Each AssignedTags response is fully-specified (all fields set).
+          * start: Returns the state of each AssignedTags at start, followed by updates until now.
+            * Each AssignedTags response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each AssignedTags at start, followed by updates
+            until end.
+            * Each AssignedTags response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.studio.v1.studio_pb2.AssignedTags]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___AssignedTagsBatchedStreamRequest = AssignedTagsBatchedStreamRequest
+
+class AssignedTagsBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AssignedTagsStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___AssignedTagsStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___AssignedTagsBatchedStreamResponse = AssignedTagsBatchedStreamResponse
+
 class AssignedTagsConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
@@ -402,6 +470,74 @@ class AssignedTagsConfigStreamResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___AssignedTagsConfigStreamResponse = AssignedTagsConfigStreamResponse
+
+class AssignedTagsConfigBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.studio.v1.studio_pb2.AssignedTagsConfig]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each AssignedTagsConfig at end.
+            * Each AssignedTagsConfig response is fully-specified (all fields set).
+          * start: Returns the state of each AssignedTagsConfig at start, followed by updates until now.
+            * Each AssignedTagsConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each AssignedTagsConfig at start, followed by updates
+            until end.
+            * Each AssignedTagsConfig response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.studio.v1.studio_pb2.AssignedTagsConfig]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___AssignedTagsConfigBatchedStreamRequest = AssignedTagsConfigBatchedStreamRequest
+
+class AssignedTagsConfigBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AssignedTagsConfigStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___AssignedTagsConfigStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___AssignedTagsConfigBatchedStreamResponse = AssignedTagsConfigBatchedStreamResponse
 
 class AssignedTagsConfigSetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -787,6 +923,74 @@ class AutofillActionStreamResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___AutofillActionStreamResponse = AutofillActionStreamResponse
 
+class AutofillActionBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.studio.v1.studio_pb2.AutofillAction]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each AutofillAction at end.
+            * Each AutofillAction response is fully-specified (all fields set).
+          * start: Returns the state of each AutofillAction at start, followed by updates until now.
+            * Each AutofillAction response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each AutofillAction at start, followed by updates
+            until end.
+            * Each AutofillAction response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.studio.v1.studio_pb2.AutofillAction]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___AutofillActionBatchedStreamRequest = AutofillActionBatchedStreamRequest
+
+class AutofillActionBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AutofillActionStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___AutofillActionStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___AutofillActionBatchedStreamResponse = AutofillActionBatchedStreamResponse
+
 class AutofillActionConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
@@ -964,6 +1168,74 @@ class AutofillActionConfigStreamResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___AutofillActionConfigStreamResponse = AutofillActionConfigStreamResponse
+
+class AutofillActionConfigBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.studio.v1.studio_pb2.AutofillActionConfig]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each AutofillActionConfig at end.
+            * Each AutofillActionConfig response is fully-specified (all fields set).
+          * start: Returns the state of each AutofillActionConfig at start, followed by updates until now.
+            * Each AutofillActionConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each AutofillActionConfig at start, followed by updates
+            until end.
+            * Each AutofillActionConfig response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.studio.v1.studio_pb2.AutofillActionConfig]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___AutofillActionConfigBatchedStreamRequest = AutofillActionConfigBatchedStreamRequest
+
+class AutofillActionConfigBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AutofillActionConfigStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___AutofillActionConfigStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___AutofillActionConfigBatchedStreamResponse = AutofillActionConfigBatchedStreamResponse
 
 class AutofillActionConfigSetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1349,6 +1621,74 @@ class InputsStreamResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___InputsStreamResponse = InputsStreamResponse
 
+class InputsBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.studio.v1.studio_pb2.Inputs]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each Inputs at end.
+            * Each Inputs response is fully-specified (all fields set).
+          * start: Returns the state of each Inputs at start, followed by updates until now.
+            * Each Inputs response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each Inputs at start, followed by updates
+            until end.
+            * Each Inputs response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.studio.v1.studio_pb2.Inputs]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___InputsBatchedStreamRequest = InputsBatchedStreamRequest
+
+class InputsBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___InputsStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___InputsStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___InputsBatchedStreamResponse = InputsBatchedStreamResponse
+
 class InputsConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
@@ -1526,6 +1866,74 @@ class InputsConfigStreamResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___InputsConfigStreamResponse = InputsConfigStreamResponse
+
+class InputsConfigBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.studio.v1.studio_pb2.InputsConfig]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each InputsConfig at end.
+            * Each InputsConfig response is fully-specified (all fields set).
+          * start: Returns the state of each InputsConfig at start, followed by updates until now.
+            * Each InputsConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each InputsConfig at start, followed by updates
+            until end.
+            * Each InputsConfig response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.studio.v1.studio_pb2.InputsConfig]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___InputsConfigBatchedStreamRequest = InputsConfigBatchedStreamRequest
+
+class InputsConfigBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___InputsConfigStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___InputsConfigStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___InputsConfigBatchedStreamResponse = InputsConfigBatchedStreamResponse
 
 class InputsConfigSetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1911,6 +2319,74 @@ class SecretInputStreamResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___SecretInputStreamResponse = SecretInputStreamResponse
 
+class SecretInputBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.studio.v1.studio_pb2.SecretInput]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each SecretInput at end.
+            * Each SecretInput response is fully-specified (all fields set).
+          * start: Returns the state of each SecretInput at start, followed by updates until now.
+            * Each SecretInput response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each SecretInput at start, followed by updates
+            until end.
+            * Each SecretInput response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.studio.v1.studio_pb2.SecretInput]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___SecretInputBatchedStreamRequest = SecretInputBatchedStreamRequest
+
+class SecretInputBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SecretInputStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___SecretInputStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___SecretInputBatchedStreamResponse = SecretInputBatchedStreamResponse
+
 class StudioRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
@@ -2089,6 +2565,74 @@ class StudioStreamResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___StudioStreamResponse = StudioStreamResponse
 
+class StudioBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.studio.v1.studio_pb2.Studio]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each Studio at end.
+            * Each Studio response is fully-specified (all fields set).
+          * start: Returns the state of each Studio at start, followed by updates until now.
+            * Each Studio response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each Studio at start, followed by updates
+            until end.
+            * Each Studio response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.studio.v1.studio_pb2.Studio]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___StudioBatchedStreamRequest = StudioBatchedStreamRequest
+
+class StudioBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___StudioStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___StudioStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___StudioBatchedStreamResponse = StudioBatchedStreamResponse
+
 class StudioConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
@@ -2266,6 +2810,74 @@ class StudioConfigStreamResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___StudioConfigStreamResponse = StudioConfigStreamResponse
+
+class StudioConfigBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.studio.v1.studio_pb2.StudioConfig]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each StudioConfig at end.
+            * Each StudioConfig response is fully-specified (all fields set).
+          * start: Returns the state of each StudioConfig at start, followed by updates until now.
+            * Each StudioConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each StudioConfig at start, followed by updates
+            until end.
+            * Each StudioConfig response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.studio.v1.studio_pb2.StudioConfig]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___StudioConfigBatchedStreamRequest = StudioConfigBatchedStreamRequest
+
+class StudioConfigBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___StudioConfigStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___StudioConfigStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___StudioConfigBatchedStreamResponse = StudioConfigBatchedStreamResponse
 
 class StudioConfigSetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2650,3 +3262,71 @@ class StudioSummaryStreamResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
 global___StudioSummaryStreamResponse = StudioSummaryStreamResponse
+
+class StudioSummaryBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.studio.v1.studio_pb2.StudioSummary]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each StudioSummary at end.
+            * Each StudioSummary response is fully-specified (all fields set).
+          * start: Returns the state of each StudioSummary at start, followed by updates until now.
+            * Each StudioSummary response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each StudioSummary at start, followed by updates
+            until end.
+            * Each StudioSummary response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.studio.v1.studio_pb2.StudioSummary]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___StudioSummaryBatchedStreamRequest = StudioSummaryBatchedStreamRequest
+
+class StudioSummaryBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___StudioSummaryStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___StudioSummaryStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___StudioSummaryBatchedStreamResponse = StudioSummaryBatchedStreamResponse
