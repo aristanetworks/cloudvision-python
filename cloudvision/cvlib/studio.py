@@ -306,7 +306,8 @@ def __getStudioInputConfig(clientGetter, studioId: str, workspaceId: str, path: 
     return configResp.value
 
 
-def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: List[str], value: str):
+def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: List[str],
+                   value: str, remove: bool = False):
     '''
     Uses the passed ctx.getApiClient function reference to
     issue a set to the Studio inputs rAPI with the associated input path and value
@@ -322,39 +323,65 @@ def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: Lis
     key = models.InputsKey(studio_id=sid,
                            workspace_id=wid,
                            path=fmp_wrappers.RepeatedString(values=inputPath))
-
-    req = services.InputsConfigSetRequest(
-        value=models.InputsConfig(key=key, inputs=pb.StringValue(value=serialized))
-    )
+    if remove:
+        req = services.InputsConfigSetRequest(
+            value=models.InputsConfig(key=key, remove=pb.BoolValue(value=remove))
+        )
+    else:
+        req = services.InputsConfigSetRequest(
+            value=models.InputsConfig(key=key, inputs=pb.StringValue(value=serialized))
+        )
     try:
         client.Set(request=req)
     except RpcError as exc:
         raise InputUpdateException(inputPath, f"Value {value} was not set: {exc}") from None
 
 
-def setStudioInputs(clientGetter, studioId: str, workspaceId: str, inputs: List[Tuple]):
+def setStudioInputs(clientGetter, studioId: str, workspaceId: str,
+                    inputs: List[Tuple]):
     '''
     Uses the passed ctx.getApiClient function reference to
     issue a setSome to the Studio inputs rAPI with the associated InputsConfig
+
+    The inputs list should contain tuples of a fixed size, either with a
+    length of 2 or a length of 3. Tuple: (Path, Inputs) or (Path, Inputs, Remove)
+    a mixed list [(path, value, remove), (path, value),..] is supported
+
+    The value doesn't matter if the remove flag is True
     '''
     client = clientGetter(services.InputsConfigServiceStub)
     wid = pb.StringValue(value=workspaceId)
     sid = pb.StringValue(value=studioId)
     inputsConfigs = []
-    for path, value in inputs:
-        try:
-            serialized = json.dumps(value)
-        except TypeError as e:
+    for entry in inputs:
+        if len(entry) == 2:
+            path, value = entry
+            key = models.InputsKey(studio_id=sid,
+                                   workspace_id=wid,
+                                   path=fmp_wrappers.RepeatedString(values=path))
+            try:
+                serialized = json.dumps(value)
+            except TypeError as e:
+                raise InputException(
+                    message=f"Cannot set value as input: {e}", inputPath=path) from None
+            item = models.InputsConfig(key=key, inputs=pb.StringValue(value=serialized))
+        elif len(entry) == 3:
+            path, value, remove = entry
+            key = models.InputsKey(studio_id=sid,
+                                   workspace_id=wid,
+                                   path=fmp_wrappers.RepeatedString(values=path))
+            try:
+                serialized = json.dumps(value)
+            except TypeError as e:
+                raise InputException(
+                    message=f"Cannot set value as input: {e}", inputPath=path) from None
+            if remove:
+                item = models.InputsConfig(key=key, remove=pb.BoolValue(value=remove))
+            else:
+                item = models.InputsConfig(key=key, inputs=pb.StringValue(value=serialized))
+        else:
             raise InputException(
-                message=f"Cannot set value as input: {e}", inputPath=path) from None
-        item = models.InputsConfig(
-            key=models.InputsKey(
-                workspace_id=wid,
-                studio_id=sid,
-                path=fmp_wrappers.RepeatedString(values=path)
-            ),
-            inputs=pb.StringValue(value=serialized)
-        )
+                message=f"Invalid entry length: {len(entry)}", inputPath=entry[0]) from None
         inputsConfigs.append(item)
     req = services.InputsConfigSetSomeRequest(
         values=inputsConfigs
