@@ -218,6 +218,11 @@ class _ErrorCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enum
     version is lower than the embedded TerminAttr version in SWI.
     """
 
+    ERROR_CODE_DEVICE_EOS_2GB_INCOMPATIBLE: _ErrorCode.ValueType  # 15
+    """ERROR_CODE_DEVICE_EOS_2GB_INCOMPATIBLE represents the case where a 2GB-device is incompatible
+    with a non-2GB EOS or a non-2GB device is incompatible with a 2GB-EOS.
+    """
+
 class ErrorCode(_ErrorCode, metaclass=_ErrorCodeEnumTypeWrapper):
     """ErrorCode indicates errors produced during image validations."""
     pass
@@ -295,6 +300,11 @@ does not support the given EOS type.
 ERROR_CODE_TA_EMBEDDEDEXT_INCOMPATIBLE: ErrorCode.ValueType  # 14
 """ERROR_CODE_TA_EMBEDDEDEXT_INCOMPATIBLE represents the case where the extension TerminAttr
 version is lower than the embedded TerminAttr version in SWI.
+"""
+
+ERROR_CODE_DEVICE_EOS_2GB_INCOMPATIBLE: ErrorCode.ValueType  # 15
+"""ERROR_CODE_DEVICE_EOS_2GB_INCOMPATIBLE represents the case where a 2GB-device is incompatible
+with a non-2GB EOS or a non-2GB device is incompatible with a 2GB-EOS.
 """
 
 global___ErrorCode = ErrorCode
