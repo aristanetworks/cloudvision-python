@@ -391,6 +391,11 @@ class _WarningCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     with Software Management Studio.
     """
 
+    WARNING_CODE_BUGALERTS_DATA_MISSING: _WarningCode.ValueType  # 16
+    """WARNING_CODE_BUGALERTS_DATA_MISSING represents cases where some of the BugAlerts data
+    under Aeris analytics dataset is missing.
+    """
+
 class WarningCode(_WarningCode, metaclass=_WarningCodeEnumTypeWrapper):
     """WarningCode indicates warnings produced during image validations."""
     pass
@@ -469,6 +474,11 @@ TerminAttr version is below CloudVision's minimum supported version.
 WARNING_CODE_TA_STUDIO_INCOMPATIBLE: WarningCode.ValueType  # 15
 """WARNING_CODE_TA_STUDIO_INCOMPATIBLE represents cases where the TerminAttr is incompatible
 with Software Management Studio.
+"""
+
+WARNING_CODE_BUGALERTS_DATA_MISSING: WarningCode.ValueType  # 16
+"""WARNING_CODE_BUGALERTS_DATA_MISSING represents cases where some of the BugAlerts data
+under Aeris analytics dataset is missing.
 """
 
 global___WarningCode = WarningCode
