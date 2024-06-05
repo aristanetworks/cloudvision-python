@@ -48,7 +48,11 @@ ACCESS_TOKEN = "access_token"
 CMDS = "cmds"
 DEVICE_ID = "deviceID"
 EXEC_ACTION = "execaction"
-HEADERS = {"Accept": "application/json"}
+HEADER_ACCEPT = "Accept"
+HEADER_AUTH = "Authorization"
+HEADER_CONTENT_TYPE = "Content-Type"
+HEADER_JSON_APPLICATION = "application/json"
+HEADERS = {HEADER_ACCEPT: HEADER_JSON_APPLICATION}
 HOST = "host"
 JSON = "json"
 REQ_FORMAT = "format"
@@ -299,7 +303,7 @@ class Context:
                                      cookies=cookies, verify=False)
         except requests.ConnectionError as e:
             self.error(f"Got exception while establishing connection to DI : {e}")
-            raise e
+            raise
 
         self.debug(f"Status code received from DI : {response.status_code}")
         if response.status_code != 200:
@@ -411,6 +415,79 @@ class Context:
             raise InvalidContextException(("Context does not have a workspace or studio "
                                           "associated with it"))
         return self.workspace.id if self.workspace else self.studio.workspaceId
+
+    def httpGet(self, path: str):
+        '''
+        Issues a https GET to a given endpoint in CloudVision and returns the json
+        content if there are no errors
+        '''
+        if not (self.user and self.user.token):
+            raise InvalidContextException("httpGet requires an authenticated"
+                                          + " user associated with the context")
+
+        if not self.connections.serviceAddr:
+            raise InvalidContextException("httpGet must have a valid service address specified")
+
+        # Perform a split to ensure to drop any ports that are provided as part of the serviceAddr
+        url = "https://" + self.connections.serviceAddr.split(':', maxsplit=1)[0]
+        endpoint = url + path
+        headers = {
+            HEADER_ACCEPT: HEADER_JSON_APPLICATION,
+            HEADER_CONTENT_TYPE: HEADER_JSON_APPLICATION,
+            HEADER_AUTH: f"Bearer {self.user.token}"
+        }
+        try:
+            response = requests.get(endpoint, headers=headers, verify=False)
+            response.raise_for_status()
+            respJson = json.loads(response.text)
+        except requests.ConnectionError as e:
+            self.error(f"Got exception while establishing connection to url '{endpoint}': {e}")
+            raise
+        except requests.HTTPError as e:
+            self.error(f"Got error response from get on '{endpoint}': {e}")
+            raise
+        return respJson
+
+    def httpGetConfig(self, path: str):
+        '''
+        Issues a http get to retrieve the device config content at a cvp url and formats it.
+        '''
+        rawConfig = self.httpGet(path).get('config')
+        if not rawConfig:
+            return ""
+        formattedConfig = rawConfig.replace('\\n', '\n').replace('\\t', '\t')
+        return formattedConfig
+
+    def httpPost(self, path, request={}):
+        '''
+        Issues a https POST to a given endpoint in CloudVision
+        '''
+        data = json.dumps(request)
+
+        if not (self.user and self.user.token):
+            raise InvalidContextException("httpPost requires an authenticated"
+                                          + " user associated with the context")
+
+        if not self.connections.serviceAddr:
+            raise InvalidContextException("httpPost must have a valid service address specified")
+
+        # Perform a split to ensure to drop any ports that are provided as part of the serviceAddr
+        url = "https://" + self.connections.serviceAddr.split(':', maxsplit=1)[0]
+        endpoint = url + path
+        headers = {
+            HEADER_ACCEPT: HEADER_JSON_APPLICATION,
+            HEADER_CONTENT_TYPE: HEADER_JSON_APPLICATION,
+            HEADER_AUTH: f"Bearer {self.user.token}"
+        }
+        try:
+            response = requests.post(endpoint, data=data, headers=headers, verify=False)
+            response.raise_for_status()
+        except requests.ConnectionError as e:
+            self.error(f"Got exception while establishing connection to url '{endpoint}': {e}")
+            raise
+        except requests.HTTPError as e:
+            self.error(f"Got error response from get on '{endpoint}': {e}")
+            raise
 
     def Get(self, path: List[str], keys: List[str] = [], dataset: str = "analytics"):
         '''
