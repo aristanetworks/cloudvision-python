@@ -26,5 +26,3 @@ from .topology import Connection, Topology
 from .user import User
 from .workspace import Workspace
 from .id_allocator import IdAllocator
-
-__version__ = "1.7.1"
