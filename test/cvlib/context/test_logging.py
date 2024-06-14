@@ -25,7 +25,7 @@ def test_logging(name, logLevel, expectedLogCalls):
 
     logCalls = 0
 
-    def log(a, b):
+    def log(a, b, c):
         nonlocal logCalls
         logCalls += 1
 

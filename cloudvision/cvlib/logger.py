@@ -25,12 +25,12 @@ class Logger:
                  alog: Callable[
                      [Any, str, Optional[str], Optional[str], Optional[Dict[str, str]]], None
                  ],
-                 trace: Callable[[Any, str], None],
-                 debug: Callable[[Any, str], None],
-                 info: Callable[[Any, str], None],
-                 warning: Callable[[Any, str], None],
-                 error: Callable[[Any, str], None],
-                 critical: Callable[[Any, str], None]):
+                 trace: Callable[[Any, str, Optional[Dict[str, str]]], None],
+                 debug: Callable[[Any, str, Optional[Dict[str, str]]], None],
+                 info: Callable[[Any, str, Optional[Dict[str, str]]], None],
+                 warning: Callable[[Any, str, Optional[Dict[str, str]]], None],
+                 error: Callable[[Any, str, Optional[Dict[str, str]]], None],
+                 critical: Callable[[Any, str, Optional[Dict[str, str]]], None]):
         self.alog = alog
         self.trace = trace
         self.debug = debug
