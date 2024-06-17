@@ -11,3 +11,6 @@ INPUT_PATH_ARG = "InputPath"
 STUDIO_ID_ARG = "StudioID"
 STUDIO_IDS_ARG = "StudioIDs"
 WORKSPACE_ID_ARG = "WorkspaceID"
+
+# General timeout for all requests
+TIMEOUT_REQUEST = 60  # 1 min in seconds

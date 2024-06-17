@@ -25,7 +25,13 @@ from cloudvision.Connector.grpc_client import (
 from .action import Action
 from .changecontrol import ChangeControl
 from .connections import AuthAndEndpoints, addHeaderInterceptor
-from .constants import BUILD_ID_ARG, STUDIO_ID_ARG, STUDIO_IDS_ARG, WORKSPACE_ID_ARG
+from .constants import (
+    BUILD_ID_ARG,
+    STUDIO_ID_ARG,
+    STUDIO_IDS_ARG,
+    WORKSPACE_ID_ARG,
+    TIMEOUT_REQUEST,
+)
 from .device import Device, Interface
 from .exceptions import (
     ConnectionFailed,
@@ -300,7 +306,7 @@ class Context:
             runCmdURL = f"https://{self.connections.serviceAddr}/{self.connections.commandEndpoint}"
             self.debug(f"Executing the following command(s) on device {device.id}: {commandsList}")
             response = requests.post(runCmdURL, data=data, headers=HEADERS,
-                                     cookies=cookies, verify=False)
+                                     cookies=cookies, timeout=TIMEOUT_REQUEST, verify=False)
         except requests.ConnectionError as e:
             self.error(f"Got exception while establishing connection to DI : {e}")
             raise

@@ -67,7 +67,7 @@ class mockClient:
         self.numGetAlls = 0
         self.numSets = 0
 
-    def GetAll(self, request):
+    def GetAll(self, request, timeout):
         labelFilters = []
         for afilter in request.partial_eq_filter:
             if afilter.key.label.value:
@@ -84,7 +84,7 @@ class mockClient:
                     response.remove(item)
         return response
 
-    def GetOne(self, _):
+    def GetOne(self, _, timeout):
         return WorkspaceResponse()
 
     def SetGetAllResponse(self, response):
@@ -93,7 +93,7 @@ class mockClient:
     def SetGetAllConfigResponse(self, response):
         self.tagConfigResponse = response
 
-    def Set(self, request):
+    def Set(self, request, timeout):
         self.numSets += 1
         return
 
@@ -233,8 +233,8 @@ getSingleTagCases = [
     [
         "get tag that is assigned correctly to device with preloaded cache",
         {
-            'J1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'J1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
         },
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
@@ -254,8 +254,8 @@ getSingleTagCases = [
     [
         "get tag that is assigned to device with too many values with preloaded cache",
         {
-            'J1': {'DC': ['DC1', 'DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'J1': {'DC': ['DC1', 'DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
         },
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC', 'DC2'),
@@ -384,8 +384,8 @@ getTagsCases = [
     [
         "get all device tags for device that has tags with preloaded cache",
         {
-            'J1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'J1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
         },
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
@@ -608,8 +608,8 @@ assignTagsCases = [
     [
         "assign new tag to device with preloaded cache",
         {
-            'J1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'J1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
         },
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
@@ -635,8 +635,8 @@ assignTagsCases = [
     [
         "replace value with new value of existing label for device with preloaded cache",
         {
-            'J1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'J1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
         },
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
@@ -858,8 +858,8 @@ unassignTagsCases = [
     [
         "unassign tag from device with preloaded cache",
         {
-            'J1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'J1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
         },
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC-Pod', 'POD1'),
@@ -882,8 +882,8 @@ unassignTagsCases = [
     [
         "unassign all values for a label from device with preloaded cache",
         {
-            'J1': {'DC': ['DC1', 'DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'J1': {'DC': ['DC1', 'DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'J2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
         },
         convertListToStream([('J1', 'DC', 'DC1'),
                              ('J1', 'DC', 'DC2'),

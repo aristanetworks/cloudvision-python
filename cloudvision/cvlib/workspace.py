@@ -8,7 +8,7 @@ from typing import List, Optional
 
 from arista.workspace.v1 import models, services
 
-from .constants import MAINLINE_WS_ID
+from .constants import MAINLINE_WS_ID, TIMEOUT_REQUEST
 from .exceptions import CVException
 
 
@@ -53,7 +53,7 @@ def getWorkspaceLastSynced(clientGetter, workspaceId: str):
     key = models.WorkspaceKey(workspace_id=wid)
     wsReq = services.WorkspaceRequest(key=key)
     try:
-        wsResp = wsClient.GetOne(wsReq)
+        wsResp = wsClient.GetOne(wsReq, timeout=TIMEOUT_REQUEST)
     except RpcError as wsExec:
         if wsExec.code() == StatusCode.NOT_FOUND:
             raise CVException("Workspace does not exist")

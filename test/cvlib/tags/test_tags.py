@@ -86,7 +86,7 @@ class mockClient:
         self.tagConfigResponse = convertListToConfigStream([])
         self.numGetAlls = 0
 
-    def GetAll(self, request):
+    def GetAll(self, request, timeout):
         labelFilters = []
         for afilter in request.partial_eq_filter:
             if afilter.key.label.value:
@@ -103,7 +103,7 @@ class mockClient:
                     response.remove(item)
         return response
 
-    def GetOne(self, _):
+    def GetOne(self, _, timeout):
         return WorkspaceResponse()
 
     def SetGetAllResponse(self, response):
@@ -112,10 +112,10 @@ class mockClient:
     def SetGetAllConfigResponse(self, response):
         self.tagConfigResponse = response
 
-    def Set(self, request):
+    def Set(self, request, timeout):
         return
 
-    def SetSome(self, request):
+    def SetSome(self, request, timeout):
         if self.stub == TagConfigServiceStub:
             return [TagConfigSetSomeResponse]
         if self.stub == TagAssignmentConfigServiceStub:
@@ -173,8 +173,8 @@ getAllDeviceTagsCases = [
                              ]),
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
         },
         None
     ],
@@ -211,8 +211,8 @@ getDeviceTagsCases = [
     [
         "preloaded tags",
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
         },
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
@@ -223,14 +223,14 @@ getDeviceTagsCases = [
                              ]),
         'dev1',
         0,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
         None
     ],
     [
         "preloaded tags, device has no tags",
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
         },
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
@@ -256,7 +256,7 @@ getDeviceTagsCases = [
                              ]),
         'dev1',
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
         None
     ],
     [
@@ -324,7 +324,7 @@ assignUnassignDeviceTagCases = [
         'Core',
         False,
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine', 'Core']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Spine', 'Core']},
         None
     ],
     [
@@ -344,7 +344,7 @@ assignUnassignDeviceTagCases = [
         'Core',
         True,
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Core']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Core']},
         None
     ],
     [
@@ -365,7 +365,7 @@ assignUnassignDeviceTagCases = [
         'Core',
         False,
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Spine']},
         None
     ],
     [
@@ -385,7 +385,7 @@ assignUnassignDeviceTagCases = [
         'Spine',
         False,
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
         None
     ],
     [
@@ -405,7 +405,7 @@ assignUnassignDeviceTagCases = [
         'Core',
         False,
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Spine']},
         None
     ],
 ]
@@ -454,8 +454,8 @@ mergeGetAllDeviceTagsCases = [
                             ]),
         convertListToConfigStream([]),
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role':['Spine']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role': ['Leaf']},
         },
         None
     ],
@@ -473,8 +473,8 @@ mergeGetAllDeviceTagsCases = [
                                   ('dev2', 'Role', 'Leaf', False),
                                   ]),
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role':['Spine']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role': ['Leaf']},
         },
         None
     ],
@@ -495,7 +495,7 @@ mergeGetAllDeviceTagsCases = [
                                   ]),
         {
             'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role': ['Leaf']},
         },
         None
     ],
@@ -514,8 +514,8 @@ mergeGetAllDeviceTagsCases = [
                                   ('dev1', 'Role', 'Spine', False),
                                   ]),
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role':['Spine']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role': ['Leaf']},
         },
         None
     ],
@@ -536,8 +536,8 @@ mergeGetAllDeviceTagsCases = [
                                   ('dev1', 'Role', 'Leaf', False),
                                   ]),
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role':['Leaf']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Leaf']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role': ['Leaf']},
         },
         None
     ],
@@ -560,7 +560,7 @@ mergeGetAllDeviceTagsCases = [
                                   ('dev1', 'Role', 'Spine', True),
                                   ]),
         {
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role': ['Leaf']},
         },
         None
     ],
@@ -579,8 +579,8 @@ mergeGetAllDeviceTagsCases = [
                                   ('dev1', 'Role', 'Spine', False),
                                   ]),
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role':['Spine']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'], 'Role': ['Leaf']},
         },
         None
     ],
@@ -617,9 +617,9 @@ getDevicesByTagCases = [
     [
         "get devices matching label with preloaded cache",
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
-            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
         },
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
@@ -641,9 +641,9 @@ getDevicesByTagCases = [
     [
         "try get devices not matching label with preloaded cache",
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
-            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
         },
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
@@ -665,9 +665,9 @@ getDevicesByTagCases = [
     [
         "get devices matching label and value with preloaded cache",
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
-            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
         },
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
@@ -689,9 +689,9 @@ getDevicesByTagCases = [
     [
         "get devices in topology matching label and value with preloaded cache",
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
-            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
         },
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
@@ -713,9 +713,9 @@ getDevicesByTagCases = [
     [
         "get devices not in topology matching label and value with preloaded cache",
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
-            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
         },
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
@@ -737,9 +737,9 @@ getDevicesByTagCases = [
     [
         "try get devices with None label and value with preloaded cache",
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']},
-            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']},
+            'dev3': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
         },
         convertListToStream([('dev1', 'DC', 'DC1'),
                              ('dev1', 'DC-Pod', 'POD1'),
@@ -832,9 +832,9 @@ getInterfacesByTagCases = [
     [
         "get interfaces matching label with preloaded cache",
         {
-            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
-            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
         },
         convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
                              ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -858,9 +858,9 @@ getInterfacesByTagCases = [
     [
         "try get interfaces not matching label with preloaded cache",
         {
-            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
-            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
         },
         convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
                              ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -882,9 +882,9 @@ getInterfacesByTagCases = [
     [
         "get interfaces matching label and value with preloaded cache",
         {
-            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
-            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
         },
         convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
                              ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -907,9 +907,9 @@ getInterfacesByTagCases = [
     [
         "get only interfaces of devices in topology matching label and value with preloaded cache",
         {
-            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
-            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
         },
         convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
                              ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -931,9 +931,9 @@ getInterfacesByTagCases = [
     [
         "get only interfaces in topology matching label and value with preloaded cache",
         {
-            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
-            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
         },
         convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
                              ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -955,9 +955,9 @@ getInterfacesByTagCases = [
     [
         "get interfaces of devices not in topology matching label and value with preloaded cache",
         {
-            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
-            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
         },
         convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
                              ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -980,9 +980,9 @@ getInterfacesByTagCases = [
     [
         "get interfaces not in topology matching label and value with preloaded cache",
         {
-            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
-            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
         },
         convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
                              ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -1005,9 +1005,9 @@ getInterfacesByTagCases = [
     [
         "try get interfaces with None label and value with preloaded cache",
         {
-            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
-            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
+            'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
+            'dev3': {'Ethernet1': {'DC': ['DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
         },
         convertListToStream([('dev1', 'Ethernet1', 'DC', 'DC1'),
                              ('dev1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -1119,10 +1119,10 @@ assignUnassignDeviceTagsCases = [
         'assign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
-                     'Role':['Spine', 'Core']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
-                     'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                     'Role': ['Spine', 'Core']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                     'Role': ['Leaf']},
         },
         None
     ],
@@ -1142,10 +1142,10 @@ assignUnassignDeviceTagsCases = [
         'assign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
-                     'Role':['Spine', 'Core', 'RR']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
-                     'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                     'Role': ['Spine', 'Core', 'RR']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                     'Role': ['Leaf']},
         },
         None
     ],
@@ -1167,10 +1167,10 @@ assignUnassignDeviceTagsCases = [
         'assign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
-                     'Role':['Spine', 'Core', 'RR']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
-                     'Role':['Leaf', 'Edge', 'RR']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                     'Role': ['Spine', 'Core', 'RR']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                     'Role': ['Leaf', 'Edge', 'RR']},
         },
         None
     ],
@@ -1192,10 +1192,10 @@ assignUnassignDeviceTagsCases = [
         'assign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
-                     'Role':['Spine'], 'AS': ['65000'], 'RouterId': ['10.0.0.1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
-                     'Role':['Leaf'], 'AS': ['65001'], 'RouterId': ['11.0.0.1']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                     'Role': ['Spine'], 'AS': ['65000'], 'RouterId': ['10.0.0.1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                     'Role': ['Leaf'], 'AS': ['65001'], 'RouterId': ['11.0.0.1']},
         },
         None
     ],
@@ -1215,10 +1215,10 @@ assignUnassignDeviceTagsCases = [
         'assign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
-                     'Role':['Core']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
-                     'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                     'Role': ['Core']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                     'Role': ['Leaf']},
         },
         None
     ],
@@ -1238,10 +1238,10 @@ assignUnassignDeviceTagsCases = [
         'assign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
-                     'Role':['RR']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
-                     'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                     'Role': ['RR']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                     'Role': ['Leaf']},
         },
         None
     ],
@@ -1263,10 +1263,10 @@ assignUnassignDeviceTagsCases = [
         'assign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId':['1'],
-                     'Role':['RR']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId':['3'],
-                     'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId': ['1'],
+                     'Role': ['RR']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId': ['3'],
+                     'Role': ['Leaf']},
         },
         None
     ],
@@ -1289,10 +1289,10 @@ assignUnassignDeviceTagsCases = [
         'assign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId':['1'],
-                     'Role':['Spine', 'RR']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId':['3'],
-                     'Role':['Leaf', 'Edge']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId': ['1'],
+                     'Role': ['Spine', 'RR']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId': ['3'],
+                     'Role': ['Leaf', 'Edge']},
         },
         None
     ],
@@ -1313,10 +1313,10 @@ assignUnassignDeviceTagsCases = [
         'unassign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
-                     'Role':['Spine']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
-                     'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                     'Role': ['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                     'Role': ['Leaf']},
         },
         None
     ],
@@ -1336,9 +1336,9 @@ assignUnassignDeviceTagsCases = [
         'unassign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
-                     'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                     'Role': ['Leaf']},
         },
         None
     ],
@@ -1358,10 +1358,10 @@ assignUnassignDeviceTagsCases = [
         'unassign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
-                     'Role':['Spine']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
-                     'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                     'Role': ['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                     'Role': ['Leaf']},
         },
         None
     ],
@@ -1381,10 +1381,10 @@ assignUnassignDeviceTagsCases = [
         'unassign',
         2,
         {
-            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'],
-                     'Role':['Spine']},
-            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2'],
-                     'Role':['Leaf']},
+            'dev1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'],
+                     'Role': ['Spine']},
+            'dev2': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2'],
+                     'Role': ['Leaf']},
         },
         None
     ],
@@ -1491,7 +1491,7 @@ assignUnassignInterfaceTagCases = [
         'Core',
         False,
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine', 'Core']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Spine', 'Core']},
         None
     ],
     [
@@ -1512,7 +1512,7 @@ assignUnassignInterfaceTagCases = [
         'Core',
         True,
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Core']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Core']},
         None
     ],
     [
@@ -1534,7 +1534,7 @@ assignUnassignInterfaceTagCases = [
         'Core',
         False,
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Spine']},
         None
     ],
     [
@@ -1555,7 +1555,7 @@ assignUnassignInterfaceTagCases = [
         'Spine',
         False,
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']},
         None
     ],
     [
@@ -1576,7 +1576,7 @@ assignUnassignInterfaceTagCases = [
         'Core',
         False,
         2,
-        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1'], 'Role':['Spine']},
+        {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1'], 'Role': ['Spine']},
         None
     ],
 ]
@@ -1775,7 +1775,7 @@ assignUnassignInterfaceTagsCases = [
         2,
         {
             'dev1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD2'], 'NodeId': ['1'],
-                                   'Role':['Spine', 'RR']},
+                                   'Role': ['Spine', 'RR']},
                      'Ethernet2': {'NodeId': ['2'], 'Role': ['RR']}},
             'dev2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['3'],
                                    'Role': ['Leaf', 'Edge']},

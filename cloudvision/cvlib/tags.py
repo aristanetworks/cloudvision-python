@@ -26,6 +26,7 @@ from arista.tag.v2.tag_pb2 import (
     CREATOR_TYPE_USER,
 )
 from arista.time.time_pb2 import TimeBounds
+from .constants import TIMEOUT_REQUEST
 from .exceptions import (
     TagOperationException
 )
@@ -103,7 +104,7 @@ class Tags:
         tagFilter.key.element_type = etype
         tagFilter.key.workspace_id.value = self.ctx.getWorkspaceId()
         tagRequest.partial_eq_filter.append(tagFilter)
-        for resp in tagClient.GetAll(tagRequest):
+        for resp in tagClient.GetAll(tagRequest, timeout=TIMEOUT_REQUEST):
             workspaceTagUpdates.append((resp.value.key.device_id.value,
                                         resp.value.key.interface_id.value,
                                         resp.value.key.label.value,
@@ -134,7 +135,7 @@ class Tags:
         setRequest.value.key.label.value = label
         setRequest.value.key.value.value = value
         tagClient = self.ctx.getApiClient(TagConfigServiceStub)
-        tagClient.Set(setRequest)
+        tagClient.Set(setRequest, timeout=TIMEOUT_REQUEST)
 
     def _createTags(self, etype: int, tags: List[Tuple], configsPerReq=1000):
         '''
@@ -173,7 +174,7 @@ class Tags:
             )
             tagClient = self.ctx.getApiClient(TagConfigServiceStub)
             try:
-                for res in tagClient.SetSome(setSomeRequest):
+                for res in tagClient.SetSome(setSomeRequest, timeout=TIMEOUT_REQUEST):
                     pass
             except RpcError:
                 raise TagOperationException('', '', 'create')
@@ -199,7 +200,7 @@ class Tags:
         setRequest.value.key.interface_id.value = interfaceId
         setRequest.value.remove.value = remove
         tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
-        tagClient.Set(setRequest)
+        tagClient.Set(setRequest, timeout=TIMEOUT_REQUEST)
 
     def _assignTagsSets(self, etype: int, tagAssigns: List[Tuple],
                         remove: bool = False, configsPerReq: int = 1000):
@@ -232,7 +233,7 @@ class Tags:
             )
             tagClient = self.ctx.getApiClient(TagAssignmentConfigServiceStub)
             try:
-                for res in tagClient.SetSome(setSomeRequest):
+                for res in tagClient.SetSome(setSomeRequest, timeout=TIMEOUT_REQUEST):
                     pass
             except RpcError:
                 raise TagOperationException('', '', 'assign')
@@ -299,7 +300,7 @@ class Tags:
         tagFilter.key.element_type = ELEMENT_TYPE_DEVICE
         tagFilter.key.workspace_id.value = MAINLINE_ID
         tagRequest.partial_eq_filter.append(tagFilter)
-        for resp in tagClient.GetAll(tagRequest):
+        for resp in tagClient.GetAll(tagRequest, timeout=TIMEOUT_REQUEST):
             label = resp.value.key.label.value
             value = resp.value.key.value.value
             deviceId = resp.value.key.device_id.value
@@ -546,7 +547,7 @@ class Tags:
         tagFilter.key.element_type = ELEMENT_TYPE_INTERFACE
         tagFilter.key.workspace_id.value = MAINLINE_ID
         tagRequest.partial_eq_filter.append(tagFilter)
-        for resp in tagClient.GetAll(tagRequest):
+        for resp in tagClient.GetAll(tagRequest, timeout=TIMEOUT_REQUEST):
             label = resp.value.key.label.value
             value = resp.value.key.value.value
             deviceId = resp.value.key.device_id.value

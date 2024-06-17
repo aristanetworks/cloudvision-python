@@ -15,7 +15,13 @@ from cloudvision.Connector.codec import Path
 from cloudvision.Connector.grpc_client import create_notification
 from fmp import wrappers_pb2 as fmp_wrappers
 
-from .constants import INPUT_PATH_ARG, MAINLINE_WS_ID, STUDIO_ID_ARG, WORKSPACE_ID_ARG
+from .constants import (
+    INPUT_PATH_ARG,
+    MAINLINE_WS_ID,
+    STUDIO_ID_ARG,
+    WORKSPACE_ID_ARG,
+    TIMEOUT_REQUEST,
+)
 from .exceptions import (
     InputException,
     InputNotFoundException,
@@ -272,7 +278,7 @@ def __getStudioInputs(clientGetter, studioId: str, workspaceId: str, start=None,
 
     inputs = None
     # We need to issue the get requests as part of a GetAll to allow for truncated inputs
-    for res in client.GetAll(req):
+    for res in client.GetAll(req, timeout=TIMEOUT_REQUEST):
         inpResp = res.value
         if not inpResp.inputs:
             continue
@@ -292,7 +298,7 @@ def __getStudioInputConfig(clientGetter, studioId: str, workspaceId: str, path: 
     req = services.InputsConfigRequest(key=key)
 
     try:
-        configResp = client.GetOne(req)
+        configResp = client.GetOne(req, timeout=TIMEOUT_REQUEST)
     except RpcError as confExc:
         # If the config does not exist for the workspace, return the mainline state
         if confExc.code() == StatusCode.NOT_FOUND:
@@ -330,7 +336,7 @@ def setStudioInput(clientGetter, studioId: str, workspaceId: str, inputPath: Lis
             value=models.InputsConfig(key=key, inputs=pb.StringValue(value=serialized))
         )
     try:
-        client.Set(request=req)
+        client.Set(request=req, timeout=TIMEOUT_REQUEST)
     except RpcError as exc:
         raise InputUpdateException(inputPath, f"Value {value} was not set: {exc}") from None
 
@@ -385,7 +391,7 @@ def setStudioInputs(clientGetter, studioId: str, workspaceId: str,
         values=inputsConfigs
     )
     try:
-        for res in client.SetSome(request=req):
+        for res in client.SetSome(request=req, timeout=TIMEOUT_REQUEST):
             pass
     except RpcError as exc:
         raise InputUpdateException(err=f"Inputs {inputs} was not set: {exc}") from None
@@ -533,7 +539,7 @@ def GetOneWithWS(apiClientGetter, stateStub, stateGetReq, configStub, confGetReq
     stateClient = apiClientGetter(stateStub)
     # Issue a get to the state endpoint for the workspace
     try:
-        result = stateClient.GetOne(stateGetReq)
+        result = stateClient.GetOne(stateGetReq, timeout=TIMEOUT_REQUEST)
     except RpcError as exc:
         # If the state does not exist for the workspace, reraise the original
         # exception as something went wrong
@@ -552,7 +558,7 @@ def GetOneWithWS(apiClientGetter, stateStub, stateGetReq, configStub, confGetReq
         stateGetReq.key.workspace_id.value = MAINLINE_WS_ID
         stateGetReq.time = wsTs
         try:
-            result = stateClient.GetOne(stateGetReq)
+            result = stateClient.GetOne(stateGetReq, timeout=TIMEOUT_REQUEST)
         except RpcError as mainlineExc:
             # Handle the mainline error as its own exception, such that stack
             # traces don't contain nested exceptions such as "when handling the
@@ -563,7 +569,7 @@ def GetOneWithWS(apiClientGetter, stateStub, stateGetReq, configStub, confGetReq
         # the mainline value has not been deleted
         configClient = apiClientGetter(configStub)
         try:
-            configResp = configClient.GetOne(confGetReq)
+            configResp = configClient.GetOne(confGetReq, timeout=TIMEOUT_REQUEST)
         except RpcError as confExc:
             # If the config does not exist for the workspace, return the mainline state
             if confExc.code() == StatusCode.NOT_FOUND:

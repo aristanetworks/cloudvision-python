@@ -69,7 +69,7 @@ class mockClient:
         self.numGetAlls = 0
         self.numSets = 0
 
-    def GetAll(self, request):
+    def GetAll(self, request, timeout):
         labelFilters = []
         for afilter in request.partial_eq_filter:
             if afilter.key.label.value:
@@ -86,7 +86,7 @@ class mockClient:
                     response.remove(item)
         return response
 
-    def GetOne(self, _):
+    def GetOne(self, _, timeout):
         return WorkspaceResponse()
 
     def SetGetAllResponse(self, response):
@@ -95,7 +95,7 @@ class mockClient:
     def SetGetAllConfigResponse(self, response):
         self.tagConfigResponse = response
 
-    def Set(self, request):
+    def Set(self, request, timeout):
         self.numSets += 1
         return
 
@@ -242,8 +242,8 @@ getSingleTagCases = [
     [
         "get tag assigned correctly to interface with preloaded cache",
         {
-            'J1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'J1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
         },
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -264,8 +264,8 @@ getSingleTagCases = [
     [
         "get tag assigned to interface with too many values with preloaded cache",
         {
-            'J1': {'Ethernet1': {'DC': ['DC1', 'DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'J1': {'Ethernet1': {'DC': ['DC1', 'DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
         },
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC', 'DC2'),
@@ -404,8 +404,8 @@ getTagsCases = [
     [
         "get all interface tags for interface that has tags with preloaded cache",
         {
-            'J1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'J1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
         },
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -642,8 +642,8 @@ assignTagsCases = [
     [
         "assign new tag to interface with preloaded cache",
         {
-            'J1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'J1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
         },
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -670,8 +670,8 @@ assignTagsCases = [
     [
         "replace value with new value of existing label for interface with preloaded cache",
         {
-            'J1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'J1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
         },
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -903,8 +903,8 @@ unassignTagsCases = [
     [
         "unassign tag from interface with preloaded cache",
         {
-            'J1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'J1': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
         },
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC-Pod', 'POD1'),
@@ -928,8 +928,8 @@ unassignTagsCases = [
     [
         "unassign all values for a label from interface with preloaded cache",
         {
-            'J1': {'Ethernet1': {'DC': ['DC1', 'DC2'], 'DC-Pod': ['POD1'], 'NodeId':['1']}},
-            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId':['2']}},
+            'J1': {'Ethernet1': {'DC': ['DC1', 'DC2'], 'DC-Pod': ['POD1'], 'NodeId': ['1']}},
+            'J2': {'Ethernet1': {'DC': ['DC1'], 'DC-Pod': ['POD1'], 'NodeId': ['2']}},
         },
         convertListToStream([('J1', 'Ethernet1', 'DC', 'DC1'),
                              ('J1', 'Ethernet1', 'DC', 'DC2'),
