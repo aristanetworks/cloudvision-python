@@ -5,6 +5,7 @@ isort:skip_file
 import builtins
 import fmp.wrappers_pb2
 import google.protobuf.descriptor
+import google.protobuf.duration_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
@@ -1702,6 +1703,7 @@ class Rule(google.protobuf.message.Message):
     MATCH_CRITERIA_FIELD_NUMBER: builtins.int
     CONTINUE_CHECKS_FIELD_NUMBER: builtins.int
     COMMENT_FIELD_NUMBER: builtins.int
+    SUPPRESS_FOR_FIELD_NUMBER: builtins.int
     @property
     def sends_to(self) -> google.protobuf.wrappers_pb2.StringValue:
         """sends_to is the name of the broadcast group top send matching alerts to"""
@@ -1721,15 +1723,20 @@ class Rule(google.protobuf.message.Message):
     def comment(self) -> google.protobuf.wrappers_pb2.StringValue:
         """comment is a comment to include that will be displayed in the alert"""
         pass
+    @property
+    def suppress_for(self) -> google.protobuf.duration_pb2.Duration:
+        """suppress_for is a time duration that a rule will be debounced for after being called"""
+        pass
     def __init__(self,
         *,
         sends_to: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         match_criteria: typing.Optional[global___Matches] = ...,
         continue_checks: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         comment: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        suppress_for: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["comment",b"comment","continue_checks",b"continue_checks","match_criteria",b"match_criteria","sends_to",b"sends_to"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["comment",b"comment","continue_checks",b"continue_checks","match_criteria",b"match_criteria","sends_to",b"sends_to"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["comment",b"comment","continue_checks",b"continue_checks","match_criteria",b"match_criteria","sends_to",b"sends_to","suppress_for",b"suppress_for"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["comment",b"comment","continue_checks",b"continue_checks","match_criteria",b"match_criteria","sends_to",b"sends_to","suppress_for",b"suppress_for"]) -> None: ...
 global___Rule = Rule
 
 class Matches(google.protobuf.message.Message):
