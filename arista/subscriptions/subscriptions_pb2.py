@@ -14,14 +14,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(arista/subscriptions/subscriptions.proto\x12\x14\x61rista.subscriptions*^\n\tOperation\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07INITIAL\x10\n\x12\x19\n\x15INITIAL_SYNC_COMPLETE\x10\x0b\x12\x0b\n\x07UPDATED\x10\x14\x12\x0b\n\x07\x44\x45LETED\x10\x1e\x42\x43ZAgithub.com/aristanetworks/cloudvision-go/api/arista/subscriptionsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(arista/subscriptions/subscriptions.proto\x12\x14\x61rista.subscriptions*^\n\tOperation\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07INITIAL\x10\n\x12\x19\n\x15INITIAL_SYNC_COMPLETE\x10\x0b\x12\x0b\n\x07UPDATED\x10\x14\x12\x0b\n\x07\x44\x45LETED\x10\x1e\x42\'Z%arista/resources/arista/subscriptionsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'arista.subscriptions.subscriptions_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
-  _globals['DESCRIPTOR']._serialized_options = b'ZAgithub.com/aristanetworks/cloudvision-go/api/arista/subscriptions'
+  _globals['DESCRIPTOR']._serialized_options = b'Z%arista/resources/arista/subscriptions'
   _globals['_OPERATION']._serialized_start=66
   _globals['_OPERATION']._serialized_end=160
 # @@protoc_insertion_point(module_scope)
