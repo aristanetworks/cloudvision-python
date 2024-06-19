@@ -15,14 +15,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16\x61rista/time/time.proto\x12\x0b\x61rista.time\x1a\x1fgoogle/protobuf/timestamp.proto\"`\n\nTimeBounds\x12)\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\'\n\x03\x65nd\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x1eZ\x1c\x61rista/resources/arista/timeb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16\x61rista/time/time.proto\x12\x0b\x61rista.time\x1a\x1fgoogle/protobuf/timestamp.proto\"`\n\nTimeBounds\x12)\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\'\n\x03\x65nd\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB:Z8github.com/aristanetworks/cloudvision-go/api/arista/timeb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'arista.time.time_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z\034arista/resources/arista/time'
+  _globals['DESCRIPTOR']._serialized_options = b'Z8github.com/aristanetworks/cloudvision-go/api/arista/time'
   _globals['_TIMEBOUNDS']._serialized_start=72
   _globals['_TIMEBOUNDS']._serialized_end=168
 # @@protoc_insertion_point(module_scope)

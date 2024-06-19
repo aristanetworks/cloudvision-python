@@ -808,6 +808,7 @@ class Settings(google.protobuf.message.Message):
     CUE_SENDGRID_FIELD_NUMBER: builtins.int
     HIDE_TAGS_FIELD_NUMBER: builtins.int
     ZOOM_FIELD_NUMBER: builtins.int
+    WEBHOOK_FIELD_NUMBER: builtins.int
     @property
     def email(self) -> global___EmailSettings:
         """email is the global default settings for email"""
@@ -888,6 +889,10 @@ class Settings(google.protobuf.message.Message):
     def zoom(self) -> global___ZoomSettings:
         """zoom is the global default settings for zoom"""
         pass
+    @property
+    def webhook(self) -> global___WebhookSettings:
+        """webhook is the auth settings for webhook"""
+        pass
     def __init__(self,
         *,
         email: typing.Optional[global___EmailSettings] = ...,
@@ -909,9 +914,10 @@ class Settings(google.protobuf.message.Message):
         cue_sendgrid: typing.Optional[global___CueSendgridSettings] = ...,
         hide_tags: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         zoom: typing.Optional[global___ZoomSettings] = ...,
+        webhook: typing.Optional[global___WebhookSettings] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["base_url",b"base_url","cue_sendgrid",b"cue_sendgrid","cue_snmp",b"cue_snmp","cue_syslog",b"cue_syslog","email",b"email","gchat",b"gchat","hide_tags",b"hide_tags","http",b"http","inhibition",b"inhibition","msteams",b"msteams","opsgenie",b"opsgenie","pagerduty",b"pagerduty","sendgrid",b"sendgrid","slack",b"slack","snmp",b"snmp","syslog",b"syslog","timezone",b"timezone","victorops",b"victorops","zoom",b"zoom"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["base_url",b"base_url","cue_sendgrid",b"cue_sendgrid","cue_snmp",b"cue_snmp","cue_syslog",b"cue_syslog","email",b"email","gchat",b"gchat","hide_tags",b"hide_tags","http",b"http","inhibition",b"inhibition","msteams",b"msteams","opsgenie",b"opsgenie","pagerduty",b"pagerduty","sendgrid",b"sendgrid","slack",b"slack","snmp",b"snmp","syslog",b"syslog","timezone",b"timezone","victorops",b"victorops","zoom",b"zoom"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["base_url",b"base_url","cue_sendgrid",b"cue_sendgrid","cue_snmp",b"cue_snmp","cue_syslog",b"cue_syslog","email",b"email","gchat",b"gchat","hide_tags",b"hide_tags","http",b"http","inhibition",b"inhibition","msteams",b"msteams","opsgenie",b"opsgenie","pagerduty",b"pagerduty","sendgrid",b"sendgrid","slack",b"slack","snmp",b"snmp","syslog",b"syslog","timezone",b"timezone","victorops",b"victorops","webhook",b"webhook","zoom",b"zoom"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["base_url",b"base_url","cue_sendgrid",b"cue_sendgrid","cue_snmp",b"cue_snmp","cue_syslog",b"cue_syslog","email",b"email","gchat",b"gchat","hide_tags",b"hide_tags","http",b"http","inhibition",b"inhibition","msteams",b"msteams","opsgenie",b"opsgenie","pagerduty",b"pagerduty","sendgrid",b"sendgrid","slack",b"slack","snmp",b"snmp","syslog",b"syslog","timezone",b"timezone","victorops",b"victorops","webhook",b"webhook","zoom",b"zoom"]) -> None: ...
 global___Settings = Settings
 
 class EmailSettings(google.protobuf.message.Message):
@@ -951,7 +957,7 @@ class EmailSettings(google.protobuf.message.Message):
     @property
     def azure_o_auth(self) -> global___AzureOAuth:
         """azure_o_auth used for auth when using an Azure smtp server
-        uses auth_username
+        uses auth_username, scopes is not required as we use https://outlook.office365.com/.default
         """
         pass
     def __init__(self,
@@ -974,6 +980,7 @@ class AzureOAuth(google.protobuf.message.Message):
     TENANT_ID_FIELD_NUMBER: builtins.int
     CLIENT_SECRET_FIELD_NUMBER: builtins.int
     AUTH_URI_FIELD_NUMBER: builtins.int
+    SCOPES_FIELD_NUMBER: builtins.int
     @property
     def client_id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """client_id of the Azure environment"""
@@ -988,7 +995,14 @@ class AzureOAuth(google.protobuf.message.Message):
         pass
     @property
     def auth_uri(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """auth_uri is the URI used for OAuth"""
+        """auth_uri is the URI used for OAuth
+        this should always be https://login.microsoftonline.com/ unless using a very custom
+        set up, where the Azure enviroment is not running on microsoft servers
+        """
+        pass
+    @property
+    def scopes(self) -> fmp.wrappers_pb2.RepeatedString:
+        """scopes are the scopes that auth is granted for"""
         pass
     def __init__(self,
         *,
@@ -996,9 +1010,10 @@ class AzureOAuth(google.protobuf.message.Message):
         tenant_id: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         client_secret: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         auth_uri: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        scopes: typing.Optional[fmp.wrappers_pb2.RepeatedString] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["auth_uri",b"auth_uri","client_id",b"client_id","client_secret",b"client_secret","tenant_id",b"tenant_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["auth_uri",b"auth_uri","client_id",b"client_id","client_secret",b"client_secret","tenant_id",b"tenant_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["auth_uri",b"auth_uri","client_id",b"client_id","client_secret",b"client_secret","scopes",b"scopes","tenant_id",b"tenant_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["auth_uri",b"auth_uri","client_id",b"client_id","client_secret",b"client_secret","scopes",b"scopes","tenant_id",b"tenant_id"]) -> None: ...
 global___AzureOAuth = AzureOAuth
 
 class HttpSettings(google.protobuf.message.Message):
@@ -1189,6 +1204,24 @@ class MsTeamsSettings(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["url",b"url"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["url",b"url"]) -> None: ...
 global___MsTeamsSettings = MsTeamsSettings
+
+class WebhookSettings(google.protobuf.message.Message):
+    """WebhookSettings contain the settings for sending alerts to a Webhook"""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    AZURE_O_AUTH_FIELD_NUMBER: builtins.int
+    @property
+    def azure_o_auth(self) -> global___AzureOAuth:
+        """azure_o_auth used for auth when using an Azure smtp server
+        uses auth_username
+        """
+        pass
+    def __init__(self,
+        *,
+        azure_o_auth: typing.Optional[global___AzureOAuth] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["azure_o_auth",b"azure_o_auth"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["azure_o_auth",b"azure_o_auth"]) -> None: ...
+global___WebhookSettings = WebhookSettings
 
 class SyslogSettings(google.protobuf.message.Message):
     """SyslogSettings contain the settings for sending alerts with syslog"""
@@ -2208,6 +2241,7 @@ class WebhookEndpoint(google.protobuf.message.Message):
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
     SIMPLE_OUTPUT_FIELD_NUMBER: builtins.int
     SINGLE_ALERT_FIELD_NUMBER: builtins.int
+    SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -2231,8 +2265,11 @@ class WebhookEndpoint(google.protobuf.message.Message):
     def single_alert(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """single_alert is a boolean flag that will cause an individual webhook message to be sent per
         alert when true.
-        Webhook does not have a settings override
         """
+        pass
+    @property
+    def settings_override(self) -> global___WebhookSettings:
+        """settings_override is the override for the webhook global endpoint settings"""
         pass
     def __init__(self,
         *,
@@ -2241,9 +2278,10 @@ class WebhookEndpoint(google.protobuf.message.Message):
         http_override: typing.Optional[global___HttpSettings] = ...,
         simple_output: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         single_alert: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
+        settings_override: typing.Optional[global___WebhookSettings] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["http_override",b"http_override","send_resolved",b"send_resolved","simple_output",b"simple_output","single_alert",b"single_alert","url",b"url"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["http_override",b"http_override","send_resolved",b"send_resolved","simple_output",b"simple_output","single_alert",b"single_alert","url",b"url"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["http_override",b"http_override","send_resolved",b"send_resolved","settings_override",b"settings_override","simple_output",b"simple_output","single_alert",b"single_alert","url",b"url"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["http_override",b"http_override","send_resolved",b"send_resolved","settings_override",b"settings_override","simple_output",b"simple_output","single_alert",b"single_alert","url",b"url"]) -> None: ...
 global___WebhookEndpoint = WebhookEndpoint
 
 class SlackEndpoint(google.protobuf.message.Message):
