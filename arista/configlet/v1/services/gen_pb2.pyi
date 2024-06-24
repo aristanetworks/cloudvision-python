@@ -154,6 +154,7 @@ global___ConfigletSomeResponse = ConfigletSomeResponse
 class ConfigletStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     @property
     def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.configlet.v1.configlet_pb2.Configlet]:
@@ -162,6 +163,13 @@ class ConfigletStreamRequest(google.protobuf.message.Message):
 
         While transparent to users, this field also allows services to optimize internal
         subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def filter(self) -> arista.configlet.v1.configlet_pb2.Filter:
+        """For each Configlet in the list, all populated fields are considered ANDed together
+        as a filtering operation. Similarly, the list itself is ORed such that any individual
+        filter that matches a given Configlet is streamed to the user.
         """
         pass
     @property
@@ -186,10 +194,11 @@ class ConfigletStreamRequest(google.protobuf.message.Message):
     def __init__(self,
         *,
         partial_eq_filter: typing.Optional[typing.Iterable[arista.configlet.v1.configlet_pb2.Configlet]] = ...,
+        filter: typing.Optional[arista.configlet.v1.configlet_pb2.Filter] = ...,
         time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["time",b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["filter",b"filter","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
 global___ConfigletStreamRequest = ConfigletStreamRequest
 
 class ConfigletStreamResponse(google.protobuf.message.Message):
@@ -228,6 +237,7 @@ global___ConfigletStreamResponse = ConfigletStreamResponse
 class ConfigletBatchedStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     MAX_MESSAGES_FIELD_NUMBER: builtins.int
     @property
@@ -237,6 +247,13 @@ class ConfigletBatchedStreamRequest(google.protobuf.message.Message):
 
         While transparent to users, this field also allows services to optimize internal
         subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def filter(self) -> arista.configlet.v1.configlet_pb2.Filter:
+        """For each Configlet in the list, all populated fields are considered ANDed together
+        as a filtering operation. Similarly, the list itself is ORed such that any individual
+        filter that matches a given Configlet is streamed to the user.
         """
         pass
     @property
@@ -269,11 +286,12 @@ class ConfigletBatchedStreamRequest(google.protobuf.message.Message):
     def __init__(self,
         *,
         partial_eq_filter: typing.Optional[typing.Iterable[arista.configlet.v1.configlet_pb2.Configlet]] = ...,
+        filter: typing.Optional[arista.configlet.v1.configlet_pb2.Filter] = ...,
         time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
         max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["filter",b"filter","max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
 global___ConfigletBatchedStreamRequest = ConfigletBatchedStreamRequest
 
 class ConfigletBatchedStreamResponse(google.protobuf.message.Message):
@@ -1098,6 +1116,7 @@ global___ConfigletConfigSomeResponse = ConfigletConfigSomeResponse
 class ConfigletConfigStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     @property
     def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.configlet.v1.configlet_pb2.ConfigletConfig]:
@@ -1106,6 +1125,13 @@ class ConfigletConfigStreamRequest(google.protobuf.message.Message):
 
         While transparent to users, this field also allows services to optimize internal
         subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def filter(self) -> arista.configlet.v1.configlet_pb2.Filter:
+        """For each ConfigletConfig in the list, all populated fields are considered ANDed together
+        as a filtering operation. Similarly, the list itself is ORed such that any individual
+        filter that matches a given ConfigletConfig is streamed to the user.
         """
         pass
     @property
@@ -1130,10 +1156,11 @@ class ConfigletConfigStreamRequest(google.protobuf.message.Message):
     def __init__(self,
         *,
         partial_eq_filter: typing.Optional[typing.Iterable[arista.configlet.v1.configlet_pb2.ConfigletConfig]] = ...,
+        filter: typing.Optional[arista.configlet.v1.configlet_pb2.Filter] = ...,
         time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["time",b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["filter",b"filter","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
 global___ConfigletConfigStreamRequest = ConfigletConfigStreamRequest
 
 class ConfigletConfigStreamResponse(google.protobuf.message.Message):
@@ -1172,6 +1199,7 @@ global___ConfigletConfigStreamResponse = ConfigletConfigStreamResponse
 class ConfigletConfigBatchedStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     MAX_MESSAGES_FIELD_NUMBER: builtins.int
     @property
@@ -1181,6 +1209,13 @@ class ConfigletConfigBatchedStreamRequest(google.protobuf.message.Message):
 
         While transparent to users, this field also allows services to optimize internal
         subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def filter(self) -> arista.configlet.v1.configlet_pb2.Filter:
+        """For each ConfigletConfig in the list, all populated fields are considered ANDed together
+        as a filtering operation. Similarly, the list itself is ORed such that any individual
+        filter that matches a given ConfigletConfig is streamed to the user.
         """
         pass
     @property
@@ -1213,11 +1248,12 @@ class ConfigletConfigBatchedStreamRequest(google.protobuf.message.Message):
     def __init__(self,
         *,
         partial_eq_filter: typing.Optional[typing.Iterable[arista.configlet.v1.configlet_pb2.ConfigletConfig]] = ...,
+        filter: typing.Optional[arista.configlet.v1.configlet_pb2.Filter] = ...,
         time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
         max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["filter",b"filter","max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
 global___ConfigletConfigBatchedStreamRequest = ConfigletConfigBatchedStreamRequest
 
 class ConfigletConfigBatchedStreamResponse(google.protobuf.message.Message):
@@ -1395,6 +1431,7 @@ global___ConfigletConfigDeleteSomeResponse = ConfigletConfigDeleteSomeResponse
 class ConfigletConfigDeleteAllRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     @property
     def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.configlet.v1.configlet_pb2.ConfigletConfig]:
         """PartialEqFilter provides a way to server-side filter a DeleteAll.
@@ -1402,11 +1439,20 @@ class ConfigletConfigDeleteAllRequest(google.protobuf.message.Message):
         A filtered DeleteAll will use GetAll with filter to find things to delete.
         """
         pass
+    @property
+    def filter(self) -> arista.configlet.v1.configlet_pb2.Filter:
+        """For each ConfigletConfig in the list, all populated fields are considered ANDed together
+        as a filtering operation. Similarly, the list itself is ORed such that any individual
+        filter that matches a given ConfigletConfig will be deleted.
+        """
+        pass
     def __init__(self,
         *,
         partial_eq_filter: typing.Optional[typing.Iterable[arista.configlet.v1.configlet_pb2.ConfigletConfig]] = ...,
+        filter: typing.Optional[arista.configlet.v1.configlet_pb2.Filter] = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["filter",b"filter"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","partial_eq_filter",b"partial_eq_filter"]) -> None: ...
 global___ConfigletConfigDeleteAllRequest = ConfigletConfigDeleteAllRequest
 
 class ConfigletConfigDeleteAllResponse(google.protobuf.message.Message):
