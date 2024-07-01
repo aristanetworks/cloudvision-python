@@ -484,6 +484,34 @@ under Aeris analytics dataset is missing.
 global___WarningCode = WarningCode
 
 
+class _InfoCode:
+    ValueType = typing.NewType('ValueType', builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+class _InfoCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InfoCode.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    INFO_CODE_UNSPECIFIED: _InfoCode.ValueType  # 0
+    """INFO_CODE_UNSPECIFIED indicates info code is unspecified."""
+
+    INFO_CODE_NEWER_VERSION_AVAILABLE: _InfoCode.ValueType  # 1
+    """INFO_CODE_NEWER_VERSION_AVAILABLE represents cases where a newer EOS maintainance
+    release is available for download.
+    """
+
+class InfoCode(_InfoCode, metaclass=_InfoCodeEnumTypeWrapper):
+    """InfoCode indicates info messages produced during image validations."""
+    pass
+
+INFO_CODE_UNSPECIFIED: InfoCode.ValueType  # 0
+"""INFO_CODE_UNSPECIFIED indicates info code is unspecified."""
+
+INFO_CODE_NEWER_VERSION_AVAILABLE: InfoCode.ValueType  # 1
+"""INFO_CODE_NEWER_VERSION_AVAILABLE represents cases where a newer EOS maintainance
+release is available for download.
+"""
+
+global___InfoCode = InfoCode
+
+
 class SoftwareImage(google.protobuf.message.Message):
     """SoftwareImage provides information of the running/designed EOS image."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1017,6 +1045,7 @@ class Summary(google.protobuf.message.Message):
     SUMMARY_FIELD_NUMBER: builtins.int
     ERRORS_FIELD_NUMBER: builtins.int
     WARNINGS_FIELD_NUMBER: builtins.int
+    INFOS_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___SummaryKey:
         """key represents the image summary key."""
@@ -1028,13 +1057,19 @@ class Summary(google.protobuf.message.Message):
     @property
     def errors(self) -> global___ImageErrors:
         """errors are the image errors encountered while validating the image. These are
-        displayed on the change control review page (for changes made outside the workspace).
+        displayed on the workspace build results page.
         """
         pass
     @property
     def warnings(self) -> global___ImageWarnings:
         """warnings are the image warnings encountered while validating the image. These are
-        displayed on the change control review page (for changes made outside the workspace).
+        displayed on the workspace build results page.
+        """
+        pass
+    @property
+    def infos(self) -> global___ImageInfos:
+        """infos are the image infos encountered while validating the image. These are
+        displayed on the workspace build results page.
         """
         pass
     def __init__(self,
@@ -1043,9 +1078,10 @@ class Summary(google.protobuf.message.Message):
         summary: typing.Optional[global___ImageSummary] = ...,
         errors: typing.Optional[global___ImageErrors] = ...,
         warnings: typing.Optional[global___ImageWarnings] = ...,
+        infos: typing.Optional[global___ImageInfos] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["errors",b"errors","key",b"key","summary",b"summary","warnings",b"warnings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["errors",b"errors","key",b"key","summary",b"summary","warnings",b"warnings"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["errors",b"errors","infos",b"infos","key",b"key","summary",b"summary","warnings",b"warnings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["errors",b"errors","infos",b"infos","key",b"key","summary",b"summary","warnings",b"warnings"]) -> None: ...
 global___Summary = Summary
 
 class ImageError(google.protobuf.message.Message):
@@ -1135,3 +1171,45 @@ class ImageWarnings(google.protobuf.message.Message):
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["values",b"values"]) -> None: ...
 global___ImageWarnings = ImageWarnings
+
+class ImageInfo(google.protobuf.message.Message):
+    """ImageInfo wraps `InfoCode` enum with a reason string."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    SKU_FIELD_NUMBER: builtins.int
+    INFO_CODE_FIELD_NUMBER: builtins.int
+    INFO_MSG_FIELD_NUMBER: builtins.int
+    @property
+    def sku(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """sku represents the name of the sku."""
+        pass
+    info_code: global___InfoCode.ValueType
+    """info_code is the info code."""
+
+    @property
+    def info_msg(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """info_msg provides a description of the info."""
+        pass
+    def __init__(self,
+        *,
+        sku: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        info_code: global___InfoCode.ValueType = ...,
+        info_msg: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["info_msg",b"info_msg","sku",b"sku"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["info_code",b"info_code","info_msg",b"info_msg","sku",b"sku"]) -> None: ...
+global___ImageInfo = ImageInfo
+
+class ImageInfos(google.protobuf.message.Message):
+    """ImageInfos is the list of info messages reported by CVP when handling image validations."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ImageInfo]:
+        """values is a list of image infos."""
+        pass
+    def __init__(self,
+        *,
+        values: typing.Optional[typing.Iterable[global___ImageInfo]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["values",b"values"]) -> None: ...
+global___ImageInfos = ImageInfos
