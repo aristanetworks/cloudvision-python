@@ -223,6 +223,11 @@ class _ErrorCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enum
     with a non-2GB EOS or a non-2GB device is incompatible with a 2GB-EOS.
     """
 
+    ERROR_CODE_EOS_EXTENSION_VERSION_INCOMPATIBLE: _ErrorCode.ValueType  # 16
+    """ERROR_CODE_EOS_EXTENSION_VERSION_INCOMPATIBLE represents the case where the given extension
+    version doesn't support the given EOS version.
+    """
+
 class ErrorCode(_ErrorCode, metaclass=_ErrorCodeEnumTypeWrapper):
     """ErrorCode indicates errors produced during image validations."""
     pass
@@ -305,6 +310,11 @@ version is lower than the embedded TerminAttr version in SWI.
 ERROR_CODE_DEVICE_EOS_2GB_INCOMPATIBLE: ErrorCode.ValueType  # 15
 """ERROR_CODE_DEVICE_EOS_2GB_INCOMPATIBLE represents the case where a 2GB-device is incompatible
 with a non-2GB EOS or a non-2GB device is incompatible with a 2GB-EOS.
+"""
+
+ERROR_CODE_EOS_EXTENSION_VERSION_INCOMPATIBLE: ErrorCode.ValueType  # 16
+"""ERROR_CODE_EOS_EXTENSION_VERSION_INCOMPATIBLE represents the case where the given extension
+version doesn't support the given EOS version.
 """
 
 global___ErrorCode = ErrorCode
