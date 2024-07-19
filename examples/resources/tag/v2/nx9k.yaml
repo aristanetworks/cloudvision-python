@@ -1,0 +1,41 @@
+tags:
+  device_tags:
+  - label: leaf1DTag1
+    value: leaf1DVal1
+    device_id: JPE14252458
+  - label: leaf1DTag2
+    value: leaf1DVal2
+    device_id: JPE14252458
+  interface_tags:
+  - label: lldp_chassis
+    value: "50:08:00:12:00:08"
+    device_id: JPE14252458
+    interface_id: Ethernet1
+  - label: lldp_chassis
+    value: "50:08:00:12:00:08"
+    device_id: JPE14252458
+    interface_id: Ethernet2
+  - label: lldp_chassis
+    value: "50:08:00:12:00:08"
+    device_id: JPE14252458
+    interface_id: Ethernet3
+  - label: lldp_chassis
+    value: "50:08:00:12:00:08"
+    device_id: JPE14252458
+    interface_id: Ethernet4
+  - label: lldp_mode
+    value: "default"
+    device_id: JPE14252458
+    interface_id: Ethernet1
+  - label: lldp_mode
+    value: "default"
+    device_id: JPE14252458
+    interface_id: Ethernet2
+  - label: lldp_mode
+    value: "default"
+    device_id: JPE14252458
+    interface_id: Ethernet3
+  - label: lldp_mode
+    value: "default"
+    device_id: JPE14252458
+    interface_id: Ethernet4

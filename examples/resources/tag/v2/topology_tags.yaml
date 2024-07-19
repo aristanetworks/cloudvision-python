@@ -1,0 +1,11 @@
+tags:
+  device_tags:
+  - label: topology_hint_pod
+    value: TPPOD2
+    device_id: 0123F2E4462997EB155B7C50EC148767
+  - label: topology_hint_rack
+    value: TPRACK2
+    device_id: 0123F2E4462997EB155B7C50EC148767
+  - label: topology_hint_datacenter
+    value: TPDC2
+    device_id: 0123F2E4462997EB155B7C50EC148767
