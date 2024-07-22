@@ -1050,6 +1050,7 @@ class ImageValidationResult(google.protobuf.message.Message):
     ERRORS_FIELD_NUMBER: builtins.int
     WARNINGS_FIELD_NUMBER: builtins.int
     IMAGE_INPUT_ERROR_FIELD_NUMBER: builtins.int
+    INFOS_FIELD_NUMBER: builtins.int
     @property
     def summary(self) -> arista.imagestatus.v1.imagestatus_pb2.ImageSummary:
         """summary is a summary of the changes to the previous image."""
@@ -1066,15 +1067,20 @@ class ImageValidationResult(google.protobuf.message.Message):
     def image_input_error(self) -> google.protobuf.wrappers_pb2.StringValue:
         """image_input_error indicates any errors in image inputs."""
         pass
+    @property
+    def infos(self) -> arista.imagestatus.v1.imagestatus_pb2.ImageInfos:
+        """infos are any info messages about the generated image."""
+        pass
     def __init__(self,
         *,
         summary: typing.Optional[arista.imagestatus.v1.imagestatus_pb2.ImageSummary] = ...,
         errors: typing.Optional[arista.imagestatus.v1.imagestatus_pb2.ImageErrors] = ...,
         warnings: typing.Optional[arista.imagestatus.v1.imagestatus_pb2.ImageWarnings] = ...,
         image_input_error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        infos: typing.Optional[arista.imagestatus.v1.imagestatus_pb2.ImageInfos] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["errors",b"errors","image_input_error",b"image_input_error","summary",b"summary","warnings",b"warnings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["errors",b"errors","image_input_error",b"image_input_error","summary",b"summary","warnings",b"warnings"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["errors",b"errors","image_input_error",b"image_input_error","infos",b"infos","summary",b"summary","warnings",b"warnings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["errors",b"errors","image_input_error",b"image_input_error","infos",b"infos","summary",b"summary","warnings",b"warnings"]) -> None: ...
 global___ImageValidationResult = ImageValidationResult
 
 class BuildStageState(google.protobuf.message.Message):
