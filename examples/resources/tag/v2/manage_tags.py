@@ -307,17 +307,17 @@ if __name__ == "__main__":
         "--token-file",
         required=True,
         type=argparse.FileType("r"),
-        help="file with access token",
+        help="File with access token",
     )
     parser.add_argument(
         "--cert-file",
         type=argparse.FileType("rb"),
-        help="certificate to use as root CA",
+        help="Certificate to use as root CA",
     )
     parser.add_argument(
         "--file",
         required=True,
-        help="yaml file containing the tags to create and assign",
+        help="YAML file containing the tags to create, assign or unassign",
     )
     parser.add_argument(
         "--create",
@@ -327,17 +327,17 @@ if __name__ == "__main__":
     parser.add_argument(
         "--assign",
         action="store_true",
-        help="Create tags",
+        help="Assign tags",
     )
     parser.add_argument(
         "--unassign",
         action="store_true",
-        help="Create tags",
+        help="Unassign tags",
     )
     parser.add_argument(
         "--create-and-assign",
         action="store_true",
-        help="Create tags",
+        help="Create and assign tags",
     )
     args = parser.parse_args()
     main(args)
