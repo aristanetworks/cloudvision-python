@@ -393,3 +393,100 @@ class TagInvalidValuesException(TagErrorException):
         if currVals:
             message = message + ", assigned values: " + ", ".join(currVals)
         super().__init__(message)
+
+
+# ---------------------------- IP Utils Exceptions -------------------------
+
+
+class IpErrorException(CVException):
+    '''
+    Exception raised for IP addressing errors
+    '''
+
+    def __init__(self, message: str):
+        super().__init__("IP addressing error: " + message)
+
+    def expTagField(self, field: str):
+        return field if field else '<unspecified>'
+
+
+class IpSubnetIndexException(IpErrorException):
+    """
+    Exception raised when subnet indexing into a subnet pool is invalid
+    """
+
+    def __init__(self, network, subnet_mask: int,
+                 num_subnets: int, index: int,
+                 hostname: str = None, poolname: str = None):
+        message = ''
+        poolmessage = ''
+        if hostname:
+            message = f"Device {hostname}: "
+        message = message + (
+            f"Exceeding number of "
+            f"/{subnet_mask} subnets in {network}. "
+            f"Index {index} into subnets exceeds "
+            f"the {num_subnets} available subnets. ")
+        if poolname:
+            poolmessage = (
+                f"The size of pool {poolname} must be increased "
+                f"in the studio inputs.")
+        else:
+            poolmessage = (
+                "The size of the pool must be increased "
+                "in the studio inputs.")
+        message = message + poolmessage
+        super().__init__(message)
+
+
+class IpHostIndexException(IpErrorException):
+    """
+    Exception raised when host indexing into a subnet is invalid
+    """
+
+    def __init__(self, network, num_hosts: int, index: int,
+                 hostname: str = None, poolname: str = None):
+        message = ''
+        poolmessage = ''
+        if hostname:
+            message = f"Device {hostname}: "
+        message = message + (
+            f"Exceeding number of "
+            f"addresses in subnet {network}. "
+            f"Index {index} into subnet exceeds "
+            f"the {num_hosts} available subnets. ")
+        if poolname:
+            poolmessage = (
+                f"The size of pool {poolname} must be increased "
+                f"in the studio inputs.")
+        else:
+            poolmessage = (
+                "The size of the pool must be increased "
+                "in the studio inputs.")
+        message = message + poolmessage
+        super().__init__(message)
+
+
+class IpNetworkOverlapException(IpErrorException):
+    """
+    Exception raised when networks unexpectedly overlap
+    """
+
+    def __init__(self, network1, network2,
+                 hostname: str = None, poolname: str = None):
+        message = ''
+        poolmessage = ''
+        if hostname:
+            message = f"Device {hostname}: "
+        message = message + (
+            f"Subnets {network1} and {network2} overlap. ")
+        if poolname:
+            poolmessage = (
+                f"Avoid overlapping networks by changing {poolname} "
+                f"in the studio inputs.")
+        else:
+            poolmessage = (
+                "Avoid overlapping networks by changing the pool "
+                "in the studio inputs.")
+        message = message + poolmessage
+        super().__init__(message)
