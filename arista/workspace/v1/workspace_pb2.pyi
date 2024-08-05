@@ -543,6 +543,82 @@ skipped because the device has no proposed software changes in the workspace.
 global___ImageValidationSkipCause = ImageValidationSkipCause
 
 
+class _ConfigSyncSkipCause:
+    ValueType = typing.NewType('ValueType', builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+class _ConfigSyncSkipCauseEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ConfigSyncSkipCause.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    CONFIG_SYNC_SKIP_CAUSE_UNSPECIFIED: _ConfigSyncSkipCause.ValueType  # 0
+    """CONFIG_SYNC_SKIP_CAUSE_UNSPECIFIED indicates that config sync skip cause is
+    unspecified.
+    """
+
+    CONFIG_SYNC_SKIP_CAUSE_INACTIVE: _ConfigSyncSkipCause.ValueType  # 1
+    """CONFIG_SYNC_SKIP_CAUSE_INACTIVE indicates that config sync is skipped because
+    device is not streaming.
+    """
+
+    CONFIG_SYNC_SKIP_CAUSE_PRE_PROVISIONED: _ConfigSyncSkipCause.ValueType  # 2
+    """CONFIG_SYNC_SKIP_CAUSE_PRE_PROVISIONED indicates that config sync is skipped
+    because device is pre-provisioned.
+    """
+
+    CONFIG_SYNC_SKIP_CAUSE_IN_COMPLIANCE: _ConfigSyncSkipCause.ValueType  # 3
+    """CONFIG_SYNC_SKIP_CAUSE_IN_COMPLIANCE indicates that config sync is skipped
+    because device is in compliance.
+    """
+
+class ConfigSyncSkipCause(_ConfigSyncSkipCause, metaclass=_ConfigSyncSkipCauseEnumTypeWrapper):
+    """ConfigSyncSkipCause enumerates the set of reasons a device can skip config sync."""
+    pass
+
+CONFIG_SYNC_SKIP_CAUSE_UNSPECIFIED: ConfigSyncSkipCause.ValueType  # 0
+"""CONFIG_SYNC_SKIP_CAUSE_UNSPECIFIED indicates that config sync skip cause is
+unspecified.
+"""
+
+CONFIG_SYNC_SKIP_CAUSE_INACTIVE: ConfigSyncSkipCause.ValueType  # 1
+"""CONFIG_SYNC_SKIP_CAUSE_INACTIVE indicates that config sync is skipped because
+device is not streaming.
+"""
+
+CONFIG_SYNC_SKIP_CAUSE_PRE_PROVISIONED: ConfigSyncSkipCause.ValueType  # 2
+"""CONFIG_SYNC_SKIP_CAUSE_PRE_PROVISIONED indicates that config sync is skipped
+because device is pre-provisioned.
+"""
+
+CONFIG_SYNC_SKIP_CAUSE_IN_COMPLIANCE: ConfigSyncSkipCause.ValueType  # 3
+"""CONFIG_SYNC_SKIP_CAUSE_IN_COMPLIANCE indicates that config sync is skipped
+because device is in compliance.
+"""
+
+global___ConfigSyncSkipCause = ConfigSyncSkipCause
+
+
+class _SyncOperation:
+    ValueType = typing.NewType('ValueType', builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+class _SyncOperationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SyncOperation.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    SYNC_OPERATION_UNSPECIFIED: _SyncOperation.ValueType  # 0
+    """SYNC_OPERATION_UNSPECIFIED indicates unspecified sync operation."""
+
+    SYNC_OPERATION_CONFIG: _SyncOperation.ValueType  # 1
+    """SYNC_OPERATION_CONFIG indicates config sync operation."""
+
+class SyncOperation(_SyncOperation, metaclass=_SyncOperationEnumTypeWrapper):
+    """SyncOperation enumerates sync operations."""
+    pass
+
+SYNC_OPERATION_UNSPECIFIED: SyncOperation.ValueType  # 0
+"""SYNC_OPERATION_UNSPECIFIED indicates unspecified sync operation."""
+
+SYNC_OPERATION_CONFIG: SyncOperation.ValueType  # 1
+"""SYNC_OPERATION_CONFIG indicates config sync operation."""
+
+global___SyncOperation = SyncOperation
+
+
 class RequestParams(google.protobuf.message.Message):
     """RequestParams define the parameters for a Request."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1083,6 +1159,34 @@ class ImageValidationResult(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["errors",b"errors","image_input_error",b"image_input_error","infos",b"infos","summary",b"summary","warnings",b"warnings"]) -> None: ...
 global___ImageValidationResult = ImageValidationResult
 
+class ConfigSyncResult(google.protobuf.message.Message):
+    """ConfigSyncResult holds the result of config sync operation."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    SUMMARY_FIELD_NUMBER: builtins.int
+    ERRORS_FIELD_NUMBER: builtins.int
+    CONFIG_SOURCES_FIELD_NUMBER: builtins.int
+    @property
+    def summary(self) -> arista.configstatus.v1.configstatus_pb2.ConfigSummary:
+        """summary is a summary of the changes to the running config."""
+        pass
+    @property
+    def errors(self) -> arista.configstatus.v1.configstatus_pb2.ConfigErrors:
+        """errors are any errors detected during sync."""
+        pass
+    @property
+    def config_sources(self) -> arista.configstatus.v1.configstatus_pb2.ConfigSources:
+        """config_sources identify the entities that generated the designed config."""
+        pass
+    def __init__(self,
+        *,
+        summary: typing.Optional[arista.configstatus.v1.configstatus_pb2.ConfigSummary] = ...,
+        errors: typing.Optional[arista.configstatus.v1.configstatus_pb2.ConfigErrors] = ...,
+        config_sources: typing.Optional[arista.configstatus.v1.configstatus_pb2.ConfigSources] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config_sources",b"config_sources","errors",b"errors","summary",b"summary"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["config_sources",b"config_sources","errors",b"errors","summary",b"summary"]) -> None: ...
+global___ConfigSyncResult = ConfigSyncResult
+
 class BuildStageState(google.protobuf.message.Message):
     """BuildStageState holds the state per build stage."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1256,6 +1360,8 @@ class WorkspaceBuildDetails(google.protobuf.message.Message):
     IMAGE_VALIDATION_SKIP_CAUSE_FIELD_NUMBER: builtins.int
     BUILD_STAGE_STATE_FIELD_NUMBER: builtins.int
     AUTHZ_STATUS_FIELD_NUMBER: builtins.int
+    CONFIG_SYNC_RESULT_FIELD_NUMBER: builtins.int
+    CONFIG_SYNC_SKIP_CAUSE_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___WorkspaceBuildDetailsKey:
         """key identifies the build."""
@@ -1299,6 +1405,13 @@ class WorkspaceBuildDetails(google.protobuf.message.Message):
     authz_status: global___DeviceAuthzStatus.ValueType
     """authz_status is the status of provision permission for the device."""
 
+    @property
+    def config_sync_result(self) -> global___ConfigSyncResult:
+        """config_sync_result is the result of the config sync."""
+        pass
+    config_sync_skip_cause: global___ConfigSyncSkipCause.ValueType
+    """config_sync_skip_cause is the reason for skipping the config sync."""
+
     def __init__(self,
         *,
         key: typing.Optional[global___WorkspaceBuildDetailsKey] = ...,
@@ -1312,7 +1425,54 @@ class WorkspaceBuildDetails(google.protobuf.message.Message):
         image_validation_skip_cause: global___ImageValidationSkipCause.ValueType = ...,
         build_stage_state: typing.Optional[global___BuildStageState] = ...,
         authz_status: global___DeviceAuthzStatus.ValueType = ...,
+        config_sync_result: typing.Optional[global___ConfigSyncResult] = ...,
+        config_sync_skip_cause: global___ConfigSyncSkipCause.ValueType = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["build_stage_state",b"build_stage_state","config_validation_result",b"config_validation_result","configlet_build_results",b"configlet_build_results","image_validation_result",b"image_validation_result","input_validation_results",b"input_validation_results","key",b"key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["authz_status",b"authz_status","build_stage_state",b"build_stage_state","config_validation_result",b"config_validation_result","config_validation_skip_cause",b"config_validation_skip_cause","configlet_build_results",b"configlet_build_results","image_validation_result",b"image_validation_result","image_validation_skip_cause",b"image_validation_skip_cause","input_validation_results",b"input_validation_results","key",b"key","stage",b"stage","state",b"state"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["build_stage_state",b"build_stage_state","config_sync_result",b"config_sync_result","config_validation_result",b"config_validation_result","configlet_build_results",b"configlet_build_results","image_validation_result",b"image_validation_result","input_validation_results",b"input_validation_results","key",b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["authz_status",b"authz_status","build_stage_state",b"build_stage_state","config_sync_result",b"config_sync_result","config_sync_skip_cause",b"config_sync_skip_cause","config_validation_result",b"config_validation_result","config_validation_skip_cause",b"config_validation_skip_cause","configlet_build_results",b"configlet_build_results","image_validation_result",b"image_validation_result","image_validation_skip_cause",b"image_validation_skip_cause","input_validation_results",b"input_validation_results","key",b"key","stage",b"stage","state",b"state"]) -> None: ...
 global___WorkspaceBuildDetails = WorkspaceBuildDetails
+
+class WorkspaceSyncKey(google.protobuf.message.Message):
+    """WorkspaceSyncKey uniquely identifies sync operations to be performed
+    in a workspace.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    WORKSPACE_ID_FIELD_NUMBER: builtins.int
+    SYNC_OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def workspace_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """workspace_id is the ID of the workspace."""
+        pass
+    sync_operation: global___SyncOperation.ValueType
+    """sync_operation is type of sync operation to be performed on devices."""
+
+    def __init__(self,
+        *,
+        workspace_id: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        sync_operation: global___SyncOperation.ValueType = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["workspace_id",b"workspace_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["sync_operation",b"sync_operation","workspace_id",b"workspace_id"]) -> None: ...
+global___WorkspaceSyncKey = WorkspaceSyncKey
+
+class WorkspaceSyncConfig(google.protobuf.message.Message):
+    """WorkspaceSyncConfig holds the list of devices to be synced in workspace."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEY_FIELD_NUMBER: builtins.int
+    DEVICE_IDS_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> global___WorkspaceSyncKey:
+        """key uniquely identifies sync operations to be performed in workspace."""
+        pass
+    @property
+    def device_ids(self) -> fmp.wrappers_pb2.RepeatedString:
+        """device_ids is the list of device Ids to be synced in the workspace."""
+        pass
+    def __init__(self,
+        *,
+        key: typing.Optional[global___WorkspaceSyncKey] = ...,
+        device_ids: typing.Optional[fmp.wrappers_pb2.RepeatedString] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["device_ids",b"device_ids","key",b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_ids",b"device_ids","key",b"key"]) -> None: ...
+global___WorkspaceSyncConfig = WorkspaceSyncConfig

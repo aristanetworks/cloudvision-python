@@ -1236,3 +1236,455 @@ class WorkspaceConfigDeleteAllResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["error",b"error","key",b"key","time",b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["error",b"error","key",b"key","time",b"time","type",b"type"]) -> None: ...
 global___WorkspaceConfigDeleteAllResponse = WorkspaceConfigDeleteAllResponse
+
+class WorkspaceSyncConfigRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEY_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncKey:
+        """Key uniquely identifies a WorkspaceSyncConfig instance to retrieve.
+        This value must be populated.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+        pass
+    def __init__(self,
+        *,
+        key: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncKey] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["key",b"key","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["key",b"key","time",b"time"]) -> None: ...
+global___WorkspaceSyncConfigRequest = WorkspaceSyncConfigRequest
+
+class WorkspaceSyncConfigResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        WorkspaceSyncConfig instance in this response.
+        """
+        pass
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> None: ...
+global___WorkspaceSyncConfigResponse = WorkspaceSyncConfigResponse
+
+class WorkspaceSyncConfigSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEYS_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.workspace.v1.workspace_pb2.WorkspaceSyncKey]: ...
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+        pass
+    def __init__(self,
+        *,
+        keys: typing.Optional[typing.Iterable[arista.workspace.v1.workspace_pb2.WorkspaceSyncKey]] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys","time",b"time"]) -> None: ...
+global___WorkspaceSyncConfigSomeRequest = WorkspaceSyncConfigSomeRequest
+
+class WorkspaceSyncConfigSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+        pass
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """Error is an optional field.
+        It should be filled when there is an error in the GetSome process.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig] = ...,
+        error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","time",b"time","value",b"value"]) -> None: ...
+global___WorkspaceSyncConfigSomeResponse = WorkspaceSyncConfigSomeResponse
+
+class WorkspaceSyncConfigStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each WorkspaceSyncConfig at end.
+            * Each WorkspaceSyncConfig response is fully-specified (all fields set).
+          * start: Returns the state of each WorkspaceSyncConfig at start, followed by updates until now.
+            * Each WorkspaceSyncConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each WorkspaceSyncConfig at start, followed by updates
+            until end.
+            * Each WorkspaceSyncConfig response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___WorkspaceSyncConfigStreamRequest = WorkspaceSyncConfigStreamRequest
+
+class WorkspaceSyncConfigStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig:
+        """Value is a value deemed relevant to the initiating request.
+        This structure will always have its key-field populated. Which other fields are
+        populated, and why, depends on the value of Operation and what triggered this notification.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time holds the timestamp of this WorkspaceSyncConfig's last modification."""
+        pass
+    type: arista.subscriptions.subscriptions_pb2.Operation.ValueType
+    """Operation indicates how the WorkspaceSyncConfig value in this response should be considered.
+    Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+    once all initial data is streamed and the client begins to receive modification updates,
+    you should not see INITIAL again.
+    """
+
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["time",b"time","type",b"type","value",b"value"]) -> None: ...
+global___WorkspaceSyncConfigStreamResponse = WorkspaceSyncConfigStreamResponse
+
+class WorkspaceSyncConfigBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+        pass
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each WorkspaceSyncConfig at end.
+            * Each WorkspaceSyncConfig response is fully-specified (all fields set).
+          * start: Returns the state of each WorkspaceSyncConfig at start, followed by updates until now.
+            * Each WorkspaceSyncConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each WorkspaceSyncConfig at start, followed by updates
+            until end.
+            * Each WorkspaceSyncConfig response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+        pass
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig]] = ...,
+        time: typing.Optional[arista.time.time_pb2.TimeBounds] = ...,
+        max_messages: typing.Optional[google.protobuf.wrappers_pb2.UInt32Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_messages",b"max_messages","partial_eq_filter",b"partial_eq_filter","time",b"time"]) -> None: ...
+global___WorkspaceSyncConfigBatchedStreamRequest = WorkspaceSyncConfigBatchedStreamRequest
+
+class WorkspaceSyncConfigBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___WorkspaceSyncConfigStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+        pass
+    def __init__(self,
+        *,
+        responses: typing.Optional[typing.Iterable[global___WorkspaceSyncConfigStreamResponse]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["responses",b"responses"]) -> None: ...
+global___WorkspaceSyncConfigBatchedStreamResponse = WorkspaceSyncConfigBatchedStreamResponse
+
+class WorkspaceSyncConfigSetRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig:
+        """WorkspaceSyncConfig carries the value to set into the datastore.
+        See the documentation on the WorkspaceSyncConfig struct for which fields are required.
+        """
+        pass
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["value",b"value"]) -> None: ...
+global___WorkspaceSyncConfigSetRequest = WorkspaceSyncConfigSetRequest
+
+class WorkspaceSyncConfigSetResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig:
+        """Value carries all the values given in the WorkspaceSyncConfigSetRequest as well
+        as any server-generated values.
+        """
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the (UTC) timestamp at which the system recognizes the
+        creation. The only guarantees made about this timestamp are:
+
+           - it is after the time the request was received
+           - a time-ranged query with StartTime==CreatedAt will include this instance.
+        """
+        pass
+    def __init__(self,
+        *,
+        value: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["time",b"time","value",b"value"]) -> None: ...
+global___WorkspaceSyncConfigSetResponse = WorkspaceSyncConfigSetResponse
+
+class WorkspaceSyncConfigSetSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig]:
+        """value contains a list of WorkspaceSyncConfig values to write.
+        It is possible to provide more values than can fit within either:
+            - the maxiumum send size of the client
+            - the maximum receive size of the server
+        If this error occurs you must reduce the number of values sent.
+        See gRPC "maximum message size" documentation for more information.
+        """
+        pass
+    def __init__(self,
+        *,
+        values: typing.Optional[typing.Iterable[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["values",b"values"]) -> None: ...
+global___WorkspaceSyncConfigSetSomeRequest = WorkspaceSyncConfigSetSomeRequest
+
+class WorkspaceSyncConfigSetSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEY_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncKey: ...
+    error: typing.Text
+    def __init__(self,
+        *,
+        key: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncKey] = ...,
+        error: typing.Text = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["key",b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","key",b"key"]) -> None: ...
+global___WorkspaceSyncConfigSetSomeResponse = WorkspaceSyncConfigSetSomeResponse
+
+class WorkspaceSyncConfigDeleteRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEY_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncKey:
+        """Key indicates which WorkspaceSyncConfig instance to remove.
+        This field must always be set.
+        """
+        pass
+    def __init__(self,
+        *,
+        key: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncKey] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["key",b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["key",b"key"]) -> None: ...
+global___WorkspaceSyncConfigDeleteRequest = WorkspaceSyncConfigDeleteRequest
+
+class WorkspaceSyncConfigDeleteResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEY_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncKey:
+        """Key echoes back the key of the deleted WorkspaceSyncConfig instance."""
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the (UTC) timestamp at which the system recognizes the
+        deletion. The only guarantees made about this timestamp are:
+
+           - it is after the time the request was received
+           - a time-ranged query with StartTime==DeletedAt will not include this instance.
+        """
+        pass
+    def __init__(self,
+        *,
+        key: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncKey] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["key",b"key","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["key",b"key","time",b"time"]) -> None: ...
+global___WorkspaceSyncConfigDeleteResponse = WorkspaceSyncConfigDeleteResponse
+
+class WorkspaceSyncConfigDeleteSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEYS_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.workspace.v1.workspace_pb2.WorkspaceSyncKey]:
+        """key contains a list of WorkspaceSyncConfig keys to delete"""
+        pass
+    def __init__(self,
+        *,
+        keys: typing.Optional[typing.Iterable[arista.workspace.v1.workspace_pb2.WorkspaceSyncKey]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["keys",b"keys"]) -> None: ...
+global___WorkspaceSyncConfigDeleteSomeRequest = WorkspaceSyncConfigDeleteSomeRequest
+
+class WorkspaceSyncConfigDeleteSomeResponse(google.protobuf.message.Message):
+    """WorkspaceSyncConfigDeleteSomeResponse is only sent when there is an error."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    KEY_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncKey: ...
+    error: typing.Text
+    def __init__(self,
+        *,
+        key: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncKey] = ...,
+        error: typing.Text = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["key",b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","key",b"key"]) -> None: ...
+global___WorkspaceSyncConfigDeleteSomeResponse = WorkspaceSyncConfigDeleteSomeResponse
+
+class WorkspaceSyncConfigDeleteAllRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig]:
+        """PartialEqFilter provides a way to server-side filter a DeleteAll.
+        This requires all provided fields to be equal to the response.
+        A filtered DeleteAll will use GetAll with filter to find things to delete.
+        """
+        pass
+    def __init__(self,
+        *,
+        partial_eq_filter: typing.Optional[typing.Iterable[arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["partial_eq_filter",b"partial_eq_filter"]) -> None: ...
+global___WorkspaceSyncConfigDeleteAllRequest = WorkspaceSyncConfigDeleteAllRequest
+
+class WorkspaceSyncConfigDeleteAllResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    TYPE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    KEY_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    type: fmp.deletes_pb2.DeleteError.ValueType
+    """This describes the class of delete error.
+    A DeleteAllResponse is only sent when there is an error.
+    """
+
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """This indicates the error message from the delete failure."""
+        pass
+    @property
+    def key(self) -> arista.workspace.v1.workspace_pb2.WorkspaceSyncKey:
+        """This is the key of the WorkspaceSyncConfig instance that failed to be deleted."""
+        pass
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the (UTC) timestamp when the key was being deleted."""
+        pass
+    def __init__(self,
+        *,
+        type: fmp.deletes_pb2.DeleteError.ValueType = ...,
+        error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        key: typing.Optional[arista.workspace.v1.workspace_pb2.WorkspaceSyncKey] = ...,
+        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["error",b"error","key",b"key","time",b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","key",b"key","time",b"time","type",b"type"]) -> None: ...
+global___WorkspaceSyncConfigDeleteAllResponse = WorkspaceSyncConfigDeleteAllResponse

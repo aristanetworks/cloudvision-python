@@ -1336,3 +1336,460 @@ class WorkspaceConfigService(object):
             arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceConfigBatchedStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class WorkspaceSyncConfigServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/GetOne',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigResponse.FromString,
+                )
+        self.GetSome = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/GetSome',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSomeResponse.FromString,
+                )
+        self.GetAll = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/GetAll',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamResponse.FromString,
+                )
+        self.Subscribe = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/Subscribe',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamResponse.FromString,
+                )
+        self.GetMeta = channel.unary_unary(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/GetMeta',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/SubscribeMeta',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                )
+        self.Set = channel.unary_unary(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/Set',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetResponse.FromString,
+                )
+        self.SetSome = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/SetSome',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetSomeResponse.FromString,
+                )
+        self.Delete = channel.unary_unary(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/Delete',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteResponse.FromString,
+                )
+        self.DeleteSome = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/DeleteSome',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteSomeResponse.FromString,
+                )
+        self.DeleteAll = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/DeleteAll',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteAllRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteAllResponse.FromString,
+                )
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/GetAllBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamResponse.FromString,
+                )
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceSyncConfigService/SubscribeBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamResponse.FromString,
+                )
+
+
+class WorkspaceSyncConfigServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Set(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_WorkspaceSyncConfigServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSomeRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSomeResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'Set': grpc.unary_unary_rpc_method_handler(
+                    servicer.Set,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetResponse.SerializeToString,
+            ),
+            'SetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.SetSome,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetSomeRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetSomeResponse.SerializeToString,
+            ),
+            'Delete': grpc.unary_unary_rpc_method_handler(
+                    servicer.Delete,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteResponse.SerializeToString,
+            ),
+            'DeleteSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteSome,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteSomeRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteSomeResponse.SerializeToString,
+            ),
+            'DeleteAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.DeleteAll,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteAllRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteAllResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.workspace.v1.WorkspaceSyncConfigService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class WorkspaceSyncConfigService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/GetOne',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/GetSome',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSomeRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/GetAll',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/Subscribe',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/GetMeta',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/SubscribeMeta',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Set(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/Set',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/SetSome',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetSomeRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigSetSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Delete(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/Delete',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/DeleteSome',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteSomeRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteSomeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/DeleteAll',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteAllRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigDeleteAllResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/GetAllBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/arista.workspace.v1.WorkspaceSyncConfigService/SubscribeBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceSyncConfigBatchedStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
