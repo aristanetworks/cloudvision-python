@@ -445,6 +445,11 @@ class _ConfigValidationSkipCauseEnumTypeWrapper(google.protobuf.internal.enum_ty
     skipped because the device has no config sources in the workspace.
     """
 
+    CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED: _ConfigValidationSkipCause.ValueType  # 5
+    """CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED indicates that the stage was
+    skipped because the device is decommissioned in the workspace.
+    """
+
 class ConfigValidationSkipCause(_ConfigValidationSkipCause, metaclass=_ConfigValidationSkipCauseEnumTypeWrapper):
     """ConfigValidationSkipCause enumerates the set of reasons a device can skip the config
     validation stage.
@@ -474,6 +479,11 @@ skipped because the device has no configuration changes in the workspace.
 CONFIG_VALIDATION_SKIP_CAUSE_NO_CONFIG_SOURCES: ConfigValidationSkipCause.ValueType  # 4
 """CONFIG_VALIDATION_SKIP_CAUSE_NO_CONFIG_SOURCES indicates that the stage was
 skipped because the device has no config sources in the workspace.
+"""
+
+CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED: ConfigValidationSkipCause.ValueType  # 5
+"""CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED indicates that the stage was
+skipped because the device is decommissioned in the workspace.
 """
 
 global___ConfigValidationSkipCause = ConfigValidationSkipCause
