@@ -86,8 +86,6 @@ def main(apiserverAddr, token=None, certs=None, key=None, ca=None):
         results = get_dir_usage(client)
         hostname_dict= add_hostnames(client, results)
 
-        #pretty_print(hostname_dict)
-
         for swi, val in hostname_dict.items():
             h_name = hostname_dict[swi]['hostname']
             print(f'Switch {h_name} ({swi}),')
