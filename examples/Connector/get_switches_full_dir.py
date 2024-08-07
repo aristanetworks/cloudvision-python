@@ -1,4 +1,4 @@
-# Copyright (c) 2020 Arista Networks, Inc.
+# Copyright (c) 2024 Arista Networks, Inc.
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
@@ -9,6 +9,7 @@ from utils import pretty_print
 from parser import base
 
 DIR_SIZE = 90
+
 
 def add_hostnames(client, hostname_dict):
 
@@ -26,8 +27,8 @@ def add_hostnames(client, hostname_dict):
             for k, v in updates.items():
                 serial = k
                 hostname = v["hostname"]
-                if serial in hostname_dict: 
-                    hostname_dict[serial]["hostname"] = hostname    
+                if serial in hostname_dict:
+                    hostname_dict[serial]["hostname"] = hostname
 
     return hostname_dict
 
@@ -68,23 +69,12 @@ def get_dir_usage(client):
 
 
 def main(apiserverAddr, token=None, certs=None, key=None, ca=None):
-    pathElts = [
-        "Devices",
-        Wildcard(),
-        "versioned-data",
-        "hardware",
-        "disk",
-        Wildcard(),
-    ]
-    query = [
-        create_query([(pathElts, [])], "analytics")
-    ]
 
     with GRPCClient(apiserverAddr, token=token, key=key,
                     ca=ca, certs=certs) as client:
-        
+
         results = get_dir_usage(client)
-        hostname_dict= add_hostnames(client, results)
+        hostname_dict = add_hostnames(client, results)
 
         for swi, val in hostname_dict.items():
             h_name = hostname_dict[swi]['hostname']
