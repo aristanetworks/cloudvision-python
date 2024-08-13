@@ -778,6 +778,7 @@ class SoftwareImageDiff(google.protobuf.message.Message):
     CODE_FIELD_NUMBER: builtins.int
     A_FIELD_NUMBER: builtins.int
     B_FIELD_NUMBER: builtins.int
+    TEXT_CODE_FIELD_NUMBER: builtins.int
     code: global___DiffOp.ValueType
     """code indicates the operation performed to get from one side of the diff
     to the other.
@@ -791,14 +792,18 @@ class SoftwareImageDiff(google.protobuf.message.Message):
     def b(self) -> global___SoftwareImage:
         """b is the software image on the b side (right hand side)."""
         pass
+    text_code: global___DiffOp.ValueType
+    """text_code is the color in the diff view page."""
+
     def __init__(self,
         *,
         code: global___DiffOp.ValueType = ...,
         a: typing.Optional[global___SoftwareImage] = ...,
         b: typing.Optional[global___SoftwareImage] = ...,
+        text_code: global___DiffOp.ValueType = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["a",b"a","b",b"b"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["a",b"a","b",b"b","code",b"code"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["a",b"a","b",b"b","code",b"code","text_code",b"text_code"]) -> None: ...
 global___SoftwareImageDiff = SoftwareImageDiff
 
 class SoftwareImageDiffsBySup(google.protobuf.message.Message):
@@ -839,6 +844,7 @@ class ExtensionDiff(google.protobuf.message.Message):
     CODE_FIELD_NUMBER: builtins.int
     A_FIELD_NUMBER: builtins.int
     B_FIELD_NUMBER: builtins.int
+    TEXT_CODE_FIELD_NUMBER: builtins.int
     code: global___DiffOp.ValueType
     """code indicates the operation performed to get from one side of the diff
     to the other.
@@ -852,14 +858,18 @@ class ExtensionDiff(google.protobuf.message.Message):
     def b(self) -> global___Extension:
         """b is the extension on the b side (right hand side)."""
         pass
+    text_code: global___DiffOp.ValueType
+    """text_code is the color in the diff view page."""
+
     def __init__(self,
         *,
         code: global___DiffOp.ValueType = ...,
         a: typing.Optional[global___Extension] = ...,
         b: typing.Optional[global___Extension] = ...,
+        text_code: global___DiffOp.ValueType = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["a",b"a","b",b"b"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["a",b"a","b",b"b","code",b"code"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["a",b"a","b",b"b","code",b"code","text_code",b"text_code"]) -> None: ...
 global___ExtensionDiff = ExtensionDiff
 
 class TerminAttrDiffsBySup(google.protobuf.message.Message):
