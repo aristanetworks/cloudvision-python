@@ -192,7 +192,7 @@ def getStudioInputs(clientGetter, studioId: str, workspaceId: str, path: List[st
     if path is None:
         raise TypeError("Path must be a non-None value")
 
-    inputs = __getStudioInputs(clientGetter, studioId, workspaceId, path)
+    inputs = __getStudioInputs(clientGetter, studioId, workspaceId)
     if not inputs:
         # If we're searching for inputs on mainline and we receive none from the getAll,
         # raise an exception
@@ -219,7 +219,7 @@ def getStudioInputs(clientGetter, studioId: str, workspaceId: str, path: List[st
         # Get the lastRebasedAt timestamp, or if that's null, then the createdAt timestamp
         # of the workspace such that the correct mainline state is retrieved
         wsTs = getWorkspaceLastSynced(clientGetter, workspaceId)
-        mainlineInputs = __getStudioInputs(clientGetter, studioId, MAINLINE_WS_ID, path,
+        mainlineInputs = __getStudioInputs(clientGetter, studioId, MAINLINE_WS_ID,
                                            start=wsTs, end=wsTs)
         if not mainlineInputs:
             raise InputNotFoundException(path, f"Inputs for studio {studioId} do not exist")
@@ -253,13 +253,11 @@ def getStudioInputs(clientGetter, studioId: str, workspaceId: str, path: List[st
     return finalInput
 
 
-def __getStudioInputs(clientGetter, studioId: str, workspaceId: str, path: List[str] = [],
-                      start=None, end=None):
+def __getStudioInputs(clientGetter, studioId: str, workspaceId: str, start=None, end=None):
     client = clientGetter(services.InputsServiceStub)
     wid = pb.StringValue(value=workspaceId)
     sid = pb.StringValue(value=studioId)
-    key = models.InputsKey(studio_id=sid, workspace_id=wid,
-                           path=fmp_wrappers.RepeatedString(values=path))
+    key = models.InputsKey(studio_id=sid, workspace_id=wid)
     p_filter = models.Inputs(key=key)
 
     startTs = None
