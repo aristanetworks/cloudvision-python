@@ -7,7 +7,7 @@ name = "cloudvision"
 version = "1.23.4"
 dynamic = ["dependencies", "optional-dependencies"]
 description = "A Python library for Arista's CloudVision APIs and Provisioning Action integrations."
-requires-python = ">=3.7.0"
+requires-python = ">=3.9.0"
 readme = "README.md"
 maintainers = [{ name = "Support", email = "support@arista.com" }]
 classifiers = [
