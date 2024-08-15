@@ -236,6 +236,11 @@ class _ResponseCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     streaming status.
     """
 
+    RESPONSE_CODE_DECOMMISSION_DEVICES_INCOMPLETE: _ResponseCode.ValueType  # 2
+    """RESPONSE_CODE_DECOMMISSION_DEVICES_INCOMPLETE indicates that the decommission process is
+    incomplete for devices.
+    """
+
 class ResponseCode(_ResponseCode, metaclass=_ResponseCodeEnumTypeWrapper):
     """ResponseCode is a code for a Response indicating a particular scenario."""
     pass
@@ -246,6 +251,11 @@ RESPONSE_CODE_UNSPECIFIED: ResponseCode.ValueType  # 0
 RESPONSE_CODE_INACTIVE_DEVICES_EXIST: ResponseCode.ValueType  # 1
 """RESPONSE_CODE_INACTIVE_DEVICES_EXIST indicates that there are devices that have inactive
 streaming status.
+"""
+
+RESPONSE_CODE_DECOMMISSION_DEVICES_INCOMPLETE: ResponseCode.ValueType  # 2
+"""RESPONSE_CODE_DECOMMISSION_DEVICES_INCOMPLETE indicates that the decommission process is
+incomplete for devices.
 """
 
 global___ResponseCode = ResponseCode
