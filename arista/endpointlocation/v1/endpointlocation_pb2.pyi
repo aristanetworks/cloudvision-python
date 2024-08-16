@@ -258,7 +258,9 @@ class _IdentifierTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper.
     """IDENTIFIER_TYPE_HOSTNAME indicates a hostname identifier."""
 
     IDENTIFIER_TYPE_USERNAME: _IdentifierType.ValueType  # 7
-    """IDENTIFIER_TYPE_USERNAME indicates a username identifier."""
+    """IDENTIFIER_TYPE_USERNAME indicates a username identifier.
+    Deprecated - do not return usernames of wifi endpoints anymore
+    """
 
     IDENTIFIER_TYPE_OTHER: _IdentifierType.ValueType  # 99999
     """IDENTIFIER_TYPE_OTHER is used for an unknown identifier."""
@@ -289,7 +291,9 @@ IDENTIFIER_TYPE_HOSTNAME: IdentifierType.ValueType  # 6
 """IDENTIFIER_TYPE_HOSTNAME indicates a hostname identifier."""
 
 IDENTIFIER_TYPE_USERNAME: IdentifierType.ValueType  # 7
-"""IDENTIFIER_TYPE_USERNAME indicates a username identifier."""
+"""IDENTIFIER_TYPE_USERNAME indicates a username identifier.
+Deprecated - do not return usernames of wifi endpoints anymore
+"""
 
 IDENTIFIER_TYPE_OTHER: IdentifierType.ValueType  # 99999
 """IDENTIFIER_TYPE_OTHER is used for an unknown identifier."""
@@ -328,6 +332,7 @@ class _IdentifierSourceEnumTypeWrapper(google.protobuf.internal.enum_type_wrappe
     IDENTIFIER_SOURCE_WIFI: _IdentifierSource.ValueType  # 7
     """IDENTIFIER_SOURCE_WIFI indicates a WiFi endpoint that was learned through
     a wireless manager.
+    Deprecated - do not support searches for wifi endpoints anymore
     """
 
 class IdentifierSource(_IdentifierSource, metaclass=_IdentifierSourceEnumTypeWrapper):
@@ -362,6 +367,7 @@ IDENTIFIER_SOURCE_DHCP: IdentifierSource.ValueType  # 6
 IDENTIFIER_SOURCE_WIFI: IdentifierSource.ValueType  # 7
 """IDENTIFIER_SOURCE_WIFI indicates a WiFi endpoint that was learned through
 a wireless manager.
+Deprecated - do not support searches for wifi endpoints anymore
 """
 
 global___IdentifierSource = IdentifierSource
@@ -502,13 +508,14 @@ class _DeviceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     """DEVICE_TYPE_INVENTORY indicates a device in the CloudVision inventory."""
 
     DEVICE_TYPE_ENDPOINT: _DeviceType.ValueType  # 2
-    """DEVICE_TYPE_ENDPOINT indicates a non-WiFi endpoint that does not exist
+    """DEVICE_TYPE_ENDPOINT indicates an endpoint that does not exist
     in the CloudVision inventory.
     """
 
     DEVICE_TYPE_WIFI_ENDPOINT: _DeviceType.ValueType  # 3
     """DEVICE_TYPE_WIFI_ENDPOINT indicates a WiFi client/endpoint that does not
     exist in the CloudVision inventory.
+    Deprecated - do not support searches for wifi endpoints anymore
     """
 
 class DeviceType(_DeviceType, metaclass=_DeviceTypeEnumTypeWrapper):
@@ -524,13 +531,14 @@ DEVICE_TYPE_INVENTORY: DeviceType.ValueType  # 1
 """DEVICE_TYPE_INVENTORY indicates a device in the CloudVision inventory."""
 
 DEVICE_TYPE_ENDPOINT: DeviceType.ValueType  # 2
-"""DEVICE_TYPE_ENDPOINT indicates a non-WiFi endpoint that does not exist
+"""DEVICE_TYPE_ENDPOINT indicates an endpoint that does not exist
 in the CloudVision inventory.
 """
 
 DEVICE_TYPE_WIFI_ENDPOINT: DeviceType.ValueType  # 3
 """DEVICE_TYPE_WIFI_ENDPOINT indicates a WiFi client/endpoint that does not
 exist in the CloudVision inventory.
+Deprecated - do not support searches for wifi endpoints anymore
 """
 
 global___DeviceType = DeviceType
