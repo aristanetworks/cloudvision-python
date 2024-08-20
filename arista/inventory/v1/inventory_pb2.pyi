@@ -21,6 +21,8 @@ class _StreamingStatus:
 class _StreamingStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_StreamingStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     STREAMING_STATUS_UNSPECIFIED: _StreamingStatus.ValueType  # 0
+    """STREAMING_STATUS_UNSPECIFIED indicates the device streaming telemetry status is unspecified."""
+
     STREAMING_STATUS_INACTIVE: _StreamingStatus.ValueType  # 1
     """STREAMING_STATUS_INACTIVE indicates the device is not streaming telemetry."""
 
@@ -32,6 +34,8 @@ class StreamingStatus(_StreamingStatus, metaclass=_StreamingStatusEnumTypeWrappe
     pass
 
 STREAMING_STATUS_UNSPECIFIED: StreamingStatus.ValueType  # 0
+"""STREAMING_STATUS_UNSPECIFIED indicates the device streaming telemetry status is unspecified."""
+
 STREAMING_STATUS_INACTIVE: StreamingStatus.ValueType  # 1
 """STREAMING_STATUS_INACTIVE indicates the device is not streaming telemetry."""
 
@@ -47,6 +51,8 @@ class _OnboardingStatus:
 class _OnboardingStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_OnboardingStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ONBOARDING_STATUS_UNSPECIFIED: _OnboardingStatus.ValueType  # 0
+    """ONBOARDING_STATUS_UNSPECIFIED indicates onboarding status is unspecified."""
+
     ONBOARDING_STATUS_IN_PROGRESS: _OnboardingStatus.ValueType  # 1
     """ONBOARDING_STATUS_IN_PROGRESS indicates onboarding is in progress."""
 
@@ -63,6 +69,8 @@ class OnboardingStatus(_OnboardingStatus, metaclass=_OnboardingStatusEnumTypeWra
     pass
 
 ONBOARDING_STATUS_UNSPECIFIED: OnboardingStatus.ValueType  # 0
+"""ONBOARDING_STATUS_UNSPECIFIED indicates onboarding status is unspecified."""
+
 ONBOARDING_STATUS_IN_PROGRESS: OnboardingStatus.ValueType  # 1
 """ONBOARDING_STATUS_IN_PROGRESS indicates onboarding is in progress."""
 
@@ -81,6 +89,8 @@ class _DecommissioningStatus:
 class _DecommissioningStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DecommissioningStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     DECOMMISSIONING_STATUS_UNSPECIFIED: _DecommissioningStatus.ValueType  # 0
+    """DECOMMISSIONING_STATUS_UNSPECIFIED indicates decommissioning status is unspecified."""
+
     DECOMMISSIONING_STATUS_IN_PROGRESS: _DecommissioningStatus.ValueType  # 1
     """DECOMMISSIONING_STATUS_IN_PROGRESS indicates decommissioning is in progress."""
 
@@ -97,6 +107,8 @@ class DecommissioningStatus(_DecommissioningStatus, metaclass=_DecommissioningSt
     pass
 
 DECOMMISSIONING_STATUS_UNSPECIFIED: DecommissioningStatus.ValueType  # 0
+"""DECOMMISSIONING_STATUS_UNSPECIFIED indicates decommissioning status is unspecified."""
+
 DECOMMISSIONING_STATUS_IN_PROGRESS: DecommissioningStatus.ValueType  # 1
 """DECOMMISSIONING_STATUS_IN_PROGRESS indicates decommissioning is in progress."""
 
@@ -115,6 +127,8 @@ class _ProvisioningStatus:
 class _ProvisioningStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ProvisioningStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     PROVISIONING_STATUS_UNSPECIFIED: _ProvisioningStatus.ValueType  # 0
+    """PROVISIONING_STATUS_UNSPECIFIED indicates provisioning status is unspecified."""
+
     PROVISIONING_STATUS_IN_PROGRESS: _ProvisioningStatus.ValueType  # 1
     """PROVISIONING_STATUS_IN_PROGRESS indicates provisioning is in progress."""
 
@@ -131,6 +145,8 @@ class ProvisioningStatus(_ProvisioningStatus, metaclass=_ProvisioningStatusEnumT
     pass
 
 PROVISIONING_STATUS_UNSPECIFIED: ProvisioningStatus.ValueType  # 0
+"""PROVISIONING_STATUS_UNSPECIFIED indicates provisioning status is unspecified."""
+
 PROVISIONING_STATUS_IN_PROGRESS: ProvisioningStatus.ValueType  # 1
 """PROVISIONING_STATUS_IN_PROGRESS indicates provisioning is in progress."""
 
@@ -354,6 +370,7 @@ class DeviceDecommissioningConfig(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     DEVICE_ID_FIELD_NUMBER: builtins.int
     FORCE_FIELD_NUMBER: builtins.int
+    USER_NAME_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___UUIDKey:
         """key identifies the request to decommission the device."""
@@ -370,18 +387,23 @@ class DeviceDecommissioningConfig(google.protobuf.message.Message):
         tasks would be ignored and decommissioning will be continued.
         """
         pass
+    @property
+    def user_name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """user_name is name of the user who decommissioned the device."""
+        pass
     def __init__(self,
         *,
         key: typing.Optional[global___UUIDKey] = ...,
         device_id: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         force: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
+        user_name: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["device_id",b"device_id","force",b"force","key",b"key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","force",b"force","key",b"key"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["device_id",b"device_id","force",b"force","key",b"key","user_name",b"user_name"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","force",b"force","key",b"key","user_name",b"user_name"]) -> None: ...
 global___DeviceDecommissioningConfig = DeviceDecommissioningConfig
 
 class DeviceDecommissioning(google.protobuf.message.Message):
-    """DeviceOnboarding describes the status of a decommissioning process."""
+    """DeviceDecommissioning describes the status of a decommissioning process."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
