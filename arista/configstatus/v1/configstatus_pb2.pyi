@@ -20,40 +20,44 @@ class _ErrorCode:
 class _ErrorCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ErrorCode.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ERROR_CODE_UNSPECIFIED: _ErrorCode.ValueType  # 0
+    """ERROR_CODE_UNSPECIFIED uninitialized value"""
+
     ERROR_CODE_DEVICE_WARNING: _ErrorCode.ValueType  # 1
-    """DEVICE_WARNING indicates device warning"""
+    """ERROR_CODE_DEVICE_WARNING indicates device warning"""
 
     ERROR_CODE_DEVICE_ERROR: _ErrorCode.ValueType  # 2
-    """DEVICE_ERROR indicates device error"""
+    """ERROR_CODE_DEVICE_ERROR indicates device error"""
 
     ERROR_CODE_UNREACHABLE_DEVICE: _ErrorCode.ValueType  # 3
-    """UNREACHABLE_DEVICE indicates the device cannot be reached"""
+    """ERROR_CODE_UNREACHABLE_DEVICE indicates the device cannot be reached"""
 
     ERROR_CODE_CONFIG_FILTER_ERROR: _ErrorCode.ValueType  # 4
-    """CONFIG_FILTER_ERROR indicates error from partial config management filters"""
+    """ERROR_CODE_CONFIG_FILTER_ERROR indicates error from partial config management filters"""
 
     ERROR_CODE_INTERNAL: _ErrorCode.ValueType  # 5
-    """INTERNAL indicates internal errors"""
+    """ERROR_CODE_INTERNAL indicates internal errors"""
 
 class ErrorCode(_ErrorCode, metaclass=_ErrorCodeEnumTypeWrapper):
     """ErrorCode indicates warnings and errors produced during computing config"""
     pass
 
 ERROR_CODE_UNSPECIFIED: ErrorCode.ValueType  # 0
+"""ERROR_CODE_UNSPECIFIED uninitialized value"""
+
 ERROR_CODE_DEVICE_WARNING: ErrorCode.ValueType  # 1
-"""DEVICE_WARNING indicates device warning"""
+"""ERROR_CODE_DEVICE_WARNING indicates device warning"""
 
 ERROR_CODE_DEVICE_ERROR: ErrorCode.ValueType  # 2
-"""DEVICE_ERROR indicates device error"""
+"""ERROR_CODE_DEVICE_ERROR indicates device error"""
 
 ERROR_CODE_UNREACHABLE_DEVICE: ErrorCode.ValueType  # 3
-"""UNREACHABLE_DEVICE indicates the device cannot be reached"""
+"""ERROR_CODE_UNREACHABLE_DEVICE indicates the device cannot be reached"""
 
 ERROR_CODE_CONFIG_FILTER_ERROR: ErrorCode.ValueType  # 4
-"""CONFIG_FILTER_ERROR indicates error from partial config management filters"""
+"""ERROR_CODE_CONFIG_FILTER_ERROR indicates error from partial config management filters"""
 
 ERROR_CODE_INTERNAL: ErrorCode.ValueType  # 5
-"""INTERNAL indicates internal errors"""
+"""ERROR_CODE_INTERNAL indicates internal errors"""
 
 global___ErrorCode = ErrorCode
 
@@ -64,44 +68,48 @@ class _DiffOp:
 class _DiffOpEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DiffOp.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     DIFF_OP_UNSPECIFIED: _DiffOp.ValueType  # 0
+    """DIFF_OP_UNSPECIFIED uninitialized"""
+
     DIFF_OP_NOP: _DiffOp.ValueType  # 1
-    """NOP indicates no change. A and B are identical at this line"""
+    """DIFF_OP_NOP indicates no change. A and B are identical at this line"""
 
     DIFF_OP_IGNORE: _DiffOp.ValueType  # 2
-    """IGNORE indicates a line that's ignored in either A or B.
+    """DIFF_OP_IGNORE indicates a line that's ignored in either A or B.
     One of a_line_num or b_line_num will be -1
     """
 
     DIFF_OP_ADD: _DiffOp.ValueType  # 3
-    """ADD is an addition of a line from A"""
+    """DIFF_OP_ADD is an addition of a line from A"""
 
     DIFF_OP_DELETE: _DiffOp.ValueType  # 4
-    """DELETE is deletion of a line from B"""
+    """DIFF_OP_DELETE is deletion of a line from B"""
 
     DIFF_OP_CHANGE: _DiffOp.ValueType  # 5
-    """CHANGE is a modification to a line in A"""
+    """DIFF_OP_CHANGE is a modification to a line in A"""
 
 class DiffOp(_DiffOp, metaclass=_DiffOpEnumTypeWrapper):
     """DiffOp is the operation to a line from one side of diff to get to another"""
     pass
 
 DIFF_OP_UNSPECIFIED: DiffOp.ValueType  # 0
+"""DIFF_OP_UNSPECIFIED uninitialized"""
+
 DIFF_OP_NOP: DiffOp.ValueType  # 1
-"""NOP indicates no change. A and B are identical at this line"""
+"""DIFF_OP_NOP indicates no change. A and B are identical at this line"""
 
 DIFF_OP_IGNORE: DiffOp.ValueType  # 2
-"""IGNORE indicates a line that's ignored in either A or B.
+"""DIFF_OP_IGNORE indicates a line that's ignored in either A or B.
 One of a_line_num or b_line_num will be -1
 """
 
 DIFF_OP_ADD: DiffOp.ValueType  # 3
-"""ADD is an addition of a line from A"""
+"""DIFF_OP_ADD is an addition of a line from A"""
 
 DIFF_OP_DELETE: DiffOp.ValueType  # 4
-"""DELETE is deletion of a line from B"""
+"""DIFF_OP_DELETE is deletion of a line from B"""
 
 DIFF_OP_CHANGE: DiffOp.ValueType  # 5
-"""CHANGE is a modification to a line in A"""
+"""DIFF_OP_CHANGE is a modification to a line in A"""
 
 global___DiffOp = DiffOp
 
@@ -112,26 +120,26 @@ class _ConfigFilterCode:
 class _ConfigFilterCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ConfigFilterCode.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CONFIG_FILTER_CODE_UNSPECIFIED: _ConfigFilterCode.ValueType  # 0
-    """UNSPECIFIED indicates config line did not match any partial config management (PCM) filter"""
+    """CONFIG_FILTER_CODE_UNSPECIFIED uninitialized"""
 
     CONFIG_FILTER_CODE_MANAGED_LINE: _ConfigFilterCode.ValueType  # 1
-    """MANAGED_LINE indicates config line matches managed PCM filter hence is managed"""
+    """CONFIG_FILTER_CODE_MANAGED_LINE indicates config line matches managed PCM filter hence is managed"""
 
     CONFIG_FILTER_CODE_UNMANAGED_LINE: _ConfigFilterCode.ValueType  # 2
-    """UNMANAGED_LINE indicates config line matches unmanaged PCM filter hence is not managed"""
+    """CONFIG_FILTER_CODE_UNMANAGED_LINE indicates config line matches unmanaged PCM filter hence is not managed"""
 
 class ConfigFilterCode(_ConfigFilterCode, metaclass=_ConfigFilterCodeEnumTypeWrapper):
     """ConfigFilterCode indicates if a config line matches PCM filter(s)"""
     pass
 
 CONFIG_FILTER_CODE_UNSPECIFIED: ConfigFilterCode.ValueType  # 0
-"""UNSPECIFIED indicates config line did not match any partial config management (PCM) filter"""
+"""CONFIG_FILTER_CODE_UNSPECIFIED uninitialized"""
 
 CONFIG_FILTER_CODE_MANAGED_LINE: ConfigFilterCode.ValueType  # 1
-"""MANAGED_LINE indicates config line matches managed PCM filter hence is managed"""
+"""CONFIG_FILTER_CODE_MANAGED_LINE indicates config line matches managed PCM filter hence is managed"""
 
 CONFIG_FILTER_CODE_UNMANAGED_LINE: ConfigFilterCode.ValueType  # 2
-"""UNMANAGED_LINE indicates config line matches unmanaged PCM filter hence is not managed"""
+"""CONFIG_FILTER_CODE_UNMANAGED_LINE indicates config line matches unmanaged PCM filter hence is not managed"""
 
 global___ConfigFilterCode = ConfigFilterCode
 
@@ -142,22 +150,26 @@ class _ConfigSyncCode:
 class _ConfigSyncCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ConfigSyncCode.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CONFIG_SYNC_CODE_UNSPECIFIED: _ConfigSyncCode.ValueType  # 0
+    """CONFIG_SYNC_CODE_UNSPECIFIED uninitialized"""
+
     CONFIG_SYNC_CODE_IN_SYNC: _ConfigSyncCode.ValueType  # 1
-    """IN_SYNC indicates designed config and running config are identical"""
+    """CONFIG_SYNC_CODE_IN_SYNC indicates designed config and running config are identical"""
 
     CONFIG_SYNC_CODE_OUT_OF_SYNC: _ConfigSyncCode.ValueType  # 2
-    """OUT_OF_SYNC indicates designed config and running config are not identical"""
+    """CONFIG_SYNC_CODE_OUT_OF_SYNC indicates designed config and running config are not identical"""
 
 class ConfigSyncCode(_ConfigSyncCode, metaclass=_ConfigSyncCodeEnumTypeWrapper):
     """ConfigSyncCode indicates config synchronization status"""
     pass
 
 CONFIG_SYNC_CODE_UNSPECIFIED: ConfigSyncCode.ValueType  # 0
+"""CONFIG_SYNC_CODE_UNSPECIFIED uninitialized"""
+
 CONFIG_SYNC_CODE_IN_SYNC: ConfigSyncCode.ValueType  # 1
-"""IN_SYNC indicates designed config and running config are identical"""
+"""CONFIG_SYNC_CODE_IN_SYNC indicates designed config and running config are identical"""
 
 CONFIG_SYNC_CODE_OUT_OF_SYNC: ConfigSyncCode.ValueType  # 2
-"""OUT_OF_SYNC indicates designed config and running config are not identical"""
+"""CONFIG_SYNC_CODE_OUT_OF_SYNC indicates designed config and running config are not identical"""
 
 global___ConfigSyncCode = ConfigSyncCode
 
@@ -168,6 +180,8 @@ class _ConfigSourceType:
 class _ConfigSourceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ConfigSourceType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CONFIG_SOURCE_TYPE_UNSPECIFIED: _ConfigSourceType.ValueType  # 0
+    """CONFIG_SOURCE_TYPE_UNSPECIFIED uninitialized value"""
+
     CONFIG_SOURCE_TYPE_NETWORK_PROVISIONING_CONFIGLET: _ConfigSourceType.ValueType  # 1
     """CONFIG_SOURCE_TYPE_NETWORK_PROVISIONING_CONFIGLET - configlet created from
     the network provisioning workflow.
@@ -177,7 +191,10 @@ class _ConfigSourceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrappe
     """CONFIG_SOURCE_TYPE_STUDIO - config generated from a regular studio"""
 
     CONFIG_SOURCE_TYPE_STUDIO_STATIC: _ConfigSourceType.ValueType  # 3
-    """SCONFIG_SOURCE_TYPE_STUDIO_STATIC - static config from studios framework"""
+    """CONFIG_SOURCE_TYPE_STUDIO_STATIC - static config from studios framework"""
+
+    CONFIG_SOURCE_TYPE_HIERARCHY: _ConfigSourceType.ValueType  # 5
+    """CONFIG_SOURCE_TYPE_HIERARCHY - config from the hierarchy frameork"""
 
 class ConfigSourceType(_ConfigSourceType, metaclass=_ConfigSourceTypeEnumTypeWrapper):
     """ConfigSourceType indicates the type of source for the proposed/designed configuration
@@ -186,6 +203,8 @@ class ConfigSourceType(_ConfigSourceType, metaclass=_ConfigSourceTypeEnumTypeWra
     pass
 
 CONFIG_SOURCE_TYPE_UNSPECIFIED: ConfigSourceType.ValueType  # 0
+"""CONFIG_SOURCE_TYPE_UNSPECIFIED uninitialized value"""
+
 CONFIG_SOURCE_TYPE_NETWORK_PROVISIONING_CONFIGLET: ConfigSourceType.ValueType  # 1
 """CONFIG_SOURCE_TYPE_NETWORK_PROVISIONING_CONFIGLET - configlet created from
 the network provisioning workflow.
@@ -195,7 +214,10 @@ CONFIG_SOURCE_TYPE_STUDIO: ConfigSourceType.ValueType  # 2
 """CONFIG_SOURCE_TYPE_STUDIO - config generated from a regular studio"""
 
 CONFIG_SOURCE_TYPE_STUDIO_STATIC: ConfigSourceType.ValueType  # 3
-"""SCONFIG_SOURCE_TYPE_STUDIO_STATIC - static config from studios framework"""
+"""CONFIG_SOURCE_TYPE_STUDIO_STATIC - static config from studios framework"""
+
+CONFIG_SOURCE_TYPE_HIERARCHY: ConfigSourceType.ValueType  # 5
+"""CONFIG_SOURCE_TYPE_HIERARCHY - config from the hierarchy frameork"""
 
 global___ConfigSourceType = ConfigSourceType
 
@@ -206,34 +228,51 @@ class _ConfigType:
 class _ConfigTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ConfigType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CONFIG_TYPE_UNSPECIFIED: _ConfigType.ValueType  # 0
+    """CONFIG_TYPE_UNSPECIFIED uninitialized value"""
+
     CONFIG_TYPE_RUNNING_CONFIG: _ConfigType.ValueType  # 1
+    """CONFIG_TYPE_RUNNING_CONFIG uninitialized value"""
+
     CONFIG_TYPE_DESIGNED_CONFIG: _ConfigType.ValueType  # 2
+    """CONFIG_TYPE_DESIGNED_CONFIG uninitialized value"""
+
 class ConfigType(_ConfigType, metaclass=_ConfigTypeEnumTypeWrapper):
+    """ConfigType - specifies type of config"""
     pass
 
 CONFIG_TYPE_UNSPECIFIED: ConfigType.ValueType  # 0
+"""CONFIG_TYPE_UNSPECIFIED uninitialized value"""
+
 CONFIG_TYPE_RUNNING_CONFIG: ConfigType.ValueType  # 1
+"""CONFIG_TYPE_RUNNING_CONFIG uninitialized value"""
+
 CONFIG_TYPE_DESIGNED_CONFIG: ConfigType.ValueType  # 2
+"""CONFIG_TYPE_DESIGNED_CONFIG uninitialized value"""
+
 global___ConfigType = ConfigType
 
 
 class ConfigError(google.protobuf.message.Message):
-    """ConfigError represents errors reported by CVP when handling device configuration"""
+    """ConfigError represents errors reported by CVP/EOS when handling device configuration"""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     ERROR_CODE_FIELD_NUMBER: builtins.int
     ERROR_MSG_FIELD_NUMBER: builtins.int
     LINE_NUM_FIELD_NUMBER: builtins.int
     CONFIGLET_NAME_FIELD_NUMBER: builtins.int
     error_code: global___ErrorCode.ValueType
+    """error_code - type of error."""
+
     @property
-    def error_msg(self) -> google.protobuf.wrappers_pb2.StringValue: ...
+    def error_msg(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """error_msg - details of error"""
+        pass
     @property
     def line_num(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """Line_num represents line number, if any"""
+        """line_num represents line number, if any"""
         pass
     @property
     def configlet_name(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """Configlet_name represents the originating configlet name. Configlet_name
+        """configlet_name represents the originating configlet name. Configlet_name
         and line_num point to the line where config warning or config error originate.
         """
         pass
@@ -249,10 +288,13 @@ class ConfigError(google.protobuf.message.Message):
 global___ConfigError = ConfigError
 
 class ConfigErrors(google.protobuf.message.Message):
+    """ConfigErrors list of errors"""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     VALUES_FIELD_NUMBER: builtins.int
     @property
-    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConfigError]: ...
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConfigError]:
+        """values - list of errors"""
+        pass
     def __init__(self,
         *,
         values: typing.Optional[typing.Iterable[global___ConfigError]] = ...,
@@ -273,35 +315,37 @@ class DiffEntry(google.protobuf.message.Message):
     B_FILTER_CODE_FIELD_NUMBER: builtins.int
     A_PARENT_LINE_NUM_FIELD_NUMBER: builtins.int
     op: global___DiffOp.ValueType
+    """op - type of diff"""
+
     @property
     def a_line_num(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """line number in A this diff applies to"""
+        """a_line_num - line number in A this diff applies to"""
         pass
     @property
     def b_line_num(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """line number in B this diff applies to"""
+        """b_line_num - line number in B this diff applies to"""
         pass
     @property
     def b_parent_line_num(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """line number of the parent command in B"""
+        """b_parent_line_num line number of the parent command in B"""
         pass
     @property
     def a_line(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """content of config line in A"""
+        """a_line content of config line in A"""
         pass
     @property
     def b_line(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """content of config line in B"""
+        """b_line content of config line in B"""
         pass
     a_filter_code: global___ConfigFilterCode.ValueType
-    """Config filter code of the line in A"""
+    """a_filter_code Config filter code of the line in A"""
 
     b_filter_code: global___ConfigFilterCode.ValueType
-    """Config filter code of the line in B"""
+    """b_filter_code Config filter code of the line in B"""
 
     @property
     def a_parent_line_num(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """line number of the parent command in A"""
+        """a_parent_line_num line number of the parent command in A"""
         pass
     def __init__(self,
         *,
@@ -324,7 +368,9 @@ class DiffEntries(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     VALUES_FIELD_NUMBER: builtins.int
     @property
-    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DiffEntry]: ...
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DiffEntry]:
+        """values - list of diff entries"""
+        pass
     def __init__(self,
         *,
         values: typing.Optional[typing.Iterable[global___DiffEntry]] = ...,
@@ -338,6 +384,8 @@ class ConfigSource(google.protobuf.message.Message):
     SOURCE_TYPE_FIELD_NUMBER: builtins.int
     SOURCE_ID_FIELD_NUMBER: builtins.int
     source_type: global___ConfigSourceType.ValueType
+    """source_type - app type of the config snippet"""
+
     @property
     def source_id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """source_id identifier to distinguish between multiple instances of the source type
@@ -345,6 +393,7 @@ class ConfigSource(google.protobuf.message.Message):
         	configlet name for CONFIG_SOURCE_TYPE_NETWORK_PROVISIONING_CONFIGLET
         	studio id for CONFIG_SOURCE_TYPE_STUDIO
         	configlet id for CONFIG_SOURCE_TYPE_STUDIO_STATIC
+        	FixtureInstance id for CONFIG_SOURCE_TYPE_HIERARCHY
         """
         pass
     def __init__(self,
@@ -361,7 +410,9 @@ class ConfigSources(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     VALUES_FIELD_NUMBER: builtins.int
     @property
-    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConfigSource]: ...
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConfigSource]:
+        """values - ordered list of all the config snippets present in DC"""
+        pass
     def __init__(self,
         *,
         values: typing.Optional[typing.Iterable[global___ConfigSource]] = ...,
@@ -387,57 +438,59 @@ class ConfigSummary(google.protobuf.message.Message):
     DIFF_URI_FIELD_NUMBER: builtins.int
     DIGEST_FIELD_NUMBER: builtins.int
     sync: global___ConfigSyncCode.ValueType
+    """sync - state of DC vs RC"""
+
     @property
     def nop_lines(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """Number of lines with code no-operation"""
+        """nop_lines - Number of lines with code no-operation"""
         pass
     @property
     def ignored_lines(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """Number of lines with code IGNORE"""
+        """ignored_lines - Number of lines with code IGNORE"""
         pass
     @property
     def added_lines(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """Number of lines with code ADD"""
+        """added_lines - Number of lines with code ADD"""
         pass
     @property
     def deleted_lines(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """Number of lines with code DELETE"""
+        """deleted_lines - Number of lines with code DELETE"""
         pass
     @property
     def changed_lines(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """Number of lines with code CHANGE"""
+        """changed_lines - Number of lines with code CHANGE"""
         pass
     @property
     def designed_config_errors(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """Number of designed config errors"""
+        """designed_config_errors - Number of designed config errors"""
         pass
     @property
     def designed_config_warnings(self) -> google.protobuf.wrappers_pb2.Int32Value:
-        """Number of designed config warnings"""
+        """designed_config_warnings - Number of designed config warnings"""
         pass
     @property
     def running_config_update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Timestamp at which running config is updated"""
+        """running_config_update_time - Timestamp at which running config is updated"""
         pass
     @property
     def designed_config_update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Timestamp at which designed config is updated"""
+        """designed_config_update_time - Timestamp at which designed config is updated"""
         pass
     @property
     def running_config_uri(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """The HTTP URI client can use to GET running config and associated errors"""
+        """running_config_uri - The HTTP URI client can use to GET running config and associated errors"""
         pass
     @property
     def designed_config_uri(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """The HTTP URI client can use to GET designed config and associated errors"""
+        """designed_config_uri - The HTTP URI client can use to GET designed config and associated errors"""
         pass
     @property
     def diff_uri(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """The HTTP URI client can use to GET config diff and associated errors"""
+        """diff_uri - The HTTP URI client can use to GET config diff and associated errors"""
         pass
     @property
     def digest(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """Digest (SHA-256) of the config diff."""
+        """digest (SHA-256) of the config diff."""
         pass
     def __init__(self,
         *,
@@ -467,10 +520,10 @@ class ConfigKey(google.protobuf.message.Message):
     TYPE_FIELD_NUMBER: builtins.int
     @property
     def device_id(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """Device_id is the serial number of the device"""
+        """device_id is the serial number of the device"""
         pass
     type: global___ConfigType.ValueType
-    """Type describes the config type"""
+    """type describes the config type"""
 
     def __init__(self,
         *,
@@ -487,10 +540,12 @@ class Configuration(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     URI_FIELD_NUMBER: builtins.int
     @property
-    def key(self) -> global___ConfigKey: ...
+    def key(self) -> global___ConfigKey:
+        """key specifies the device and type of config"""
+        pass
     @property
     def uri(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """Uri represents the HTTP URI client can use to GET config body and associated errors"""
+        """uri represents the HTTP URI client can use to GET config body and associated errors"""
         pass
     def __init__(self,
         *,
@@ -512,25 +567,25 @@ class ConfigDiffKey(google.protobuf.message.Message):
     B_TIME_FIELD_NUMBER: builtins.int
     @property
     def a_device_id(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """A_device_id is the serial number of the device on A side (left hand side)"""
+        """a_device_id is the serial number of the device on A side (left hand side)"""
         pass
     a_type: global___ConfigType.ValueType
-    """A_type is the config type on A side (left hand side)"""
+    """a_type is the config type on A side (left hand side)"""
 
     @property
     def a_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """A_time is the time at which to fetch config on A side (left hand side)"""
+        """a_time is the time at which to fetch config on A side (left hand side)"""
         pass
     @property
     def b_device_id(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """B_device_id is the serial number of the device on B side (right hand side)"""
+        """b_device_id is the serial number of the device on B side (right hand side)"""
         pass
     b_type: global___ConfigType.ValueType
-    """B_type is the config type on B side (right hand side)"""
+    """b_type is the config type on B side (right hand side)"""
 
     @property
     def b_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """B_time is the time at which to fetch config on B side (right hand side)"""
+        """b_time is the time at which to fetch config on B side (right hand side)"""
         pass
     def __init__(self,
         *,
@@ -546,16 +601,17 @@ class ConfigDiffKey(google.protobuf.message.Message):
 global___ConfigDiffKey = ConfigDiffKey
 
 class ConfigDiff(google.protobuf.message.Message):
+    """ConfigDiff - specifies the diff request"""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
     URI_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___ConfigDiffKey:
-        """Key represents config diff key"""
+        """key represents config diff key"""
         pass
     @property
     def uri(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """Uri represents the HTTP URI client can use to GET config diff and associated errors"""
+        """uri represents the HTTP URI client can use to GET config diff and associated errors"""
         pass
     def __init__(self,
         *,
@@ -572,7 +628,7 @@ class SummaryKey(google.protobuf.message.Message):
     DEVICE_ID_FIELD_NUMBER: builtins.int
     @property
     def device_id(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """Device_id is the serial number of the device"""
+        """device_id is the serial number of the device"""
         pass
     def __init__(self,
         *,
@@ -583,13 +639,18 @@ class SummaryKey(google.protobuf.message.Message):
 global___SummaryKey = SummaryKey
 
 class Summary(google.protobuf.message.Message):
+    """Summary - Describes the device's diff summary"""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     KEY_FIELD_NUMBER: builtins.int
     SUMMARY_FIELD_NUMBER: builtins.int
     @property
-    def key(self) -> global___SummaryKey: ...
+    def key(self) -> global___SummaryKey:
+        """key spefies the device"""
+        pass
     @property
-    def summary(self) -> global___ConfigSummary: ...
+    def summary(self) -> global___ConfigSummary:
+        """summary - diff summary of the device"""
+        pass
     def __init__(self,
         *,
         key: typing.Optional[global___SummaryKey] = ...,
@@ -636,6 +697,8 @@ class SecurityProfileComplianceSummary(google.protobuf.message.Message):
     RUNNING_CONFIG_UPDATE_TIME_FIELD_NUMBER: builtins.int
     DESIGNED_CONFIG_UPDATE_TIME_FIELD_NUMBER: builtins.int
     sync: global___ConfigSyncCode.ValueType
+    """sync - sync state of the device"""
+
     @property
     def nop_lines(self) -> google.protobuf.wrappers_pb2.Int32Value:
         """nop_lines is the number of lines with code no-operation"""
