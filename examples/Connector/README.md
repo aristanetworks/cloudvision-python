@@ -433,6 +433,29 @@ tp-avd-leaf1 (MGMT/Management1) to bbc            151.101.0.81                  
 tp-avd-leaf1 (MGMT/Management1) to google         216.58.194.164                588.5230102539062ms           0.09799999743700027ms         155.143005371093
 ```
 
+## days_since_port_open.py
+
+---
+
+This script produces a report of the interfaces on a device managed by CVP that are administratively up but operationally down.
+
+```shell
+cloudvision-python % python3 examples/Connector/days_since_port_open.py --apiserver 10.18.140.7:443 --auth=token,token.txt,cvp.crt
+
+DC1-LEAF1A
+Interface           Out Of Sync Days
+Ethernet2           32    
+Ethernet26          47   
+Ethernet28          56   
+
+DC1-LEAF1B
+Interface           Out Of Sync Days
+Ethernet2           54    
+Ethernet13          56    
+Ethernet6           32    
+Ethernet9           47    
+```
+
 ## Utilities
 
 ---
