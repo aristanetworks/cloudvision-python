@@ -456,6 +456,49 @@ Ethernet6           32
 Ethernet9           47    
 ```
 
+## get_switches_full_dir.py
+
+---
+
+This script can be used to search your CloudVision inventory for switches that have any of the following mount points over 90% utilized:
+
+- /var/log
+- /var/core
+- /mnt/flash
+
+The utilization percentage that is checked can be changed by modifying the DIR_SIZE variable in the script. The script will print the switch hostname and serial number if the mentioned mount points are above DIR_SIZE.
+
+```shell
+python3 get_switches_full_dir.py --apiserver 10.83.12.79:443 --auth=token,token.txt,cvp.crt 
+Switch switch1 (ZZZ99999999),
+  /mnt/flash is 94.76% utilised
+
+Switch switch2 (ABC12345678),
+  /mnt/flash is 92.34% utilised
+
+Switch switch3 (EFG09876543),
+  /mnt/flash is 91.09% utilised
+  /var/core is 95.55% utilised
+```
+
+## get_switch_mac.py
+
+---
+
+This script can be used to print the MAC address table of a switch that is onboarded to CloudVision.
+
+```shell
+python3 get_switch_mac.py --apiserver 10.83.12.79:443 --auth=token,token.txt,cvp.crt --device ZZZ99999999
+vlan   macAddress           type                   intf            moves  lastMoveTime (seconds)
+200    9b:28:95:5c:a9:b4    configuredStaticMac    Router          1      -
+200    6e:23:0f:ed:61:64    learnedDynamicMac      Ethernet3       1      4557
+201    e2:06:3e:00:dd:a7    learnedDynamicMac      Ethernet3       1      5021
+208    c6:51:e6:e1:20:a8    learnedDynamicMac      Ethernet3       1      4996
+209    2a:81:2c:9a:f6:50    learnedDynamicMac      Ethernet3       1      4992
+4094   68:93:ed:17:e0:08    configuredStaticMac    Router          1      -
+4094   f0:0f:51:70:78:4c    evpnDynamicRemoteMac   Vxlan1          0      24409
+```
+
 ## Utilities
 
 ---
