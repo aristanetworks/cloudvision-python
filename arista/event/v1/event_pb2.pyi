@@ -485,6 +485,7 @@ class Event(google.protobuf.message.Message):
     LAST_UPDATED_TIME_FIELD_NUMBER: builtins.int
     READ_FIELD_NUMBER: builtins.int
     RULE_ID_FIELD_NUMBER: builtins.int
+    DELETE_TIME_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___EventKey:
         """key is the event instance identifier"""
@@ -532,6 +533,10 @@ class Event(google.protobuf.message.Message):
     def rule_id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """rule_id is the label of the rule associated with the event"""
         pass
+    @property
+    def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """delete_time is the time of the event deletion"""
+        pass
     def __init__(self,
         *,
         key: typing.Optional[global___EventKey] = ...,
@@ -546,9 +551,10 @@ class Event(google.protobuf.message.Message):
         last_updated_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
         read: typing.Optional[global___EventRead] = ...,
         rule_id: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        delete_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ack",b"ack","components",b"components","data",b"data","description",b"description","event_type",b"event_type","key",b"key","last_updated_time",b"last_updated_time","notes",b"notes","read",b"read","rule_id",b"rule_id","title",b"title"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ack",b"ack","components",b"components","data",b"data","description",b"description","event_type",b"event_type","key",b"key","last_updated_time",b"last_updated_time","notes",b"notes","read",b"read","rule_id",b"rule_id","severity",b"severity","title",b"title"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ack",b"ack","components",b"components","data",b"data","delete_time",b"delete_time","description",b"description","event_type",b"event_type","key",b"key","last_updated_time",b"last_updated_time","notes",b"notes","read",b"read","rule_id",b"rule_id","title",b"title"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ack",b"ack","components",b"components","data",b"data","delete_time",b"delete_time","description",b"description","event_type",b"event_type","key",b"key","last_updated_time",b"last_updated_time","notes",b"notes","read",b"read","rule_id",b"rule_id","severity",b"severity","title",b"title"]) -> None: ...
 global___Event = Event
 
 class UserEventCreationKey(google.protobuf.message.Message):
