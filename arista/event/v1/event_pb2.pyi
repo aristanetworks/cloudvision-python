@@ -535,7 +535,9 @@ class Event(google.protobuf.message.Message):
         pass
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """delete_time is the time of the event deletion"""
+        """delete_time is the time when the event ended.
+        It is nil if event is still ongoing
+        """
         pass
     def __init__(self,
         *,
