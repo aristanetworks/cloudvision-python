@@ -529,6 +529,11 @@ class _ImageValidationSkipCauseEnumTypeWrapper(google.protobuf.internal.enum_typ
     skipped because the device has no proposed software changes in the workspace.
     """
 
+    IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED: _ImageValidationSkipCause.ValueType  # 5
+    """IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED indicates that the stage was
+    skipped because the device is decommissioned.
+    """
+
 class ImageValidationSkipCause(_ImageValidationSkipCause, metaclass=_ImageValidationSkipCauseEnumTypeWrapper):
     """ImageValidationSkipCause enumerates the set of reasons a device can skip the image
     validation stage.
@@ -558,6 +563,11 @@ skipped because the device has no image changes in the workspace.
 IMAGE_VALIDATION_SKIP_CAUSE_NO_PROPOSED_SOFTWARE: ImageValidationSkipCause.ValueType  # 4
 """IMAGE_VALIDATION_SKIP_CAUSE_NO_PROPOSED_SOFTWARE indicates that the stage was
 skipped because the device has no proposed software changes in the workspace.
+"""
+
+IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED: ImageValidationSkipCause.ValueType  # 5
+"""IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED indicates that the stage was
+skipped because the device is decommissioned.
 """
 
 global___ImageValidationSkipCause = ImageValidationSkipCause
