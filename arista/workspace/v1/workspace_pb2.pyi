@@ -958,6 +958,7 @@ class InputValidationResult(google.protobuf.message.Message):
     INPUT_SCHEMA_ERRORS_FIELD_NUMBER: builtins.int
     INPUT_VALUE_ERRORS_FIELD_NUMBER: builtins.int
     OTHER_ERRORS_FIELD_NUMBER: builtins.int
+    INPUT_VALUE_WARNINGS_FIELD_NUMBER: builtins.int
     @property
     def input_schema_errors(self) -> global___InputErrors:
         """input_schema_errors are errors for fields in the input schema."""
@@ -970,14 +971,19 @@ class InputValidationResult(google.protobuf.message.Message):
     def other_errors(self) -> fmp.wrappers_pb2.RepeatedString:
         """other_errors are other miscellaneous errors."""
         pass
+    @property
+    def input_value_warnings(self) -> global___InputErrors:
+        """input_value_warnings are warnings for values assigned to fields in the input schema."""
+        pass
     def __init__(self,
         *,
         input_schema_errors: typing.Optional[global___InputErrors] = ...,
         input_value_errors: typing.Optional[global___InputErrors] = ...,
         other_errors: typing.Optional[fmp.wrappers_pb2.RepeatedString] = ...,
+        input_value_warnings: typing.Optional[global___InputErrors] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["input_schema_errors",b"input_schema_errors","input_value_errors",b"input_value_errors","other_errors",b"other_errors"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["input_schema_errors",b"input_schema_errors","input_value_errors",b"input_value_errors","other_errors",b"other_errors"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["input_schema_errors",b"input_schema_errors","input_value_errors",b"input_value_errors","input_value_warnings",b"input_value_warnings","other_errors",b"other_errors"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["input_schema_errors",b"input_schema_errors","input_value_errors",b"input_value_errors","input_value_warnings",b"input_value_warnings","other_errors",b"other_errors"]) -> None: ...
 global___InputValidationResult = InputValidationResult
 
 class InputValidationResults(google.protobuf.message.Message):
@@ -1325,6 +1331,22 @@ class WorkspaceBuildKey(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["build_id",b"build_id","workspace_id",b"workspace_id"]) -> None: ...
 global___WorkspaceBuildKey = WorkspaceBuildKey
 
+class StudioBuildDetails(google.protobuf.message.Message):
+    """StudioBuildDetails is a collection of per studio results that are not specific to a device."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    INPUT_VALIDATION_RESULTS_FIELD_NUMBER: builtins.int
+    @property
+    def input_validation_results(self) -> global___InputValidationResults:
+        """input_validation_results is a map from studio ID to InputValidationResult."""
+        pass
+    def __init__(self,
+        *,
+        input_validation_results: typing.Optional[global___InputValidationResults] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["input_validation_results",b"input_validation_results"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["input_validation_results",b"input_validation_results"]) -> None: ...
+global___StudioBuildDetails = StudioBuildDetails
+
 class WorkspaceBuild(google.protobuf.message.Message):
     """WorkspaceBuild holds the details for a build of a workspace."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1333,6 +1355,7 @@ class WorkspaceBuild(google.protobuf.message.Message):
     ERROR_FIELD_NUMBER: builtins.int
     BUILT_BY_FIELD_NUMBER: builtins.int
     AUTHZ_RESULT_FIELD_NUMBER: builtins.int
+    STUDIO_BUILD_DETAILS_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___WorkspaceBuildKey:
         """key identifies the build."""
@@ -1354,6 +1377,10 @@ class WorkspaceBuild(google.protobuf.message.Message):
     def authz_result(self) -> global___AuthzResult:
         """authz_result has the result of authorization check."""
         pass
+    @property
+    def studio_build_details(self) -> global___StudioBuildDetails:
+        """studio_build_details has per studio results that are not specific to a device."""
+        pass
     def __init__(self,
         *,
         key: typing.Optional[global___WorkspaceBuildKey] = ...,
@@ -1361,9 +1388,10 @@ class WorkspaceBuild(google.protobuf.message.Message):
         error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         built_by: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         authz_result: typing.Optional[global___AuthzResult] = ...,
+        studio_build_details: typing.Optional[global___StudioBuildDetails] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["authz_result",b"authz_result","built_by",b"built_by","error",b"error","key",b"key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["authz_result",b"authz_result","built_by",b"built_by","error",b"error","key",b"key","state",b"state"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["authz_result",b"authz_result","built_by",b"built_by","error",b"error","key",b"key","studio_build_details",b"studio_build_details"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["authz_result",b"authz_result","built_by",b"built_by","error",b"error","key",b"key","state",b"state","studio_build_details",b"studio_build_details"]) -> None: ...
 global___WorkspaceBuild = WorkspaceBuild
 
 class WorkspaceBuildDetailsKey(google.protobuf.message.Message):
