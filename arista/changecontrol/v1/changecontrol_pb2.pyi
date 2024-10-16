@@ -21,6 +21,8 @@ class _StageStatus:
 class _StageStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_StageStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     STAGE_STATUS_UNSPECIFIED: _StageStatus.ValueType  # 0
+    """STAGE_STATUS_UNSPECIFIED means unknown stage status."""
+
     STAGE_STATUS_RUNNING: _StageStatus.ValueType  # 1
     """STAGE_STATUS_RUNNING means the stage has begun execution."""
 
@@ -39,6 +41,8 @@ class StageStatus(_StageStatus, metaclass=_StageStatusEnumTypeWrapper):
     pass
 
 STAGE_STATUS_UNSPECIFIED: StageStatus.ValueType  # 0
+"""STAGE_STATUS_UNSPECIFIED means unknown stage status."""
+
 STAGE_STATUS_RUNNING: StageStatus.ValueType  # 1
 """STAGE_STATUS_RUNNING means the stage has begun execution."""
 
@@ -61,6 +65,8 @@ class _ChangeControlStatus:
 class _ChangeControlStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ChangeControlStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CHANGE_CONTROL_STATUS_UNSPECIFIED: _ChangeControlStatus.ValueType  # 0
+    """CHANGE_CONTROL_STATUS_UNSPECIFIED means the change control status is unknown."""
+
     CHANGE_CONTROL_STATUS_RUNNING: _ChangeControlStatus.ValueType  # 1
     """CHANGE_CONTROL_STATUS_RUNNING means the change control has begun
     execution.
@@ -93,6 +99,8 @@ class ChangeControlStatus(_ChangeControlStatus, metaclass=_ChangeControlStatusEn
     pass
 
 CHANGE_CONTROL_STATUS_UNSPECIFIED: ChangeControlStatus.ValueType  # 0
+"""CHANGE_CONTROL_STATUS_UNSPECIFIED means the change control status is unknown."""
+
 CHANGE_CONTROL_STATUS_RUNNING: ChangeControlStatus.ValueType  # 1
 """CHANGE_CONTROL_STATUS_RUNNING means the change control has begun
 execution.
@@ -652,6 +660,38 @@ class Filter(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["device_ids",b"device_ids"]) -> None: ...
 global___Filter = Filter
 
+class DeviceToStageMap(google.protobuf.message.Message):
+    """DeviceToStageMap is a map of a device ID and its list of corresponding stages."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    class ValuesEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: typing.Text
+        @property
+        def value(self) -> fmp.wrappers_pb2.RepeatedString: ...
+        def __init__(self,
+            *,
+            key: typing.Text = ...,
+            value: typing.Optional[fmp.wrappers_pb2.RepeatedString] = ...,
+            ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value",b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.MessageMap[typing.Text, fmp.wrappers_pb2.RepeatedString]:
+        """values maps the device ID with the stages which are associated with a device
+        in a changecontrol state model.
+        """
+        pass
+    def __init__(self,
+        *,
+        values: typing.Optional[typing.Mapping[typing.Text, fmp.wrappers_pb2.RepeatedString]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["values",b"values"]) -> None: ...
+global___DeviceToStageMap = DeviceToStageMap
+
 class ChangeControl(google.protobuf.message.Message):
     """ChangeControl holds the configuration and status of a change control."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -663,6 +703,7 @@ class ChangeControl(google.protobuf.message.Message):
     ERROR_FIELD_NUMBER: builtins.int
     SCHEDULE_FIELD_NUMBER: builtins.int
     DEVICE_IDS_FIELD_NUMBER: builtins.int
+    DEVICE_ID_TO_STAGE_IDS_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___ChangeControlKey:
         """key uniquely identifies the change control."""
@@ -707,6 +748,14 @@ class ChangeControl(google.protobuf.message.Message):
     def device_ids(self) -> fmp.wrappers_pb2.RepeatedString:
         """device_ids is a list of device IDs on which the change control will operate."""
         pass
+    @property
+    def device_id_to_stage_ids(self) -> global___DeviceToStageMap:
+        """device_id_to_stage_ids is a map of device IDs to the stages present in the
+        specified Change state.
+        This is not affected by the device ID based custom filtering and will contain
+        info about all the devices associated with a CC ID.
+        """
+        pass
     def __init__(self,
         *,
         key: typing.Optional[global___ChangeControlKey] = ...,
@@ -717,9 +766,10 @@ class ChangeControl(google.protobuf.message.Message):
         error: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
         schedule: typing.Optional[global___TimestampFlag] = ...,
         device_ids: typing.Optional[fmp.wrappers_pb2.RepeatedString] = ...,
+        device_id_to_stage_ids: typing.Optional[global___DeviceToStageMap] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["approve",b"approve","change",b"change","device_ids",b"device_ids","error",b"error","key",b"key","schedule",b"schedule","start",b"start"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["approve",b"approve","change",b"change","device_ids",b"device_ids","error",b"error","key",b"key","schedule",b"schedule","start",b"start","status",b"status"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["approve",b"approve","change",b"change","device_id_to_stage_ids",b"device_id_to_stage_ids","device_ids",b"device_ids","error",b"error","key",b"key","schedule",b"schedule","start",b"start"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["approve",b"approve","change",b"change","device_id_to_stage_ids",b"device_id_to_stage_ids","device_ids",b"device_ids","error",b"error","key",b"key","schedule",b"schedule","start",b"start","status",b"status"]) -> None: ...
 global___ChangeControl = ChangeControl
 
 class ApproveConfig(google.protobuf.message.Message):
