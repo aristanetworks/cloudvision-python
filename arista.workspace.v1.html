@@ -1,0 +1,889 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.workspace.v1 package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.workspace.v1.services package" href="arista.workspace.v1.services.html" />
+    <link rel="prev" title="arista.workspace package" href="arista.workspace.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.workspace.html">arista.workspace package</a></li>
+      <li class="breadcrumb-item active">arista.workspace.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.workspace.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-workspace-v1-package">
+<h1>arista.workspace.v1 package<a class="headerlink" href="#arista-workspace-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.workspace.v1.services.html">arista.workspace.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.workspace.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.workspace.v1.services.html#module-arista.workspace.v1.services.gen_pb2">arista.workspace.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsSomeRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsSomeResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsStreamRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsStreamResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildDetailsStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildSomeRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildSomeResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildStreamRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildStreamResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceBuildStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSomeRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSomeResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceStreamRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceStreamResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2.WorkspaceSyncConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.workspace.v1.services.html#module-arista.workspace.v1.services.gen_pb2_grpc">arista.workspace.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsService"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsService.GetAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsService.GetMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsService.GetOne"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsService.GetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsService.Subscribe"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsServiceServicer"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildDetailsServiceStub"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildDetailsServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildService"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildService.GetAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildService.GetMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildService.GetOne"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildService.GetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildService.Subscribe"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildServiceServicer"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceBuildServiceStub"><code class="docutils literal notranslate"><span class="pre">WorkspaceBuildServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.Set"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">WorkspaceConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceService"><code class="docutils literal notranslate"><span class="pre">WorkspaceService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceService.GetAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceService.GetMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceService.GetOne"><code class="docutils literal notranslate"><span class="pre">WorkspaceService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceService.GetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceService.Subscribe"><code class="docutils literal notranslate"><span class="pre">WorkspaceService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceServiceServicer"><code class="docutils literal notranslate"><span class="pre">WorkspaceServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">WorkspaceServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">WorkspaceServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceServiceStub"><code class="docutils literal notranslate"><span class="pre">WorkspaceServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.Set"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.WorkspaceSyncConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">WorkspaceSyncConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.add_WorkspaceBuildDetailsServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_WorkspaceBuildDetailsServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.add_WorkspaceBuildServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_WorkspaceBuildServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.add_WorkspaceConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_WorkspaceConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.add_WorkspaceServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_WorkspaceServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.workspace.v1.services.html#arista.workspace.v1.services.gen_pb2_grpc.add_WorkspaceSyncConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_WorkspaceSyncConfigServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.workspace.v1.services.html#module-arista.workspace.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.workspace.v1.workspace_pb2">
+<span id="arista-workspace-v1-workspace-pb2-module"></span><h2>arista.workspace.v1.workspace_pb2 module<a class="headerlink" href="#module-arista.workspace.v1.workspace_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.AuthzResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">AuthzResult</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.AuthzResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.AuthzResult.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.AuthzResult.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.BuildStageState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">BuildStageState</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.BuildStageState" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.BuildStageState.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.BuildStageState.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.BuildStageState.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.BuildStageState.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.BuildStageState.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.BuildStageState.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ConfigSyncResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigSyncResult</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ConfigSyncResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ConfigSyncResult.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ConfigSyncResult.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ConfigValidationResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigValidationResult</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ConfigValidationResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ConfigValidationResult.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ConfigValidationResult.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ConfigletBuildResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigletBuildResult</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ConfigletBuildResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ConfigletBuildResult.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ConfigletBuildResult.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ConfigletBuildResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigletBuildResults</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ConfigletBuildResults" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ConfigletBuildResults.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ConfigletBuildResults.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ConfigletBuildResults.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ConfigletBuildResults.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ConfigletBuildResults.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ConfigletBuildResults.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ImageValidationResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">ImageValidationResult</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ImageValidationResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.ImageValidationResult.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.ImageValidationResult.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.InputError">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">InputError</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.InputError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.InputError.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.InputError.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.InputErrors">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">InputErrors</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.InputErrors" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.InputErrors.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.InputErrors.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.InputValidationResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">InputValidationResult</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.InputValidationResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.InputValidationResult.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.InputValidationResult.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.InputValidationResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">InputValidationResults</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.InputValidationResults" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.InputValidationResults.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.InputValidationResults.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.InputValidationResults.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.InputValidationResults.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.InputValidationResults.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.InputValidationResults.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.RequestParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">RequestParams</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.RequestParams" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.RequestParams.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.RequestParams.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.Response">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">Response</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.Response" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.Response.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.Response.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.Responses">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">Responses</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.Responses" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.Responses.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.Responses.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.Responses.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.Responses.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.Responses.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.Responses.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.StudioBuildDetails">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">StudioBuildDetails</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.StudioBuildDetails" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.StudioBuildDetails.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.StudioBuildDetails.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.TemplateError">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">TemplateError</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.TemplateError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.TemplateError.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.TemplateError.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.TemplateErrors">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">TemplateErrors</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.TemplateErrors" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.TemplateErrors.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.TemplateErrors.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.Workspace">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">Workspace</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.Workspace" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.Workspace.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.Workspace.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceBuild">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">WorkspaceBuild</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceBuild" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceBuild.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceBuild.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceBuildDetails">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">WorkspaceBuildDetails</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceBuildDetails" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceBuildDetails.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceBuildDetails.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceBuildDetailsKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">WorkspaceBuildDetailsKey</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceBuildDetailsKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceBuildDetailsKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceBuildDetailsKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceBuildKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">WorkspaceBuildKey</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceBuildKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceBuildKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceBuildKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">WorkspaceConfig</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">WorkspaceKey</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">WorkspaceSyncConfig</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceSyncConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceSyncKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.workspace.v1.workspace_pb2.</span></span><span class="sig-name descname"><span class="pre">WorkspaceSyncKey</span></span><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceSyncKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.workspace.v1.workspace_pb2.WorkspaceSyncKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.workspace.v1.workspace_pb2.WorkspaceSyncKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.workspace.v1.workspace_pb2_grpc">
+<span id="arista-workspace-v1-workspace-pb2-grpc-module"></span><h2>arista.workspace.v1.workspace_pb2_grpc module<a class="headerlink" href="#module-arista.workspace.v1.workspace_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.workspace.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.workspace.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.workspace.html" class="btn btn-neutral float-left" title="arista.workspace package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.workspace.v1.services.html" class="btn btn-neutral float-right" title="arista.workspace.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

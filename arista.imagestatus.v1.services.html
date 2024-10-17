@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.imagestatus.v1.services package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.inventory package" href="arista.inventory.html" />
+    <link rel="prev" title="arista.imagestatus.v1 package" href="arista.imagestatus.v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.imagestatus.html">arista.imagestatus package</a></li>
+          <li class="breadcrumb-item"><a href="arista.imagestatus.v1.html">arista.imagestatus.v1 package</a></li>
+      <li class="breadcrumb-item active">arista.imagestatus.v1.services package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.imagestatus.v1.services.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-imagestatus-v1-services-package">
+<h1>arista.imagestatus.v1.services package<a class="headerlink" href="#arista-imagestatus-v1-services-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.imagestatus.v1.services.gen_pb2">
+<span id="arista-imagestatus-v1-services-gen-pb2-module"></span><h2>arista.imagestatus.v1.services.gen_pb2 module<a class="headerlink" href="#module-arista.imagestatus.v1.services.gen_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.MetaResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">MetaResponse</span></span><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.MetaResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.MetaResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.MetaResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryBatchedStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SummaryBatchedStreamRequest</span></span><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryBatchedStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryBatchedStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryBatchedStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryBatchedStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SummaryBatchedStreamResponse</span></span><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryBatchedStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryBatchedStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryBatchedStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SummaryRequest</span></span><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SummaryResponse</span></span><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummarySomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SummarySomeRequest</span></span><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummarySomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummarySomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummarySomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummarySomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SummarySomeResponse</span></span><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummarySomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummarySomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummarySomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SummaryStreamRequest</span></span><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SummaryStreamResponse</span></span><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2.SummaryStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2.SummaryStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.imagestatus.v1.services.gen_pb2_grpc">
+<span id="arista-imagestatus-v1-services-gen-pb2-grpc-module"></span><h2>arista.imagestatus.v1.services.gen_pb2_grpc module<a class="headerlink" href="#module-arista.imagestatus.v1.services.gen_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">SummaryService</span></span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.GetAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.GetAllBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryService.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.GetAllBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.GetMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryService.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.GetMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.GetOne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.GetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryService.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.GetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.Subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.SubscribeBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryService.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.SubscribeMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryService.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryService.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">SummaryServiceServicer</span></span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.GetAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.GetAllBatched">
+<span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryServiceServicer.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.GetAllBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.GetMeta">
+<span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryServiceServicer.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.GetMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.GetOne" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.GetSome">
+<span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryServiceServicer.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.GetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.Subscribe" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.SubscribeBatched">
+<span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryServiceServicer.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.SubscribeMeta">
+<span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryServiceServicer.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceServicer.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">SummaryServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#SummaryServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.SummaryServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.imagestatus.v1.services.gen_pb2_grpc.add_SummaryServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.imagestatus.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_SummaryServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/imagestatus/v1/services/gen_pb2_grpc.html#add_SummaryServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.imagestatus.v1.services.gen_pb2_grpc.add_SummaryServiceServicer_to_server" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-arista.imagestatus.v1.services">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.imagestatus.v1.services" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.imagestatus.v1.html" class="btn btn-neutral float-left" title="arista.imagestatus.v1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.inventory.html" class="btn btn-neutral float-right" title="arista.inventory package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

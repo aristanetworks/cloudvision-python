@@ -1,0 +1,747 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.inventory.v1 package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.inventory.v1.services package" href="arista.inventory.v1.services.html" />
+    <link rel="prev" title="arista.inventory package" href="arista.inventory.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.inventory.html">arista.inventory package</a></li>
+      <li class="breadcrumb-item active">arista.inventory.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.inventory.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-inventory-v1-package">
+<h1>arista.inventory.v1 package<a class="headerlink" href="#arista-inventory-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.inventory.v1.services.html">arista.inventory.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.services.html#module-arista.inventory.v1.services.gen_pb2">arista.inventory.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceDecommissioningStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceOnboardingStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceRequest"><code class="docutils literal notranslate"><span class="pre">DeviceRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceResponse"><code class="docutils literal notranslate"><span class="pre">DeviceResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.DeviceStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceRequest"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceResponse"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceSomeRequest"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceSomeResponse"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceStreamRequest"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceStreamResponse"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2.ProvisionedDeviceStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.services.html#module-arista.inventory.v1.services.gen_pb2_grpc">arista.inventory.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.Set"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningService"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningService.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningService.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningService.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningServiceServicer"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceDecommissioningServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.Set"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingService"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingService.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingService.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingService.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingServiceServicer"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceOnboardingServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceService"><code class="docutils literal notranslate"><span class="pre">DeviceService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceService.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceService.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceService.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceServiceServicer"><code class="docutils literal notranslate"><span class="pre">DeviceServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.DeviceServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceService"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceService.GetAll"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceService.GetMeta"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceService.GetOne"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceService.GetSome"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceServiceServicer"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.ProvisionedDeviceServiceStub"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.add_DeviceDecommissioningConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DeviceDecommissioningConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.add_DeviceDecommissioningServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DeviceDecommissioningServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.add_DeviceOnboardingConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DeviceOnboardingConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.add_DeviceOnboardingServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DeviceOnboardingServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.add_DeviceServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DeviceServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.inventory.v1.services.html#arista.inventory.v1.services.gen_pb2_grpc.add_ProvisionedDeviceServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ProvisionedDeviceServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.inventory.v1.services.html#module-arista.inventory.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.inventory.v1.inventory_pb2">
+<span id="arista-inventory-v1-inventory-pb2-module"></span><h2>arista.inventory.v1.inventory_pb2 module<a class="headerlink" href="#module-arista.inventory.v1.inventory_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">Device</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.Device.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.Device.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceConfiguration</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptionsEntry</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceConfiguration.OptionsEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioning">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceDecommissioning</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioning" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioning.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioning.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceDecommissioningConfig</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceDecommissioningConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceKey</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboarding">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceOnboarding</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboarding" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboarding.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboarding.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceOnboardingConfig</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.DeviceOnboardingConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">ExtendedAttributes</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FeatureEnabledEntry</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ExtendedAttributes.FeatureEnabledEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ProvisionedDevice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">ProvisionedDevice</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ProvisionedDevice" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.ProvisionedDevice.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.ProvisionedDevice.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.UUIDKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.inventory.v1.inventory_pb2.</span></span><span class="sig-name descname"><span class="pre">UUIDKey</span></span><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.UUIDKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.inventory.v1.inventory_pb2.UUIDKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.inventory.v1.inventory_pb2.UUIDKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.inventory.v1.inventory_pb2_grpc">
+<span id="arista-inventory-v1-inventory-pb2-grpc-module"></span><h2>arista.inventory.v1.inventory_pb2_grpc module<a class="headerlink" href="#module-arista.inventory.v1.inventory_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.inventory.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.inventory.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.inventory.html" class="btn btn-neutral float-left" title="arista.inventory package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.inventory.v1.services.html" class="btn btn-neutral float-right" title="arista.inventory.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,608 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.Connector.grpc_client.grpcClient &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">cloudvision</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../Connector.html">cloudvision.Connector</a></li>
+      <li class="breadcrumb-item active">cloudvision.Connector.grpc_client.grpcClient</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cloudvision.Connector.grpc_client.grpcClient</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2020 Arista Networks, Inc.</span>
+<span class="c1"># Use of this source code is governed by the Apache License 2.0</span>
+<span class="c1"># that can be found in the COPYING file.</span>
+
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentError</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">grpc</span>
+<span class="kn">from</span> <span class="nn">google.protobuf</span> <span class="kn">import</span> <span class="n">timestamp_pb2</span> <span class="k">as</span> <span class="n">pbts</span>
+<span class="kn">from</span> <span class="nn">google.protobuf.empty_pb2</span> <span class="kn">import</span> <span class="n">Empty</span>
+
+<span class="kn">from</span> <span class="nn">cloudvision</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">version</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector</span> <span class="kn">import</span> <span class="n">codec</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.auth.cert</span> <span class="kn">import</span> <span class="n">gen_csr_der</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.core.utils</span> <span class="kn">import</span> <span class="n">get_dict</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.gen</span> <span class="kn">import</span> <span class="n">ca_pb2</span> <span class="k">as</span> <span class="n">ca</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.gen</span> <span class="kn">import</span> <span class="n">ca_pb2_grpc</span> <span class="k">as</span> <span class="n">ca_client</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.gen</span> <span class="kn">import</span> <span class="n">notification_pb2</span> <span class="k">as</span> <span class="n">ntf</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.gen</span> <span class="kn">import</span> <span class="n">router_pb2</span> <span class="k">as</span> <span class="n">rtr</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.gen</span> <span class="kn">import</span> <span class="n">router_pb2_grpc</span> <span class="k">as</span> <span class="n">rtr_client</span>
+
+<span class="n">TIME_TYPE</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">pbts</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">,</span> <span class="n">datetime</span><span class="p">]</span>
+<span class="n">UPDATE_TYPE</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+<span class="n">UPDATES_TYPE</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">UPDATE_TYPE</span><span class="p">]</span>
+<span class="n">DEFAULT_DELETE_AFTER_DAYS</span> <span class="o">=</span> <span class="mi">34</span>
+<span class="n">DATASET_TYPE_DEVICE</span> <span class="o">=</span> <span class="s2">&quot;device&quot;</span>
+
+
+<div class="viewcode-block" id="to_pbts">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.to_pbts">[docs]</a>
+<span class="k">def</span> <span class="nf">to_pbts</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TIME_TYPE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pbts</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">pbts</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">()</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">FromDatetime</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">pbts</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ts</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;timestamp must be a datetime or protobuf timestamp&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="create_query">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.create_query">[docs]</a>
+<span class="k">def</span> <span class="nf">create_query</span><span class="p">(</span><span class="n">pathKeys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">dId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DATASET_TYPE_DEVICE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rtr</span><span class="o">.</span><span class="n">Query</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    create_query creates a protobuf query message with dataset ID dId</span>
+<span class="sd">    and dataset type dtype.</span>
+<span class="sd">    pathKeys must be of the form [([pathElts...], [keys...])...]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">encoder</span> <span class="o">=</span> <span class="n">codec</span><span class="o">.</span><span class="n">Encoder</span><span class="p">()</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">rtr</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span>
+            <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">],</span>
+            <span class="n">path_elements</span><span class="o">=</span><span class="p">[</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">elt</span><span class="p">)</span> <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">path</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">path</span><span class="p">,</span> <span class="n">keys</span> <span class="ow">in</span> <span class="n">pathKeys</span>
+        <span class="k">if</span> <span class="n">keys</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">rtr</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span>
+        <span class="n">dataset</span><span class="o">=</span><span class="n">ntf</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">dId</span><span class="p">),</span>
+        <span class="n">paths</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="create_notification">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.create_notification">[docs]</a>
+<span class="k">def</span> <span class="nf">create_notification</span><span class="p">(</span>
+    <span class="n">ts</span><span class="p">:</span> <span class="n">TIME_TYPE</span><span class="p">,</span>
+    <span class="n">paths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
+    <span class="n">deletes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">updates</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">UPDATES_TYPE</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">retracts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ntf</span><span class="o">.</span><span class="n">Notification</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    create_notification creates a notification protobuf message.</span>
+<span class="sd">    ts must be a google.protobuf.timestamp_pb2.Timestamp or a</span>
+<span class="sd">    python datetime object.</span>
+<span class="sd">    paths must be a list of path elements.</span>
+<span class="sd">    deletes and retracts, if present, must be lists of keys.</span>
+<span class="sd">    updates, if present, must be of the form [(key, value)...].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">proto_ts</span> <span class="o">=</span> <span class="n">to_pbts</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+    <span class="n">encoder</span> <span class="o">=</span> <span class="n">codec</span><span class="o">.</span><span class="n">Encoder</span><span class="p">()</span>
+    <span class="c1"># An empty list would mean deleteAll so there is a need to distinguish between empty and None</span>
+    <span class="n">deleteAll</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">dels</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">deletes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">deletes</span><span class="p">:</span>
+        <span class="c1"># Passed deletes is an empty list, e.g. deleteAll</span>
+        <span class="n">deleteAll</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">deletes</span><span class="p">:</span>
+        <span class="n">dels</span> <span class="o">=</span> <span class="p">[</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">deletes</span><span class="p">]</span>
+
+    <span class="n">upds</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">upds</span> <span class="o">=</span> <span class="p">[</span><span class="n">ntf</span><span class="o">.</span><span class="n">Notification</span><span class="o">.</span><span class="n">Update</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">k</span><span class="p">),</span>
+                                        <span class="n">value</span><span class="o">=</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">updates</span><span class="p">]</span>
+    <span class="n">rets</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">retracts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">rets</span> <span class="o">=</span> <span class="p">[</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">retracts</span><span class="p">]</span>
+
+    <span class="n">pathElts</span> <span class="o">=</span> <span class="p">[</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">elt</span><span class="p">)</span> <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">ntf</span><span class="o">.</span><span class="n">Notification</span><span class="p">(</span>
+        <span class="n">timestamp</span><span class="o">=</span><span class="n">proto_ts</span><span class="p">,</span>
+        <span class="n">delete_all</span><span class="o">=</span><span class="n">deleteAll</span><span class="p">,</span>
+        <span class="n">deletes</span><span class="o">=</span><span class="n">dels</span><span class="p">,</span>
+        <span class="n">updates</span><span class="o">=</span><span class="n">upds</span><span class="p">,</span>
+        <span class="n">retracts</span><span class="o">=</span><span class="n">rets</span><span class="p">,</span>
+        <span class="n">path_elements</span><span class="o">=</span><span class="n">pathElts</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="GRPCClient">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient">[docs]</a>
+<span class="k">class</span> <span class="nc">GRPCClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    GRPCClient implements the protobuf client as well as its methods.</span>
+<span class="sd">    grpcAddr must be a valid apiserver address in the format &lt;ADDRESS&gt;:&lt;PORT&gt;.</span>
+<span class="sd">    certs, if present, must be the path to the cert file.</span>
+<span class="sd">    key, if present, must be the path to a .pem key file.</span>
+<span class="sd">    ca, if present, must be the path to a root certificate authority file.</span>
+<span class="sd">    token, if present, must be the path a .tok user access token.</span>
+<span class="sd">    tokenValue, if present, is the actual token in string form. Cannot be set with token</span>
+<span class="sd">    certsValue, if present, is the actual certs in string form. Cannot be set with certs</span>
+<span class="sd">    keyValue, if present, is the actual key in string form. Cannot be set with key</span>
+<span class="sd">    caValue, if present, is the actual ca in string form. Cannot be set with ca</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">AUTH_KEY_PATH</span> <span class="o">=</span> <span class="s2">&quot;access_token&quot;</span>
+    <span class="n">DEFAULT_CHANNEL_OPTIONS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;grpc.primary_user_agent&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;cloudvision.Connector/</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="c1"># 60 seconds</span>
+        <span class="s2">&quot;grpc.keepalive_time_ms&quot;</span><span class="p">:</span> <span class="mi">60000</span><span class="p">,</span>
+        <span class="c1"># 0 means infinite, as keepalive_time_ms is 60 seconds client will send 1 ping every minute</span>
+        <span class="s2">&quot;grpc.http2.max_pings_without_data&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">grpcAddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">certs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ca</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tokenValue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">certsValue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">keyValue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">caValue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">channel_options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># used to store the auth token for per request auth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># create a channel option by merging the default channel options and the user provided one</span>
+        <span class="c1"># NOTE: default options will be overriden if provided by the user</span>
+        <span class="n">channel_options</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">channel_options</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel_options</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">(</span><span class="n">GRPCClient</span><span class="o">.</span><span class="n">DEFAULT_CHANNEL_OPTIONS</span><span class="p">,</span> <span class="o">**</span><span class="n">channel_options</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">certs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">token</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">tokenValue</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">insecure_channel</span><span class="p">(</span><span class="n">grpcAddr</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_options</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tokCreds</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">token</span> <span class="ow">or</span> <span class="n">tokenValue</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">token</span> <span class="ow">and</span> <span class="n">tokenValue</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Cannot supply both token and token value&quot;</span><span class="p">)</span>
+                <span class="n">tokData</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="n">token</span><span class="p">:</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                        <span class="n">tokData</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">tokenValue</span><span class="p">:</span>
+                    <span class="c1"># need the elif to validate that tokenValue is string for typing</span>
+                    <span class="n">tokData</span> <span class="o">=</span> <span class="n">tokenValue</span>
+                <span class="n">tokCreds</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">access_token_call_credentials</span><span class="p">(</span><span class="n">tokData</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">AUTH_KEY_PATH</span><span class="p">,</span>
+                        <span class="n">tokData</span><span class="p">,</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
+
+            <span class="n">certData</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">certs</span> <span class="ow">or</span> <span class="n">certsValue</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">certs</span> <span class="ow">and</span> <span class="n">certsValue</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Cannot supply both certs and certs value&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">certs</span><span class="p">:</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">certs</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cf</span><span class="p">:</span>
+                        <span class="n">certData</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">certsValue</span><span class="p">:</span>
+                    <span class="n">certData</span> <span class="o">=</span> <span class="n">certsValue</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+            <span class="n">keyData</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">or</span> <span class="n">keyValue</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">keyValue</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Cannot supply both key and key value&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">key</span><span class="p">:</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">kf</span><span class="p">:</span>
+                        <span class="n">keyData</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">keyValue</span><span class="p">:</span>
+                    <span class="n">keyData</span> <span class="o">=</span> <span class="n">keyValue</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+            <span class="n">caData</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">ca</span> <span class="ow">or</span> <span class="n">caValue</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ca</span> <span class="ow">and</span> <span class="n">caValue</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">ArgumentError</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Cannot supply both ca and ca value&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">ca</span><span class="p">:</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cf</span><span class="p">:</span>
+                        <span class="n">caData</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">caValue</span><span class="p">:</span>
+                    <span class="n">caData</span> <span class="o">=</span> <span class="n">caValue</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+            <span class="n">creds</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">ssl_channel_credentials</span><span class="p">(</span>
+                <span class="n">certificate_chain</span><span class="o">=</span><span class="n">certData</span><span class="p">,</span>
+                <span class="n">private_key</span><span class="o">=</span><span class="n">keyData</span><span class="p">,</span>
+                <span class="n">root_certificates</span><span class="o">=</span><span class="n">caData</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">tokCreds</span><span class="p">:</span>
+                <span class="n">creds</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">composite_channel_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">,</span> <span class="n">tokCreds</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">secure_channel</span><span class="p">(</span><span class="n">grpcAddr</span><span class="p">,</span> <span class="n">creds</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_options</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__client</span> <span class="o">=</span> <span class="n">rtr_client</span><span class="o">.</span><span class="n">RouterV1Stub</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__auth_client</span> <span class="o">=</span> <span class="n">rtr_client</span><span class="o">.</span><span class="n">AuthStub</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__search_client</span> <span class="o">=</span> <span class="n">rtr_client</span><span class="o">.</span><span class="n">SearchStub</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ca_client</span> <span class="o">=</span> <span class="n">ca_client</span><span class="o">.</span><span class="n">CertificateAuthorityStub</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">codec</span><span class="o">.</span><span class="n">Encoder</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">codec</span><span class="o">.</span><span class="n">Decoder</span><span class="p">()</span>
+
+    <span class="c1"># Make GRPCClient usable with `with` statement</span>
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GRPCClient.close">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.close">[docs]</a>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.get">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.get">[docs]</a>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">queries</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">rtr</span><span class="o">.</span><span class="n">Query</span><span class="p">],</span>
+        <span class="n">start</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TIME_TYPE</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">end</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TIME_TYPE</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">versions</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">sharding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">exact_range</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get creates and executes a Get protobuf message, returning a stream of</span>
+<span class="sd">        notificationBatch.</span>
+<span class="sd">        queries must be a list of querry protobuf messages.</span>
+<span class="sd">        start and end, if present, must be nanoseconds timestamps (uint64).</span>
+<span class="sd">        sharding, if present must be a protobuf sharding message.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">end_ts</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">start_ts</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">end</span><span class="p">:</span>
+            <span class="n">end_ts</span> <span class="o">=</span> <span class="n">to_pbts</span><span class="p">(</span><span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">ToNanoseconds</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">start</span><span class="p">:</span>
+            <span class="n">start_ts</span> <span class="o">=</span> <span class="n">to_pbts</span><span class="p">(</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">ToNanoseconds</span><span class="p">()</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">rtr</span><span class="o">.</span><span class="n">GetRequest</span><span class="p">(</span>
+            <span class="n">query</span><span class="o">=</span><span class="n">queries</span><span class="p">,</span>
+            <span class="n">start</span><span class="o">=</span><span class="n">start_ts</span><span class="p">,</span>
+            <span class="n">end</span><span class="o">=</span><span class="n">end_ts</span><span class="p">,</span>
+            <span class="n">versions</span><span class="o">=</span><span class="n">versions</span><span class="p">,</span>
+            <span class="n">sharded_sub</span><span class="o">=</span><span class="n">sharding</span><span class="p">,</span>
+            <span class="n">exact_range</span><span class="o">=</span><span class="n">exact_range</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__client</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decode_batch</span><span class="p">(</span><span class="n">nb</span><span class="p">)</span> <span class="k">for</span> <span class="n">nb</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.subscribe">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.subscribe">[docs]</a>
+    <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queries</span><span class="p">,</span> <span class="n">sharding</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Subscribe creates and executes a Subscribe protobuf message,</span>
+<span class="sd">        returning a stream of notificationBatch.</span>
+<span class="sd">        queries must be a list of querry protobuf messages.</span>
+<span class="sd">        sharding, if present must be a protobuf sharding message.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">req</span> <span class="o">=</span> <span class="n">rtr</span><span class="o">.</span><span class="n">SubscribeRequest</span><span class="p">(</span>
+            <span class="n">query</span><span class="o">=</span><span class="n">queries</span><span class="p">,</span>
+            <span class="n">sharded_sub</span><span class="o">=</span><span class="n">sharding</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__client</span><span class="o">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decode_batch</span><span class="p">(</span><span class="n">nb</span><span class="p">)</span> <span class="k">for</span> <span class="n">nb</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.publish">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.publish">[docs]</a>
+    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dId</span><span class="p">,</span>
+        <span class="n">notifs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ntf</span><span class="o">.</span><span class="n">Notification</span><span class="p">],</span>
+        <span class="n">dtype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DATASET_TYPE_DEVICE</span><span class="p">,</span>
+        <span class="n">sync</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">compare</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">UPDATE_TYPE</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Publish creates and executes a Publish protobuf message.</span>
+<span class="sd">        refer to cloudvision/Connector/protobufs/router.proto:124</span>
+<span class="sd">        default to sync publish being true so that changes are reflected</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">comp_pb</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">compare</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">compare</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">compare</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">comp_pb</span> <span class="o">=</span> <span class="n">ntf</span><span class="o">.</span><span class="n">Notification</span><span class="o">.</span><span class="n">Update</span><span class="p">(</span>
+                <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">key</span><span class="p">),</span>
+                <span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">value</span><span class="p">),</span>
+            <span class="p">)</span>
+
+        <span class="n">req</span> <span class="o">=</span> <span class="n">rtr</span><span class="o">.</span><span class="n">PublishRequest</span><span class="p">(</span>
+            <span class="n">batch</span><span class="o">=</span><span class="n">ntf</span><span class="o">.</span><span class="n">NotificationBatch</span><span class="p">(</span>
+                <span class="n">d</span><span class="o">=</span><span class="n">DATASET_TYPE_DEVICE</span><span class="p">,</span>
+                <span class="n">dataset</span><span class="o">=</span><span class="n">ntf</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">dId</span><span class="p">),</span>
+                <span class="n">notifications</span><span class="o">=</span><span class="n">notifs</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">sync</span><span class="o">=</span><span class="n">sync</span><span class="p">,</span>
+            <span class="n">compare</span><span class="o">=</span><span class="n">comp_pb</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__client</span><span class="o">.</span><span class="n">Publish</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.get_datasets">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.get_datasets">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_datasets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">types</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        GetDatasets retrieves all the datasets streaming on CloudVision.</span>
+<span class="sd">        types, if present, filter the queried dataset by types</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">rtr</span><span class="o">.</span><span class="n">DatasetsRequest</span><span class="p">(</span>
+            <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__client</span><span class="o">.</span><span class="n">GetDatasets</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">stream</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.create_dataset">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.create_dataset">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">dId</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">rtr</span><span class="o">.</span><span class="n">CreateDatasetRequest</span><span class="p">(</span>
+            <span class="n">dataset</span><span class="o">=</span><span class="n">ntf</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">dId</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__auth_client</span><span class="o">.</span><span class="n">CreateDataset</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.decode_batch">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.decode_batch">[docs]</a>
+    <span class="k">def</span> <span class="nf">decode_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;dataset&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">batch</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">batch</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">decode_notification</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">batch</span><span class="o">.</span><span class="n">notifications</span><span class="p">],</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.decode_notification">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.decode_notification">[docs]</a>
+    <span class="k">def</span> <span class="nf">decode_notification</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notif</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">notif</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
+            <span class="s2">&quot;deletes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">notif</span><span class="o">.</span><span class="n">deletes</span><span class="p">],</span>
+            <span class="s2">&quot;updates&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">key</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">notif</span><span class="o">.</span><span class="n">updates</span><span class="p">},</span>
+            <span class="s2">&quot;retracts&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">notif</span><span class="o">.</span><span class="n">retracts</span><span class="p">],</span>
+            <span class="s2">&quot;path_elements&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">elt</span><span class="p">)</span> <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">notif</span><span class="o">.</span><span class="n">path_elements</span><span class="p">],</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.search">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.search">[docs]</a>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">search_type</span><span class="o">=</span><span class="n">rtr</span><span class="o">.</span><span class="n">SearchRequest</span><span class="o">.</span><span class="n">CUSTOM</span><span class="p">,</span>
+        <span class="n">d_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DATASET_TYPE_DEVICE</span><span class="p">,</span>
+        <span class="n">d_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">result_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">start</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TIME_TYPE</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">end</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TIME_TYPE</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">path_elements</span><span class="o">=</span><span class="p">[],</span>
+        <span class="n">key_filters</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">rtr</span><span class="o">.</span><span class="n">Filter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="n">value_filters</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">rtr</span><span class="o">.</span><span class="n">Filter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="n">exact_range</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">exact_term</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">sort</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">rtr</span><span class="o">.</span><span class="n">Sort</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="n">count_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">start_ts</span> <span class="o">=</span> <span class="n">to_pbts</span><span class="p">(</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">ToNanoseconds</span><span class="p">()</span> <span class="k">if</span> <span class="n">start</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">end_ts</span> <span class="o">=</span> <span class="n">to_pbts</span><span class="p">(</span><span class="n">end</span><span class="p">)</span><span class="o">.</span><span class="n">ToNanoseconds</span><span class="p">()</span> <span class="k">if</span> <span class="n">end</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">encoded_path_elements</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">path_elements</span><span class="p">]</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">rtr</span><span class="o">.</span><span class="n">SearchRequest</span><span class="p">(</span>
+            <span class="n">search_type</span><span class="o">=</span><span class="n">search_type</span><span class="p">,</span>
+            <span class="n">start</span><span class="o">=</span><span class="n">start_ts</span><span class="p">,</span>
+            <span class="n">end</span><span class="o">=</span><span class="n">end_ts</span><span class="p">,</span>
+            <span class="n">query</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">rtr</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span>
+                    <span class="n">dataset</span><span class="o">=</span><span class="n">ntf</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">d_type</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">d_name</span><span class="p">),</span>
+                    <span class="n">paths</span><span class="o">=</span><span class="p">[</span>
+                        <span class="n">rtr</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">path_elements</span><span class="o">=</span><span class="n">encoded_path_elements</span><span class="p">),</span>
+                    <span class="p">],</span>
+                <span class="p">),</span>
+            <span class="p">],</span>
+            <span class="n">result_size</span><span class="o">=</span><span class="n">result_size</span><span class="p">,</span>
+            <span class="n">key_filters</span><span class="o">=</span><span class="n">key_filters</span><span class="p">,</span>
+            <span class="n">value_filters</span><span class="o">=</span><span class="n">value_filters</span><span class="p">,</span>
+            <span class="n">exact_range</span><span class="o">=</span><span class="n">exact_range</span><span class="p">,</span>
+            <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">,</span>
+            <span class="n">exact_term</span><span class="o">=</span><span class="n">exact_term</span><span class="p">,</span>
+            <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span>
+            <span class="n">count_only</span><span class="o">=</span><span class="n">count_only</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__search_client</span><span class="o">.</span><span class="n">Search</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decode_batch</span><span class="p">(</span><span class="n">nb</span><span class="p">)</span> <span class="k">for</span> <span class="n">nb</span> <span class="ow">in</span> <span class="n">res</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.set_custom_schema">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.set_custom_schema">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_custom_schema</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">d_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">path_elements</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">schema</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">rtr</span><span class="o">.</span><span class="n">IndexField</span><span class="p">],</span>
+        <span class="n">delete_after_days</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">DEFAULT_DELETE_AFTER_DAYS</span><span class="p">,</span>
+        <span class="n">d_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DATASET_TYPE_DEVICE</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Empty</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set custom index schema for given path.</span>
+
+<span class="sd">        :param d_name: Dataset name on aeris</span>
+<span class="sd">        :param path_elements: Path elements for which schema needs to be set</span>
+<span class="sd">        :param schema: Schema to be set</span>
+<span class="sd">        :param delete_after_days: Number of days after which data would be deleted</span>
+<span class="sd">        :param d_type: Type of the dataset</span>
+<span class="sd">        :return: Empty message</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_custom_schema_index_request</span><span class="p">(</span>
+            <span class="n">d_name</span><span class="p">,</span> <span class="n">path_elements</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">delete_after_days</span><span class="p">,</span> <span class="n">d_type</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__search_client</span><span class="o">.</span><span class="n">SetCustomSchema</span><span class="p">(</span><span class="n">req</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.create_custom_schema_index_request">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.create_custom_schema_index_request">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_custom_schema_index_request</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">d_name</span><span class="p">,</span>
+        <span class="n">path_elements</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span>
+        <span class="n">delete_after_days</span><span class="p">,</span> <span class="n">d_type</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rtr</span><span class="o">.</span><span class="n">CustomIndexSchema</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create custom index schema request from given imputs.</span>
+
+<span class="sd">        :param d_name: Dataset name on aeris</span>
+<span class="sd">        :param path_elements: Path elements for which schema needs to be set</span>
+<span class="sd">        :param schema: Schema to be set</span>
+<span class="sd">        :param delete_after_days: Number of days after which data would be deleted</span>
+<span class="sd">        :param d_type: Type of the dataset</span>
+<span class="sd">        :return: Custom index schema request</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">encoded_path_elements</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">path_elements</span><span class="p">]</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">rtr</span><span class="o">.</span><span class="n">CustomIndexSchema</span><span class="p">(</span>
+            <span class="n">query</span><span class="o">=</span><span class="n">rtr</span><span class="o">.</span><span class="n">Query</span>
+            <span class="p">(</span>
+                <span class="n">dataset</span><span class="o">=</span><span class="n">ntf</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">d_type</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">d_name</span><span class="p">),</span>
+                <span class="n">paths</span><span class="o">=</span><span class="p">[</span><span class="n">rtr</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">path_elements</span><span class="o">=</span><span class="n">encoded_path_elements</span><span class="p">)],</span>
+            <span class="p">),</span>
+            <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span>
+            <span class="n">option</span><span class="o">=</span><span class="n">rtr</span><span class="o">.</span><span class="n">CustomIndexOptions</span><span class="p">(</span><span class="n">delete_after_days</span><span class="o">=</span><span class="n">delete_after_days</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">req</span></div>
+
+
+<div class="viewcode-block" id="GRPCClient.reenroll">
+<a class="viewcode-back" href="../../../../cloudvision.Connector.grpc_client.html#cloudvision.Connector.grpc_client.grpcClient.GRPCClient.reenroll">[docs]</a>
+    <span class="k">def</span> <span class="nf">reenroll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cert_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reenroll the existing certificate.</span>
+
+<span class="sd">        Caller can pass their current key and certificate and receive a renewed</span>
+<span class="sd">        certificate in return.</span>
+<span class="sd">        The default validity of the renewed certificate is 90 days.</span>
+
+<span class="sd">        :param cert_path: Certificate file path</span>
+<span class="sd">        :param key_path: Private Key file path</span>
+<span class="sd">        :return: Renewed Certificate in ASN.1 DER</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">csr_der</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">gen_csr_der</span><span class="p">(</span><span class="n">cert_path</span><span class="p">,</span> <span class="n">key_path</span><span class="p">)</span>
+        <span class="n">crt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ca_client</span><span class="o">.</span><span class="n">Reenroll</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">CSR</span><span class="p">(</span><span class="n">csr</span><span class="o">=</span><span class="n">csr_der</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">crt</span><span class="o">.</span><span class="n">crt</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

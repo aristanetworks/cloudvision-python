@@ -1,0 +1,840 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.cvlib.tags &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cloudvision</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cloudvision.cvlib.tags</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cloudvision.cvlib.tags</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2023 Arista Networks, Inc.</span>
+<span class="c1"># Use of this source code is governed by the Apache License 2.0</span>
+<span class="c1"># that can be found in the COPYING file.</span>
+
+<span class="kn">from</span> <span class="nn">grpc</span> <span class="kn">import</span> <span class="n">RpcError</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">from</span> <span class="nn">arista.tag.v2.services</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TagAssignmentServiceStub</span><span class="p">,</span>
+    <span class="n">TagAssignmentStreamRequest</span><span class="p">,</span>
+    <span class="n">TagConfigServiceStub</span><span class="p">,</span>
+    <span class="n">TagConfigSetRequest</span><span class="p">,</span>
+    <span class="n">TagConfigSetSomeRequest</span><span class="p">,</span>
+    <span class="n">TagAssignmentConfigStreamRequest</span><span class="p">,</span>
+    <span class="n">TagAssignmentConfigServiceStub</span><span class="p">,</span>
+    <span class="n">TagAssignmentConfigSetRequest</span><span class="p">,</span>
+    <span class="n">TagAssignmentConfigSetSomeRequest</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">arista.tag.v2.tag_pb2</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TagAssignment</span><span class="p">,</span>
+    <span class="n">TagAssignmentConfig</span><span class="p">,</span>
+    <span class="n">TagConfig</span><span class="p">,</span>
+    <span class="n">ElementType</span><span class="p">,</span>
+    <span class="n">ELEMENT_TYPE_DEVICE</span><span class="p">,</span>
+    <span class="n">ELEMENT_TYPE_INTERFACE</span><span class="p">,</span>
+    <span class="n">CREATOR_TYPE_USER</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">arista.time.time_pb2</span> <span class="kn">import</span> <span class="n">TimeBounds</span>
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TagOperationException</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.workspace</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">getWorkspaceLastSynced</span>
+<span class="p">)</span>
+
+<span class="n">MAINLINE_ID</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="Tag">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.tags.Tag">[docs]</a>
+<span class="k">class</span> <span class="nc">Tag</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Object that represents a tag</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="o">=</span> <span class="n">label</span> <span class="k">if</span> <span class="n">label</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="vm">__dict__</span>
+
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">label</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">label</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span></div>
+
+
+
+<div class="viewcode-block" id="Tags">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.tags.Tags">[docs]</a>
+<span class="k">class</span> <span class="nc">Tags</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Object to store tags data relevant to a studio build context.</span>
+<span class="sd">    Note, this class and the methods in context and device classes which use it,</span>
+<span class="sd">    are meant to be used from studio workspace builds and will operate on</span>
+<span class="sd">    tags within workspaces using the workspace and studio in the context.</span>
+<span class="sd">    Implemented so only one access is made to retreive tags from the remote tags service.</span>
+<span class="sd">    (two accesses until the tags service provided merged mainline-workspace state apis)</span>
+<span class="sd">    Note that a tag is of the form label:value, where the same label may be associated</span>
+<span class="sd">    with many values.</span>
+<span class="sd">    Device tags are assigned to devices.</span>
+<span class="sd">    Interface tags are assigned to devices&#39; interfaces.</span>
+<span class="sd">    - ctx:                     Context in which the studio build is run</span>
+<span class="sd">    - relevantTagAssigns:      Dictionary of relevant device tags, of the form:</span>
+<span class="sd">                               {deviceId: {label: [value1,value2,..]}},</span>
+<span class="sd">                               works like a cache</span>
+<span class="sd">    - relevantIntfTagAssigns:  Dictionary of relevant interface tags, of the form:</span>
+<span class="sd">                               {deviceId: {intfId: {label: [value1,value2,..]}}},</span>
+<span class="sd">                               works like a cache</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span> <span class="o">=</span> <span class="n">context</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_getTagUpdatesFromWorkspace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">etype</span><span class="o">=</span><span class="n">ELEMENT_TYPE_DEVICE</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _getTagUpdatesFromWorkspace returns a list of tags updates,</span>
+<span class="sd">        of the specified ElementType, in the workspace.</span>
+<span class="sd">        The returned list is of the form:</span>
+<span class="sd">            list[(deviceId, interfaceId, label, value, remove)]</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">workspaceTagUpdates</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tagClient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getApiClient</span><span class="p">(</span><span class="n">TagAssignmentConfigServiceStub</span><span class="p">)</span>
+        <span class="n">tagRequest</span> <span class="o">=</span> <span class="n">TagAssignmentConfigStreamRequest</span><span class="p">()</span>
+        <span class="n">tagFilter</span> <span class="o">=</span> <span class="n">TagAssignmentConfig</span><span class="p">()</span>
+        <span class="n">tagFilter</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">element_type</span> <span class="o">=</span> <span class="n">etype</span>
+        <span class="n">tagFilter</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">workspace_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getWorkspaceId</span><span class="p">()</span>
+        <span class="n">tagRequest</span><span class="o">.</span><span class="n">partial_eq_filter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tagFilter</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">tagClient</span><span class="o">.</span><span class="n">GetAll</span><span class="p">(</span><span class="n">tagRequest</span><span class="p">):</span>
+            <span class="n">workspaceTagUpdates</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">device_id</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                                        <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">interface_id</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                                        <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                                        <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                                        <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">remove</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">workspaceTagUpdates</span>
+
+    <span class="k">def</span> <span class="nf">_createTag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">etype</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _createTag creates a tag if it doesn&#39;t already exist,</span>
+<span class="sd">        of the specified ElementType, in the workspace.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">)</span>
+        <span class="c1"># check if the tag exists</span>
+        <span class="k">if</span> <span class="n">etype</span> <span class="o">==</span> <span class="n">ELEMENT_TYPE_DEVICE</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviceTagExists</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">etype</span> <span class="o">==</span> <span class="n">ELEMENT_TYPE_INTERFACE</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interfaceTagExists</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="c1"># create the tag</span>
+        <span class="n">setRequest</span> <span class="o">=</span> <span class="n">TagConfigSetRequest</span><span class="p">()</span>
+        <span class="n">wsID</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getWorkspaceId</span><span class="p">()</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">workspace_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">wsID</span>
+        <span class="c1"># Mypy complains about this not being an int, with</span>
+        <span class="c1"># (expression has type &quot;int&quot;, variable has type &quot;ValueType&quot;)</span>
+        <span class="c1"># but ValueType = typing.NewType(&#39;ValueType&#39;, builtins.int), so just ignore it</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">element_type</span> <span class="o">=</span> <span class="n">etype</span>  <span class="c1"># type: ignore</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">tagClient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getApiClient</span><span class="p">(</span><span class="n">TagConfigServiceStub</span><span class="p">)</span>
+        <span class="n">tagClient</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">setRequest</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_createTags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">etype</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">],</span> <span class="n">configsPerReq</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _createTags creates multiple tags if they don&#39;t already exist,</span>
+<span class="sd">        of the specified ElementType, in the workspace.</span>
+<span class="sd">        The input tags is a List of Tuples of (label, value)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># remove from the list if the tag already exists</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">[:]:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">etype</span> <span class="o">==</span> <span class="n">ELEMENT_TYPE_DEVICE</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviceTagExists</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                <span class="n">tags</span><span class="o">.</span><span class="n">remove</span><span class="p">((</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">etype</span> <span class="o">==</span> <span class="n">ELEMENT_TYPE_INTERFACE</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interfaceTagExists</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                <span class="n">tags</span><span class="o">.</span><span class="n">remove</span><span class="p">((</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tags</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1"># create the tags</span>
+        <span class="n">tagConfigs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">wsID</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getWorkspaceId</span><span class="p">()</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">:</span>
+            <span class="n">tagConfig</span> <span class="o">=</span> <span class="n">TagConfig</span><span class="p">()</span>
+            <span class="n">tagConfig</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">workspace_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">wsID</span>
+            <span class="c1"># Mypy complains about this not being an int, with</span>
+            <span class="c1"># (expression has type &quot;int&quot;, variable has type &quot;ValueType&quot;)</span>
+            <span class="c1"># but ValueType = typing.NewType(&#39;ValueType&#39;, builtins.int), so just ignore it</span>
+            <span class="n">tagConfig</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">element_type</span> <span class="o">=</span> <span class="n">etype</span>  <span class="c1"># type: ignore</span>
+            <span class="n">tagConfig</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">label</span>
+            <span class="n">tagConfig</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">tagConfigs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tagConfig</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># chunk each SetSome request to a maximum of configsPerReq</span>
+        <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tagConfigs</span><span class="p">),</span> <span class="n">configsPerReq</span><span class="p">):</span>
+            <span class="n">setSomeRequest</span> <span class="o">=</span> <span class="n">TagConfigSetSomeRequest</span><span class="p">(</span>
+                <span class="n">values</span><span class="o">=</span><span class="n">tagConfigs</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">configsPerReq</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">tagClient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getApiClient</span><span class="p">(</span><span class="n">TagConfigServiceStub</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">tagClient</span><span class="o">.</span><span class="n">SetSome</span><span class="p">(</span><span class="n">setSomeRequest</span><span class="p">):</span>
+                    <span class="k">pass</span>
+            <span class="k">except</span> <span class="n">RpcError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_assignTagSet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">etype</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tagAssign</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">remove</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _assignTagSet assigns a tag.</span>
+<span class="sd">        The input tagAssign is a tuple of the form:</span>
+<span class="sd">            (deviceId, interfaceId, label, value)</span>
+<span class="sd">        If remove is True, then unassigns the tag.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">=</span> <span class="n">tagAssign</span>
+        <span class="n">setRequest</span> <span class="o">=</span> <span class="n">TagAssignmentConfigSetRequest</span><span class="p">()</span>
+        <span class="n">wsID</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getWorkspaceId</span><span class="p">()</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">workspace_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">wsID</span>
+        <span class="c1"># Mypy complains about this not being an int, with</span>
+        <span class="c1"># (expression has type &quot;int&quot;, variable has type &quot;ValueType&quot;)</span>
+        <span class="c1"># but ValueType = typing.NewType(&#39;ValueType&#39;, builtins.int), so just ignore it</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">element_type</span> <span class="o">=</span> <span class="n">etype</span>  <span class="c1"># type: ignore</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">device_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">deviceId</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">interface_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">interfaceId</span>
+        <span class="n">setRequest</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">remove</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">remove</span>
+        <span class="n">tagClient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getApiClient</span><span class="p">(</span><span class="n">TagAssignmentConfigServiceStub</span><span class="p">)</span>
+        <span class="n">tagClient</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">setRequest</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_assignTagsSets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">etype</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tagAssigns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">],</span>
+                        <span class="n">remove</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">configsPerReq</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _assignTagsSets assigns/unassigns multiple tags.</span>
+<span class="sd">        The input tagAssigns is a List of Tuples of the form:</span>
+<span class="sd">            (deviceId, interfaceId, label, value)</span>
+<span class="sd">        If remove is True, then unassigns the tags.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">tagAssConfigs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">wsID</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getWorkspaceId</span><span class="p">()</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagAssigns</span><span class="p">:</span>
+            <span class="n">tagAssConfig</span> <span class="o">=</span> <span class="n">TagAssignmentConfig</span><span class="p">()</span>
+            <span class="n">tagAssConfig</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">workspace_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">wsID</span>
+            <span class="c1"># Mypy complains about this not being an int, with</span>
+            <span class="c1"># (expression has type &quot;int&quot;, variable has type &quot;ValueType&quot;)</span>
+            <span class="c1"># but ValueType = typing.NewType(&#39;ValueType&#39;, builtins.int), so just ignore it</span>
+            <span class="n">tagAssConfig</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">element_type</span> <span class="o">=</span> <span class="n">etype</span>  <span class="c1"># type: ignore</span>
+            <span class="n">tagAssConfig</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">label</span>
+            <span class="n">tagAssConfig</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">tagAssConfig</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">device_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">deviceId</span>
+            <span class="n">tagAssConfig</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">interface_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">interfaceId</span>
+            <span class="n">tagAssConfig</span><span class="o">.</span><span class="n">remove</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">remove</span>
+            <span class="n">tagAssConfigs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tagAssConfig</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># chunk each SetSome request to a maximum of configsPerReq</span>
+        <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tagAssConfigs</span><span class="p">),</span> <span class="n">configsPerReq</span><span class="p">):</span>
+            <span class="n">setSomeRequest</span> <span class="o">=</span> <span class="n">TagAssignmentConfigSetSomeRequest</span><span class="p">(</span>
+                <span class="n">values</span><span class="o">=</span><span class="n">tagAssConfigs</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">configsPerReq</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">tagClient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getApiClient</span><span class="p">(</span><span class="n">TagAssignmentConfigServiceStub</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">tagClient</span><span class="o">.</span><span class="n">SetSome</span><span class="p">(</span><span class="n">setSomeRequest</span><span class="p">):</span>
+                    <span class="k">pass</span>
+            <span class="k">except</span> <span class="n">RpcError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;assign&#39;</span><span class="p">)</span>
+
+    <span class="c1"># The following are methods for device Tags</span>
+
+    <span class="k">def</span> <span class="nf">_deviceTagExists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="c1"># Note use list instead of .items()</span>
+        <span class="c1"># parallel thread might add/delete tags</span>
+        <span class="k">for</span> <span class="n">dev</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">allTags</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getAllDeviceTags</span><span class="p">()):</span>
+            <span class="n">tags</span> <span class="o">=</span> <span class="n">allTags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">dev</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_deviceTagAssigned</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getDeviceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_assignDevTagInCache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _assignDevTagInCache modifies relevantTagAssigns for the device tag</span>
+<span class="sd">        ensuring the tag is assigned to the device in the local cache</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">deviceId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">label</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_unassignDevTagInCache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _unassignDevTagInCache modifies relevantTagAssigns for the device tag</span>
+<span class="sd">        ensuring the tag is not assigned to the device in the local cache</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">deviceId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">label</span><span class="p">]:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">label</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_getAllDeviceTagsFromMainline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _getAllDeviceTagsFromMainline returns a map of all assigned device tags available</span>
+<span class="sd">        in the mainline.  Also sets the local cache to this map.</span>
+<span class="sd">        The returned map is of the form: map[deviceId]map[label]=[value1,value2,..]</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">wsTs</span> <span class="o">=</span> <span class="n">getWorkspaceLastSynced</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getApiClient</span><span class="p">,</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getWorkspaceId</span><span class="p">())</span>
+        <span class="n">timeBound</span> <span class="o">=</span> <span class="n">TimeBounds</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="n">wsTs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tagClient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getApiClient</span><span class="p">(</span><span class="n">TagAssignmentServiceStub</span><span class="p">)</span>
+        <span class="n">tagRequest</span> <span class="o">=</span> <span class="n">TagAssignmentStreamRequest</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">timeBound</span><span class="p">)</span>
+        <span class="n">tagFilter</span> <span class="o">=</span> <span class="n">TagAssignment</span><span class="p">()</span>
+        <span class="n">tagFilter</span><span class="o">.</span><span class="n">tag_creator_type</span> <span class="o">=</span> <span class="n">CREATOR_TYPE_USER</span>
+        <span class="n">tagFilter</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">element_type</span> <span class="o">=</span> <span class="n">ELEMENT_TYPE_DEVICE</span>
+        <span class="n">tagFilter</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">workspace_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">MAINLINE_ID</span>
+        <span class="n">tagRequest</span><span class="o">.</span><span class="n">partial_eq_filter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tagFilter</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">tagClient</span><span class="o">.</span><span class="n">GetAll</span><span class="p">(</span><span class="n">tagRequest</span><span class="p">):</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">deviceId</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">device_id</span><span class="o">.</span><span class="n">value</span>
+            <span class="k">if</span> <span class="n">deviceId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">label</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span>
+
+    <span class="k">def</span> <span class="nf">_setRelevantTagAssigns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sets the relevantTagAssigns of the context.</span>
+<span class="sd">        Called during context initialisation during script execution as optimization</span>
+<span class="sd">        Does not need to be called by the script writers</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span> <span class="o">=</span> <span class="n">tags</span>
+
+    <span class="k">def</span> <span class="nf">_getDeviceTags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _getDeviceTags returns the relevant assigned tags for the device.</span>
+<span class="sd">        The returned map is of the form: map[label]=[value1,value2,..]</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getAllDeviceTags</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="k">def</span> <span class="nf">_getAllDeviceTags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _getAllDeviceTags returns a map of all assigned device tags available</span>
+<span class="sd">        in the workspace.</span>
+<span class="sd">        The returned map is of the form: map[deviceId]map[label]=[value1,value2,..]</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getAllDeviceTagsFromMainline</span><span class="p">()</span>
+        <span class="n">workspaceUpdates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getTagUpdatesFromWorkspace</span><span class="p">()</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">remove</span><span class="p">)</span> <span class="ow">in</span> <span class="n">workspaceUpdates</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">remove</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_unassignDevTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_assignDevTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantTagAssigns</span>
+
+    <span class="k">def</span> <span class="nf">_assignDeviceTag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">replaceValue</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _assignDeviceTag assigns a device tag if it isn&#39;t already assigned.</span>
+<span class="sd">        If replaceValue is True ensures one value of tag is assigned to device.</span>
+<span class="sd">        If replaceValue is False multiple values of tag can be assigned to device.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># first make sure this device&#39;s tags have been loaded in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getDeviceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">)</span>
+        <span class="c1"># identify unassigns for replace cases</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">deviceId</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;assign&#39;</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">replaceValue</span><span class="p">:</span>
+            <span class="n">current_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_getDeviceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]))</span>
+            <span class="k">for</span> <span class="n">cvalue</span> <span class="ow">in</span> <span class="n">current_values</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">cvalue</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_unassignDeviceTag</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">)</span>
+        <span class="c1"># check if the tag is already assigned to this device</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviceTagAssigned</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="c1"># create the tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_createTag</span><span class="p">(</span><span class="n">ELEMENT_TYPE_DEVICE</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="c1"># assign the tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assignTagSet</span><span class="p">(</span><span class="n">ELEMENT_TYPE_DEVICE</span><span class="p">,</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="c1"># assign the tag in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assignDevTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_unassignDeviceTag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _unassignDeviceTag unassigns a device tag if it is assigned</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># first make sure this device&#39;s tags have been loaded in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getDeviceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">deviceId</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;unassign&#39;</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">)</span>
+        <span class="c1"># check if the tag is assigned to this device</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviceTagAssigned</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="c1"># unassign the tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assignTagSet</span><span class="p">(</span><span class="n">ELEMENT_TYPE_DEVICE</span><span class="p">,</span>
+                           <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># unassign the tag in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_unassignDevTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_unassignDeviceTagLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _unassignDeviceTagLabel unassigns all device tags of a label</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">deviceId</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;unassign&#39;</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">)</span>
+        <span class="n">current_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_getDeviceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">for</span> <span class="n">cvalue</span> <span class="ow">in</span> <span class="n">current_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_unassignDeviceTag</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_assignDeviceTags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tagAssignReplaces</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _assignDeviceTags assigns multiple device tags if not already assigned.</span>
+<span class="sd">        The input tagAssignReplaces is a List of Tuple of the form:</span>
+<span class="sd">            (deviceId, label, value, replaceValue)</span>
+<span class="sd">        If replaceValue is True ensures one value of tag is assigned to device.</span>
+<span class="sd">        If replaceValue is False multiple values of tag can be assigned to device.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tagAssignReplaces</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">tagUnAssigns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tagAssigns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tagAssignsDict</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># first make sure device tags have been loaded in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getAllDeviceTags</span><span class="p">()</span>
+        <span class="c1"># identify unassigns for replace cases</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">replaceValue</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagAssignReplaces</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">deviceId</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;assign&#39;</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">replaceValue</span><span class="p">:</span>
+                <span class="n">current_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_getDeviceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]))</span>
+                <span class="k">for</span> <span class="n">cvalue</span> <span class="ow">in</span> <span class="n">current_values</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">cvalue</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
+                        <span class="n">tagUnAssigns</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">cvalues</span> <span class="o">:=</span> <span class="n">tagAssignsDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">)):</span>
+                    <span class="k">for</span> <span class="n">cvalue</span> <span class="ow">in</span> <span class="n">cvalues</span><span class="p">:</span>
+                        <span class="n">tagAssigns</span><span class="o">.</span><span class="n">remove</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">))</span>
+                    <span class="n">tagAssignsDict</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">tagAssignsDict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">tagAssigns</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_unassignDeviceTags</span><span class="p">(</span><span class="n">tagUnAssigns</span><span class="p">)</span>
+        <span class="c1"># remove from the list if the tag assignmnet already exists</span>
+        <span class="n">uniqueTags</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagAssigns</span><span class="p">[:]:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviceTagAssigned</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                <span class="n">tagAssigns</span><span class="o">.</span><span class="n">remove</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">uniqueTags</span><span class="p">:</span>
+                <span class="n">uniqueTags</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tagAssigns</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1"># create the tags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_createTags</span><span class="p">(</span><span class="n">ELEMENT_TYPE_DEVICE</span><span class="p">,</span> <span class="n">uniqueTags</span><span class="p">)</span>
+        <span class="c1"># assign the tags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assignTagsSets</span><span class="p">(</span><span class="n">ELEMENT_TYPE_DEVICE</span><span class="p">,</span> <span class="n">tagAssigns</span><span class="p">)</span>
+        <span class="c1"># assign the tags in cache</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagAssigns</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_assignDevTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_unassignDeviceTags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tagUnAssignsIn</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _unassignDeviceTags unassigns multiple device tags if currently assigned.</span>
+<span class="sd">        The input tagUnAssigns is a List of Tuples of the form:</span>
+<span class="sd">            (deviceId, label, value)</span>
+<span class="sd">        If value is None then unassigns all values of that label</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tagUnAssignsIn</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1"># first make sure device tags have been loaded in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getAllDeviceTags</span><span class="p">()</span>
+        <span class="n">tagUnAssigns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># remove from the list if the tag assignment doesn&#39;t exist</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagUnAssignsIn</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">deviceId</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;unassign&#39;</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">)</span>
+            <span class="c1"># check if the tag is assigned to this device</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">current_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_getDeviceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]))</span>
+                <span class="k">for</span> <span class="n">cvalue</span> <span class="ow">in</span> <span class="n">current_values</span><span class="p">:</span>
+                    <span class="n">tagUnAssigns</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviceTagAssigned</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                <span class="n">tagUnAssigns</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tagUnAssigns</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1"># unassign the tags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assignTagsSets</span><span class="p">(</span><span class="n">ELEMENT_TYPE_DEVICE</span><span class="p">,</span> <span class="n">tagUnAssigns</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># unassign the tags in cache</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagUnAssigns</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_unassignDevTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="c1"># The following are methods for interface Tags</span>
+
+    <span class="k">def</span> <span class="nf">_interfaceTagExists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="c1"># Note use list instead of .items()</span>
+        <span class="c1"># parallel thread might add/delete tags</span>
+        <span class="k">for</span> <span class="n">dev</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">allTags</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getAllInterfaceTags</span><span class="p">()):</span>
+            <span class="k">for</span> <span class="n">intf</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">devIntfTags</span> <span class="o">:=</span> <span class="n">allTags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">dev</span><span class="p">,</span> <span class="p">{})):</span>
+                <span class="n">tags</span> <span class="o">=</span> <span class="n">devIntfTags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">intf</span><span class="p">,</span> <span class="p">{})</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]):</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_interfaceTagAssigned</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInterfaceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_assignIntfTagInCache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _assignIntfTagInCache modifies relevantIntfAssigns for the device tag</span>
+<span class="sd">        ensuring the tag is assigned to the interface in the local cache</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">deviceId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">interfaceId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">][</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">][</span><span class="n">label</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">][</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_unassignIntfTagInCache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _unassignIntfTagInCache modifies relevantIntfTagAssigns for the interface tag</span>
+<span class="sd">        ensuring the tag is not assigned to the interface in the local cache</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">deviceId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">interfaceId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">]:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">][</span><span class="n">label</span><span class="p">]:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">][</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">][</span><span class="n">label</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">interfaceId</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_getAllInterfaceTagsFromMainline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _getAllInterfaceTagsFromMainline returns a map of all assigned interface tags</span>
+<span class="sd">        available in the mainline.  Also sets the local cache to this map.</span>
+<span class="sd">        The returned map is of the form:</span>
+<span class="sd">            map[deviceId]map[interfaceId]map[label]=[value1,value2,..]</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">wsTs</span> <span class="o">=</span> <span class="n">getWorkspaceLastSynced</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getApiClient</span><span class="p">,</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getWorkspaceId</span><span class="p">())</span>
+        <span class="n">timeBound</span> <span class="o">=</span> <span class="n">TimeBounds</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="n">wsTs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tagClient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">getApiClient</span><span class="p">(</span><span class="n">TagAssignmentServiceStub</span><span class="p">)</span>
+        <span class="n">tagRequest</span> <span class="o">=</span> <span class="n">TagAssignmentStreamRequest</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">timeBound</span><span class="p">)</span>
+        <span class="n">tagFilter</span> <span class="o">=</span> <span class="n">TagAssignment</span><span class="p">()</span>
+        <span class="n">tagFilter</span><span class="o">.</span><span class="n">tag_creator_type</span> <span class="o">=</span> <span class="n">CREATOR_TYPE_USER</span>
+        <span class="n">tagFilter</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">element_type</span> <span class="o">=</span> <span class="n">ELEMENT_TYPE_INTERFACE</span>
+        <span class="n">tagFilter</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">workspace_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">MAINLINE_ID</span>
+        <span class="n">tagRequest</span><span class="o">.</span><span class="n">partial_eq_filter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tagFilter</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">tagClient</span><span class="o">.</span><span class="n">GetAll</span><span class="p">(</span><span class="n">tagRequest</span><span class="p">):</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">deviceId</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">device_id</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">interfaceId</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">interface_id</span><span class="o">.</span><span class="n">value</span>
+            <span class="k">if</span> <span class="n">deviceId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">interfaceId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">][</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">][</span><span class="n">label</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">][</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span>
+
+    <span class="k">def</span> <span class="nf">_setRelevantInterfaceTagAssigns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sets the relevantIntfTagAssigns of the context.</span>
+<span class="sd">        Called during context initialisation during script execution as optimization</span>
+<span class="sd">        Does not need to be called by the script writers</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span> <span class="o">=</span> <span class="n">tags</span>
+
+    <span class="k">def</span> <span class="nf">_getInterfaceTags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _getInterfaceTags returns the relevant assigned tags for the interface.</span>
+<span class="sd">        The returned map is of the form: map[label]=[value1,value2,..]</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getAllInterfaceTags</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">interfaceId</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="k">def</span> <span class="nf">_getAllInterfaceTags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _getAllInterfaceTags returns a map of all assigned device tags available</span>
+<span class="sd">        in the workspace.  The returned map is of the form:</span>
+<span class="sd">            map[deviceId]map[interfaceId]map[label]=[value1,value2,..]</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getAllInterfaceTagsFromMainline</span><span class="p">()</span>
+        <span class="n">workspaceUpdates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getTagUpdatesFromWorkspace</span><span class="p">(</span><span class="n">ELEMENT_TYPE_INTERFACE</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">remove</span><span class="p">)</span> <span class="ow">in</span> <span class="n">workspaceUpdates</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">remove</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_unassignIntfTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_assignIntfTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">relevantIntfTagAssigns</span>
+
+    <span class="k">def</span> <span class="nf">_assignInterfaceTag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">replaceValue</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _assignInterfaceTag assigns aninterface tag if it isn&#39;t already assigned.</span>
+<span class="sd">        If replaceValue is True ensures one value of tag is assigned to interface.</span>
+<span class="sd">        If replaceValue is False multiple values of tag can be assigned to interface.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># first make sure this device&#39;s tags have been loaded in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getInterfaceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">deviceId</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">interfaceId</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;assign&#39;</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">replaceValue</span><span class="p">:</span>
+            <span class="n">current_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_getInterfaceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]))</span>
+            <span class="k">for</span> <span class="n">cvalue</span> <span class="ow">in</span> <span class="n">current_values</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">cvalue</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_unassignInterfaceTag</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">)</span>
+        <span class="c1"># check if the tag is already assigned to this device</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interfaceTagAssigned</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="c1"># create the tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_createTag</span><span class="p">(</span><span class="n">ELEMENT_TYPE_INTERFACE</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="c1"># assign the tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assignTagSet</span><span class="p">(</span><span class="n">ELEMENT_TYPE_INTERFACE</span><span class="p">,</span>
+                           <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="c1"># assign the tag in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assignIntfTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_unassignInterfaceTag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _unassignInterfaceTag unassigns a interface tag if it is assigned</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># first make sure this device&#39;s tags have been loaded in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getInterfaceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">deviceId</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">interfaceId</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;unassign&#39;</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">)</span>
+        <span class="c1"># check if the tag is assigned to this interface</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interfaceTagAssigned</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="c1"># unassign the tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assignTagSet</span><span class="p">(</span><span class="n">ELEMENT_TYPE_INTERFACE</span><span class="p">,</span>
+                           <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># unassign the tag in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_unassignIntfTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_unassignInterfaceTagLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _unassignInterfaceTagLabel unassigns all interface tags of a label</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">deviceId</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">interfaceId</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;unassign&#39;</span><span class="p">,</span> <span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">)</span>
+        <span class="n">current_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_getInterfaceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">for</span> <span class="n">cvalue</span> <span class="ow">in</span> <span class="n">current_values</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_unassignInterfaceTag</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_assignInterfaceTags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tagAssignReplaces</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _assignInterfaceTags assigns multiple interface tags if not already assigned.</span>
+<span class="sd">        The input tagAssignReplaces is a List of Tuple of the form:</span>
+<span class="sd">            (deviceId, interfaceId, label, value, replaceValue)</span>
+<span class="sd">        If replaceValue is True ensures one value of tag is assigned to interface.</span>
+<span class="sd">        If replaceValue is False multiple values of tag can be assigned to interface.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tagAssignReplaces</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">tagUnAssigns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tagAssigns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tagAssignsDict</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># first make sure interface tags have been loaded in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getAllInterfaceTags</span><span class="p">()</span>
+        <span class="c1"># identify unassigns for replace cases</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">replaceValue</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagAssignReplaces</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">deviceId</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">interfaceId</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;assign&#39;</span><span class="p">,</span>
+                                            <span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">replaceValue</span><span class="p">:</span>
+                <span class="n">current_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_getInterfaceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span>
+                                      <span class="n">interfaceId</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]))</span>
+                <span class="k">for</span> <span class="n">cvalue</span> <span class="ow">in</span> <span class="n">current_values</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">cvalue</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
+                        <span class="n">tagUnAssigns</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">cvalues</span> <span class="o">:=</span> <span class="n">tagAssignsDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                        <span class="n">interfaceId</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">)):</span>
+                    <span class="k">for</span> <span class="n">cvalue</span> <span class="ow">in</span> <span class="n">cvalues</span><span class="p">:</span>
+                        <span class="n">tagAssigns</span><span class="o">.</span><span class="n">remove</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">))</span>
+                    <span class="n">tagAssignsDict</span><span class="p">[</span><span class="n">deviceId</span><span class="p">][</span><span class="n">interfaceId</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">tagAssignsDict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span>
+                <span class="n">interfaceId</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">tagAssigns</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_unassignInterfaceTags</span><span class="p">(</span><span class="n">tagUnAssigns</span><span class="p">)</span>
+        <span class="c1"># remove from the list if the tag assignmnet already exists</span>
+        <span class="n">uniqueTags</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagAssigns</span><span class="p">[:]:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interfaceTagAssigned</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                <span class="n">tagAssigns</span><span class="o">.</span><span class="n">remove</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">uniqueTags</span><span class="p">:</span>
+                <span class="n">uniqueTags</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tagAssigns</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1"># create the tags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_createTags</span><span class="p">(</span><span class="n">ELEMENT_TYPE_INTERFACE</span><span class="p">,</span> <span class="n">uniqueTags</span><span class="p">)</span>
+        <span class="c1"># assign the tags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assignTagsSets</span><span class="p">(</span><span class="n">ELEMENT_TYPE_INTERFACE</span><span class="p">,</span> <span class="n">tagAssigns</span><span class="p">)</span>
+        <span class="c1"># assign the tags in cache</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagAssigns</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_assignIntfTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_unassignInterfaceTags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tagUnAssignsIn</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        _unassignInterfaceTags unassigns multiple interface tags if currently assigned.</span>
+<span class="sd">        The input tagUnAssigns is a List of Tuples of the form:</span>
+<span class="sd">            (deviceId, interfaceId, label, value)</span>
+<span class="sd">        If value is None then unassigns all values of that label</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tagUnAssignsIn</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1"># first make sure interface tags have been loaded in cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_getAllInterfaceTags</span><span class="p">()</span>
+        <span class="n">tagUnAssigns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># remove from the list if the tag assignment doesn&#39;t exist</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagUnAssignsIn</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">label</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">deviceId</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">interfaceId</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">TagOperationException</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;unassign&#39;</span><span class="p">,</span>
+                                            <span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">)</span>
+            <span class="c1"># check if the tag is assigned to this interface</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">current_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_getInterfaceTags</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span>
+                                      <span class="n">interfaceId</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">[]))</span>
+                <span class="k">for</span> <span class="n">cvalue</span> <span class="ow">in</span> <span class="n">current_values</span><span class="p">:</span>
+                    <span class="n">tagUnAssigns</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cvalue</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interfaceTagAssigned</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                <span class="n">tagUnAssigns</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tagUnAssigns</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1"># unassign the tags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assignTagsSets</span><span class="p">(</span><span class="n">ELEMENT_TYPE_INTERFACE</span><span class="p">,</span> <span class="n">tagUnAssigns</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># unassign the tags in cache</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tagUnAssigns</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_unassignIntfTagInCache</span><span class="p">(</span><span class="n">deviceId</span><span class="p">,</span> <span class="n">interfaceId</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

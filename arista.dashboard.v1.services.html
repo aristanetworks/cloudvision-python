@@ -1,0 +1,929 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.dashboard.v1.services package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.endpointlocation package" href="arista.endpointlocation.html" />
+    <link rel="prev" title="arista.dashboard.v1 package" href="arista.dashboard.v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.dashboard.html">arista.dashboard package</a></li>
+          <li class="breadcrumb-item"><a href="arista.dashboard.v1.html">arista.dashboard.v1 package</a></li>
+      <li class="breadcrumb-item active">arista.dashboard.v1.services package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.dashboard.v1.services.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-dashboard-v1-services-package">
+<h1>arista.dashboard.v1.services package<a class="headerlink" href="#arista-dashboard-v1-services-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.dashboard.v1.services.gen_pb2">
+<span id="arista-dashboard-v1-services-gen-pb2-module"></span><h2>arista.dashboard.v1.services.gen_pb2 module<a class="headerlink" href="#module-arista.dashboard.v1.services.gen_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardBatchedStreamRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardBatchedStreamResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigBatchedStreamRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigBatchedStreamResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigDeleteAllRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigDeleteAllResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigDeleteRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigDeleteResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigDeleteSomeRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigDeleteSomeResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSetRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigSetRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSetRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSetResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigSetResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSetResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigSetSomeRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigSetSomeResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigSomeRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigSomeResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigStreamRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigStreamResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardSomeRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardSomeResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardStreamRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardStreamResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.DashboardStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.DashboardStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigBatchedStreamRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigBatchedStreamResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigSetRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigSetResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigStreamRequest</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigStreamResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.MetaResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">MetaResponse</span></span><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.MetaResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2.MetaResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2.MetaResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.dashboard.v1.services.gen_pb2_grpc">
+<span id="arista-dashboard-v1-services-gen-pb2-grpc-module"></span><h2>arista.dashboard.v1.services.gen_pb2_grpc module<a class="headerlink" href="#module-arista.dashboard.v1.services.gen_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigService</span></span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.Delete">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.Delete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.DeleteAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeleteAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.DeleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.DeleteAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.DeleteSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeleteSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.DeleteSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.DeleteSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetAllBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetAllBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetOne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.Set">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.Set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.SetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.SetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.SetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.Subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.SubscribeBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.SubscribeMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigService.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigServiceServicer</span></span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.Delete">
+<span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.Delete" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.DeleteAll">
+<span class="sig-name descname"><span class="pre">DeleteAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.DeleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.DeleteAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.DeleteSome">
+<span class="sig-name descname"><span class="pre">DeleteSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.DeleteSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.DeleteSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetAllBatched">
+<span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetAllBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetMeta">
+<span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetOne" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetSome">
+<span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.Set">
+<span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.Set" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.SetSome">
+<span class="sig-name descname"><span class="pre">SetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.SetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.SetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.Subscribe" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.SubscribeBatched">
+<span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.SubscribeMeta">
+<span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceServicer.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">DashboardConfigServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardConfigServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">DashboardService</span></span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetAllBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardService.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetAllBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardService.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetOne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardService.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.Subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.SubscribeBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardService.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.SubscribeMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardService.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">DashboardServiceServicer</span></span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetAllBatched">
+<span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardServiceServicer.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetAllBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetMeta">
+<span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardServiceServicer.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetOne" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetSome">
+<span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardServiceServicer.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.Subscribe" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.SubscribeBatched">
+<span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardServiceServicer.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.SubscribeMeta">
+<span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardServiceServicer.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">DashboardServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#DashboardServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigService</span></span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.GetAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.GetAllBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigService.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.GetAllBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.GetOne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.Set">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigService.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.Set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.Subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.SubscribeBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigService.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.SubscribeMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigService.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigServiceServicer</span></span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.GetAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.GetAllBatched">
+<span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigServiceServicer.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.GetAllBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.GetOne" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.Set">
+<span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigServiceServicer.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.Set" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.Subscribe" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.SubscribeBatched">
+<span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigServiceServicer.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.SubscribeMeta">
+<span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigServiceServicer.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfigServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#GlobalDashboardConfigServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.add_DashboardConfigServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_DashboardConfigServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#add_DashboardConfigServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.add_DashboardConfigServiceServicer_to_server" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.add_DashboardServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_DashboardServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#add_DashboardServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.add_DashboardServiceServicer_to_server" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.dashboard.v1.services.gen_pb2_grpc.add_GlobalDashboardConfigServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_GlobalDashboardConfigServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/dashboard/v1/services/gen_pb2_grpc.html#add_GlobalDashboardConfigServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.dashboard.v1.services.gen_pb2_grpc.add_GlobalDashboardConfigServiceServicer_to_server" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-arista.dashboard.v1.services">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.dashboard.v1.services" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.dashboard.v1.html" class="btn btn-neutral float-left" title="arista.dashboard.v1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.endpointlocation.html" class="btn btn-neutral float-right" title="arista.endpointlocation package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

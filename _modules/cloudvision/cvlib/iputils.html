@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.cvlib.iputils &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cloudvision</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cloudvision.cvlib.iputils</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cloudvision.cvlib.iputils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2024 Arista Networks, Inc.</span>
+<span class="c1"># Use of this source code is governed by the Apache License 2.0</span>
+<span class="c1"># that can be found in the COPYING file.</span>
+<span class="c1">#</span>
+<span class="c1"># The purpose of this file is to provide ip utilities that are</span>
+<span class="c1"># safe for both ipv4 and ipv6</span>
+<span class="c1"># DO NOT use network.subnets() due to performance impact.</span>
+<span class="c1"># DO NOT use network.hosts() due to performance impact.</span>
+
+<span class="kn">import</span> <span class="nn">ipaddress</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">IpSubnetIndexException</span><span class="p">,</span>
+    <span class="n">IpHostIndexException</span><span class="p">,</span>
+    <span class="n">IpNetworkOverlapException</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="is_ipv4">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.iputils.is_ipv4">[docs]</a>
+<span class="k">def</span> <span class="nf">is_ipv4</span><span class="p">(</span><span class="n">ip</span><span class="p">):</span>
+    <span class="c1"># Determine if the given network is IPv4</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Network</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="is_ipv6">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.iputils.is_ipv6">[docs]</a>
+<span class="k">def</span> <span class="nf">is_ipv6</span><span class="p">(</span><span class="n">ip</span><span class="p">):</span>
+    <span class="c1"># Determine if the given network is IPv6</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv6Network</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="number_of_usable_addresses">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.iputils.number_of_usable_addresses">[docs]</a>
+<span class="k">def</span> <span class="nf">number_of_usable_addresses</span><span class="p">(</span><span class="n">network</span><span class="p">):</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">net</span><span class="o">.</span><span class="n">num_addresses</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="c1"># exclude addresses for identification (first)</span>
+        <span class="c1"># and broadcast (last)</span>
+        <span class="k">return</span> <span class="n">net</span><span class="o">.</span><span class="n">num_addresses</span> <span class="o">-</span> <span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">net</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">and</span> <span class="n">net</span><span class="o">.</span><span class="n">num_addresses</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="c1"># exclude anycast (first) address</span>
+        <span class="k">return</span> <span class="n">net</span><span class="o">.</span><span class="n">num_addresses</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># for a p2p-link network use all 2 addresses</span>
+        <span class="k">return</span> <span class="n">net</span><span class="o">.</span><span class="n">num_addresses</span></div>
+
+
+
+<div class="viewcode-block" id="first_usable_address">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.iputils.first_usable_address">[docs]</a>
+<span class="k">def</span> <span class="nf">first_usable_address</span><span class="p">(</span><span class="n">network</span><span class="p">):</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">num_addresses</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="last_usable_address">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.iputils.last_usable_address">[docs]</a>
+<span class="k">def</span> <span class="nf">last_usable_address</span><span class="p">(</span><span class="n">network</span><span class="p">):</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">num_addresses</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">net</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="mi">4</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="get_number_subnets">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.iputils.get_number_subnets">[docs]</a>
+<span class="k">def</span> <span class="nf">get_number_subnets</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">subnet_mask</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="c1"># Calculate the total number of subnets of the given mask</span>
+    <span class="c1"># on the given network</span>
+    <span class="n">network</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">bit_difference</span> <span class="o">=</span> <span class="n">subnet_mask</span> <span class="o">-</span> <span class="n">network</span><span class="o">.</span><span class="n">prefixlen</span>
+    <span class="n">total_subnets</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">bit_difference</span>
+    <span class="k">return</span> <span class="n">total_subnets</span></div>
+
+
+
+<div class="viewcode-block" id="get_subnet_by_index">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.iputils.get_subnet_by_index">[docs]</a>
+<span class="k">def</span> <span class="nf">get_subnet_by_index</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">subnet_mask</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                        <span class="n">hostname</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">poolname</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Return the subnet at the specified index.</span>
+    <span class="c1"># Input index is 0 based.</span>
+    <span class="n">total_subnets</span> <span class="o">=</span> <span class="n">get_number_subnets</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">subnet_mask</span><span class="p">)</span>
+    <span class="c1"># Ensure the index is within the valid range</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">total_subnets</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">IpSubnetIndexException</span><span class="p">(</span>
+            <span class="n">network</span><span class="p">,</span> <span class="n">subnet_mask</span><span class="p">,</span> <span class="n">total_subnets</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span>
+            <span class="n">hostname</span><span class="p">,</span> <span class="n">poolname</span><span class="p">)</span>
+    <span class="c1"># Calculate the offset for the subnet at the given index</span>
+    <span class="k">if</span> <span class="n">is_ipv6</span><span class="p">(</span><span class="n">network</span><span class="p">):</span>
+        <span class="n">bit_length</span> <span class="o">=</span> <span class="mi">128</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bit_length</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">network</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">index</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">bit_length</span> <span class="o">-</span> <span class="n">subnet_mask</span><span class="p">))</span>
+    <span class="n">new_subnet_address</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">network_address</span><span class="p">)</span> <span class="o">+</span> <span class="n">offset</span>
+    <span class="n">subnet</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="n">new_subnet_address</span><span class="p">)</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">subnet_mask</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">subnet</span></div>
+
+
+
+<div class="viewcode-block" id="get_ip_from_subnet">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.iputils.get_ip_from_subnet">[docs]</a>
+<span class="k">def</span> <span class="nf">get_ip_from_subnet</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">hostname</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">poolname</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Return the ip address at the specified index.</span>
+    <span class="c1"># Input index is 0 based.</span>
+    <span class="n">num_addresses</span> <span class="o">=</span> <span class="n">number_of_usable_addresses</span><span class="p">(</span><span class="n">network</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">network</span><span class="o">.</span><span class="n">prefixlen</span> <span class="o">&lt;</span> <span class="mi">31</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+       <span class="n">network</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">and</span> <span class="n">network</span><span class="o">.</span><span class="n">prefixlen</span> <span class="o">&lt;</span> <span class="mi">127</span><span class="p">):</span>
+        <span class="c1"># When indexing directly into non p2p-link networks,</span>
+        <span class="c1"># skip identification/anycast address</span>
+        <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="n">num_addresses</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">IpHostIndexException</span><span class="p">(</span>
+            <span class="n">network</span><span class="p">,</span> <span class="n">num_addresses</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">poolname</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">network</span><span class="p">[</span><span class="n">index</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="overlapping_networks_check">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.iputils.overlapping_networks_check">[docs]</a>
+<span class="k">def</span> <span class="nf">overlapping_networks_check</span><span class="p">(</span><span class="n">networks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">hostname</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                               <span class="n">poolname</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Given a list of networks ensures they do not overlap</span>
+    <span class="k">for</span> <span class="n">idx1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">networks</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">networks</span><span class="p">[</span><span class="n">idx1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">network1</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">networks</span><span class="p">[</span><span class="n">idx1</span><span class="p">],</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">idx2</span> <span class="o">=</span> <span class="n">idx1</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">idx2</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">networks</span><span class="p">):</span>
+            <span class="n">network2</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">networks</span><span class="p">[</span><span class="n">idx2</span><span class="p">],</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">network1</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">network2</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">IpNetworkOverlapException</span><span class="p">(</span>
+                    <span class="n">network1</span><span class="p">,</span> <span class="n">network2</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">poolname</span><span class="p">)</span>
+            <span class="n">idx2</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

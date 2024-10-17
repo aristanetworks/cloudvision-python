@@ -1,0 +1,580 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.configlet.v1 package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.configlet.v1.services package" href="arista.configlet.v1.services.html" />
+    <link rel="prev" title="arista.configlet package" href="arista.configlet.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.configlet.html">arista.configlet package</a></li>
+      <li class="breadcrumb-item active">arista.configlet.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.configlet.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-configlet-v1-package">
+<h1>arista.configlet.v1 package<a class="headerlink" href="#arista-configlet-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.configlet.v1.services.html">arista.configlet.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.configlet.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.configlet.v1.services.html#module-arista.configlet.v1.services.gen_pb2">arista.configlet.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentSomeRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentSomeResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentStreamRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentStreamResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletAssignmentStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletSomeRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletSomeResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletStreamRequest"><code class="docutils literal notranslate"><span class="pre">ConfigletStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletStreamResponse"><code class="docutils literal notranslate"><span class="pre">ConfigletStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.ConfigletStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigletStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.configlet.v1.services.html#module-arista.configlet.v1.services.gen_pb2_grpc">arista.configlet.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.Set"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentService"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentService.GetAll"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentService.GetMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentService.GetOne"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentService.GetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentServiceServicer"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletAssignmentServiceStub"><code class="docutils literal notranslate"><span class="pre">ConfigletAssignmentServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.Set"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">ConfigletConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletService"><code class="docutils literal notranslate"><span class="pre">ConfigletService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletService.GetAll"><code class="docutils literal notranslate"><span class="pre">ConfigletService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletService.GetMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletService.GetOne"><code class="docutils literal notranslate"><span class="pre">ConfigletService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletService.GetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ConfigletService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletServiceServicer"><code class="docutils literal notranslate"><span class="pre">ConfigletServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ConfigletServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ConfigletServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">ConfigletServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ConfigletServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ConfigletServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ConfigletServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.ConfigletServiceStub"><code class="docutils literal notranslate"><span class="pre">ConfigletServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.add_ConfigletAssignmentConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ConfigletAssignmentConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.add_ConfigletAssignmentServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ConfigletAssignmentServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.add_ConfigletConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ConfigletConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.configlet.v1.services.html#arista.configlet.v1.services.gen_pb2_grpc.add_ConfigletServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ConfigletServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.configlet.v1.services.html#module-arista.configlet.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.configlet.v1.configlet_pb2">
+<span id="arista-configlet-v1-configlet-pb2-module"></span><h2>arista.configlet.v1.configlet_pb2 module<a class="headerlink" href="#module-arista.configlet.v1.configlet_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.Configlet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.configlet.v1.configlet_pb2.</span></span><span class="sig-name descname"><span class="pre">Configlet</span></span><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.Configlet" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.Configlet.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.Configlet.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.ConfigletAssignment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.configlet.v1.configlet_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigletAssignment</span></span><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.ConfigletAssignment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.ConfigletAssignment.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.ConfigletAssignment.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.ConfigletAssignmentConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.configlet.v1.configlet_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigletAssignmentConfig</span></span><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.ConfigletAssignmentConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.ConfigletAssignmentConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.ConfigletAssignmentConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.ConfigletAssignmentKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.configlet.v1.configlet_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigletAssignmentKey</span></span><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.ConfigletAssignmentKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.ConfigletAssignmentKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.ConfigletAssignmentKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.ConfigletConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.configlet.v1.configlet_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigletConfig</span></span><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.ConfigletConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.ConfigletConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.ConfigletConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.ConfigletKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.configlet.v1.configlet_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigletKey</span></span><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.ConfigletKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.ConfigletKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.ConfigletKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.Filter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.configlet.v1.configlet_pb2.</span></span><span class="sig-name descname"><span class="pre">Filter</span></span><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.Filter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.configlet.v1.configlet_pb2.Filter.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.configlet.v1.configlet_pb2.Filter.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.configlet.v1.configlet_pb2_grpc">
+<span id="arista-configlet-v1-configlet-pb2-grpc-module"></span><h2>arista.configlet.v1.configlet_pb2_grpc module<a class="headerlink" href="#module-arista.configlet.v1.configlet_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.configlet.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.configlet.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.configlet.html" class="btn btn-neutral float-left" title="arista.configlet package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.configlet.v1.services.html" class="btn btn-neutral float-right" title="arista.configlet.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

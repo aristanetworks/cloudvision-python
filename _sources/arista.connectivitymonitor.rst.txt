@@ -1,0 +1,18 @@
+arista.connectivitymonitor package
+==================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.connectivitymonitor.v1
+
+Module contents
+---------------
+
+.. automodule:: arista.connectivitymonitor
+   :members:
+   :undoc-members:
+   :show-inheritance:

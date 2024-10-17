@@ -1,0 +1,10 @@
+cloudvision.Connector.protobuf package
+======================================
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.Connector.protobuf
+   :members:
+   :undoc-members:
+   :show-inheritance:

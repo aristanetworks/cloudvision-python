@@ -1,0 +1,18 @@
+arista.configlet package
+========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.configlet.v1
+
+Module contents
+---------------
+
+.. automodule:: arista.configlet
+   :members:
+   :undoc-members:
+   :show-inheritance:

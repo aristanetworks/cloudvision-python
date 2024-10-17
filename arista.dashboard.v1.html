@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.dashboard.v1 package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.dashboard.v1.services package" href="arista.dashboard.v1.services.html" />
+    <link rel="prev" title="arista.dashboard package" href="arista.dashboard.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.dashboard.html">arista.dashboard package</a></li>
+      <li class="breadcrumb-item active">arista.dashboard.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.dashboard.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-dashboard-v1-package">
+<h1>arista.dashboard.v1 package<a class="headerlink" href="#arista-dashboard-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.dashboard.v1.services.html">arista.dashboard.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.dashboard.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.dashboard.v1.services.html#module-arista.dashboard.v1.services.gen_pb2">arista.dashboard.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DashboardBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DashboardBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DashboardConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DashboardConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigRequest"><code class="docutils literal notranslate"><span class="pre">DashboardConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigResponse"><code class="docutils literal notranslate"><span class="pre">DashboardConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">DashboardConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">DashboardConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardRequest"><code class="docutils literal notranslate"><span class="pre">DashboardRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardResponse"><code class="docutils literal notranslate"><span class="pre">DashboardResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardSomeRequest"><code class="docutils literal notranslate"><span class="pre">DashboardSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardSomeResponse"><code class="docutils literal notranslate"><span class="pre">DashboardSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardStreamRequest"><code class="docutils literal notranslate"><span class="pre">DashboardStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardStreamResponse"><code class="docutils literal notranslate"><span class="pre">DashboardStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.DashboardStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DashboardStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigRequest"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigResponse"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.GlobalDashboardConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.dashboard.v1.services.html#module-arista.dashboard.v1.services.gen_pb2_grpc">arista.dashboard.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.Set"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DashboardConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">DashboardConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService"><code class="docutils literal notranslate"><span class="pre">DashboardService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetAll"><code class="docutils literal notranslate"><span class="pre">DashboardService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DashboardService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DashboardService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetOne"><code class="docutils literal notranslate"><span class="pre">DashboardService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.GetSome"><code class="docutils literal notranslate"><span class="pre">DashboardService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DashboardService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DashboardService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DashboardService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer"><code class="docutils literal notranslate"><span class="pre">DashboardServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DashboardServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DashboardServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DashboardServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DashboardServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">DashboardServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DashboardServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DashboardServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DashboardServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.DashboardServiceStub"><code class="docutils literal notranslate"><span class="pre">DashboardServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.Set"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.GlobalDashboardConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">GlobalDashboardConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.add_DashboardConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DashboardConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.add_DashboardServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DashboardServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.dashboard.v1.services.html#arista.dashboard.v1.services.gen_pb2_grpc.add_GlobalDashboardConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_GlobalDashboardConfigServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.dashboard.v1.services.html#module-arista.dashboard.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.dashboard.v1.dashboard_pb2">
+<span id="arista-dashboard-v1-dashboard-pb2-module"></span><h2>arista.dashboard.v1.dashboard_pb2 module<a class="headerlink" href="#module-arista.dashboard.v1.dashboard_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Dashboard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">Dashboard</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Dashboard" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Dashboard.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Dashboard.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.DashboardConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardConfig</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.DashboardConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.DashboardConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.DashboardConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.DashboardKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardKey</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.DashboardKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.DashboardKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.DashboardKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.DashboardMetadata">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">DashboardMetadata</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.DashboardMetadata" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.DashboardMetadata.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.DashboardMetadata.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Dimensions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">Dimensions</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Dimensions" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Dimensions.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Dimensions.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Filter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">Filter</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Filter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Filter.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Filter.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">GlobalDashboardConfig</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.GlobalDashboardConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Position">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">Position</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Position" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Position.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Position.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Widget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">Widget</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Widget" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Widget.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Widget.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.WidgetStyles">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">WidgetStyles</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.WidgetStyles" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.WidgetStyles.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.WidgetStyles.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Widgets">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.dashboard.v1.dashboard_pb2.</span></span><span class="sig-name descname"><span class="pre">Widgets</span></span><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Widgets" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.dashboard.v1.dashboard_pb2.Widgets.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.dashboard.v1.dashboard_pb2.Widgets.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.dashboard.v1.dashboard_pb2_grpc">
+<span id="arista-dashboard-v1-dashboard-pb2-grpc-module"></span><h2>arista.dashboard.v1.dashboard_pb2_grpc module<a class="headerlink" href="#module-arista.dashboard.v1.dashboard_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.dashboard.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.dashboard.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.dashboard.html" class="btn btn-neutral float-left" title="arista.dashboard package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.dashboard.v1.services.html" class="btn btn-neutral float-right" title="arista.dashboard.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.identityprovider.v1 package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.identityprovider.v1.services package" href="arista.identityprovider.v1.services.html" />
+    <link rel="prev" title="arista.identityprovider package" href="arista.identityprovider.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.identityprovider.html">arista.identityprovider package</a></li>
+      <li class="breadcrumb-item active">arista.identityprovider.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.identityprovider.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-identityprovider-v1-package">
+<h1>arista.identityprovider.v1 package<a class="headerlink" href="#arista-identityprovider-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.identityprovider.v1.services.html">arista.identityprovider.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.identityprovider.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.identityprovider.v1.services.html#module-arista.identityprovider.v1.services.gen_pb2">arista.identityprovider.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">OAuthConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">OAuthConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigRequest"><code class="docutils literal notranslate"><span class="pre">OAuthConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigResponse"><code class="docutils literal notranslate"><span class="pre">OAuthConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">OAuthConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">OAuthConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OAuthConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">SAMLConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">SAMLConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigRequest"><code class="docutils literal notranslate"><span class="pre">SAMLConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigResponse"><code class="docutils literal notranslate"><span class="pre">SAMLConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">SAMLConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">SAMLConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SAMLConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.identityprovider.v1.services.html#module-arista.identityprovider.v1.services.gen_pb2_grpc">arista.identityprovider.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.Set"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">OAuthConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">OAuthConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.Set"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">SAMLConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">SAMLConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.add_OAuthConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_OAuthConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.identityprovider.v1.services.html#arista.identityprovider.v1.services.gen_pb2_grpc.add_SAMLConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_SAMLConfigServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.identityprovider.v1.services.html#module-arista.identityprovider.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.identityprovider.v1.identityprovider_pb2">
+<span id="arista-identityprovider-v1-identityprovider-pb2-module"></span><h2>arista.identityprovider.v1.identityprovider_pb2 module<a class="headerlink" href="#module-arista.identityprovider.v1.identityprovider_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.identityprovider_pb2.OAuthConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.identityprovider_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfig</span></span><a class="headerlink" href="#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.identityprovider_pb2.OAuthConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.identityprovider_pb2.OAuthKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.identityprovider_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthKey</span></span><a class="headerlink" href="#arista.identityprovider.v1.identityprovider_pb2.OAuthKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.identityprovider_pb2.OAuthKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.identityprovider_pb2.OAuthKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.identityprovider_pb2.SAMLConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.identityprovider_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfig</span></span><a class="headerlink" href="#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.identityprovider_pb2.SAMLConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.identityprovider_pb2.SAMLKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.identityprovider_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLKey</span></span><a class="headerlink" href="#arista.identityprovider.v1.identityprovider_pb2.SAMLKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.identityprovider_pb2.SAMLKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.identityprovider_pb2.SAMLKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.identityprovider.v1.identityprovider_pb2_grpc">
+<span id="arista-identityprovider-v1-identityprovider-pb2-grpc-module"></span><h2>arista.identityprovider.v1.identityprovider_pb2_grpc module<a class="headerlink" href="#module-arista.identityprovider.v1.identityprovider_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.identityprovider.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.identityprovider.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.identityprovider.html" class="btn btn-neutral float-left" title="arista.identityprovider package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.identityprovider.v1.services.html" class="btn btn-neutral float-right" title="arista.identityprovider.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

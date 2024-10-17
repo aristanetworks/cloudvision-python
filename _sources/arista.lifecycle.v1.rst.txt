@@ -1,0 +1,37 @@
+arista.lifecycle.v1 package
+===========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.lifecycle.v1.services
+
+Submodules
+----------
+
+arista.lifecycle.v1.lifecycle\_pb2 module
+-----------------------------------------
+
+.. automodule:: arista.lifecycle.v1.lifecycle_pb2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+arista.lifecycle.v1.lifecycle\_pb2\_grpc module
+-----------------------------------------------
+
+.. automodule:: arista.lifecycle.v1.lifecycle_pb2_grpc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: arista.lifecycle.v1
+   :members:
+   :undoc-members:
+   :show-inheritance:

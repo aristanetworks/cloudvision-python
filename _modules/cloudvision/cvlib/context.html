@@ -1,0 +1,1195 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.cvlib.context &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cloudvision</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cloudvision.cvlib.context</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cloudvision.cvlib.context</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2022 Arista Networks, Inc.</span>
+<span class="c1"># Use of this source code is governed by the Apache License 2.0</span>
+<span class="c1"># that can be found in the COPYING file.</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">signal</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">process_time_ns</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">grpc</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">google.protobuf.timestamp_pb2</span> <span class="kn">import</span> <span class="n">Timestamp</span>
+<span class="kn">from</span> <span class="nn">grpc</span> <span class="kn">import</span> <span class="n">RpcError</span><span class="p">,</span> <span class="n">StatusCode</span>
+
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.codec</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.grpc_client</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">GRPCClient</span><span class="p">,</span>
+    <span class="n">create_notification</span><span class="p">,</span>
+    <span class="n">create_query</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">.action</span> <span class="kn">import</span> <span class="n">Action</span>
+<span class="kn">from</span> <span class="nn">.changecontrol</span> <span class="kn">import</span> <span class="n">ChangeControl</span>
+<span class="kn">from</span> <span class="nn">.connections</span> <span class="kn">import</span> <span class="n">AuthAndEndpoints</span><span class="p">,</span> <span class="n">addHeaderInterceptor</span>
+<span class="kn">from</span> <span class="nn">.constants</span> <span class="kn">import</span> <span class="n">BUILD_ID_ARG</span><span class="p">,</span> <span class="n">STUDIO_ID_ARG</span><span class="p">,</span> <span class="n">STUDIO_IDS_ARG</span><span class="p">,</span> <span class="n">WORKSPACE_ID_ARG</span>
+<span class="kn">from</span> <span class="nn">.device</span> <span class="kn">import</span> <span class="n">Device</span><span class="p">,</span> <span class="n">Interface</span>
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ConnectionFailed</span><span class="p">,</span>
+    <span class="n">DeviceCommandsFailed</span><span class="p">,</span>
+    <span class="n">InvalidContextException</span><span class="p">,</span>
+    <span class="n">InvalidCredentials</span><span class="p">,</span>
+    <span class="n">LoggingFailed</span><span class="p">,</span>
+    <span class="n">TimeoutExpiry</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.execution</span> <span class="kn">import</span> <span class="n">Execution</span>
+<span class="kn">from</span> <span class="nn">.logger</span> <span class="kn">import</span> <span class="n">Logger</span>
+<span class="kn">from</span> <span class="nn">.studio</span> <span class="kn">import</span> <span class="n">Studio</span><span class="p">,</span> <span class="n">StudioCustomData</span>
+<span class="kn">from</span> <span class="nn">.tags</span> <span class="kn">import</span> <span class="n">Tag</span><span class="p">,</span> <span class="n">Tags</span>
+<span class="kn">from</span> <span class="nn">.topology</span> <span class="kn">import</span> <span class="n">Topology</span>
+<span class="kn">from</span> <span class="nn">.user</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">extractJSONEncodedListArg</span>
+<span class="kn">from</span> <span class="nn">.workspace</span> <span class="kn">import</span> <span class="n">Workspace</span>
+
+<span class="n">ACCESS_TOKEN</span> <span class="o">=</span> <span class="s2">&quot;access_token&quot;</span>
+<span class="n">CMDS</span> <span class="o">=</span> <span class="s2">&quot;cmds&quot;</span>
+<span class="n">DEVICE_ID</span> <span class="o">=</span> <span class="s2">&quot;deviceID&quot;</span>
+<span class="n">EXEC_ACTION</span> <span class="o">=</span> <span class="s2">&quot;execaction&quot;</span>
+<span class="n">HEADER_ACCEPT</span> <span class="o">=</span> <span class="s2">&quot;Accept&quot;</span>
+<span class="n">HEADER_AUTH</span> <span class="o">=</span> <span class="s2">&quot;Authorization&quot;</span>
+<span class="n">HEADER_CONTENT_TYPE</span> <span class="o">=</span> <span class="s2">&quot;Content-Type&quot;</span>
+<span class="n">HEADER_JSON_APPLICATION</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
+<span class="n">HEADERS</span> <span class="o">=</span> <span class="p">{</span><span class="n">HEADER_ACCEPT</span><span class="p">:</span> <span class="n">HEADER_JSON_APPLICATION</span><span class="p">}</span>
+<span class="n">HOST</span> <span class="o">=</span> <span class="s2">&quot;host&quot;</span>
+<span class="n">JSON</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span>
+<span class="n">REQ_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;format&quot;</span>
+<span class="n">STOP_ON_ERROR</span> <span class="o">=</span> <span class="s2">&quot;stopOnError&quot;</span>
+<span class="n">TIMEOUT_CLI</span> <span class="o">=</span> <span class="s2">&quot;readTimeout&quot;</span>
+<span class="n">TIMEOUT_CONN</span> <span class="o">=</span> <span class="s2">&quot;connTimeout&quot;</span>
+<span class="n">TMP_STORAGE_PATH</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">,</span> <span class="s2">&quot;tmp&quot;</span><span class="p">]</span>
+<span class="n">USERNAME</span> <span class="o">=</span> <span class="s2">&quot;username&quot;</span>
+<span class="n">DATASET_TYPE</span> <span class="o">=</span> <span class="s2">&quot;dataset_type&quot;</span>
+<span class="n">ORGANIZATION</span> <span class="o">=</span> <span class="s2">&quot;organization&quot;</span>
+
+<span class="n">systemLogger</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="LoggingLevel">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.LoggingLevel">[docs]</a>
+<span class="k">class</span> <span class="nc">LoggingLevel</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+    <span class="n">Trace</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">Debug</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">Info</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">Warn</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="n">Error</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="n">Critical</span> <span class="o">=</span> <span class="mi">5</span></div>
+
+
+
+<div class="viewcode-block" id="Context">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context">[docs]</a>
+<span class="k">class</span> <span class="nc">Context</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Context object that stores a number of system and user-defined parameters:</span>
+<span class="sd">    - user:           Info on the user executing this script</span>
+<span class="sd">    - device:         Info on the device the script is operating on, if applicable</span>
+<span class="sd">    - action:         Info on the action associated with the current context, if applicable</span>
+<span class="sd">    - changeControl:  Common change-control script parameters (Deprecated, use action)</span>
+<span class="sd">    - studio:         Common studio parameters</span>
+<span class="sd">    - execution:      Info on the standalone execution context</span>
+<span class="sd">    - connections:    Object storing connection info used by the context, e.g. apiserver address</span>
+<span class="sd">    - logger:         Logging functions to be used by the context</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">,</span>
+                 <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Device</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">action</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Action</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">changeControl</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ChangeControl</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">studio</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Studio</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">execution</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Execution</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">connections</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AuthAndEndpoints</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">logger</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Logger</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">loggingLevel</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">LoggingLevel</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">changeControl</span> <span class="o">=</span> <span class="n">changeControl</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studio</span> <span class="o">=</span> <span class="n">studio</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execution</span> <span class="o">=</span> <span class="n">execution</span>
+        <span class="c1"># When connections is None, replace with an empty AuthAndEndpoints obj</span>
+        <span class="c1"># so that further lookups succeed without throwing exceptions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connections</span> <span class="o">=</span> <span class="n">connections</span> <span class="k">if</span> <span class="n">connections</span> <span class="k">else</span> <span class="n">AuthAndEndpoints</span><span class="p">()</span>
+        <span class="c1"># In the case where the context is not passed a logger, create a backup one and use that</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span> <span class="k">if</span> <span class="n">logger</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getBackupLogger</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__connector</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Topology</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">preserveWhitespace</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loggingLevel</span> <span class="o">=</span> <span class="n">loggingLevel</span> <span class="k">if</span> <span class="n">loggingLevel</span> <span class="k">else</span> <span class="n">LoggingLevel</span><span class="o">.</span><span class="n">Info</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">benchmarking</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tags</span> <span class="o">=</span> <span class="n">Tags</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studioCustomData</span> <span class="o">=</span> <span class="n">StudioCustomData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">workspace</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Workspace</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Context.getDevice">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.getDevice">[docs]</a>
+    <span class="k">def</span> <span class="nf">getDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns the device associated to the context.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span></div>
+
+
+<div class="viewcode-block" id="Context.getDeviceHostname">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.getDeviceHostname">[docs]</a>
+    <span class="k">def</span> <span class="nf">getDeviceHostname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">Device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns the hostname of the device associated to the context.</span>
+<span class="sd">        Retrieves that information if the context device doesn&#39;t have it</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">device</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">device</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">((</span><span class="s2">&quot;getDeviceHostname requires either a device or the&quot;</span>
+                                           <span class="s2">&quot; calling context to have a device associated with it&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">device</span><span class="o">.</span><span class="n">hostName</span><span class="p">:</span>
+            <span class="n">cmdResponse</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">runDeviceCmds</span><span class="p">([</span><span class="s2">&quot;enable&quot;</span><span class="p">,</span> <span class="s2">&quot;show hostname&quot;</span><span class="p">],</span> <span class="n">device</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmdResponse</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">DeviceCommandsFailed</span><span class="p">((</span><span class="sa">f</span><span class="s2">&quot;&#39;show hostname&#39; failed on device </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span>
+                                            <span class="sa">f</span><span class="s2">&quot; with response: </span><span class="si">{</span><span class="n">cmdResponse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+            <span class="n">hostnameErr</span> <span class="o">=</span> <span class="n">cmdResponse</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">hostnameErr</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">DeviceCommandsFailed</span><span class="p">((</span><span class="sa">f</span><span class="s2">&quot;&#39;show hostname&#39; failed on device </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span>
+                                            <span class="sa">f</span><span class="s2">&quot; with error: </span><span class="si">{</span><span class="n">hostnameErr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+            <span class="n">device</span><span class="o">.</span><span class="n">hostName</span> <span class="o">=</span> <span class="n">cmdResponse</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hostname&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">device</span><span class="o">.</span><span class="n">hostName</span></div>
+
+
+<div class="viewcode-block" id="Context.setTopology">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.setTopology">[docs]</a>
+    <span class="k">def</span> <span class="nf">setTopology</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topology</span><span class="p">:</span> <span class="n">Topology</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sets the topology of the context.</span>
+<span class="sd">        Called during context initialisation during script execution,</span>
+<span class="sd">        to set the Topology to that of the Inventory and Topology Studio.</span>
+<span class="sd">        Does not need to be called by the script writers.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topology</span> <span class="o">=</span> <span class="n">topology</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">setLogger</span><span class="p">(</span><span class="n">systemLogger</span><span class="p">)</span>
+
+        <span class="c1"># Studios can have a device associated with it through it&#39;s inputs, which is only extracted</span>
+        <span class="c1"># after the topology is set, not passed into the context at it&#39;s creation.</span>
+        <span class="c1"># In the case where a device was not passed to the ctx, and a topology is set where there is</span>
+        <span class="c1"># only a single device in the topology, set that device as the one used in the context</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">topologyDevs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">getDevices</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">deviceIds</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">topologyDevs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">topologyDevs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Context.getCvClient">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.getCvClient">[docs]</a>
+    <span class="k">def</span> <span class="nf">getCvClient</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Instantiates a cloudvision connector client to the cv database</span>
+<span class="sd">        based on the current user auth token</span>
+<span class="sd">        :return: cloudvision Connector client</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__connector</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__connector</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">apiserverAddr</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">connector</span> <span class="o">=</span> <span class="n">GRPCClient</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">apiserverAddr</span><span class="p">,</span>
+                               <span class="n">ca</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">aerisCACert</span><span class="p">,</span>
+                               <span class="n">tokenValue</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__connector</span> <span class="o">=</span> <span class="n">connector</span>
+        <span class="k">return</span> <span class="n">connector</span></div>
+
+
+<div class="viewcode-block" id="Context.getApiClient">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.getApiClient">[docs]</a>
+    <span class="k">def</span> <span class="nf">getApiClient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stub</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Instantiates a resource api client to the service server</span>
+<span class="sd">        based on the current user auth token and passed stub</span>
+<span class="sd">        :param: stub of the resource api to connect to</span>
+<span class="sd">        :return: resource api client to the passed stub</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">def</span> <span class="nf">add_user_context</span><span class="p">(</span><span class="n">chann</span><span class="p">):</span>
+            <span class="c1"># If provided, add the user context to the grpc metadata</span>
+            <span class="c1"># This allows the context to access services correctly</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">username_interceptor</span> <span class="o">=</span> <span class="n">addHeaderInterceptor</span><span class="p">(</span><span class="n">USERNAME</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+                <span class="n">chann</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">intercept_channel</span><span class="p">(</span><span class="n">chann</span><span class="p">,</span> <span class="n">username_interceptor</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">chann</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">stub</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">serviceAddr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">systemLogger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="s2">&quot;service address is None, trying to establish connection to apiserver&quot;</span><span class="p">)</span>
+            <span class="c1"># use api server&#39;s secure grpc channel if service address is not provided</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getCvClient</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getCvClient</span><span class="p">()</span><span class="o">.</span><span class="n">channel</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span> <span class="o">=</span> <span class="n">add_user_context</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">stub</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span><span class="p">)</span>
+            <span class="n">systemLogger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="s2">&quot;cannot establish connection to apiserver: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__connector</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ConnectionFailed</span><span class="p">(</span><span class="s2">&quot;cannot establish connection to api server&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Verify that we have a correct token</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">token</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">systemLogger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;no valid token for authenticating the API Client&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">InvalidCredentials</span><span class="p">(</span><span class="s2">&quot;no valid token for authenticating the API Client&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Try and read the ca cert</span>
+        <span class="n">caData</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">serviceCACert</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">serviceCACert</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cf</span><span class="p">:</span>
+                <span class="n">caData</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+        <span class="c1"># Build the grpc connection with the token and the potential ca cert</span>
+        <span class="n">creds</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">ssl_channel_credentials</span><span class="p">(</span><span class="n">root_certificates</span><span class="o">=</span><span class="n">caData</span><span class="p">)</span>
+        <span class="n">tokCreds</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">access_token_call_credentials</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="n">creds</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">composite_channel_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">,</span> <span class="n">tokCreds</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">secure_channel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">serviceAddr</span><span class="p">,</span> <span class="n">creds</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span> <span class="o">=</span> <span class="n">add_user_context</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">stub</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__serviceChann</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Context.runDeviceCmds">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.runDeviceCmds">[docs]</a>
+    <span class="k">def</span> <span class="nf">runDeviceCmds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commandsList</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Device</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="n">JSON</span><span class="p">,</span>
+                      <span class="n">validateResponse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sends a post request to DI, encodes commandsList in message body.</span>
+<span class="sd">        Receives output of cli commands from DI as json object.</span>
+
+<span class="sd">        :param commandsList:</span>
+<span class="sd">        :param device: device that the commands are run on.</span>
+<span class="sd">                       Defaults to the context change control device if unspecified</span>
+<span class="sd">        :param validateResponse: Validates that the commands ran successfully. Defaults to true and</span>
+<span class="sd">                                 will raise an exception in the case an error message is present in</span>
+<span class="sd">                                 the command response.</span>
+<span class="sd">                                 Can be set to false to allow commands to run without raising any</span>
+<span class="sd">                                 resultant error as an exception, e.g. device reboot commands can</span>
+<span class="sd">                                 cause heartbeat error messages in the response, but we can discard</span>
+<span class="sd">                                 them as the device will reboot.</span>
+<span class="sd">        :return: json object containing output of commandsList (if validateResponse is True)</span>
+<span class="sd">                 OR</span>
+<span class="sd">                 raw request response (if validateResponse is False)</span>
+<span class="sd">        :raises: InvalidContextException when context is invalid for execution of device commands</span>
+<span class="sd">                 requests.ConnectionError if connection cannot be established to the command</span>
+<span class="sd">                 endpoint address</span>
+<span class="sd">                 HTTPError if the status code from the command request is not a 200</span>
+<span class="sd">                 DeviceCommandsFailed if validating command responses and the contents</span>
+<span class="sd">                 contain an error code/message (can occur if request is a 200)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span>
+                <span class="s2">&quot;runDeviceCmds is only available in action contexts&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span>
+                    <span class="s2">&quot;runDeviceCmds is only available when a device is set&quot;</span><span class="p">)</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span>
+                <span class="s2">&quot;runDeviceCmds requires a device with an id&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">serviceAddr</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">commandEndpoint</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span><span class="s2">&quot;runDeviceCmds must have a valid service &quot;</span>
+                                          <span class="s2">&quot;address and command endpoint specified&quot;</span><span class="p">)</span>
+
+        <span class="c1"># From the DI service documentation about the HOST field:</span>
+        <span class="c1"># Host can be either IP address or hostname</span>
+        <span class="n">deviceInteractionHost</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">ip</span> <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">ip</span> <span class="k">else</span> <span class="n">device</span><span class="o">.</span><span class="n">hostName</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">HOST</span><span class="p">:</span> <span class="n">deviceInteractionHost</span><span class="p">,</span>
+            <span class="n">DEVICE_ID</span><span class="p">:</span> <span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="n">CMDS</span><span class="p">:</span> <span class="n">commandsList</span><span class="p">,</span>
+            <span class="n">TIMEOUT_CLI</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">cliTimeout</span><span class="p">,</span>
+            <span class="n">TIMEOUT_CONN</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">connectionTimeout</span><span class="p">,</span>
+            <span class="n">REQ_FORMAT</span><span class="p">:</span> <span class="n">fmt</span><span class="p">,</span>
+            <span class="n">STOP_ON_ERROR</span><span class="p">:</span> <span class="kc">False</span>
+        <span class="p">}</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="n">accessToken</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="n">accessToken</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">token</span>
+
+        <span class="n">cookies</span> <span class="o">=</span> <span class="p">{</span><span class="n">ACCESS_TOKEN</span><span class="p">:</span> <span class="n">accessToken</span><span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">runCmdURL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">serviceAddr</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">commandEndpoint</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Executing the following command(s) on device </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">commandsList</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">runCmdURL</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">HEADERS</span><span class="p">,</span>
+                                     <span class="n">cookies</span><span class="o">=</span><span class="n">cookies</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got exception while establishing connection to DI : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Status code received from DI : </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+        <span class="c1"># In the case where a response is not validated do not check for errors or convert</span>
+        <span class="c1"># the response to JSON. Simply return it as-is</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">validateResponse</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">response</span>
+
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="c1"># Check that some other issue did not occur. It has been seen that a statuscode 200 was</span>
+        <span class="c1"># received for the response, but when the response contents are jsonified and returned,</span>
+        <span class="c1"># they can be a simple dictionary with two entries, &#39;errorCode&#39; and &#39;errorMessage&#39;,</span>
+        <span class="c1"># instead of the usual list of dictionaries for each command response.</span>
+        <span class="c1"># This is not caused by the commands that the user provided, but is an issue with</span>
+        <span class="c1"># the request that was sent to the command endpoint</span>
+        <span class="c1"># If that occurs, raise a DeviceCommandsFailedException</span>
+        <span class="c1"># An example of this is {&#39;errorCode&#39;: &#39;341604&#39;, &#39;errorMessage&#39;: &#39;Invalid request&#39;}</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">resp</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;errorCode&quot;</span><span class="p">,</span> <span class="s2">&quot;errorMessage&quot;</span><span class="p">]):</span>
+            <span class="n">errCode</span> <span class="o">=</span> <span class="n">resp</span><span class="p">[</span><span class="s2">&quot;errorCode&quot;</span><span class="p">]</span>
+            <span class="n">errMsg</span> <span class="o">=</span> <span class="n">resp</span><span class="p">[</span><span class="s2">&quot;errorMessage&quot;</span><span class="p">]</span>
+            <span class="k">raise</span> <span class="n">DeviceCommandsFailed</span><span class="p">((</span><span class="sa">f</span><span class="s2">&quot;Commands failed to run on device </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">,&quot;</span>
+                                        <span class="sa">f</span><span class="s2">&quot; returned </span><span class="si">{</span><span class="n">errCode</span><span class="si">}</span><span class="s2">:</span><span class="se">\&quot;</span><span class="si">{</span><span class="n">errMsg</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">),</span> <span class="n">errCode</span><span class="p">,</span> <span class="n">errMsg</span><span class="p">)</span>
+
+        <span class="c1"># Check that none of the commands have outright failed</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cmdResp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">resp</span><span class="p">):</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="n">cmdResp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">err</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">DeviceCommandsFailed</span><span class="p">((</span><span class="sa">f</span><span class="s2">&quot;Command </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">commandsList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> failed to run on &quot;</span>
+                                           <span class="sa">f</span><span class="s2">&quot;device </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">, returned </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">resp</span></div>
+
+
+<div class="viewcode-block" id="Context.doWithTimeout">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.doWithTimeout">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">doWithTimeout</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Takes a function and a timeout in seconds.</span>
+<span class="sd">        Will call and return the result of f, but raises a cvlib.TimeoutExpiry</span>
+<span class="sd">        exception if it runs longer than &lt;timeout&gt;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="c1"># A handler function for the timer that will raise our custom exception</span>
+        <span class="k">def</span> <span class="nf">monitorTimerHandler</span><span class="p">(</span><span class="n">signum</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">TimeoutExpiry</span>
+
+        <span class="c1"># Set up a signal handler that will cause a signal.SIGALRM signal to trigger our timer</span>
+        <span class="c1"># handler</span>
+        <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGALRM</span><span class="p">,</span> <span class="n">monitorTimerHandler</span><span class="p">)</span>
+        <span class="c1"># Set an alarm to fire in &lt;timeout&gt; seconds. This will call the handler we bound earlier</span>
+        <span class="n">signal</span><span class="o">.</span><span class="n">alarm</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">f</span><span class="p">()</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="c1"># Always turn off the alarm, whether returning a value or propagating an exception</span>
+            <span class="n">signal</span><span class="o">.</span><span class="n">alarm</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Context.initializeStudioCtxFromArgs">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.initializeStudioCtxFromArgs">[docs]</a>
+    <span class="k">def</span> <span class="nf">initializeStudioCtxFromArgs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        initializeStudioCtxFromArgs associates studio(s) and a workspace with the current</span>
+<span class="sd">        context from argument information available in the current context&#39;s action class.</span>
+<span class="sd">        This allows for actions such as Studio Autofill Actions and Studio Build Hook Actions</span>
+<span class="sd">        to associate a studio with their active contexts, allowing them to access various helper</span>
+<span class="sd">        methods that require the presence of a studio or workspace with the active context,</span>
+<span class="sd">        such as those offered by the tags class.</span>
+
+<span class="sd">        NOTE: Will raise InvalidContextException if called and either a studio is already</span>
+<span class="sd">        bound to the context or no action is available in the context</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">workspace</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span>
+                <span class="s2">&quot;initializeStudioCtxFromArgs already has studio ctx initialised&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span><span class="s2">&quot;initializeStudioCtxFromArgs must be&quot;</span>
+                                          <span class="s2">&quot; run in an action context&quot;</span><span class="p">)</span>
+
+        <span class="n">buildId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">BUILD_ID_ARG</span><span class="p">)</span>
+        <span class="c1"># Will be set if action is in a studio scope</span>
+        <span class="n">studioId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">STUDIO_ID_ARG</span><span class="p">)</span>
+        <span class="c1"># Will be present for some execution contexts, e.g. Studio Build Hook actions</span>
+        <span class="n">studioIdsStr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">STUDIO_IDS_ARG</span><span class="p">)</span>
+        <span class="n">workspaceId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">WORKSPACE_ID_ARG</span><span class="p">)</span>
+        <span class="n">studioIds</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">studioIdsStr</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">studioIds</span> <span class="o">=</span> <span class="n">extractJSONEncodedListArg</span><span class="p">(</span><span class="n">studioIdsStr</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">warning</span><span class="p">((</span><span class="sa">f</span><span class="s2">&quot;Unable to extract json encoded list &#39;</span><span class="si">{</span><span class="n">STUDIO_IDS_ARG</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                              <span class="sa">f</span><span class="s2">&quot;Ignoring </span><span class="si">{</span><span class="n">STUDIO_IDS_ARG</span><span class="si">}</span><span class="s2"> contents&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">workspaceId</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span>
+                <span class="p">(</span><span class="s2">&quot;initializeStudioCtxFromArgs: Missing minimum required argument&quot;</span>
+                 <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">WORKSPACE_ID_ARG</span><span class="si">}</span><span class="s2"> for studio ctx initialisation&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">workspace</span> <span class="o">=</span> <span class="n">Workspace</span><span class="p">(</span>
+            <span class="n">workspaceId</span><span class="o">=</span><span class="n">workspaceId</span><span class="p">,</span>
+            <span class="n">studioIds</span><span class="o">=</span><span class="n">studioIds</span><span class="p">,</span>
+            <span class="n">buildId</span><span class="o">=</span><span class="n">buildId</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">studioId</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">studio</span> <span class="o">=</span> <span class="n">Studio</span><span class="p">(</span>
+                <span class="n">workspaceId</span><span class="o">=</span><span class="n">workspaceId</span><span class="p">,</span>
+                <span class="n">studioId</span><span class="o">=</span><span class="n">studioId</span><span class="p">,</span>
+                <span class="n">buildId</span><span class="o">=</span><span class="n">buildId</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Context.getWorkspaceId">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.getWorkspaceId">[docs]</a>
+    <span class="k">def</span> <span class="nf">getWorkspaceId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">workspace</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">((</span><span class="s2">&quot;Context does not have a workspace or studio &quot;</span>
+                                          <span class="s2">&quot;associated with it&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">workspace</span><span class="o">.</span><span class="n">id</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">workspace</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">workspaceId</span></div>
+
+
+<div class="viewcode-block" id="Context.httpGet">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.httpGet">[docs]</a>
+    <span class="k">def</span> <span class="nf">httpGet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Issues a https GET to a given endpoint in CloudVision and returns the json</span>
+<span class="sd">        content if there are no errors</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">token</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span><span class="s2">&quot;httpGet requires an authenticated&quot;</span>
+                                          <span class="o">+</span> <span class="s2">&quot; user associated with the context&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">serviceAddr</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span><span class="s2">&quot;httpGet must have a valid service address specified&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Perform a split to ensure to drop any ports that are provided as part of the serviceAddr</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">serviceAddr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="n">path</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">HEADER_ACCEPT</span><span class="p">:</span> <span class="n">HEADER_JSON_APPLICATION</span><span class="p">,</span>
+            <span class="n">HEADER_CONTENT_TYPE</span><span class="p">:</span> <span class="n">HEADER_JSON_APPLICATION</span><span class="p">,</span>
+            <span class="n">HEADER_AUTH</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+            <span class="n">respJson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got exception while establishing connection to url &#39;</span><span class="si">{</span><span class="n">endpoint</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got error response from get on &#39;</span><span class="si">{</span><span class="n">endpoint</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="k">return</span> <span class="n">respJson</span></div>
+
+
+<div class="viewcode-block" id="Context.httpGetConfig">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.httpGetConfig">[docs]</a>
+    <span class="k">def</span> <span class="nf">httpGetConfig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Issues a http get to retrieve the device config content at a cvp url and formats it.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">rawConfig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">httpGet</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">rawConfig</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">formattedConfig</span> <span class="o">=</span> <span class="n">rawConfig</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">t&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">formattedConfig</span></div>
+
+
+<div class="viewcode-block" id="Context.httpPost">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.httpPost">[docs]</a>
+    <span class="k">def</span> <span class="nf">httpPost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="p">{}):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Issues a https POST to a given endpoint in CloudVision</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">token</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span><span class="s2">&quot;httpPost requires an authenticated&quot;</span>
+                                          <span class="o">+</span> <span class="s2">&quot; user associated with the context&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">serviceAddr</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span><span class="s2">&quot;httpPost must have a valid service address specified&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Perform a split to ensure to drop any ports that are provided as part of the serviceAddr</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">serviceAddr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="n">path</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">HEADER_ACCEPT</span><span class="p">:</span> <span class="n">HEADER_JSON_APPLICATION</span><span class="p">,</span>
+            <span class="n">HEADER_CONTENT_TYPE</span><span class="p">:</span> <span class="n">HEADER_JSON_APPLICATION</span><span class="p">,</span>
+            <span class="n">HEADER_AUTH</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got exception while establishing connection to url &#39;</span><span class="si">{</span><span class="n">endpoint</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got error response from get on &#39;</span><span class="si">{</span><span class="n">endpoint</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="Context.Get">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.Get">[docs]</a>
+    <span class="k">def</span> <span class="nf">Get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;analytics&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Get issues a get request to the provided path/key(s) combo, and returns the contents</span>
+<span class="sd">        of that path as a dictionary. Wildcarding is not advised as the returned dictionary</span>
+<span class="sd">        is only a single level deep, so adding wildcards will cause overwrites in the results.</span>
+
+<span class="sd">        Params:</span>
+<span class="sd">        - path:     The path to issue the get to, in the form of a list of strings</span>
+<span class="sd">        - keys:     The key(s) to get at the path. Defaults to all keys</span>
+<span class="sd">        - dataset:  The dataset to issue the get to. Defaults to the `analytics` dataset</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">client</span><span class="p">:</span> <span class="n">GRPCClient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getCvClient</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">create_query</span><span class="p">(</span><span class="n">pathKeys</span><span class="o">=</span><span class="p">[(</span><span class="n">path</span><span class="p">,</span> <span class="n">keys</span><span class="p">)],</span> <span class="n">dId</span><span class="o">=</span><span class="n">dataset</span><span class="p">)</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="n">query</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">notif</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">[</span><span class="s2">&quot;notifications&quot;</span><span class="p">]:</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">notif</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;updates&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="k">return</span> <span class="n">results</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_getGenericKey</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Creates a generic key for use in store/retrieve based off of the available</span>
+<span class="sd">        context information such that overwrites will be done on successive runs of</span>
+<span class="sd">        the same calling studio/WS or action.</span>
+
+<span class="sd">        When building the key based on the context;</span>
+<span class="sd">        - If it is a studio context, the key generated will be in the form of</span>
+<span class="sd">          &quot;&lt;studioId&gt;:&lt;buildId&gt;&quot; if a build ID is present, else &quot;&lt;studioId&gt;&quot;</span>
+<span class="sd">        - If it is an action context, the key generated will be in the form of</span>
+<span class="sd">          &quot;&lt;executionID&gt;&quot;</span>
+
+<span class="sd">        Raises InvalidContextException if not enough context information is present</span>
+<span class="sd">        to create a key</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">buildId</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">studioId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">buildId</span><span class="p">])</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">studioId</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">execution</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">execution</span><span class="o">.</span><span class="n">executionId</span>
+        <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span>
+            <span class="s2">&quot;store/retrieve without key requires a studio or action in the context&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_getStoragePath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">additionalElems</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Builds a generic path for use in store/retrieve based off of either the passed</span>
+<span class="sd">        additional elements provided by the user or the available context information.</span>
+<span class="sd">        All paths will contain &quot;action/tmp&quot; as the root.</span>
+
+<span class="sd">        When building a path based on the context;</span>
+<span class="sd">        - If it is a studio context, the path generated will be in the form of</span>
+<span class="sd">          /action/tmp/workspace/&lt;workspaceId&gt;/studio</span>
+<span class="sd">        - If it is an action context, the path generated will be in the form of</span>
+<span class="sd">          /action/tmp/action/&lt;actionId&gt;</span>
+
+<span class="sd">        Raises InvalidContextException if no additional elems were passed by the user</span>
+<span class="sd">        and not enough context information is present to create a path</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">storage_path</span> <span class="o">=</span> <span class="n">TMP_STORAGE_PATH</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">additionalElems</span><span class="p">:</span>
+            <span class="n">storage_path</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">additionalElems</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">storage_path</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">workspaceId</span><span class="p">:</span>
+            <span class="n">storage_path</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s2">&quot;workspace&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">workspaceId</span><span class="p">,</span> <span class="s2">&quot;studio&quot;</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">storage_path</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+            <span class="n">storage_path</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s2">&quot;action&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">id</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">storage_path</span>
+        <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span>
+            <span class="s2">&quot;store without specified path requires a studio or action in the context&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Context.store">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.store">[docs]</a>
+    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">customKey</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        store puts the passed data into a path in the Database</span>
+
+<span class="sd">        NOTE: This function is only available to those with write permissions to the</span>
+<span class="sd">        &#39;action&#39; path in the cvp dataset (granted by the action module), as that is</span>
+<span class="sd">        where the store is.</span>
+
+<span class="sd">        This should be used in conjunction with the retrieve method to ensure that</span>
+<span class="sd">        the entry is cleaned up after use.</span>
+
+<span class="sd">        Params:</span>
+<span class="sd">        - data:      The data to store</span>
+<span class="sd">        - path:      The path to store the data at, in the form of a list of strings.</span>
+<span class="sd">                     If this argument is omitted, a generic path will be created for</span>
+<span class="sd">                     use. All paths have &quot;action/tmp&quot; as the root.</span>
+<span class="sd">        - customKey: The key to store the data at in the path. If this argument is</span>
+<span class="sd">                     omitted, a generic string key will be created for use.</span>
+
+<span class="sd">        Raises InvalidContextException if not enough context information is</span>
+<span class="sd">        present to create a generic key/path (if required)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">customKey</span> <span class="k">if</span> <span class="n">customKey</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getGenericKey</span><span class="p">()</span>
+        <span class="n">storagePath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getStoragePath</span><span class="p">(</span><span class="n">additionalElems</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">update</span> <span class="o">=</span> <span class="p">[(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)]</span>
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">Timestamp</span><span class="p">()</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">GetCurrentTime</span><span class="p">()</span>
+        <span class="n">notifs</span> <span class="o">=</span> <span class="p">[</span><span class="n">create_notification</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">storagePath</span><span class="p">,</span> <span class="n">updates</span><span class="o">=</span><span class="n">update</span><span class="p">)]</span>
+        <span class="c1"># Generate the list of path pointer notifs that lead to the new entry</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pathElem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">storagePath</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># We don&#39;t want to keep writing the path pointer to actions</span>
+                <span class="c1"># in the top level of the cvp dataset</span>
+                <span class="k">continue</span>
+            <span class="n">pathPointerPath</span> <span class="o">=</span> <span class="n">storagePath</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">pathPointerUpdate</span> <span class="o">=</span> <span class="p">[(</span><span class="n">pathElem</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="n">storagePath</span><span class="p">[:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))]</span>
+            <span class="n">notifs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">create_notification</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">pathPointerPath</span><span class="p">,</span> <span class="n">updates</span><span class="o">=</span><span class="n">pathPointerUpdate</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getCvClient</span><span class="p">()</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">dId</span><span class="o">=</span><span class="s2">&quot;cvp&quot;</span><span class="p">,</span> <span class="n">notifs</span><span class="o">=</span><span class="n">notifs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="c1"># If the exception is not a permissions error, reraise the original</span>
+            <span class="c1"># exception as something went wrong</span>
+            <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">code</span><span class="p">()</span> <span class="o">!=</span> <span class="n">StatusCode</span><span class="o">.</span><span class="n">PERMISSION_DENIED</span><span class="p">:</span>
+                <span class="k">raise</span>
+            <span class="k">raise</span> <span class="n">InvalidCredentials</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Context user does not have permission to write to path &#39;</span><span class="si">{</span><span class="n">storagePath</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Context.retrieve">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.retrieve">[docs]</a>
+    <span class="k">def</span> <span class="nf">retrieve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">customKey</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        retrieve gets the passed key&#39;s data from the provided path from the</span>
+<span class="sd">        Database store.</span>
+
+<span class="sd">        NOTE: This function is only available to those with read permissions to the</span>
+<span class="sd">        &#39;action&#39; path in the cvp dataset (granted by the action module), as that is</span>
+<span class="sd">        where the store is.</span>
+
+<span class="sd">        Params:</span>
+<span class="sd">        - path:      The path where the data is stored at, in the form of a list</span>
+<span class="sd">                     of strings. If this argument is omitted, a generic path will be</span>
+<span class="sd">                     created for use. All paths have &quot;action/tmp&quot; as the root.</span>
+<span class="sd">        - customKey: The key where the data is stored at in the path. If this argument</span>
+<span class="sd">                     is omitted, a generic string key will be created for use.</span>
+<span class="sd">        - delete:    Boolean flag marking whether a delete should be issued to the</span>
+<span class="sd">                     store for the key/path combo to clean up after use.</span>
+<span class="sd">                     Deleting once the contents have been retrieved is the default.</span>
+
+<span class="sd">        Raises InvalidContextException if not enough context information is</span>
+<span class="sd">        present to create a generic key/path (if required)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">customKey</span> <span class="k">if</span> <span class="n">customKey</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getGenericKey</span><span class="p">()</span>
+        <span class="n">storagePath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getStoragePath</span><span class="p">(</span><span class="n">additionalElems</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">storagePath</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;cvp&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="c1"># If the exception is not a permissions error, reraise the original</span>
+            <span class="c1"># exception as something went wrong</span>
+            <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">code</span><span class="p">()</span> <span class="o">!=</span> <span class="n">StatusCode</span><span class="o">.</span><span class="n">PERMISSION_DENIED</span><span class="p">:</span>
+                <span class="k">raise</span>
+            <span class="k">raise</span> <span class="n">InvalidCredentials</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Context user does not have permission to read from path &#39;</span><span class="si">{</span><span class="n">storagePath</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">delete</span><span class="p">:</span>
+            <span class="n">ts</span> <span class="o">=</span> <span class="n">Timestamp</span><span class="p">()</span>
+            <span class="n">ts</span><span class="o">.</span><span class="n">GetCurrentTime</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">getCvClient</span><span class="p">()</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span>
+                    <span class="n">dId</span><span class="o">=</span><span class="s2">&quot;cvp&quot;</span><span class="p">,</span> <span class="n">notifs</span><span class="o">=</span><span class="p">[</span><span class="n">create_notification</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">storagePath</span><span class="p">,</span> <span class="n">deletes</span><span class="o">=</span><span class="p">[</span><span class="n">key</span><span class="p">])])</span>
+            <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="c1"># If the exception is not a permissions error, reraise the original</span>
+                <span class="c1"># exception as something went wrong</span>
+                <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">code</span><span class="p">()</span> <span class="o">!=</span> <span class="n">StatusCode</span><span class="o">.</span><span class="n">PERMISSION_DENIED</span><span class="p">:</span>
+                    <span class="k">raise</span>
+                <span class="k">raise</span> <span class="n">InvalidCredentials</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Context user does not have permission to write to path &#39;</span><span class="si">{</span><span class="n">storagePath</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Context.clear">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.clear">[docs]</a>
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">fullPathOnly</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        clear issues deletes to the backend data store for cleanup, where retrieve with</span>
+<span class="sd">        delete is not required or not suitable. By default, it walks upwards through</span>
+<span class="sd">        each element in the path provided and issues a delete-all at each sub-path</span>
+<span class="sd">        to purge the information store. The fullPathOnly flag can be set to true to only</span>
+<span class="sd">        issue a deletes to the full path, instead of at all sub-paths in the path. A list</span>
+<span class="sd">        of keys to specifically delete can be provided to only delete those fields.</span>
+
+<span class="sd">        NOTE: While this function accepts wildcards, note that using them may</span>
+<span class="sd">        impact other storage paths used in other actions.</span>
+
+<span class="sd">        Params:</span>
+<span class="sd">        - path:         The path where the data should be purged, in the form of a list</span>
+<span class="sd">                        of strings or Connector Wildcards.</span>
+<span class="sd">        - keys:         The list of keys to delete. Defaults to a delete-all.</span>
+<span class="sd">        - fullPathOnly: Boolean flag marking whether a delete-all should only be issued</span>
+<span class="sd">                        to the store for full path.</span>
+<span class="sd">                        By default, deletes are issued at all sub-paths.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">storagePath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getStoragePath</span><span class="p">(</span><span class="n">additionalElems</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getCvClient</span><span class="p">()</span>
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">Timestamp</span><span class="p">()</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">GetCurrentTime</span><span class="p">()</span>
+        <span class="c1"># Repeatedly issue delete-alls until we reach the root storage path</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">storagePath</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">TMP_STORAGE_PATH</span><span class="p">):</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">dId</span><span class="o">=</span><span class="s2">&quot;cvp&quot;</span><span class="p">,</span>
+                           <span class="n">notifs</span><span class="o">=</span><span class="p">[</span><span class="n">create_notification</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">storagePath</span><span class="p">,</span> <span class="n">deletes</span><span class="o">=</span><span class="n">keys</span><span class="p">)])</span>
+            <span class="k">if</span> <span class="n">fullPathOnly</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">storagePath</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Context.showIf">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.showIf">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">showIf</span><span class="p">(</span><span class="n">linefmt</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">linefmt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
+
+
+<div class="viewcode-block" id="Context.alog">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.alog">[docs]</a>
+    <span class="k">def</span> <span class="nf">alog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">userName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">customKey</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">ignoreFailures</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an audit log entry in CloudVision, with the provided info.</span>
+<span class="sd">        The context&#39;s associated device name and id will be added to the audit log metadata</span>
+<span class="sd">        if it is available in the context.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            message:        The string message for the audit log entry</span>
+<span class="sd">            userName:       The user to make the audit log entry under. If unspecified, will</span>
+<span class="sd">                            use the context&#39;s user&#39;s username</span>
+<span class="sd">            customKey:      A custom key that will be used to alias the audit log entry if provided</span>
+<span class="sd">            tags:           A string dictionary of additional custom tags to add to the audit log</span>
+<span class="sd">                            entry. The action ID is always added as a tag to the audit log</span>
+<span class="sd">            ignoreFailures: Prevents logging exceptions from being raised</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">alog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">userName</span><span class="p">,</span> <span class="n">customKey</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">LoggingFailed</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ignoreFailures</span><span class="p">:</span>
+                <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="Context.trace">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.trace">[docs]</a>
+    <span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">ignoreFailures</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a trace level log if the context&#39;s logging level is set to allow for it</span>
+<span class="sd">        If the logging level is higher, is a no-op</span>
+<span class="sd">        Args:</span>
+<span class="sd">            msg:            The string message for the  log entry</span>
+<span class="sd">            ignoreFailures: Prevents logging exceptions from being raised</span>
+<span class="sd">            tags:           A string dictionary of additional custom tags to add to the log</span>
+<span class="sd">                            entry. Some system tags are always inserted, e.g. buildID</span>
+<span class="sd">                            when logging is done in a studio context.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getLoggingLevel</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">LoggingLevel</span><span class="o">.</span><span class="n">Trace</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">LoggingFailed</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ignoreFailures</span><span class="p">:</span>
+                <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="Context.debug">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.debug">[docs]</a>
+    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">ignoreFailures</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a debug level log if the context&#39;s logging level is set to allow for it</span>
+<span class="sd">        If the logging level is higher, is a no-op</span>
+<span class="sd">        Args:</span>
+<span class="sd">            msg:            The string message for the  log entry</span>
+<span class="sd">            ignoreFailures: Prevents logging exceptions from being raised</span>
+<span class="sd">            tags:           A string dictionary of additional custom tags to add to the log</span>
+<span class="sd">                            entry. Some system tags are always inserted, e.g. buildID</span>
+<span class="sd">                            when logging is done in a studio context.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getLoggingLevel</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">LoggingLevel</span><span class="o">.</span><span class="n">Debug</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">LoggingFailed</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ignoreFailures</span><span class="p">:</span>
+                <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="Context.info">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.info">[docs]</a>
+    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">ignoreFailures</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an info level log if the context&#39;s logging level is set to allow for it</span>
+<span class="sd">        If the logging level is higher, is a no-op</span>
+<span class="sd">        Args:</span>
+<span class="sd">            msg:            The string message for the  log entry</span>
+<span class="sd">            ignoreFailures: Prevents logging exceptions from being raised</span>
+<span class="sd">            tags:           A string dictionary of additional custom tags to add to the log</span>
+<span class="sd">                            entry. Some system tags are always inserted, e.g. buildID</span>
+<span class="sd">                            when logging is done in a studio context.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getLoggingLevel</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">LoggingLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">LoggingFailed</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ignoreFailures</span><span class="p">:</span>
+                <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="Context.warning">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.warning">[docs]</a>
+    <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">ignoreFailures</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a warning level log if the context&#39;s logging level is set to allow for it</span>
+<span class="sd">        If the logging level is higher, is a no-op</span>
+<span class="sd">        Args:</span>
+<span class="sd">            msg:            The string message for the  log entry</span>
+<span class="sd">            ignoreFailures: Prevents logging exceptions from being raised</span>
+<span class="sd">            tags:           A string dictionary of additional custom tags to add to the log</span>
+<span class="sd">                            entry. Some system tags are always inserted, e.g. buildID</span>
+<span class="sd">                            when logging is done in a studio context.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getLoggingLevel</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">LoggingLevel</span><span class="o">.</span><span class="n">Warn</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">LoggingFailed</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ignoreFailures</span><span class="p">:</span>
+                <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="Context.error">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.error">[docs]</a>
+    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">ignoreFailures</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an error level log if the context&#39;s logging level is set to allow for it</span>
+<span class="sd">        If the logging level is higher, is a no-op</span>
+<span class="sd">        Args:</span>
+<span class="sd">            msg:            The string message for the  log entry</span>
+<span class="sd">            ignoreFailures: Prevents logging exceptions from being raised</span>
+<span class="sd">            tags:           A string dictionary of additional custom tags to add to the log</span>
+<span class="sd">                            entry. Some system tags are always inserted, e.g. buildID</span>
+<span class="sd">                            when logging is done in a studio context.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getLoggingLevel</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">LoggingLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">LoggingFailed</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ignoreFailures</span><span class="p">:</span>
+                <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="Context.critical">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.critical">[docs]</a>
+    <span class="k">def</span> <span class="nf">critical</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">ignoreFailures</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a critical level log</span>
+<span class="sd">        Args:</span>
+<span class="sd">            msg:            The string message for the  log entry</span>
+<span class="sd">            ignoreFailures: Prevents logging exceptions from being raised</span>
+<span class="sd">            tags:           A string dictionary of additional custom tags to add to the log</span>
+<span class="sd">                            entry. Some system tags are always inserted, e.g. buildID</span>
+<span class="sd">                            when logging is done in a studio context.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">tags</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">LoggingFailed</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ignoreFailures</span><span class="p">:</span>
+                <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="Context.keepBlankLines">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.keepBlankLines">[docs]</a>
+    <span class="k">def</span> <span class="nf">keepBlankLines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preserve</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="c1"># This function is only relevant for Studio Templates.</span>
+        <span class="c1"># Script executor code introspects this value to decide whether to</span>
+        <span class="c1"># clean rendered templates post-rendering</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">preserveWhitespace</span> <span class="o">=</span> <span class="n">preserve</span></div>
+
+
+<div class="viewcode-block" id="Context.setLoggingLevel">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.setLoggingLevel">[docs]</a>
+    <span class="k">def</span> <span class="nf">setLoggingLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loggingLevel</span><span class="p">:</span> <span class="n">LoggingLevel</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Takes a logging level value and applies it for use in logging call checks</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loggingLevel</span> <span class="o">=</span> <span class="n">loggingLevel</span></div>
+
+
+<div class="viewcode-block" id="Context.getLoggingLevel">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.getLoggingLevel">[docs]</a>
+    <span class="k">def</span> <span class="nf">getLoggingLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the current logging level of the context</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loggingLevel</span></div>
+
+
+<div class="viewcode-block" id="Context.activateDebugMode">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.activateDebugMode">[docs]</a>
+    <span class="k">def</span> <span class="nf">activateDebugMode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Activates debug logging by setting the logging level to debug</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loggingLevel</span> <span class="o">=</span> <span class="n">LoggingLevel</span><span class="o">.</span><span class="n">Debug</span></div>
+
+
+<div class="viewcode-block" id="Context.deactivateDebugMode">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.deactivateDebugMode">[docs]</a>
+    <span class="k">def</span> <span class="nf">deactivateDebugMode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deactivates debug logging by setting the logging level to info</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loggingLevel</span> <span class="o">=</span> <span class="n">LoggingLevel</span><span class="o">.</span><span class="n">Info</span></div>
+
+
+    <span class="c1"># In the case where the context has no logger defined,</span>
+    <span class="c1"># we can create a compatible backup logger using the system logger</span>
+    <span class="c1"># This is called in init if no logger is provided</span>
+    <span class="k">def</span> <span class="nf">__getBackupLogger</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Logger</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">backupAlog</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">_userName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_customKey</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">systemLogger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">backupDebugOrTrace</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">systemLogger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">backupInfo</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">systemLogger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">backupWarning</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">systemLogger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">backupError</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">systemLogger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">backupCritical</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">systemLogger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Logger</span><span class="p">(</span>
+            <span class="n">alog</span><span class="o">=</span><span class="n">backupAlog</span><span class="p">,</span>
+            <span class="n">trace</span><span class="o">=</span><span class="n">backupDebugOrTrace</span><span class="p">,</span>
+            <span class="n">debug</span><span class="o">=</span><span class="n">backupDebugOrTrace</span><span class="p">,</span>
+            <span class="n">info</span><span class="o">=</span><span class="n">backupInfo</span><span class="p">,</span>
+            <span class="n">warning</span><span class="o">=</span><span class="n">backupWarning</span><span class="p">,</span>
+            <span class="n">error</span><span class="o">=</span><span class="n">backupError</span><span class="p">,</span>
+            <span class="n">critical</span><span class="o">=</span><span class="n">backupCritical</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="Context.benchmarkingOn">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.benchmarkingOn">[docs]</a>
+    <span class="k">def</span> <span class="nf">benchmarkingOn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Turns on benchmarking to collect stats such as time consumed in a routine</span>
+<span class="sd">        of the template</span>
+<span class="sd">        To use add the following lines into the template:</span>
+<span class="sd">            ctx.benchmarkingOn()   - place this as the first line after imports in the template</span>
+<span class="sd">            @ctx.benchmark         - decorate the functions of the template to be benchmarked</span>
+<span class="sd">            ctx.benchmarkDump()    - place this as the last line in the template</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">benchmarking</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="Context.benchmarkingOff">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.benchmarkingOff">[docs]</a>
+    <span class="k">def</span> <span class="nf">benchmarkingOff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">benchmarking</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Context.benchmark">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.benchmark">[docs]</a>
+    <span class="k">def</span> <span class="nf">benchmark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+            <span class="n">startTime</span> <span class="o">=</span> <span class="n">process_time_ns</span><span class="p">()</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">timer</span> <span class="o">=</span> <span class="n">process_time_ns</span><span class="p">()</span> <span class="o">-</span> <span class="n">startTime</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sum&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;instances&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">][</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">][</span><span class="s1">&#39;sum&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">timer</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">][</span><span class="s1">&#39;instances&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">benchmarking</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">func</span>
+        <span class="k">return</span> <span class="n">wrapper</span></div>
+
+
+<div class="viewcode-block" id="Context.benchmarkDump">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.benchmarkDump">[docs]</a>
+    <span class="k">def</span> <span class="nf">benchmarkDump</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;benchmarks for device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">fun</span><span class="p">,</span> <span class="n">timings</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">timings</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">timings</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e9</span>
+            <span class="n">timings</span><span class="p">[</span><span class="s1">&#39;average&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">timings</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">timings</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;functions&#39;</span><span class="si">:</span><span class="s2">&lt;40</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="s1">&#39;total(s)&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}{</span><span class="s1">&#39;avg(s)&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2">&quot;</span>
+                         <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;count&#39;</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">11</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">fun</span><span class="p">,</span> <span class="n">timings</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
+                                 <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;sum&#39;</span><span class="p">],</span>
+                                 <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fun</span><span class="si">:</span><span class="s2">&lt;40</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">timings</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;8.4f</span><span class="si">}{</span><span class="n">timings</span><span class="p">[</span><span class="s1">&#39;average&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;8.4f</span><span class="si">}</span><span class="s2">&quot;</span>
+                             <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">timings</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Context.getDevicesByTag">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.getDevicesByTag">[docs]</a>
+    <span class="k">def</span> <span class="nf">getDevicesByTag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="n">Tag</span><span class="p">,</span> <span class="n">inTopology</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns list of devices that have the user tag assigned to them.</span>
+<span class="sd">        If tag.value is unspecified then returns devices having that label assigned.</span>
+<span class="sd">        By default only devices in the topology are returned.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">devices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Note use list instead of .items()</span>
+        <span class="c1"># parallel thread might add/delete tags</span>
+        <span class="k">for</span> <span class="n">devId</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">allTags</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">_getAllDeviceTags</span><span class="p">()):</span>
+            <span class="n">tags</span> <span class="o">=</span> <span class="n">allTags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">devId</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="k">if</span> <span class="n">tags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">label</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+                    <span class="ow">not</span> <span class="n">tag</span><span class="o">.</span><span class="n">value</span> <span class="ow">or</span> <span class="n">tag</span><span class="o">.</span><span class="n">value</span> <span class="ow">in</span> <span class="n">tags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="p">[])):</span>
+                <span class="k">if</span> <span class="n">dev</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">_deviceMap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">devId</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span> <span class="k">else</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">devices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="ow">not</span> <span class="n">inTopology</span><span class="p">:</span>
+                    <span class="n">devices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Device</span><span class="p">(</span><span class="n">deviceId</span><span class="o">=</span><span class="n">devId</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">devices</span></div>
+
+
+<div class="viewcode-block" id="Context.getInterfacesByTag">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.context.Context.getInterfacesByTag">[docs]</a>
+    <span class="k">def</span> <span class="nf">getInterfacesByTag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="n">Tag</span><span class="p">,</span> <span class="n">inTopology</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns list of interfaces that have the user tag assigned to them.</span>
+<span class="sd">        If tag.value is unspecified then returns interfaces having that label assigned.</span>
+<span class="sd">        By default only interfaces in the topology are returned.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">interfaces</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Note use list instead of .items()</span>
+        <span class="c1"># parallel thread might add/delete tags</span>
+        <span class="k">for</span> <span class="n">devId</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">allTags</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">_getAllInterfaceTags</span><span class="p">()):</span>
+            <span class="k">for</span> <span class="n">intfId</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">devIntfTags</span> <span class="o">:=</span> <span class="n">allTags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">devId</span><span class="p">,</span> <span class="p">{})):</span>
+                <span class="n">tags</span> <span class="o">=</span> <span class="n">devIntfTags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">intfId</span><span class="p">,</span> <span class="p">{})</span>
+                <span class="k">if</span> <span class="n">tags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">label</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+                        <span class="ow">not</span> <span class="n">tag</span><span class="o">.</span><span class="n">value</span> <span class="ow">or</span> <span class="n">tag</span><span class="o">.</span><span class="n">value</span> <span class="ow">in</span> <span class="n">tags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="p">[])):</span>
+                    <span class="k">if</span> <span class="n">dev</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">_deviceMap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">devId</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span> <span class="k">else</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">intf</span> <span class="o">:=</span> <span class="n">dev</span><span class="o">.</span><span class="n">getInterface</span><span class="p">(</span><span class="n">intfId</span><span class="p">):</span>
+                            <span class="n">interfaces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">intf</span><span class="p">)</span>
+                        <span class="k">elif</span> <span class="ow">not</span> <span class="n">inTopology</span><span class="p">:</span>
+                            <span class="n">interfaces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Interface</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">intfId</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">))</span>
+                    <span class="k">elif</span> <span class="ow">not</span> <span class="n">inTopology</span><span class="p">:</span>
+                        <span class="n">interfaces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="n">Interface</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">intfId</span><span class="p">,</span>
+                                      <span class="n">device</span><span class="o">=</span><span class="n">Device</span><span class="p">(</span><span class="n">deviceId</span><span class="o">=</span><span class="n">devId</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">interfaces</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

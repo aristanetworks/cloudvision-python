@@ -1,0 +1,678 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.changecontrol.v1 package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.changecontrol.v1.services package" href="arista.changecontrol.v1.services.html" />
+    <link rel="prev" title="arista.changecontrol package" href="arista.changecontrol.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.changecontrol.html">arista.changecontrol package</a></li>
+      <li class="breadcrumb-item active">arista.changecontrol.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.changecontrol.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-changecontrol-v1-package">
+<h1>arista.changecontrol.v1 package<a class="headerlink" href="#arista-changecontrol-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.changecontrol.v1.services.html">arista.changecontrol.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.changecontrol.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.changecontrol.v1.services.html#module-arista.changecontrol.v1.services.gen_pb2">arista.changecontrol.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ApproveConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlSomeRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlSomeResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlStreamRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlStreamResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.ChangeControlStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.changecontrol.v1.services.html#module-arista.changecontrol.v1.services.gen_pb2_grpc">arista.changecontrol.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.Set"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ApproveConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ApproveConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.Set"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlService"><code class="docutils literal notranslate"><span class="pre">ChangeControlService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlService.GetAll"><code class="docutils literal notranslate"><span class="pre">ChangeControlService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ChangeControlService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlService.GetMeta"><code class="docutils literal notranslate"><span class="pre">ChangeControlService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlService.GetOne"><code class="docutils literal notranslate"><span class="pre">ChangeControlService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlService.GetSome"><code class="docutils literal notranslate"><span class="pre">ChangeControlService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ChangeControlService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ChangeControlService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ChangeControlService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlServiceServicer"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.ChangeControlServiceStub"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.add_ApproveConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ApproveConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.add_ChangeControlConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ChangeControlConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.changecontrol.v1.services.html#arista.changecontrol.v1.services.gen_pb2_grpc.add_ChangeControlServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ChangeControlServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.changecontrol.v1.services.html#module-arista.changecontrol.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.changecontrol.v1.changecontrol_pb2">
+<span id="arista-changecontrol-v1-changecontrol-pb2-module"></span><h2>arista.changecontrol.v1.changecontrol_pb2 module<a class="headerlink" href="#module-arista.changecontrol.v1.changecontrol_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.Action">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">Action</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.Action" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.Action.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.Action.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.ApproveConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">ApproveConfig</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.ApproveConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.ApproveConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.ApproveConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.Change">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">Change</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.Change" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.Change.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.Change.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.ChangeConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">ChangeConfig</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.ChangeConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.ChangeConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.ChangeConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.ChangeControl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">ChangeControl</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.ChangeControl" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.ChangeControl.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.ChangeControl.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.ChangeControlConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">ChangeControlConfig</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.ChangeControlConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.ChangeControlConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.ChangeControlConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.ChangeControlKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">ChangeControlKey</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.ChangeControlKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.ChangeControlKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.ChangeControlKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.DeviceToStageMap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceToStageMap</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.DeviceToStageMap" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.DeviceToStageMap.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.DeviceToStageMap.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.DeviceToStageMap.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.DeviceToStageMap.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.DeviceToStageMap.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.DeviceToStageMap.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.Filter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">Filter</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.Filter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.Filter.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.Filter.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.Flag">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">Flag</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.Flag" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.Flag.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.Flag.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.FlagConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">FlagConfig</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.FlagConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.FlagConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.FlagConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.RepeatedRepeatedString">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">RepeatedRepeatedString</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.RepeatedRepeatedString" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.RepeatedRepeatedString.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.RepeatedRepeatedString.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.Stage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">Stage</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.Stage" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.Stage.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.Stage.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.StageConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">StageConfig</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.StageConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.StageConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.StageConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.StageConfigMap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">StageConfigMap</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.StageConfigMap" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.StageConfigMap.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.StageConfigMap.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.StageConfigMap.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.StageConfigMap.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.StageConfigMap.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.StageConfigMap.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.StageMap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">StageMap</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.StageMap" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.StageMap.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.StageMap.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.StageMap.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.StageMap.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.StageMap.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.StageMap.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.TimestampFlag">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">TimestampFlag</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.TimestampFlag" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.TimestampFlag.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.TimestampFlag.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.TimestampFlagConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.changecontrol.v1.changecontrol_pb2.</span></span><span class="sig-name descname"><span class="pre">TimestampFlagConfig</span></span><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.TimestampFlagConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.changecontrol.v1.changecontrol_pb2.TimestampFlagConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.changecontrol.v1.changecontrol_pb2.TimestampFlagConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.changecontrol.v1.changecontrol_pb2_grpc">
+<span id="arista-changecontrol-v1-changecontrol-pb2-grpc-module"></span><h2>arista.changecontrol.v1.changecontrol_pb2_grpc module<a class="headerlink" href="#module-arista.changecontrol.v1.changecontrol_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.changecontrol.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.changecontrol.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.changecontrol.html" class="btn btn-neutral float-left" title="arista.changecontrol package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.changecontrol.v1.services.html" class="btn btn-neutral float-right" title="arista.changecontrol.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

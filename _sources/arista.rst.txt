@@ -1,0 +1,37 @@
+arista package
+==============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.alert
+   arista.bugexposure
+   arista.changecontrol
+   arista.configlet
+   arista.configstatus
+   arista.connectivitymonitor
+   arista.dashboard
+   arista.endpointlocation
+   arista.event
+   arista.identityprovider
+   arista.imagestatus
+   arista.inventory
+   arista.lifecycle
+   arista.redirector
+   arista.serviceaccount
+   arista.studio
+   arista.subscriptions
+   arista.tag
+   arista.time
+   arista.workspace
+
+Module contents
+---------------
+
+.. automodule:: arista
+   :members:
+   :undoc-members:
+   :show-inheritance:

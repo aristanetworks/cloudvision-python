@@ -1,0 +1,609 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.event.v1 package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.event.v1.services package" href="arista.event.v1.services.html" />
+    <link rel="prev" title="arista.event package" href="arista.event.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.event.html">arista.event package</a></li>
+      <li class="breadcrumb-item active">arista.event.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.event.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-event-v1-package">
+<h1>arista.event.v1 package<a class="headerlink" href="#arista-event-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.event.v1.services.html">arista.event.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.event.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.event.v1.services.html#module-arista.event.v1.services.gen_pb2">arista.event.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigRequest"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigResponse"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventRequest"><code class="docutils literal notranslate"><span class="pre">EventRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventResponse"><code class="docutils literal notranslate"><span class="pre">EventResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventSomeRequest"><code class="docutils literal notranslate"><span class="pre">EventSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventSomeResponse"><code class="docutils literal notranslate"><span class="pre">EventSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventStreamRequest"><code class="docutils literal notranslate"><span class="pre">EventStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventStreamResponse"><code class="docutils literal notranslate"><span class="pre">EventStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.EventStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigRequest"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigResponse"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.event.v1.services.html#module-arista.event.v1.services.gen_pb2_grpc">arista.event.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.Set"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">EventAnnotationConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventService"><code class="docutils literal notranslate"><span class="pre">EventService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventService.GetAll"><code class="docutils literal notranslate"><span class="pre">EventService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventService.GetMeta"><code class="docutils literal notranslate"><span class="pre">EventService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventService.GetOne"><code class="docutils literal notranslate"><span class="pre">EventService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventService.GetSome"><code class="docutils literal notranslate"><span class="pre">EventService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventService.Subscribe"><code class="docutils literal notranslate"><span class="pre">EventService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">EventService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer"><code class="docutils literal notranslate"><span class="pre">EventServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">EventServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">EventServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">EventServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">EventServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">EventServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">EventServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.EventServiceStub"><code class="docutils literal notranslate"><span class="pre">EventServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.Set"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">UserEventCreationConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.add_EventAnnotationConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_EventAnnotationConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.add_EventServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_EventServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.event.v1.services.html#arista.event.v1.services.gen_pb2_grpc.add_UserEventCreationConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_UserEventCreationConfigServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.event.v1.services.html#module-arista.event.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.event.v1.event_pb2">
+<span id="arista-event-v1-event-pb2-module"></span><h2>arista.event.v1.event_pb2 module<a class="headerlink" href="#module-arista.event.v1.event_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.Event">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">Event</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.Event" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.Event.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.Event.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventAck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAck</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventAck" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventAck.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventAck.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventAnnotationConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfig</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventAnnotationConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventAnnotationConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventAnnotationConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventComponent</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventComponent" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventComponent.ComponentsEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ComponentsEntry</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventComponent.ComponentsEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventComponent.ComponentsEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventComponent.ComponentsEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventComponent.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventComponent.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventComponents">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventComponents</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventComponents" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventComponents.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventComponents.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventData</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventData.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventData.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventData.DataEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataEntry</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventData.DataEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventData.DataEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventData.DataEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventKey</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNote">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventNote</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventNote" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNote.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventNote.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNoteConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventNoteConfig</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventNoteConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNoteConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventNoteConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNotes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventNotes</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventNotes" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNotes.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventNotes.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNotes.NotesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NotesEntry</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventNotes.NotesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNotes.NotesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventNotes.NotesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNotesConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventNotesConfig</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventNotesConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNotesConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventNotesConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNotesConfig.NotesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NotesEntry</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventNotesConfig.NotesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventNotesConfig.NotesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventNotesConfig.NotesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventRead">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">EventRead</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.EventRead" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.EventRead.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.EventRead.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.UserEventCreationConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfig</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.UserEventCreationConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.UserEventCreationConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.UserEventCreationConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.UserEventCreationKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.event_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationKey</span></span><a class="headerlink" href="#arista.event.v1.event_pb2.UserEventCreationKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.event_pb2.UserEventCreationKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.event_pb2.UserEventCreationKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.event.v1.event_pb2_grpc">
+<span id="arista-event-v1-event-pb2-grpc-module"></span><h2>arista.event.v1.event_pb2_grpc module<a class="headerlink" href="#module-arista.event.v1.event_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.event.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.event.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.event.html" class="btn btn-neutral float-left" title="arista.event package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.event.v1.services.html" class="btn btn-neutral float-right" title="arista.event.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

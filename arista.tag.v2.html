@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.tag.v2 package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.tag.v2.services package" href="arista.tag.v2.services.html" />
+    <link rel="prev" title="arista.tag package" href="arista.tag.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.tag.html">arista.tag package</a></li>
+      <li class="breadcrumb-item active">arista.tag.v2 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.tag.v2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-tag-v2-package">
+<h1>arista.tag.v2 package<a class="headerlink" href="#arista-tag-v2-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.tag.v2.services.html">arista.tag.v2.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v2.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v2.services.html#module-arista.tag.v2.services.gen_pb2">arista.tag.v2.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagAssignmentStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagRequest"><code class="docutils literal notranslate"><span class="pre">TagRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagResponse"><code class="docutils literal notranslate"><span class="pre">TagResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2.TagStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TagStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v2.services.html#module-arista.tag.v2.services.gen_pb2_grpc">arista.tag.v2.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.Set"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService"><code class="docutils literal notranslate"><span class="pre">TagAssignmentService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.GetAll"><code class="docutils literal notranslate"><span class="pre">TagAssignmentService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.GetMeta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.GetOne"><code class="docutils literal notranslate"><span class="pre">TagAssignmentService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.GetSome"><code class="docutils literal notranslate"><span class="pre">TagAssignmentService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.Subscribe"><code class="docutils literal notranslate"><span class="pre">TagAssignmentService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagAssignmentServiceStub"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService"><code class="docutils literal notranslate"><span class="pre">TagConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">TagConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">TagConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">TagConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">TagConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">TagConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">TagConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">TagConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">TagConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.Set"><code class="docutils literal notranslate"><span class="pre">TagConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">TagConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">TagConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">TagConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">TagConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagService"><code class="docutils literal notranslate"><span class="pre">TagService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagService.GetAll"><code class="docutils literal notranslate"><span class="pre">TagService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">TagService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagService.GetMeta"><code class="docutils literal notranslate"><span class="pre">TagService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagService.GetOne"><code class="docutils literal notranslate"><span class="pre">TagService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagService.GetSome"><code class="docutils literal notranslate"><span class="pre">TagService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagService.Subscribe"><code class="docutils literal notranslate"><span class="pre">TagService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">TagService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">TagService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer"><code class="docutils literal notranslate"><span class="pre">TagServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">TagServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">TagServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">TagServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">TagServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">TagServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">TagServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">TagServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">TagServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.TagServiceStub"><code class="docutils literal notranslate"><span class="pre">TagServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.add_TagAssignmentConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_TagAssignmentConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.add_TagAssignmentServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_TagAssignmentServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.add_TagConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_TagConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.tag.v2.services.html#arista.tag.v2.services.gen_pb2_grpc.add_TagServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_TagServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.tag.v2.services.html#module-arista.tag.v2.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.tag.v2.tag_pb2">
+<span id="arista-tag-v2-tag-pb2-module"></span><h2>arista.tag.v2.tag_pb2 module<a class="headerlink" href="#module-arista.tag.v2.tag_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.Tag">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.tag_pb2.</span></span><span class="sig-name descname"><span class="pre">Tag</span></span><a class="headerlink" href="#arista.tag.v2.tag_pb2.Tag" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.Tag.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.tag_pb2.Tag.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.TagAssignment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.tag_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignment</span></span><a class="headerlink" href="#arista.tag.v2.tag_pb2.TagAssignment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.TagAssignment.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.tag_pb2.TagAssignment.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.TagAssignmentConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.tag_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentConfig</span></span><a class="headerlink" href="#arista.tag.v2.tag_pb2.TagAssignmentConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.TagAssignmentConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.tag_pb2.TagAssignmentConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.TagAssignmentKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.tag_pb2.</span></span><span class="sig-name descname"><span class="pre">TagAssignmentKey</span></span><a class="headerlink" href="#arista.tag.v2.tag_pb2.TagAssignmentKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.TagAssignmentKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.tag_pb2.TagAssignmentKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.TagConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.tag_pb2.</span></span><span class="sig-name descname"><span class="pre">TagConfig</span></span><a class="headerlink" href="#arista.tag.v2.tag_pb2.TagConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.TagConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.tag_pb2.TagConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.TagKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.tag.v2.tag_pb2.</span></span><span class="sig-name descname"><span class="pre">TagKey</span></span><a class="headerlink" href="#arista.tag.v2.tag_pb2.TagKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.tag.v2.tag_pb2.TagKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.tag.v2.tag_pb2.TagKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.tag.v2.tag_pb2_grpc">
+<span id="arista-tag-v2-tag-pb2-grpc-module"></span><h2>arista.tag.v2.tag_pb2_grpc module<a class="headerlink" href="#module-arista.tag.v2.tag_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.tag.v2">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.tag.v2" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.tag.html" class="btn btn-neutral float-left" title="arista.tag package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.tag.v2.services.html" class="btn btn-neutral float-right" title="arista.tag.v2.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

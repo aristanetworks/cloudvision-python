@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.alert package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.alert.v1 package" href="arista.alert.v1.html" />
+    <link rel="prev" title="arista package" href="arista.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+      <li class="breadcrumb-item active">arista.alert package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.alert.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-alert-package">
+<h1>arista.alert package<a class="headerlink" href="#arista-alert-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.alert.v1.html">arista.alert.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.alert.v1.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html">arista.alert.v1.services package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#module-arista.alert.v1.services.gen_pb2">arista.alert.v1.services.gen_pb2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#module-arista.alert.v1.services.gen_pb2_grpc">arista.alert.v1.services.gen_pb2_grpc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#module-arista.alert.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.alert.v1.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.alert.v1.html#module-arista.alert.v1.alert_pb2">arista.alert.v1.alert_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Alert"><code class="docutils literal notranslate"><span class="pre">Alert</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Alert.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Alert.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.AlertConfig"><code class="docutils literal notranslate"><span class="pre">AlertConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.AlertConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertConfig.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.AzureOAuth"><code class="docutils literal notranslate"><span class="pre">AzureOAuth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.AzureOAuth.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AzureOAuth.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.BroadcastGroup"><code class="docutils literal notranslate"><span class="pre">BroadcastGroup</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.BroadcastGroup.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">BroadcastGroup.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.BroadcastGroups"><code class="docutils literal notranslate"><span class="pre">BroadcastGroups</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.BroadcastGroups.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">BroadcastGroups.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.BroadcastGroups.ValuesEntry"><code class="docutils literal notranslate"><span class="pre">BroadcastGroups.ValuesEntry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.ConfigError"><code class="docutils literal notranslate"><span class="pre">ConfigError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.ConfigError.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigError.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.ConfigErrors"><code class="docutils literal notranslate"><span class="pre">ConfigErrors</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.ConfigErrors.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ConfigErrors.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueData"><code class="docutils literal notranslate"><span class="pre">CueData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueData.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueData.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueData.ValuesEntry"><code class="docutils literal notranslate"><span class="pre">CueData.ValuesEntry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSNMPAuth"><code class="docutils literal notranslate"><span class="pre">CueSNMPAuth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSNMPAuth.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueSNMPAuth.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSNMPEndpoint"><code class="docutils literal notranslate"><span class="pre">CueSNMPEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSNMPEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueSNMPEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSNMPSettings"><code class="docutils literal notranslate"><span class="pre">CueSNMPSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSNMPSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueSNMPSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSendgridEndpoint"><code class="docutils literal notranslate"><span class="pre">CueSendgridEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSendgridEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueSendgridEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSendgridEndpoints"><code class="docutils literal notranslate"><span class="pre">CueSendgridEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSendgridEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueSendgridEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSendgridSettings"><code class="docutils literal notranslate"><span class="pre">CueSendgridSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSendgridSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueSendgridSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSnmpEndpoints"><code class="docutils literal notranslate"><span class="pre">CueSnmpEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSnmpEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueSnmpEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSyslogEndpoint"><code class="docutils literal notranslate"><span class="pre">CueSyslogEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSyslogEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueSyslogEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSyslogEndpoints"><code class="docutils literal notranslate"><span class="pre">CueSyslogEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSyslogEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueSyslogEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSyslogSettings"><code class="docutils literal notranslate"><span class="pre">CueSyslogSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.CueSyslogSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">CueSyslogSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.DefaultTemplate"><code class="docutils literal notranslate"><span class="pre">DefaultTemplate</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.DefaultTemplate.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DefaultTemplate.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EmailEndpoint"><code class="docutils literal notranslate"><span class="pre">EmailEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EmailEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EmailEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EmailEndpoints"><code class="docutils literal notranslate"><span class="pre">EmailEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EmailEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EmailEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EmailSettings"><code class="docutils literal notranslate"><span class="pre">EmailSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EmailSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EmailSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EndpointError"><code class="docutils literal notranslate"><span class="pre">EndpointError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EndpointError.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EndpointError.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EndpointErrors"><code class="docutils literal notranslate"><span class="pre">EndpointErrors</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EndpointErrors.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EndpointErrors.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EventList"><code class="docutils literal notranslate"><span class="pre">EventList</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.EventList.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">EventList.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.GoogleChatEndpoint"><code class="docutils literal notranslate"><span class="pre">GoogleChatEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.GoogleChatEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GoogleChatEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.GoogleChatEndpoints"><code class="docutils literal notranslate"><span class="pre">GoogleChatEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.GoogleChatEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GoogleChatEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.GoogleChatSettings"><code class="docutils literal notranslate"><span class="pre">GoogleChatSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.GoogleChatSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">GoogleChatSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.HeaderValues"><code class="docutils literal notranslate"><span class="pre">HeaderValues</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.HeaderValues.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">HeaderValues.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.HttpHeaders"><code class="docutils literal notranslate"><span class="pre">HttpHeaders</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.HttpHeaders.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">HttpHeaders.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.HttpHeaders.ValuesEntry"><code class="docutils literal notranslate"><span class="pre">HttpHeaders.ValuesEntry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.HttpSettings"><code class="docutils literal notranslate"><span class="pre">HttpSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.HttpSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">HttpSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.InhibitionSettings"><code class="docutils literal notranslate"><span class="pre">InhibitionSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.InhibitionSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">InhibitionSettings.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.InhibitionSettings.ValuesEntry"><code class="docutils literal notranslate"><span class="pre">InhibitionSettings.ValuesEntry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Matches"><code class="docutils literal notranslate"><span class="pre">Matches</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Matches.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Matches.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.MsTeamsEndpoint"><code class="docutils literal notranslate"><span class="pre">MsTeamsEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.MsTeamsEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MsTeamsEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.MsTeamsEndpoints"><code class="docutils literal notranslate"><span class="pre">MsTeamsEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.MsTeamsEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MsTeamsEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.MsTeamsSettings"><code class="docutils literal notranslate"><span class="pre">MsTeamsSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.MsTeamsSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MsTeamsSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.OpsgenieEndpoint"><code class="docutils literal notranslate"><span class="pre">OpsgenieEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.OpsgenieEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OpsgenieEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.OpsgenieEndpoints"><code class="docutils literal notranslate"><span class="pre">OpsgenieEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.OpsgenieEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OpsgenieEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.OpsgenieSettings"><code class="docutils literal notranslate"><span class="pre">OpsgenieSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.OpsgenieSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">OpsgenieSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.PagerdutyEndpoint"><code class="docutils literal notranslate"><span class="pre">PagerdutyEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.PagerdutyEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PagerdutyEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.PagerdutyEndpoints"><code class="docutils literal notranslate"><span class="pre">PagerdutyEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.PagerdutyEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PagerdutyEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.PagerdutySettings"><code class="docutils literal notranslate"><span class="pre">PagerdutySettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.PagerdutySettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PagerdutySettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Priorities"><code class="docutils literal notranslate"><span class="pre">Priorities</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Priorities.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Priorities.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.PushoverEndpoint"><code class="docutils literal notranslate"><span class="pre">PushoverEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.PushoverEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PushoverEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.PushoverEndpoints"><code class="docutils literal notranslate"><span class="pre">PushoverEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.PushoverEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PushoverEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Rule.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Rule.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Rules"><code class="docutils literal notranslate"><span class="pre">Rules</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Rules.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Rules.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SNMPAuth"><code class="docutils literal notranslate"><span class="pre">SNMPAuth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SNMPAuth.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SNMPAuth.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SNMPEndpoint"><code class="docutils literal notranslate"><span class="pre">SNMPEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SNMPEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SNMPEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SNMPEndpoints"><code class="docutils literal notranslate"><span class="pre">SNMPEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SNMPEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SNMPEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SNMPSettings"><code class="docutils literal notranslate"><span class="pre">SNMPSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SNMPSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SNMPSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SendgridEndpoint"><code class="docutils literal notranslate"><span class="pre">SendgridEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SendgridEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SendgridEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SendgridEndpoints"><code class="docutils literal notranslate"><span class="pre">SendgridEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SendgridEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SendgridEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SendgridSettings"><code class="docutils literal notranslate"><span class="pre">SendgridSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SendgridSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SendgridSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Settings"><code class="docutils literal notranslate"><span class="pre">Settings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.Settings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Settings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SlackEndpoint"><code class="docutils literal notranslate"><span class="pre">SlackEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SlackEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SlackEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SlackEndpoints"><code class="docutils literal notranslate"><span class="pre">SlackEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SlackEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SlackEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SlackSettings"><code class="docutils literal notranslate"><span class="pre">SlackSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SlackSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SlackSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SyslogEndpoint"><code class="docutils literal notranslate"><span class="pre">SyslogEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SyslogEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SyslogEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SyslogEndpoints"><code class="docutils literal notranslate"><span class="pre">SyslogEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SyslogEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SyslogEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SyslogSettings"><code class="docutils literal notranslate"><span class="pre">SyslogSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.SyslogSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SyslogSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.TemplateConfig"><code class="docutils literal notranslate"><span class="pre">TemplateConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.TemplateConfig.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfig.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.TemplateKey"><code class="docutils literal notranslate"><span class="pre">TemplateKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.TemplateKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateKey.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.VictorOpsEndpoint"><code class="docutils literal notranslate"><span class="pre">VictorOpsEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.VictorOpsEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">VictorOpsEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.VictorOpsEndpoints"><code class="docutils literal notranslate"><span class="pre">VictorOpsEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.VictorOpsEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">VictorOpsEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.VictoropsSettings"><code class="docutils literal notranslate"><span class="pre">VictoropsSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.VictoropsSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">VictoropsSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.WebhookEndpoint"><code class="docutils literal notranslate"><span class="pre">WebhookEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.WebhookEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WebhookEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.WebhookEndpoints"><code class="docutils literal notranslate"><span class="pre">WebhookEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.WebhookEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WebhookEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.WebhookSettings"><code class="docutils literal notranslate"><span class="pre">WebhookSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.WebhookSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">WebhookSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.ZoomEndpoint"><code class="docutils literal notranslate"><span class="pre">ZoomEndpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.ZoomEndpoint.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ZoomEndpoint.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.ZoomEndpoints"><code class="docutils literal notranslate"><span class="pre">ZoomEndpoints</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.ZoomEndpoints.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ZoomEndpoints.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.ZoomSettings"><code class="docutils literal notranslate"><span class="pre">ZoomSettings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.html#arista.alert.v1.alert_pb2.ZoomSettings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ZoomSettings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.alert.v1.html#module-arista.alert.v1.alert_pb2_grpc">arista.alert.v1.alert_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.alert.v1.html#module-arista.alert.v1">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-arista.alert">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.alert" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.html" class="btn btn-neutral float-left" title="arista package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.alert.v1.html" class="btn btn-neutral float-right" title="arista.alert.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

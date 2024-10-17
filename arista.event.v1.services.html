@@ -1,0 +1,973 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.event.v1.services package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.identityprovider package" href="arista.identityprovider.html" />
+    <link rel="prev" title="arista.event.v1 package" href="arista.event.v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.event.html">arista.event package</a></li>
+          <li class="breadcrumb-item"><a href="arista.event.v1.html">arista.event.v1 package</a></li>
+      <li class="breadcrumb-item active">arista.event.v1.services package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.event.v1.services.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-event-v1-services-package">
+<h1>arista.event.v1.services package<a class="headerlink" href="#arista-event-v1-services-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.event.v1.services.gen_pb2">
+<span id="arista-event-v1-services-gen-pb2-module"></span><h2>arista.event.v1.services.gen_pb2 module<a class="headerlink" href="#module-arista.event.v1.services.gen_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigDeleteAllRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigDeleteAllResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteAllResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigDeleteRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigDeleteResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigDeleteSomeRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigDeleteSomeResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigDeleteSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSetRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigSetRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSetRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSetResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigSetResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSetResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigSetSomeRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigSetSomeResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSetSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigSomeRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigSomeResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigStreamRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigStreamResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventAnnotationConfigStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventSomeRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventSomeResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventStreamRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">EventStreamResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.EventStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.EventStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.MetaResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">MetaResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.MetaResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.MetaResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.MetaResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigDeleteAllRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigDeleteAllResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteAllResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigDeleteRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigDeleteResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigDeleteSomeRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigDeleteSomeResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigDeleteSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSetRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigSetRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSetRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSetResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigSetResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSetResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigSetSomeRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigSetSomeResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSetSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigSomeRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigSomeResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigStreamRequest</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigStreamResponse</span></span><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.event.v1.services.gen_pb2.UserEventCreationConfigStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.event.v1.services.gen_pb2_grpc">
+<span id="arista-event-v1-services-gen-pb2-grpc-module"></span><h2>arista.event.v1.services.gen_pb2_grpc module<a class="headerlink" href="#module-arista.event.v1.services.gen_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigService</span></span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.Delete">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.Delete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.DeleteAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeleteAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.DeleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.DeleteAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.DeleteSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeleteSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.DeleteSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.DeleteSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetOne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.GetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.Set">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.Set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.SetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.SetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.SetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.Subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.SubscribeMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigService.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigService.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigServiceServicer</span></span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.Delete">
+<span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.Delete" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.DeleteAll">
+<span class="sig-name descname"><span class="pre">DeleteAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.DeleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.DeleteAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.DeleteSome">
+<span class="sig-name descname"><span class="pre">DeleteSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.DeleteSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.DeleteSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetMeta">
+<span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetOne" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetSome">
+<span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.GetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.Set">
+<span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.Set" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.SetSome">
+<span class="sig-name descname"><span class="pre">SetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.SetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.SetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.Subscribe" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.SubscribeMeta">
+<span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceServicer.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceServicer.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">EventAnnotationConfigServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventAnnotationConfigServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventAnnotationConfigServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">EventService</span></span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventService.GetAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventService.GetMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventService.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventService.GetMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventService.GetOne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventService.GetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventService.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventService.GetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventService.Subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventService.SubscribeMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventService.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventService.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">EventServiceServicer</span></span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetMeta">
+<span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventServiceServicer.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetOne" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetSome">
+<span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventServiceServicer.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.GetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.Subscribe" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.SubscribeMeta">
+<span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventServiceServicer.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventServiceServicer.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.EventServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">EventServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#EventServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.EventServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigService</span></span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.Delete">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.Delete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.DeleteAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeleteAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.DeleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.DeleteAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.DeleteSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeleteSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.DeleteSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.DeleteSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetOne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.GetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.Set">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.Set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.SetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.SetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.SetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.Subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.SubscribeMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigService.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigService.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigServiceServicer</span></span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.Delete">
+<span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.Delete" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.DeleteAll">
+<span class="sig-name descname"><span class="pre">DeleteAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.DeleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.DeleteAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.DeleteSome">
+<span class="sig-name descname"><span class="pre">DeleteSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.DeleteSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.DeleteSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetMeta">
+<span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetOne" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetSome">
+<span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.GetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.Set">
+<span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.Set" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.SetSome">
+<span class="sig-name descname"><span class="pre">SetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.SetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.SetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.Subscribe" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.SubscribeMeta">
+<span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceServicer.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceServicer.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">UserEventCreationConfigServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#UserEventCreationConfigServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.UserEventCreationConfigServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.add_EventAnnotationConfigServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_EventAnnotationConfigServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#add_EventAnnotationConfigServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.add_EventAnnotationConfigServiceServicer_to_server" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.add_EventServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_EventServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#add_EventServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.add_EventServiceServicer_to_server" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.event.v1.services.gen_pb2_grpc.add_UserEventCreationConfigServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.event.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_UserEventCreationConfigServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/event/v1/services/gen_pb2_grpc.html#add_UserEventCreationConfigServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.event.v1.services.gen_pb2_grpc.add_UserEventCreationConfigServiceServicer_to_server" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-arista.event.v1.services">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.event.v1.services" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.event.v1.html" class="btn btn-neutral float-left" title="arista.event.v1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.identityprovider.html" class="btn btn-neutral float-right" title="arista.identityprovider package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

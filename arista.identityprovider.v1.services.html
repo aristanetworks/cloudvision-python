@@ -1,0 +1,903 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.identityprovider.v1.services package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.imagestatus package" href="arista.imagestatus.html" />
+    <link rel="prev" title="arista.identityprovider.v1 package" href="arista.identityprovider.v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.identityprovider.html">arista.identityprovider package</a></li>
+          <li class="breadcrumb-item"><a href="arista.identityprovider.v1.html">arista.identityprovider.v1 package</a></li>
+      <li class="breadcrumb-item active">arista.identityprovider.v1.services package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.identityprovider.v1.services.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-identityprovider-v1-services-package">
+<h1>arista.identityprovider.v1.services package<a class="headerlink" href="#arista-identityprovider-v1-services-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.identityprovider.v1.services.gen_pb2">
+<span id="arista-identityprovider-v1-services-gen-pb2-module"></span><h2>arista.identityprovider.v1.services.gen_pb2 module<a class="headerlink" href="#module-arista.identityprovider.v1.services.gen_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.MetaResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">MetaResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.MetaResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.MetaResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.MetaResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigBatchedStreamRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigBatchedStreamResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigBatchedStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigDeleteAllRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigDeleteAllResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteAllResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigDeleteRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigDeleteResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigDeleteSomeRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigDeleteSomeResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigDeleteSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigSetRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigSetResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigSetSomeRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigSetSomeResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSetSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigSomeRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigSomeResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigStreamRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigStreamResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.OAuthConfigStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigBatchedStreamRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigBatchedStreamResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigBatchedStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigDeleteAllRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigDeleteAllResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteAllResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigDeleteRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigDeleteResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigDeleteSomeRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigDeleteSomeResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigDeleteSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigSetRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigSetResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigSetSomeRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigSetSomeResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSetSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigSomeRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigSomeResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigSomeResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigStreamRequest</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamRequest.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamRequest.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigStreamResponse</span></span><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamResponse.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2.SAMLConfigStreamResponse.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.identityprovider.v1.services.gen_pb2_grpc">
+<span id="arista-identityprovider-v1-services-gen-pb2-grpc-module"></span><h2>arista.identityprovider.v1.services.gen_pb2_grpc module<a class="headerlink" href="#module-arista.identityprovider.v1.services.gen_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigService</span></span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.Delete">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.Delete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.DeleteAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeleteAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.DeleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.DeleteAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.DeleteSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeleteSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.DeleteSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.DeleteSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetAllBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetAllBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetOne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.GetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.Set">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.Set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.SetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.SetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.SetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.Subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.SubscribeBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.SubscribeMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigService.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigService.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigServiceServicer</span></span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.Delete">
+<span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.Delete" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.DeleteAll">
+<span class="sig-name descname"><span class="pre">DeleteAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.DeleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.DeleteAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.DeleteSome">
+<span class="sig-name descname"><span class="pre">DeleteSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.DeleteSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.DeleteSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetAllBatched">
+<span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetAllBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetMeta">
+<span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetOne" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetSome">
+<span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.GetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.Set">
+<span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.Set" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.SetSome">
+<span class="sig-name descname"><span class="pre">SetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.SetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.SetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.Subscribe" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.SubscribeBatched">
+<span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.SubscribeMeta">
+<span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceServicer.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceServicer.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">OAuthConfigServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#OAuthConfigServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.OAuthConfigServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigService</span></span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.Delete">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.Delete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.DeleteAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeleteAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.DeleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.DeleteAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.DeleteSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeleteSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.DeleteSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.DeleteSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetAll">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetAll" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetAllBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetAllBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetOne">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetOne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.GetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.Set">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.Set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.SetSome">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.SetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.SetSome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.Subscribe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.Subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.SubscribeBatched">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.SubscribeMeta">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insecure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigService.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigService.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigServiceServicer</span></span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.Delete">
+<span class="sig-name descname"><span class="pre">Delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.Delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.Delete" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.DeleteAll">
+<span class="sig-name descname"><span class="pre">DeleteAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.DeleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.DeleteAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.DeleteSome">
+<span class="sig-name descname"><span class="pre">DeleteSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.DeleteSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.DeleteSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetAll">
+<span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.GetAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetAll" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetAllBatched">
+<span class="sig-name descname"><span class="pre">GetAllBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.GetAllBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetAllBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetMeta">
+<span class="sig-name descname"><span class="pre">GetMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.GetMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetOne">
+<span class="sig-name descname"><span class="pre">GetOne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.GetOne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetOne" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetSome">
+<span class="sig-name descname"><span class="pre">GetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.GetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.GetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.Set">
+<span class="sig-name descname"><span class="pre">Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.Set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.Set" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.SetSome">
+<span class="sig-name descname"><span class="pre">SetSome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.SetSome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.SetSome" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.Subscribe">
+<span class="sig-name descname"><span class="pre">Subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.Subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.Subscribe" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.SubscribeBatched">
+<span class="sig-name descname"><span class="pre">SubscribeBatched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.SubscribeBatched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.SubscribeBatched" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.SubscribeMeta">
+<span class="sig-name descname"><span class="pre">SubscribeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceServicer.SubscribeMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceServicer.SubscribeMeta" title="Link to this definition"></a></dt>
+<dd><p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceStub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">SAMLConfigServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#SAMLConfigServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.SAMLConfigServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.add_OAuthConfigServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_OAuthConfigServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#add_OAuthConfigServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.add_OAuthConfigServiceServicer_to_server" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="arista.identityprovider.v1.services.gen_pb2_grpc.add_SAMLConfigServiceServicer_to_server">
+<span class="sig-prename descclassname"><span class="pre">arista.identityprovider.v1.services.gen_pb2_grpc.</span></span><span class="sig-name descname"><span class="pre">add_SAMLConfigServiceServicer_to_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">servicer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/arista/identityprovider/v1/services/gen_pb2_grpc.html#add_SAMLConfigServiceServicer_to_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#arista.identityprovider.v1.services.gen_pb2_grpc.add_SAMLConfigServiceServicer_to_server" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-arista.identityprovider.v1.services">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.identityprovider.v1.services" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.identityprovider.v1.html" class="btn btn-neutral float-left" title="arista.identityprovider.v1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.imagestatus.html" class="btn btn-neutral float-right" title="arista.imagestatus package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

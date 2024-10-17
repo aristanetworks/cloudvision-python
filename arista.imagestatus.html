@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.imagestatus package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.imagestatus.v1 package" href="arista.imagestatus.v1.html" />
+    <link rel="prev" title="arista.identityprovider.v1.services package" href="arista.identityprovider.v1.services.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+      <li class="breadcrumb-item active">arista.imagestatus package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.imagestatus.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-imagestatus-package">
+<h1>arista.imagestatus package<a class="headerlink" href="#arista-imagestatus-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.imagestatus.v1.html">arista.imagestatus.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.imagestatus.v1.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.services.html">arista.imagestatus.v1.services package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.services.html#module-arista.imagestatus.v1.services.gen_pb2">arista.imagestatus.v1.services.gen_pb2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.services.html#module-arista.imagestatus.v1.services.gen_pb2_grpc">arista.imagestatus.v1.services.gen_pb2_grpc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.services.html#module-arista.imagestatus.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.imagestatus.v1.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.imagestatus.v1.html#module-arista.imagestatus.v1.imagestatus_pb2">arista.imagestatus.v1.imagestatus_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ComplianceStatus"><code class="docutils literal notranslate"><span class="pre">ComplianceStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ComplianceStatus.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ComplianceStatus.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ComplianceStatusBySup"><code class="docutils literal notranslate"><span class="pre">ComplianceStatusBySup</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ComplianceStatusBySup.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ComplianceStatusBySup.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ComplianceStatusBySup.ValuesEntry"><code class="docutils literal notranslate"><span class="pre">ComplianceStatusBySup.ValuesEntry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.Extension"><code class="docutils literal notranslate"><span class="pre">Extension</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.Extension.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Extension.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ExtensionDiff"><code class="docutils literal notranslate"><span class="pre">ExtensionDiff</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ExtensionDiff.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ExtensionDiff.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ExtensionDiffs"><code class="docutils literal notranslate"><span class="pre">ExtensionDiffs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ExtensionDiffs.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ExtensionDiffs.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ExtensionDiffsBySup"><code class="docutils literal notranslate"><span class="pre">ExtensionDiffsBySup</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ExtensionDiffsBySup.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ExtensionDiffsBySup.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ExtensionDiffsBySup.ValuesEntry"><code class="docutils literal notranslate"><span class="pre">ExtensionDiffsBySup.ValuesEntry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.Extensions"><code class="docutils literal notranslate"><span class="pre">Extensions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.Extensions.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Extensions.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageError"><code class="docutils literal notranslate"><span class="pre">ImageError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageError.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ImageError.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageErrors"><code class="docutils literal notranslate"><span class="pre">ImageErrors</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageErrors.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ImageErrors.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageInfo"><code class="docutils literal notranslate"><span class="pre">ImageInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageInfo.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ImageInfo.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageInfos"><code class="docutils literal notranslate"><span class="pre">ImageInfos</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageInfos.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ImageInfos.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageMetadata"><code class="docutils literal notranslate"><span class="pre">ImageMetadata</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageMetadata.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ImageMetadata.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageSummary"><code class="docutils literal notranslate"><span class="pre">ImageSummary</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageSummary.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ImageSummary.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageWarning"><code class="docutils literal notranslate"><span class="pre">ImageWarning</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageWarning.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ImageWarning.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageWarnings"><code class="docutils literal notranslate"><span class="pre">ImageWarnings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.ImageWarnings.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ImageWarnings.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.RebootRequired"><code class="docutils literal notranslate"><span class="pre">RebootRequired</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.RebootRequired.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RebootRequired.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.SoftwareImage"><code class="docutils literal notranslate"><span class="pre">SoftwareImage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.SoftwareImage.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SoftwareImage.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.SoftwareImageDiff"><code class="docutils literal notranslate"><span class="pre">SoftwareImageDiff</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.SoftwareImageDiff.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SoftwareImageDiff.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.SoftwareImageDiffsBySup"><code class="docutils literal notranslate"><span class="pre">SoftwareImageDiffsBySup</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.SoftwareImageDiffsBySup.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SoftwareImageDiffsBySup.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.SoftwareImageDiffsBySup.ValuesEntry"><code class="docutils literal notranslate"><span class="pre">SoftwareImageDiffsBySup.ValuesEntry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.Summary"><code class="docutils literal notranslate"><span class="pre">Summary</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.Summary.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">Summary.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.SummaryKey"><code class="docutils literal notranslate"><span class="pre">SummaryKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.SummaryKey.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SummaryKey.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.TerminAttrDiffsBySup"><code class="docutils literal notranslate"><span class="pre">TerminAttrDiffsBySup</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.TerminAttrDiffsBySup.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TerminAttrDiffsBySup.DESCRIPTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.v1.html#arista.imagestatus.v1.imagestatus_pb2.TerminAttrDiffsBySup.ValuesEntry"><code class="docutils literal notranslate"><span class="pre">TerminAttrDiffsBySup.ValuesEntry</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.imagestatus.v1.html#module-arista.imagestatus.v1.imagestatus_pb2_grpc">arista.imagestatus.v1.imagestatus_pb2_grpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.imagestatus.v1.html#module-arista.imagestatus.v1">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-arista.imagestatus">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.imagestatus" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.identityprovider.v1.services.html" class="btn btn-neutral float-left" title="arista.identityprovider.v1.services package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.imagestatus.v1.html" class="btn btn-neutral float-right" title="arista.imagestatus.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

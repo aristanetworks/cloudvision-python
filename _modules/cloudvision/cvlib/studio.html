@@ -1,0 +1,806 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.cvlib.studio &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cloudvision</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cloudvision.cvlib.studio</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cloudvision.cvlib.studio</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2022 Arista Networks, Inc.</span>
+<span class="c1"># Use of this source code is governed by the Apache License 2.0</span>
+<span class="c1"># that can be found in the COPYING file.</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">google.protobuf.wrappers_pb2</span> <span class="k">as</span> <span class="nn">pb</span>
+<span class="kn">from</span> <span class="nn">google.protobuf.timestamp_pb2</span> <span class="kn">import</span> <span class="n">Timestamp</span>
+<span class="kn">from</span> <span class="nn">grpc</span> <span class="kn">import</span> <span class="n">RpcError</span><span class="p">,</span> <span class="n">StatusCode</span>
+
+<span class="kn">from</span> <span class="nn">arista.studio.v1</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">services</span>
+<span class="kn">from</span> <span class="nn">arista.time.time_pb2</span> <span class="kn">import</span> <span class="n">TimeBounds</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.codec</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">cloudvision.Connector.grpc_client</span> <span class="kn">import</span> <span class="n">create_notification</span>
+<span class="kn">from</span> <span class="nn">fmp</span> <span class="kn">import</span> <span class="n">wrappers_pb2</span> <span class="k">as</span> <span class="n">fmp_wrappers</span>
+
+<span class="kn">from</span> <span class="nn">.constants</span> <span class="kn">import</span> <span class="n">INPUT_PATH_ARG</span><span class="p">,</span> <span class="n">MAINLINE_WS_ID</span><span class="p">,</span> <span class="n">STUDIO_ID_ARG</span><span class="p">,</span> <span class="n">WORKSPACE_ID_ARG</span>
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">InputException</span><span class="p">,</span>
+    <span class="n">InputNotFoundException</span><span class="p">,</span>
+    <span class="n">InputUpdateException</span><span class="p">,</span>
+    <span class="n">InvalidContextException</span><span class="p">,</span>
+    <span class="n">InvalidCredentials</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">extractJSONEncodedListArg</span>
+<span class="kn">from</span> <span class="nn">.workspace</span> <span class="kn">import</span> <span class="n">getWorkspaceLastSynced</span>
+
+
+<div class="viewcode-block" id="Studio">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.Studio">[docs]</a>
+<span class="k">class</span> <span class="nc">Studio</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Object to store studio context:</span>
+<span class="sd">    - workspaceId:  Id of the workspace</span>
+<span class="sd">    - studioId:     Id of the studio</span>
+<span class="sd">    - inputs:       inputs provided to the studio</span>
+<span class="sd">    - deviceIds:    Ids of the devices associated with this studio</span>
+<span class="sd">    - logger:       The logger to be used with this studio</span>
+<span class="sd">    - execId:       Id of the execution</span>
+<span class="sd">    - buildId:      Id of the studio build</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">workspaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">studioId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">deviceIds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">execId</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">buildId</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">workspaceId</span> <span class="o">=</span> <span class="n">workspaceId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studioId</span> <span class="o">=</span> <span class="n">studioId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deviceIds</span> <span class="o">=</span> <span class="n">deviceIds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execId</span> <span class="o">=</span> <span class="n">execId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buildId</span> <span class="o">=</span> <span class="n">buildId</span></div>
+
+
+
+<div class="viewcode-block" id="StudioCustomData">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.StudioCustomData">[docs]</a>
+<span class="k">class</span> <span class="nc">StudioCustomData</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Object to store studio custom data context:</span>
+<span class="sd">    - context:   stores system and user-defined parameters.</span>
+<span class="sd">    - chunk_size: chunk size of stored data.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">context</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">1024</span>
+
+    <span class="k">def</span> <span class="nf">__getBuildPath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">studioId</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Builds a path for use in store/retrieve of studio custom data during a build</span>
+<span class="sd">        using the studioId, path and key provided by the user. All paths contain</span>
+<span class="sd">        &quot;workspace/&lt;wsId&gt;/build/&lt;buildId&gt;/studio/&lt;studioId&gt;/customData&quot; as the root.</span>
+<span class="sd">        Raises InvalidContextException if not enough context information is present</span>
+<span class="sd">        to create a key</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">studioId</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">studio</span>
+                <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">buildId</span><span class="p">):</span>
+            <span class="n">workpaceId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">getWorkspaceId</span><span class="p">()</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;workspace&quot;</span><span class="p">,</span> <span class="n">workpaceId</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;build&quot;</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">buildId</span><span class="p">,</span> <span class="s2">&quot;studio&quot;</span><span class="p">,</span> <span class="n">studioId</span><span class="p">,</span>
+                    <span class="s2">&quot;customData&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span>
+            <span class="s2">&quot;store/retrieve requires context with studio and&quot;</span>
+            <span class="o">+</span> <span class="s2">&quot;build associated with it.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__getMainlinePath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">studioId</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Builds a path for use in retrieve of studio custom data from mainline</span>
+<span class="sd">        using studioID, path and key. All paths contain</span>
+<span class="sd">        &quot;/studio/&lt;studioId&gt;/customData&quot; as the root.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;studio&quot;</span><span class="p">,</span> <span class="n">studioId</span><span class="p">,</span> <span class="s2">&quot;customData&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+<div class="viewcode-block" id="StudioCustomData.store">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.StudioCustomData.store">[docs]</a>
+    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        store puts the passed studio custom data into a path in the Database.</span>
+<span class="sd">        The data is stored in 1MB chunks.</span>
+
+<span class="sd">        Params:</span>
+<span class="sd">        - data:      The string data to be stored.</span>
+<span class="sd">        - path:      The path to store the data at, in the form of a list of strings.</span>
+<span class="sd">                     paths have &quot;workspace/&lt;wsId&gt;/build/&lt;buildId&gt;/studio/&lt;studioId&gt;/customData&quot;</span>
+<span class="sd">                     as the root.</span>
+<span class="sd">        - key:       The key to store the data at in the path.</span>
+<span class="sd">         &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;only string data is allowed.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">studio</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span><span class="s2">&quot;store requires a studio in the context.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;no data added.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid key.&quot;</span><span class="p">)</span>
+
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">Timestamp</span><span class="p">()</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">GetCurrentTime</span><span class="p">()</span>
+        <span class="n">storagePath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getBuildPath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">studio</span><span class="o">.</span><span class="n">studioId</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="c1"># Generate the list of path pointer notifs that lead to the new entry</span>
+        <span class="n">notifs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pathElem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">storagePath</span><span class="p">):</span>
+            <span class="c1"># skip creation of workspace and build pointers</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">pathPointerPath</span> <span class="o">=</span> <span class="n">storagePath</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">pathPointerUpdate</span> <span class="o">=</span> <span class="p">[(</span><span class="n">pathElem</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="n">storagePath</span><span class="p">[:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))]</span>
+            <span class="n">notifs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">create_notification</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">pathPointerPath</span><span class="p">,</span>
+                                              <span class="n">updates</span><span class="o">=</span><span class="n">pathPointerUpdate</span><span class="p">))</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">getCvClient</span><span class="p">()</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">dId</span><span class="o">=</span><span class="s2">&quot;cvp&quot;</span><span class="p">,</span> <span class="n">notifs</span><span class="o">=</span><span class="n">notifs</span><span class="p">)</span>
+            <span class="c1"># publish data</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">):</span>
+                <span class="n">update</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">])]</span>
+                <span class="n">notifs</span> <span class="o">=</span> <span class="p">[</span><span class="n">create_notification</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">storagePath</span><span class="p">,</span> <span class="n">updates</span><span class="o">=</span><span class="n">update</span><span class="p">)]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">getCvClient</span><span class="p">()</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">dId</span><span class="o">=</span><span class="s2">&quot;cvp&quot;</span><span class="p">,</span> <span class="n">notifs</span><span class="o">=</span><span class="n">notifs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="c1"># If the exception is not a permissions error, reraise the original</span>
+            <span class="c1"># exception as something went wrong</span>
+            <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">code</span><span class="p">()</span> <span class="o">!=</span> <span class="n">StatusCode</span><span class="o">.</span><span class="n">PERMISSION_DENIED</span><span class="p">:</span>
+                <span class="k">raise</span>
+            <span class="k">raise</span> <span class="n">InvalidCredentials</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Context user does not have permission to write to path &#39;</span><span class="si">{</span><span class="n">storagePath</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="StudioCustomData.retrieve">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.StudioCustomData.retrieve">[docs]</a>
+    <span class="k">def</span> <span class="nf">retrieve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">studioId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">searchKey</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        retrieve gets the custom data from a path and key written by a studio</span>
+<span class="sd">        in the Database.</span>
+<span class="sd">        Params:</span>
+<span class="sd">        - studioId:  The studioId of studio that generates the data to be retrieved.</span>
+<span class="sd">        - path:      The path to get the data from, path is a list of strings.</span>
+<span class="sd">        - key:       The key to get the data from in the path.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">studioId</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;studioId must be provided&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">searchKey</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid key.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidContextException</span><span class="p">(</span><span class="s2">&quot;retrieve requires context to be set&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">storagePath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getBuildPath</span><span class="p">(</span><span class="n">studioId</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">searchKey</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">storagePath</span><span class="p">,</span> <span class="p">[],</span> <span class="s2">&quot;cvp&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">InvalidContextException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;custom data not found in build:  </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">))</span>
+            <span class="c1"># get data from mainline if data is not generated during build.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;reading custom data from mainline.&quot;</span><span class="p">)</span>
+                <span class="n">storagePath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getMainlinePath</span><span class="p">(</span><span class="n">studioId</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">searchKey</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">storagePath</span><span class="p">,</span> <span class="p">[],</span> <span class="s2">&quot;cvp&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span>
+                           <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">searchKey</span><span class="si">}</span><span class="s1">_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+                           <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="nb">str</span><span class="p">))</span>
+        <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">code</span><span class="p">()</span> <span class="o">!=</span> <span class="n">StatusCode</span><span class="o">.</span><span class="n">PERMISSION_DENIED</span><span class="p">:</span>
+                <span class="k">raise</span>
+            <span class="k">raise</span> <span class="n">InvalidCredentials</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Context user does not have permission to read from path &#39;</span><span class="si">{</span><span class="n">storagePath</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid Key format: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="getStudioInputs">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.getStudioInputs">[docs]</a>
+<span class="k">def</span> <span class="nf">getStudioInputs</span><span class="p">(</span><span class="n">clientGetter</span><span class="p">,</span> <span class="n">studioId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">workspaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Uses the passed ctx.getApiClient function reference to issue get the current input state for</span>
+<span class="sd">    given combination of studioId, workspaceId and path.</span>
+<span class="sd">    Path MUST be a non-None list, omitting this argument retrieves the full studio input tree.</span>
+<span class="sd">    This function falls back to mainline state at workspace creation time (or last rebase time)</span>
+<span class="sd">    to build up the state should the workspace studio state not be created yet and checks to see</span>
+<span class="sd">    if any deletes would affect the requested input.</span>
+
+<span class="sd">    Raises an InputNotFoundException if the input requested does not exist.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Path must be a non-None value&quot;</span><span class="p">)</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">__getStudioInputs</span><span class="p">(</span><span class="n">clientGetter</span><span class="p">,</span> <span class="n">studioId</span><span class="p">,</span> <span class="n">workspaceId</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">inputs</span><span class="p">:</span>
+        <span class="c1"># If we&#39;re searching for inputs on mainline and we receive none from the getAll,</span>
+        <span class="c1"># raise an exception</span>
+        <span class="k">if</span> <span class="n">workspaceId</span> <span class="o">==</span> <span class="n">MAINLINE_WS_ID</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span>
+                <span class="n">path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Mainline inputs for studio </span><span class="si">{</span><span class="n">studioId</span><span class="si">}</span><span class="s2"> do not exist&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Check the config endpoint for the workspace to ensure that</span>
+        <span class="c1"># the mainline value has not been deleted</span>
+        <span class="c1"># We need to check each individual subpath for deletes as they will take precedence</span>
+        <span class="c1"># We don&#39;t need to check the timestamps as if they have been overwritten, then</span>
+        <span class="c1"># state will exist and we will not reach here</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">subpath</span> <span class="o">=</span> <span class="n">path</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">conf</span> <span class="o">=</span> <span class="n">__getStudioInputConfig</span><span class="p">(</span><span class="n">clientGetter</span><span class="p">,</span> <span class="n">studioId</span><span class="p">,</span> <span class="n">workspaceId</span><span class="p">,</span> <span class="n">subpath</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">InputNotFoundException</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">remove</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span>
+                    <span class="n">path</span><span class="p">,</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inputs for studio </span><span class="si">{</span><span class="n">studioId</span><span class="si">}</span><span class="s2"> at path </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> in &quot;</span>
+                           <span class="sa">f</span><span class="s2">&quot;workspace </span><span class="si">{</span><span class="n">workspaceId</span><span class="si">}</span><span class="s2"> have been deleted&quot;</span><span class="p">))</span>
+
+        <span class="c1"># Get the lastRebasedAt timestamp, or if that&#39;s null, then the createdAt timestamp</span>
+        <span class="c1"># of the workspace such that the correct mainline state is retrieved</span>
+        <span class="n">wsTs</span> <span class="o">=</span> <span class="n">getWorkspaceLastSynced</span><span class="p">(</span><span class="n">clientGetter</span><span class="p">,</span> <span class="n">workspaceId</span><span class="p">)</span>
+        <span class="n">mainlineInputs</span> <span class="o">=</span> <span class="n">__getStudioInputs</span><span class="p">(</span><span class="n">clientGetter</span><span class="p">,</span> <span class="n">studioId</span><span class="p">,</span> <span class="n">MAINLINE_WS_ID</span><span class="p">,</span>
+                                           <span class="n">start</span><span class="o">=</span><span class="n">wsTs</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">wsTs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mainlineInputs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Inputs for studio </span><span class="si">{</span><span class="n">studioId</span><span class="si">}</span><span class="s2"> do not exist&quot;</span><span class="p">)</span>
+
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">mainlineInputs</span>
+
+    <span class="c1"># In the case where a path has been specified, the inputs reflect that subtree from the root</span>
+    <span class="c1"># input, rather than from the specified path. We need to iterate through the inputs down to</span>
+    <span class="c1"># the path desired to return only the requested portion</span>
+
+    <span class="n">finalInput</span> <span class="o">=</span> <span class="n">inputs</span>
+    <span class="k">for</span> <span class="n">pthElem</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">finalInput</span> <span class="o">=</span> <span class="n">finalInput</span><span class="p">[</span><span class="n">pthElem</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="c1"># Stringified input path will stringify all elements, even integer values,</span>
+            <span class="c1"># so there are cases where list elements are attempted to be accessed with</span>
+            <span class="c1"># stringified indices. Attempt conversion to int and retry</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pthElem</span><span class="p">)</span>
+                <span class="n">finalInput</span> <span class="o">=</span> <span class="n">finalInput</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">idxE</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">pthElem</span><span class="si">}</span><span class="s2">&#39; </span><span class="si">{</span><span class="n">idxE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span>
+                    <span class="n">path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pthElem</span><span class="si">}</span><span class="s2"> not present in inputs </span><span class="si">{</span><span class="n">finalInput</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span>
+                <span class="n">path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pthElem</span><span class="si">}</span><span class="s2"> not present in inputs </span><span class="si">{</span><span class="n">finalInput</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="n">finalInput</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">__getStudioInputs</span><span class="p">(</span><span class="n">clientGetter</span><span class="p">,</span> <span class="n">studioId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">workspaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">clientGetter</span><span class="p">(</span><span class="n">services</span><span class="o">.</span><span class="n">InputsServiceStub</span><span class="p">)</span>
+    <span class="n">wid</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">workspaceId</span><span class="p">)</span>
+    <span class="n">sid</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">studioId</span><span class="p">)</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">InputsKey</span><span class="p">(</span><span class="n">studio_id</span><span class="o">=</span><span class="n">sid</span><span class="p">,</span> <span class="n">workspace_id</span><span class="o">=</span><span class="n">wid</span><span class="p">)</span>
+    <span class="n">p_filter</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Inputs</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="n">startTs</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">endTs</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">start</span><span class="p">:</span>
+        <span class="n">startTs</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="k">if</span> <span class="n">end</span><span class="p">:</span>
+        <span class="n">endTs</span> <span class="o">=</span> <span class="n">end</span>
+    <span class="n">timeBound</span> <span class="o">=</span> <span class="n">TimeBounds</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">startTs</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">endTs</span><span class="p">)</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">services</span><span class="o">.</span><span class="n">InputsStreamRequest</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">timeBound</span><span class="p">)</span>
+    <span class="n">req</span><span class="o">.</span><span class="n">partial_eq_filter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_filter</span><span class="p">)</span>
+
+    <span class="n">inputs</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># We need to issue the get requests as part of a GetAll to allow for truncated inputs</span>
+    <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">GetAll</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+        <span class="n">inpResp</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">inpResp</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">inpResp</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">split</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">inpResp</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">mergeStudioInputs</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">split</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">inputs</span>
+
+
+<span class="k">def</span> <span class="nf">__getStudioInputConfig</span><span class="p">(</span><span class="n">clientGetter</span><span class="p">,</span> <span class="n">studioId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">workspaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">clientGetter</span><span class="p">(</span><span class="n">services</span><span class="o">.</span><span class="n">InputsConfigServiceStub</span><span class="p">)</span>
+    <span class="n">wid</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">workspaceId</span><span class="p">)</span>
+    <span class="n">sid</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">studioId</span><span class="p">)</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">InputsKey</span><span class="p">(</span><span class="n">studio_id</span><span class="o">=</span><span class="n">sid</span><span class="p">,</span> <span class="n">workspace_id</span><span class="o">=</span><span class="n">wid</span><span class="p">,</span>
+                           <span class="n">path</span><span class="o">=</span><span class="n">fmp_wrappers</span><span class="o">.</span><span class="n">RepeatedString</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">path</span><span class="p">))</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">services</span><span class="o">.</span><span class="n">InputsConfigRequest</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">configResp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">GetOne</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">confExc</span><span class="p">:</span>
+        <span class="c1"># If the config does not exist for the workspace, return the mainline state</span>
+        <span class="k">if</span> <span class="n">confExc</span><span class="o">.</span><span class="n">code</span><span class="p">()</span> <span class="o">==</span> <span class="n">StatusCode</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span>
+                <span class="n">path</span><span class="p">,</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Config not found for input key with studio </span><span class="si">{</span><span class="n">studioId</span><span class="si">}</span><span class="s2">&quot;</span>
+                       <span class="sa">f</span><span class="s2">&quot;workspace </span><span class="si">{</span><span class="n">workspaceId</span><span class="si">}</span><span class="s2"> and path </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="k">raise</span>
+
+    <span class="k">return</span> <span class="n">configResp</span><span class="o">.</span><span class="n">value</span>
+
+
+<div class="viewcode-block" id="setStudioInput">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.setStudioInput">[docs]</a>
+<span class="k">def</span> <span class="nf">setStudioInput</span><span class="p">(</span><span class="n">clientGetter</span><span class="p">,</span> <span class="n">studioId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">workspaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">inputPath</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                   <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">remove</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Uses the passed ctx.getApiClient function reference to</span>
+<span class="sd">    issue a set to the Studio inputs rAPI with the associated input path and value</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">serialized</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">InputException</span><span class="p">(</span>
+            <span class="n">message</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Cannot set value as input: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputPath</span><span class="o">=</span><span class="n">inputPath</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">clientGetter</span><span class="p">(</span><span class="n">services</span><span class="o">.</span><span class="n">InputsConfigServiceStub</span><span class="p">)</span>
+    <span class="n">wid</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">workspaceId</span><span class="p">)</span>
+    <span class="n">sid</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">studioId</span><span class="p">)</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">InputsKey</span><span class="p">(</span><span class="n">studio_id</span><span class="o">=</span><span class="n">sid</span><span class="p">,</span>
+                           <span class="n">workspace_id</span><span class="o">=</span><span class="n">wid</span><span class="p">,</span>
+                           <span class="n">path</span><span class="o">=</span><span class="n">fmp_wrappers</span><span class="o">.</span><span class="n">RepeatedString</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">inputPath</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">remove</span><span class="p">:</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">services</span><span class="o">.</span><span class="n">InputsConfigSetRequest</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">InputsConfig</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="n">pb</span><span class="o">.</span><span class="n">BoolValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">remove</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">services</span><span class="o">.</span><span class="n">InputsConfigSetRequest</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">InputsConfig</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">serialized</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">req</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">InputUpdateException</span><span class="p">(</span><span class="n">inputPath</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Value </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> was not set: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="setStudioInputs">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.setStudioInputs">[docs]</a>
+<span class="k">def</span> <span class="nf">setStudioInputs</span><span class="p">(</span><span class="n">clientGetter</span><span class="p">,</span> <span class="n">studioId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">workspaceId</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Uses the passed ctx.getApiClient function reference to</span>
+<span class="sd">    issue a setSome to the Studio inputs rAPI with the associated InputsConfig</span>
+
+<span class="sd">    The inputs list should contain tuples of a fixed size, either with a</span>
+<span class="sd">    length of 2 or a length of 3. Tuple: (Path, Inputs) or (Path, Inputs, Remove)</span>
+<span class="sd">    a mixed list [(path, value, remove), (path, value),..] is supported</span>
+
+<span class="sd">    The value doesn&#39;t matter if the remove flag is True</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">clientGetter</span><span class="p">(</span><span class="n">services</span><span class="o">.</span><span class="n">InputsConfigServiceStub</span><span class="p">)</span>
+    <span class="n">wid</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">workspaceId</span><span class="p">)</span>
+    <span class="n">sid</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">studioId</span><span class="p">)</span>
+    <span class="n">inputsConfigs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">path</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">entry</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">InputsKey</span><span class="p">(</span><span class="n">studio_id</span><span class="o">=</span><span class="n">sid</span><span class="p">,</span>
+                                   <span class="n">workspace_id</span><span class="o">=</span><span class="n">wid</span><span class="p">,</span>
+                                   <span class="n">path</span><span class="o">=</span><span class="n">fmp_wrappers</span><span class="o">.</span><span class="n">RepeatedString</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">path</span><span class="p">))</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">serialized</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">InputException</span><span class="p">(</span>
+                    <span class="n">message</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Cannot set value as input: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputPath</span><span class="o">=</span><span class="n">path</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">InputsConfig</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">serialized</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">path</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">remove</span> <span class="o">=</span> <span class="n">entry</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">InputsKey</span><span class="p">(</span><span class="n">studio_id</span><span class="o">=</span><span class="n">sid</span><span class="p">,</span>
+                                   <span class="n">workspace_id</span><span class="o">=</span><span class="n">wid</span><span class="p">,</span>
+                                   <span class="n">path</span><span class="o">=</span><span class="n">fmp_wrappers</span><span class="o">.</span><span class="n">RepeatedString</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">path</span><span class="p">))</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">serialized</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">InputException</span><span class="p">(</span>
+                    <span class="n">message</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Cannot set value as input: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputPath</span><span class="o">=</span><span class="n">path</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">remove</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">InputsConfig</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="n">pb</span><span class="o">.</span><span class="n">BoolValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">remove</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">InputsConfig</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">pb</span><span class="o">.</span><span class="n">StringValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">serialized</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InputException</span><span class="p">(</span>
+                <span class="n">message</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Invalid entry length: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputPath</span><span class="o">=</span><span class="n">entry</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="kn">from</span> <span class="kc">None</span>
+        <span class="n">inputsConfigs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">services</span><span class="o">.</span><span class="n">InputsConfigSetSomeRequest</span><span class="p">(</span>
+        <span class="n">values</span><span class="o">=</span><span class="n">inputsConfigs</span>
+    <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">SetSome</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">req</span><span class="p">):</span>
+            <span class="k">pass</span>
+    <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">InputUpdateException</span><span class="p">(</span><span class="n">err</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Inputs </span><span class="si">{</span><span class="n">inputs</span><span class="si">}</span><span class="s2"> was not set: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="extractInputElems">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.extractInputElems">[docs]</a>
+<span class="k">def</span> <span class="nf">extractInputElems</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">inputPath</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">elems</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+                      <span class="n">tagElems</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes lists of elements and tag elements, and traverses through the input tree towards the</span>
+<span class="sd">    Input path, extracting the most recent matching values for these elements from the inputs.</span>
+
+<span class="sd">    Returns these results in a single dict, so overwriting of results will occur if specified</span>
+<span class="sd">    elements/tag elements have the same name in the inputs tree</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">currInput</span> <span class="o">=</span> <span class="n">inputs</span>
+    <span class="c1"># Go through the input path to find the associated elements</span>
+    <span class="c1"># tags are stored in the form &quot;tags&quot;:{ &quot;query&quot;: &quot;&lt;tag&gt;:&lt;value&gt;&quot; }</span>
+    <span class="k">for</span> <span class="n">pthElem</span> <span class="ow">in</span> <span class="n">inputPath</span><span class="p">:</span>
+
+        <span class="c1"># Check the current input element for existence of wanted elements</span>
+        <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">elems</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">currInput</span><span class="p">:</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">elem</span><span class="p">]</span> <span class="o">=</span> <span class="n">currInput</span><span class="p">[</span><span class="n">elem</span><span class="p">]</span>
+
+        <span class="c1"># Check the current input element for existence of wanted tag elements</span>
+        <span class="k">if</span> <span class="s2">&quot;tags&quot;</span> <span class="ow">in</span> <span class="n">currInput</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">currInput</span><span class="p">[</span><span class="s2">&quot;tags&quot;</span><span class="p">][</span><span class="s2">&quot;query&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">tagElems</span><span class="p">:</span>
+                <span class="c1"># Add the colon used to separate value and tag in the query</span>
+                <span class="n">tagElem</span> <span class="o">=</span> <span class="n">elem</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span>
+                <span class="k">if</span> <span class="n">tagElem</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+                    <span class="n">results</span><span class="p">[</span><span class="n">elem</span><span class="p">]</span> <span class="o">=</span> <span class="n">query</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">tagElem</span><span class="p">):]</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">currInput</span> <span class="o">=</span> <span class="n">currInput</span><span class="p">[</span><span class="n">pthElem</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="c1"># Stringified input path will stringify all elements, even integer values,</span>
+            <span class="c1"># so there are cases where list elements are attempted to be accessed with</span>
+            <span class="c1"># stringified indices. Attempt conversion to int and retry</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pthElem</span><span class="p">)</span>
+                <span class="n">currInput</span> <span class="o">=</span> <span class="n">currInput</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">idxE</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span><span class="n">inputPath</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">pthElem</span><span class="si">}</span><span class="s2">&#39; </span><span class="si">{</span><span class="n">idxE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span><span class="n">inputPath</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span><span class="n">inputPath</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2"> not present in inputs&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+        <span class="c1"># Ensure sane value and allow for current input to be None</span>
+        <span class="k">if</span> <span class="n">currInput</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">pthElem</span> <span class="o">!=</span> <span class="n">inputPath</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">InputNotFoundException</span><span class="p">(</span><span class="n">inputPath</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">results</span></div>
+
+
+
+<div class="viewcode-block" id="getSimpleResolverQueryValue">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.getSimpleResolverQueryValue">[docs]</a>
+<span class="k">def</span> <span class="nf">getSimpleResolverQueryValue</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Autofill action arguments may be resolver queries. In these cases the string</span>
+<span class="sd">    argument is in the form of &quot;&lt;tag&gt;:&lt;Value&gt;&quot; or more complex queries such as</span>
+<span class="sd">    &quot;&lt;tag&gt;:&lt;ValueA&gt; OR &lt;tag&gt;:&lt;ValueB&gt;&quot;. This function is designed to extract the</span>
+<span class="sd">    query values from a simple query.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">    - query:   The simple query string, e.g. &quot;&lt;tag&gt;:&lt;Value&gt;&quot;</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - The query value, e.g. &quot;&lt;Value&gt;&quot; from the above example.</span>
+
+<span class="sd">    Raises an InputException in the case where the passed query is not parsable as a simple query</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">queryElems</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">queryElems</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">InputException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Passed &#39;query&#39; </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> does not appear to be a query&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">queryElems</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">InputException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Passed query </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> is a complex query&quot;</span><span class="p">)</span>
+    <span class="n">queryValue</span> <span class="o">=</span> <span class="n">queryElems</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">queryValue</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">InputException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Passed query </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> is missing a value&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">queryValue</span></div>
+
+
+
+<div class="viewcode-block" id="extractStudioInfoFromArgs">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.extractStudioInfoFromArgs">[docs]</a>
+<span class="k">def</span> <span class="nf">extractStudioInfoFromArgs</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Studio Autofill actions contains studio related information in their arguments, but a studio</span>
+<span class="sd">    is not instantiated and associated with the context. As these actions require interfacing with</span>
+<span class="sd">    studio APIs, this function extracts the studio info (verifies this info is valid if needed)</span>
+<span class="sd">    and returns it to the user in the order below.</span>
+
+<span class="sd">    These are (All return values may be None in the case the field is not present);</span>
+<span class="sd">    - StudioID:     The ID of the studio associated with the action</span>
+<span class="sd">    - WorkspaceID:  The ID of the workspace associated with the</span>
+<span class="sd">    - InputPath:    The string path elements leading to the input element in the action</span>
+
+<span class="sd">    NOTE: Input paths containing array/list indices will be stringified, so use caution when</span>
+<span class="sd">    iterating through the input tree using this. These are not converted to integer values</span>
+<span class="sd">    as they could clash with elements containing only numbers.</span>
+<span class="sd">    The `extractInputElems` method accounts for this and is suggested over manually traversing</span>
+<span class="sd">    the tree looking for elements</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">studioId</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">STUDIO_ID_ARG</span><span class="p">)</span>
+    <span class="n">workspaceId</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">WORKSPACE_ID_ARG</span><span class="p">)</span>
+    <span class="n">inputPath</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">inputPathArg</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">INPUT_PATH_ARG</span><span class="p">)</span>  <span class="c1"># This is a stringified list</span>
+    <span class="k">if</span> <span class="n">inputPathArg</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">inputPath</span> <span class="o">=</span> <span class="n">extractJSONEncodedListArg</span><span class="p">(</span><span class="n">inputPathArg</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Studio input path must be a list of strings&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+    <span class="k">return</span> <span class="n">studioId</span><span class="p">,</span> <span class="n">workspaceId</span><span class="p">,</span> <span class="n">inputPath</span></div>
+
+
+
+<div class="viewcode-block" id="GetOneWithWS">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.GetOneWithWS">[docs]</a>
+<span class="k">def</span> <span class="nf">GetOneWithWS</span><span class="p">(</span><span class="n">apiClientGetter</span><span class="p">,</span> <span class="n">stateStub</span><span class="p">,</span> <span class="n">stateGetReq</span><span class="p">,</span> <span class="n">configStub</span><span class="p">,</span> <span class="n">confGetReq</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    For Studio APIs, the state for a particular workspace can be difficult to determine.</span>
+<span class="sd">    A state for a particular workspace only exists if an update has occurred for that workspace.</span>
+<span class="sd">    State may exist in mainline, or the configuration change in the workspace may have explicitly</span>
+<span class="sd">    deleted the state.</span>
+
+<span class="sd">    GetOneWithWS does the following to try and provide state for the get request:</span>
+<span class="sd">        - Do a get on the X state endpoint in the particular workspace for the desired state</span>
+<span class="sd">        - If the state does NOT exist, issue another get on the X state endpoint for the</span>
+<span class="sd">          mainline state.</span>
+<span class="sd">        - If the state DOES exist there, check the X configuration endpoint of the workspace to</span>
+<span class="sd">          see if the state has been explicitly deleted there.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">    - apiClientGetter:  The API client getter, i.e. ctx.getApiClient</span>
+<span class="sd">    - stateStub:        The stub for the state endpoint</span>
+<span class="sd">    - stateGetReq:      A workspace-aware get request to be made to the state client for the</span>
+<span class="sd">                        desired workspace. It is assumed that the get request has a key field</span>
+<span class="sd">                        &quot;workspace_id&quot;, such that mainline can be queried in the case that the</span>
+<span class="sd">                        workspace query does not return anything.</span>
+<span class="sd">    - configStub:       The stub for the config endpoint</span>
+<span class="sd">    - confGetReq:       A workspace-aware get request to be made to the config client for the</span>
+<span class="sd">                        desired workspace.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - The request&#39;s value, or None if the resource has been deleted</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">stateGetReq</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;workspace_id&#39;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Passed request to GetOneWithWS has no key attribute &#39;workspace_id&#39;&quot;</span><span class="p">)</span>
+
+    <span class="n">stateClient</span> <span class="o">=</span> <span class="n">apiClientGetter</span><span class="p">(</span><span class="n">stateStub</span><span class="p">)</span>
+    <span class="c1"># Issue a get to the state endpoint for the workspace</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">stateClient</span><span class="o">.</span><span class="n">GetOne</span><span class="p">(</span><span class="n">stateGetReq</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="c1"># If the state does not exist for the workspace, reraise the original</span>
+        <span class="c1"># exception as something went wrong</span>
+        <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">code</span><span class="p">()</span> <span class="o">!=</span> <span class="n">StatusCode</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="p">:</span>
+            <span class="k">raise</span>
+
+        <span class="c1"># In the case where the original get req is for the mainline,</span>
+        <span class="c1"># nothing further we can do</span>
+        <span class="k">if</span> <span class="n">stateGetReq</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">workspace_id</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">MAINLINE_WS_ID</span><span class="p">:</span>
+            <span class="k">raise</span>
+
+        <span class="c1"># Get the lastRebasedAt timestamp, or if that&#39;s null, then the createdAt timestamp</span>
+        <span class="c1"># of the workspace such that the correct mainline state is retrieved</span>
+        <span class="n">wsTs</span> <span class="o">=</span> <span class="n">getWorkspaceLastSynced</span><span class="p">(</span><span class="n">apiClientGetter</span><span class="p">,</span> <span class="n">stateGetReq</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">workspace_id</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="c1"># Try again for the mainline state</span>
+        <span class="n">stateGetReq</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">workspace_id</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">MAINLINE_WS_ID</span>
+        <span class="n">stateGetReq</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">wsTs</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">stateClient</span><span class="o">.</span><span class="n">GetOne</span><span class="p">(</span><span class="n">stateGetReq</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">mainlineExc</span><span class="p">:</span>
+            <span class="c1"># Handle the mainline error as its own exception, such that stack</span>
+            <span class="c1"># traces don&#39;t contain nested exceptions such as &quot;when handling the</span>
+            <span class="c1"># above exception, another exception occurred&quot;</span>
+            <span class="k">raise</span> <span class="n">mainlineExc</span> <span class="kn">from</span> <span class="kc">None</span>
+
+        <span class="c1"># Check the config endpoint for the workspace to ensure that</span>
+        <span class="c1"># the mainline value has not been deleted</span>
+        <span class="n">configClient</span> <span class="o">=</span> <span class="n">apiClientGetter</span><span class="p">(</span><span class="n">configStub</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">configResp</span> <span class="o">=</span> <span class="n">configClient</span><span class="o">.</span><span class="n">GetOne</span><span class="p">(</span><span class="n">confGetReq</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">RpcError</span> <span class="k">as</span> <span class="n">confExc</span><span class="p">:</span>
+            <span class="c1"># If the config does not exist for the workspace, return the mainline state</span>
+            <span class="k">if</span> <span class="n">confExc</span><span class="o">.</span><span class="n">code</span><span class="p">()</span> <span class="o">==</span> <span class="n">StatusCode</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">value</span>
+            <span class="c1"># Handle the config error as its own exception, such that stack</span>
+            <span class="c1"># traces don&#39;t contain nested exceptions such as &quot;when handling the</span>
+            <span class="c1"># above exception, another exception occurred&quot;</span>
+            <span class="k">raise</span> <span class="n">confExc</span> <span class="kn">from</span> <span class="kc">None</span>
+
+        <span class="c1"># Remove is a config field for workspace-aware configuration apis</span>
+        <span class="c1"># If it is set it means that configuration has been explicitly</span>
+        <span class="c1"># deleted for this ws</span>
+        <span class="k">if</span> <span class="n">configResp</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">remove</span><span class="p">:</span>
+            <span class="c1"># Config has been explicitly removed, return nothing</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">value</span></div>
+
+
+
+<div class="viewcode-block" id="mergeStudioInputs">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.studio.mergeStudioInputs">[docs]</a>
+<span class="k">def</span> <span class="nf">mergeStudioInputs</span><span class="p">(</span><span class="n">rootInputs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">inputsToInsert</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Due to grpc messaging limits, large inputs may be sent out to get requests</span>
+<span class="sd">    in chunks, and should be retrieved with a GetAll to ensure all inputs</span>
+<span class="sd">    for a given studio are received.</span>
+
+<span class="sd">    In the case where a studio resource returns inputs in multiple responses, they need to</span>
+<span class="sd">    be spliced together to form a cohesive input object.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">    - rootInputs:       The root object to insert the new inputs into</span>
+<span class="sd">    - path:             The path in the rootInputs to insert the inputs into</span>
+<span class="sd">    - inputsToInsert:   The inputs to insert into the root inputs</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - The updated root inputs</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">prevElem</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="n">rootInputs</span>
+    <span class="n">currElem</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curr</span> <span class="o">=</span> <span class="n">rootInputs</span>
+
+    <span class="c1"># Walk down the path from the root to the value at the final element, creating any sub-objects</span>
+    <span class="c1"># or sub-lists along the way if they don&#39;t exist.</span>
+    <span class="k">for</span> <span class="n">currElem</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+        <span class="c1"># This element is a list index...</span>
+        <span class="k">if</span> <span class="n">currElem</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+            <span class="c1"># If the current value is not a list, set it to one.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">prevElem</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">rootInputs</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="n">curr</span> <span class="o">=</span> <span class="n">rootInputs</span>
+                <span class="k">elif</span> <span class="n">prevElem</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+                    <span class="n">prevElemInt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">prevElem</span><span class="p">)</span>
+                    <span class="n">prev</span><span class="p">[</span><span class="n">prevElemInt</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="n">curr</span> <span class="o">=</span> <span class="n">prev</span><span class="p">[</span><span class="n">prevElemInt</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">prev</span><span class="p">[</span><span class="n">prevElem</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="n">curr</span> <span class="o">=</span> <span class="n">prev</span><span class="p">[</span><span class="n">prevElem</span><span class="p">]</span>
+            <span class="c1"># If this index is past the last index of the current list, extend the list until</span>
+            <span class="c1"># it is big enough for it.</span>
+            <span class="n">currElemInt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">currElem</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">currElemInt</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">curr</span><span class="p">):</span>
+                <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">currElemInt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">curr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="c1"># Move to the value at the index.</span>
+            <span class="n">prevElem</span> <span class="o">=</span> <span class="n">currElem</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="p">[</span><span class="n">currElemInt</span><span class="p">]</span>
+        <span class="c1"># Otherwise this element is an object key...</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># If the current value is not an object, set it to one.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">prevElem</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">rootInputs</span> <span class="o">=</span> <span class="p">{}</span>
+                    <span class="n">curr</span> <span class="o">=</span> <span class="n">rootInputs</span>
+                <span class="k">elif</span> <span class="n">prevElem</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+                    <span class="n">prevElemInt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">prevElem</span><span class="p">)</span>
+                    <span class="n">prev</span><span class="p">[</span><span class="n">prevElemInt</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                    <span class="n">curr</span> <span class="o">=</span> <span class="n">prev</span><span class="p">[</span><span class="n">prevElemInt</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">prev</span><span class="p">[</span><span class="n">prevElem</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                    <span class="n">curr</span> <span class="o">=</span> <span class="n">prev</span><span class="p">[</span><span class="n">prevElem</span><span class="p">]</span>
+            <span class="c1"># If the current value does not contain this</span>
+            <span class="c1"># key, add it.</span>
+            <span class="k">if</span> <span class="n">currElem</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">curr</span><span class="p">:</span>
+                <span class="n">curr</span><span class="p">[</span><span class="n">currElem</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="c1"># Move to the value at the key.</span>
+            <span class="n">prevElem</span> <span class="o">=</span> <span class="n">currElem</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="p">[</span><span class="n">currElem</span><span class="p">]</span>
+    <span class="c1"># If the path leads to an object, then merge it with the previous object.</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">curr</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">inputsToInsert</span><span class="p">)</span>
+
+    <span class="c1"># If it leads to any other type, then  simply set it to the inputsToInsert.</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">currElem</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">rootInputs</span> <span class="o">=</span> <span class="n">inputsToInsert</span>
+        <span class="k">elif</span> <span class="n">currElem</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+            <span class="n">prev</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">currElem</span><span class="p">)]</span> <span class="o">=</span> <span class="n">inputsToInsert</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">prev</span><span class="p">[</span><span class="n">currElem</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputsToInsert</span>
+    <span class="k">return</span> <span class="n">rootInputs</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1251 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.alert.v1 package &mdash; CloudVision Python 1.21.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ffc33bb7"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.alert.v1.services package" href="arista.alert.v1.services.html" />
+    <link rel="prev" title="arista.alert package" href="arista.alert.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.alert.html">arista.alert package</a></li>
+      <li class="breadcrumb-item active">arista.alert.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.alert.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-alert-v1-package">
+<h1>arista.alert.v1 package<a class="headerlink" href="#arista-alert-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.alert.v1.services.html">arista.alert.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.alert.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.alert.v1.services.html#module-arista.alert.v1.services.gen_pb2">arista.alert.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigRequest"><code class="docutils literal notranslate"><span class="pre">AlertConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigResponse"><code class="docutils literal notranslate"><span class="pre">AlertConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">AlertConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">AlertConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">AlertConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">AlertConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertRequest"><code class="docutils literal notranslate"><span class="pre">AlertRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertResponse"><code class="docutils literal notranslate"><span class="pre">AlertResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertStreamRequest"><code class="docutils literal notranslate"><span class="pre">AlertStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertStreamResponse"><code class="docutils literal notranslate"><span class="pre">AlertStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.AlertStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AlertStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateRequest"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateResponse"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateSomeRequest"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateSomeResponse"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateStreamRequest"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateStreamResponse"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.DefaultTemplateStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">TemplateConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">TemplateConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigRequest"><code class="docutils literal notranslate"><span class="pre">TemplateConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigResponse"><code class="docutils literal notranslate"><span class="pre">TemplateConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">TemplateConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">TemplateConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2.TemplateConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">TemplateConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.alert.v1.services.html#module-arista.alert.v1.services.gen_pb2_grpc">arista.alert.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigService"><code class="docutils literal notranslate"><span class="pre">AlertConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">AlertConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">AlertConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigService.Set"><code class="docutils literal notranslate"><span class="pre">AlertConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">AlertConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">AlertConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">AlertConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">AlertConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">AlertConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">AlertConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">AlertConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">AlertConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">AlertConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertService"><code class="docutils literal notranslate"><span class="pre">AlertService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertService.GetAll"><code class="docutils literal notranslate"><span class="pre">AlertService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertService.GetOne"><code class="docutils literal notranslate"><span class="pre">AlertService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertService.Subscribe"><code class="docutils literal notranslate"><span class="pre">AlertService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">AlertService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertServiceServicer"><code class="docutils literal notranslate"><span class="pre">AlertServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">AlertServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">AlertServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">AlertServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">AlertServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.AlertServiceStub"><code class="docutils literal notranslate"><span class="pre">AlertServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateService"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateService.GetAll"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateService.GetOne"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateService.GetSome"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateServiceServicer"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.DefaultTemplateServiceStub"><code class="docutils literal notranslate"><span class="pre">DefaultTemplateServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.Set"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">TemplateConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.TemplateConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">TemplateConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.add_AlertConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_AlertConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.add_AlertServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_AlertServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.add_DefaultTemplateServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DefaultTemplateServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.alert.v1.services.html#arista.alert.v1.services.gen_pb2_grpc.add_TemplateConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_TemplateConfigServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.alert.v1.services.html#module-arista.alert.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.alert.v1.alert_pb2">
+<span id="arista-alert-v1-alert-pb2-module"></span><h2>arista.alert.v1.alert_pb2 module<a class="headerlink" href="#module-arista.alert.v1.alert_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Alert">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">Alert</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.Alert" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Alert.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.Alert.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.AlertConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">AlertConfig</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.AlertConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.AlertConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.AlertConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.AzureOAuth">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">AzureOAuth</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.AzureOAuth" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.AzureOAuth.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.AzureOAuth.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.BroadcastGroup">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">BroadcastGroup</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.BroadcastGroup" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.BroadcastGroup.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.BroadcastGroup.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.BroadcastGroups">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">BroadcastGroups</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.BroadcastGroups" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.BroadcastGroups.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.BroadcastGroups.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.BroadcastGroups.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.BroadcastGroups.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.BroadcastGroups.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.BroadcastGroups.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.ConfigError">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigError</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.ConfigError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.ConfigError.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.ConfigError.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.ConfigErrors">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">ConfigErrors</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.ConfigErrors" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.ConfigErrors.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.ConfigErrors.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueData</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueData.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueData.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueData.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueData.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueData.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueData.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSNMPAuth">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueSNMPAuth</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSNMPAuth" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSNMPAuth.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSNMPAuth.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSNMPEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueSNMPEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSNMPEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSNMPEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSNMPEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSNMPSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueSNMPSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSNMPSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSNMPSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSNMPSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSendgridEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueSendgridEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSendgridEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSendgridEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSendgridEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSendgridEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueSendgridEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSendgridEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSendgridEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSendgridEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSendgridSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueSendgridSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSendgridSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSendgridSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSendgridSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSnmpEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueSnmpEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSnmpEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSnmpEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSnmpEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSyslogEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueSyslogEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSyslogEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSyslogEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSyslogEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSyslogEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueSyslogEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSyslogEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSyslogEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSyslogEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSyslogSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">CueSyslogSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSyslogSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.CueSyslogSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.CueSyslogSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.DefaultTemplate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">DefaultTemplate</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.DefaultTemplate" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.DefaultTemplate.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.DefaultTemplate.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EmailEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">EmailEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.EmailEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EmailEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.EmailEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EmailEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">EmailEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.EmailEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EmailEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.EmailEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EmailSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">EmailSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.EmailSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EmailSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.EmailSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EndpointError">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">EndpointError</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.EndpointError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EndpointError.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.EndpointError.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EndpointErrors">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">EndpointErrors</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.EndpointErrors" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EndpointErrors.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.EndpointErrors.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EventList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">EventList</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.EventList" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.EventList.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.EventList.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.GoogleChatEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">GoogleChatEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.GoogleChatEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.GoogleChatEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.GoogleChatEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.GoogleChatEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">GoogleChatEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.GoogleChatEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.GoogleChatEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.GoogleChatEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.GoogleChatSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">GoogleChatSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.GoogleChatSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.GoogleChatSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.GoogleChatSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.HeaderValues">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">HeaderValues</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.HeaderValues" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.HeaderValues.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.HeaderValues.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.HttpHeaders">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">HttpHeaders</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.HttpHeaders" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.HttpHeaders.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.HttpHeaders.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.HttpHeaders.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.HttpHeaders.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.HttpHeaders.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.HttpHeaders.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.HttpSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">HttpSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.HttpSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.HttpSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.HttpSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.InhibitionSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">InhibitionSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.InhibitionSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.InhibitionSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.InhibitionSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.InhibitionSettings.ValuesEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.InhibitionSettings.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.InhibitionSettings.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.InhibitionSettings.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Matches">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">Matches</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.Matches" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Matches.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.Matches.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.MsTeamsEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">MsTeamsEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.MsTeamsEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.MsTeamsEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.MsTeamsEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.MsTeamsEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">MsTeamsEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.MsTeamsEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.MsTeamsEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.MsTeamsEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.MsTeamsSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">MsTeamsSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.MsTeamsSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.MsTeamsSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.MsTeamsSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.OpsgenieEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">OpsgenieEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.OpsgenieEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.OpsgenieEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.OpsgenieEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.OpsgenieEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">OpsgenieEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.OpsgenieEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.OpsgenieEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.OpsgenieEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.OpsgenieSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">OpsgenieSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.OpsgenieSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.OpsgenieSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.OpsgenieSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.PagerdutyEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">PagerdutyEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.PagerdutyEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.PagerdutyEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.PagerdutyEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.PagerdutyEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">PagerdutyEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.PagerdutyEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.PagerdutyEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.PagerdutyEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.PagerdutySettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">PagerdutySettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.PagerdutySettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.PagerdutySettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.PagerdutySettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Priorities">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">Priorities</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.Priorities" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Priorities.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.Priorities.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.PushoverEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">PushoverEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.PushoverEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.PushoverEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.PushoverEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.PushoverEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">PushoverEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.PushoverEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.PushoverEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.PushoverEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Rule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">Rule</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.Rule" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Rule.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.Rule.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Rules">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">Rules</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.Rules" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Rules.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.Rules.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SNMPAuth">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SNMPAuth</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SNMPAuth" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SNMPAuth.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SNMPAuth.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SNMPEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SNMPEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SNMPEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SNMPEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SNMPEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SNMPEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SNMPEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SNMPEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SNMPEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SNMPEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SNMPSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SNMPSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SNMPSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SNMPSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SNMPSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SendgridEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SendgridEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SendgridEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SendgridEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SendgridEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SendgridEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SendgridEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SendgridEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SendgridEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SendgridEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SendgridSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SendgridSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SendgridSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SendgridSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SendgridSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Settings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">Settings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.Settings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.Settings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.Settings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SlackEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SlackEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SlackEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SlackEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SlackEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SlackEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SlackEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SlackEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SlackEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SlackEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SlackSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SlackSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SlackSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SlackSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SlackSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SyslogEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SyslogEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SyslogEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SyslogEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SyslogEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SyslogEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SyslogEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SyslogEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SyslogEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SyslogEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SyslogSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">SyslogSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.SyslogSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.SyslogSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.SyslogSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.TemplateConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">TemplateConfig</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.TemplateConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.TemplateConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.TemplateConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.TemplateKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">TemplateKey</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.TemplateKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.TemplateKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.TemplateKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.VictorOpsEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">VictorOpsEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.VictorOpsEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.VictorOpsEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.VictorOpsEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.VictorOpsEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">VictorOpsEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.VictorOpsEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.VictorOpsEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.VictorOpsEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.VictoropsSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">VictoropsSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.VictoropsSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.VictoropsSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.VictoropsSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.WebhookEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">WebhookEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.WebhookEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.WebhookEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.WebhookEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.WebhookEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">WebhookEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.WebhookEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.WebhookEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.WebhookEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.WebhookSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">WebhookSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.WebhookSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.WebhookSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.WebhookSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.ZoomEndpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">ZoomEndpoint</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.ZoomEndpoint" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.ZoomEndpoint.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.ZoomEndpoint.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.ZoomEndpoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">ZoomEndpoints</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.ZoomEndpoints" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.ZoomEndpoints.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.ZoomEndpoints.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.ZoomSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">arista.alert.v1.alert_pb2.</span></span><span class="sig-name descname"><span class="pre">ZoomSettings</span></span><a class="headerlink" href="#arista.alert.v1.alert_pb2.ZoomSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.alert.v1.alert_pb2.ZoomSettings.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#arista.alert.v1.alert_pb2.ZoomSettings.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.alert.v1.alert_pb2_grpc">
+<span id="arista-alert-v1-alert-pb2-grpc-module"></span><h2>arista.alert.v1.alert_pb2_grpc module<a class="headerlink" href="#module-arista.alert.v1.alert_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.alert.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.alert.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.alert.html" class="btn btn-neutral float-left" title="arista.alert package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.alert.v1.services.html" class="btn btn-neutral float-right" title="arista.alert.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
