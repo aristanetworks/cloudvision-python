@@ -126,6 +126,16 @@ class Context:
         self.studioCustomData = StudioCustomData(self)
         self.workspace: Optional[Workspace] = None
 
+    def cleanup(self):
+        '''
+        Cleans up open channels and other connections
+        Called by the script execution infra once a script or template has been executed
+        '''
+        if self.__connector:
+            self.__connector.close()
+        if self.__serviceChann:
+            self.__serviceChann.close()
+
     def getDevice(self):
         '''
         Returns the device associated to the context.
