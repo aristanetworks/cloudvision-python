@@ -8,7 +8,7 @@ notice='Copyright \(c\) 20[0-9][0-9] Arista Networks, Inc.'
 apacheNotice='Use of this source code is governed by the Apache License 2.0'
 apacheNoticeSource='that can be found in the COPYING file.'
 confidential='Confidential and Proprietary'
-generatedCodePaths='(^arista|^fmp|^cloudvision/arista|^cloudvision/fmp).*'
+generatedCodePaths='(^arista|^fmp).*'
 copyrightCheck='.*(check_copyright.sh)'
 
 files=`git diff-tree --no-commit-id --name-only --diff-filter=ACMR -r HEAD | \

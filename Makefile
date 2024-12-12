@@ -22,13 +22,7 @@ dist:
 dev-setup:
 	pip3 install .[dev]
 
-# Including cloudvision/arista in the general check causes mypy to mark cvlib as problematic.
-# mypy thinks that context.py's import of `from time import process_time_ns` is for some reason
-# pointing to cloudvision/arista/time and so flags an issue as the following:
-# `cloudvision/cvlib/context.py:10: error: Module "time" has no attribute "process_time_ns"`
-# The mypy check passes fine if both are checked in isolation though
 lint:
 	flake8 .
-	mypy --exclude cloudvision/arista --exclude build --exclude .venv .
-	mypy cloudvision/arista
+	mypy --exclude build --exclude .venv .
 	./check_copyright.sh
