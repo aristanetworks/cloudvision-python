@@ -2,7 +2,7 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-PCOMP = python -m grpc_tools.protoc # ensure we're using python's version and not some sys
+PCOMP = python3 -m grpc_tools.protoc # ensure we're using python's version and not some sys
 PB_DIR = cloudvision/Connector/protobuf
 GEN_DIR = cloudvision/Connector/gen
 PCOMP_FLAGS = -I=$(PB_DIR) --python_out=$(GEN_DIR) --mypy_out=$(GEN_DIR) --grpc_python_out=$(GEN_DIR)
@@ -24,5 +24,5 @@ dev-setup:
 
 lint:
 	flake8 .
-	mypy --exclude build --exclude .venv .
+	mypy --namespace-packages --exclude build --exclude .venv .
 	./check_copyright.sh
