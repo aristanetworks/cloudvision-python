@@ -2,7 +2,7 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-FROM python:3.11
+FROM python:3.12
 LABEL maintainer="cvaas-dev@arista.com"
 
 WORKDIR /
