@@ -61,6 +61,46 @@ STAGE_STATUS_NOT_STARTED: StageStatus.ValueType  # 3
 """STAGE_STATUS_NOT_STARTED means the stage has not been started."""
 global___StageStatus = StageStatus
 
+class _StepStatus:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _StepStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_StepStatus.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    STEP_STATUS_UNSPECIFIED: _StepStatus.ValueType  # 0
+    """STEP_STATUS_UNSPECIFIED represents an unspecified state for a step within
+    an action.
+    """
+    STEP_STATUS_NOT_STARTED: _StepStatus.ValueType  # 1
+    """STEP_STATUS_NOT_STARTED represents that the step has not started execution."""
+    STEP_STATUS_RUNNING: _StepStatus.ValueType  # 2
+    """STEP_STATUS_RUNNING represents that the step is under execution."""
+    STEP_STATUS_FINISHED: _StepStatus.ValueType  # 3
+    """STEP_STATUS_FINISHED represents that the step has finished execution."""
+    STEP_STATUS_SKIPPED: _StepStatus.ValueType  # 4
+    """STEP_STATUS_SKIPPED represents that the step has been skipped from execution."""
+    STEP_STATUS_FAILED: _StepStatus.ValueType  # 5
+    """STEP_STATUS_FAILED represents that the step has failed its execution."""
+
+class StepStatus(_StepStatus, metaclass=_StepStatusEnumTypeWrapper):
+    """StepStatus defines the possible execution statuses of a step within an action."""
+
+STEP_STATUS_UNSPECIFIED: StepStatus.ValueType  # 0
+"""STEP_STATUS_UNSPECIFIED represents an unspecified state for a step within
+an action.
+"""
+STEP_STATUS_NOT_STARTED: StepStatus.ValueType  # 1
+"""STEP_STATUS_NOT_STARTED represents that the step has not started execution."""
+STEP_STATUS_RUNNING: StepStatus.ValueType  # 2
+"""STEP_STATUS_RUNNING represents that the step is under execution."""
+STEP_STATUS_FINISHED: StepStatus.ValueType  # 3
+"""STEP_STATUS_FINISHED represents that the step has finished execution."""
+STEP_STATUS_SKIPPED: StepStatus.ValueType  # 4
+"""STEP_STATUS_SKIPPED represents that the step has been skipped from execution."""
+STEP_STATUS_FAILED: StepStatus.ValueType  # 5
+"""STEP_STATUS_FAILED represents that the step has failed its execution."""
+global___StepStatus = StepStatus
+
 class _ChangeControlStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -472,6 +512,83 @@ class ChangeControlConfig(google.protobuf.message.Message):
 global___ChangeControlConfig = ChangeControlConfig
 
 @typing.final
+class StepInfo(google.protobuf.message.Message):
+    """StepInfo contains the status details of an action step."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    STATUS_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
+    status: global___StepStatus.ValueType
+    """status represents the present execution status of the step."""
+    @property
+    def name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """name represents the name of the step."""
+
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """error captures any error that occurred."""
+
+    @property
+    def message(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """message represents any relevant information associated with the step."""
+
+    def __init__(
+        self,
+        *,
+        name: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        status: global___StepStatus.ValueType = ...,
+        error: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        message: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["error", b"error", "message", b"message", "name", b"name"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["error", b"error", "message", b"message", "name", b"name", "status", b"status"]) -> None: ...
+
+global___StepInfo = StepInfo
+
+@typing.final
+class ActionSteps(google.protobuf.message.Message):
+    """ActionSteps tracks the status of each step within an action."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing.final
+    class ValuesEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        @property
+        def value(self) -> global___StepInfo: ...
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: global___StepInfo | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___StepInfo]:
+        """values maps each action step's execution sequence to its status information,
+        represented by StepInfo.
+        """
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Mapping[builtins.str, global___StepInfo] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___ActionSteps = ActionSteps
+
+@typing.final
 class Stage(google.protobuf.message.Message):
     """Stage holds the configuration and status of a stage."""
 
@@ -484,6 +601,7 @@ class Stage(google.protobuf.message.Message):
     ERROR_FIELD_NUMBER: builtins.int
     START_TIME_FIELD_NUMBER: builtins.int
     END_TIME_FIELD_NUMBER: builtins.int
+    STEPS_FIELD_NUMBER: builtins.int
     status: global___StageStatus.ValueType
     """status is the execution status of the stage."""
     @property
@@ -508,11 +626,19 @@ class Stage(google.protobuf.message.Message):
 
     @property
     def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """start_time is the time when status change to Running"""
+        """start_time is the time when status change to Running."""
 
     @property
     def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """end_time is the time when status change to Completed"""
+        """end_time is the time when status change to Completed."""
+
+    @property
+    def steps(self) -> global___ActionSteps:
+        """steps represent the granular steps and their statuses
+        associated with the action performed in the change control stage.
+        Each stage generally defines either an action
+        or a series of sub-stages.
+        """
 
     def __init__(
         self,
@@ -524,9 +650,10 @@ class Stage(google.protobuf.message.Message):
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
         start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         end_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        steps: global___ActionSteps | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["action", b"action", "end_time", b"end_time", "error", b"error", "name", b"name", "rows", b"rows", "start_time", b"start_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["action", b"action", "end_time", b"end_time", "error", b"error", "name", b"name", "rows", b"rows", "start_time", b"start_time", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["action", b"action", "end_time", b"end_time", "error", b"error", "name", b"name", "rows", b"rows", "start_time", b"start_time", "steps", b"steps"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["action", b"action", "end_time", b"end_time", "error", b"error", "name", b"name", "rows", b"rows", "start_time", b"start_time", "status", b"status", "steps", b"steps"]) -> None: ...
 
 global___Stage = Stage
 
