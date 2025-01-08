@@ -58,9 +58,9 @@ def main(args):
     request_dict = {}
     if any([args.device_id, args.interface_id, args.tag_label, args.tag_value]):
         if args.tag_type:
-            filter_dict = {"elementType": int(args.tag_type)}
+            filter_dict = {"elementType": int(args.tag_type), "workspaceId": ""}
         else:
-            filter_dict = {"elementType": 1}
+            filter_dict = {"elementType": 1, "workspaceId": ""}
         if args.tag_label:
             filter_dict["label"] = args.tag_label
         if args.tag_value:
