@@ -26,7 +26,7 @@ class Action:
     - name:     Name of the action currently running
     - context:  Enum for the context in which the action is running,
                 e.g. Action that is running is a change control action
-    - actionId: ID of the action currently running
+    - id:       ID of the action currently running
     - args:     String -> String dictionary of the args associated with the action
     - ccId:     ID of the change control, if applicable
     - stageId:  ID of the current stage of the change control, if applicable
