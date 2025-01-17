@@ -82,6 +82,15 @@ class LoggingLevel(IntEnum):
     Critical = 5
 
 
+def monitorTimerHandler(signum, frame):
+    '''
+    A handler function for the timer that will raise our custom exception
+    Needs to be declared out here so that we can compare it to ensure that
+    no ongoing timer is running
+    '''
+    raise TimeoutExpiry
+
+
 class Context:
     '''
     Context object that stores a number of system and user-defined parameters:
@@ -360,11 +369,17 @@ class Context:
         Takes a function and a timeout in seconds.
         Will call and return the result of f, but raises a cvlib.TimeoutExpiry
         exception if it runs longer than <timeout>
+        NOTE: If there is an attempt to recursively call this function, an InvalidContextException
+        will be raised.
         '''
 
-        # A handler function for the timer that will raise our custom exception
-        def monitorTimerHandler(signum, frame):
-            raise TimeoutExpiry
+        # Store the default alarm signal so we can set it back again when we're done
+        originalSigHandler = signal.getsignal(signal.SIGALRM)
+        # Ensure that the current signal is not the monitorTimerHandler which would indicate a
+        # recursive call. This is not supported as due to any ongoing alarm timeouts of previous
+        # calls will be be overwritten and we can only have 1 alarm at a time.
+        if originalSigHandler is monitorTimerHandler:
+            raise InvalidContextException("Cannot recursively call doWithTimeout")
 
         # Set up a signal handler that will cause a signal.SIGALRM signal to trigger our timer
         # handler
@@ -377,6 +392,8 @@ class Context:
         finally:
             # Always turn off the alarm, whether returning a value or propagating an exception
             signal.alarm(0)
+            # Reset the alarm signal handler
+            signal.signal(signal.SIGALRM, originalSigHandler)
 
     def initializeStudioCtxFromArgs(self):
         '''
