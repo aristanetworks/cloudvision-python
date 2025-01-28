@@ -1331,6 +1331,27 @@ class AuthzResult(google.protobuf.message.Message):
 global___AuthzResult = AuthzResult
 
 @typing.final
+class StudioBuildDetails(google.protobuf.message.Message):
+    """StudioBuildDetails is a collection of per studio results that are not specific to a device."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    INPUT_VALIDATION_RESULTS_FIELD_NUMBER: builtins.int
+    @property
+    def input_validation_results(self) -> global___InputValidationResults:
+        """input_validation_results is a map from studio ID to InputValidationResult."""
+
+    def __init__(
+        self,
+        *,
+        input_validation_results: global___InputValidationResults | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> None: ...
+
+global___StudioBuildDetails = StudioBuildDetails
+
+@typing.final
 class WorkspaceBuildKey(google.protobuf.message.Message):
     """WorkspaceBuildKey uniquely identifies a build for a workspace."""
 
@@ -1356,27 +1377,6 @@ class WorkspaceBuildKey(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["build_id", b"build_id", "workspace_id", b"workspace_id"]) -> None: ...
 
 global___WorkspaceBuildKey = WorkspaceBuildKey
-
-@typing.final
-class StudioBuildDetails(google.protobuf.message.Message):
-    """StudioBuildDetails is a collection of per studio results that are not specific to a device."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    INPUT_VALIDATION_RESULTS_FIELD_NUMBER: builtins.int
-    @property
-    def input_validation_results(self) -> global___InputValidationResults:
-        """input_validation_results is a map from studio ID to InputValidationResult."""
-
-    def __init__(
-        self,
-        *,
-        input_validation_results: global___InputValidationResults | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> None: ...
-
-global___StudioBuildDetails = StudioBuildDetails
 
 @typing.final
 class WorkspaceBuild(google.protobuf.message.Message):
