@@ -712,7 +712,6 @@ class Settings(google.protobuf.message.Message):
     HIDE_TAGS_FIELD_NUMBER: builtins.int
     ZOOM_FIELD_NUMBER: builtins.int
     WEBHOOK_FIELD_NUMBER: builtins.int
-    MS_GRAPH_SEND_MAIL_FIELD_NUMBER: builtins.int
     @property
     def email(self) -> global___EmailSettings:
         """email is the global default settings for email"""
@@ -797,10 +796,6 @@ class Settings(google.protobuf.message.Message):
     def webhook(self) -> global___WebhookSettings:
         """webhook is the auth settings for webhook"""
 
-    @property
-    def ms_graph_send_mail(self) -> global___MsGraphSendMailSettings:
-        """microsoft graph send mail settings"""
-
     def __init__(
         self,
         *,
@@ -824,10 +819,9 @@ class Settings(google.protobuf.message.Message):
         hide_tags: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         zoom: global___ZoomSettings | None = ...,
         webhook: global___WebhookSettings | None = ...,
-        ms_graph_send_mail: global___MsGraphSendMailSettings | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
 
 global___Settings = Settings
 
@@ -1196,37 +1190,6 @@ class WebhookSettings(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth"]) -> None: ...
 
 global___WebhookSettings = WebhookSettings
-
-@typing.final
-class MsGraphSendMailSettings(google.protobuf.message.Message):
-    """MsGraphSendMailSettings contain the settings for sending alerts to a Microsoft Graph sendMail"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    SINGLE_ALERT_PER_EMAIL_FIELD_NUMBER: builtins.int
-    AZURE_O_AUTH_FIELD_NUMBER: builtins.int
-    @property
-    def single_alert_per_email(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """single_alert_per_email configures the Alerter such that each alert generates a separate email
-        notification, the email will only have a single notification, the format will also be different
-        """
-
-    @property
-    def azure_o_auth(self) -> global___AzureOAuth:
-        """azure_o_auth used for auth when using an Azure smtp server
-        uses auth_username
-        """
-
-    def __init__(
-        self,
-        *,
-        single_alert_per_email: google.protobuf.wrappers_pb2.BoolValue | None = ...,
-        azure_o_auth: global___AzureOAuth | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth", "single_alert_per_email", b"single_alert_per_email"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth", "single_alert_per_email", b"single_alert_per_email"]) -> None: ...
-
-global___MsGraphSendMailSettings = MsGraphSendMailSettings
 
 @typing.final
 class SyslogSettings(google.protobuf.message.Message):
@@ -1976,7 +1939,6 @@ class BroadcastGroup(google.protobuf.message.Message):
     CUE_SNMP_FIELD_NUMBER: builtins.int
     CUE_SENDGRID_FIELD_NUMBER: builtins.int
     ZOOM_FIELD_NUMBER: builtins.int
-    MS_GRAPH_SEND_MAIL_FIELD_NUMBER: builtins.int
     @property
     def email(self) -> global___EmailEndpoints:
         """email is a set of email endpoints to send alerts to as part of this group"""
@@ -2041,10 +2003,6 @@ class BroadcastGroup(google.protobuf.message.Message):
     def zoom(self) -> global___ZoomEndpoints:
         """zoom is a set of zoom endpoints to send alerts to as part of this group"""
 
-    @property
-    def ms_graph_send_mail(self) -> global___MsGraphSendMailEndpoints:
-        """set of microsoft graph send mail endpoints to send alerts to as part of this group"""
-
     def __init__(
         self,
         *,
@@ -2064,10 +2022,9 @@ class BroadcastGroup(google.protobuf.message.Message):
         cue_snmp: global___CueSnmpEndpoints | None = ...,
         cue_sendgrid: global___CueSendgridEndpoints | None = ...,
         zoom: global___ZoomEndpoints | None = ...,
-        ms_graph_send_mail: global___MsGraphSendMailEndpoints | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
 
 global___BroadcastGroup = BroadcastGroup
 
@@ -2392,26 +2349,6 @@ class ZoomEndpoints(google.protobuf.message.Message):
 global___ZoomEndpoints = ZoomEndpoints
 
 @typing.final
-class MsGraphSendMailEndpoints(google.protobuf.message.Message):
-    """MsGraphSendMailEndpoints is a set of microsoft graph send mail endpoints"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    VALUES_FIELD_NUMBER: builtins.int
-    @property
-    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___MsGraphSendMailEndpoint]:
-        """values are the elements of the set"""
-
-    def __init__(
-        self,
-        *,
-        values: collections.abc.Iterable[global___MsGraphSendMailEndpoint] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
-
-global___MsGraphSendMailEndpoints = MsGraphSendMailEndpoints
-
-@typing.final
 class EmailEndpoint(google.protobuf.message.Message):
     """EmailEndpoint contains the required information for an alert to be sent to an email endpoint"""
 
@@ -2496,47 +2433,6 @@ class WebhookEndpoint(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override", "simple_output", b"simple_output", "single_alert", b"single_alert", "url", b"url"]) -> None: ...
 
 global___WebhookEndpoint = WebhookEndpoint
-
-@typing.final
-class MsGraphSendMailEndpoint(google.protobuf.message.Message):
-    """MsGraphSendMailEndpoint contains the required information for an alert to be sent to the 
-    microsft graph send mail api
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    SEND_RESOLVED_FIELD_NUMBER: builtins.int
-    TO_FIELD_NUMBER: builtins.int
-    HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
-    SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-    @property
-    def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """send_resolved send alerts when events are resolved along with when they are triggered"""
-
-    @property
-    def to(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """to address to send email to"""
-
-    @property
-    def http_override(self) -> global___HttpSettings:
-        """http_override is the override of the global http settings"""
-
-    @property
-    def settings_override(self) -> global___MsGraphSendMailSettings:
-        """settings_override is the override for the microsoft graph send mail global endpoint settings"""
-
-    def __init__(
-        self,
-        *,
-        send_resolved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
-        to: google.protobuf.wrappers_pb2.StringValue | None = ...,
-        http_override: global___HttpSettings | None = ...,
-        settings_override: global___MsGraphSendMailSettings | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override", "to", b"to"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override", "to", b"to"]) -> None: ...
-
-global___MsGraphSendMailEndpoint = MsGraphSendMailEndpoint
 
 @typing.final
 class SlackEndpoint(google.protobuf.message.Message):

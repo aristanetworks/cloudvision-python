@@ -1144,6 +1144,7 @@ class ConfigValidationResult(google.protobuf.message.Message):
     ERRORS_FIELD_NUMBER: builtins.int
     WARNINGS_FIELD_NUMBER: builtins.int
     CONFIG_SOURCES_FIELD_NUMBER: builtins.int
+    ONLY_FILTER_INPUTS_CHANGED_FIELD_NUMBER: builtins.int
     @property
     def summary(self) -> arista.configstatus.v1.configstatus_pb2.ConfigSummary:
         """summary is a summary of the changes to the previous config."""
@@ -1160,6 +1161,12 @@ class ConfigValidationResult(google.protobuf.message.Message):
     def config_sources(self) -> arista.configstatus.v1.configstatus_pb2.ConfigSources:
         """config_sources identify the entities that generated the config."""
 
+    @property
+    def only_filter_inputs_changed(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """only_filter_inputs_changed indicates there is a change in filters
+        but no change in the config or no config sources found.
+        """
+
     def __init__(
         self,
         *,
@@ -1167,9 +1174,10 @@ class ConfigValidationResult(google.protobuf.message.Message):
         errors: arista.configstatus.v1.configstatus_pb2.ConfigErrors | None = ...,
         warnings: arista.configstatus.v1.configstatus_pb2.ConfigErrors | None = ...,
         config_sources: arista.configstatus.v1.configstatus_pb2.ConfigSources | None = ...,
+        only_filter_inputs_changed: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["config_sources", b"config_sources", "errors", b"errors", "summary", b"summary", "warnings", b"warnings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["config_sources", b"config_sources", "errors", b"errors", "summary", b"summary", "warnings", b"warnings"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["config_sources", b"config_sources", "errors", b"errors", "only_filter_inputs_changed", b"only_filter_inputs_changed", "summary", b"summary", "warnings", b"warnings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["config_sources", b"config_sources", "errors", b"errors", "only_filter_inputs_changed", b"only_filter_inputs_changed", "summary", b"summary", "warnings", b"warnings"]) -> None: ...
 
 global___ConfigValidationResult = ConfigValidationResult
 
@@ -1331,27 +1339,6 @@ class AuthzResult(google.protobuf.message.Message):
 global___AuthzResult = AuthzResult
 
 @typing.final
-class StudioBuildDetails(google.protobuf.message.Message):
-    """StudioBuildDetails is a collection of per studio results that are not specific to a device."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    INPUT_VALIDATION_RESULTS_FIELD_NUMBER: builtins.int
-    @property
-    def input_validation_results(self) -> global___InputValidationResults:
-        """input_validation_results is a map from studio ID to InputValidationResult."""
-
-    def __init__(
-        self,
-        *,
-        input_validation_results: global___InputValidationResults | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> None: ...
-
-global___StudioBuildDetails = StudioBuildDetails
-
-@typing.final
 class WorkspaceBuildKey(google.protobuf.message.Message):
     """WorkspaceBuildKey uniquely identifies a build for a workspace."""
 
@@ -1377,6 +1364,27 @@ class WorkspaceBuildKey(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["build_id", b"build_id", "workspace_id", b"workspace_id"]) -> None: ...
 
 global___WorkspaceBuildKey = WorkspaceBuildKey
+
+@typing.final
+class StudioBuildDetails(google.protobuf.message.Message):
+    """StudioBuildDetails is a collection of per studio results that are not specific to a device."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    INPUT_VALIDATION_RESULTS_FIELD_NUMBER: builtins.int
+    @property
+    def input_validation_results(self) -> global___InputValidationResults:
+        """input_validation_results is a map from studio ID to InputValidationResult."""
+
+    def __init__(
+        self,
+        *,
+        input_validation_results: global___InputValidationResults | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> None: ...
+
+global___StudioBuildDetails = StudioBuildDetails
 
 @typing.final
 class WorkspaceBuild(google.protobuf.message.Message):

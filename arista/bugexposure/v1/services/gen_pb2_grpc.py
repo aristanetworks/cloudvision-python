@@ -39,11 +39,6 @@ class BugExposureServiceStub(object):
                 request_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureRequest.SerializeToString,
                 response_deserializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureResponse.FromString,
                 _registered_method=True)
-        self.GetSome = channel.unary_stream(
-                '/arista.bugexposure.v1.BugExposureService/GetSome',
-                request_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureSomeRequest.SerializeToString,
-                response_deserializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureSomeResponse.FromString,
-                _registered_method=True)
         self.GetAll = channel.unary_stream(
                 '/arista.bugexposure.v1.BugExposureService/GetAll',
                 request_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureStreamRequest.SerializeToString,
@@ -64,28 +59,12 @@ class BugExposureServiceStub(object):
                 request_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
                 _registered_method=True)
-        self.GetAllBatched = channel.unary_stream(
-                '/arista.bugexposure.v1.BugExposureService/GetAllBatched',
-                request_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamRequest.SerializeToString,
-                response_deserializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamResponse.FromString,
-                _registered_method=True)
-        self.SubscribeBatched = channel.unary_stream(
-                '/arista.bugexposure.v1.BugExposureService/SubscribeBatched',
-                request_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamRequest.SerializeToString,
-                response_deserializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamResponse.FromString,
-                _registered_method=True)
 
 
 class BugExposureServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -115,18 +94,6 @@ class BugExposureServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetAllBatched(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SubscribeBatched(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_BugExposureServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -134,11 +101,6 @@ def add_BugExposureServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureRequest.FromString,
                     response_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureResponse.SerializeToString,
-            ),
-            'GetSome': grpc.unary_stream_rpc_method_handler(
-                    servicer.GetSome,
-                    request_deserializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureSomeRequest.FromString,
-                    response_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureSomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -159,16 +121,6 @@ def add_BugExposureServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureStreamRequest.FromString,
                     response_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
-            ),
-            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
-                    servicer.GetAllBatched,
-                    request_deserializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamRequest.FromString,
-                    response_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamResponse.SerializeToString,
-            ),
-            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
-                    servicer.SubscribeBatched,
-                    request_deserializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamRequest.FromString,
-                    response_serializer=arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -198,33 +150,6 @@ class BugExposureService(object):
             '/arista.bugexposure.v1.BugExposureService/GetOne',
             arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureRequest.SerializeToString,
             arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def GetSome(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(
-            request,
-            target,
-            '/arista.bugexposure.v1.BugExposureService/GetSome',
-            arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureSomeRequest.SerializeToString,
-            arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureSomeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -333,60 +258,6 @@ class BugExposureService(object):
             '/arista.bugexposure.v1.BugExposureService/SubscribeMeta',
             arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureStreamRequest.SerializeToString,
             arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def GetAllBatched(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(
-            request,
-            target,
-            '/arista.bugexposure.v1.BugExposureService/GetAllBatched',
-            arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamRequest.SerializeToString,
-            arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def SubscribeBatched(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(
-            request,
-            target,
-            '/arista.bugexposure.v1.BugExposureService/SubscribeBatched',
-            arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamRequest.SerializeToString,
-            arista_dot_bugexposure_dot_v1_dot_services_dot_gen__pb2.BugExposureBatchedStreamResponse.FromString,
             options,
             channel_credentials,
             insecure,

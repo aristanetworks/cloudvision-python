@@ -212,7 +212,7 @@ global___ConfigType = ConfigType
 
 @typing.final
 class ConfigError(google.protobuf.message.Message):
-    """ConfigError represents errors reported by CVP when handling device configuration"""
+    """ConfigError represents errors reported by CVP/EOS when handling device configuration"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

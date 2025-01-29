@@ -39,11 +39,6 @@ class DeviceLifecycleSummaryServiceStub(object):
                 request_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryRequest.SerializeToString,
                 response_deserializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryResponse.FromString,
                 _registered_method=True)
-        self.GetSome = channel.unary_stream(
-                '/arista.lifecycle.v1.DeviceLifecycleSummaryService/GetSome',
-                request_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummarySomeRequest.SerializeToString,
-                response_deserializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummarySomeResponse.FromString,
-                _registered_method=True)
         self.GetAll = channel.unary_stream(
                 '/arista.lifecycle.v1.DeviceLifecycleSummaryService/GetAll',
                 request_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryStreamRequest.SerializeToString,
@@ -64,28 +59,12 @@ class DeviceLifecycleSummaryServiceStub(object):
                 request_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryStreamRequest.SerializeToString,
                 response_deserializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
                 _registered_method=True)
-        self.GetAllBatched = channel.unary_stream(
-                '/arista.lifecycle.v1.DeviceLifecycleSummaryService/GetAllBatched',
-                request_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamRequest.SerializeToString,
-                response_deserializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamResponse.FromString,
-                _registered_method=True)
-        self.SubscribeBatched = channel.unary_stream(
-                '/arista.lifecycle.v1.DeviceLifecycleSummaryService/SubscribeBatched',
-                request_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamRequest.SerializeToString,
-                response_deserializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamResponse.FromString,
-                _registered_method=True)
 
 
 class DeviceLifecycleSummaryServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetSome(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -115,18 +94,6 @@ class DeviceLifecycleSummaryServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetAllBatched(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SubscribeBatched(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_DeviceLifecycleSummaryServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -134,11 +101,6 @@ def add_DeviceLifecycleSummaryServiceServicer_to_server(servicer, server):
                     servicer.GetOne,
                     request_deserializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryRequest.FromString,
                     response_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryResponse.SerializeToString,
-            ),
-            'GetSome': grpc.unary_stream_rpc_method_handler(
-                    servicer.GetSome,
-                    request_deserializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummarySomeRequest.FromString,
-                    response_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummarySomeResponse.SerializeToString,
             ),
             'GetAll': grpc.unary_stream_rpc_method_handler(
                     servicer.GetAll,
@@ -159,16 +121,6 @@ def add_DeviceLifecycleSummaryServiceServicer_to_server(servicer, server):
                     servicer.SubscribeMeta,
                     request_deserializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryStreamRequest.FromString,
                     response_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
-            ),
-            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
-                    servicer.GetAllBatched,
-                    request_deserializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamRequest.FromString,
-                    response_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamResponse.SerializeToString,
-            ),
-            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
-                    servicer.SubscribeBatched,
-                    request_deserializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamRequest.FromString,
-                    response_serializer=arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -198,33 +150,6 @@ class DeviceLifecycleSummaryService(object):
             '/arista.lifecycle.v1.DeviceLifecycleSummaryService/GetOne',
             arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryRequest.SerializeToString,
             arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def GetSome(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(
-            request,
-            target,
-            '/arista.lifecycle.v1.DeviceLifecycleSummaryService/GetSome',
-            arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummarySomeRequest.SerializeToString,
-            arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummarySomeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -333,60 +258,6 @@ class DeviceLifecycleSummaryService(object):
             '/arista.lifecycle.v1.DeviceLifecycleSummaryService/SubscribeMeta',
             arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryStreamRequest.SerializeToString,
             arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def GetAllBatched(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(
-            request,
-            target,
-            '/arista.lifecycle.v1.DeviceLifecycleSummaryService/GetAllBatched',
-            arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamRequest.SerializeToString,
-            arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def SubscribeBatched(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(
-            request,
-            target,
-            '/arista.lifecycle.v1.DeviceLifecycleSummaryService/SubscribeBatched',
-            arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamRequest.SerializeToString,
-            arista_dot_lifecycle_dot_v1_dot_services_dot_gen__pb2.DeviceLifecycleSummaryBatchedStreamResponse.FromString,
             options,
             channel_credentials,
             insecure,

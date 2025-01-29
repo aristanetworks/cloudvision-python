@@ -381,9 +381,6 @@ class DeviceDecommissioningConfig(google.protobuf.message.Message):
        and tracking the status of the decommissioning attempt.
     4. The user may do a GetOne or Subscribe on DeviceDecommissioning using the
        same UUID to see the status of the request.
-
-    NOTE: this operation does not remove references to the decommissioned device from
-    Studios and Tags. See `DecommissionConfig` in `arista.studio_topology.v1`.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
