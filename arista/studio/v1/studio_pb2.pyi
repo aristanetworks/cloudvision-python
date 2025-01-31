@@ -488,6 +488,7 @@ class StudioSummary(google.protobuf.message.Message):
     IMMUTABLE_FIELD_NUMBER: builtins.int
     ENTITIES_FIELD_NUMBER: builtins.int
     IN_USE_FIELD_NUMBER: builtins.int
+    FROM_PACKAGE_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___StudioKey:
         """key uniquely identifies the studio."""
@@ -518,6 +519,12 @@ class StudioSummary(google.protobuf.message.Message):
         and assigned to some devices, either in a given workspace, or in mainline.
         """
 
+    @property
+    def from_package(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """from_package indicates that this studio was created by a package, and can only be modified
+        by the packaging service. It stores packageID.
+        """
+
     def __init__(
         self,
         *,
@@ -527,9 +534,10 @@ class StudioSummary(google.protobuf.message.Message):
         immutable: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         entities: global___Entities | None = ...,
         in_use: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        from_package: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "entities", b"entities", "immutable", b"immutable", "in_use", b"in_use", "key", b"key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "entities", b"entities", "immutable", b"immutable", "in_use", b"in_use", "key", b"key"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "entities", b"entities", "from_package", b"from_package", "immutable", b"immutable", "in_use", b"in_use", "key", b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "entities", b"entities", "from_package", b"from_package", "immutable", b"immutable", "in_use", b"in_use", "key", b"key"]) -> None: ...
 
 global___StudioSummary = StudioSummary
 
@@ -544,7 +552,7 @@ class Entity(google.protobuf.message.Message):
     LAST_MODIFIED_BY_FIELD_NUMBER: builtins.int
     REMOVED_FIELD_NUMBER: builtins.int
     entity_type: global___EntityType.ValueType
-    """EntityType is the type of the entity."""
+    """entity_type is the type of the entity."""
     @property
     def last_modified_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """last_modified_at is the time at which the entity was last modified."""
