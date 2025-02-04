@@ -33,8 +33,6 @@ class _ElementTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     """ELEMENT_TYPE_DEVICE is used for device tags."""
     ELEMENT_TYPE_INTERFACE: _ElementType.ValueType  # 2
     """ELEMENT_TYPE_INTERFACE is used for interface tags."""
-    ELEMENT_TYPE_VIRTUAL: _ElementType.ValueType  # 3
-    """ELEMENT_TYPE_VIRTUAL is used for virtual entities(applications/services) tags."""
 
 class ElementType(_ElementType, metaclass=_ElementTypeEnumTypeWrapper):
     """ElementType enumerates the types of network elements that can
@@ -47,8 +45,6 @@ ELEMENT_TYPE_DEVICE: ElementType.ValueType  # 1
 """ELEMENT_TYPE_DEVICE is used for device tags."""
 ELEMENT_TYPE_INTERFACE: ElementType.ValueType  # 2
 """ELEMENT_TYPE_INTERFACE is used for interface tags."""
-ELEMENT_TYPE_VIRTUAL: ElementType.ValueType  # 3
-"""ELEMENT_TYPE_VIRTUAL is used for virtual entities(applications/services) tags."""
 global___ElementType = ElementType
 
 class _ElementSubType:
@@ -76,12 +72,6 @@ class _ElementSubTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper.
     A VM is a software computer that, like a physical computer,
     runs an operating system and applications.
     """
-    ELEMENT_SUB_TYPE_APPLICATION: _ElementSubType.ValueType  # 5
-    """ELEMENT_SUB_TYPE_APPLICATION is used for application tags.
-    An application is defined as a set of services where each service provides
-    a subset of the application’s functionality. An application can exist without
-    a service but not vice-versa.
-    """
 
 class ElementSubType(_ElementSubType, metaclass=_ElementSubTypeEnumTypeWrapper):
     """ElementSubType enumerates the sub-types of network elements that can
@@ -106,12 +96,6 @@ ELEMENT_SUB_TYPE_VM: ElementSubType.ValueType  # 4
 """ELEMENT_SUB_TYPE_VM is used for VM tags.
 A VM is a software computer that, like a physical computer,
 runs an operating system and applications.
-"""
-ELEMENT_SUB_TYPE_APPLICATION: ElementSubType.ValueType  # 5
-"""ELEMENT_SUB_TYPE_APPLICATION is used for application tags.
-An application is defined as a set of services where each service provides
-a subset of the application’s functionality. An application can exist without
-a service but not vice-versa.
 """
 global___ElementSubType = ElementSubType
 
@@ -273,17 +257,12 @@ class TagAssignmentKey(google.protobuf.message.Message):
     DEVICE_ID_FIELD_NUMBER: builtins.int
     INTERFACE_ID_FIELD_NUMBER: builtins.int
     ELEMENT_SUB_TYPE_FIELD_NUMBER: builtins.int
-    PRIMARY_ENTITY_ID_FIELD_NUMBER: builtins.int
-    SECONDARY_ENTITY_ID_FIELD_NUMBER: builtins.int
     element_type: global___ElementType.ValueType
     """element_type is the element type of a tag. What should
     be set per element type:
 
     ELEMENT_TYPE_DEVICE: device_id
     ELEMENT_TYPE_INTERFACE: device_id, interface_id
-    ELEMENT_TYPE_VIRTUAL:
-    		primary_entity_id -> application_id
-    		secondary_entity_id -> service_id
     """
     element_sub_type: global___ElementSubType.ValueType
     """element_sub_type is the element sub-type of a tag."""
@@ -309,14 +288,6 @@ class TagAssignmentKey(google.protobuf.message.Message):
     def interface_id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """interface_id identifies an interface on a device."""
 
-    @property
-    def primary_entity_id(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """primary_entity_id holds unique identifiers of an application/device."""
-
-    @property
-    def secondary_entity_id(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """secondary_entity_id holds unique identifier of a service/interface."""
-
     def __init__(
         self,
         *,
@@ -327,11 +298,9 @@ class TagAssignmentKey(google.protobuf.message.Message):
         device_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
         interface_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
         element_sub_type: global___ElementSubType.ValueType = ...,
-        primary_entity_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
-        secondary_entity_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["device_id", b"device_id", "interface_id", b"interface_id", "label", b"label", "primary_entity_id", b"primary_entity_id", "secondary_entity_id", b"secondary_entity_id", "value", b"value", "workspace_id", b"workspace_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["device_id", b"device_id", "element_sub_type", b"element_sub_type", "element_type", b"element_type", "interface_id", b"interface_id", "label", b"label", "primary_entity_id", b"primary_entity_id", "secondary_entity_id", b"secondary_entity_id", "value", b"value", "workspace_id", b"workspace_id"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["device_id", b"device_id", "interface_id", b"interface_id", "label", b"label", "value", b"value", "workspace_id", b"workspace_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_id", b"device_id", "element_sub_type", b"element_sub_type", "element_type", b"element_type", "interface_id", b"interface_id", "label", b"label", "value", b"value", "workspace_id", b"workspace_id"]) -> None: ...
 
 global___TagAssignmentKey = TagAssignmentKey
 
