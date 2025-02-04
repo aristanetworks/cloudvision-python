@@ -413,6 +413,10 @@ class _ConfigValidationSkipCauseEnumTypeWrapper(google.protobuf.internal.enum_ty
     """CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED indicates that the stage was
     skipped because the device is decommissioned in the workspace.
     """
+    CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_REPLACED: _ConfigValidationSkipCause.ValueType  # 6
+    """CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_REPLACED indicates that the stage was
+    skipped because the device is replaced in the workspace.
+    """
 
 class ConfigValidationSkipCause(_ConfigValidationSkipCause, metaclass=_ConfigValidationSkipCauseEnumTypeWrapper):
     """ConfigValidationSkipCause enumerates the set of reasons a device can skip the config
@@ -442,6 +446,10 @@ skipped because the device has no config sources in the workspace.
 CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED: ConfigValidationSkipCause.ValueType  # 5
 """CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED indicates that the stage was
 skipped because the device is decommissioned in the workspace.
+"""
+CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_REPLACED: ConfigValidationSkipCause.ValueType  # 6
+"""CONFIG_VALIDATION_SKIP_CAUSE_DEVICE_REPLACED indicates that the stage was
+skipped because the device is replaced in the workspace.
 """
 global___ConfigValidationSkipCause = ConfigValidationSkipCause
 
@@ -475,6 +483,10 @@ class _ImageValidationSkipCauseEnumTypeWrapper(google.protobuf.internal.enum_typ
     """IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED indicates that the stage was
     skipped because the device is decommissioned.
     """
+    IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_REPLACED: _ImageValidationSkipCause.ValueType  # 6
+    """IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_REPLACED indicates that the stage was
+    skipped because the device is replaced.
+    """
 
 class ImageValidationSkipCause(_ImageValidationSkipCause, metaclass=_ImageValidationSkipCauseEnumTypeWrapper):
     """ImageValidationSkipCause enumerates the set of reasons a device can skip the image
@@ -504,6 +516,10 @@ skipped because the device has no proposed software changes in the workspace.
 IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED: ImageValidationSkipCause.ValueType  # 5
 """IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_DECOMMISSIONED indicates that the stage was
 skipped because the device is decommissioned.
+"""
+IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_REPLACED: ImageValidationSkipCause.ValueType  # 6
+"""IMAGE_VALIDATION_SKIP_CAUSE_DEVICE_REPLACED indicates that the stage was
+skipped because the device is replaced.
 """
 global___ImageValidationSkipCause = ImageValidationSkipCause
 
@@ -537,6 +553,10 @@ class _ConfigSyncSkipCauseEnumTypeWrapper(google.protobuf.internal.enum_type_wra
     """CONFIG_SYNC_SKIP_CAUSE_DEVICE_DECOMMISSIONED indicates that sync was
     skipped because the device is decommissioned in the workspace.
     """
+    CONFIG_SYNC_SKIP_CAUSE_DEVICE_REPLACED: _ConfigSyncSkipCause.ValueType  # 6
+    """CONFIG_SYNC_SKIP_CAUSE_DEVICE_REPLACED indicates that sync was
+    skipped because the device is replaced in the workspace.
+    """
 
 class ConfigSyncSkipCause(_ConfigSyncSkipCause, metaclass=_ConfigSyncSkipCauseEnumTypeWrapper):
     """ConfigSyncSkipCause enumerates the set of reasons a device can skip config sync."""
@@ -564,6 +584,10 @@ skipped because the device has no config sources.
 CONFIG_SYNC_SKIP_CAUSE_DEVICE_DECOMMISSIONED: ConfigSyncSkipCause.ValueType  # 5
 """CONFIG_SYNC_SKIP_CAUSE_DEVICE_DECOMMISSIONED indicates that sync was
 skipped because the device is decommissioned in the workspace.
+"""
+CONFIG_SYNC_SKIP_CAUSE_DEVICE_REPLACED: ConfigSyncSkipCause.ValueType  # 6
+"""CONFIG_SYNC_SKIP_CAUSE_DEVICE_REPLACED indicates that sync was
+skipped because the device is replaced in the workspace.
 """
 global___ConfigSyncSkipCause = ConfigSyncSkipCause
 
@@ -1339,6 +1363,27 @@ class AuthzResult(google.protobuf.message.Message):
 global___AuthzResult = AuthzResult
 
 @typing.final
+class StudioBuildDetails(google.protobuf.message.Message):
+    """StudioBuildDetails is a collection of per studio results that are not specific to a device."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    INPUT_VALIDATION_RESULTS_FIELD_NUMBER: builtins.int
+    @property
+    def input_validation_results(self) -> global___InputValidationResults:
+        """input_validation_results is a map from studio ID to InputValidationResult."""
+
+    def __init__(
+        self,
+        *,
+        input_validation_results: global___InputValidationResults | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> None: ...
+
+global___StudioBuildDetails = StudioBuildDetails
+
+@typing.final
 class WorkspaceBuildKey(google.protobuf.message.Message):
     """WorkspaceBuildKey uniquely identifies a build for a workspace."""
 
@@ -1364,27 +1409,6 @@ class WorkspaceBuildKey(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["build_id", b"build_id", "workspace_id", b"workspace_id"]) -> None: ...
 
 global___WorkspaceBuildKey = WorkspaceBuildKey
-
-@typing.final
-class StudioBuildDetails(google.protobuf.message.Message):
-    """StudioBuildDetails is a collection of per studio results that are not specific to a device."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    INPUT_VALIDATION_RESULTS_FIELD_NUMBER: builtins.int
-    @property
-    def input_validation_results(self) -> global___InputValidationResults:
-        """input_validation_results is a map from studio ID to InputValidationResult."""
-
-    def __init__(
-        self,
-        *,
-        input_validation_results: global___InputValidationResults | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["input_validation_results", b"input_validation_results"]) -> None: ...
-
-global___StudioBuildDetails = StudioBuildDetails
 
 @typing.final
 class WorkspaceBuild(google.protobuf.message.Message):
