@@ -225,20 +225,28 @@ class Tag(google.protobuf.message.Message):
 
     KEY_FIELD_NUMBER: builtins.int
     CREATOR_TYPE_FIELD_NUMBER: builtins.int
+    ASSIGNED_FIELD_NUMBER: builtins.int
     creator_type: global___CreatorType.ValueType
     """creator_type is the creator type of the tag."""
     @property
     def key(self) -> global___TagKey:
         """key identifies a tag."""
 
+    @property
+    def assigned(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """assigned indicates whether the tag is assigned
+        (true) or not (false).
+        """
+
     def __init__(
         self,
         *,
         key: global___TagKey | None = ...,
         creator_type: global___CreatorType.ValueType = ...,
+        assigned: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["key", b"key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["creator_type", b"creator_type", "key", b"key"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["assigned", b"assigned", "key", b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["assigned", b"assigned", "creator_type", b"creator_type", "key", b"key"]) -> None: ...
 
 global___Tag = Tag
 
