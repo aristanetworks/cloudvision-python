@@ -66,6 +66,90 @@ CONFIG_ERROR_TYPE_INVALID_TYPE: ConfigErrorType.ValueType  # 7
 """CONFIG_ERROR_TYPE_INVALID_TYPE is caused by the wrong type found in backing store"""
 global___ConfigErrorType = ConfigErrorType
 
+class _EndpointType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _EndpointTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_EndpointType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    ENDPOINT_TYPE_UNSPECIFIED: _EndpointType.ValueType  # 0
+    """ENDPOINT_TYPE_UNSPECIFIED represents the unspecified enum value."""
+    ENDPOINT_TYPE_EMAIL: _EndpointType.ValueType  # 1
+    """ENDPOINT_TYPE_EMAIL represents the email endpoint type."""
+    ENDPOINT_TYPE_SLACK: _EndpointType.ValueType  # 2
+    """ENDPOINT_TYPE_SLACK represents the Slack endpoint type."""
+    ENDPOINT_TYPE_VICTOROPS: _EndpointType.ValueType  # 3
+    """ENDPOINT_TYPE_VICTOROPS represents the VictorOps endpoint type."""
+    ENDPOINT_TYPE_PAGERDUTY: _EndpointType.ValueType  # 4
+    """ENDPOINT_TYPE_PAGERDUTY represents the PagerDuty endpoint type."""
+    ENDPOINT_TYPE_PUSHOVER: _EndpointType.ValueType  # 5
+    """ENDPOINT_TYPE_PUSHOVER represents the Pushover endpoint type."""
+    ENDPOINT_TYPE_OPSGENIE: _EndpointType.ValueType  # 6
+    """ENDPOINT_TYPE_OPSGENIE represents the Opsgenie endpoint type."""
+    ENDPOINT_TYPE_GOOGLE_CHAT: _EndpointType.ValueType  # 7
+    """ENDPOINT_TYPE_GOOGLE_CHAT represents the Google Chat endpoint type."""
+    ENDPOINT_TYPE_MICROSOFT_TEAMS: _EndpointType.ValueType  # 8
+    """ENDPOINT_TYPE_MICROSOFT_TEAMS represents the Microsft Teams endpoint type."""
+    ENDPOINT_TYPE_WEBHOOK: _EndpointType.ValueType  # 9
+    """ENDPOINT_TYPE_WEBHOOK represents the Webhook endpoint type."""
+    ENDPOINT_TYPE_SYSLOG: _EndpointType.ValueType  # 10
+    """ENDPOINT_TYPE_SYSLOG represents the Syslog endpoint type."""
+    ENDPOINT_TYPE_CUE_SYSLOG: _EndpointType.ValueType  # 11
+    """ENDPOINT_TYPE_CUE_SYSLOG represents the Cue Syslog endpoint type."""
+    ENDPOINT_TYPE_SENDGRID: _EndpointType.ValueType  # 12
+    """ENDPOINT_TYPE_SENDGRID represents the Sendgrid endpoint type."""
+    ENDPOINT_TYPE_CUE_SENDGRID: _EndpointType.ValueType  # 13
+    """ENDPOINT_TYPE_CUE_SENDGRID represents the Cue Sendgrid endpoint type."""
+    ENDPOINT_TYPE_SNMP: _EndpointType.ValueType  # 14
+    """ENDPOINT_TYPE_SNMP represents the SNMP endpoint type."""
+    ENDPOINT_TYPE_CUE_SNMP: _EndpointType.ValueType  # 15
+    """ENDPOINT_TYPE_CUE_SNMP represents the Cue SNMP endpoint type."""
+    ENDPOINT_TYPE_ZOOM: _EndpointType.ValueType  # 16
+    """ENDPOINT_TYPE_ZOOM represents the Zoom endpoint type."""
+    ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL: _EndpointType.ValueType  # 17
+    """ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL represents the Microsoft Graph sendMail endpoint type."""
+
+class EndpointType(_EndpointType, metaclass=_EndpointTypeEnumTypeWrapper):
+    """EndpointType describes the set of possible endpoint types."""
+
+ENDPOINT_TYPE_UNSPECIFIED: EndpointType.ValueType  # 0
+"""ENDPOINT_TYPE_UNSPECIFIED represents the unspecified enum value."""
+ENDPOINT_TYPE_EMAIL: EndpointType.ValueType  # 1
+"""ENDPOINT_TYPE_EMAIL represents the email endpoint type."""
+ENDPOINT_TYPE_SLACK: EndpointType.ValueType  # 2
+"""ENDPOINT_TYPE_SLACK represents the Slack endpoint type."""
+ENDPOINT_TYPE_VICTOROPS: EndpointType.ValueType  # 3
+"""ENDPOINT_TYPE_VICTOROPS represents the VictorOps endpoint type."""
+ENDPOINT_TYPE_PAGERDUTY: EndpointType.ValueType  # 4
+"""ENDPOINT_TYPE_PAGERDUTY represents the PagerDuty endpoint type."""
+ENDPOINT_TYPE_PUSHOVER: EndpointType.ValueType  # 5
+"""ENDPOINT_TYPE_PUSHOVER represents the Pushover endpoint type."""
+ENDPOINT_TYPE_OPSGENIE: EndpointType.ValueType  # 6
+"""ENDPOINT_TYPE_OPSGENIE represents the Opsgenie endpoint type."""
+ENDPOINT_TYPE_GOOGLE_CHAT: EndpointType.ValueType  # 7
+"""ENDPOINT_TYPE_GOOGLE_CHAT represents the Google Chat endpoint type."""
+ENDPOINT_TYPE_MICROSOFT_TEAMS: EndpointType.ValueType  # 8
+"""ENDPOINT_TYPE_MICROSOFT_TEAMS represents the Microsft Teams endpoint type."""
+ENDPOINT_TYPE_WEBHOOK: EndpointType.ValueType  # 9
+"""ENDPOINT_TYPE_WEBHOOK represents the Webhook endpoint type."""
+ENDPOINT_TYPE_SYSLOG: EndpointType.ValueType  # 10
+"""ENDPOINT_TYPE_SYSLOG represents the Syslog endpoint type."""
+ENDPOINT_TYPE_CUE_SYSLOG: EndpointType.ValueType  # 11
+"""ENDPOINT_TYPE_CUE_SYSLOG represents the Cue Syslog endpoint type."""
+ENDPOINT_TYPE_SENDGRID: EndpointType.ValueType  # 12
+"""ENDPOINT_TYPE_SENDGRID represents the Sendgrid endpoint type."""
+ENDPOINT_TYPE_CUE_SENDGRID: EndpointType.ValueType  # 13
+"""ENDPOINT_TYPE_CUE_SENDGRID represents the Cue Sendgrid endpoint type."""
+ENDPOINT_TYPE_SNMP: EndpointType.ValueType  # 14
+"""ENDPOINT_TYPE_SNMP represents the SNMP endpoint type."""
+ENDPOINT_TYPE_CUE_SNMP: EndpointType.ValueType  # 15
+"""ENDPOINT_TYPE_CUE_SNMP represents the Cue SNMP endpoint type."""
+ENDPOINT_TYPE_ZOOM: EndpointType.ValueType  # 16
+"""ENDPOINT_TYPE_ZOOM represents the Zoom endpoint type."""
+ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL: EndpointType.ValueType  # 17
+"""ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL represents the Microsoft Graph sendMail endpoint type."""
+global___EndpointType = EndpointType
+
 class _EndpointErrorType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -108,7 +192,7 @@ class _EndpointErrorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapp
     """
 
 class EndpointErrorType(_EndpointErrorType, metaclass=_EndpointErrorTypeEnumTypeWrapper):
-    """EndpointErrorType describe the set of possible endpoint types"""
+    """EndpointErrorType describes the set of possible endpoint error types."""
 
 ENDPOINT_ERROR_TYPE_UNSPECIFIED: EndpointErrorType.ValueType  # 0
 """ENDPOINT_ERROR_TYPE_UNSPECIFIED is the unspecified enum value"""
@@ -617,6 +701,158 @@ class ConfigError(google.protobuf.message.Message):
 global___ConfigError = ConfigError
 
 @typing.final
+class SenderStatusKey(google.protobuf.message.Message):
+    """SenderStatusKey defines the unique key for SenderStatus."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    BROADCAST_GROUP_NAME_FIELD_NUMBER: builtins.int
+    ENDPOINT_TYPE_FIELD_NUMBER: builtins.int
+    endpoint_type: global___EndpointType.ValueType
+    """endpoint_type indicates the target to which an attempt to send an alert was made
+    or is "unknown" if not endpoint-specific (eg: slack, opsgenie).
+    """
+    @property
+    def broadcast_group_name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """broadcast_group_name is the name of the broadcast group which was being used,
+        empty string if not group specific.
+        """
+
+    def __init__(
+        self,
+        *,
+        broadcast_group_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        endpoint_type: global___EndpointType.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["broadcast_group_name", b"broadcast_group_name"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["broadcast_group_name", b"broadcast_group_name", "endpoint_type", b"endpoint_type"]) -> None: ...
+
+global___SenderStatusKey = SenderStatusKey
+
+@typing.final
+class SenderStatus(google.protobuf.message.Message):
+    """SenderStatus provides information about the status of particular send."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    SUCCESS_FIELD_NUMBER: builtins.int
+    CONFIG_INDEX_FIELD_NUMBER: builtins.int
+    REMAINING_RETRIES_FIELD_NUMBER: builtins.int
+    ERROR_TYPE_FIELD_NUMBER: builtins.int
+    ERROR_MESSAGE_FIELD_NUMBER: builtins.int
+    EVENTS_FIELD_NUMBER: builtins.int
+    error_type: global___EndpointErrorType.ValueType
+    """error_type is the type of error. This allows custom handling of different error types."""
+    @property
+    def key(self) -> global___SenderStatusKey:
+        """key uniquely identifies the instance of sender status."""
+
+    @property
+    def success(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """success indicates whether the send succeeded or not."""
+
+    @property
+    def config_index(self) -> google.protobuf.wrappers_pb2.Int32Value:
+        """config_index is the index of the config on the broadcast group or -1 if not applicable
+        e.g.: if there are two email configs in one broadcast group,
+        then the indices for each are 0 and 1.
+        Config indices are counted per type.
+        """
+
+    @property
+    def remaining_retries(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """remaining_retries is the number of remaining attempts to send a particular alert."""
+
+    @property
+    def error_message(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """error_message is a user-friendly error message."""
+
+    @property
+    def events(self) -> global___EventIdentifiers:
+        """events is a list of events triggering the alert."""
+
+    def __init__(
+        self,
+        *,
+        key: global___SenderStatusKey | None = ...,
+        success: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        config_index: google.protobuf.wrappers_pb2.Int32Value | None = ...,
+        remaining_retries: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
+        error_type: global___EndpointErrorType.ValueType = ...,
+        error_message: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        events: global___EventIdentifiers | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "events", b"events", "key", b"key", "remaining_retries", b"remaining_retries", "success", b"success"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "error_type", b"error_type", "events", b"events", "key", b"key", "remaining_retries", b"remaining_retries", "success", b"success"]) -> None: ...
+
+global___SenderStatus = SenderStatus
+
+@typing.final
+class EventIdentifiers(google.protobuf.message.Message):
+    """EventIdentifiers is a list of EventIdentifier messages."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___EventIdentifier]:
+        """values is a list of event identifiers."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___EventIdentifier] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___EventIdentifiers = EventIdentifiers
+
+@typing.final
+class EventIdentifier(google.protobuf.message.Message):
+    """EventIdentifier consists of the minimal information required
+    to uniquely match which event triggered an alert and due to which rule.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    ALERTER_RULE_INDEX_FIELD_NUMBER: builtins.int
+    FIRING_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """key is the event key."""
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """time is the time of event generation."""
+
+    @property
+    def alerter_rule_index(self) -> google.protobuf.wrappers_pb2.Int32Value:
+        """alerter_rule_index is the index of an alerter rule (don't confuse with generation rule)
+        that was used to match the receiver and event.
+        The rule index changes dynamically whenever a config change is issued.
+        """
+
+    @property
+    def firing(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """firing is true if event is ongoing and false if event has finished."""
+
+    def __init__(
+        self,
+        *,
+        key: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        alerter_rule_index: google.protobuf.wrappers_pb2.Int32Value | None = ...,
+        firing: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "firing", b"firing", "key", b"key", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "firing", b"firing", "key", b"key", "time", b"time"]) -> None: ...
+
+global___EventIdentifier = EventIdentifier
+
+@typing.final
 class EndpointErrors(google.protobuf.message.Message):
     """EndpointErrors is a set of errors related to sending of alerts"""
 
@@ -712,6 +948,7 @@ class Settings(google.protobuf.message.Message):
     HIDE_TAGS_FIELD_NUMBER: builtins.int
     ZOOM_FIELD_NUMBER: builtins.int
     WEBHOOK_FIELD_NUMBER: builtins.int
+    MS_GRAPH_SEND_MAIL_FIELD_NUMBER: builtins.int
     @property
     def email(self) -> global___EmailSettings:
         """email is the global default settings for email"""
@@ -796,6 +1033,10 @@ class Settings(google.protobuf.message.Message):
     def webhook(self) -> global___WebhookSettings:
         """webhook is the auth settings for webhook"""
 
+    @property
+    def ms_graph_send_mail(self) -> global___MsGraphSendMailSettings:
+        """ms_graph_send_mail is the settings for Microsoft Graph sendMail"""
+
     def __init__(
         self,
         *,
@@ -819,9 +1060,10 @@ class Settings(google.protobuf.message.Message):
         hide_tags: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         zoom: global___ZoomSettings | None = ...,
         webhook: global___WebhookSettings | None = ...,
+        ms_graph_send_mail: global___MsGraphSendMailSettings | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
 
 global___Settings = Settings
 
@@ -1190,6 +1432,37 @@ class WebhookSettings(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth"]) -> None: ...
 
 global___WebhookSettings = WebhookSettings
+
+@typing.final
+class MsGraphSendMailSettings(google.protobuf.message.Message):
+    """MsGraphSendMailSettings contain the settings for sending alerts to a Microsoft Graph sendMail"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SINGLE_ALERT_PER_EMAIL_FIELD_NUMBER: builtins.int
+    AZURE_O_AUTH_FIELD_NUMBER: builtins.int
+    @property
+    def single_alert_per_email(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """single_alert_per_email configures the Alerter such that each alert generates a separate email
+        notification, the email will only have a single notification, the format will also be different
+        """
+
+    @property
+    def azure_o_auth(self) -> global___AzureOAuth:
+        """azure_o_auth used for auth when using an Azure smtp server
+        uses auth_username
+        """
+
+    def __init__(
+        self,
+        *,
+        single_alert_per_email: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        azure_o_auth: global___AzureOAuth | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth", "single_alert_per_email", b"single_alert_per_email"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth", "single_alert_per_email", b"single_alert_per_email"]) -> None: ...
+
+global___MsGraphSendMailSettings = MsGraphSendMailSettings
 
 @typing.final
 class SyslogSettings(google.protobuf.message.Message):
@@ -1939,6 +2212,7 @@ class BroadcastGroup(google.protobuf.message.Message):
     CUE_SNMP_FIELD_NUMBER: builtins.int
     CUE_SENDGRID_FIELD_NUMBER: builtins.int
     ZOOM_FIELD_NUMBER: builtins.int
+    MS_GRAPH_SEND_MAIL_FIELD_NUMBER: builtins.int
     @property
     def email(self) -> global___EmailEndpoints:
         """email is a set of email endpoints to send alerts to as part of this group"""
@@ -2003,6 +2277,12 @@ class BroadcastGroup(google.protobuf.message.Message):
     def zoom(self) -> global___ZoomEndpoints:
         """zoom is a set of zoom endpoints to send alerts to as part of this group"""
 
+    @property
+    def ms_graph_send_mail(self) -> global___MsGraphSendMailEndpoints:
+        """ms_graph_send_mail is a set of Microsoft Graph sendMail endpoints to send alerts to
+        as part of this group
+        """
+
     def __init__(
         self,
         *,
@@ -2022,9 +2302,10 @@ class BroadcastGroup(google.protobuf.message.Message):
         cue_snmp: global___CueSnmpEndpoints | None = ...,
         cue_sendgrid: global___CueSendgridEndpoints | None = ...,
         zoom: global___ZoomEndpoints | None = ...,
+        ms_graph_send_mail: global___MsGraphSendMailEndpoints | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
 
 global___BroadcastGroup = BroadcastGroup
 
@@ -2349,6 +2630,26 @@ class ZoomEndpoints(google.protobuf.message.Message):
 global___ZoomEndpoints = ZoomEndpoints
 
 @typing.final
+class MsGraphSendMailEndpoints(google.protobuf.message.Message):
+    """MsGraphSendMailEndpoints is a set of microsoft graph send mail endpoints"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___MsGraphSendMailEndpoint]:
+        """values are the elements of the set"""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___MsGraphSendMailEndpoint] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___MsGraphSendMailEndpoints = MsGraphSendMailEndpoints
+
+@typing.final
 class EmailEndpoint(google.protobuf.message.Message):
     """EmailEndpoint contains the required information for an alert to be sent to an email endpoint"""
 
@@ -2433,6 +2734,47 @@ class WebhookEndpoint(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override", "simple_output", b"simple_output", "single_alert", b"single_alert", "url", b"url"]) -> None: ...
 
 global___WebhookEndpoint = WebhookEndpoint
+
+@typing.final
+class MsGraphSendMailEndpoint(google.protobuf.message.Message):
+    """MsGraphSendMailEndpoint contains the required information for an alert to be sent to the
+    microsft graph send mail api
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SEND_RESOLVED_FIELD_NUMBER: builtins.int
+    TO_FIELD_NUMBER: builtins.int
+    HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
+    SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
+    @property
+    def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """send_resolved send alerts when events are resolved along with when they are triggered"""
+
+    @property
+    def to(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """to address to send email to"""
+
+    @property
+    def http_override(self) -> global___HttpSettings:
+        """http_override is the override of the global http settings"""
+
+    @property
+    def settings_override(self) -> global___MsGraphSendMailSettings:
+        """settings_override is the override for the microsoft graph send mail global endpoint settings"""
+
+    def __init__(
+        self,
+        *,
+        send_resolved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        to: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        http_override: global___HttpSettings | None = ...,
+        settings_override: global___MsGraphSendMailSettings | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override", "to", b"to"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override", "to", b"to"]) -> None: ...
+
+global___MsGraphSendMailEndpoint = MsGraphSendMailEndpoint
 
 @typing.final
 class SlackEndpoint(google.protobuf.message.Message):
