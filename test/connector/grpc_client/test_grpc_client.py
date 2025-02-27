@@ -4,7 +4,6 @@
 
 """Test grpc_client module."""
 
-
 import pytest
 
 from cloudvision import __version__ as version
@@ -19,7 +18,9 @@ class TestGRPCClient:
             [
                 ("grpc.primary_user_agent", f"cloudvision.Connector/{version}"),
                 ("grpc.keepalive_time_ms", 60000),
-                ('grpc.http2.max_pings_without_data', 0),
+                ("grpc.http2.max_pings_without_data", 0),
+                ("grpc.enable_retries", 1),
+                ("grpc.service_config", GRPCClient.RETRY_POLICY_JSON),
             ]
         ],
     )
@@ -35,24 +36,28 @@ class TestGRPCClient:
             (
                 {
                     "grpc.keepalive_time_ms": 30000,
-                    'grpc.http2.max_pings_without_data': 0,
+                    "grpc.http2.max_pings_without_data": 0,
                 },
                 [
                     ("grpc.primary_user_agent", f"cloudvision.Connector/{version}"),
                     ("grpc.keepalive_time_ms", 30000),
-                    ('grpc.http2.max_pings_without_data', 0),
+                    ("grpc.http2.max_pings_without_data", 0),
+                    ("grpc.enable_retries", 1),
+                    ("grpc.service_config", GRPCClient.RETRY_POLICY_JSON),
                 ],
             ),
             (
                 {
                     "grpc.primary_user_agent": "torans_grpc_client",
                     "grpc.keepalive_time_ms": 1200000,
-                    'grpc.http2.max_pings_without_data': 0,
+                    "grpc.http2.max_pings_without_data": 0,
                 },
                 [
                     ("grpc.primary_user_agent", "torans_grpc_client"),
                     ("grpc.keepalive_time_ms", 1200000),
-                    ('grpc.http2.max_pings_without_data', 0),
+                    ("grpc.http2.max_pings_without_data", 0),
+                    ("grpc.enable_retries", 1),
+                    ("grpc.service_config", GRPCClient.RETRY_POLICY_JSON),
                 ],
             ),
             (
@@ -60,13 +65,32 @@ class TestGRPCClient:
                     "grpc.primary_user_agent": "torans_grpc_client",
                     "grpc.keepalive_time_ms": 1200000,
                     "grpc.keepalive_timeout_ms": 10000,
-                    'grpc.http2.max_pings_without_data': 1,
+                    "grpc.http2.max_pings_without_data": 1,
                 },
                 [
                     ("grpc.primary_user_agent", "torans_grpc_client"),
                     ("grpc.keepalive_time_ms", 1200000),
                     ("grpc.keepalive_timeout_ms", 10000),
-                    ('grpc.http2.max_pings_without_data', 1),
+                    ("grpc.http2.max_pings_without_data", 1),
+                    ("grpc.enable_retries", 1),
+                    ("grpc.service_config", GRPCClient.RETRY_POLICY_JSON),
+                ],
+            ),
+            (
+                {
+                    "grpc.primary_user_agent": "torans_grpc_client",
+                    "grpc.keepalive_time_ms": 1200000,
+                    "grpc.keepalive_timeout_ms": 10000,
+                    "grpc.http2.max_pings_without_data": 1,
+                    "grpc.enable_retries": 0,
+                },
+                [
+                    ("grpc.primary_user_agent", "torans_grpc_client"),
+                    ("grpc.keepalive_time_ms", 1200000),
+                    ("grpc.keepalive_timeout_ms", 10000),
+                    ("grpc.http2.max_pings_without_data", 1),
+                    ("grpc.enable_retries", 0),
+                    ("grpc.service_config", GRPCClient.RETRY_POLICY_JSON),
                 ],
             ),
         ],
@@ -81,12 +105,15 @@ class TestGRPCClient:
         client = GRPCClient("localhost:443")
         d_name = "dataset_name"
         path_elements = ["path", "element"]
-        schema = [rtr.IndexField(name="FieldName1", type=rtr.INTEGER),
-                  rtr.IndexField(name="FieldName1", type=rtr.FLOAT)]
+        schema = [
+            rtr.IndexField(name="FieldName1", type=rtr.INTEGER),
+            rtr.IndexField(name="FieldName1", type=rtr.FLOAT),
+        ]
         d_type = "device"
         delete_after_days = 50
         request = client.create_custom_schema_index_request(
-            d_name, path_elements, schema, delete_after_days, d_type)
+            d_name, path_elements, schema, delete_after_days, d_type
+        )
         assert len(request.schema) == len(schema)
         for idx, fieldSchema in enumerate(request.schema):
             assert fieldSchema == schema[idx]
@@ -95,5 +122,7 @@ class TestGRPCClient:
         assert request.query.dataset.type == d_type
         assert len(request.query.paths) == 1
         path = request.query.paths[0]
-        for idx, path_element in enumerate([client.encoder.encode(x) for x in path_elements]):
+        for idx, path_element in enumerate(
+            [client.encoder.encode(x) for x in path_elements]
+        ):
             assert path_element == path.path_elements[idx]

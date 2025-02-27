@@ -6,6 +6,7 @@ from argparse import ArgumentError
 from datetime import datetime
 from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
 
+import json
 import grpc
 from google.protobuf import timestamp_pb2 as pbts
 from google.protobuf.empty_pb2 import Empty
@@ -125,7 +126,26 @@ class GRPCClient(object):
         "grpc.keepalive_time_ms": 60000,
         # 0 means infinite, as keepalive_time_ms is 60 seconds client will send 1 ping every minute
         "grpc.http2.max_pings_without_data": 0,
+        # enable retries for the grpc client
+        # https://grpc.github.io/grpc/core/group__grpc__arg__keys.html#ga212f667ecbcee3b100898ba7e88454df
+        "grpc.enable_retries": 1,
     }
+    RETRY_POLICY_JSON = json.dumps(
+        {
+            "methodConfig": [
+                {
+                    "name": [{"service": ""}],
+                    "retryPolicy": {
+                        "maxAttempts": 5,
+                        "initialBackoff": "1s",
+                        "maxBackoff": "16s",
+                        "backoffMultiplier": 2.0,
+                        "retryableStatusCodes": ["UNAVAILABLE"],
+                    },
+                }
+            ]
+        }
+    )
 
     def __init__(
         self,
@@ -149,7 +169,7 @@ class GRPCClient(object):
         self.channel_options = [
             (k, v) for k, v in dict(GRPCClient.DEFAULT_CHANNEL_OPTIONS, **channel_options).items()
         ]
-
+        self.channel_options.append(("grpc.service_config", GRPCClient.RETRY_POLICY_JSON))
         if (certs is None or key is None) and (token is None and tokenValue is None):
             self.channel = grpc.insecure_channel(grpcAddr, options=self.channel_options)
         else:
