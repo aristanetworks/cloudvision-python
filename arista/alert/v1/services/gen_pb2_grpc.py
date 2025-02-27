@@ -843,6 +843,379 @@ class DefaultTemplateService(object):
             _registered_method=True)
 
 
+class SenderStatusServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.alert.v1.SenderStatusService/GetOne',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusResponse.FromString,
+                _registered_method=True)
+        self.GetSome = channel.unary_stream(
+                '/arista.alert.v1.SenderStatusService/GetSome',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusSomeResponse.FromString,
+                _registered_method=True)
+        self.GetAll = channel.unary_stream(
+                '/arista.alert.v1.SenderStatusService/GetAll',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamResponse.FromString,
+                _registered_method=True)
+        self.Subscribe = channel.unary_stream(
+                '/arista.alert.v1.SenderStatusService/Subscribe',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamResponse.FromString,
+                _registered_method=True)
+        self.GetMeta = channel.unary_unary(
+                '/arista.alert.v1.SenderStatusService/GetMeta',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                _registered_method=True)
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.alert.v1.SenderStatusService/SubscribeMeta',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                _registered_method=True)
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.alert.v1.SenderStatusService/GetAllBatched',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamResponse.FromString,
+                _registered_method=True)
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.alert.v1.SenderStatusService/SubscribeBatched',
+                request_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamResponse.FromString,
+                _registered_method=True)
+
+
+class SenderStatusServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_SenderStatusServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusSomeRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusSomeResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.alert.v1.SenderStatusService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('arista.alert.v1.SenderStatusService', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class SenderStatusService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/arista.alert.v1.SenderStatusService/GetOne',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.alert.v1.SenderStatusService/GetSome',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusSomeRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusSomeResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.alert.v1.SenderStatusService/GetAll',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.alert.v1.SenderStatusService/Subscribe',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/arista.alert.v1.SenderStatusService/GetMeta',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.alert.v1.SenderStatusService/SubscribeMeta',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.alert.v1.SenderStatusService/GetAllBatched',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.alert.v1.SenderStatusService/SubscribeBatched',
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamRequest.SerializeToString,
+            arista_dot_alert_dot_v1_dot_services_dot_gen__pb2.SenderStatusBatchedStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
 class TemplateConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
