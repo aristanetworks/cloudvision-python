@@ -29,8 +29,8 @@ from .constants import (
     BUILD_ID_ARG,
     STUDIO_ID_ARG,
     STUDIO_IDS_ARG,
-    WORKSPACE_ID_ARG,
     TIMEOUT_REQUEST,
+    WORKSPACE_ID_ARG,
 )
 from .device import Device, Interface
 from .exceptions import (
@@ -733,6 +733,9 @@ class Context:
         Creates an audit log entry in CloudVision, with the provided info.
         The context's associated device name and id will be added to the audit log metadata
         if it is available in the context.
+
+        Note: This method is a no-op when run in a Studio template rendering context. Use the
+        preferred ctx.info, ctx.error, ctx.debug etc. logging methods there instead.
 
         Args:
             message:        The string message for the audit log entry
