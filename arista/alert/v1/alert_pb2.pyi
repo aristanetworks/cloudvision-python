@@ -26,11 +26,9 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
-
 class _ConfigErrorType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _ConfigErrorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ConfigErrorType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -49,10 +47,8 @@ class _ConfigErrorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper
     CONFIG_ERROR_TYPE_INVALID_TYPE: _ConfigErrorType.ValueType  # 7
     """CONFIG_ERROR_TYPE_INVALID_TYPE is caused by the wrong type found in backing store"""
 
-
 class ConfigErrorType(_ConfigErrorType, metaclass=_ConfigErrorTypeEnumTypeWrapper):
     """ConfigErrorType describes the set of possible config error types"""
-
 
 CONFIG_ERROR_TYPE_UNSPECIFIED: ConfigErrorType.ValueType  # 0
 """CONFIG_ERROR_TYPE_UNSPECIFIED is the unspecified enum value"""
@@ -70,11 +66,9 @@ CONFIG_ERROR_TYPE_INVALID_TYPE: ConfigErrorType.ValueType  # 7
 """CONFIG_ERROR_TYPE_INVALID_TYPE is caused by the wrong type found in backing store"""
 global___ConfigErrorType = ConfigErrorType
 
-
 class _EndpointType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _EndpointTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_EndpointType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -115,10 +109,8 @@ class _EndpointTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL: _EndpointType.ValueType  # 17
     """ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL represents the Microsoft Graph sendMail endpoint type."""
 
-
 class EndpointType(_EndpointType, metaclass=_EndpointTypeEnumTypeWrapper):
     """EndpointType describes the set of possible endpoint types."""
-
 
 ENDPOINT_TYPE_UNSPECIFIED: EndpointType.ValueType  # 0
 """ENDPOINT_TYPE_UNSPECIFIED represents the unspecified enum value."""
@@ -158,11 +150,9 @@ ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL: EndpointType.ValueType  # 17
 """ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL represents the Microsoft Graph sendMail endpoint type."""
 global___EndpointType = EndpointType
 
-
 class _EndpointErrorType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _EndpointErrorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_EndpointErrorType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -201,10 +191,8 @@ class _EndpointErrorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapp
     OAuth apis
     """
 
-
 class EndpointErrorType(_EndpointErrorType, metaclass=_EndpointErrorTypeEnumTypeWrapper):
     """EndpointErrorType describes the set of possible endpoint error types."""
-
 
 ENDPOINT_ERROR_TYPE_UNSPECIFIED: EndpointErrorType.ValueType  # 0
 """ENDPOINT_ERROR_TYPE_UNSPECIFIED is the unspecified enum value"""
@@ -242,11 +230,9 @@ OAuth apis
 """
 global___EndpointErrorType = EndpointErrorType
 
-
 class _CueSyslogMessageFormat:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _CueSyslogMessageFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CueSyslogMessageFormat.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -259,10 +245,8 @@ class _CueSyslogMessageFormatEnumTypeWrapper(google.protobuf.internal.enum_type_
     https://datatracker.ietf.org/doc/html/rfc4765
     """
 
-
 class CueSyslogMessageFormat(_CueSyslogMessageFormat, metaclass=_CueSyslogMessageFormatEnumTypeWrapper):
     """CueSyslogMessageFormat is the message format for cue syslog messages"""
-
 
 CUE_SYSLOG_MESSAGE_FORMAT_UNSPECIFIED: CueSyslogMessageFormat.ValueType  # 0
 """CUE_SYSLOG_MESSAGE_FORMAT_UNSPECIFIED is the unspecified enum value"""
@@ -274,11 +258,9 @@ https://datatracker.ietf.org/doc/html/rfc4765
 """
 global___CueSyslogMessageFormat = CueSyslogMessageFormat
 
-
 class _SNMPSecurityLevel:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _SNMPSecurityLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SNMPSecurityLevel.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -291,10 +273,8 @@ class _SNMPSecurityLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapp
     SNMP_SECURITY_LEVEL_AUTH_PRIV: _SNMPSecurityLevel.ValueType  # 3
     """SNMP_SECURITY_LEVEL_AUTH_PRIV use both authentication and privacy"""
 
-
 class SNMPSecurityLevel(_SNMPSecurityLevel, metaclass=_SNMPSecurityLevelEnumTypeWrapper):
     """SNMPSecurityLevel indicates what level of security should be used"""
-
 
 SNMP_SECURITY_LEVEL_UNSPECIFIED: SNMPSecurityLevel.ValueType  # 0
 """SNMP_SECURITY_LEVEL_UNSPECIFIED is the unspecified enum value"""
@@ -306,11 +286,9 @@ SNMP_SECURITY_LEVEL_AUTH_PRIV: SNMPSecurityLevel.ValueType  # 3
 """SNMP_SECURITY_LEVEL_AUTH_PRIV use both authentication and privacy"""
 global___SNMPSecurityLevel = SNMPSecurityLevel
 
-
 class _SNMPAuthProtocol:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _SNMPAuthProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SNMPAuthProtocol.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -329,10 +307,8 @@ class _SNMPAuthProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrappe
     SNMP_AUTH_PROTOCOL_SHA_512: _SNMPAuthProtocol.ValueType  # 6
     """SNMP_AUTH_PROTOCOL_SHA_512 use the sha512 protocol"""
 
-
 class SNMPAuthProtocol(_SNMPAuthProtocol, metaclass=_SNMPAuthProtocolEnumTypeWrapper):
     """SNMPAuthProtocol represents the authentication protocol to be used"""
-
 
 SNMP_AUTH_PROTOCOL_UNSPECIFIED: SNMPAuthProtocol.ValueType  # 0
 """SNMP_AUTH_PROTOCOL_UNSPECIFIED is the unspecified enum value"""
@@ -350,11 +326,9 @@ SNMP_AUTH_PROTOCOL_SHA_512: SNMPAuthProtocol.ValueType  # 6
 """SNMP_AUTH_PROTOCOL_SHA_512 use the sha512 protocol"""
 global___SNMPAuthProtocol = SNMPAuthProtocol
 
-
 class _SNMPPrivProtocol:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _SNMPPrivProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SNMPPrivProtocol.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -373,10 +347,8 @@ class _SNMPPrivProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrappe
     SNMP_PRIV_PROTOCOL_AES_256C: _SNMPPrivProtocol.ValueType  # 6
     """SNMP_PRIV_PROTOCOL_AES_256C use the aes256c protocol"""
 
-
 class SNMPPrivProtocol(_SNMPPrivProtocol, metaclass=_SNMPPrivProtocolEnumTypeWrapper):
     """SNMPPrivProtocol represents the privacy protocol to be used"""
-
 
 SNMP_PRIV_PROTOCOL_UNSPECIFIED: SNMPPrivProtocol.ValueType  # 0
 """SNMP_PRIV_PROTOCOL_UNSPECIFIED is the unspecified enum value"""
@@ -394,11 +366,9 @@ SNMP_PRIV_PROTOCOL_AES_256C: SNMPPrivProtocol.ValueType  # 6
 """SNMP_PRIV_PROTOCOL_AES_256C use the aes256c protocol"""
 global___SNMPPrivProtocol = SNMPPrivProtocol
 
-
 class _CueSNMPAuthProtocol:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _CueSNMPAuthProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CueSNMPAuthProtocol.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -409,10 +379,8 @@ class _CueSNMPAuthProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wra
     CUE_SNMP_AUTH_PROTOCOL_SHA: _CueSNMPAuthProtocol.ValueType  # 2
     """CUE_SNMP_AUTH_PROTOCOL_SHA use the sha protocol"""
 
-
 class CueSNMPAuthProtocol(_CueSNMPAuthProtocol, metaclass=_CueSNMPAuthProtocolEnumTypeWrapper):
     """CueSNMPAuthProtocol represents the authentication protocol to be used"""
-
 
 CUE_SNMP_AUTH_PROTOCOL_UNSPECIFIED: CueSNMPAuthProtocol.ValueType  # 0
 """CUE_SNMP_AUTH_PROTOCOL_UNSPECIFIED is the unspecified enum value"""
@@ -422,11 +390,9 @@ CUE_SNMP_AUTH_PROTOCOL_SHA: CueSNMPAuthProtocol.ValueType  # 2
 """CUE_SNMP_AUTH_PROTOCOL_SHA use the sha protocol"""
 global___CueSNMPAuthProtocol = CueSNMPAuthProtocol
 
-
 class _CueSNMPPrivProtocol:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _CueSNMPPrivProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CueSNMPPrivProtocol.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -437,10 +403,8 @@ class _CueSNMPPrivProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wra
     CUE_SNMP_PRIV_PROTOCOL_AES: _CueSNMPPrivProtocol.ValueType  # 2
     """CUE_SNMP_PRIV_PROTOCOL_AES use the aes protocol"""
 
-
 class CueSNMPPrivProtocol(_CueSNMPPrivProtocol, metaclass=_CueSNMPPrivProtocolEnumTypeWrapper):
     """CueSNMPPrivProtocol represents the privacy protocol to be used"""
-
 
 CUE_SNMP_PRIV_PROTOCOL_UNSPECIFIED: CueSNMPPrivProtocol.ValueType  # 0
 """CUE_SNMP_PRIV_PROTOCOL_UNSPECIFIED is the unspecified enum value"""
@@ -450,11 +414,9 @@ CUE_SNMP_PRIV_PROTOCOL_AES: CueSNMPPrivProtocol.ValueType  # 2
 """CUE_SNMP_PRIV_PROTOCOL_AES use the aes protocol"""
 global___CueSNMPPrivProtocol = CueSNMPPrivProtocol
 
-
 class _TemplateType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _TemplateTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TemplateType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -515,10 +477,8 @@ class _TemplateTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     single_alert option is false
     """
 
-
 class TemplateType(_TemplateType, metaclass=_TemplateTypeEnumTypeWrapper):
     """TemplateType describes the types of Templates that are usable"""
-
 
 TEMPLATE_TYPE_UNSPECIFIED: TemplateType.ValueType  # 0
 """TEMPLATE_TYPE_UNSPECIFIED is the unspecified enum value"""
@@ -578,11 +538,9 @@ single_alert option is false
 """
 global___TemplateType = TemplateType
 
-
 class _TemplateOutput:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-
 
 class _TemplateOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TemplateOutput.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
@@ -598,10 +556,8 @@ class _TemplateOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper.
     html characters are automatically escaped from input.
     """
 
-
 class TemplateOutput(_TemplateOutput, metaclass=_TemplateOutputEnumTypeWrapper):
     """TemplateOutput is an enum of all of the possible output formats for templates"""
-
 
 TEMPLATE_OUTPUT_UNSPECIFIED: TemplateOutput.ValueType  # 0
 """TEMPLATE_OUTPUT_UNSPECIFIED is the unspecfied value."""
@@ -616,7 +572,6 @@ html characters are automatically escaped from input.
 """
 global___TemplateOutput = TemplateOutput
 
-
 @typing.final
 class AlertConfig(google.protobuf.message.Message):
     """AlertConfig is the configuration for sending alerts"""
@@ -626,7 +581,6 @@ class AlertConfig(google.protobuf.message.Message):
     SETTINGS_FIELD_NUMBER: builtins.int
     RULES_FIELD_NUMBER: builtins.int
     BROADCAST_GROUPS_FIELD_NUMBER: builtins.int
-
     @property
     def settings(self) -> global___Settings:
         """settings is the global default settings for various endpoints used in broadcast groups.
@@ -648,15 +602,10 @@ class AlertConfig(google.protobuf.message.Message):
         rules: global___Rules | None = ...,
         broadcast_groups: global___BroadcastGroups | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["broadcast_groups", b"broadcast_groups",
-                 "rules", b"rules", "settings", b"settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["broadcast_groups",
-                   b"broadcast_groups", "rules", b"rules", "settings", b"settings"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["broadcast_groups", b"broadcast_groups", "rules", b"rules", "settings", b"settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["broadcast_groups", b"broadcast_groups", "rules", b"rules", "settings", b"settings"]) -> None: ...
 
 global___AlertConfig = AlertConfig
-
 
 @typing.final
 class Alert(google.protobuf.message.Message):
@@ -668,7 +617,6 @@ class Alert(google.protobuf.message.Message):
     ENDPOINT_ERRORS_FIELD_NUMBER: builtins.int
     LAST_MODIFIED_AT_FIELD_NUMBER: builtins.int
     LAST_MODIFIED_BY_FIELD_NUMBER: builtins.int
-
     @property
     def configuration_errors(self) -> global___ConfigErrors:
         """configuration_errors contain any configuration errors reported by the backend"""
@@ -693,15 +641,10 @@ class Alert(google.protobuf.message.Message):
         last_modified_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         last_modified_by: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["configuration_errors", b"configuration_errors", "endpoint_errors",
-                 b"endpoint_errors", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["configuration_errors", b"configuration_errors", "endpoint_errors",
-                   b"endpoint_errors", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["configuration_errors", b"configuration_errors", "endpoint_errors", b"endpoint_errors", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["configuration_errors", b"configuration_errors", "endpoint_errors", b"endpoint_errors", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by"]) -> None: ...
 
 global___Alert = Alert
-
 
 @typing.final
 class ConfigErrors(google.protobuf.message.Message):
@@ -710,7 +653,6 @@ class ConfigErrors(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConfigError]:
         """values is a list of errors"""
@@ -722,9 +664,7 @@ class ConfigErrors(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___ConfigErrors = ConfigErrors
-
 
 @typing.final
 class ConfigError(google.protobuf.message.Message):
@@ -755,15 +695,10 @@ class ConfigError(google.protobuf.message.Message):
         error_type: global___ConfigErrorType.ValueType = ...,
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["error",
-                 b"error", "path", b"path"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["error", b"error",
-                   "error_type", b"error_type", "path", b"path"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["error", b"error", "path", b"path"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["error", b"error", "error_type", b"error_type", "path", b"path"]) -> None: ...
 
 global___ConfigError = ConfigError
-
 
 @typing.final
 class SenderStatusKey(google.protobuf.message.Message):
@@ -789,15 +724,10 @@ class SenderStatusKey(google.protobuf.message.Message):
         broadcast_group_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
         endpoint_type: global___EndpointType.ValueType = ...,
     ) -> None: ...
-
-    def HasField(
-        self, field_name: typing.Literal["broadcast_group_name", b"broadcast_group_name"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["broadcast_group_name",
-                   b"broadcast_group_name", "endpoint_type", b"endpoint_type"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["broadcast_group_name", b"broadcast_group_name"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["broadcast_group_name", b"broadcast_group_name", "endpoint_type", b"endpoint_type"]) -> None: ...
 
 global___SenderStatusKey = SenderStatusKey
-
 
 @typing.final
 class SenderStatus(google.protobuf.message.Message):
@@ -853,15 +783,10 @@ class SenderStatus(google.protobuf.message.Message):
         error_message: google.protobuf.wrappers_pb2.StringValue | None = ...,
         events: global___EventIdentifiers | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "events",
-                 b"events", "key", b"key", "remaining_retries", b"remaining_retries", "success", b"success"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "error_type",
-                   b"error_type", "events", b"events", "key", b"key", "remaining_retries", b"remaining_retries", "success", b"success"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "events", b"events", "key", b"key", "remaining_retries", b"remaining_retries", "success", b"success"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "error_type", b"error_type", "events", b"events", "key", b"key", "remaining_retries", b"remaining_retries", "success", b"success"]) -> None: ...
 
 global___SenderStatus = SenderStatus
-
 
 @typing.final
 class EventIdentifiers(google.protobuf.message.Message):
@@ -870,7 +795,6 @@ class EventIdentifiers(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___EventIdentifier]:
         """values is a list of event identifiers."""
@@ -882,9 +806,7 @@ class EventIdentifiers(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___EventIdentifiers = EventIdentifiers
-
 
 @typing.final
 class EventIdentifier(google.protobuf.message.Message):
@@ -898,7 +820,6 @@ class EventIdentifier(google.protobuf.message.Message):
     TIME_FIELD_NUMBER: builtins.int
     ALERTER_RULE_INDEX_FIELD_NUMBER: builtins.int
     FIRING_FIELD_NUMBER: builtins.int
-
     @property
     def key(self) -> google.protobuf.wrappers_pb2.StringValue:
         """key is the event key."""
@@ -926,15 +847,10 @@ class EventIdentifier(google.protobuf.message.Message):
         alerter_rule_index: google.protobuf.wrappers_pb2.Int32Value | None = ...,
         firing: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index",
-                 "firing", b"firing", "key", b"key", "time", b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index",
-                   "firing", b"firing", "key", b"key", "time", b"time"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "firing", b"firing", "key", b"key", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "firing", b"firing", "key", b"key", "time", b"time"]) -> None: ...
 
 global___EventIdentifier = EventIdentifier
-
 
 @typing.final
 class EndpointErrors(google.protobuf.message.Message):
@@ -943,7 +859,6 @@ class EndpointErrors(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___EndpointError]:
         """values is the list of errors"""
@@ -955,9 +870,7 @@ class EndpointErrors(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___EndpointErrors = EndpointErrors
-
 
 @typing.final
 class EndpointError(google.protobuf.message.Message):
@@ -1004,15 +917,10 @@ class EndpointError(google.protobuf.message.Message):
         error_type: global___EndpointErrorType.ValueType = ...,
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["broadcast_group_name", b"broadcast_group_name", "config_index",
-                 b"config_index", "endpoint_type", b"endpoint_type", "error", b"error"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["broadcast_group_name", b"broadcast_group_name", "config_index",
-                   b"config_index", "endpoint_type", b"endpoint_type", "error", b"error", "error_type", b"error_type"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["broadcast_group_name", b"broadcast_group_name", "config_index", b"config_index", "endpoint_type", b"endpoint_type", "error", b"error"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["broadcast_group_name", b"broadcast_group_name", "config_index", b"config_index", "endpoint_type", b"endpoint_type", "error", b"error", "error_type", b"error_type"]) -> None: ...
 
 global___EndpointError = EndpointError
-
 
 @typing.final
 class Settings(google.protobuf.message.Message):
@@ -1041,7 +949,6 @@ class Settings(google.protobuf.message.Message):
     ZOOM_FIELD_NUMBER: builtins.int
     WEBHOOK_FIELD_NUMBER: builtins.int
     MS_GRAPH_SEND_MAIL_FIELD_NUMBER: builtins.int
-
     @property
     def email(self) -> global___EmailSettings:
         """email is the global default settings for email"""
@@ -1155,15 +1062,10 @@ class Settings(google.protobuf.message.Message):
         webhook: global___WebhookSettings | None = ...,
         ms_graph_send_mail: global___MsGraphSendMailSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail",
-                 b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail",
-                   b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
 
 global___Settings = Settings
-
 
 @typing.final
 class EmailSettings(google.protobuf.message.Message):
@@ -1178,7 +1080,6 @@ class EmailSettings(google.protobuf.message.Message):
     REQUIRE_TLS_FIELD_NUMBER: builtins.int
     SINGLE_ALERT_PER_EMAIL_FIELD_NUMBER: builtins.int
     AZURE_O_AUTH_FIELD_NUMBER: builtins.int
-
     @property
     def smarthost(self) -> google.protobuf.wrappers_pb2.StringValue:
         """smarthost is the hostname and port of the SMTP server"""
@@ -1219,15 +1120,10 @@ class EmailSettings(google.protobuf.message.Message):
         single_alert_per_email: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         azure_o_auth: global___AzureOAuth | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["auth_password", b"auth_password", "auth_username", b"auth_username", "azure_o_auth", b"azure_o_auth",
-                 "from", b"from", "require_tls", b"require_tls", "single_alert_per_email", b"single_alert_per_email", "smarthost", b"smarthost"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["auth_password", b"auth_password", "auth_username", b"auth_username", "azure_o_auth", b"azure_o_auth",
-                   "from", b"from", "require_tls", b"require_tls", "single_alert_per_email", b"single_alert_per_email", "smarthost", b"smarthost"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["auth_password", b"auth_password", "auth_username", b"auth_username", "azure_o_auth", b"azure_o_auth", "from", b"from", "require_tls", b"require_tls", "single_alert_per_email", b"single_alert_per_email", "smarthost", b"smarthost"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["auth_password", b"auth_password", "auth_username", b"auth_username", "azure_o_auth", b"azure_o_auth", "from", b"from", "require_tls", b"require_tls", "single_alert_per_email", b"single_alert_per_email", "smarthost", b"smarthost"]) -> None: ...
 
 global___EmailSettings = EmailSettings
-
 
 @typing.final
 class AzureOAuth(google.protobuf.message.Message):
@@ -1240,7 +1136,6 @@ class AzureOAuth(google.protobuf.message.Message):
     CLIENT_SECRET_FIELD_NUMBER: builtins.int
     AUTH_URI_FIELD_NUMBER: builtins.int
     SCOPES_FIELD_NUMBER: builtins.int
-
     @property
     def client_id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """client_id of the Azure environment"""
@@ -1273,15 +1168,10 @@ class AzureOAuth(google.protobuf.message.Message):
         auth_uri: google.protobuf.wrappers_pb2.StringValue | None = ...,
         scopes: fmp.wrappers_pb2.RepeatedString | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["auth_uri", b"auth_uri", "client_id", b"client_id",
-                 "client_secret", b"client_secret", "scopes", b"scopes", "tenant_id", b"tenant_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["auth_uri", b"auth_uri", "client_id", b"client_id",
-                   "client_secret", b"client_secret", "scopes", b"scopes", "tenant_id", b"tenant_id"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["auth_uri", b"auth_uri", "client_id", b"client_id", "client_secret", b"client_secret", "scopes", b"scopes", "tenant_id", b"tenant_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["auth_uri", b"auth_uri", "client_id", b"client_id", "client_secret", b"client_secret", "scopes", b"scopes", "tenant_id", b"tenant_id"]) -> None: ...
 
 global___AzureOAuth = AzureOAuth
-
 
 @typing.final
 class HttpSettings(google.protobuf.message.Message):
@@ -1293,7 +1183,6 @@ class HttpSettings(google.protobuf.message.Message):
     PASSWORD_FIELD_NUMBER: builtins.int
     PROXY_URL_FIELD_NUMBER: builtins.int
     CUSTOM_HEADERS_FIELD_NUMBER: builtins.int
-
     @property
     def username(self) -> google.protobuf.wrappers_pb2.StringValue:
         """username is the username to use when connecting to the http proxy"""
@@ -1318,15 +1207,10 @@ class HttpSettings(google.protobuf.message.Message):
         proxy_url: google.protobuf.wrappers_pb2.StringValue | None = ...,
         custom_headers: global___HttpHeaders | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["custom_headers", b"custom_headers", "password",
-                 b"password", "proxy_url", b"proxy_url", "username", b"username"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["custom_headers", b"custom_headers",
-                   "password", b"password", "proxy_url", b"proxy_url", "username", b"username"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["custom_headers", b"custom_headers", "password", b"password", "proxy_url", b"proxy_url", "username", b"username"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["custom_headers", b"custom_headers", "password", b"password", "proxy_url", b"proxy_url", "username", b"username"]) -> None: ...
 
 global___HttpSettings = HttpSettings
-
 
 @typing.final
 class HttpHeaders(google.protobuf.message.Message):
@@ -1343,7 +1227,6 @@ class HttpHeaders(google.protobuf.message.Message):
         key: builtins.str
         @property
         def value(self) -> global___HeaderValues: ...
-
         def __init__(
             self,
             *,
@@ -1351,11 +1234,9 @@ class HttpHeaders(google.protobuf.message.Message):
             value: global___HeaderValues | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
-        def ClearField(
-            self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
+        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___HeaderValues]:
         """values is a map of http header names to values"""
@@ -1367,9 +1248,7 @@ class HttpHeaders(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___HttpHeaders = HttpHeaders
-
 
 @typing.final
 class HeaderValues(google.protobuf.message.Message):
@@ -1378,7 +1257,6 @@ class HeaderValues(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """values is the header values"""
@@ -1390,9 +1268,7 @@ class HeaderValues(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___HeaderValues = HeaderValues
-
 
 @typing.final
 class SlackSettings(google.protobuf.message.Message):
@@ -1401,7 +1277,6 @@ class SlackSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     URL_FIELD_NUMBER: builtins.int
-
     @property
     def url(self) -> google.protobuf.wrappers_pb2.StringValue:
         """url is the url of the slack webhook to use"""
@@ -1414,9 +1289,7 @@ class SlackSettings(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["url", b"url"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["url", b"url"]) -> None: ...
 
-
 global___SlackSettings = SlackSettings
-
 
 @typing.final
 class VictoropsSettings(google.protobuf.message.Message):
@@ -1426,7 +1299,6 @@ class VictoropsSettings(google.protobuf.message.Message):
 
     KEY_FIELD_NUMBER: builtins.int
     URL_FIELD_NUMBER: builtins.int
-
     @property
     def key(self) -> google.protobuf.wrappers_pb2.StringValue:
         """key is the API key to use when talking to the VictorOps API"""
@@ -1443,14 +1315,10 @@ class VictoropsSettings(google.protobuf.message.Message):
         key: google.protobuf.wrappers_pb2.StringValue | None = ...,
         url: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["key",
-                 b"key", "url", b"url"]) -> builtins.bool: ...
-
+    def HasField(self, field_name: typing.Literal["key", b"key", "url", b"url"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["key", b"key", "url", b"url"]) -> None: ...
 
-
 global___VictoropsSettings = VictoropsSettings
-
 
 @typing.final
 class PagerdutySettings(google.protobuf.message.Message):
@@ -1459,7 +1327,6 @@ class PagerdutySettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     URL_FIELD_NUMBER: builtins.int
-
     @property
     def url(self) -> google.protobuf.wrappers_pb2.StringValue:
         """url is the url to use when sending alerts to pagerduty"""
@@ -1472,9 +1339,7 @@ class PagerdutySettings(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["url", b"url"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["url", b"url"]) -> None: ...
 
-
 global___PagerdutySettings = PagerdutySettings
-
 
 @typing.final
 class OpsgenieSettings(google.protobuf.message.Message):
@@ -1484,7 +1349,6 @@ class OpsgenieSettings(google.protobuf.message.Message):
 
     KEY_FIELD_NUMBER: builtins.int
     URL_FIELD_NUMBER: builtins.int
-
     @property
     def key(self) -> google.protobuf.wrappers_pb2.StringValue:
         """key is the API key to use when talking to the OpsGenie API"""
@@ -1499,14 +1363,10 @@ class OpsgenieSettings(google.protobuf.message.Message):
         key: google.protobuf.wrappers_pb2.StringValue | None = ...,
         url: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["key",
-                 b"key", "url", b"url"]) -> builtins.bool: ...
-
+    def HasField(self, field_name: typing.Literal["key", b"key", "url", b"url"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["key", b"key", "url", b"url"]) -> None: ...
 
-
 global___OpsgenieSettings = OpsgenieSettings
-
 
 @typing.final
 class GoogleChatSettings(google.protobuf.message.Message):
@@ -1515,7 +1375,6 @@ class GoogleChatSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     URL_FIELD_NUMBER: builtins.int
-
     @property
     def url(self) -> google.protobuf.wrappers_pb2.StringValue:
         """url is the url of the webhook to send alerts to"""
@@ -1528,9 +1387,7 @@ class GoogleChatSettings(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["url", b"url"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["url", b"url"]) -> None: ...
 
-
 global___GoogleChatSettings = GoogleChatSettings
-
 
 @typing.final
 class MsTeamsSettings(google.protobuf.message.Message):
@@ -1539,7 +1396,6 @@ class MsTeamsSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     URL_FIELD_NUMBER: builtins.int
-
     @property
     def url(self) -> google.protobuf.wrappers_pb2.StringValue:
         """url is the url of the webhook to send alerts to"""
@@ -1552,9 +1408,7 @@ class MsTeamsSettings(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["url", b"url"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["url", b"url"]) -> None: ...
 
-
 global___MsTeamsSettings = MsTeamsSettings
-
 
 @typing.final
 class WebhookSettings(google.protobuf.message.Message):
@@ -1563,7 +1417,6 @@ class WebhookSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     AZURE_O_AUTH_FIELD_NUMBER: builtins.int
-
     @property
     def azure_o_auth(self) -> global___AzureOAuth:
         """azure_o_auth used for auth when using an Azure smtp server
@@ -1575,14 +1428,10 @@ class WebhookSettings(google.protobuf.message.Message):
         *,
         azure_o_auth: global___AzureOAuth | None = ...,
     ) -> None: ...
-    def HasField(
-        self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth"]) -> builtins.bool: ...
-
+    def HasField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth"]) -> None: ...
 
-
 global___WebhookSettings = WebhookSettings
-
 
 @typing.final
 class MsGraphSendMailSettings(google.protobuf.message.Message):
@@ -1593,7 +1442,6 @@ class MsGraphSendMailSettings(google.protobuf.message.Message):
     SINGLE_ALERT_PER_EMAIL_FIELD_NUMBER: builtins.int
     AZURE_O_AUTH_FIELD_NUMBER: builtins.int
     USER_PRINCIPAL_NAME_FIELD_NUMBER: builtins.int
-
     @property
     def single_alert_per_email(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """single_alert_per_email configures the Alerter such that each alert generates a separate email
@@ -1617,15 +1465,10 @@ class MsGraphSendMailSettings(google.protobuf.message.Message):
         azure_o_auth: global___AzureOAuth | None = ...,
         user_principal_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth", "single_alert_per_email",
-                 b"single_alert_per_email", "user_principal_name", b"user_principal_name"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth", "single_alert_per_email",
-                   b"single_alert_per_email", "user_principal_name", b"user_principal_name"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth", "single_alert_per_email", b"single_alert_per_email", "user_principal_name", b"user_principal_name"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth", "single_alert_per_email", b"single_alert_per_email", "user_principal_name", b"user_principal_name"]) -> None: ...
 
 global___MsGraphSendMailSettings = MsGraphSendMailSettings
-
 
 @typing.final
 class SyslogSettings(google.protobuf.message.Message):
@@ -1640,7 +1483,6 @@ class SyslogSettings(google.protobuf.message.Message):
     TAG_FIELD_NUMBER: builtins.int
     PER_DEVICE_FIELD_NUMBER: builtins.int
     USE_TLS_FIELD_NUMBER: builtins.int
-
     @property
     def network(self) -> google.protobuf.wrappers_pb2.StringValue:
         """network is the network protocol to use, default is "udp",
@@ -1688,15 +1530,10 @@ class SyslogSettings(google.protobuf.message.Message):
         per_device: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         use_tls: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["address", b"address", "facility", b"facility", "network", b"network",
-                 "per_device", b"per_device", "priorities", b"priorities", "tag", b"tag", "use_tls", b"use_tls"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["address", b"address", "facility", b"facility", "network", b"network",
-                   "per_device", b"per_device", "priorities", b"priorities", "tag", b"tag", "use_tls", b"use_tls"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["address", b"address", "facility", b"facility", "network", b"network", "per_device", b"per_device", "priorities", b"priorities", "tag", b"tag", "use_tls", b"use_tls"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["address", b"address", "facility", b"facility", "network", b"network", "per_device", b"per_device", "priorities", b"priorities", "tag", b"tag", "use_tls", b"use_tls"]) -> None: ...
 
 global___SyslogSettings = SyslogSettings
-
 
 @typing.final
 class Priorities(google.protobuf.message.Message):
@@ -1708,7 +1545,6 @@ class Priorities(google.protobuf.message.Message):
     ERROR_FIELD_NUMBER: builtins.int
     WARN_FIELD_NUMBER: builtins.int
     INFO_FIELD_NUMBER: builtins.int
-
     @property
     def critical(self) -> google.protobuf.wrappers_pb2.Int32Value:
         """critical priority, default = 2 (Critical)"""
@@ -1733,15 +1569,10 @@ class Priorities(google.protobuf.message.Message):
         warn: google.protobuf.wrappers_pb2.Int32Value | None = ...,
         info: google.protobuf.wrappers_pb2.Int32Value | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["critical", b"critical", "error",
-                 b"error", "info", b"info", "warn", b"warn"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["critical", b"critical",
-                   "error", b"error", "info", b"info", "warn", b"warn"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["critical", b"critical", "error", b"error", "info", b"info", "warn", b"warn"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["critical", b"critical", "error", b"error", "info", b"info", "warn", b"warn"]) -> None: ...
 
 global___Priorities = Priorities
-
 
 @typing.final
 class CueData(google.protobuf.message.Message):
@@ -1757,18 +1588,15 @@ class CueData(google.protobuf.message.Message):
         VALUE_FIELD_NUMBER: builtins.int
         key: builtins.str
         value: builtins.str
-
         def __init__(
             self,
             *,
             key: builtins.str = ...,
             value: builtins.str = ...,
         ) -> None: ...
-        def ClearField(
-            self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
+        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """values can contain some additional data which is required by the cue specific provider"""
@@ -1780,9 +1608,7 @@ class CueData(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___CueData = CueData
-
 
 @typing.final
 class CueSyslogSettings(google.protobuf.message.Message):
@@ -1832,15 +1658,10 @@ class CueSyslogSettings(google.protobuf.message.Message):
         append_bom_header: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         data: global___CueData | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["address", b"address", "append_bom_header",
-                 b"append_bom_header", "data", b"data", "network", b"network", "port", b"port"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["address", b"address", "append_bom_header", b"append_bom_header",
-                   "data", b"data", "message_format", b"message_format", "network", b"network", "port", b"port"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["address", b"address", "append_bom_header", b"append_bom_header", "data", b"data", "network", b"network", "port", b"port"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["address", b"address", "append_bom_header", b"append_bom_header", "data", b"data", "message_format", b"message_format", "network", b"network", "port", b"port"]) -> None: ...
 
 global___CueSyslogSettings = CueSyslogSettings
-
 
 @typing.final
 class SNMPSettings(google.protobuf.message.Message):
@@ -1854,7 +1675,6 @@ class SNMPSettings(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     AUTH_FIELD_NUMBER: builtins.int
     ENGINE_ID_FIELD_NUMBER: builtins.int
-
     @property
     def target(self) -> google.protobuf.wrappers_pb2.StringValue:
         """target is an ipv4 address to send messages to"""
@@ -1895,15 +1715,10 @@ class SNMPSettings(google.protobuf.message.Message):
         auth: global___SNMPAuth | None = ...,
         engine_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["auth", b"auth", "engine_id", b"engine_id", "port", b"port",
-                 "target", b"target", "transport", b"transport", "version", b"version"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["auth", b"auth", "engine_id", b"engine_id", "port",
-                   b"port", "target", b"target", "transport", b"transport", "version", b"version"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["auth", b"auth", "engine_id", b"engine_id", "port", b"port", "target", b"target", "transport", b"transport", "version", b"version"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["auth", b"auth", "engine_id", b"engine_id", "port", b"port", "target", b"target", "transport", b"transport", "version", b"version"]) -> None: ...
 
 global___SNMPSettings = SNMPSettings
-
 
 @typing.final
 class SNMPAuth(google.protobuf.message.Message):
@@ -1961,15 +1776,10 @@ class SNMPAuth(google.protobuf.message.Message):
         privacy_protocol: global___SNMPPrivProtocol.ValueType = ...,
         privacy_passphrase: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["authentication_passphrase", b"authentication_passphrase", "community",
-                 b"community", "privacy_passphrase", b"privacy_passphrase", "username", b"username"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["authentication_passphrase", b"authentication_passphrase", "authentication_protocol", b"authentication_protocol", "community",
-                   b"community", "privacy_passphrase", b"privacy_passphrase", "privacy_protocol", b"privacy_protocol", "security_level", b"security_level", "username", b"username"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["authentication_passphrase", b"authentication_passphrase", "community", b"community", "privacy_passphrase", b"privacy_passphrase", "username", b"username"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["authentication_passphrase", b"authentication_passphrase", "authentication_protocol", b"authentication_protocol", "community", b"community", "privacy_passphrase", b"privacy_passphrase", "privacy_protocol", b"privacy_protocol", "security_level", b"security_level", "username", b"username"]) -> None: ...
 
 global___SNMPAuth = SNMPAuth
-
 
 @typing.final
 class CueSNMPAuth(google.protobuf.message.Message):
@@ -2027,15 +1837,10 @@ class CueSNMPAuth(google.protobuf.message.Message):
         privacy_protocol: global___CueSNMPPrivProtocol.ValueType = ...,
         privacy_passphrase: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["authentication_passphrase", b"authentication_passphrase", "community",
-                 b"community", "privacy_passphrase", b"privacy_passphrase", "username", b"username"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["authentication_passphrase", b"authentication_passphrase", "authentication_protocol", b"authentication_protocol", "community",
-                   b"community", "privacy_passphrase", b"privacy_passphrase", "privacy_protocol", b"privacy_protocol", "security_level", b"security_level", "username", b"username"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["authentication_passphrase", b"authentication_passphrase", "community", b"community", "privacy_passphrase", b"privacy_passphrase", "username", b"username"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["authentication_passphrase", b"authentication_passphrase", "authentication_protocol", b"authentication_protocol", "community", b"community", "privacy_passphrase", b"privacy_passphrase", "privacy_protocol", b"privacy_protocol", "security_level", b"security_level", "username", b"username"]) -> None: ...
 
 global___CueSNMPAuth = CueSNMPAuth
-
 
 @typing.final
 class CueSNMPSettings(google.protobuf.message.Message):
@@ -2049,7 +1854,6 @@ class CueSNMPSettings(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     AUTH_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-
     @property
     def target(self) -> google.protobuf.wrappers_pb2.StringValue:
         """target is an ipv4 address to send messages to"""
@@ -2084,15 +1888,10 @@ class CueSNMPSettings(google.protobuf.message.Message):
         auth: global___CueSNMPAuth | None = ...,
         data: global___CueData | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["auth", b"auth", "data", b"data", "port", b"port",
-                 "target", b"target", "transport", b"transport", "version", b"version"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["auth", b"auth", "data", b"data", "port",
-                   b"port", "target", b"target", "transport", b"transport", "version", b"version"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["auth", b"auth", "data", b"data", "port", b"port", "target", b"target", "transport", b"transport", "version", b"version"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["auth", b"auth", "data", b"data", "port", b"port", "target", b"target", "transport", b"transport", "version", b"version"]) -> None: ...
 
 global___CueSNMPSettings = CueSNMPSettings
-
 
 @typing.final
 class SendgridSettings(google.protobuf.message.Message):
@@ -2102,7 +1901,6 @@ class SendgridSettings(google.protobuf.message.Message):
 
     API_KEY_FIELD_NUMBER: builtins.int
     FROM_FIELD_NUMBER: builtins.int
-
     @property
     def api_key(self) -> google.protobuf.wrappers_pb2.StringValue:
         """api_key is the api key to use"""
@@ -2112,15 +1910,10 @@ class SendgridSettings(google.protobuf.message.Message):
         *,
         api_key: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["api_key",
-                 b"api_key", "from", b"from"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["api_key", b"api_key", "from", b"from"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["api_key", b"api_key", "from", b"from"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["api_key", b"api_key", "from", b"from"]) -> None: ...
 
 global___SendgridSettings = SendgridSettings
-
 
 @typing.final
 class CueSendgridSettings(google.protobuf.message.Message):
@@ -2130,7 +1923,6 @@ class CueSendgridSettings(google.protobuf.message.Message):
 
     API_KEY_FIELD_NUMBER: builtins.int
     FROM_FIELD_NUMBER: builtins.int
-
     @property
     def api_key(self) -> google.protobuf.wrappers_pb2.StringValue:
         """api_key is the key used to connect to the sendgrid APIs"""
@@ -2140,15 +1932,10 @@ class CueSendgridSettings(google.protobuf.message.Message):
         *,
         api_key: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["api_key",
-                 b"api_key", "from", b"from"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["api_key", b"api_key", "from", b"from"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["api_key", b"api_key", "from", b"from"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["api_key", b"api_key", "from", b"from"]) -> None: ...
 
 global___CueSendgridSettings = CueSendgridSettings
-
 
 @typing.final
 class ZoomSettings(google.protobuf.message.Message):
@@ -2158,7 +1945,6 @@ class ZoomSettings(google.protobuf.message.Message):
 
     URL_FIELD_NUMBER: builtins.int
     VERIFICATION_TOKEN_FIELD_NUMBER: builtins.int
-
     @property
     def url(self) -> google.protobuf.wrappers_pb2.StringValue:
         """url is the zoom incoming webhook URL to send messages to"""
@@ -2173,15 +1959,10 @@ class ZoomSettings(google.protobuf.message.Message):
         url: google.protobuf.wrappers_pb2.StringValue | None = ...,
         verification_token: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["url", b"url",
-                 "verification_token", b"verification_token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["url", b"url",
-                   "verification_token", b"verification_token"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["url", b"url", "verification_token", b"verification_token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["url", b"url", "verification_token", b"verification_token"]) -> None: ...
 
 global___ZoomSettings = ZoomSettings
-
 
 @typing.final
 class InhibitionSettings(google.protobuf.message.Message):
@@ -2198,7 +1979,6 @@ class InhibitionSettings(google.protobuf.message.Message):
         key: builtins.str
         @property
         def value(self) -> global___EventList: ...
-
         def __init__(
             self,
             *,
@@ -2206,11 +1986,9 @@ class InhibitionSettings(google.protobuf.message.Message):
             value: global___EventList | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
-        def ClearField(
-            self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
+        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___EventList]:
         """values is a map where the keys are event type which when active will suppress any events with
@@ -2224,9 +2002,7 @@ class InhibitionSettings(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___InhibitionSettings = InhibitionSettings
-
 
 @typing.final
 class EventList(google.protobuf.message.Message):
@@ -2235,7 +2011,6 @@ class EventList(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     EVENT_TYPES_FIELD_NUMBER: builtins.int
-
     @property
     def event_types(self) -> fmp.wrappers_pb2.RepeatedString:
         """event_types contain the event types"""
@@ -2245,14 +2020,10 @@ class EventList(google.protobuf.message.Message):
         *,
         event_types: fmp.wrappers_pb2.RepeatedString | None = ...,
     ) -> None: ...
-    def HasField(
-        self, field_name: typing.Literal["event_types", b"event_types"]) -> builtins.bool: ...
-
+    def HasField(self, field_name: typing.Literal["event_types", b"event_types"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["event_types", b"event_types"]) -> None: ...
 
-
 global___EventList = EventList
-
 
 @typing.final
 class Rules(google.protobuf.message.Message):
@@ -2261,7 +2032,6 @@ class Rules(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Rule]:
         """values contains the rules"""
@@ -2273,9 +2043,7 @@ class Rules(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___Rules = Rules
-
 
 @typing.final
 class Rule(google.protobuf.message.Message):
@@ -2288,7 +2056,6 @@ class Rule(google.protobuf.message.Message):
     CONTINUE_CHECKS_FIELD_NUMBER: builtins.int
     COMMENT_FIELD_NUMBER: builtins.int
     SUPPRESS_FOR_FIELD_NUMBER: builtins.int
-
     @property
     def sends_to(self) -> google.protobuf.wrappers_pb2.StringValue:
         """sends_to is the name of the broadcast group top send matching alerts to"""
@@ -2321,15 +2088,10 @@ class Rule(google.protobuf.message.Message):
         comment: google.protobuf.wrappers_pb2.StringValue | None = ...,
         suppress_for: google.protobuf.duration_pb2.Duration | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["comment", b"comment", "continue_checks", b"continue_checks",
-                 "match_criteria", b"match_criteria", "sends_to", b"sends_to", "suppress_for", b"suppress_for"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["comment", b"comment", "continue_checks", b"continue_checks",
-                   "match_criteria", b"match_criteria", "sends_to", b"sends_to", "suppress_for", b"suppress_for"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["comment", b"comment", "continue_checks", b"continue_checks", "match_criteria", b"match_criteria", "sends_to", b"sends_to", "suppress_for", b"suppress_for"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["comment", b"comment", "continue_checks", b"continue_checks", "match_criteria", b"match_criteria", "sends_to", b"sends_to", "suppress_for", b"suppress_for"]) -> None: ...
 
 global___Rule = Rule
-
 
 @typing.final
 class Matches(google.protobuf.message.Message):
@@ -2346,7 +2108,6 @@ class Matches(google.protobuf.message.Message):
     DEVICE_TAGS_FIELD_NUMBER: builtins.int
     INTF_TAGS_FIELD_NUMBER: builtins.int
     RULE_IDS_FIELD_NUMBER: builtins.int
-
     @property
     def severities(self) -> fmp.wrappers_pb2.RepeatedString:
         """severities is a list of severities to filter on,
@@ -2390,15 +2151,10 @@ class Matches(google.protobuf.message.Message):
         intf_tags: google.protobuf.wrappers_pb2.StringValue | None = ...,
         rule_ids: fmp.wrappers_pb2.RepeatedString | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["device_tags", b"device_tags", "devices", b"devices", "event_types",
-                 b"event_types", "intf_tags", b"intf_tags", "rule_ids", b"rule_ids", "severities", b"severities"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["device_tags", b"device_tags", "devices", b"devices", "event_types",
-                   b"event_types", "intf_tags", b"intf_tags", "rule_ids", b"rule_ids", "severities", b"severities"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["device_tags", b"device_tags", "devices", b"devices", "event_types", b"event_types", "intf_tags", b"intf_tags", "rule_ids", b"rule_ids", "severities", b"severities"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_tags", b"device_tags", "devices", b"devices", "event_types", b"event_types", "intf_tags", b"intf_tags", "rule_ids", b"rule_ids", "severities", b"severities"]) -> None: ...
 
 global___Matches = Matches
-
 
 @typing.final
 class BroadcastGroups(google.protobuf.message.Message):
@@ -2415,7 +2171,6 @@ class BroadcastGroups(google.protobuf.message.Message):
         key: builtins.str
         @property
         def value(self) -> global___BroadcastGroup: ...
-
         def __init__(
             self,
             *,
@@ -2423,11 +2178,9 @@ class BroadcastGroups(google.protobuf.message.Message):
             value: global___BroadcastGroup | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
-        def ClearField(
-            self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
+        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___BroadcastGroup]:
         """values is a map of user defined ids to broadcast groups. No restrictions to naming applies"""
@@ -2439,9 +2192,7 @@ class BroadcastGroups(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___BroadcastGroups = BroadcastGroups
-
 
 @typing.final
 class BroadcastGroup(google.protobuf.message.Message):
@@ -2468,7 +2219,6 @@ class BroadcastGroup(google.protobuf.message.Message):
     CUE_SENDGRID_FIELD_NUMBER: builtins.int
     ZOOM_FIELD_NUMBER: builtins.int
     MS_GRAPH_SEND_MAIL_FIELD_NUMBER: builtins.int
-
     @property
     def email(self) -> global___EmailEndpoints:
         """email is a set of email endpoints to send alerts to as part of this group"""
@@ -2560,15 +2310,10 @@ class BroadcastGroup(google.protobuf.message.Message):
         zoom: global___ZoomEndpoints | None = ...,
         ms_graph_send_mail: global___MsGraphSendMailEndpoints | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie",
-                 b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams",
-                   "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
 
 global___BroadcastGroup = BroadcastGroup
-
 
 @typing.final
 class EmailEndpoints(google.protobuf.message.Message):
@@ -2577,7 +2322,6 @@ class EmailEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___EmailEndpoint]:
         """values are the elements of the set"""
@@ -2589,9 +2333,7 @@ class EmailEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___EmailEndpoints = EmailEndpoints
-
 
 @typing.final
 class WebhookEndpoints(google.protobuf.message.Message):
@@ -2600,7 +2342,6 @@ class WebhookEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___WebhookEndpoint]:
         """values are the elements of the set"""
@@ -2612,9 +2353,7 @@ class WebhookEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___WebhookEndpoints = WebhookEndpoints
-
 
 @typing.final
 class SlackEndpoints(google.protobuf.message.Message):
@@ -2623,7 +2362,6 @@ class SlackEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SlackEndpoint]:
         """values are the elements of the set"""
@@ -2635,9 +2373,7 @@ class SlackEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___SlackEndpoints = SlackEndpoints
-
 
 @typing.final
 class OpsgenieEndpoints(google.protobuf.message.Message):
@@ -2646,7 +2382,6 @@ class OpsgenieEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___OpsgenieEndpoint]:
         """values are the elements of the set"""
@@ -2658,9 +2393,7 @@ class OpsgenieEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___OpsgenieEndpoints = OpsgenieEndpoints
-
 
 @typing.final
 class PushoverEndpoints(google.protobuf.message.Message):
@@ -2669,7 +2402,6 @@ class PushoverEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PushoverEndpoint]:
         """values are the elements of the set"""
@@ -2681,9 +2413,7 @@ class PushoverEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___PushoverEndpoints = PushoverEndpoints
-
 
 @typing.final
 class PagerdutyEndpoints(google.protobuf.message.Message):
@@ -2692,7 +2422,6 @@ class PagerdutyEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PagerdutyEndpoint]:
         """values are the elements of the set"""
@@ -2704,9 +2433,7 @@ class PagerdutyEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___PagerdutyEndpoints = PagerdutyEndpoints
-
 
 @typing.final
 class VictorOpsEndpoints(google.protobuf.message.Message):
@@ -2715,7 +2442,6 @@ class VictorOpsEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___VictorOpsEndpoint]:
         """values are the elements of the set"""
@@ -2727,9 +2453,7 @@ class VictorOpsEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___VictorOpsEndpoints = VictorOpsEndpoints
-
 
 @typing.final
 class GoogleChatEndpoints(google.protobuf.message.Message):
@@ -2738,7 +2462,6 @@ class GoogleChatEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___GoogleChatEndpoint]:
         """values are the elements of the set"""
@@ -2750,9 +2473,7 @@ class GoogleChatEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___GoogleChatEndpoints = GoogleChatEndpoints
-
 
 @typing.final
 class MsTeamsEndpoints(google.protobuf.message.Message):
@@ -2761,7 +2482,6 @@ class MsTeamsEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___MsTeamsEndpoint]:
         """values are the elements of the set"""
@@ -2773,9 +2493,7 @@ class MsTeamsEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___MsTeamsEndpoints = MsTeamsEndpoints
-
 
 @typing.final
 class SendgridEndpoints(google.protobuf.message.Message):
@@ -2784,7 +2502,6 @@ class SendgridEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SendgridEndpoint]:
         """values are the elements of the set"""
@@ -2796,9 +2513,7 @@ class SendgridEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___SendgridEndpoints = SendgridEndpoints
-
 
 @typing.final
 class CueSendgridEndpoints(google.protobuf.message.Message):
@@ -2807,7 +2522,6 @@ class CueSendgridEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CueSendgridEndpoint]:
         """values are the elements of the set"""
@@ -2819,9 +2533,7 @@ class CueSendgridEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___CueSendgridEndpoints = CueSendgridEndpoints
-
 
 @typing.final
 class SyslogEndpoints(google.protobuf.message.Message):
@@ -2830,7 +2542,6 @@ class SyslogEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SyslogEndpoint]:
         """values are the elements of the set"""
@@ -2842,9 +2553,7 @@ class SyslogEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___SyslogEndpoints = SyslogEndpoints
-
 
 @typing.final
 class CueSyslogEndpoints(google.protobuf.message.Message):
@@ -2853,7 +2562,6 @@ class CueSyslogEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CueSyslogEndpoint]:
         """values are the elements of the set"""
@@ -2865,9 +2573,7 @@ class CueSyslogEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___CueSyslogEndpoints = CueSyslogEndpoints
-
 
 @typing.final
 class SNMPEndpoints(google.protobuf.message.Message):
@@ -2876,7 +2582,6 @@ class SNMPEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SNMPEndpoint]:
         """values are the elements of the set"""
@@ -2888,9 +2593,7 @@ class SNMPEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___SNMPEndpoints = SNMPEndpoints
-
 
 @typing.final
 class CueSnmpEndpoints(google.protobuf.message.Message):
@@ -2899,7 +2602,6 @@ class CueSnmpEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CueSNMPEndpoint]:
         """values are the elements of the set"""
@@ -2911,9 +2613,7 @@ class CueSnmpEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___CueSnmpEndpoints = CueSnmpEndpoints
-
 
 @typing.final
 class ZoomEndpoints(google.protobuf.message.Message):
@@ -2922,7 +2622,6 @@ class ZoomEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ZoomEndpoint]:
         """values are the elements of the set"""
@@ -2934,9 +2633,7 @@ class ZoomEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___ZoomEndpoints = ZoomEndpoints
-
 
 @typing.final
 class MsGraphSendMailEndpoints(google.protobuf.message.Message):
@@ -2945,7 +2642,6 @@ class MsGraphSendMailEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___MsGraphSendMailEndpoint]:
         """values are the elements of the set"""
@@ -2957,9 +2653,7 @@ class MsGraphSendMailEndpoints(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___MsGraphSendMailEndpoints = MsGraphSendMailEndpoints
-
 
 @typing.final
 class EmailEndpoint(google.protobuf.message.Message):
@@ -2969,7 +2663,6 @@ class EmailEndpoint(google.protobuf.message.Message):
 
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     TO_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -2987,15 +2680,10 @@ class EmailEndpoint(google.protobuf.message.Message):
         send_resolved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         to: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["send_resolved",
-                 b"send_resolved", "to", b"to"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["send_resolved", b"send_resolved", "to", b"to"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["send_resolved", b"send_resolved", "to", b"to"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["send_resolved", b"send_resolved", "to", b"to"]) -> None: ...
 
 global___EmailEndpoint = EmailEndpoint
-
 
 @typing.final
 class WebhookEndpoint(google.protobuf.message.Message):
@@ -3009,7 +2697,6 @@ class WebhookEndpoint(google.protobuf.message.Message):
     SIMPLE_OUTPUT_FIELD_NUMBER: builtins.int
     SINGLE_ALERT_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3049,15 +2736,10 @@ class WebhookEndpoint(google.protobuf.message.Message):
         single_alert: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         settings_override: global___WebhookSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override",
-                 b"settings_override", "simple_output", b"simple_output", "single_alert", b"single_alert", "url", b"url"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override",
-                   b"settings_override", "simple_output", b"simple_output", "single_alert", b"single_alert", "url", b"url"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override", "simple_output", b"simple_output", "single_alert", b"single_alert", "url", b"url"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override", "simple_output", b"simple_output", "single_alert", b"single_alert", "url", b"url"]) -> None: ...
 
 global___WebhookEndpoint = WebhookEndpoint
-
 
 @typing.final
 class MsGraphSendMailEndpoint(google.protobuf.message.Message):
@@ -3071,7 +2753,6 @@ class MsGraphSendMailEndpoint(google.protobuf.message.Message):
     TO_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3096,15 +2777,10 @@ class MsGraphSendMailEndpoint(google.protobuf.message.Message):
         http_override: global___HttpSettings | None = ...,
         settings_override: global___MsGraphSendMailSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved",
-                 b"send_resolved", "settings_override", b"settings_override", "to", b"to"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved",
-                   b"send_resolved", "settings_override", b"settings_override", "to", b"to"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override", "to", b"to"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override", "to", b"to"]) -> None: ...
 
 global___MsGraphSendMailEndpoint = MsGraphSendMailEndpoint
-
 
 @typing.final
 class SlackEndpoint(google.protobuf.message.Message):
@@ -3115,7 +2791,6 @@ class SlackEndpoint(google.protobuf.message.Message):
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3135,15 +2810,10 @@ class SlackEndpoint(google.protobuf.message.Message):
         http_override: global___HttpSettings | None = ...,
         settings_override: global___SlackSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved",
-                 b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override",
-                   "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___SlackEndpoint = SlackEndpoint
-
 
 @typing.final
 class OpsgenieEndpoint(google.protobuf.message.Message):
@@ -3154,7 +2824,6 @@ class OpsgenieEndpoint(google.protobuf.message.Message):
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3174,15 +2843,10 @@ class OpsgenieEndpoint(google.protobuf.message.Message):
         http_override: global___HttpSettings | None = ...,
         settings_override: global___OpsgenieSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved",
-                 b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override",
-                   "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___OpsgenieEndpoint = OpsgenieEndpoint
-
 
 @typing.final
 class PushoverEndpoint(google.protobuf.message.Message):
@@ -3194,7 +2858,6 @@ class PushoverEndpoint(google.protobuf.message.Message):
     TOKEN_FIELD_NUMBER: builtins.int
     USER_KEY_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3221,15 +2884,10 @@ class PushoverEndpoint(google.protobuf.message.Message):
         user_key: google.protobuf.wrappers_pb2.StringValue | None = ...,
         http_override: global___HttpSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved",
-                 b"send_resolved", "token", b"token", "user_key", b"user_key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override",
-                   "send_resolved", b"send_resolved", "token", b"token", "user_key", b"user_key"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "token", b"token", "user_key", b"user_key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "token", b"token", "user_key", b"user_key"]) -> None: ...
 
 global___PushoverEndpoint = PushoverEndpoint
-
 
 @typing.final
 class PagerdutyEndpoint(google.protobuf.message.Message):
@@ -3241,7 +2899,6 @@ class PagerdutyEndpoint(google.protobuf.message.Message):
     ROUTING_KEY_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3266,15 +2923,10 @@ class PagerdutyEndpoint(google.protobuf.message.Message):
         http_override: global___HttpSettings | None = ...,
         settings_override: global___PagerdutySettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "routing_key", b"routing_key",
-                 "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "routing_key",
-                   b"routing_key", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "routing_key", b"routing_key", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "routing_key", b"routing_key", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___PagerdutyEndpoint = PagerdutyEndpoint
-
 
 @typing.final
 class VictorOpsEndpoint(google.protobuf.message.Message):
@@ -3286,7 +2938,6 @@ class VictorOpsEndpoint(google.protobuf.message.Message):
     ROUTING_KEY_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3311,15 +2962,10 @@ class VictorOpsEndpoint(google.protobuf.message.Message):
         http_override: global___HttpSettings | None = ...,
         settings_override: global___VictoropsSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "routing_key", b"routing_key",
-                 "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "routing_key",
-                   b"routing_key", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "routing_key", b"routing_key", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "routing_key", b"routing_key", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___VictorOpsEndpoint = VictorOpsEndpoint
-
 
 @typing.final
 class GoogleChatEndpoint(google.protobuf.message.Message):
@@ -3330,7 +2976,6 @@ class GoogleChatEndpoint(google.protobuf.message.Message):
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3350,15 +2995,10 @@ class GoogleChatEndpoint(google.protobuf.message.Message):
         http_override: global___HttpSettings | None = ...,
         settings_override: global___GoogleChatSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved",
-                 b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override",
-                   "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___GoogleChatEndpoint = GoogleChatEndpoint
-
 
 @typing.final
 class MsTeamsEndpoint(google.protobuf.message.Message):
@@ -3369,7 +3009,6 @@ class MsTeamsEndpoint(google.protobuf.message.Message):
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3389,15 +3028,10 @@ class MsTeamsEndpoint(google.protobuf.message.Message):
         http_override: global___HttpSettings | None = ...,
         settings_override: global___MsTeamsSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved",
-                 b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override",
-                   "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___MsTeamsEndpoint = MsTeamsEndpoint
-
 
 @typing.final
 class SendgridEndpoint(google.protobuf.message.Message):
@@ -3408,7 +3042,6 @@ class SendgridEndpoint(google.protobuf.message.Message):
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     TO_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3428,15 +3061,10 @@ class SendgridEndpoint(google.protobuf.message.Message):
         to: google.protobuf.wrappers_pb2.StringValue | None = ...,
         http_override: global___HttpSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override",
-                 "send_resolved", b"send_resolved", "to", b"to"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override",
-                   "send_resolved", b"send_resolved", "to", b"to"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "to", b"to"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "to", b"to"]) -> None: ...
 
 global___SendgridEndpoint = SendgridEndpoint
-
 
 @typing.final
 class CueSendgridEndpoint(google.protobuf.message.Message):
@@ -3447,7 +3075,6 @@ class CueSendgridEndpoint(google.protobuf.message.Message):
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     TO_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3469,15 +3096,10 @@ class CueSendgridEndpoint(google.protobuf.message.Message):
         to: google.protobuf.wrappers_pb2.StringValue | None = ...,
         http_override: global___HttpSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override",
-                 "send_resolved", b"send_resolved", "to", b"to"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override",
-                   "send_resolved", b"send_resolved", "to", b"to"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "to", b"to"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "to", b"to"]) -> None: ...
 
 global___CueSendgridEndpoint = CueSendgridEndpoint
-
 
 @typing.final
 class SyslogEndpoint(google.protobuf.message.Message):
@@ -3487,7 +3109,6 @@ class SyslogEndpoint(google.protobuf.message.Message):
 
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3502,15 +3123,10 @@ class SyslogEndpoint(google.protobuf.message.Message):
         send_resolved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         settings_override: global___SyslogSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["send_resolved", b"send_resolved",
-                 "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["send_resolved",
-                   b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___SyslogEndpoint = SyslogEndpoint
-
 
 @typing.final
 class CueSyslogEndpoint(google.protobuf.message.Message):
@@ -3520,7 +3136,6 @@ class CueSyslogEndpoint(google.protobuf.message.Message):
 
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3535,15 +3150,10 @@ class CueSyslogEndpoint(google.protobuf.message.Message):
         send_resolved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         settings_override: global___CueSyslogSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["send_resolved", b"send_resolved",
-                 "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["send_resolved",
-                   b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___CueSyslogEndpoint = CueSyslogEndpoint
-
 
 @typing.final
 class SNMPEndpoint(google.protobuf.message.Message):
@@ -3553,7 +3163,6 @@ class SNMPEndpoint(google.protobuf.message.Message):
 
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3568,15 +3177,10 @@ class SNMPEndpoint(google.protobuf.message.Message):
         send_resolved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         settings_override: global___SNMPSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["send_resolved", b"send_resolved",
-                 "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["send_resolved",
-                   b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___SNMPEndpoint = SNMPEndpoint
-
 
 @typing.final
 class CueSNMPEndpoint(google.protobuf.message.Message):
@@ -3586,7 +3190,6 @@ class CueSNMPEndpoint(google.protobuf.message.Message):
 
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3601,15 +3204,10 @@ class CueSNMPEndpoint(google.protobuf.message.Message):
         send_resolved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         settings_override: global___CueSNMPSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["send_resolved", b"send_resolved",
-                 "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["send_resolved",
-                   b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___CueSNMPEndpoint = CueSNMPEndpoint
-
 
 @typing.final
 class ZoomEndpoint(google.protobuf.message.Message):
@@ -3620,7 +3218,6 @@ class ZoomEndpoint(google.protobuf.message.Message):
     SEND_RESOLVED_FIELD_NUMBER: builtins.int
     HTTP_OVERRIDE_FIELD_NUMBER: builtins.int
     SETTINGS_OVERRIDE_FIELD_NUMBER: builtins.int
-
     @property
     def send_resolved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """send_resolved send alerts when events are resolved along with when they are triggered"""
@@ -3640,15 +3237,10 @@ class ZoomEndpoint(google.protobuf.message.Message):
         http_override: global___HttpSettings | None = ...,
         settings_override: global___ZoomSettings | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved",
-                 b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["http_override", b"http_override",
-                   "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___ZoomEndpoint = ZoomEndpoint
-
 
 @typing.final
 class TemplateKey(google.protobuf.message.Message):
@@ -3659,7 +3251,6 @@ class TemplateKey(google.protobuf.message.Message):
     TEMPLATE_TYPE_FIELD_NUMBER: builtins.int
     template_type: global___TemplateType.ValueType
     """template_type is the enum value to match with the template"""
-
     def __init__(
         self,
         *,
@@ -3667,9 +3258,7 @@ class TemplateKey(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["template_type", b"template_type"]) -> None: ...
 
-
 global___TemplateKey = TemplateKey
-
 
 @typing.final
 class TemplateConfig(google.protobuf.message.Message):
@@ -3679,7 +3268,6 @@ class TemplateConfig(google.protobuf.message.Message):
 
     KEY_FIELD_NUMBER: builtins.int
     TEMPLATE_FIELD_NUMBER: builtins.int
-
     @property
     def key(self) -> global___TemplateKey:
         """key identifies which template the configuration is for"""
@@ -3700,15 +3288,10 @@ class TemplateConfig(google.protobuf.message.Message):
         key: global___TemplateKey | None = ...,
         template: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["key",
-                 b"key", "template", b"template"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["key",
-                   b"key", "template", b"template"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["key", b"key", "template", b"template"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["key", b"key", "template", b"template"]) -> None: ...
 
 global___TemplateConfig = TemplateConfig
-
 
 @typing.final
 class DefaultTemplate(google.protobuf.message.Message):
@@ -3773,12 +3356,7 @@ class DefaultTemplate(google.protobuf.message.Message):
         output_format: global___TemplateOutput.ValueType = ...,
         display_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "external_documentation",
-                 b"external_documentation", "key", b"key", "multi_alert", b"multi_alert", "template", b"template"]) -> builtins.bool: ...
-
-    def ClearField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "external_documentation",
-                   b"external_documentation", "key", b"key", "multi_alert", b"multi_alert", "output_format", b"output_format", "template", b"template"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "external_documentation", b"external_documentation", "key", b"key", "multi_alert", b"multi_alert", "template", b"template"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "external_documentation", b"external_documentation", "key", b"key", "multi_alert", b"multi_alert", "output_format", b"output_format", "template", b"template"]) -> None: ...
 
 global___DefaultTemplate = DefaultTemplate

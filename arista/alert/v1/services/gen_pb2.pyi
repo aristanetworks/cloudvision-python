@@ -20,7 +20,6 @@ import typing
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
-
 @typing.final
 class MetaResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -49,22 +48,16 @@ class MetaResponse(google.protobuf.message.Message):
         type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
         count: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["count",
-                 b"count", "time", b"time"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["count", b"count", "time", b"time", "type", b"type"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["count", b"count", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["count", b"count", "time", b"time", "type", b"type"]) -> None: ...
 
 global___MetaResponse = MetaResponse
-
 
 @typing.final
 class AlertRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time indicates the time for which you are interested in the data.
@@ -79,9 +72,7 @@ class AlertRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["time", b"time"]) -> None: ...
 
-
 global___AlertRequest = AlertRequest
-
 
 @typing.final
 class AlertResponse(google.protobuf.message.Message):
@@ -89,7 +80,6 @@ class AlertResponse(google.protobuf.message.Message):
 
     VALUE_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.Alert:
         """Value is the value requested.
@@ -110,22 +100,16 @@ class AlertResponse(google.protobuf.message.Message):
         value: arista.alert.v1.alert_pb2.Alert | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["time",
-                   b"time", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
 
 global___AlertResponse = AlertResponse
-
 
 @typing.final
 class AlertStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
@@ -153,9 +137,7 @@ class AlertStreamRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["time", b"time"]) -> None: ...
 
-
 global___AlertStreamRequest = AlertStreamRequest
-
 
 @typing.final
 class AlertStreamResponse(google.protobuf.message.Message):
@@ -188,22 +170,16 @@ class AlertStreamResponse(google.protobuf.message.Message):
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
 
 global___AlertStreamResponse = AlertStreamResponse
-
 
 @typing.final
 class AlertConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time indicates the time for which you are interested in the data.
@@ -218,9 +194,7 @@ class AlertConfigRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["time", b"time"]) -> None: ...
 
-
 global___AlertConfigRequest = AlertConfigRequest
-
 
 @typing.final
 class AlertConfigResponse(google.protobuf.message.Message):
@@ -228,7 +202,6 @@ class AlertConfigResponse(google.protobuf.message.Message):
 
     VALUE_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.AlertConfig:
         """Value is the value requested.
@@ -249,22 +222,16 @@ class AlertConfigResponse(google.protobuf.message.Message):
         value: arista.alert.v1.alert_pb2.AlertConfig | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["time",
-                   b"time", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
 
 global___AlertConfigResponse = AlertConfigResponse
-
 
 @typing.final
 class AlertConfigStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
@@ -292,9 +259,7 @@ class AlertConfigStreamRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["time", b"time"]) -> None: ...
 
-
 global___AlertConfigStreamRequest = AlertConfigStreamRequest
-
 
 @typing.final
 class AlertConfigStreamResponse(google.protobuf.message.Message):
@@ -327,22 +292,16 @@ class AlertConfigStreamResponse(google.protobuf.message.Message):
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
 
 global___AlertConfigStreamResponse = AlertConfigStreamResponse
-
 
 @typing.final
 class AlertConfigSetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUE_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.AlertConfig:
         """AlertConfig carries the value to set into the datastore.
@@ -357,9 +316,7 @@ class AlertConfigSetRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
 
-
 global___AlertConfigSetRequest = AlertConfigSetRequest
-
 
 @typing.final
 class AlertConfigSetResponse(google.protobuf.message.Message):
@@ -367,7 +324,6 @@ class AlertConfigSetResponse(google.protobuf.message.Message):
 
     VALUE_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.AlertConfig:
         """Value carries all the values given in the AlertConfigSetRequest as well
@@ -389,15 +345,10 @@ class AlertConfigSetResponse(google.protobuf.message.Message):
         value: arista.alert.v1.alert_pb2.AlertConfig | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["time",
-                   b"time", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
 
 global___AlertConfigSetResponse = AlertConfigSetResponse
-
 
 @typing.final
 class DefaultTemplateRequest(google.protobuf.message.Message):
@@ -405,7 +356,6 @@ class DefaultTemplateRequest(google.protobuf.message.Message):
 
     KEY_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def key(self) -> arista.alert.v1.alert_pb2.TemplateKey:
         """Key uniquely identifies a DefaultTemplate instance to retrieve.
@@ -424,14 +374,10 @@ class DefaultTemplateRequest(google.protobuf.message.Message):
         key: arista.alert.v1.alert_pb2.TemplateKey | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["key",
-                 b"key", "time", b"time"]) -> builtins.bool: ...
-
+    def HasField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> None: ...
 
-
 global___DefaultTemplateRequest = DefaultTemplateRequest
-
 
 @typing.final
 class DefaultTemplateResponse(google.protobuf.message.Message):
@@ -439,7 +385,6 @@ class DefaultTemplateResponse(google.protobuf.message.Message):
 
     VALUE_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.DefaultTemplate:
         """Value is the value requested.
@@ -460,15 +405,10 @@ class DefaultTemplateResponse(google.protobuf.message.Message):
         value: arista.alert.v1.alert_pb2.DefaultTemplate | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["time",
-                   b"time", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
 
 global___DefaultTemplateResponse = DefaultTemplateResponse
-
 
 @typing.final
 class DefaultTemplateSomeRequest(google.protobuf.message.Message):
@@ -476,11 +416,8 @@ class DefaultTemplateSomeRequest(google.protobuf.message.Message):
 
     KEYS_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
-    def keys(
-        self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.alert.v1.alert_pb2.TemplateKey]: ...
-
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.alert.v1.alert_pb2.TemplateKey]: ...
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time indicates the time for which you are interested in the data.
@@ -496,9 +433,7 @@ class DefaultTemplateSomeRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["keys", b"keys", "time", b"time"]) -> None: ...
 
-
 global___DefaultTemplateSomeRequest = DefaultTemplateSomeRequest
-
 
 @typing.final
 class DefaultTemplateSomeResponse(google.protobuf.message.Message):
@@ -507,7 +442,6 @@ class DefaultTemplateSomeResponse(google.protobuf.message.Message):
     VALUE_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.DefaultTemplate:
         """Value is the value requested.
@@ -524,7 +458,6 @@ class DefaultTemplateSomeResponse(google.protobuf.message.Message):
 
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
-
     def __init__(
         self,
         *,
@@ -532,22 +465,16 @@ class DefaultTemplateSomeResponse(google.protobuf.message.Message):
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["error", b"error",
-                 "time", b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> None: ...
 
 global___DefaultTemplateSomeResponse = DefaultTemplateSomeResponse
-
 
 @typing.final
 class DefaultTemplateStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
@@ -575,9 +502,7 @@ class DefaultTemplateStreamRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["time", b"time"]) -> None: ...
 
-
 global___DefaultTemplateStreamRequest = DefaultTemplateStreamRequest
-
 
 @typing.final
 class DefaultTemplateStreamResponse(google.protobuf.message.Message):
@@ -610,15 +535,10 @@ class DefaultTemplateStreamResponse(google.protobuf.message.Message):
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
 
 global___DefaultTemplateStreamResponse = DefaultTemplateStreamResponse
-
 
 @typing.final
 class DefaultTemplateBatchedStreamRequest(google.protobuf.message.Message):
@@ -626,7 +546,6 @@ class DefaultTemplateBatchedStreamRequest(google.protobuf.message.Message):
 
     TIME_FIELD_NUMBER: builtins.int
     MAX_MESSAGES_FIELD_NUMBER: builtins.int
-
     @property
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
@@ -660,26 +579,20 @@ class DefaultTemplateBatchedStreamRequest(google.protobuf.message.Message):
         time: arista.time.time_pb2.TimeBounds | None = ...,
         max_messages: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["max_messages",
-                 b"max_messages", "time", b"time"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["max_messages", b"max_messages", "time", b"time"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["max_messages", b"max_messages", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["max_messages", b"max_messages", "time", b"time"]) -> None: ...
 
 global___DefaultTemplateBatchedStreamRequest = DefaultTemplateBatchedStreamRequest
-
 
 @typing.final
 class DefaultTemplateBatchedStreamResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RESPONSES_FIELD_NUMBER: builtins.int
-
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DefaultTemplateStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -690,9 +603,7 @@ class DefaultTemplateBatchedStreamResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["responses", b"responses"]) -> None: ...
 
-
 global___DefaultTemplateBatchedStreamResponse = DefaultTemplateBatchedStreamResponse
-
 
 @typing.final
 class SenderStatusRequest(google.protobuf.message.Message):
@@ -700,7 +611,6 @@ class SenderStatusRequest(google.protobuf.message.Message):
 
     KEY_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def key(self) -> arista.alert.v1.alert_pb2.SenderStatusKey:
         """Key uniquely identifies a SenderStatus instance to retrieve.
@@ -719,14 +629,10 @@ class SenderStatusRequest(google.protobuf.message.Message):
         key: arista.alert.v1.alert_pb2.SenderStatusKey | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["key",
-                 b"key", "time", b"time"]) -> builtins.bool: ...
-
+    def HasField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> None: ...
 
-
 global___SenderStatusRequest = SenderStatusRequest
-
 
 @typing.final
 class SenderStatusResponse(google.protobuf.message.Message):
@@ -734,7 +640,6 @@ class SenderStatusResponse(google.protobuf.message.Message):
 
     VALUE_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.SenderStatus:
         """Value is the value requested.
@@ -755,15 +660,10 @@ class SenderStatusResponse(google.protobuf.message.Message):
         value: arista.alert.v1.alert_pb2.SenderStatus | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["time",
-                   b"time", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
 
 global___SenderStatusResponse = SenderStatusResponse
-
 
 @typing.final
 class SenderStatusSomeRequest(google.protobuf.message.Message):
@@ -771,11 +671,8 @@ class SenderStatusSomeRequest(google.protobuf.message.Message):
 
     KEYS_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
-    def keys(
-        self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.alert.v1.alert_pb2.SenderStatusKey]: ...
-
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.alert.v1.alert_pb2.SenderStatusKey]: ...
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time indicates the time for which you are interested in the data.
@@ -791,9 +688,7 @@ class SenderStatusSomeRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["keys", b"keys", "time", b"time"]) -> None: ...
 
-
 global___SenderStatusSomeRequest = SenderStatusSomeRequest
-
 
 @typing.final
 class SenderStatusSomeResponse(google.protobuf.message.Message):
@@ -802,7 +697,6 @@ class SenderStatusSomeResponse(google.protobuf.message.Message):
     VALUE_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.SenderStatus:
         """Value is the value requested.
@@ -819,7 +713,6 @@ class SenderStatusSomeResponse(google.protobuf.message.Message):
 
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
-
     def __init__(
         self,
         *,
@@ -827,15 +720,10 @@ class SenderStatusSomeResponse(google.protobuf.message.Message):
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["error", b"error",
-                 "time", b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> None: ...
 
 global___SenderStatusSomeResponse = SenderStatusSomeResponse
-
 
 @typing.final
 class SenderStatusStreamRequest(google.protobuf.message.Message):
@@ -843,7 +731,6 @@ class SenderStatusStreamRequest(google.protobuf.message.Message):
 
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.alert.v1.alert_pb2.SenderStatus]:
         """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
@@ -879,12 +766,9 @@ class SenderStatusStreamRequest(google.protobuf.message.Message):
         time: arista.time.time_pb2.TimeBounds | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
-
+    def ClearField(self, field_name: typing.Literal["partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
 
 global___SenderStatusStreamRequest = SenderStatusStreamRequest
-
 
 @typing.final
 class SenderStatusStreamResponse(google.protobuf.message.Message):
@@ -917,15 +801,10 @@ class SenderStatusStreamResponse(google.protobuf.message.Message):
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
 
 global___SenderStatusStreamResponse = SenderStatusStreamResponse
-
 
 @typing.final
 class SenderStatusBatchedStreamRequest(google.protobuf.message.Message):
@@ -934,7 +813,6 @@ class SenderStatusBatchedStreamRequest(google.protobuf.message.Message):
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     MAX_MESSAGES_FIELD_NUMBER: builtins.int
-
     @property
     def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.alert.v1.alert_pb2.SenderStatus]:
         """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
@@ -978,22 +856,16 @@ class SenderStatusBatchedStreamRequest(google.protobuf.message.Message):
         time: arista.time.time_pb2.TimeBounds | None = ...,
         max_messages: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["max_messages",
-                 b"max_messages", "time", b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["max_messages", b"max_messages",
-                   "partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["max_messages", b"max_messages", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["max_messages", b"max_messages", "partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
 
 global___SenderStatusBatchedStreamRequest = SenderStatusBatchedStreamRequest
-
 
 @typing.final
 class SenderStatusBatchedStreamResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RESPONSES_FIELD_NUMBER: builtins.int
-
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SenderStatusStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
@@ -1008,9 +880,7 @@ class SenderStatusBatchedStreamResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["responses", b"responses"]) -> None: ...
 
-
 global___SenderStatusBatchedStreamResponse = SenderStatusBatchedStreamResponse
-
 
 @typing.final
 class TemplateConfigRequest(google.protobuf.message.Message):
@@ -1018,7 +888,6 @@ class TemplateConfigRequest(google.protobuf.message.Message):
 
     KEY_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def key(self) -> arista.alert.v1.alert_pb2.TemplateKey:
         """Key uniquely identifies a TemplateConfig instance to retrieve.
@@ -1037,14 +906,10 @@ class TemplateConfigRequest(google.protobuf.message.Message):
         key: arista.alert.v1.alert_pb2.TemplateKey | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["key",
-                 b"key", "time", b"time"]) -> builtins.bool: ...
-
+    def HasField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> None: ...
 
-
 global___TemplateConfigRequest = TemplateConfigRequest
-
 
 @typing.final
 class TemplateConfigResponse(google.protobuf.message.Message):
@@ -1052,7 +917,6 @@ class TemplateConfigResponse(google.protobuf.message.Message):
 
     VALUE_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.TemplateConfig:
         """Value is the value requested.
@@ -1073,15 +937,10 @@ class TemplateConfigResponse(google.protobuf.message.Message):
         value: arista.alert.v1.alert_pb2.TemplateConfig | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["time",
-                   b"time", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
 
 global___TemplateConfigResponse = TemplateConfigResponse
-
 
 @typing.final
 class TemplateConfigSomeRequest(google.protobuf.message.Message):
@@ -1089,11 +948,8 @@ class TemplateConfigSomeRequest(google.protobuf.message.Message):
 
     KEYS_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
-    def keys(
-        self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.alert.v1.alert_pb2.TemplateKey]: ...
-
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.alert.v1.alert_pb2.TemplateKey]: ...
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time indicates the time for which you are interested in the data.
@@ -1109,9 +965,7 @@ class TemplateConfigSomeRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["keys", b"keys", "time", b"time"]) -> None: ...
 
-
 global___TemplateConfigSomeRequest = TemplateConfigSomeRequest
-
 
 @typing.final
 class TemplateConfigSomeResponse(google.protobuf.message.Message):
@@ -1120,7 +974,6 @@ class TemplateConfigSomeResponse(google.protobuf.message.Message):
     VALUE_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.TemplateConfig:
         """Value is the value requested.
@@ -1137,7 +990,6 @@ class TemplateConfigSomeResponse(google.protobuf.message.Message):
 
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
-
     def __init__(
         self,
         *,
@@ -1145,22 +997,16 @@ class TemplateConfigSomeResponse(google.protobuf.message.Message):
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["error", b"error",
-                 "time", b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> None: ...
 
 global___TemplateConfigSomeResponse = TemplateConfigSomeResponse
-
 
 @typing.final
 class TemplateConfigStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
@@ -1188,9 +1034,7 @@ class TemplateConfigStreamRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["time", b"time"]) -> None: ...
 
-
 global___TemplateConfigStreamRequest = TemplateConfigStreamRequest
-
 
 @typing.final
 class TemplateConfigStreamResponse(google.protobuf.message.Message):
@@ -1223,15 +1067,10 @@ class TemplateConfigStreamResponse(google.protobuf.message.Message):
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
 
 global___TemplateConfigStreamResponse = TemplateConfigStreamResponse
-
 
 @typing.final
 class TemplateConfigBatchedStreamRequest(google.protobuf.message.Message):
@@ -1239,7 +1078,6 @@ class TemplateConfigBatchedStreamRequest(google.protobuf.message.Message):
 
     TIME_FIELD_NUMBER: builtins.int
     MAX_MESSAGES_FIELD_NUMBER: builtins.int
-
     @property
     def time(self) -> arista.time.time_pb2.TimeBounds:
         """TimeRange allows limiting response data to within a specified time window.
@@ -1273,26 +1111,20 @@ class TemplateConfigBatchedStreamRequest(google.protobuf.message.Message):
         time: arista.time.time_pb2.TimeBounds | None = ...,
         max_messages: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["max_messages",
-                 b"max_messages", "time", b"time"]) -> builtins.bool: ...
-    def ClearField(
-        self, field_name: typing.Literal["max_messages", b"max_messages", "time", b"time"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["max_messages", b"max_messages", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["max_messages", b"max_messages", "time", b"time"]) -> None: ...
 
 global___TemplateConfigBatchedStreamRequest = TemplateConfigBatchedStreamRequest
-
 
 @typing.final
 class TemplateConfigBatchedStreamResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RESPONSES_FIELD_NUMBER: builtins.int
-
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TemplateConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and
+        The length of this structure is guaranteed to be between (inclusive) 1 and 
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -1303,16 +1135,13 @@ class TemplateConfigBatchedStreamResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["responses", b"responses"]) -> None: ...
 
-
 global___TemplateConfigBatchedStreamResponse = TemplateConfigBatchedStreamResponse
-
 
 @typing.final
 class TemplateConfigSetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUE_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.TemplateConfig:
         """TemplateConfig carries the value to set into the datastore.
@@ -1327,9 +1156,7 @@ class TemplateConfigSetRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
 
-
 global___TemplateConfigSetRequest = TemplateConfigSetRequest
-
 
 @typing.final
 class TemplateConfigSetResponse(google.protobuf.message.Message):
@@ -1337,7 +1164,6 @@ class TemplateConfigSetResponse(google.protobuf.message.Message):
 
     VALUE_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def value(self) -> arista.alert.v1.alert_pb2.TemplateConfig:
         """Value carries all the values given in the TemplateConfigSetRequest as well
@@ -1359,22 +1185,16 @@ class TemplateConfigSetResponse(google.protobuf.message.Message):
         value: arista.alert.v1.alert_pb2.TemplateConfig | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["time",
-                 b"time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["time",
-                   b"time", "value", b"value"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
 
 global___TemplateConfigSetResponse = TemplateConfigSetResponse
-
 
 @typing.final
 class TemplateConfigSetSomeRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUES_FIELD_NUMBER: builtins.int
-
     @property
     def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.alert.v1.alert_pb2.TemplateConfig]:
         """value contains a list of TemplateConfig values to write.
@@ -1392,9 +1212,7 @@ class TemplateConfigSetSomeRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-
 global___TemplateConfigSetSomeRequest = TemplateConfigSetSomeRequest
-
 
 @typing.final
 class TemplateConfigSetSomeResponse(google.protobuf.message.Message):
@@ -1405,7 +1223,6 @@ class TemplateConfigSetSomeResponse(google.protobuf.message.Message):
     error: builtins.str
     @property
     def key(self) -> arista.alert.v1.alert_pb2.TemplateKey: ...
-
     def __init__(
         self,
         *,
@@ -1415,16 +1232,13 @@ class TemplateConfigSetSomeResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["key", b"key"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["error", b"error", "key", b"key"]) -> None: ...
 
-
 global___TemplateConfigSetSomeResponse = TemplateConfigSetSomeResponse
-
 
 @typing.final
 class TemplateConfigDeleteRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     KEY_FIELD_NUMBER: builtins.int
-
     @property
     def key(self) -> arista.alert.v1.alert_pb2.TemplateKey:
         """Key indicates which TemplateConfig instance to remove.
@@ -1439,9 +1253,7 @@ class TemplateConfigDeleteRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["key", b"key"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["key", b"key"]) -> None: ...
 
-
 global___TemplateConfigDeleteRequest = TemplateConfigDeleteRequest
-
 
 @typing.final
 class TemplateConfigDeleteResponse(google.protobuf.message.Message):
@@ -1449,7 +1261,6 @@ class TemplateConfigDeleteResponse(google.protobuf.message.Message):
 
     KEY_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
-
     @property
     def key(self) -> arista.alert.v1.alert_pb2.TemplateKey:
         """Key echoes back the key of the deleted TemplateConfig instance."""
@@ -1469,21 +1280,16 @@ class TemplateConfigDeleteResponse(google.protobuf.message.Message):
         key: arista.alert.v1.alert_pb2.TemplateKey | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["key",
-                 b"key", "time", b"time"]) -> builtins.bool: ...
-
+    def HasField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> None: ...
 
-
 global___TemplateConfigDeleteResponse = TemplateConfigDeleteResponse
-
 
 @typing.final
 class TemplateConfigDeleteSomeRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     KEYS_FIELD_NUMBER: builtins.int
-
     @property
     def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.alert.v1.alert_pb2.TemplateKey]:
         """key contains a list of TemplateConfig keys to delete"""
@@ -1495,9 +1301,7 @@ class TemplateConfigDeleteSomeRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["keys", b"keys"]) -> None: ...
 
-
 global___TemplateConfigDeleteSomeRequest = TemplateConfigDeleteSomeRequest
-
 
 @typing.final
 class TemplateConfigDeleteSomeResponse(google.protobuf.message.Message):
@@ -1510,7 +1314,6 @@ class TemplateConfigDeleteSomeResponse(google.protobuf.message.Message):
     error: builtins.str
     @property
     def key(self) -> arista.alert.v1.alert_pb2.TemplateKey: ...
-
     def __init__(
         self,
         *,
@@ -1520,9 +1323,7 @@ class TemplateConfigDeleteSomeResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["key", b"key"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["error", b"error", "key", b"key"]) -> None: ...
 
-
 global___TemplateConfigDeleteSomeResponse = TemplateConfigDeleteSomeResponse
-
 
 @typing.final
 class TemplateConfigDeleteAllRequest(google.protobuf.message.Message):
@@ -1532,9 +1333,7 @@ class TemplateConfigDeleteAllRequest(google.protobuf.message.Message):
         self,
     ) -> None: ...
 
-
 global___TemplateConfigDeleteAllRequest = TemplateConfigDeleteAllRequest
-
 
 @typing.final
 class TemplateConfigDeleteAllResponse(google.protobuf.message.Message):
@@ -1568,12 +1367,7 @@ class TemplateConfigDeleteAllResponse(google.protobuf.message.Message):
         key: arista.alert.v1.alert_pb2.TemplateKey | None = ...,
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-
-    def HasField(self, field_name: typing.Literal["error", b"error",
-                 "key", b"key", "time", b"time"]) -> builtins.bool: ...
-
-    def ClearField(self, field_name: typing.Literal["error", b"error",
-                   "key", b"key", "time", b"time", "type", b"type"]) -> None: ...
-
+    def HasField(self, field_name: typing.Literal["error", b"error", "key", b"key", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["error", b"error", "key", b"key", "time", b"time", "type", b"type"]) -> None: ...
 
 global___TemplateConfigDeleteAllResponse = TemplateConfigDeleteAllResponse
