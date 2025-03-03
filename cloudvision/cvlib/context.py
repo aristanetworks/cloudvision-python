@@ -69,6 +69,22 @@ TMP_STORAGE_PATH = ["action", "tmp"]
 USERNAME = "username"
 DATASET_TYPE = "dataset_type"
 ORGANIZATION = "organization"
+GRPC_RETRY_POLICY_JSON = json.dumps(
+    {
+        "methodConfig": [
+            {
+                "name": [{"service": ""}],
+                "retryPolicy": {
+                    "maxAttempts": 5,
+                    "initialBackoff": "1s",
+                    "maxBackoff": "16s",
+                    "backoffMultiplier": 2.0,
+                    "retryableStatusCodes": ["UNAVAILABLE"],
+                },
+            }
+        ]
+    }
+)
 
 systemLogger = getLogger(__name__)
 
@@ -253,7 +269,12 @@ class Context:
         creds = grpc.ssl_channel_credentials(root_certificates=caData)
         tokCreds = grpc.access_token_call_credentials(token)
         creds = grpc.composite_channel_credentials(creds, tokCreds)
-        self.__serviceChann = grpc.secure_channel(self.connections.serviceAddr, creds)
+        channel_options = []
+        channel_options.append(("grpc.enable_retries", 1))
+        channel_options.append(("grpc.service_config", GRPC_RETRY_POLICY_JSON))
+        self.__serviceChann = grpc.secure_channel(
+            self.connections.serviceAddr, creds, channel_options
+        )
         self.__serviceChann = add_user_context(self.__serviceChann)
         return stub(self.__serviceChann)
 

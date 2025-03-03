@@ -130,7 +130,7 @@ class GRPCClient(object):
         # https://grpc.github.io/grpc/core/group__grpc__arg__keys.html#ga212f667ecbcee3b100898ba7e88454df
         "grpc.enable_retries": 1,
     }
-    RETRY_POLICY_JSON = json.dumps(
+    GRPC_RETRY_POLICY_JSON = json.dumps(
         {
             "methodConfig": [
                 {
@@ -169,7 +169,7 @@ class GRPCClient(object):
         self.channel_options = [
             (k, v) for k, v in dict(GRPCClient.DEFAULT_CHANNEL_OPTIONS, **channel_options).items()
         ]
-        self.channel_options.append(("grpc.service_config", GRPCClient.RETRY_POLICY_JSON))
+        self.channel_options.append(("grpc.service_config", GRPCClient.GRPC_RETRY_POLICY_JSON))
         if (certs is None or key is None) and (token is None and tokenValue is None):
             self.channel = grpc.insecure_channel(grpcAddr, options=self.channel_options)
         else:

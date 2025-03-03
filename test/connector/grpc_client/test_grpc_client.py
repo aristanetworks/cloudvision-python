@@ -20,7 +20,7 @@ class TestGRPCClient:
                 ("grpc.keepalive_time_ms", 60000),
                 ("grpc.http2.max_pings_without_data", 0),
                 ("grpc.enable_retries", 1),
-                ("grpc.service_config", GRPCClient.RETRY_POLICY_JSON),
+                ("grpc.service_config", GRPCClient.GRPC_RETRY_POLICY_JSON),
             ]
         ],
     )
@@ -43,7 +43,7 @@ class TestGRPCClient:
                     ("grpc.keepalive_time_ms", 30000),
                     ("grpc.http2.max_pings_without_data", 0),
                     ("grpc.enable_retries", 1),
-                    ("grpc.service_config", GRPCClient.RETRY_POLICY_JSON),
+                    ("grpc.service_config", GRPCClient.GRPC_RETRY_POLICY_JSON),
                 ],
             ),
             (
@@ -57,7 +57,7 @@ class TestGRPCClient:
                     ("grpc.keepalive_time_ms", 1200000),
                     ("grpc.http2.max_pings_without_data", 0),
                     ("grpc.enable_retries", 1),
-                    ("grpc.service_config", GRPCClient.RETRY_POLICY_JSON),
+                    ("grpc.service_config", GRPCClient.GRPC_RETRY_POLICY_JSON),
                 ],
             ),
             (
@@ -73,7 +73,7 @@ class TestGRPCClient:
                     ("grpc.keepalive_timeout_ms", 10000),
                     ("grpc.http2.max_pings_without_data", 1),
                     ("grpc.enable_retries", 1),
-                    ("grpc.service_config", GRPCClient.RETRY_POLICY_JSON),
+                    ("grpc.service_config", GRPCClient.GRPC_RETRY_POLICY_JSON),
                 ],
             ),
             (
@@ -90,7 +90,7 @@ class TestGRPCClient:
                     ("grpc.keepalive_timeout_ms", 10000),
                     ("grpc.http2.max_pings_without_data", 1),
                     ("grpc.enable_retries", 0),
-                    ("grpc.service_config", GRPCClient.RETRY_POLICY_JSON),
+                    ("grpc.service_config", GRPCClient.GRPC_RETRY_POLICY_JSON),
                 ],
             ),
         ],
