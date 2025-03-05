@@ -381,6 +381,9 @@ class DeviceDecommissioningConfig(google.protobuf.message.Message):
        and tracking the status of the decommissioning attempt.
     4. The user may do a GetOne or Subscribe on DeviceDecommissioning using the
        same UUID to see the status of the request.
+
+    NOTE: this operation does not remove references to the decommissioned device from
+    Studios and Tags. See `DecommissionConfig` in `arista.studio_topology.v1`.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -557,6 +560,7 @@ class ProvisionedDevice(google.protobuf.message.Message):
     ZTP_MODE_FIELD_NUMBER: builtins.int
     IP_ADDRESS_FIELD_NUMBER: builtins.int
     PROVISIONING_GROUP_NAME_FIELD_NUMBER: builtins.int
+    IPV6_ADDRESS_FIELD_NUMBER: builtins.int
     status: global___ProvisioningStatus.ValueType
     """status describes the onboarded device's provisioning status."""
     @property
@@ -585,6 +589,10 @@ class ProvisionedDevice(google.protobuf.message.Message):
         a user may set it to an existing group.
         """
 
+    @property
+    def ipv6_address(self) -> fmp.inet_pb2.IPAddress:
+        """ipv6_address is the IPV6 address of the device."""
+
     def __init__(
         self,
         *,
@@ -594,8 +602,9 @@ class ProvisionedDevice(google.protobuf.message.Message):
         ztp_mode: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         ip_address: fmp.inet_pb2.IPAddress | None = ...,
         provisioning_group_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        ipv6_address: fmp.inet_pb2.IPAddress | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["error", b"error", "ip_address", b"ip_address", "key", b"key", "provisioning_group_name", b"provisioning_group_name", "ztp_mode", b"ztp_mode"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["error", b"error", "ip_address", b"ip_address", "key", b"key", "provisioning_group_name", b"provisioning_group_name", "status", b"status", "ztp_mode", b"ztp_mode"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["error", b"error", "ip_address", b"ip_address", "ipv6_address", b"ipv6_address", "key", b"key", "provisioning_group_name", b"provisioning_group_name", "ztp_mode", b"ztp_mode"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["error", b"error", "ip_address", b"ip_address", "ipv6_address", b"ipv6_address", "key", b"key", "provisioning_group_name", b"provisioning_group_name", "status", b"status", "ztp_mode", b"ztp_mode"]) -> None: ...
 
 global___ProvisionedDevice = ProvisionedDevice
