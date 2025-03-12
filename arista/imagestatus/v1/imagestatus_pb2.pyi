@@ -289,7 +289,7 @@ class _WarningCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     WARNING_CODE_UNSPECIFIED: _WarningCode.ValueType  # 0
     """WARNING_CODE_UNSPECIFIED indicates warning code is unspecified."""
     WARNING_CODE_NOT_APPLICABLE: _WarningCode.ValueType  # 1
-    """WARNING_CODE_NOT_APPLICABLE represents cases where EOS <-> SKU/TA compatibility
+    """WARNING_CODE_NOT_APPLICABLE represents cases where EOS < - > SKU/TA compatibility
     is not applicable for non physical switches like vEos.
     """
     WARNING_CODE_SKUINFO_UNAVAILABLE: _WarningCode.ValueType  # 2
@@ -310,9 +310,8 @@ class _WarningCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     Deprecated - use ERROR_CODE_TA_CV_INCOMPATIBLE.
     """
     WARNING_CODE_EOS_CV_INCOMPATIBLE: _WarningCode.ValueType  # 7
-    """WARNING_CODE_EOS_CV_INCOMPATIBLE represents cases where EOS is no longer or not yet
-    supported by CV. Given EOS is outside range of CV's minimum and maximum EOS.
-    Deprecated - use ERROR_CODE_EOS_CV_INCOMPATIBLE.
+    """WARNING_CODE_EOS_CV_INCOMPATIBLE indicates that EOS is not yet supported by CV.
+    The given EOS exceeds CV's maximum supported EOS version.
     """
     WARNING_CODE_EOS_ARCH_UNKNOWN: _WarningCode.ValueType  # 8
     """WARNING_CODE_EOS_ARCH_UNKNOWN represents cases where the specified architecture is
@@ -357,7 +356,7 @@ class WarningCode(_WarningCode, metaclass=_WarningCodeEnumTypeWrapper):
 WARNING_CODE_UNSPECIFIED: WarningCode.ValueType  # 0
 """WARNING_CODE_UNSPECIFIED indicates warning code is unspecified."""
 WARNING_CODE_NOT_APPLICABLE: WarningCode.ValueType  # 1
-"""WARNING_CODE_NOT_APPLICABLE represents cases where EOS <-> SKU/TA compatibility
+"""WARNING_CODE_NOT_APPLICABLE represents cases where EOS < - > SKU/TA compatibility
 is not applicable for non physical switches like vEos.
 """
 WARNING_CODE_SKUINFO_UNAVAILABLE: WarningCode.ValueType  # 2
@@ -378,9 +377,8 @@ TA is lower than minimum supported TA on CV.
 Deprecated - use ERROR_CODE_TA_CV_INCOMPATIBLE.
 """
 WARNING_CODE_EOS_CV_INCOMPATIBLE: WarningCode.ValueType  # 7
-"""WARNING_CODE_EOS_CV_INCOMPATIBLE represents cases where EOS is no longer or not yet
-supported by CV. Given EOS is outside range of CV's minimum and maximum EOS.
-Deprecated - use ERROR_CODE_EOS_CV_INCOMPATIBLE.
+"""WARNING_CODE_EOS_CV_INCOMPATIBLE indicates that EOS is not yet supported by CV.
+The given EOS exceeds CV's maximum supported EOS version.
 """
 WARNING_CODE_EOS_ARCH_UNKNOWN: WarningCode.ValueType  # 8
 """WARNING_CODE_EOS_ARCH_UNKNOWN represents cases where the specified architecture is
