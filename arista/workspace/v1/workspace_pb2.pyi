@@ -934,6 +934,65 @@ class InputErrors(google.protobuf.message.Message):
 global___InputErrors = InputErrors
 
 @typing.final
+class InputWarning(google.protobuf.message.Message):
+    """InputWarning holds the details for a warning on a studio input field or value."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FIELD_ID_FIELD_NUMBER: builtins.int
+    PATH_FIELD_NUMBER: builtins.int
+    MEMBERS_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
+    @property
+    def field_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """field_id is the ID of the input field."""
+
+    @property
+    def path(self) -> fmp.wrappers_pb2.RepeatedString:
+        """path is the path leading up to the input field."""
+
+    @property
+    def members(self) -> fmp.wrappers_pb2.RepeatedString:
+        """members are the members of the input field (if it is a group)."""
+
+    @property
+    def message(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """message is the warning message."""
+
+    def __init__(
+        self,
+        *,
+        field_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        path: fmp.wrappers_pb2.RepeatedString | None = ...,
+        members: fmp.wrappers_pb2.RepeatedString | None = ...,
+        message: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["field_id", b"field_id", "members", b"members", "message", b"message", "path", b"path"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["field_id", b"field_id", "members", b"members", "message", b"message", "path", b"path"]) -> None: ...
+
+global___InputWarning = InputWarning
+
+@typing.final
+class InputWarnings(google.protobuf.message.Message):
+    """InputWarnings is a list of InputWarning."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___InputWarning]:
+        """values is a list of InputWarning."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___InputWarning] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___InputWarnings = InputWarnings
+
+@typing.final
 class InputValidationResult(google.protobuf.message.Message):
     """InputValidationResult holds the result of an input validation build stage."""
 
@@ -942,7 +1001,7 @@ class InputValidationResult(google.protobuf.message.Message):
     INPUT_SCHEMA_ERRORS_FIELD_NUMBER: builtins.int
     INPUT_VALUE_ERRORS_FIELD_NUMBER: builtins.int
     OTHER_ERRORS_FIELD_NUMBER: builtins.int
-    INPUT_VALUE_WARNINGS_FIELD_NUMBER: builtins.int
+    INPUT_WARNINGS_FIELD_NUMBER: builtins.int
     @property
     def input_schema_errors(self) -> global___InputErrors:
         """input_schema_errors are errors for fields in the input schema."""
@@ -956,8 +1015,8 @@ class InputValidationResult(google.protobuf.message.Message):
         """other_errors are other miscellaneous errors."""
 
     @property
-    def input_value_warnings(self) -> global___InputErrors:
-        """input_value_warnings are warnings for values assigned to fields in the input schema."""
+    def input_warnings(self) -> global___InputWarnings:
+        """input_warnings are warnings for values assigned to fields in the input schema."""
 
     def __init__(
         self,
@@ -965,10 +1024,10 @@ class InputValidationResult(google.protobuf.message.Message):
         input_schema_errors: global___InputErrors | None = ...,
         input_value_errors: global___InputErrors | None = ...,
         other_errors: fmp.wrappers_pb2.RepeatedString | None = ...,
-        input_value_warnings: global___InputErrors | None = ...,
+        input_warnings: global___InputWarnings | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["input_schema_errors", b"input_schema_errors", "input_value_errors", b"input_value_errors", "input_value_warnings", b"input_value_warnings", "other_errors", b"other_errors"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["input_schema_errors", b"input_schema_errors", "input_value_errors", b"input_value_errors", "input_value_warnings", b"input_value_warnings", "other_errors", b"other_errors"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["input_schema_errors", b"input_schema_errors", "input_value_errors", b"input_value_errors", "input_warnings", b"input_warnings", "other_errors", b"other_errors"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["input_schema_errors", b"input_schema_errors", "input_value_errors", b"input_value_errors", "input_warnings", b"input_warnings", "other_errors", b"other_errors"]) -> None: ...
 
 global___InputValidationResult = InputValidationResult
 
