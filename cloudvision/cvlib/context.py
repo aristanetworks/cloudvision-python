@@ -30,6 +30,7 @@ from .constants import (
     STUDIO_ID_ARG,
     STUDIO_IDS_ARG,
     TIMEOUT_REQUEST,
+    TIMEOUT_REQUEST_DI,
     WORKSPACE_ID_ARG,
 )
 from .device import Device, Interface
@@ -279,7 +280,7 @@ class Context:
         return stub(self.__serviceChann)
 
     def runDeviceCmds(self, commandsList: List[str], device: Optional[Device] = None, fmt=JSON,
-                      validateResponse=True):
+                      validateResponse=True, timeout=TIMEOUT_REQUEST_DI):
         '''
         Sends a post request to DI, encodes commandsList in message body.
         Receives output of cli commands from DI as json object.
@@ -346,7 +347,7 @@ class Context:
             runCmdURL = f"https://{self.connections.serviceAddr}/{self.connections.commandEndpoint}"
             self.debug(f"Executing the following command(s) on device {device.id}: {commandsList}")
             response = requests.post(runCmdURL, data=data, headers=HEADERS,
-                                     cookies=cookies, timeout=TIMEOUT_REQUEST, verify=False)
+                                     cookies=cookies, timeout=timeout, verify=False)
         except requests.ConnectionError as e:
             self.error(f"Got exception while establishing connection to DI : {e}")
             raise
