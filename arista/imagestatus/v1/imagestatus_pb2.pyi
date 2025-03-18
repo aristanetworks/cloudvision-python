@@ -171,8 +171,8 @@ class _ErrorCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enum
     CloudVision; i.e., the TerminAttr version is below CloudVision's minimum supported version.
     """
     ERROR_CODE_EOS_CV_INCOMPATIBLE: _ErrorCode.ValueType  # 10
-    """ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where the EOS version is incompatible with
-    CloudVision; i.e., the EOS version is outside of CloudVision's supported range of versions.
+    """ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not supported by CV.
+    The given EOS is below CV's minimum supported EOS version.
     """
     ERROR_CODE_EOS_SUPPORT_NOT_INTRODUCED: _ErrorCode.ValueType  # 11
     """ERROR_CODE_EOS_SUPPORT_NOT_INTRODUCED represents the case where the given EOS version does
@@ -247,8 +247,8 @@ ERROR_CODE_TA_CV_INCOMPATIBLE: ErrorCode.ValueType  # 9
 CloudVision; i.e., the TerminAttr version is below CloudVision's minimum supported version.
 """
 ERROR_CODE_EOS_CV_INCOMPATIBLE: ErrorCode.ValueType  # 10
-"""ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where the EOS version is incompatible with
-CloudVision; i.e., the EOS version is outside of CloudVision's supported range of versions.
+"""ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not supported by CV.
+The given EOS is below CV's minimum supported EOS version.
 """
 ERROR_CODE_EOS_SUPPORT_NOT_INTRODUCED: ErrorCode.ValueType  # 11
 """ERROR_CODE_EOS_SUPPORT_NOT_INTRODUCED represents the case where the given EOS version does
@@ -310,7 +310,7 @@ class _WarningCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     Deprecated - use ERROR_CODE_TA_CV_INCOMPATIBLE.
     """
     WARNING_CODE_EOS_CV_INCOMPATIBLE: _WarningCode.ValueType  # 7
-    """WARNING_CODE_EOS_CV_INCOMPATIBLE indicates that EOS is not yet supported by CV.
+    """WARNING_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not yet supported by CV.
     The given EOS exceeds CV's maximum supported EOS version.
     """
     WARNING_CODE_EOS_ARCH_UNKNOWN: _WarningCode.ValueType  # 8
@@ -377,7 +377,7 @@ TA is lower than minimum supported TA on CV.
 Deprecated - use ERROR_CODE_TA_CV_INCOMPATIBLE.
 """
 WARNING_CODE_EOS_CV_INCOMPATIBLE: WarningCode.ValueType  # 7
-"""WARNING_CODE_EOS_CV_INCOMPATIBLE indicates that EOS is not yet supported by CV.
+"""WARNING_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not yet supported by CV.
 The given EOS exceeds CV's maximum supported EOS version.
 """
 WARNING_CODE_EOS_ARCH_UNKNOWN: WarningCode.ValueType  # 8
