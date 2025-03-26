@@ -383,6 +383,48 @@ is unauthorized to provision this device.
 """
 global___DeviceAuthzStatus = DeviceAuthzStatus
 
+class _HierarchyBuildStatusCode:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _HierarchyBuildStatusCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_HierarchyBuildStatusCode.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    HIERARCHY_BUILD_STATUS_CODE_UNSPECIFIED: _HierarchyBuildStatusCode.ValueType  # 0
+    """HIERARCHY_BUILD_STATUS_CODE_UNSPECIFIED is the default value indicating an unspecified build status."""
+    HIERARCHY_BUILD_STATUS_CODE_RUNNING: _HierarchyBuildStatusCode.ValueType  # 1
+    """HIERARCHY_BUILD_STATUS_CODE_RUNNING indicates that the build is running."""
+    HIERARCHY_BUILD_STATUS_CODE_SUCCESS: _HierarchyBuildStatusCode.ValueType  # 2
+    """HIERARCHY_BUILD_STATUS_CODE_SUCCESS indicates that the build has completed successfully
+    without any errors.
+    """
+    HIERARCHY_BUILD_STATUS_CODE_FAILURE: _HierarchyBuildStatusCode.ValueType  # 3
+    """HIERARCHY_BUILD_STATUS_CODE_FAILURE indicates that the build has completed unsuccesfully
+    with errors.
+    """
+    HIERARCHY_BUILD_STATUS_CODE_CANCELED: _HierarchyBuildStatusCode.ValueType  # 4
+    """HIERARCHY_BUILD_STATUS_CODE_CANCELED indicates that the build was canceled."""
+
+class HierarchyBuildStatusCode(_HierarchyBuildStatusCode, metaclass=_HierarchyBuildStatusCodeEnumTypeWrapper):
+    """HierarchyBuildStatusCode enumerates the various statuses for a build.
+    duplicated from hierarchy.v1.BuildStatus
+    """
+
+HIERARCHY_BUILD_STATUS_CODE_UNSPECIFIED: HierarchyBuildStatusCode.ValueType  # 0
+"""HIERARCHY_BUILD_STATUS_CODE_UNSPECIFIED is the default value indicating an unspecified build status."""
+HIERARCHY_BUILD_STATUS_CODE_RUNNING: HierarchyBuildStatusCode.ValueType  # 1
+"""HIERARCHY_BUILD_STATUS_CODE_RUNNING indicates that the build is running."""
+HIERARCHY_BUILD_STATUS_CODE_SUCCESS: HierarchyBuildStatusCode.ValueType  # 2
+"""HIERARCHY_BUILD_STATUS_CODE_SUCCESS indicates that the build has completed successfully
+without any errors.
+"""
+HIERARCHY_BUILD_STATUS_CODE_FAILURE: HierarchyBuildStatusCode.ValueType  # 3
+"""HIERARCHY_BUILD_STATUS_CODE_FAILURE indicates that the build has completed unsuccesfully
+with errors.
+"""
+HIERARCHY_BUILD_STATUS_CODE_CANCELED: HierarchyBuildStatusCode.ValueType  # 4
+"""HIERARCHY_BUILD_STATUS_CODE_CANCELED indicates that the build was canceled."""
+global___HierarchyBuildStatusCode = HierarchyBuildStatusCode
+
 class _ConfigValidationSkipCause:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -1443,6 +1485,33 @@ class StudioBuildDetails(google.protobuf.message.Message):
 global___StudioBuildDetails = StudioBuildDetails
 
 @typing.final
+class HierarchyBuildStatus(google.protobuf.message.Message):
+    """HierarchyBuildStatus reference to the hierarchy build part of this workspace build"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    BUILD_ID_FIELD_NUMBER: builtins.int
+    BUILD_STATUS_FIELD_NUMBER: builtins.int
+    build_status: global___HierarchyBuildStatusCode.ValueType
+    """build_status ststus of the build on its completion"""
+    @property
+    def build_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """build_id is the reference to the hierarchy build.
+        It uniquely identifies the hierarchy build
+        """
+
+    def __init__(
+        self,
+        *,
+        build_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        build_status: global___HierarchyBuildStatusCode.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["build_id", b"build_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["build_id", b"build_id", "build_status", b"build_status"]) -> None: ...
+
+global___HierarchyBuildStatus = HierarchyBuildStatus
+
+@typing.final
 class WorkspaceBuildKey(google.protobuf.message.Message):
     """WorkspaceBuildKey uniquely identifies a build for a workspace."""
 
@@ -1481,6 +1550,7 @@ class WorkspaceBuild(google.protobuf.message.Message):
     BUILT_BY_FIELD_NUMBER: builtins.int
     AUTHZ_RESULT_FIELD_NUMBER: builtins.int
     STUDIO_BUILD_DETAILS_FIELD_NUMBER: builtins.int
+    HIERARCHY_BUILD_STATUS_FIELD_NUMBER: builtins.int
     state: global___BuildState.ValueType
     """state is the execution status of the build."""
     @property
@@ -1505,6 +1575,10 @@ class WorkspaceBuild(google.protobuf.message.Message):
     def studio_build_details(self) -> global___StudioBuildDetails:
         """studio_build_details has per studio results that are not specific to a device."""
 
+    @property
+    def hierarchy_build_status(self) -> global___HierarchyBuildStatus:
+        """hierarchy_build_status from the hierarchy build part of this workspace build"""
+
     def __init__(
         self,
         *,
@@ -1514,9 +1588,10 @@ class WorkspaceBuild(google.protobuf.message.Message):
         built_by: google.protobuf.wrappers_pb2.StringValue | None = ...,
         authz_result: global___AuthzResult | None = ...,
         studio_build_details: global___StudioBuildDetails | None = ...,
+        hierarchy_build_status: global___HierarchyBuildStatus | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["authz_result", b"authz_result", "built_by", b"built_by", "error", b"error", "key", b"key", "studio_build_details", b"studio_build_details"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["authz_result", b"authz_result", "built_by", b"built_by", "error", b"error", "key", b"key", "state", b"state", "studio_build_details", b"studio_build_details"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["authz_result", b"authz_result", "built_by", b"built_by", "error", b"error", "hierarchy_build_status", b"hierarchy_build_status", "key", b"key", "studio_build_details", b"studio_build_details"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["authz_result", b"authz_result", "built_by", b"built_by", "error", b"error", "hierarchy_build_status", b"hierarchy_build_status", "key", b"key", "state", b"state", "studio_build_details", b"studio_build_details"]) -> None: ...
 
 global___WorkspaceBuild = WorkspaceBuild
 
