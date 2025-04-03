@@ -8,6 +8,7 @@ that can be found in the COPYING file.
 
 import builtins
 import collections.abc
+import fmp.wrappers_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -511,6 +512,47 @@ class EventNotes(google.protobuf.message.Message):
 global___EventNotes = EventNotes
 
 @typing.final
+class EventMetadataGroup(google.protobuf.message.Message):
+    """EventMetadataGroup is a single metadata tag group for an event"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> fmp.wrappers_pb2.MapStringString:
+        """values contains a collection of metadata tag key and value pairs"""
+
+    def __init__(
+        self,
+        *,
+        values: fmp.wrappers_pb2.MapStringString | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["values", b"values"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___EventMetadataGroup = EventMetadataGroup
+
+@typing.final
+class EventMetadata(google.protobuf.message.Message):
+    """EventMetadata is a list of all metadata tag groups for an event"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___EventMetadataGroup]:
+        """values contains a list of metadata tag groups for the event"""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___EventMetadataGroup] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___EventMetadata = EventMetadata
+
+@typing.final
 class Event(google.protobuf.message.Message):
     """Event is a telemetry event"""
 
@@ -529,6 +571,7 @@ class Event(google.protobuf.message.Message):
     READ_FIELD_NUMBER: builtins.int
     RULE_ID_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
     severity: global___EventSeverity.ValueType
     """severity is the severity of the event"""
     @property
@@ -581,6 +624,10 @@ class Event(google.protobuf.message.Message):
         It is nil if event is still ongoing
         """
 
+    @property
+    def metadata(self) -> global___EventMetadata:
+        """metadata is the metadata tag key and value pairs of the event"""
+
     def __init__(
         self,
         *,
@@ -597,9 +644,10 @@ class Event(google.protobuf.message.Message):
         read: global___EventRead | None = ...,
         rule_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        metadata: global___EventMetadata | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["ack", b"ack", "components", b"components", "data", b"data", "delete_time", b"delete_time", "description", b"description", "event_type", b"event_type", "key", b"key", "last_updated_time", b"last_updated_time", "notes", b"notes", "read", b"read", "rule_id", b"rule_id", "title", b"title"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["ack", b"ack", "components", b"components", "data", b"data", "delete_time", b"delete_time", "description", b"description", "event_type", b"event_type", "key", b"key", "last_updated_time", b"last_updated_time", "notes", b"notes", "read", b"read", "rule_id", b"rule_id", "severity", b"severity", "title", b"title"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["ack", b"ack", "components", b"components", "data", b"data", "delete_time", b"delete_time", "description", b"description", "event_type", b"event_type", "key", b"key", "last_updated_time", b"last_updated_time", "metadata", b"metadata", "notes", b"notes", "read", b"read", "rule_id", b"rule_id", "title", b"title"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["ack", b"ack", "components", b"components", "data", b"data", "delete_time", b"delete_time", "description", b"description", "event_type", b"event_type", "key", b"key", "last_updated_time", b"last_updated_time", "metadata", b"metadata", "notes", b"notes", "read", b"read", "rule_id", b"rule_id", "severity", b"severity", "title", b"title"]) -> None: ...
 
 global___Event = Event
 
