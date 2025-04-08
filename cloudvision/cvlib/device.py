@@ -11,6 +11,228 @@ from .exceptions import (
 from .tags import Tag
 
 
+OLD_VEOS_REGEX = r'(v|c)EOS(-)*(Lab)*'
+NEW_VEOS_REGEX = r'CloudEOS(-)*(Lab)*'
+veos_regex = f"({OLD_VEOS_REGEX})|({NEW_VEOS_REGEX})"
+device_capabilities: Dict[str, Dict] = {
+    "jericho-fixed": {
+        "regexes": [r'DCS-7280\w(R|R2)\D*-.+', r'DCS-7048T', r'DCS-7020\w(R|RW)\D*-.+'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 900,
+            "non_mlag": 1020
+        },
+        "tcam_profile": "vxlan-routing",
+    },
+    "jericho-chassis": {
+        "regexes": [r'DCS-75\d\d'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 900,
+            "non_mlag": 1020
+        },
+        "tcam_profile": "vxlan-routing",
+        "management_interface": "Management0",
+    },
+    "jericho2-fixed": {
+        "regexes": [r'DCS-7280\w(R3)\D*-.+'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 900,
+            "non_mlag": 1020
+        },
+        "tcam_profile": None,
+    },
+    "jericho2-chassis": {
+        "regexes": [r'DCS-78\d\d'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 900,
+            "non_mlag": 1020
+        },
+        "tcam_profile": None,
+    },
+    "trident3x1-fixed": {
+        "regexes": [r'CCS-720DP-24S', r'CCS-720DT-24', r'CCS-710P'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "trident_forwarding_table_partition": (
+            "flexible exact-match 16384 "
+            "l2-shared 98304 l3-shared 131072"),
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+            "poe": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+        "per_interface_mtu": False,
+    },
+    "trident3x2-fixed-poe": {
+        "regexes": [r'CCS-720DP-48S', r'CCS-722XP'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "trident_forwarding_table_partition": (
+            "flexible exact-match 16384 "
+            "l2-shared 98304 l3-shared 131072"),
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+            "poe": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+        "per_interface_mtu": False,
+    },
+    "trident3x2-fixed": {
+        "regexes": [r'CCS-720DT-48', r'DCS-7010TX', r'DCS-7050(S|T)X-\d\d'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "trident_forwarding_table_partition": (
+            "flexible exact-match 16384 "
+            "l2-shared 98304 l3-shared 131072"),
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+        "per_interface_mtu": False,
+    },
+    "trident3x3-fixed": {
+        "regexes": [r'CCS-720XP-\d\d', r'CCS-720DP-\d\dZS', r'CCS-720DF-\d\d'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "trident_forwarding_table_partition": (
+            "flexible exact-match 16384 "
+            "l2-shared 98304 l3-shared 131072"),
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+            "poe": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+    },
+    "trident3x4-chassis": {
+        "regexes": [r'CCS-75\d'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "trident_forwarding_table_partition": (
+            "flexible exact-match 16384 "
+            "l2-shared 98304 l3-shared 131072"),
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+            "poe": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+        "per_interface_mtu": False,
+    },
+    "trident3x5|7-fixed": {
+        "regexes": [r'DCS-7050\w(X3)'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "trident_forwarding_table_partition": (
+            "flexible exact-match 16384 "
+            "l2-shared 98304 l3-shared 131072"),
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+    },
+    "trident3-chassis": {
+        "regexes": [r'DCS-73\d\dX3'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 1200,
+            "non_mlag": 1320
+        },
+        "tcam_profile": None,
+        "trident_forwarding_table_partition": (
+            "flexible exact-match 16384 "
+            "l2-shared 98304 l3-shared 131072"),
+        "management_interface": "Management0",
+    },
+    "trident4-chassis": {
+        "regexes": [r'DCS-73\d\dX4'],
+        "tcam_profile": None,
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330,
+        },
+        "bgp_update_wait_for_convergence": True,
+        "bgp_update_wait_install": False,
+    },
+    "veos": {
+        "regexes": [veos_regex],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "management_interface": "Management0",
+        "ip_locking": {
+            "support": True
+        },
+        "bgp_update_wait_for_convergence": False,
+        "bgp_update_wait_install": False,
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "interface_storm_control": False
+        },
+    },
+    "default": {
+        "regexes": [r'.+'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "feature_support": {
+            # "queue-monitor length notify" is only valid for R-Series
+            # so should be disabled on default platform.
+            "queue_monitor_length_notify": False,
+        },
+    }
+}
+
+
 class Device:
     '''
     Object to store device information

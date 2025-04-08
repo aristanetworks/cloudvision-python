@@ -26,15 +26,16 @@ from arista.tag.v2.tag_pb2 import (
     CREATOR_TYPE_USER,
 )
 from arista.time.time_pb2 import TimeBounds
-from .constants import TIMEOUT_REQUEST
+from .constants import (
+    TIMEOUT_REQUEST,
+    MAINLINE_WS_ID,
+)
 from .exceptions import (
     TagOperationException
 )
 from .workspace import (
     getWorkspaceLastSynced
 )
-
-MAINLINE_ID = ""
 
 
 class Tag:
@@ -298,7 +299,7 @@ class Tags:
         tagFilter = TagAssignment()
         tagFilter.tag_creator_type = CREATOR_TYPE_USER
         tagFilter.key.element_type = ELEMENT_TYPE_DEVICE
-        tagFilter.key.workspace_id.value = MAINLINE_ID
+        tagFilter.key.workspace_id.value = MAINLINE_WS_ID
         tagRequest.partial_eq_filter.append(tagFilter)
         for resp in tagClient.GetAll(tagRequest, timeout=TIMEOUT_REQUEST):
             label = resp.value.key.label.value
@@ -545,7 +546,7 @@ class Tags:
         tagFilter = TagAssignment()
         tagFilter.tag_creator_type = CREATOR_TYPE_USER
         tagFilter.key.element_type = ELEMENT_TYPE_INTERFACE
-        tagFilter.key.workspace_id.value = MAINLINE_ID
+        tagFilter.key.workspace_id.value = MAINLINE_WS_ID
         tagRequest.partial_eq_filter.append(tagFilter)
         for resp in tagClient.GetAll(tagRequest, timeout=TIMEOUT_REQUEST):
             label = resp.value.key.label.value
