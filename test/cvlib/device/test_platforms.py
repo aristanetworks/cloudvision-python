@@ -77,7 +77,7 @@ testPlatformMatchCases = [
     [
         'trident fixed variant',
         'CCS-720XP-48ZC2',
-        device_capabilities['trident3x3-fixed'].get('regexes'),
+        device_capabilities['trident3x3-fixed-720XP'].get('regexes'),
         None
     ],
     [
@@ -109,7 +109,7 @@ testPlatformMatchCases = [
 
 @pytest.mark.parametrize('name, modelName, expRegexes, expError',
                          testPlatformMatchCases)
-def test_getAllDeviceTags(name, modelName, expRegexes, expError):
+def test_getPlatformSettings(name, modelName, expRegexes, expError):
     error = None
     matching_settings = None
     try:
