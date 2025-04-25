@@ -20,6 +20,8 @@ from .studio import (
     getStudioInputs,
     setStudioInput,
     setStudioInputs,
+    get_tag_value_from_resolver,
+    validate_resolver,
 )
 from .tags import Tag, Tags
 from .topology import Connection, Topology

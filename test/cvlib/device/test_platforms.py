@@ -77,7 +77,7 @@ testPlatformMatchCases = [
     [
         'trident fixed variant',
         'CCS-720XP-48ZC2',
-        device_capabilities['trident3x3-fixed-720XP'].get('regexes'),
+        device_capabilities['trident3x3-fixed'].get('regexes'),
         None
     ],
     [

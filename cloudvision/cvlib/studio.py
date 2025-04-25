@@ -3,7 +3,7 @@
 # that can be found in the COPYING file.
 
 import json
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Tuple, Optional
 
 import google.protobuf.wrappers_pb2 as pb
 from google.protobuf.timestamp_pb2 import Timestamp
@@ -673,3 +673,30 @@ def mergeStudioInputs(rootInputs: Any, path: List[Any], inputsToInsert: Any):
         else:
             prev[currElem] = inputsToInsert
     return rootInputs
+
+
+# The following functions are input validation helpers for autofill scripts.
+# Note that while the studio template scripts operate on post build validated inputs,
+# the autofill scripts operate on the raw studio inputs.
+
+def get_tag_value_from_resolver(resolver: Dict) -> str:
+    """
+    Return the value in single-tag resolver
+    """
+    tags = resolver.get('tags', {}) if resolver and isinstance(resolver, dict) else {}
+    return tags.get('query').split(':')[1] if tags.get('query') else ""
+
+
+def validate_resolver(resolver: Dict) -> Tuple[Optional[Dict], Optional[str]]:
+    """
+    Validates a resolver entry containing a group.
+    Consider no inputs as an invalid (ie. irrelevant) case.
+    Return the resolver inputs, tag value if valid, else None, None.
+    """
+    if (not resolver
+       or not isinstance(resolver, dict)
+       or not (res_inputs := resolver.get('inputs'))
+       or not isinstance(res_inputs, dict)
+       or not (res_tag_value := get_tag_value_from_resolver(resolver))):
+        return None, None
+    return res_inputs, res_tag_value
