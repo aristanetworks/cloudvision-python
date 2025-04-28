@@ -775,6 +775,7 @@ class WorkspaceConfig(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     REQUEST_FIELD_NUMBER: builtins.int
     REQUEST_PARAMS_FIELD_NUMBER: builtins.int
+    EXCLUDE_NETWORK_PROVISIONING_FIELD_NUMBER: builtins.int
     request: global___Request.ValueType
     """request (if not REQUEST_UNSPECIFIED) kicks off an asynchronous operation
     on the workspace.
@@ -795,6 +796,13 @@ class WorkspaceConfig(google.protobuf.message.Message):
     def request_params(self) -> global___RequestParams:
         """request_params specify the parameters for `request`."""
 
+    @property
+    def exclude_network_provisioning(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """exclude_network_provisioning excludes Network Provisioning components from
+        build and from designed config on submit. This field is set to true in the
+        workspace in which migration to Studios is initiated from the UI.
+        """
+
     def __init__(
         self,
         *,
@@ -803,9 +811,10 @@ class WorkspaceConfig(google.protobuf.message.Message):
         description: google.protobuf.wrappers_pb2.StringValue | None = ...,
         request: global___Request.ValueType = ...,
         request_params: global___RequestParams | None = ...,
+        exclude_network_provisioning: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "key", b"key", "request_params", b"request_params"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "key", b"key", "request", b"request", "request_params", b"request_params"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "request_params", b"request_params"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "request", b"request", "request_params", b"request_params"]) -> None: ...
 
 global___WorkspaceConfig = WorkspaceConfig
 
@@ -829,6 +838,7 @@ class Workspace(google.protobuf.message.Message):
     NEEDS_REBASE_FIELD_NUMBER: builtins.int
     DISPLAY_NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
+    EXCLUDE_NETWORK_PROVISIONING_FIELD_NUMBER: builtins.int
     state: global___WorkspaceState.ValueType
     """state describes the status of the workspace."""
     @property
@@ -893,6 +903,12 @@ class Workspace(google.protobuf.message.Message):
     def description(self) -> google.protobuf.wrappers_pb2.StringValue:
         """description is a brief description of the workspace."""
 
+    @property
+    def exclude_network_provisioning(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """exclude_network_provisioning indicates whether the workspace is
+        configured to exclude Network Provisioning.
+        """
+
     def __init__(
         self,
         *,
@@ -910,9 +926,10 @@ class Workspace(google.protobuf.message.Message):
         needs_rebase: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         display_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
         description: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        exclude_network_provisioning: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "description", b"description", "display_name", b"display_name", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "description", b"description", "display_name", b"display_name", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses", "state", b"state"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses", "state", b"state"]) -> None: ...
 
 global___Workspace = Workspace
 
