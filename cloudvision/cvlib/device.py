@@ -60,6 +60,22 @@ device_capabilities: Dict[str, Dict] = {
         },
         "tcam_profile": "vxlan-routing",
     },
+    "trident2-fixed": {
+        "regexes": [r'DCS-7050(S|T)X-\d\d'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+    },
     "trident3x1-fixed": {
         "regexes": [r'CCS-720DP-24S', r'CCS-720DT-24', r'CCS-710P'],
         "info": "Configured in standard settings",
@@ -97,7 +113,7 @@ device_capabilities: Dict[str, Dict] = {
         "per_interface_mtu": False,
     },
     "trident3x2-fixed": {
-        "regexes": [r'CCS-720DT-48', r'DCS-7010TX', r'DCS-7050(S|T)X-\d\d'],
+        "regexes": [r'CCS-720DT-48', r'DCS-7010TX'],
         "info": "Configured in standard settings",
         "reload_delay": {
             "mlag": 300,
