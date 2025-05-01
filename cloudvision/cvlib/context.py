@@ -280,7 +280,8 @@ class Context:
         return stub(self.__serviceChann)
 
     def runDeviceCmds(self, commandsList: List[str], device: Optional[Device] = None, fmt=JSON,
-                      validateResponse=True, timeout=TIMEOUT_REQUEST_DI):
+                      validateResponse=True, timeout=TIMEOUT_REQUEST_DI, diConnTimeout=None,
+                      diCliTimeout=None):
         '''
         Sends a post request to DI, encodes commandsList in message body.
         Receives output of cli commands from DI as json object.
@@ -295,6 +296,13 @@ class Context:
                                  resultant error as an exception, e.g. device reboot commands can
                                  cause heartbeat error messages in the response, but we can discard
                                  them as the device will reboot.
+        :param timeout: The timeout for the request from the script to DI.
+                        Defaults to 5m if unspecified.
+        :param diConnTimeout: The timeout for the follow-up request from the DI service
+                              to the device. Defaults to 250s if unspecified
+        :param diCliTimeout: The timeout for the follow-up request from the DI service to the.
+                             device to complete the commands. Defaults to 200s if unspecified.
+
         :return: json object containing output of commandsList (if validateResponse is True)
                  OR
                  raw request response (if validateResponse is False)
@@ -326,13 +334,15 @@ class Context:
         # From the DI service documentation about the HOST field:
         # Host can be either IP address or hostname
         deviceInteractionHost = device.ip if device.ip else device.hostName
+        diCliTo = diCliTimeout if diCliTimeout else self.connections.cliTimeout
+        diConnTo = diConnTimeout if diConnTimeout else self.connections.connectionTimeout
 
         request = {
             HOST: deviceInteractionHost,
             DEVICE_ID: device.id,
             CMDS: commandsList,
-            TIMEOUT_CLI: self.connections.cliTimeout,
-            TIMEOUT_CONN: self.connections.connectionTimeout,
+            TIMEOUT_CLI: diCliTo,
+            TIMEOUT_CONN: diConnTo,
             REQ_FORMAT: fmt,
             STOP_ON_ERROR: False
         }
