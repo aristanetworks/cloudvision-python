@@ -231,6 +231,8 @@ class _ResponseCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     """RESPONSE_CODE_DECOMMISSION_DEVICES_INCOMPLETE indicates that the decommission process is
     incomplete for devices.
     """
+    RESPONSE_CODE_SYNCHRONIZATION_REQUIRED: _ResponseCode.ValueType  # 3
+    """RESPONSE_CODE_SYNCHRONIZATION_REQUIRED indicates that synchronization is required."""
 
 class ResponseCode(_ResponseCode, metaclass=_ResponseCodeEnumTypeWrapper):
     """ResponseCode is a code for a Response indicating a particular scenario."""
@@ -245,6 +247,8 @@ RESPONSE_CODE_DECOMMISSION_DEVICES_INCOMPLETE: ResponseCode.ValueType  # 2
 """RESPONSE_CODE_DECOMMISSION_DEVICES_INCOMPLETE indicates that the decommission process is
 incomplete for devices.
 """
+RESPONSE_CODE_SYNCHRONIZATION_REQUIRED: ResponseCode.ValueType  # 3
+"""RESPONSE_CODE_SYNCHRONIZATION_REQUIRED indicates that synchronization is required."""
 global___ResponseCode = ResponseCode
 
 class _BuildState:
