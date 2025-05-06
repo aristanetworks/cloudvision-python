@@ -143,6 +143,44 @@ COMPONENT_TYPE_CVP_NODE: ComponentType.ValueType  # 11
 """COMPONENT_TYPE_CVP_NODE is used for CVP node events."""
 global___ComponentType = ComponentType
 
+class _MaintenanceModeFilter:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _MaintenanceModeFilterEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MaintenanceModeFilter.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    MAINTENANCE_MODE_FILTER_UNSPECIFIED: _MaintenanceModeFilter.ValueType  # 0
+    """MAINTENANCE_MODE_FILTER_UNSPECIFIED is the default value when no filter is specified.
+    This returns all events, whether they were generated during maintenance mode or not.
+    """
+    MAINTENANCE_MODE_FILTER_ONLY_NON_MAINTENANCE_MODE: _MaintenanceModeFilter.ValueType  # 1
+    """MAINTENANCE_MODE_FILTER_ONLY_NON_MAINTENANCE_MODE is used to exclude events generated
+    during maintenance mode.
+    """
+    MAINTENANCE_MODE_FILTER_ONLY_MAINTENANCE_MODE: _MaintenanceModeFilter.ValueType  # 2
+    """MAINTENANCE_MODE_FILTER_ONLY_MAINTENANCE_MODE is used to return only events generated
+    during maintenance mode.
+    """
+
+class MaintenanceModeFilter(_MaintenanceModeFilter, metaclass=_MaintenanceModeFilterEnumTypeWrapper):
+    """MaintenanceModeFilter specifies filtering options for events based on whether they were
+    generated while the source was in maintenance mode.
+    """
+
+MAINTENANCE_MODE_FILTER_UNSPECIFIED: MaintenanceModeFilter.ValueType  # 0
+"""MAINTENANCE_MODE_FILTER_UNSPECIFIED is the default value when no filter is specified.
+This returns all events, whether they were generated during maintenance mode or not.
+"""
+MAINTENANCE_MODE_FILTER_ONLY_NON_MAINTENANCE_MODE: MaintenanceModeFilter.ValueType  # 1
+"""MAINTENANCE_MODE_FILTER_ONLY_NON_MAINTENANCE_MODE is used to exclude events generated
+during maintenance mode.
+"""
+MAINTENANCE_MODE_FILTER_ONLY_MAINTENANCE_MODE: MaintenanceModeFilter.ValueType  # 2
+"""MAINTENANCE_MODE_FILTER_ONLY_MAINTENANCE_MODE is used to return only events generated
+during maintenance mode.
+"""
+global___MaintenanceModeFilter = MaintenanceModeFilter
+
 @typing.final
 class EventComponent(google.protobuf.message.Message):
     """EventComponent describes an entity on which the event occurred"""
@@ -731,3 +769,21 @@ class UserEventCreationConfig(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["components", b"components", "description", b"description", "key", b"key", "rule_id", b"rule_id", "severity", b"severity", "start_time", b"start_time", "title", b"title"]) -> None: ...
 
 global___UserEventCreationConfig = UserEventCreationConfig
+
+@typing.final
+class EventFilter(google.protobuf.message.Message):
+    """EventFilter serves as a custom filter to events."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MAINTENANCE_MODE_FILTER_FIELD_NUMBER: builtins.int
+    maintenance_mode_filter: global___MaintenanceModeFilter.ValueType
+    """maintenance_mode_filter specifies how maintenance mode events should be filtered."""
+    def __init__(
+        self,
+        *,
+        maintenance_mode_filter: global___MaintenanceModeFilter.ValueType = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["maintenance_mode_filter", b"maintenance_mode_filter"]) -> None: ...
+
+global___EventFilter = EventFilter
