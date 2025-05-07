@@ -1,0 +1,190 @@
+inputs:
+  campus:
+  - inputs:
+      campusDetails:
+        campusPod:
+        # CAMPUS POD A
+        - inputs:
+            campusPodFacts:
+              accessPodDefaults: {}
+              accessPods:
+              # CAMPUS A ACCESS POD A
+              - inputs:
+                  accessPodFacts:
+                    leafs:
+                    - inputs:
+                        leafsInfo:
+                          nodeId: 1
+                      tags:
+                        query: device:b13581704dbe48c5be50a1d3b912e602
+                    - inputs:
+                        leafsInfo:
+                          nodeId: 2
+                      tags:
+                        query: device:b6b6fa473ac74f0d8074b23d043ebf62
+                    memberLeafMlagPairs: []
+                    memberLeafs: []
+                tags:
+                  query: Access-Pod:Access-A-POD-A
+              # CAMPUS A ACCESS POD B
+              - inputs:
+                  accessPodFacts:
+                    leafs:
+                    - inputs:
+                        leafsInfo:
+                          nodeId: 3
+                      tags:
+                        query: device:ad9aa15d3c234c87a152e67797903ce5
+                    memberLeafMlagPairs: []
+                    memberLeafs: []
+                tags:
+                  query: Access-Pod:Access-A-POD-B
+              # CAMPUS A ACCESS POD C
+              - inputs:
+                  accessPodFacts:
+                    leafs:
+                    - inputs:
+                        leafsInfo:
+                          nodeId: 4
+                      tags:
+                        query: device:f40d1d36942f4d6b9dccb6c400a7378f
+                    - inputs:
+                        leafsInfo:
+                          nodeId: 5
+                      tags:
+                        query: device:7b5f47d0e2a245c5aa33df17be142c07
+                    memberLeafMlagPairs: []
+                    memberLeafs:
+                    - inputs:
+                        memberLeafsInfo:
+                          nodeId: 6
+                      tags:
+                        query: device:bde4dc9df0864580ad9cf467ae428d3b
+                    - inputs:
+                        memberLeafsInfo:
+                          nodeId: 7
+                      tags:
+                        query: device:7b8e18e2352044c89b8c22a47f683f45
+                tags:
+                  query: Access-Pod:Access-A-POD-C
+
+              advancedFabricSettings: {}
+              campusPodRoutingProtocols: {}
+              design:
+                campusType: L2
+                vxlanOverlay: false
+              egressConnectivity: {}
+              fabricConfigurations: {}
+              nodeTypeProperties: {}
+              spineDefaults: {}
+              spines:
+              - inputs:
+                  spinesInfo:
+                    nodeId: 1
+                tags:
+                  query: device:6f8bc1af66c34542a55b0e77b8d1c83c
+              - inputs:
+                  spinesInfo:
+                    nodeId: 2
+                tags:
+                  query: device:43236a9920634676b45c0fd995c72f98
+              thirdPartyDevices: []
+          tags:
+            query: Campus-Pod:Campus-POD-A
+
+
+
+        # Campus POD B
+        - inputs:
+            campusPodFacts:
+              accessPodDefaults: {}
+              accessPods:
+              # CAMPUS B ACCESS POD A
+              - inputs:
+                  accessPodFacts:
+                    leafs:
+                    - inputs:
+                        leafsInfo:
+                          nodeId: 1
+                      tags:
+                        query: device:a790dbb0ce2f4357a103b687cc72a508
+                    - inputs:
+                        leafsInfo:
+                          nodeId: 2
+                      tags:
+                        query: device:3627a73cba39454592f1d1b0f2dc3fc3
+                    memberLeafMlagPairs: []
+                    memberLeafs: []
+                tags:
+                  query: Access-Pod:Access-B-POD-A
+              # #CAMPUS B ACCESS POD B
+              # - inputs:
+              #     accessPodFacts:
+              #       leafs:
+              #       - inputs:
+              #           leafsInfo:
+              #             nodeId: 3
+              #         tags:
+              #           query: device:32163b2e78e5467eba7735b81f750f6c
+              #       memberLeafMlagPairs: []
+              #       memberLeafs: []
+              #   tags:
+              #     query: Access-Pod:Access-B-POD-B
+              # #CAMPUS B ACCESS POD C
+              # - inputs:
+              #     accessPodFacts:
+              #       leafs:
+              #       - inputs:
+              #           leafsInfo:
+              #             nodeId: 4
+              #         tags:
+              #           query: device:4fed44568b0945f5a716d7c62a112dc6
+              #       - inputs:
+              #           leafsInfo:
+              #             nodeId: 5
+              #         tags:
+              #           query: device:6f8b0627fa2f41baa75dd6b3c5647ee9
+              #       memberLeafMlagPairs: []
+              #       memberLeafs:
+              #       - inputs:
+              #           memberLeafsInfo:
+              #             nodeId: 6
+              #         tags:
+              #           query: device:ce09fd97065245679e1d6b2938a37348
+              #       - inputs:
+              #           memberLeafsInfo:
+              #             nodeId: 7
+              #         tags:
+              #           query: device:1c90dad8d8b1451db2b454d812a0f96b
+              #   tags:
+              #     query: Access-Pod:Access-B-POD-C
+              advancedFabricSettings: {}
+              campusPodRoutingProtocols: {}
+              design:
+                campusType: L2
+                vxlanOverlay: false
+              egressConnectivity: {}
+              fabricConfigurations: {}
+              nodeTypeProperties: {}
+              spineDefaults: {}
+              spines:
+              - inputs:
+                  spinesInfo:
+                    nodeId: 1
+                tags:
+                  query: device:b9f63c6a3b7743508c8fb96d06ebaa1e
+              - inputs:
+                  spinesInfo:
+                    nodeId: 2
+                tags:
+                  query: device:ba86b025a1b645b1b0335a76dd4c40a1
+              thirdPartyDevices: []
+          tags:
+            query: Campus-Pod:Campus-POD-B
+
+
+        remoteSitesToggle: false
+    tags:
+      query: Campus:Campus-Fabric
+  campusServices: []
+path: []

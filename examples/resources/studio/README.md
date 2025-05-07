@@ -54,7 +54,6 @@ options:
                         whether to stop after building the changes (no submission)
 ```
 
-
 ### Get the updates
 
 ```shell
@@ -86,4 +85,47 @@ python studio_onboarding.py --server www.arista.io:443 --token-file token.tok \
 python studio_onboarding.py --server www.cv-staging.corp.arista.io:443 --token-file token.tok \
     --wsid 5f88c496-71ca-469d-af19-2a17a5f5d583 --operation set \
     --update-id 'add::DEVICE::{"deviceId":"ZZZ7777777","hostname":"leaf503","interfaceSize":73}'
+```
+
+## studio_update.py
+
+The `studio_update.py` can be used to manage built-in and custom studios
+
+### Get the input of a studio
+
+```shell
+python3 studio_update.py --server www.arista.io --token-file token.tok \
+        --operation=get --studio-id=studio-avd-campus-fabric-inputs
+Mainline inputs have been written to: studio-avd-campus-fabric-inputs.yaml
+```
+
+### Update the inputs of a studio
+
+```shell
+ python3 studio_update.py --server www.arista.io --token-file token.tok \
+      --operation=set \
+      --studio-id studio-avd-campus-fabric \
+      --yaml-file=studio-avd-campus-fabric-inputs.yaml \
+      --build-only True
+
+Reading inline script metadata from: studio_update.py
+Creating workspace "studio-avd-campus-fabric config push"
+	WorkspaceID created: ef3c470c-bade-431a-bc7e-11a4ce656dc8
+Studio inputs set from yaml:
+	studio-avd-campus-fabric-inputs.yaml
+	Devices assigned to studio: *
+Building workspace
+	Build request f6b4bdc0-5e0a-4409-8231-34c6cab0e5c2 sent
+	Waiting for build to complete
+	Build succeeded
+```
+
+Alternatively [uv](https://docs.astral.sh/uv/getting-started/installation/) can be used as well:
+
+```shell
+uv run studio_update.py  --server 192.0.2.10:443 --token-file token.tok --cert-file cvp.crt \
+    --operation set \
+    --studio-id studio-avd-campus-fabric \
+    --yaml-file=studio-avd-campus-fabric-inputs.yaml \
+    --build-only True
 ```
