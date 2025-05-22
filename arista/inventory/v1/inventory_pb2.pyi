@@ -288,6 +288,7 @@ class DeviceOnboardingConfig(google.protobuf.message.Message):
     HOSTNAME_OR_IP_FIELD_NUMBER: builtins.int
     DEVICE_TYPE_FIELD_NUMBER: builtins.int
     DEVICE_CONFIG_FIELD_NUMBER: builtins.int
+    PROFILE_NAME_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___UUIDKey:
         """key identifies the request to onboard the device at hostname_or_ip."""
@@ -307,6 +308,12 @@ class DeviceOnboardingConfig(google.protobuf.message.Message):
     def device_config(self) -> global___DeviceConfiguration:
         """device_config is the configuration for a third-party device."""
 
+    @property
+    def profile_name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """profile_name specifies the name of the TerminAttr profile which includes the
+        custom TerminAttr configuration to be applied to the device while onboarding.
+        """
+
     def __init__(
         self,
         *,
@@ -314,9 +321,10 @@ class DeviceOnboardingConfig(google.protobuf.message.Message):
         hostname_or_ip: google.protobuf.wrappers_pb2.StringValue | None = ...,
         device_type: google.protobuf.wrappers_pb2.StringValue | None = ...,
         device_config: global___DeviceConfiguration | None = ...,
+        profile_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["device_config", b"device_config", "device_type", b"device_type", "hostname_or_ip", b"hostname_or_ip", "key", b"key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["device_config", b"device_config", "device_type", b"device_type", "hostname_or_ip", b"hostname_or_ip", "key", b"key"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["device_config", b"device_config", "device_type", b"device_type", "hostname_or_ip", b"hostname_or_ip", "key", b"key", "profile_name", b"profile_name"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_config", b"device_config", "device_type", b"device_type", "hostname_or_ip", b"hostname_or_ip", "key", b"key", "profile_name", b"profile_name"]) -> None: ...
 
 global___DeviceOnboardingConfig = DeviceOnboardingConfig
 
