@@ -22,6 +22,7 @@ device_capabilities: Dict[str, Dict] = {
             "mlag": 900,
             "non_mlag": 1020
         },
+        "full_packet_mirroring": True,
     },
     "jericho-fixed": {
         "regexes": [r'DCS-7280\w(R|R2)\D*-.+', r'DCS-7020\w(R|RW)\D*-.+'],
@@ -31,6 +32,7 @@ device_capabilities: Dict[str, Dict] = {
             "non_mlag": 1020
         },
         "tcam_profile": "vxlan-routing",
+        "full_packet_mirroring": True,
     },
     "jericho-chassis": {
         "regexes": [r'DCS-75\d\d'],
@@ -41,6 +43,7 @@ device_capabilities: Dict[str, Dict] = {
         },
         "tcam_profile": "vxlan-routing",
         "management_interface": "Management0",
+        "full_packet_mirroring": True,
     },
     "jericho2-fixed": {
         "regexes": [r'DCS-7280\w(R3)\D*-.+'],
@@ -50,6 +53,7 @@ device_capabilities: Dict[str, Dict] = {
             "non_mlag": 1020
         },
         "tcam_profile": "vxlan-routing",
+        "full_packet_mirroring": True,
     },
     "jericho2-chassis": {
         "regexes": [r'DCS-78\d\d'],
@@ -59,6 +63,7 @@ device_capabilities: Dict[str, Dict] = {
             "non_mlag": 1020
         },
         "tcam_profile": "vxlan-routing",
+        "full_packet_mirroring": True,
     },
     "trident2-fixed": {
         "regexes": [r'DCS-7050(S|T)X-\d\d'],
