@@ -22,7 +22,6 @@ device_capabilities: Dict[str, Dict] = {
             "mlag": 900,
             "non_mlag": 1020
         },
-        "full_packet_mirroring": True,
     },
     "jericho-fixed": {
         "regexes": [r'DCS-7280\w(R|R2)\D*-.+', r'DCS-7020\w(R|RW)\D*-.+'],
