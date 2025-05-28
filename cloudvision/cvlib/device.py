@@ -80,8 +80,8 @@ device_capabilities: Dict[str, Dict] = {
             "support": True
         },
     },
-    "trident3x1-fixed": {
-        "regexes": [r'CCS-720DP-24S', r'CCS-720DT-24', r'CCS-710P'],
+    "trident3x1-fixed-poe": {
+        "regexes": [r'CCS-720DP-24S', r'CCS-710P'],
         "info": "Configured in standard settings",
         "reload_delay": {
             "mlag": 300,
@@ -92,6 +92,24 @@ device_capabilities: Dict[str, Dict] = {
             "queue_monitor_length_notify": False,
             "phone": True,
             "poe": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+        "per_interface_mtu": False,
+    },
+    "trident3x1-fixed": {
+        "regexes": [r'CCS-720DT-24'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+            "poe": False,
         },
         "ip_locking": {
             "support": True
@@ -133,8 +151,8 @@ device_capabilities: Dict[str, Dict] = {
         },
         "per_interface_mtu": False,
     },
-    "trident3x3-fixed": {
-        "regexes": [r'CCS-720XP-\d\d', r'CCS-720DP-\d\dZS', r'CCS-720DF-\d\d'],
+    "trident3x3-fixed-poe": {
+        "regexes": [r'CCS-720XP-\d\d', r'CCS-720DP-\d\dZS'],
         "info": "Configured in standard settings",
         "reload_delay": {
             "mlag": 300,
@@ -142,12 +160,32 @@ device_capabilities: Dict[str, Dict] = {
         },
         "tcam_profile": None,
         "trident_forwarding_table_partition": (
-            "flexible exact-match 16384 "
-            "l2-shared 98304 l3-shared 131072"),
+            "flexible exact-match 16000 "
+            "l2-shared 18000 l3-shared 22000"),
         "feature_support": {
             "queue_monitor_length_notify": False,
             "phone": True,
             "poe": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+    },
+    "trident3x3-fixed": {
+        "regexes": [r'CCS-720DF-\d\d'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "trident_forwarding_table_partition": (
+            "flexible exact-match 16000 "
+            "l2-shared 18000 l3-shared 22000"),
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+            "poe": False,
         },
         "ip_locking": {
             "support": True
@@ -162,8 +200,8 @@ device_capabilities: Dict[str, Dict] = {
         },
         "tcam_profile": None,
         "trident_forwarding_table_partition": (
-            "flexible exact-match 16384 "
-            "l2-shared 98304 l3-shared 131072"),
+            "flexible exact-match 16000 "
+            "l2-shared 18000 l3-shared 22000"),
         "feature_support": {
             "queue_monitor_length_notify": False,
             "phone": True,

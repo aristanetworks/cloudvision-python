@@ -77,19 +77,19 @@ testPlatformMatchCases = [
     [
         'trident fixed variant',
         'CCS-720XP-48ZC2',
-        device_capabilities['trident3x3-fixed'].get('regexes'),
+        device_capabilities['trident3x3-fixed-poe'].get('regexes'),
         None
     ],
     [
         'trident fixed variant',
         'CCS-710P-16',
-        device_capabilities['trident3x1-fixed'].get('regexes'),
+        device_capabilities['trident3x1-fixed-poe'].get('regexes'),
         None
     ],
     [
         'trident fixed variant',
         'CCS-720DP-24S',
-        device_capabilities['trident3x1-fixed'].get('regexes'),
+        device_capabilities['trident3x1-fixed-poe'].get('regexes'),
         None
     ],
     [
