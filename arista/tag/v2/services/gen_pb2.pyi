@@ -54,6 +54,305 @@ class MetaResponse(google.protobuf.message.Message):
 global___MetaResponse = MetaResponse
 
 @typing.final
+class ElementRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.tag.v2.tag_pb2.ElementKey:
+        """Key uniquely identifies a Element instance to retrieve.
+        This value must be populated.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+
+    def __init__(
+        self,
+        *,
+        key: arista.tag.v2.tag_pb2.ElementKey | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> None: ...
+
+global___ElementRequest = ElementRequest
+
+@typing.final
+class ElementResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.tag.v2.tag_pb2.Element:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Element instance in this response.
+        """
+
+    def __init__(
+        self,
+        *,
+        value: arista.tag.v2.tag_pb2.Element | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
+
+global___ElementResponse = ElementResponse
+
+@typing.final
+class ElementSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEYS_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.tag.v2.tag_pb2.ElementKey]: ...
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+
+    def __init__(
+        self,
+        *,
+        keys: collections.abc.Iterable[arista.tag.v2.tag_pb2.ElementKey] | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["keys", b"keys", "time", b"time"]) -> None: ...
+
+global___ElementSomeRequest = ElementSomeRequest
+
+@typing.final
+class ElementSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.tag.v2.tag_pb2.Element:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """Error is an optional field.
+        It should be filled when there is an error in the GetSome process.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Element instance in this response.
+        """
+
+    def __init__(
+        self,
+        *,
+        value: arista.tag.v2.tag_pb2.Element | None = ...,
+        error: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> None: ...
+
+global___ElementSomeResponse = ElementSomeResponse
+
+@typing.final
+class ElementStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.tag.v2.tag_pb2.Element]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+
+    @property
+    def filter(self) -> arista.tag.v2.tag_pb2.ElementFilter:
+        """For each Element in the list, all populated fields are considered ANDed together
+        as a filtering operation. Similarly, the list itself is ORed such that any individual
+        filter that matches a given Element is streamed to the user.
+        """
+
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each Element at end.
+            * Each Element response is fully-specified (all fields set).
+          * start: Returns the state of each Element at start, followed by updates until now.
+            * Each Element response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each Element at start, followed by updates
+            until end.
+            * Each Element response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+
+    def __init__(
+        self,
+        *,
+        partial_eq_filter: collections.abc.Iterable[arista.tag.v2.tag_pb2.Element] | None = ...,
+        filter: arista.tag.v2.tag_pb2.ElementFilter | None = ...,
+        time: arista.time.time_pb2.TimeBounds | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["filter", b"filter", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["filter", b"filter", "partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
+
+global___ElementStreamRequest = ElementStreamRequest
+
+@typing.final
+class ElementStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    type: arista.subscriptions.subscriptions_pb2.Operation.ValueType
+    """Operation indicates how the Element value in this response should be considered.
+    Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+    once all initial data is streamed and the client begins to receive modification updates,
+    you should not see INITIAL again.
+    """
+    @property
+    def value(self) -> arista.tag.v2.tag_pb2.Element:
+        """Value is a value deemed relevant to the initiating request.
+        This structure will always have its key-field populated. Which other fields are
+        populated, and why, depends on the value of Operation and what triggered this notification.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time holds the timestamp of this Element's last modification."""
+
+    def __init__(
+        self,
+        *,
+        value: arista.tag.v2.tag_pb2.Element | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
+
+global___ElementStreamResponse = ElementStreamResponse
+
+@typing.final
+class ElementBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.tag.v2.tag_pb2.Element]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+
+    @property
+    def filter(self) -> arista.tag.v2.tag_pb2.ElementFilter:
+        """For each Element in the list, all populated fields are considered ANDed together
+        as a filtering operation. Similarly, the list itself is ORed such that any individual
+        filter that matches a given Element is streamed to the user.
+        """
+
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each Element at end.
+            * Each Element response is fully-specified (all fields set).
+          * start: Returns the state of each Element at start, followed by updates until now.
+            * Each Element response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each Element at start, followed by updates
+            until end.
+            * Each Element response at start is fully-specified, but updates until end may
+              be partial.
+
+        This field is not allowed in the Subscribe RPC.
+        """
+
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+
+    def __init__(
+        self,
+        *,
+        partial_eq_filter: collections.abc.Iterable[arista.tag.v2.tag_pb2.Element] | None = ...,
+        filter: arista.tag.v2.tag_pb2.ElementFilter | None = ...,
+        time: arista.time.time_pb2.TimeBounds | None = ...,
+        max_messages: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["filter", b"filter", "max_messages", b"max_messages", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["filter", b"filter", "max_messages", b"max_messages", "partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
+
+global___ElementBatchedStreamRequest = ElementBatchedStreamRequest
+
+@typing.final
+class ElementBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ElementStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+
+    def __init__(
+        self,
+        *,
+        responses: collections.abc.Iterable[global___ElementStreamResponse] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["responses", b"responses"]) -> None: ...
+
+global___ElementBatchedStreamResponse = ElementBatchedStreamResponse
+
+@typing.final
 class TagRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -160,7 +459,11 @@ class TagSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Tag instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -317,7 +620,7 @@ class TagBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TagStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -437,7 +740,11 @@ class TagAssignmentSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        TagAssignment instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -594,7 +901,7 @@ class TagAssignmentBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TagAssignmentStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -714,7 +1021,11 @@ class TagAssignmentConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        TagAssignmentConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -871,7 +1182,7 @@ class TagAssignmentConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TagAssignmentConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -1237,7 +1548,11 @@ class TagConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        TagConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1394,7 +1709,7 @@ class TagConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TagConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 

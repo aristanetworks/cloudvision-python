@@ -414,3 +414,181 @@ class TagAssignment(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["key", b"key", "tag_creator_type", b"tag_creator_type"]) -> None: ...
 
 global___TagAssignment = TagAssignment
+
+@typing.final
+class ElementFilter(google.protobuf.message.Message):
+    """ElementFilter is a custom filter for elements."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SEARCH_FIELD_NUMBER: builtins.int
+    @property
+    def search(self) -> global___ElementSearchFilter:
+        """search can be used to search for elements via a tag query."""
+
+    def __init__(
+        self,
+        *,
+        search: global___ElementSearchFilter | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["search", b"search"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["search", b"search"]) -> None: ...
+
+global___ElementFilter = ElementFilter
+
+@typing.final
+class ElementSearchFilter(google.protobuf.message.Message):
+    """ElementSearchFilter is a filter that can be used to search for a set of
+    elements using a tag query.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    QUERY_ELEMENT_TYPE_FIELD_NUMBER: builtins.int
+    QUERY_FIELD_NUMBER: builtins.int
+    WORKSPACE_ID_FIELD_NUMBER: builtins.int
+    EXCLUDE_UNREGISTERED_ELEMENTS_FIELD_NUMBER: builtins.int
+    IGNORE_TOPOLOGY_TAGS_FIELD_NUMBER: builtins.int
+    query_element_type: global___ElementType.ValueType
+    """query_element_type (required) indicates the type of element against which
+    the query will be executed. To search by sub-type, use the special "type:"
+    tag from within the query.
+    """
+    @property
+    def query(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """query (required) is a tag query. This is a string that specifies a set of
+        tag assignment conditions. For example:
+
+        - "Campus:SF"
+            Match any device that has the "Campus:SF" tag assigned to it.
+            I.e., match any device in the SF campus.
+        - "Campus:*"
+            Match any device that has any "Campus:" tag assigned to it.
+            I.e., match any device in any campus.
+        - "Campus:SF AND Role:Spine"
+            Match any device that has the "Campus:SF" and "Role:Spine"
+            tag assigned to it.
+            I.e., match any spine device in the SF campus.
+
+        TODO: Link to grammar file.
+        """
+
+    @property
+    def workspace_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """workspace_id is the ID of a workspace. If set, it indicates that the
+        search space should be constrained only to the elements that are known
+        or configured in the given workspace.
+        """
+
+    @property
+    def exclude_unregistered_elements(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """exclude_unregistered_elements indicates whether elements that are not registered
+        in the Inventory and Topology (I&T) Studio should be excluded from the results.
+        """
+
+    @property
+    def ignore_topology_tags(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """ignore_topology_tags indicates whether topology_hint tags should be ignored during
+        the execution of the query.
+        """
+
+    def __init__(
+        self,
+        *,
+        query_element_type: global___ElementType.ValueType = ...,
+        query: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        workspace_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        exclude_unregistered_elements: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        ignore_topology_tags: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["exclude_unregistered_elements", b"exclude_unregistered_elements", "ignore_topology_tags", b"ignore_topology_tags", "query", b"query", "workspace_id", b"workspace_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["exclude_unregistered_elements", b"exclude_unregistered_elements", "ignore_topology_tags", b"ignore_topology_tags", "query", b"query", "query_element_type", b"query_element_type", "workspace_id", b"workspace_id"]) -> None: ...
+
+global___ElementSearchFilter = ElementSearchFilter
+
+@typing.final
+class ElementKey(google.protobuf.message.Message):
+    """ElementKey uniquely identifies a tagged or untagged network element."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TYPE_FIELD_NUMBER: builtins.int
+    SUB_TYPE_FIELD_NUMBER: builtins.int
+    PRIMARY_ID_FIELD_NUMBER: builtins.int
+    SECONDARY_ID_FIELD_NUMBER: builtins.int
+    type: global___ElementType.ValueType
+    """type is the type of the element."""
+    sub_type: global___ElementSubType.ValueType
+    """sub_type is the sub-type of the element."""
+    @property
+    def primary_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """primary_id is the device ID of the element. The value of
+        this ID is based on type and sub_type:
+
+        type: DEVICE
+          sub_type: DEVICE
+            id: <serial_number>
+          sub_type: VDS, WORKLOAD_SERVER, VM
+            id: <uuid>
+        type: INTERFACE
+          sub_type: DEVICE
+            id: <serial_number>
+          sub_type: VDS, WORKLOAD_SERVER, VM
+            id: <uuid>
+        type: VIRTUAL
+          sub_type: APPLICATION
+            id: <application_id>
+        """
+
+    @property
+    def secondary_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """secondary_id is the interface ID of the element. The value of
+        this ID is based on type and sub_type:
+
+        type: DEVICE
+          N/A
+        type: INTERFACE
+          sub_type: DEVICE
+            id: <interface_name>
+          sub_type: VDS, WORKLOAD_SERVER, VM
+            id: <interface_name>
+        type: VIRTUAL
+          sub_type: APPLICATION
+            id: <service_id>
+        """
+
+    def __init__(
+        self,
+        *,
+        type: global___ElementType.ValueType = ...,
+        sub_type: global___ElementSubType.ValueType = ...,
+        primary_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        secondary_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["primary_id", b"primary_id", "secondary_id", b"secondary_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["primary_id", b"primary_id", "secondary_id", b"secondary_id", "sub_type", b"sub_type", "type", b"type"]) -> None: ...
+
+global___ElementKey = ElementKey
+
+@typing.final
+class Element(google.protobuf.message.Message):
+    """Element holds basic information about a tagged or untagged network
+    element.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> global___ElementKey:
+        """key uniquely identifies the element."""
+
+    def __init__(
+        self,
+        *,
+        key: global___ElementKey | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["key", b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["key", b"key"]) -> None: ...
+
+global___Element = Element
