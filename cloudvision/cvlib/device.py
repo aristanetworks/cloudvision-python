@@ -302,9 +302,9 @@ class Device:
 
     def __init__(self, deviceId: Optional[str] = None,
                  ip: Optional[str] = None,
-                 deviceMac: Optional[str] = None,
-                 hostName: Optional[str] = None,
-                 modelName: Optional[str] = None):
+                 deviceMac: Optional[str] = "",
+                 hostName: Optional[str] = "",
+                 modelName: Optional[str] = ""):
         self.id = deviceId
         self.ip = ip
         self.mac = deviceMac
