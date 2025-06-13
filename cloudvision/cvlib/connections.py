@@ -9,15 +9,20 @@ from typing import Dict, Optional
 
 class AuthAndEndpoints:
     '''
-    Object to store auth and endpoint information for use in the context object
+    The AuthAndEndpoints is an object used to communicate runtime environment variables
+    to the ctx context object in a custom python action in CloudVision.
     - apiserverAddr:     Address of the CloudVision apiserver
     - serviceAddr:       Address of the CloudVision service proxy server, e.g. ambassador address
     - cacert:            Path to local CA Cert, used for establishing CV grpc connections
-    - commandEndpoint:   Service endpoint where command requests are posted to
-    - logEndpoint:       Service endpoint where log requests are posted to
-    - connectionTimeout: Timeout value for connections to endpoints in seconds
-    - cliTimeout:        Timeout value for cli commands invoked by connections
-    - testAddresses:     Api addresses to use when execution is in a test context
+    - commandEndpoint:   API endpoint information to reach a service where one can request
+                         commands to be run on a device.
+    - logEndpoint:       API endpoint information to reach a service where one can request
+                         logs to be created in CloudVision.
+    - connectionTimeout: Default timeout value (in seconds) to be used for API calls to establish
+                         connections to other services or devices.
+    - cliTimeout:        Default timeout value (in seconds) to be used for waiting on device
+                         command responses.
+    - testAddresses:     API addresses to use when execution is in a test context.
     '''
 
     def __init__(self,
