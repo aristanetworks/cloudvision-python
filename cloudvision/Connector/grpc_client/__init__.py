@@ -3,4 +3,5 @@
 # that can be found in the COPYING file.
 
 from .grpcClient import create_query, create_notification, GRPCClient
-__all__ = ["create_query", "create_notification", "GRPCClient"]
+from .grpcConnectionPool import PooledGRPCClient
+__all__ = ["create_query", "create_notification", "GRPCClient", "PooledGRPCClient"]
