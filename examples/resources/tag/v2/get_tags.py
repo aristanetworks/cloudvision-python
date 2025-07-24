@@ -1,4 +1,4 @@
-# Copyright (c) 2024 Arista Networks, Inc.
+# Copyright (c) 2025 Arista Networks, Inc.
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 #
@@ -34,7 +34,7 @@ import json
 import arista.tag.v2
 from google.protobuf.json_format import Parse
 
-RPC_TIMEOUT = 30  # in seconds
+RPC_TIMEOUT = 300  # in seconds
 
 
 def main(args):
@@ -56,6 +56,7 @@ def main(args):
 
     # Construct the json_request based on provided arguments
     request_dict = {}
+    request_dict["max_messages"] = 1000
     if any([args.device_id, args.interface_id, args.tag_label, args.tag_value]):
         if args.tag_type:
             filter_dict = {"elementType": int(args.tag_type), "workspaceId": ""}
@@ -75,12 +76,12 @@ def main(args):
 
     json_request = json.dumps(request_dict)
 
-    req = Parse(json_request, arista.tag.v2.services.TagAssignmentStreamRequest(), False)
+    req = Parse(json_request, arista.tag.v2.services.TagAssignmentBatchedStreamRequest(), False)
 
     # Initialize a connection to the server using our connection settings (auth + TLS)
     with grpc.secure_channel(args.server, connCreds) as channel:
         tag_stub = arista.tag.v2.services.TagAssignmentServiceStub(channel)
-        print(list(tag_stub.GetAll(req, timeout=RPC_TIMEOUT)))
+        print(list(tag_stub.GetAllBatched(req, timeout=RPC_TIMEOUT)))
 
 
 if __name__ == "__main__":
