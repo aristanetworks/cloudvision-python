@@ -657,6 +657,120 @@ SYNC_OPERATION_CONFIG: SyncOperation.ValueType  # 1
 """SYNC_OPERATION_CONFIG indicates config sync operation."""
 global___SyncOperation = SyncOperation
 
+class _EntityType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _EntityTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_EntityType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    ENTITY_TYPE_UNSPECIFIED: _EntityType.ValueType  # 0
+    """ENTITY_TYPE_UNSPECIFIED indicates an unspecified entity type."""
+    ENTITY_TYPE_STUDIO: _EntityType.ValueType  # 1
+    """ENTITY_TYPE_STUDIO indicates the Studio entity type."""
+    ENTITY_TYPE_INPUTS: _EntityType.ValueType  # 2
+    """ENTITY_TYPE_INPUTS indicates the Inputs entity type."""
+    ENTITY_TYPE_ASSIGNED_TAGS: _EntityType.ValueType  # 3
+    """ENTITY_TYPE_ASSIGNED_TAGS indicates the AssignedTags entity type."""
+    ENTITY_TYPE_BUILD_HOOK: _EntityType.ValueType  # 4
+    """ENTITY_TYPE_BUILD_HOOK indicates the BuildHook entity type."""
+    ENTITY_TYPE_AUTOFILL_ACTION: _EntityType.ValueType  # 5
+    """ENTITY_TYPE_AUTOFILL_ACTION indicates the AutofillAction entity type."""
+    ENTITY_TYPE_CONFIGLET: _EntityType.ValueType  # 6
+    """ENTITY_TYPE_CONFIGLET indicates the Configlet entity type for
+    static configuration studio.
+    """
+    ENTITY_TYPE_CONFIGLET_ASSIGNMENT: _EntityType.ValueType  # 7
+    """ENTITY_TYPE_CONFIGLET_ASSIGNMENT indicates the ConfigletAssignment
+    entity type for static configuration studio.
+    """
+    ENTITY_TYPE_TAG: _EntityType.ValueType  # 8
+    """ENTITY_TYPE_TAG indicates the tags entity type."""
+
+class EntityType(_EntityType, metaclass=_EntityTypeEnumTypeWrapper):
+    """EntityType enumerates the different types of entities that can be
+    compared or referenced in a diff operation.
+    """
+
+ENTITY_TYPE_UNSPECIFIED: EntityType.ValueType  # 0
+"""ENTITY_TYPE_UNSPECIFIED indicates an unspecified entity type."""
+ENTITY_TYPE_STUDIO: EntityType.ValueType  # 1
+"""ENTITY_TYPE_STUDIO indicates the Studio entity type."""
+ENTITY_TYPE_INPUTS: EntityType.ValueType  # 2
+"""ENTITY_TYPE_INPUTS indicates the Inputs entity type."""
+ENTITY_TYPE_ASSIGNED_TAGS: EntityType.ValueType  # 3
+"""ENTITY_TYPE_ASSIGNED_TAGS indicates the AssignedTags entity type."""
+ENTITY_TYPE_BUILD_HOOK: EntityType.ValueType  # 4
+"""ENTITY_TYPE_BUILD_HOOK indicates the BuildHook entity type."""
+ENTITY_TYPE_AUTOFILL_ACTION: EntityType.ValueType  # 5
+"""ENTITY_TYPE_AUTOFILL_ACTION indicates the AutofillAction entity type."""
+ENTITY_TYPE_CONFIGLET: EntityType.ValueType  # 6
+"""ENTITY_TYPE_CONFIGLET indicates the Configlet entity type for
+static configuration studio.
+"""
+ENTITY_TYPE_CONFIGLET_ASSIGNMENT: EntityType.ValueType  # 7
+"""ENTITY_TYPE_CONFIGLET_ASSIGNMENT indicates the ConfigletAssignment
+entity type for static configuration studio.
+"""
+ENTITY_TYPE_TAG: EntityType.ValueType  # 8
+"""ENTITY_TYPE_TAG indicates the tags entity type."""
+global___EntityType = EntityType
+
+class _DiffType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _DiffTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DiffType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    DIFF_TYPE_UNSPECIFIED: _DiffType.ValueType  # 0
+    """DIFF_TYPE_UNSPECIFIED is the default, unspecified value."""
+    DIFF_TYPE_REBASE: _DiffType.ValueType  # 1
+    """DIFF_TYPE_REBASE represents a diff generated during a workspace rebase operation.
+    it means that we return two sets of diffs - one for what happened in the workspace
+    relative to its original mainline, and another for what happened between original
+    mainline and latest mainline.
+    """
+
+class DiffType(_DiffType, metaclass=_DiffTypeEnumTypeWrapper):
+    """DiffType enumerates types of diff."""
+
+DIFF_TYPE_UNSPECIFIED: DiffType.ValueType  # 0
+"""DIFF_TYPE_UNSPECIFIED is the default, unspecified value."""
+DIFF_TYPE_REBASE: DiffType.ValueType  # 1
+"""DIFF_TYPE_REBASE represents a diff generated during a workspace rebase operation.
+it means that we return two sets of diffs - one for what happened in the workspace
+relative to its original mainline, and another for what happened between original
+mainline and latest mainline.
+"""
+global___DiffType = DiffType
+
+class _DiffOp:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _DiffOpEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DiffOp.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    DIFF_OP_UNSPECIFIED: _DiffOp.ValueType  # 0
+    """DIFF_OP_UNSPECIFIED indicates an unspecified diff operation."""
+    DIFF_OP_ADD: _DiffOp.ValueType  # 1
+    """DIFF_OP_ADD indicates the addition of a new item."""
+    DIFF_OP_DELETE: _DiffOp.ValueType  # 2
+    """DIFF_OP_DELETE indicates the deletion of an item."""
+    DIFF_OP_CHANGE: _DiffOp.ValueType  # 3
+    """DIFF_OP_CHANGE indicates modification of an item."""
+
+class DiffOp(_DiffOp, metaclass=_DiffOpEnumTypeWrapper):
+    """DiffOp enumerates the types of operations that can occur within a diff."""
+
+DIFF_OP_UNSPECIFIED: DiffOp.ValueType  # 0
+"""DIFF_OP_UNSPECIFIED indicates an unspecified diff operation."""
+DIFF_OP_ADD: DiffOp.ValueType  # 1
+"""DIFF_OP_ADD indicates the addition of a new item."""
+DIFF_OP_DELETE: DiffOp.ValueType  # 2
+"""DIFF_OP_DELETE indicates the deletion of an item."""
+DIFF_OP_CHANGE: DiffOp.ValueType  # 3
+"""DIFF_OP_CHANGE indicates modification of an item."""
+global___DiffOp = DiffOp
+
 @typing.final
 class RequestParams(google.protobuf.message.Message):
     """RequestParams define the parameters for a Request."""
@@ -1857,3 +1971,217 @@ class StudioGeneratedConfiguration(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["generated_config", b"generated_config", "key", b"key"]) -> None: ...
 
 global___StudioGeneratedConfiguration = StudioGeneratedConfiguration
+
+@typing.final
+class DiffEntry(google.protobuf.message.Message):
+    """DiffEntry represents a change detected between two versions of an entity."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OP_FIELD_NUMBER: builtins.int
+    PATH_FIELD_NUMBER: builtins.int
+    VALUE_A_FIELD_NUMBER: builtins.int
+    VALUE_B_FIELD_NUMBER: builtins.int
+    op: global___DiffOp.ValueType
+    """op is the type of diff operation."""
+    @property
+    def path(self) -> fmp.wrappers_pb2.RepeatedString:
+        """path to the changed field or attribute, represented as a sequence of field names or indices."""
+
+    @property
+    def value_a(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """value_a is the value from workspace_a."""
+
+    @property
+    def value_b(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """value_b is the value from workspace_b."""
+
+    def __init__(
+        self,
+        *,
+        op: global___DiffOp.ValueType = ...,
+        path: fmp.wrappers_pb2.RepeatedString | None = ...,
+        value_a: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        value_b: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["path", b"path", "value_a", b"value_a", "value_b", b"value_b"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["op", b"op", "path", b"path", "value_a", b"value_a", "value_b", b"value_b"]) -> None: ...
+
+global___DiffEntry = DiffEntry
+
+@typing.final
+class DiffKey(google.protobuf.message.Message):
+    """DiffKey represents the key that identifies a diff for an entity."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    WORKSPACE_ID_FIELD_NUMBER: builtins.int
+    DIFF_TYPE_FIELD_NUMBER: builtins.int
+    ENTITY_TYPE_FIELD_NUMBER: builtins.int
+    ENTITY_IDS_FIELD_NUMBER: builtins.int
+    diff_type: global___DiffType.ValueType
+    """diff_type categorizes a diff by its purpose, a rebase or modification."""
+    entity_type: global___EntityType.ValueType
+    """entity_type is the type of entity being compared."""
+    @property
+    def workspace_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """workspace_id is the unique ID of the workspace."""
+
+    @property
+    def entity_ids(self) -> fmp.wrappers_pb2.RepeatedString:
+        """entity_ids uniquely identifies the entity in the workspace. It is represented
+        by [key1, value1, key2, value2, ...]
+        studio_id are well known e.g studio-date-time
+        e.g entity_ids for entity types
+        studio, inputs, assigned tags: [“studio_id”, <id>]
+        buildhook: [“studio_id”, <id>, “hook_id”, <id>]
+        autofill: [“studio_id”, <id>, “input_field_id”, <id>]
+        configlet: [“configlet_id”, <id>]
+        configletassignment : [“configlet_assignment_id”, <id>]
+        tags:
+        element_type is one of "device", "interface"
+        ["creator_type", "user", "element_type", <element_type>, "element_sub_type",
+        "device", "label", <label>, "value", <value>]
+        tag assignments:
+        For element_type = "device"
+        ["creator_type", "user", "element_type", "device", "element_sub_type",
+        "device", "label", <label>, "value", <value>, "device_id", <id>]
+        For element_type = "interface"
+        ["creator_type", "user", "element_type", "interface", "element_sub_type",
+        "device", "label", <label>, "value", <value>, "device_id", <id>,
+        "interface_id", <id>]
+        """
+
+    def __init__(
+        self,
+        *,
+        workspace_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        diff_type: global___DiffType.ValueType = ...,
+        entity_type: global___EntityType.ValueType = ...,
+        entity_ids: fmp.wrappers_pb2.RepeatedString | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["entity_ids", b"entity_ids", "workspace_id", b"workspace_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["diff_type", b"diff_type", "entity_ids", b"entity_ids", "entity_type", b"entity_type", "workspace_id", b"workspace_id"]) -> None: ...
+
+global___DiffKey = DiffKey
+
+@typing.final
+class DiffEntries(google.protobuf.message.Message):
+    """DiffEntries is a container for a list of individual diff entries."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DiffEntry]:
+        """values contains a list of DiffEntry messages, each representing a change."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___DiffEntry] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___DiffEntries = DiffEntries
+
+@typing.final
+class WorkspaceDiffSet(google.protobuf.message.Message):
+    """WorkspaceDiffSet represents diffs between two specific workspaces."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    WORKSPACE_A_FIELD_NUMBER: builtins.int
+    WORKSPACE_B_FIELD_NUMBER: builtins.int
+    ENTRIES_FIELD_NUMBER: builtins.int
+    @property
+    def workspace_a(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """workspace_a is the unique identifier for the first workspace being compared."""
+
+    @property
+    def workspace_b(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """workspace_b is the unique identifier for the second workspace being compared."""
+
+    @property
+    def entries(self) -> global___DiffEntries:
+        """entries indicates multiple entity diffs."""
+
+    def __init__(
+        self,
+        *,
+        workspace_a: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        workspace_b: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        entries: global___DiffEntries | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["entries", b"entries", "workspace_a", b"workspace_a", "workspace_b", b"workspace_b"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["entries", b"entries", "workspace_a", b"workspace_a", "workspace_b", b"workspace_b"]) -> None: ...
+
+global___WorkspaceDiffSet = WorkspaceDiffSet
+
+@typing.final
+class WorkspaceDiffSets(google.protobuf.message.Message):
+    """WorkspaceDiffSets represents a collection of WorkspaceDiffSet messages,
+    allowing for the representation of diffs across multiple pairs of workspaces.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___WorkspaceDiffSet]:
+        """values contains a list of WorkspaceDiffSet messages, each detailing the differences
+        between a pair of workspaces.
+        """
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___WorkspaceDiffSet] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___WorkspaceDiffSets = WorkspaceDiffSets
+
+@typing.final
+class WorkspaceDiffs(google.protobuf.message.Message):
+    """WorkspaceDiffs represents diffs, or changes made in the
+    workspace of a given type.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    DIFFS_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> global___DiffKey:
+        """key uniquely identifies this particular collection of diffs.
+        It sets the primary context, indicating which workspace
+        (via DiffKey.workspace_id) is the subject of these diffs,
+        the overall type of diff operation (e.g., rebase), and the kind of entity
+        that is primarily being analyzed.
+        """
+
+    @property
+    def diffs(self) -> global___WorkspaceDiffSets:
+        """diffs contains a collection of comparisons between pairs of workspaces.
+        Each entry within 'values' in WorkspaceDiffSets defines a specific pair
+        of workspaces being compared:
+        'workspace_a' typically represents the "source",
+        e.g., the current mainline, or an older version.
+        'workspace_b' typically represents the "target",
+        e.g., the current workspace
+        identified in the top-level DiffKey.workspace_id.
+        The differences described in 'entries' are calculated from
+        'workspace_a' to 'workspace_b'.
+        """
+
+    def __init__(
+        self,
+        *,
+        key: global___DiffKey | None = ...,
+        diffs: global___WorkspaceDiffSets | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["diffs", b"diffs", "key", b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["diffs", b"diffs", "key", b"key"]) -> None: ...
+
+global___WorkspaceDiffs = WorkspaceDiffs

@@ -2105,6 +2105,379 @@ class WorkspaceConfigService(object):
             _registered_method=True)
 
 
+class WorkspaceDiffsServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.workspace.v1.WorkspaceDiffsService/GetOne',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsResponse.FromString,
+                _registered_method=True)
+        self.GetSome = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceDiffsService/GetSome',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsSomeRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsSomeResponse.FromString,
+                _registered_method=True)
+        self.GetAll = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceDiffsService/GetAll',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamResponse.FromString,
+                _registered_method=True)
+        self.Subscribe = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceDiffsService/Subscribe',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamResponse.FromString,
+                _registered_method=True)
+        self.GetMeta = channel.unary_unary(
+                '/arista.workspace.v1.WorkspaceDiffsService/GetMeta',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                _registered_method=True)
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceDiffsService/SubscribeMeta',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                _registered_method=True)
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceDiffsService/GetAllBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamResponse.FromString,
+                _registered_method=True)
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.workspace.v1.WorkspaceDiffsService/SubscribeBatched',
+                request_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamResponse.FromString,
+                _registered_method=True)
+
+
+class WorkspaceDiffsServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_WorkspaceDiffsServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsSomeRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsSomeResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.workspace.v1.WorkspaceDiffsService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('arista.workspace.v1.WorkspaceDiffsService', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class WorkspaceDiffsService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/arista.workspace.v1.WorkspaceDiffsService/GetOne',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.workspace.v1.WorkspaceDiffsService/GetSome',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsSomeRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsSomeResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.workspace.v1.WorkspaceDiffsService/GetAll',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.workspace.v1.WorkspaceDiffsService/Subscribe',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/arista.workspace.v1.WorkspaceDiffsService/GetMeta',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.workspace.v1.WorkspaceDiffsService/SubscribeMeta',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.workspace.v1.WorkspaceDiffsService/GetAllBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.workspace.v1.WorkspaceDiffsService/SubscribeBatched',
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamRequest.SerializeToString,
+            arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2.WorkspaceDiffsBatchedStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
 class WorkspaceSyncConfigServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 

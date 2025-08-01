@@ -160,7 +160,11 @@ class StudioGeneratedConfigurationSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        StudioGeneratedConfiguration instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -203,8 +207,6 @@ class StudioGeneratedConfigurationStreamRequest(google.protobuf.message.Message)
             until end.
             * Each StudioGeneratedConfiguration response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -285,8 +287,6 @@ class StudioGeneratedConfigurationBatchedStreamRequest(google.protobuf.message.M
             until end.
             * Each StudioGeneratedConfiguration response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -437,7 +437,11 @@ class WorkspaceSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Workspace instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -480,8 +484,6 @@ class WorkspaceStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Workspace response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -562,8 +564,6 @@ class WorkspaceBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Workspace response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -714,7 +714,11 @@ class WorkspaceBuildSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        WorkspaceBuild instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -757,8 +761,6 @@ class WorkspaceBuildStreamRequest(google.protobuf.message.Message):
             until end.
             * Each WorkspaceBuild response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -839,8 +841,6 @@ class WorkspaceBuildBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each WorkspaceBuild response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -991,7 +991,11 @@ class WorkspaceBuildDetailsSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        WorkspaceBuildDetails instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1034,8 +1038,6 @@ class WorkspaceBuildDetailsStreamRequest(google.protobuf.message.Message):
             until end.
             * Each WorkspaceBuildDetails response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1116,8 +1118,6 @@ class WorkspaceBuildDetailsBatchedStreamRequest(google.protobuf.message.Message)
             until end.
             * Each WorkspaceBuildDetails response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -1268,7 +1268,11 @@ class WorkspaceConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        WorkspaceConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1311,8 +1315,6 @@ class WorkspaceConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each WorkspaceConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1393,8 +1395,6 @@ class WorkspaceConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each WorkspaceConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -1685,6 +1685,283 @@ class WorkspaceConfigDeleteAllResponse(google.protobuf.message.Message):
 global___WorkspaceConfigDeleteAllResponse = WorkspaceConfigDeleteAllResponse
 
 @typing.final
+class WorkspaceDiffsRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.workspace.v1.workspace_pb2.DiffKey:
+        """Key uniquely identifies a WorkspaceDiffs instance to retrieve.
+        This value must be populated.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+
+    def __init__(
+        self,
+        *,
+        key: arista.workspace.v1.workspace_pb2.DiffKey | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> None: ...
+
+global___WorkspaceDiffsRequest = WorkspaceDiffsRequest
+
+@typing.final
+class WorkspaceDiffsResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.workspace.v1.workspace_pb2.WorkspaceDiffs:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        WorkspaceDiffs instance in this response.
+        """
+
+    def __init__(
+        self,
+        *,
+        value: arista.workspace.v1.workspace_pb2.WorkspaceDiffs | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
+
+global___WorkspaceDiffsResponse = WorkspaceDiffsResponse
+
+@typing.final
+class WorkspaceDiffsSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEYS_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.workspace.v1.workspace_pb2.DiffKey]: ...
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+
+    def __init__(
+        self,
+        *,
+        keys: collections.abc.Iterable[arista.workspace.v1.workspace_pb2.DiffKey] | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["keys", b"keys", "time", b"time"]) -> None: ...
+
+global___WorkspaceDiffsSomeRequest = WorkspaceDiffsSomeRequest
+
+@typing.final
+class WorkspaceDiffsSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.workspace.v1.workspace_pb2.WorkspaceDiffs:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """Error is an optional field.
+        It should be filled when there is an error in the GetSome process.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        WorkspaceDiffs instance in this response.
+        """
+
+    def __init__(
+        self,
+        *,
+        value: arista.workspace.v1.workspace_pb2.WorkspaceDiffs | None = ...,
+        error: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> None: ...
+
+global___WorkspaceDiffsSomeResponse = WorkspaceDiffsSomeResponse
+
+@typing.final
+class WorkspaceDiffsStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.workspace.v1.workspace_pb2.WorkspaceDiffs]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each WorkspaceDiffs at end.
+            * Each WorkspaceDiffs response is fully-specified (all fields set).
+          * start: Returns the state of each WorkspaceDiffs at start, followed by updates until now.
+            * Each WorkspaceDiffs response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each WorkspaceDiffs at start, followed by updates
+            until end.
+            * Each WorkspaceDiffs response at start is fully-specified, but updates until end may
+              be partial.
+        """
+
+    def __init__(
+        self,
+        *,
+        partial_eq_filter: collections.abc.Iterable[arista.workspace.v1.workspace_pb2.WorkspaceDiffs] | None = ...,
+        time: arista.time.time_pb2.TimeBounds | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
+
+global___WorkspaceDiffsStreamRequest = WorkspaceDiffsStreamRequest
+
+@typing.final
+class WorkspaceDiffsStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    type: arista.subscriptions.subscriptions_pb2.Operation.ValueType
+    """Operation indicates how the WorkspaceDiffs value in this response should be considered.
+    Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+    once all initial data is streamed and the client begins to receive modification updates,
+    you should not see INITIAL again.
+    """
+    @property
+    def value(self) -> arista.workspace.v1.workspace_pb2.WorkspaceDiffs:
+        """Value is a value deemed relevant to the initiating request.
+        This structure will always have its key-field populated. Which other fields are
+        populated, and why, depends on the value of Operation and what triggered this notification.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time holds the timestamp of this WorkspaceDiffs's last modification."""
+
+    def __init__(
+        self,
+        *,
+        value: arista.workspace.v1.workspace_pb2.WorkspaceDiffs | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
+
+global___WorkspaceDiffsStreamResponse = WorkspaceDiffsStreamResponse
+
+@typing.final
+class WorkspaceDiffsBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.workspace.v1.workspace_pb2.WorkspaceDiffs]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each WorkspaceDiffs at end.
+            * Each WorkspaceDiffs response is fully-specified (all fields set).
+          * start: Returns the state of each WorkspaceDiffs at start, followed by updates until now.
+            * Each WorkspaceDiffs response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each WorkspaceDiffs at start, followed by updates
+            until end.
+            * Each WorkspaceDiffs response at start is fully-specified, but updates until end may
+              be partial.
+        """
+
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+
+    def __init__(
+        self,
+        *,
+        partial_eq_filter: collections.abc.Iterable[arista.workspace.v1.workspace_pb2.WorkspaceDiffs] | None = ...,
+        time: arista.time.time_pb2.TimeBounds | None = ...,
+        max_messages: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["max_messages", b"max_messages", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["max_messages", b"max_messages", "partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
+
+global___WorkspaceDiffsBatchedStreamRequest = WorkspaceDiffsBatchedStreamRequest
+
+@typing.final
+class WorkspaceDiffsBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___WorkspaceDiffsStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+
+    def __init__(
+        self,
+        *,
+        responses: collections.abc.Iterable[global___WorkspaceDiffsStreamResponse] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["responses", b"responses"]) -> None: ...
+
+global___WorkspaceDiffsBatchedStreamResponse = WorkspaceDiffsBatchedStreamResponse
+
+@typing.final
 class WorkspaceSyncConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1791,7 +2068,11 @@ class WorkspaceSyncConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        WorkspaceSyncConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1834,8 +2115,6 @@ class WorkspaceSyncConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each WorkspaceSyncConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1916,8 +2195,6 @@ class WorkspaceSyncConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each WorkspaceSyncConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
