@@ -537,6 +537,7 @@ class Extension(google.protobuf.message.Message):
     INSTALLED_FIELD_NUMBER: builtins.int
     STATUS_DETAIL_FIELD_NUMBER: builtins.int
     IS_EMBEDDED_FIELD_NUMBER: builtins.int
+    ARCH_FIELD_NUMBER: builtins.int
     installed: global___ExtensionInstallStatus.ValueType
     """installed indicates whether the extension is installed, not
     installed or force installed.
@@ -571,6 +572,10 @@ class Extension(google.protobuf.message.Message):
         or not.
         """
 
+    @property
+    def arch(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """arch is architecture type of the extension."""
+
     def __init__(
         self,
         *,
@@ -581,9 +586,10 @@ class Extension(google.protobuf.message.Message):
         installed: global___ExtensionInstallStatus.ValueType = ...,
         status_detail: google.protobuf.wrappers_pb2.StringValue | None = ...,
         is_embedded: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        arch: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["is_embedded", b"is_embedded", "name", b"name", "present", b"present", "reboot_required", b"reboot_required", "status_detail", b"status_detail", "version", b"version"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["installed", b"installed", "is_embedded", b"is_embedded", "name", b"name", "present", b"present", "reboot_required", b"reboot_required", "status_detail", b"status_detail", "version", b"version"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["arch", b"arch", "is_embedded", b"is_embedded", "name", b"name", "present", b"present", "reboot_required", b"reboot_required", "status_detail", b"status_detail", "version", b"version"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["arch", b"arch", "installed", b"installed", "is_embedded", b"is_embedded", "name", b"name", "present", b"present", "reboot_required", b"reboot_required", "status_detail", b"status_detail", "version", b"version"]) -> None: ...
 
 global___Extension = Extension
 
