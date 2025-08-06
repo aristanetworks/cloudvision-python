@@ -26,6 +26,8 @@ UPDATE_TYPE = Tuple[Any, Any]
 UPDATES_TYPE = List[UPDATE_TYPE]
 DEFAULT_DELETE_AFTER_DAYS = 34
 DATASET_TYPE_DEVICE = "device"
+# General timeout for Get requests
+TIMEOUT_REQUEST = 60
 
 
 def to_pbts(ts: TIME_TYPE) -> pbts.Timestamp:
@@ -256,6 +258,7 @@ class GRPCClient(object):
         versions=0,
         sharding=None,
         exact_range=False,
+        timeout: Optional[float] = TIMEOUT_REQUEST,
     ):
         """
         Get creates and executes a Get protobuf message, returning a stream of
@@ -280,7 +283,7 @@ class GRPCClient(object):
             sharded_sub=sharding,
             exact_range=exact_range,
         )
-        stream = self.__client.Get(request, metadata=self.metadata)
+        stream = self.__client.Get(request, metadata=self.metadata, timeout=timeout)
         return (self.decode_batch(nb) for nb in stream)
 
     def subscribe(self, queries, sharding=None):
