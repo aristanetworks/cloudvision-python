@@ -286,7 +286,7 @@ class GRPCClient(object):
         stream = self.__client.Get(request, metadata=self.metadata, timeout=timeout)
         return (self.decode_batch(nb) for nb in stream)
 
-    def subscribe(self, queries, sharding=None):
+    def subscribe(self, queries, sharding=None, timeout: Optional[float] = TIMEOUT_REQUEST):
         """
         Subscribe creates and executes a Subscribe protobuf message,
         returning a stream of notificationBatch.
@@ -298,7 +298,7 @@ class GRPCClient(object):
             query=queries,
             sharded_sub=sharding,
         )
-        stream = self.__client.Subscribe(req, metadata=self.metadata)
+        stream = self.__client.Subscribe(req, metadata=self.metadata, timeout=timeout)
         return (self.decode_batch(nb) for nb in stream)
 
     def publish(
@@ -308,6 +308,7 @@ class GRPCClient(object):
         dtype: str = DATASET_TYPE_DEVICE,
         sync: bool = True,
         compare: Optional[UPDATE_TYPE] = None,
+        timeout: Optional[float] = TIMEOUT_REQUEST,
     ) -> None:
         """
         Publish creates and executes a Publish protobuf message.
@@ -332,7 +333,7 @@ class GRPCClient(object):
             sync=sync,
             compare=comp_pb,
         )
-        self.__client.Publish(req, metadata=self.metadata)
+        self.__client.Publish(req, metadata=self.metadata, timeout=timeout)
 
     def get_datasets(self, types: Optional[List[str]] = None):
         """
