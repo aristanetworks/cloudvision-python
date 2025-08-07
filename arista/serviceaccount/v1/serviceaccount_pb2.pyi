@@ -79,6 +79,7 @@ class AccountConfig(google.protobuf.message.Message):
     STATUS_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     GROUPS_FIELD_NUMBER: builtins.int
+    ALLOW_TOKEN_REFRESH_FIELD_NUMBER: builtins.int
     status: global___AccountStatus.ValueType
     """status determines if the service account is enabled or disabled. New service accounts are
     enabled by default.
@@ -95,6 +96,12 @@ class AccountConfig(google.protobuf.message.Message):
     def groups(self) -> fmp.wrappers_pb2.RepeatedString:
         """groups is a list of roles that the service account inherits permissions from."""
 
+    @property
+    def allow_token_refresh(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """allow_token_refresh determines whether or not the service account can refresh
+        any of its own active tokens, including preexisting ones.
+        """
+
     def __init__(
         self,
         *,
@@ -102,9 +109,10 @@ class AccountConfig(google.protobuf.message.Message):
         status: global___AccountStatus.ValueType = ...,
         description: google.protobuf.wrappers_pb2.StringValue | None = ...,
         groups: fmp.wrappers_pb2.RepeatedString | None = ...,
+        allow_token_refresh: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["description", b"description", "groups", b"groups", "key", b"key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["description", b"description", "groups", b"groups", "key", b"key", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["allow_token_refresh", b"allow_token_refresh", "description", b"description", "groups", b"groups", "key", b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["allow_token_refresh", b"allow_token_refresh", "description", b"description", "groups", b"groups", "key", b"key", "status", b"status"]) -> None: ...
 
 global___AccountConfig = AccountConfig
 
@@ -120,6 +128,7 @@ class Account(google.protobuf.message.Message):
     GROUPS_FIELD_NUMBER: builtins.int
     CREATED_BY_FIELD_NUMBER: builtins.int
     LAST_ACCESS_FIELD_NUMBER: builtins.int
+    ALLOW_TOKEN_REFRESH_FIELD_NUMBER: builtins.int
     status: global___AccountStatus.ValueType
     """status determines whether the service account is enabled or disabled."""
     @property
@@ -142,6 +151,12 @@ class Account(google.protobuf.message.Message):
     def last_access(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """last_access is the time when the service account was last fetched."""
 
+    @property
+    def allow_token_refresh(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """allow_token_refresh determines whether or not the service account can refresh
+        any of its own active tokens, including preexisting ones.
+        """
+
     def __init__(
         self,
         *,
@@ -151,9 +166,10 @@ class Account(google.protobuf.message.Message):
         groups: fmp.wrappers_pb2.RepeatedString | None = ...,
         created_by: google.protobuf.wrappers_pb2.StringValue | None = ...,
         last_access: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        allow_token_refresh: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["created_by", b"created_by", "description", b"description", "groups", b"groups", "key", b"key", "last_access", b"last_access"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["created_by", b"created_by", "description", b"description", "groups", b"groups", "key", b"key", "last_access", b"last_access", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["allow_token_refresh", b"allow_token_refresh", "created_by", b"created_by", "description", b"description", "groups", b"groups", "key", b"key", "last_access", b"last_access"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["allow_token_refresh", b"allow_token_refresh", "created_by", b"created_by", "description", b"description", "groups", b"groups", "key", b"key", "last_access", b"last_access", "status", b"status"]) -> None: ...
 
 global___Account = Account
 
@@ -209,7 +225,7 @@ class TokenConfig(google.protobuf.message.Message):
 
     @property
     def token(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """token is the JWT token generated for a service account token.
+        """token is the JWT generated for a service account token.
         It is only populated in Set response.
         """
 
@@ -239,6 +255,7 @@ class Token(google.protobuf.message.Message):
     VALID_UNTIL_FIELD_NUMBER: builtins.int
     CREATED_BY_FIELD_NUMBER: builtins.int
     LAST_USED_FIELD_NUMBER: builtins.int
+    REPLACED_AT_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___TokenKey:
         """key uniquely identifies the service account token."""
@@ -263,6 +280,12 @@ class Token(google.protobuf.message.Message):
     def last_used(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """last_used is the time when the service account token was last used to authenticate."""
 
+    @property
+    def replaced_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """replaced_at is the time which the token has been replaced.
+        It is only populated when the token is refreshed.
+        """
+
     def __init__(
         self,
         *,
@@ -272,8 +295,40 @@ class Token(google.protobuf.message.Message):
         valid_until: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         created_by: google.protobuf.wrappers_pb2.StringValue | None = ...,
         last_used: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        replaced_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["created_by", b"created_by", "description", b"description", "key", b"key", "last_used", b"last_used", "user", b"user", "valid_until", b"valid_until"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["created_by", b"created_by", "description", b"description", "key", b"key", "last_used", b"last_used", "user", b"user", "valid_until", b"valid_until"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["created_by", b"created_by", "description", b"description", "key", b"key", "last_used", b"last_used", "replaced_at", b"replaced_at", "user", b"user", "valid_until", b"valid_until"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["created_by", b"created_by", "description", b"description", "key", b"key", "last_used", b"last_used", "replaced_at", b"replaced_at", "user", b"user", "valid_until", b"valid_until"]) -> None: ...
 
 global___Token = Token
+
+@typing.final
+class TokenSelfRefreshConfig(google.protobuf.message.Message):
+    """TokenSelfRefreshConfig describes the response a service account gets when they refresh their token"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALID_FOR_FIELD_NUMBER: builtins.int
+    NEW_TOKEN_FIELD_NUMBER: builtins.int
+    @property
+    def valid_for(self) -> google.protobuf.duration_pb2.Duration:
+        """valid_for is the duration that the service account token will be valid for.
+        Default value will be the original token duration.
+        """
+
+    @property
+    def new_token(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """new_token is the JWT token generated for a service account token.
+        This is populated in the response of a Set() request.
+        """
+
+    def __init__(
+        self,
+        *,
+        valid_for: google.protobuf.duration_pb2.Duration | None = ...,
+        new_token: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["new_token", b"new_token", "valid_for", b"valid_for"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["new_token", b"new_token", "valid_for", b"valid_for"]) -> None: ...
+
+global___TokenSelfRefreshConfig = TokenSelfRefreshConfig

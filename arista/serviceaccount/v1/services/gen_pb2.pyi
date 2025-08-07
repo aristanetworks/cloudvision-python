@@ -160,7 +160,11 @@ class AccountSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Account instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -203,8 +207,6 @@ class AccountStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Account response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -361,7 +363,11 @@ class AccountConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        AccountConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -404,8 +410,6 @@ class AccountConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each AccountConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -808,7 +812,11 @@ class TokenSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Token instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -851,8 +859,6 @@ class TokenStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Token response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1009,7 +1015,11 @@ class TokenConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        TokenConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1052,8 +1062,6 @@ class TokenConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each TokenConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1348,3 +1356,187 @@ class TokenConfigDeleteAllResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["error", b"error", "key", b"key", "time", b"time", "type", b"type"]) -> None: ...
 
 global___TokenConfigDeleteAllResponse = TokenConfigDeleteAllResponse
+
+@typing.final
+class TokenSelfRefreshConfigRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+
+    def __init__(
+        self,
+        *,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time"]) -> None: ...
+
+global___TokenSelfRefreshConfigRequest = TokenSelfRefreshConfigRequest
+
+@typing.final
+class TokenSelfRefreshConfigResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.serviceaccount.v1.serviceaccount_pb2.TokenSelfRefreshConfig:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        TokenSelfRefreshConfig instance in this response.
+        """
+
+    def __init__(
+        self,
+        *,
+        value: arista.serviceaccount.v1.serviceaccount_pb2.TokenSelfRefreshConfig | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
+
+global___TokenSelfRefreshConfigResponse = TokenSelfRefreshConfigResponse
+
+@typing.final
+class TokenSelfRefreshConfigStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.serviceaccount.v1.serviceaccount_pb2.TokenSelfRefreshConfig]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each TokenSelfRefreshConfig at end.
+            * Each TokenSelfRefreshConfig response is fully-specified (all fields set).
+          * start: Returns the state of each TokenSelfRefreshConfig at start, followed by updates until now.
+            * Each TokenSelfRefreshConfig response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each TokenSelfRefreshConfig at start, followed by updates
+            until end.
+            * Each TokenSelfRefreshConfig response at start is fully-specified, but updates until end may
+              be partial.
+        """
+
+    def __init__(
+        self,
+        *,
+        partial_eq_filter: collections.abc.Iterable[arista.serviceaccount.v1.serviceaccount_pb2.TokenSelfRefreshConfig] | None = ...,
+        time: arista.time.time_pb2.TimeBounds | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
+
+global___TokenSelfRefreshConfigStreamRequest = TokenSelfRefreshConfigStreamRequest
+
+@typing.final
+class TokenSelfRefreshConfigStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    type: arista.subscriptions.subscriptions_pb2.Operation.ValueType
+    """Operation indicates how the TokenSelfRefreshConfig value in this response should be considered.
+    Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+    once all initial data is streamed and the client begins to receive modification updates,
+    you should not see INITIAL again.
+    """
+    @property
+    def value(self) -> arista.serviceaccount.v1.serviceaccount_pb2.TokenSelfRefreshConfig:
+        """Value is a value deemed relevant to the initiating request.
+        This structure will always have its key-field populated. Which other fields are
+        populated, and why, depends on the value of Operation and what triggered this notification.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time holds the timestamp of this TokenSelfRefreshConfig's last modification."""
+
+    def __init__(
+        self,
+        *,
+        value: arista.serviceaccount.v1.serviceaccount_pb2.TokenSelfRefreshConfig | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
+
+global___TokenSelfRefreshConfigStreamResponse = TokenSelfRefreshConfigStreamResponse
+
+@typing.final
+class TokenSelfRefreshConfigSetRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.serviceaccount.v1.serviceaccount_pb2.TokenSelfRefreshConfig:
+        """TokenSelfRefreshConfig carries the value to set into the datastore.
+        See the documentation on the TokenSelfRefreshConfig struct for which fields are required.
+        """
+
+    def __init__(
+        self,
+        *,
+        value: arista.serviceaccount.v1.serviceaccount_pb2.TokenSelfRefreshConfig | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
+
+global___TokenSelfRefreshConfigSetRequest = TokenSelfRefreshConfigSetRequest
+
+@typing.final
+class TokenSelfRefreshConfigSetResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.serviceaccount.v1.serviceaccount_pb2.TokenSelfRefreshConfig:
+        """Value carries all the values given in the TokenSelfRefreshConfigSetRequest as well
+        as any server-generated values.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the (UTC) timestamp at which the system recognizes the
+        creation. The only guarantees made about this timestamp are:
+
+           - it is after the time the request was received
+           - a time-ranged query with StartTime==CreatedAt will include this instance.
+        """
+
+    def __init__(
+        self,
+        *,
+        value: arista.serviceaccount.v1.serviceaccount_pb2.TokenSelfRefreshConfig | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
+
+global___TokenSelfRefreshConfigSetResponse = TokenSelfRefreshConfigSetResponse
