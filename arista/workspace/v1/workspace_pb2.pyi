@@ -916,9 +916,14 @@ class WorkspaceConfig(google.protobuf.message.Message):
 
     @property
     def exclude_network_provisioning(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """exclude_network_provisioning excludes Network Provisioning components from
-        build and from designed config on submit. This field is set to true in the
-        workspace in which migration to Studios is initiated from the UI.
+        """exclude_network_provisioning is a flag used to manage the migration
+        from Network Provisioning to Studios. When set to true, it prevents Network
+        Provisioning components from being included in the build process and in the
+        designed config generated upon submission.
+        This flag is set exclusively at the start of the migration process.
+        This field must not be set for workspaces in "Studios-only" mode or after a
+        migration is complete. Any attempt to submit a workspace where this field is
+        true in these states will result in a failure.
         """
 
     def __init__(
