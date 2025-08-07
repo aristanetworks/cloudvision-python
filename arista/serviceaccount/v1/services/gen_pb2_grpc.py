@@ -1601,3 +1601,247 @@ class TokenConfigService(object):
             timeout,
             metadata,
             _registered_method=True)
+
+
+class TokenSelfRefreshConfigServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.serviceaccount.v1.TokenSelfRefreshConfigService/GetOne',
+                request_serializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigRequest.SerializeToString,
+                response_deserializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigResponse.FromString,
+                _registered_method=True)
+        self.GetAll = channel.unary_stream(
+                '/arista.serviceaccount.v1.TokenSelfRefreshConfigService/GetAll',
+                request_serializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamResponse.FromString,
+                _registered_method=True)
+        self.Subscribe = channel.unary_stream(
+                '/arista.serviceaccount.v1.TokenSelfRefreshConfigService/Subscribe',
+                request_serializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamResponse.FromString,
+                _registered_method=True)
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.serviceaccount.v1.TokenSelfRefreshConfigService/SubscribeMeta',
+                request_serializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                _registered_method=True)
+        self.Set = channel.unary_unary(
+                '/arista.serviceaccount.v1.TokenSelfRefreshConfigService/Set',
+                request_serializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigSetRequest.SerializeToString,
+                response_deserializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigSetResponse.FromString,
+                _registered_method=True)
+
+
+class TokenSelfRefreshConfigServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Set(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_TokenSelfRefreshConfigServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigRequest.FromString,
+                    response_serializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamRequest.FromString,
+                    response_serializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'Set': grpc.unary_unary_rpc_method_handler(
+                    servicer.Set,
+                    request_deserializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigSetRequest.FromString,
+                    response_serializer=arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigSetResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.serviceaccount.v1.TokenSelfRefreshConfigService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('arista.serviceaccount.v1.TokenSelfRefreshConfigService', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class TokenSelfRefreshConfigService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/arista.serviceaccount.v1.TokenSelfRefreshConfigService/GetOne',
+            arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigRequest.SerializeToString,
+            arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.serviceaccount.v1.TokenSelfRefreshConfigService/GetAll',
+            arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamRequest.SerializeToString,
+            arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.serviceaccount.v1.TokenSelfRefreshConfigService/Subscribe',
+            arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamRequest.SerializeToString,
+            arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.serviceaccount.v1.TokenSelfRefreshConfigService/SubscribeMeta',
+            arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigStreamRequest.SerializeToString,
+            arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Set(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/arista.serviceaccount.v1.TokenSelfRefreshConfigService/Set',
+            arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigSetRequest.SerializeToString,
+            arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2.TokenSelfRefreshConfigSetResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
