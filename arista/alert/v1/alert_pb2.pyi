@@ -108,6 +108,8 @@ class _EndpointTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     """ENDPOINT_TYPE_ZOOM represents the Zoom endpoint type."""
     ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL: _EndpointType.ValueType  # 17
     """ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL represents the Microsoft Graph sendMail endpoint type."""
+    ENDPOINT_TYPE_CV_ACTION: _EndpointType.ValueType  # 18
+    """ENDPOINT_TYPE_CV_ACTION represents the Actions of the Cloud Vision Portal endpoint type."""
 
 class EndpointType(_EndpointType, metaclass=_EndpointTypeEnumTypeWrapper):
     """EndpointType describes the set of possible endpoint types."""
@@ -148,6 +150,8 @@ ENDPOINT_TYPE_ZOOM: EndpointType.ValueType  # 16
 """ENDPOINT_TYPE_ZOOM represents the Zoom endpoint type."""
 ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL: EndpointType.ValueType  # 17
 """ENDPOINT_TYPE_MS_GRAPH_SEND_MAIL represents the Microsoft Graph sendMail endpoint type."""
+ENDPOINT_TYPE_CV_ACTION: EndpointType.ValueType  # 18
+"""ENDPOINT_TYPE_CV_ACTION represents the Actions of the Cloud Vision Portal endpoint type."""
 global___EndpointType = EndpointType
 
 class _EndpointErrorType:
@@ -949,6 +953,7 @@ class Settings(google.protobuf.message.Message):
     ZOOM_FIELD_NUMBER: builtins.int
     WEBHOOK_FIELD_NUMBER: builtins.int
     MS_GRAPH_SEND_MAIL_FIELD_NUMBER: builtins.int
+    CV_ACTION_FIELD_NUMBER: builtins.int
     @property
     def email(self) -> global___EmailSettings:
         """email is the global default settings for email"""
@@ -1037,6 +1042,10 @@ class Settings(google.protobuf.message.Message):
     def ms_graph_send_mail(self) -> global___MsGraphSendMailSettings:
         """ms_graph_send_mail is the settings for Microsoft Graph sendMail"""
 
+    @property
+    def cv_action(self) -> global___CvActionSettings:
+        """cv_action is the global default settings for CloudVision Action"""
+
     def __init__(
         self,
         *,
@@ -1061,9 +1070,10 @@ class Settings(google.protobuf.message.Message):
         zoom: global___ZoomSettings | None = ...,
         webhook: global___WebhookSettings | None = ...,
         ms_graph_send_mail: global___MsGraphSendMailSettings | None = ...,
+        cv_action: global___CvActionSettings | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "cv_action", b"cv_action", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["base_url", b"base_url", "cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "cv_action", b"cv_action", "email", b"email", "gchat", b"gchat", "hide_tags", b"hide_tags", "http", b"http", "inhibition", b"inhibition", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "timezone", b"timezone", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
 
 global___Settings = Settings
 
@@ -1965,6 +1975,18 @@ class ZoomSettings(google.protobuf.message.Message):
 global___ZoomSettings = ZoomSettings
 
 @typing.final
+class CvActionSettings(google.protobuf.message.Message):
+    """CvActionSettings contain the settings for sending alerts to CloudVision Action"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___CvActionSettings = CvActionSettings
+
+@typing.final
 class InhibitionSettings(google.protobuf.message.Message):
     """InhibitionSettings allows certain event types to be suppressed while other event types are active"""
 
@@ -2219,6 +2241,7 @@ class BroadcastGroup(google.protobuf.message.Message):
     CUE_SENDGRID_FIELD_NUMBER: builtins.int
     ZOOM_FIELD_NUMBER: builtins.int
     MS_GRAPH_SEND_MAIL_FIELD_NUMBER: builtins.int
+    CV_ACTION_FIELD_NUMBER: builtins.int
     @property
     def email(self) -> global___EmailEndpoints:
         """email is a set of email endpoints to send alerts to as part of this group"""
@@ -2289,6 +2312,13 @@ class BroadcastGroup(google.protobuf.message.Message):
         as part of this group
         """
 
+    @property
+    def cv_action(self) -> global___CvActionEndpoints:
+        """cv_action is a set of Cloud Vision Portal Action endpoints to send alerts to as part
+        of this group. If the field is present during a Set call, all the Actions are set
+        to authenticate as the calling user.
+        """
+
     def __init__(
         self,
         *,
@@ -2309,9 +2339,10 @@ class BroadcastGroup(google.protobuf.message.Message):
         cue_sendgrid: global___CueSendgridEndpoints | None = ...,
         zoom: global___ZoomEndpoints | None = ...,
         ms_graph_send_mail: global___MsGraphSendMailEndpoints | None = ...,
+        cv_action: global___CvActionEndpoints | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "cv_action", b"cv_action", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "cv_action", b"cv_action", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
 
 global___BroadcastGroup = BroadcastGroup
 
@@ -2656,6 +2687,26 @@ class MsGraphSendMailEndpoints(google.protobuf.message.Message):
 global___MsGraphSendMailEndpoints = MsGraphSendMailEndpoints
 
 @typing.final
+class CvActionEndpoints(google.protobuf.message.Message):
+    """CvActionEndpoints is a set of Cloud Vision Portal Action endpoints"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CvActionEndpoint]:
+        """values are the elements of the set"""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___CvActionEndpoint] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___CvActionEndpoints = CvActionEndpoints
+
+@typing.final
 class EmailEndpoint(google.protobuf.message.Message):
     """EmailEndpoint contains the required information for an alert to be sent to an email endpoint"""
 
@@ -2743,7 +2794,7 @@ global___WebhookEndpoint = WebhookEndpoint
 
 @typing.final
 class MsGraphSendMailEndpoint(google.protobuf.message.Message):
-    """MsGraphSendMailEndpoint contains the required information for an alert to be sent to the 
+    """MsGraphSendMailEndpoint contains the required information for an alert to be sent to the
     microsft graph send mail api
     """
 
@@ -3241,6 +3292,80 @@ class ZoomEndpoint(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["http_override", b"http_override", "send_resolved", b"send_resolved", "settings_override", b"settings_override"]) -> None: ...
 
 global___ZoomEndpoint = ZoomEndpoint
+
+@typing.final
+class CvActionEndpoint(google.protobuf.message.Message):
+    """CvActionEndpoint contains the required information for an alert to run CloudVision Actions
+    (e.g. python scripts).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ON_FIRING_FIELD_NUMBER: builtins.int
+    ON_RESOLVING_FIELD_NUMBER: builtins.int
+    @property
+    def on_firing(self) -> global___CvActions:
+        """on_firing are the CloudVision Actions to be executed sequentially, one after another,
+        when an event is triggered.
+        """
+
+    @property
+    def on_resolving(self) -> global___CvActions:
+        """on_resolving are the CloudVision Actions to be executed sequentially, one after another,
+        when an event resolves.
+        """
+
+    def __init__(
+        self,
+        *,
+        on_firing: global___CvActions | None = ...,
+        on_resolving: global___CvActions | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["on_firing", b"on_firing", "on_resolving", b"on_resolving"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["on_firing", b"on_firing", "on_resolving", b"on_resolving"]) -> None: ...
+
+global___CvActionEndpoint = CvActionEndpoint
+
+@typing.final
+class CvActions(google.protobuf.message.Message):
+    """CvActions is a list of CloudVision Actions to be executed sequentially, one after another."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CvAction]:
+        """values is a list of CloudVision Actions to be executed."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___CvAction] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___CvActions = CvActions
+
+@typing.final
+class CvAction(google.protobuf.message.Message):
+    """CvAction is a single CloudVision Action to be executed."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ACTION_ID_FIELD_NUMBER: builtins.int
+    @property
+    def action_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """action_id identifies the Action to run. Presently one cannot specify its arguments."""
+
+    def __init__(
+        self,
+        *,
+        action_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["action_id", b"action_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["action_id", b"action_id"]) -> None: ...
+
+global___CvAction = CvAction
 
 @typing.final
 class TemplateKey(google.protobuf.message.Message):
