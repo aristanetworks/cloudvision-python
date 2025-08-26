@@ -685,6 +685,8 @@ class _EntityTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     """
     ENTITY_TYPE_TAG: _EntityType.ValueType  # 8
     """ENTITY_TYPE_TAG indicates the tags entity type."""
+    ENTITY_TYPE_TAG_ASSIGNMENT: _EntityType.ValueType  # 9
+    """ENTITY_TYPE_TAG_ASSIGNMENT indicates the tag assignment entity type."""
 
 class EntityType(_EntityType, metaclass=_EntityTypeEnumTypeWrapper):
     """EntityType enumerates the different types of entities that can be
@@ -713,6 +715,8 @@ entity type for static configuration studio.
 """
 ENTITY_TYPE_TAG: EntityType.ValueType  # 8
 """ENTITY_TYPE_TAG indicates the tags entity type."""
+ENTITY_TYPE_TAG_ASSIGNMENT: EntityType.ValueType  # 9
+"""ENTITY_TYPE_TAG_ASSIGNMENT indicates the tag assignment entity type."""
 global___EntityType = EntityType
 
 class _DiffType:
@@ -2044,16 +2048,16 @@ class DiffKey(google.protobuf.message.Message):
         configlet: [“configlet_id”, <id>]
         configletassignment : [“configlet_assignment_id”, <id>]
         tags:
-        element_type is one of "device", "interface"
-        ["creator_type", "user", "element_type", <element_type>, "element_sub_type",
-        "device", "label", <label>, "value", <value>]
+        element_type is one of "1" (device), "2" (interface)
+        ["creator_type", "2", "element_type", <element_type>,
+        "element_sub_type", "1", "label", <label>, "value", <value>]
         tag assignments:
-        For element_type = "device"
-        ["creator_type", "user", "element_type", "device", "element_sub_type",
-        "device", "label", <label>, "value", <value>, "device_id", <id>]
-        For element_type = "interface"
-        ["creator_type", "user", "element_type", "interface", "element_sub_type",
-        "device", "label", <label>, "value", <value>, "device_id", <id>,
+        For element_type = "1" (device)
+        ["creator_type", "2", "element_type", "1", "element_sub_type", "1",
+        "label", <label>, "value", <value>, "device_id", <id>]
+        For element_type = "2" (interface)
+        ["creator_type", "2", "element_type", "2", "element_sub_type", "1",
+        "label", <label>, "value", <value>, "device_id", <id>,
         "interface_id", <id>]
         """
 
