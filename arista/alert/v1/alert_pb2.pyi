@@ -824,6 +824,7 @@ class EventIdentifier(google.protobuf.message.Message):
     TIME_FIELD_NUMBER: builtins.int
     ALERTER_RULE_INDEX_FIELD_NUMBER: builtins.int
     FIRING_FIELD_NUMBER: builtins.int
+    IS_TEST_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> google.protobuf.wrappers_pb2.StringValue:
         """key is the event key."""
@@ -843,6 +844,10 @@ class EventIdentifier(google.protobuf.message.Message):
     def firing(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """firing is true if event is ongoing and false if event has finished."""
 
+    @property
+    def is_test(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """is_test is true if event was initiated via test notification page."""
+
     def __init__(
         self,
         *,
@@ -850,11 +855,50 @@ class EventIdentifier(google.protobuf.message.Message):
         time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         alerter_rule_index: google.protobuf.wrappers_pb2.Int32Value | None = ...,
         firing: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        is_test: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "firing", b"firing", "key", b"key", "time", b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "firing", b"firing", "key", b"key", "time", b"time"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "firing", b"firing", "is_test", b"is_test", "key", b"key", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "firing", b"firing", "is_test", b"is_test", "key", b"key", "time", b"time"]) -> None: ...
 
 global___EventIdentifier = EventIdentifier
+
+@typing.final
+class EventFilter(google.protobuf.message.Message):
+    """EventFilter defines the criteria to filter response data based on the contained event
+    identifiers.
+    If EventFilter is nil, it's a pass-through filter.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    EVENTS_FIELD_NUMBER: builtins.int
+    IS_TEST_FIELD_NUMBER: builtins.int
+    @property
+    def events(self) -> global___EventIdentifiers:
+        """events is a slice of EventIdentifiers that are matched against the EventIdentifiers in
+        a SenderStatus message.
+        Filter passes if any EventIdentifier from events match any EventIdentifier in SenderStatus.
+        Nil fields are considered pass-through.
+        """
+
+    @property
+    def is_test(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """is_test specifies filtering option with regard to sender status being triggered by a test event
+        or non-test event.
+        When set, it will discard events from status based on matching the IsTest field.
+        If not set, returns all.
+        """
+
+    def __init__(
+        self,
+        *,
+        events: global___EventIdentifiers | None = ...,
+        is_test: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["events", b"events", "is_test", b"is_test"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["events", b"events", "is_test", b"is_test"]) -> None: ...
+
+global___EventFilter = EventFilter
 
 @typing.final
 class EndpointErrors(google.protobuf.message.Message):
