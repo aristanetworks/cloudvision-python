@@ -213,7 +213,7 @@ class Attributes(google.protobuf.message.Message):
     @property
     def tags(self) -> fmp.wrappers_pb2.MapStringString:
         """tags associated with the audit log.
-        eg: "tags": {"mnemonic": "DEVICE_PROVISIONING_SUCCESS"}
+        eg: `tags: {mnemonic: DEVICE_PROVISIONING_SUCCESS}`
         """
 
     def __init__(
@@ -307,21 +307,21 @@ class Filter(google.protobuf.message.Message):
     def category(self) -> global___Category:
         """category filters based on category of the logs.
         eg:
-        {"filter":[{"category":{"custom_type": "abc"}}]}
+        `{filter:[{category:{custom_type: abc}}]}`
         filters all logs associated with the service abc.
         """
 
     @property
     def queries(self) -> fmp.wrappers_pb2.RepeatedString:
         """queries is the list of strings that should be present in the log.
-        eg: {"filter":[{"queries":{"values":["abc"]}}]} searches for all
+        eg: `{filter:[{queries:{values:[abc]}}]}` searches for all
         logs containing the string abc.
         """
 
     @property
     def tags(self) -> fmp.wrappers_pb2.MapStringString:
         """tags filters based on tags associated with the log.
-        eg: {"filter":[{"tags":{"values":{"id":"xyz"}}}]}
+        eg: `{filter:[{tags:{values:{id:xyz}}}]}`
         searches for all logs associates with the tag
         id:xyz.
         """
@@ -347,7 +347,7 @@ global___Filter = Filter
 @typing.final
 class Category(google.protobuf.message.Message):
     """Category organizes audit logs into different groups using the CategoryType and the identifier
-    eg:"filter":[{"category":{"type":"CATEGORY_TYPE_INVENTORY","identifier":"abc"}}]
+    eg: `filter:[{category:{type:CATEGORY_TYPE_INVENTORY,identifier:abc}}]`
     filters all logs associated with the service "inventory" and device abc
     """
 
