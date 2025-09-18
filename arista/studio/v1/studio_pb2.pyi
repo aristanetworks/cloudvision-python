@@ -1123,17 +1123,15 @@ class FloatInputFieldProps(google.protobuf.message.Message):
         """dynamic_options defines the set of possible values for the float
         based on the possible values for other floats in the schema.
         Each field should be referenced by a JSON object of the form
-        `{ "fieldId": <field_id> }`.
+        `{ fieldId: field_id }`.
 
         E.g,
-        ```
         [
-          { "fieldId": "floatField1ID" },
-          { "fieldId": "floatField2ID" }
+          `{ fieldId: floatField1ID }`,
+          `{ fieldId: floatField2ID }`
         ]
-        ```
         Here, the possible values for the floats identified by
-        `"floatField1ID"` and `"floatField2ID"` are used as the
+        `floatField1ID` and `floatField2ID` are used as the
         possible values for this float.
         """
 
