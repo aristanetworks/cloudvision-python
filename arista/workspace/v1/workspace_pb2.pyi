@@ -761,6 +761,8 @@ class _DiffOpEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTyp
     """DIFF_OP_DELETE indicates the deletion of an item."""
     DIFF_OP_CHANGE: _DiffOp.ValueType  # 3
     """DIFF_OP_CHANGE indicates modification of an item."""
+    DIFF_OP_MOVE: _DiffOp.ValueType  # 4
+    """DIFF_OP_MOVE indicates change in position of an item in a list."""
 
 class DiffOp(_DiffOp, metaclass=_DiffOpEnumTypeWrapper):
     """DiffOp enumerates the types of operations that can occur within a diff."""
@@ -773,6 +775,8 @@ DIFF_OP_DELETE: DiffOp.ValueType  # 2
 """DIFF_OP_DELETE indicates the deletion of an item."""
 DIFF_OP_CHANGE: DiffOp.ValueType  # 3
 """DIFF_OP_CHANGE indicates modification of an item."""
+DIFF_OP_MOVE: DiffOp.ValueType  # 4
+"""DIFF_OP_MOVE indicates change in position of an item in a list."""
 global___DiffOp = DiffOp
 
 @typing.final
@@ -1991,6 +1995,8 @@ class DiffEntry(google.protobuf.message.Message):
     PATH_FIELD_NUMBER: builtins.int
     VALUE_A_FIELD_NUMBER: builtins.int
     VALUE_B_FIELD_NUMBER: builtins.int
+    INDEX_B_FIELD_NUMBER: builtins.int
+    KEY_PATH_FIELD_NUMBER: builtins.int
     op: global___DiffOp.ValueType
     """op is the type of diff operation."""
     @property
@@ -2005,6 +2011,32 @@ class DiffEntry(google.protobuf.message.Message):
     def value_b(self) -> google.protobuf.wrappers_pb2.StringValue:
         """value_b is the value from workspace_b."""
 
+    @property
+    def index_b(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """index_b is the new position of an array element in workspace_b (only for MOVE).
+        MOVE represents relocating a single element while preserving
+        the relative order of all others. Detected using LCS.
+        Example:
+          workspace_a: users = ["u1","u2","u3"]
+          workspace_b: users = ["u2","u1","u3"]
+          DiffEntry for "u2": path = ["1"], op = MOVE, index_b = 0
+        """
+
+    @property
+    def key_path(self) -> fmp.wrappers_pb2.RepeatedString:
+        """key_path is used to locate list elements when they have
+        stable keys instead of numeric indices.
+
+        Syntax: [field=value]
+        - field: the unique key field of the element
+        - value: the element’s identifier
+
+        Example:
+          users = [\\{"id":"u1","name":"Alice"\\}]
+          key_path = ["users", "[id=u1]", "name"]
+          path     = ["users", "0", "name"]
+        """
+
     def __init__(
         self,
         *,
@@ -2012,9 +2044,11 @@ class DiffEntry(google.protobuf.message.Message):
         path: fmp.wrappers_pb2.RepeatedString | None = ...,
         value_a: google.protobuf.wrappers_pb2.StringValue | None = ...,
         value_b: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        index_b: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
+        key_path: fmp.wrappers_pb2.RepeatedString | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["path", b"path", "value_a", b"value_a", "value_b", b"value_b"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["op", b"op", "path", b"path", "value_a", b"value_a", "value_b", b"value_b"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["index_b", b"index_b", "key_path", b"key_path", "path", b"path", "value_a", b"value_a", "value_b", b"value_b"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["index_b", b"index_b", "key_path", b"key_path", "op", b"op", "path", b"path", "value_a", b"value_a", "value_b", b"value_b"]) -> None: ...
 
 global___DiffEntry = DiffEntry
 
