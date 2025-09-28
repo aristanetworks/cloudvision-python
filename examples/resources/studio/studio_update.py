@@ -52,10 +52,8 @@ from arista.studio.v1 import models as studio_models
 from arista.studio.v1 import services as studio_services
 from arista.changecontrol.v1 import models as changecontrol_models
 from arista.changecontrol.v1 import services as changecontrol_services
-
-# may not be available in container until feature is GA
-# from arista.action.v1 import models as action_models
-# from arista.action.v1 import services as action_services
+from arista.action.v1 import models as action_models
+from arista.action.v1 import services as action_services
 
 from fmp import wrappers_pb2 as fmp_wrappers
 from google.protobuf import wrappers_pb2 as wrappers
@@ -215,75 +213,141 @@ def create_workspace(channel, workspace_name):
     return workspace_id
 
 
-def getActions(filename):
+def getActionTriggers(filename):
     '''
-    Reads a list of actions from file.
-    One line per action.
-    Each action must have: device, interface, profileID
-    Returns a list of Tuples: [(device, interface, profileID),(...]
+    Reads action trigger data from a file.
+    The file contains a comment header specifying:
+      - the input path
+        eg. # input path: ["sites", "0", "inputs", "sitesGroup", "devices"]
+      - names of the dynamic arguments (optional)
+        eg. # dynamic arguments: device, interface, profileID, source
+    If dynamic argument names are specified:
+      - after the header each line provides those dynamic args values for each trigger
+    If dynamic args names are not specified:
+      - one empty dynamic args is returned for one trigger
+
+    Args:
+        filename (str): The path to the input CSV file.
+
+    Returns:
+        tuple: (input_path, dyn_names, dyn_values)
+            - input_path (str):   string extracted from comment line starting with
+                                  '# input path:'
+            - dyn_names (list):   list of strings extracted from comment line starting with
+                                  '# dynamic arguments:'
+            - dyn_values (list):  A list of dictionaries, where each dictionary
+                                  represents a row and uses the dynamic args names as keys.
     '''
-    # Parse the action CSV file
-    actions = []
-    with open(f'{filename}', encoding='utf8') as f:
-        for line in f:
-            if line.strip().startswith('#'):
-                continue
-            aline = line.split(',')
-            if len(aline) != 3:
-                continue
-            actions.append((
-                aline[0].strip(),
-                aline[1].strip(),
-                aline[2].strip()))
-    return actions
+    input_path = ""
+    dyn_names = []
+    dyn_values = []
+    path_prefix = "# input path:"
+    dyn_prefix = "# dynamic arguments:"
+    dyn_found = False
+    path_found = False
+
+    try:
+        with open(filename, encoding='utf8') as f:
+            for i, line in enumerate(f):
+                stripped_line = line.strip()
+
+                # --- 1. Header Parsing Logic ---
+                if not dyn_found or not path_found and stripped_line.startswith('#'):
+                    # Check for the explicit header definition comment
+                    if stripped_line.startswith(dyn_prefix):
+                        # Extract the comma-separated field names after the colon
+                        dyn_names_line = stripped_line[len(dyn_prefix):].strip()
+                        if dyn_names_line:
+                            dyn_names = [col.strip() for col in dyn_names_line.split(',')]
+                            dyn_found = True
+                    if stripped_line.startswith(path_prefix):
+                        input_path = stripped_line[len(path_prefix):].strip()
+                        path_found = True
+                    continue
+                if not dyn_found or not path_found:
+                    continue
+
+                # --- 2. Dynamic Args Parsing Logic ---
+                # If we have dynamic args names, process the dynamic arg values line
+                if stripped_line.startswith('#'):
+                    continue
+                aline = [col.strip() for col in stripped_line.split(',')]
+
+                # Skip malformed lines where column count doesn't match header count
+                if len(aline) != len(dyn_names):
+                    log(0, f'skipping invalid dynamic args values in action-file:'
+                        f'{aline}')
+                    continue
+
+                # Create the action dictionary
+                dyn_dict = {}
+                for j, dyn_name in enumerate(dyn_names):
+                    dyn_dict[dyn_name] = aline[j]
+
+                dyn_values.append(dyn_dict)
+
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' was not found.")
+        return [], []
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return [], []
+
+    # if path and no args required,
+    # append one empty args entry to still trigger one action
+    if input_path and len(dyn_values) == 0:
+        dyn_values.append({})
+    return input_path, dyn_names, dyn_values
 
 
-def update_inputs_via_autofill(channel, workspace_id, device, interface,
-                               profileID):
+def update_inputs_via_autofill(channel, workspace_id, path, dyn_names, dyn_value):
     '''
-    Sets inputs to the interfacev2 studio using autofill action.
+    Sets inputs to the studio using autofill action.
     '''
     # pylint: disable=no-member
-    # in case action service is commented out
-    # pylint: disable=undefined-variable
     exec_id = str(uuid.uuid4())
-    source = 'generate'
-    req = action_services.ActionExecConfigSetRequest( # noqa
-        value=action_models.ActionExecConfig(   # noqa
-            key=action_models.ActionKey(  # noqa
-                id=wrappers.StringValue(value=action_id)
+    req = action_services.ActionRunConfigSetRequest( # noqa
+        value=action_models.ActionRunConfig(   # noqa
+            key=action_models.ActionRunKey(  # noqa
+                run_id=wrappers.StringValue(value=exec_id)
             ),
-            exec_id=wrappers.StringValue(value=exec_id),
+            action_id=wrappers.StringValue(value=action_id),
             dynamic_args=action_models.ActionArgValues(  # noqa
             )
         )
     )
-    execConfig = action_models.ActionExecConfig()  # noqa
-    inputPath = ("[\"sites\", \"0\", \"inputs\", \"sitesGroup\", \"devices\", "
-                 "\"0\", \"inputs\", \"devicesGroup\", \"stack\"]")
+    runConfig = action_models.ActionRunConfig()  # noqa
     dynamicArgs = {
-        "InputPath": inputPath,
+        "InputPath": path,
         "StudioID": studio_id,
         "WorkspaceID": workspace_id,
-        "interface": interface,
-        "profileID": profileID,
-        "source": source,
-        "device": device,
     }
-    execConfig.key.id.value = action_id
-    execConfig.exec_id.value = exec_id
+    for dyn_name in dyn_names:
+        dynamicArgs[dyn_name] = dyn_value.get(dyn_name)
+
+    runConfig.key.run_id.value = exec_id
+    runConfig.action_id.value = action_id
     for k, v in dynamicArgs.items():
-        execConfig.dynamic_args.values[k].value.value = v
-    req.value.CopyFrom(execConfig)
-    stub = action_services.ActionExecConfigServiceStub(channel)   # noqa
+        runConfig.dynamic_args.values[k].value.value = v
+    req.value.CopyFrom(runConfig)
+    stub = action_services.ActionRunConfigServiceStub(channel)   # noqa
     stub.Set(req, timeout=RPC_TIMEOUT)
     log(0, f'Studio inputs set from autofill action:'
-        f'\n\t{source} {device} {interface} {profileID}')
+        f'\n\t{dyn_value}')
+    stub = action_services.ActionRunServiceStub(channel)   # noqa
+    for res in stub.Subscribe(req, timeout=RPC_TIMEOUT):
+        if res.value.error.value != "":
+            log(0, f'autofill failed with error:'
+                f'\n\t{res.value.error.value}')
+            break
+        if res.value.is_finished.value:
+            log(0, '\tautofill succeeded')
+            break
 
 
 def update_inputs_via_yaml(channel, workspace_id, filename, dev_ids):
     '''
-    Sets inputs to the interfacev2 studio using the yaml file.
+    Sets inputs to the studio using the yaml file.
     Also assigns studio to a set of devices.
     '''
     # pylint: disable=no-member
@@ -577,15 +641,13 @@ def main(args, channel):
                 channel, workspace_id, args.yaml_file.name, "*")
             inputSet = True
         # Update the studio with autofill action
-        # Currently very specific to the interfaceV2 studio
-        actions = []
+        dyn_values = []
         if args.action_file:
-            actions = getActions(args.action_file.name)
-        for (device, interface, profileID) in actions:
+            input_path, dyn_names, dyn_values = getActionTriggers(args.action_file.name)
+        for dyn_value in dyn_values:
             update_inputs_via_autofill(
-                channel, workspace_id, device, interface, profileID)
+                channel, workspace_id, input_path, dyn_names, dyn_value)
             actionInvoked = True
-            time.sleep(0.1)
         if not inputSet and not actionInvoked:
             return
         # Build the workspace.
@@ -620,6 +682,7 @@ if __name__ == '__main__':
         "            --yaml-file=studio-evpn-services-inputs.yaml\n"
         "   Optionally to trigger action:\n"
         "            --action-file=actions.csv\n"
+        "            --action-id=action-ports-table\n"
         "   Optionally to build only and not submit:\n"
         "            --build-only=True\n"
     )
