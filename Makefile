@@ -16,7 +16,7 @@ proto:
 clean:
 	rm -r cloudvision.egg-info build dist
 
-dist:
+dist: clean
 	python3 -m build
 
 dev-setup:
