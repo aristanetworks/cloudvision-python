@@ -746,6 +746,7 @@ class SenderStatus(google.protobuf.message.Message):
     ERROR_TYPE_FIELD_NUMBER: builtins.int
     ERROR_MESSAGE_FIELD_NUMBER: builtins.int
     EVENTS_FIELD_NUMBER: builtins.int
+    PREVIOUS_ATTEMPTS_FIELD_NUMBER: builtins.int
     error_type: global___EndpointErrorType.ValueType
     """error_type is the type of error. This allows custom handling of different error types."""
     @property
@@ -776,6 +777,12 @@ class SenderStatus(google.protobuf.message.Message):
     def events(self) -> global___EventIdentifiers:
         """events is a list of events triggering the alert."""
 
+    @property
+    def previous_attempts(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """previous_attempts is the number of times the alert corresponding to this sender status has been
+        retried.
+        """
+
     def __init__(
         self,
         *,
@@ -786,9 +793,10 @@ class SenderStatus(google.protobuf.message.Message):
         error_type: global___EndpointErrorType.ValueType = ...,
         error_message: google.protobuf.wrappers_pb2.StringValue | None = ...,
         events: global___EventIdentifiers | None = ...,
+        previous_attempts: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "events", b"events", "key", b"key", "remaining_retries", b"remaining_retries", "success", b"success"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "error_type", b"error_type", "events", b"events", "key", b"key", "remaining_retries", b"remaining_retries", "success", b"success"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "events", b"events", "key", b"key", "previous_attempts", b"previous_attempts", "remaining_retries", b"remaining_retries", "success", b"success"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "error_type", b"error_type", "events", b"events", "key", b"key", "previous_attempts", b"previous_attempts", "remaining_retries", b"remaining_retries", "success", b"success"]) -> None: ...
 
 global___SenderStatus = SenderStatus
 
