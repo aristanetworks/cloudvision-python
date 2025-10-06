@@ -254,6 +254,23 @@ device_capabilities: Dict[str, Dict] = {
         "bgp_update_wait_for_convergence": True,
         "bgp_update_wait_install": False,
     },
+    "wolfhound3plus-fixed-poe": {
+        "regexes": [r'CCS-710XP'],
+        "info": "Configured in standard settings",
+        "reload_delay": {
+            "mlag": 300,
+            "non_mlag": 330
+        },
+        "tcam_profile": None,
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+            "poe": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+    },
     "veos": {
         "regexes": [veos_regex],
         "info": "Configured in standard settings",
