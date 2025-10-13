@@ -833,6 +833,7 @@ class EventIdentifier(google.protobuf.message.Message):
     ALERTER_RULE_INDEX_FIELD_NUMBER: builtins.int
     FIRING_FIELD_NUMBER: builtins.int
     IS_TEST_FIELD_NUMBER: builtins.int
+    EVENT_TYPE_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> google.protobuf.wrappers_pb2.StringValue:
         """key is the event key."""
@@ -856,6 +857,10 @@ class EventIdentifier(google.protobuf.message.Message):
     def is_test(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """is_test is true if event was initiated via test notification page."""
 
+    @property
+    def event_type(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """event_type is the type of the event."""
+
     def __init__(
         self,
         *,
@@ -864,9 +869,10 @@ class EventIdentifier(google.protobuf.message.Message):
         alerter_rule_index: google.protobuf.wrappers_pb2.Int32Value | None = ...,
         firing: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         is_test: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        event_type: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "firing", b"firing", "is_test", b"is_test", "key", b"key", "time", b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "firing", b"firing", "is_test", b"is_test", "key", b"key", "time", b"time"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "event_type", b"event_type", "firing", b"firing", "is_test", b"is_test", "key", b"key", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["alerter_rule_index", b"alerter_rule_index", "event_type", b"event_type", "firing", b"firing", "is_test", b"is_test", "key", b"key", "time", b"time"]) -> None: ...
 
 global___EventIdentifier = EventIdentifier
 
