@@ -18,8 +18,10 @@ it.
 """
 
 import builtins
+import collections.abc
 import fmp.wrappers_pb2
 import google.protobuf.descriptor
+import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
@@ -243,6 +245,8 @@ class _ArchEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeW
     """ARCH_X86_64 indicates that the software is intended to be run on 64-bit platforms"""
     ARCH_AARCH64: _Arch.ValueType  # 5
     """ARCH_AARCH64 indicates that the software is intended to be run on ARM 64-bit platforms"""
+    ARCH_MULTIARCH: _Arch.ValueType  # 6
+    """ARCH_MULTIARCH indicates that the software supports all architectures"""
 
 class Arch(_Arch, metaclass=_ArchEnumTypeWrapper):
     """Arch is an enum used to specify the target architecture of an image or extension."""
@@ -259,6 +263,8 @@ ARCH_X86_64: Arch.ValueType  # 4
 """ARCH_X86_64 indicates that the software is intended to be run on 64-bit platforms"""
 ARCH_AARCH64: Arch.ValueType  # 5
 """ARCH_AARCH64 indicates that the software is intended to be run on ARM 64-bit platforms"""
+ARCH_MULTIARCH: Arch.ValueType  # 6
+"""ARCH_MULTIARCH indicates that the software supports all architectures"""
 global___Arch = Arch
 
 class _Variant:
@@ -791,6 +797,7 @@ class SwiMetadata(google.protobuf.message.Message):
     IMAGE_FORMAT_VERSION_FIELD_NUMBER: builtins.int
     EMBEDDED_TERMINATTR_FIELD_NUMBER: builtins.int
     OPTIMIZATION_FIELD_NUMBER: builtins.int
+    CONCRETE_TYPE_TO_CONCRETE_SWI_MAP_FIELD_NUMBER: builtins.int
     variant: global___Variant.ValueType
     """variant specifies the swi image variant"""
     flavor: global___Flavor.ValueType
@@ -827,6 +834,10 @@ class SwiMetadata(google.protobuf.message.Message):
         use-cases
         """
 
+    @property
+    def concrete_type_to_concrete_swi_map(self) -> global___ConcreteTypeToConcreteSwiMap:
+        """concrete_type_to_concrete_swi_map indicates a map to the concrete swi metadata"""
+
     def __init__(
         self,
         *,
@@ -840,9 +851,10 @@ class SwiMetadata(google.protobuf.message.Message):
         image_format_version: global___ImageFormatVersion.ValueType = ...,
         embedded_terminattr: global___ExtensionMetadata | None = ...,
         optimization: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        concrete_type_to_concrete_swi_map: global___ConcreteTypeToConcreteSwiMap | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["blessed", b"blessed", "embedded_terminattr", b"embedded_terminattr", "max_hardware_epoch", b"max_hardware_epoch", "optimization", b"optimization", "release", b"release", "version", b"version"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["arch", b"arch", "blessed", b"blessed", "embedded_terminattr", b"embedded_terminattr", "flavor", b"flavor", "image_format_version", b"image_format_version", "max_hardware_epoch", b"max_hardware_epoch", "optimization", b"optimization", "release", b"release", "variant", b"variant", "version", b"version"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["blessed", b"blessed", "concrete_type_to_concrete_swi_map", b"concrete_type_to_concrete_swi_map", "embedded_terminattr", b"embedded_terminattr", "max_hardware_epoch", b"max_hardware_epoch", "optimization", b"optimization", "release", b"release", "version", b"version"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["arch", b"arch", "blessed", b"blessed", "concrete_type_to_concrete_swi_map", b"concrete_type_to_concrete_swi_map", "embedded_terminattr", b"embedded_terminattr", "flavor", b"flavor", "image_format_version", b"image_format_version", "max_hardware_epoch", b"max_hardware_epoch", "optimization", b"optimization", "release", b"release", "variant", b"variant", "version", b"version"]) -> None: ...
 
 global___SwiMetadata = SwiMetadata
 
@@ -977,3 +989,84 @@ class Releases(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["status", b"status", "uris", b"uris"]) -> None: ...
 
 global___Releases = Releases
+
+@typing.final
+class ConcreteFile(google.protobuf.message.Message):
+    """ConcreteFile contains the name and corresponding metadata of the
+    file (like fileserver, file size)
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    FILE_SERVER_PATH_FIELD_NUMBER: builtins.int
+    SIZE_FIELD_NUMBER: builtins.int
+    RELEASE_FIELD_NUMBER: builtins.int
+    @property
+    def name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """name is the name of the concrete file"""
+
+    @property
+    def file_server_path(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """file_server_path is the location of the image or extension as stored in CloudVision"""
+
+    @property
+    def size(self) -> google.protobuf.wrappers_pb2.UInt64Value:
+        """size is the size of the image or extension in bytes"""
+
+    @property
+    def release(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """release is the release version of the concrete file"""
+
+    def __init__(
+        self,
+        *,
+        name: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        file_server_path: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        size: google.protobuf.wrappers_pb2.UInt64Value | None = ...,
+        release: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["file_server_path", b"file_server_path", "name", b"name", "release", b"release", "size", b"size"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["file_server_path", b"file_server_path", "name", b"name", "release", b"release", "size", b"size"]) -> None: ...
+
+global___ConcreteFile = ConcreteFile
+
+@typing.final
+class ConcreteTypeToConcreteSwiMap(google.protobuf.message.Message):
+    """ConcreteTypeToConcreteSwiMap indicates a map keyed by stringified concrete type (limited
+    to i386, i686, x86_64 and aarch64, but can be extended to platform types in the future) to the concrete swi map.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing.final
+    class ValuesEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        @property
+        def value(self) -> global___ConcreteFile: ...
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: global___ConcreteFile | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___ConcreteFile]:
+        """values contains a collection of ConcreteTypeToConcreteSwiMap items."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Mapping[builtins.str, global___ConcreteFile] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___ConcreteTypeToConcreteSwiMap = ConcreteTypeToConcreteSwiMap
