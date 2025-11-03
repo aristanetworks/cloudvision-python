@@ -77,6 +77,39 @@ with grpc.secure_channel("www.arista.io:443", channelCredentials) as channel:
         event_annotation_stub.Set(event_note_update)
 ```
 
+### Async support
+
+It is possible to use alternative GRPC client based on [grpclib](https://github.com/vmagamedov/grpclib),
+that supports pure-python async stubs. This stubs could be found in `cloudvision.api.arista` module.
+More specific information and specifications are provided in
+[the API documentation](https://aristanetworks.github.io/cloudvision-python/cloudvision.api.arista.html)
+While two types of stubs are supported, it is recommended to use ones from `cloudvision.api.arista`,
+as they use more idiomatic structure, naming conventions and leverage standard python library
+to describe data model.
+
+Example below shows how to retrieve a list of devices:
+
+```python
+import asyncio
+from cloudvision.cvlib import AristaProtoClient
+from cloudvision.api.arista.inventory.v1 import DeviceServiceStub, DeviceStreamRequest
+
+async def get_auditlog():
+    client = AristaProtoClient.from_token('<your service account token>', 'your-cvp.io')
+
+    # get channel
+    with client as channel:
+
+        # pass it to the stub
+        service = DeviceServiceStub(channel)
+
+        # execute one of stub's methods
+        async for item in service.get_all(DeviceStreamRequest()):
+            print(item)
+
+asyncio.run(get_auditlog())
+```
+
 ## CloudVision Connector
 
 CloudVision Connector is a Python implementation of a GRPC client for CloudVision. It takes care
@@ -100,3 +133,4 @@ with GRPCClient("my-cv-host:9900") as client:
              # Get timestamp for all update here with notif.Timestamp
              PrettyPrint(notif["updates"])
 ```
+

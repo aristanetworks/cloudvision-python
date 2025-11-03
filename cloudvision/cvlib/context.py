@@ -4,6 +4,7 @@
 
 import json
 import signal
+import ssl
 from collections.abc import Callable
 from enum import IntEnum
 from logging import getLogger
@@ -50,6 +51,7 @@ from .topology import Topology
 from .user import User
 from .utils import extractJSONEncodedListArg
 from .workspace import Workspace
+from ..api.client import AsyncCVClient
 
 ACCESS_TOKEN = "access_token"
 CMDS = "cmds"
@@ -143,6 +145,7 @@ class Context:
         self.logger = logger if logger else self.__getBackupLogger()
         self.__connector = None
         self.__serviceChann = None
+        self.__asyncServiceChann = None
         self.topology: Optional[Topology] = None
         self.preserveWhitespace = False
         self.loggingLevel = loggingLevel if loggingLevel else LoggingLevel.Info
@@ -161,6 +164,8 @@ class Context:
             self.__connector.close()
         if self.__serviceChann:
             self.__serviceChann.close()
+        if self.__asyncServiceChann:
+            self.__asyncServiceChann.close()
 
     def getDevice(self):
         '''
@@ -224,6 +229,30 @@ class Context:
                                tokenValue=self.user.token)
         self.__connector = connector
         return connector
+
+    def getAsyncApiClient(self, stub):
+        '''
+        Creates async GRPC client and return a stub instance of class ``stub`` initialized with
+        this GRPC client. ``stub`` should be a subclass of :py:class:`aristaproto.ServiceStub` from
+        :py:mod:`cloudvision.api.arista`.
+
+        :param stub: subclass of :py:class:`!aristaproto.ServiceStub`
+
+        :rtype: :py:class:`!aristaproto.ServiceStub`
+        '''
+        host, port = self.connections.serviceAddr.rsplit(':', 1)
+
+        # context.connections.serviceAddr contains FQDN with trailing dot, which won't match the
+        # certificate as CN in the certificate must not contain trailing dot (RFC6066)
+        host = host.rstrip(".")
+
+        if not self.__asyncServiceChann:
+            self.__asyncServiceChann = AsyncCVClient.from_token(
+                token=self.user.token, username=self.user.username,
+                host=host, port=port
+            )._init_channel()
+
+        return stub(self.__asyncServiceChann)
 
     def getApiClient(self, stub):
         '''

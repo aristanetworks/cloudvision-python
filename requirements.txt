@@ -4,3 +4,4 @@ msgpack>=1.0.3
 protobuf>=5.28.3,<6.0dev
 requests>=2.20.1
 typing-extensions>=4.2.0
+aristaproto==0.1.4
