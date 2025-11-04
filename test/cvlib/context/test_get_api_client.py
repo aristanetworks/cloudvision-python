@@ -64,7 +64,6 @@ def grpc_client(start_server):
 
 def test_get_api_client(grpc_client):
     tagService = grpc_client.getApiClient(TagServiceStub)
-    global GRPC_ATTEMPT
     try:
         start_time = time.time()
         responses = list(tagService.GetAll(TagStreamRequest()))
