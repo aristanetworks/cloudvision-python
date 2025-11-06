@@ -194,6 +194,12 @@ class _EndpointErrorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapp
     """ENDPOINT_ERROR_TYPE_O_AUTH_ERROR is caused when we failed authenticating using the
     OAuth apis
     """
+    ENDPOINT_ERROR_TYPE_INTERNAL_ERROR: _EndpointErrorType.ValueType  # 12
+    """ENDPOINT_ERROR_TYPE_INTERNAL_ERROR indicates an unexpected internal error"""
+    ENDPOINT_ERROR_TYPE_BROADCAST_GROUP_MISSING: _EndpointErrorType.ValueType  # 13
+    """ENDPOINT_ERROR_TYPE_BROADCAST_GROUP_MISSING is caused when Alerter is trying to send
+    an alert to a broadcast group that isn't present in the config
+    """
 
 class EndpointErrorType(_EndpointErrorType, metaclass=_EndpointErrorTypeEnumTypeWrapper):
     """EndpointErrorType describes the set of possible endpoint error types."""
@@ -231,6 +237,12 @@ exceeding the built-in limit
 ENDPOINT_ERROR_TYPE_O_AUTH_ERROR: EndpointErrorType.ValueType  # 11
 """ENDPOINT_ERROR_TYPE_O_AUTH_ERROR is caused when we failed authenticating using the
 OAuth apis
+"""
+ENDPOINT_ERROR_TYPE_INTERNAL_ERROR: EndpointErrorType.ValueType  # 12
+"""ENDPOINT_ERROR_TYPE_INTERNAL_ERROR indicates an unexpected internal error"""
+ENDPOINT_ERROR_TYPE_BROADCAST_GROUP_MISSING: EndpointErrorType.ValueType  # 13
+"""ENDPOINT_ERROR_TYPE_BROADCAST_GROUP_MISSING is caused when Alerter is trying to send
+an alert to a broadcast group that isn't present in the config
 """
 global___EndpointErrorType = EndpointErrorType
 
