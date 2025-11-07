@@ -77,19 +77,19 @@ class Tags:
     with many values.
     Device tags are assigned to devices.
     Interface tags are assigned to devices' interfaces.
-    - ctx:                     Context in which the studio build is run
-    - relevantTagAssigns:      Dictionary of relevant device tags, of the form:
-                               {deviceId: {label: [value1,value2,..]}},
-                               works like a cache
-    - relevantIntfTagAssigns:  Dictionary of relevant interface tags, of the form:
-                               {deviceId: {intfId: {label: [value1,value2,..]}}},
-                               works like a cache
     '''
 
     def __init__(self, context):
+        #: Context in which the studio build is run
         self.ctx = context
+
         self.relevantTagAssigns: Dict = None
+        '''Dictionary of relevant device tags, of the form
+          ``{deviceId: {label: [value1,value2,..]}}``, works like a cache'''
+
         self.relevantIntfTagAssigns: Dict = None
+        '''Dictionary of relevant interface tags, of the form
+          ``{deviceId: {intfId: {label: [value1,value2,..]}}}``, works like a cache'''
 
     def _getTagUpdatesFromWorkspace(self, etype=ELEMENT_TYPE_DEVICE):
         '''

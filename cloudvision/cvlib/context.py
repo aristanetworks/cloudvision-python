@@ -113,14 +113,16 @@ def monitorTimerHandler(signum, frame):
 class Context:
     '''
     Context object that stores a number of system and user-defined parameters:
-    - user:           Info on the user executing this script
-    - device:         Info on the device the script is operating on, if applicable
-    - action:         Info on the action associated with the current context, if applicable
-    - changeControl:  Common change-control script parameters (Deprecated, use action)
-    - studio:         Common studio parameters
-    - execution:      Info on the standalone execution context
-    - connections:    Object storing connection info used by the context, e.g. apiserver address
-    - logger:         Logging functions to be used by the context
+
+    :param user:           Info on the user executing this script
+    :param device:         Info on the device the script is operating on, if applicable
+    :param action:         Info on the action associated with the current context, if applicable
+    :param changeControl:  Common change-control script parameters (Deprecated, use action)
+    :param studio:         Common studio parameters
+    :param execution:      Info on the standalone execution context
+    :param connections:    Object storing connection info used by the context,
+                           e.g. apiserver address
+    :param logger:         Logging functions to be used by the context
     '''
 
     def __init__(self, user: User,
@@ -236,6 +238,8 @@ class Context:
         this GRPC client. ``stub`` should be a subclass of :py:class:`aristaproto.ServiceStub` from
         :py:mod:`cloudvision.api.arista`.
 
+        .. versionadded:: 1.26.0
+
         :param stub: subclass of :py:class:`!aristaproto.ServiceStub`
 
         :rtype: :py:class:`!aristaproto.ServiceStub`
@@ -258,6 +262,7 @@ class Context:
         '''
         Instantiates a resource api client to the service server
         based on the current user auth token and passed stub
+
         :param: stub of the resource api to connect to
         :return: resource api client to the passed stub
         '''
@@ -335,7 +340,9 @@ class Context:
         :return: json object containing output of commandsList (if validateResponse is True)
                  OR
                  raw request response (if validateResponse is False)
-        :raises: InvalidContextException when context is invalid for execution of device commands
+
+        :raises InvalidContextException:
+                 when context is invalid for execution of device commands
                  requests.ConnectionError if connection cannot be established to the command
                  endpoint address
                  HTTPError if the status code from the command request is not a 200
@@ -429,9 +436,11 @@ class Context:
         '''
         Takes a function and a timeout in seconds.
         Will call and return the result of f, but raises a cvlib.TimeoutExpiry
-        exception if it runs longer than <timeout>
-        NOTE: If there is an attempt to recursively call this function, an InvalidContextException
-        will be raised.
+        exception if it runs longer than ``timeout``
+
+        :param f: callable object
+
+        :raises InvalidContextException: If there is an attempt to recursively call this function
         '''
 
         # Store the default alarm signal so we can set it back again when we're done
@@ -465,8 +474,9 @@ class Context:
         methods that require the presence of a studio or workspace with the active context,
         such as those offered by the tags class.
 
-        NOTE: Will raise InvalidContextException if called and either a studio is already
-        bound to the context or no action is available in the context
+        :raises InvalidContextException:
+            Will raise InvalidContextException if called and either a studio is already
+            bound to the context or no action is available in the context
         '''
         if self.studio or self.workspace:
             raise InvalidContextException(
@@ -589,10 +599,9 @@ class Context:
         of that path as a dictionary. Wildcarding is not advised as the returned dictionary
         is only a single level deep, so adding wildcards will cause overwrites in the results.
 
-        Params:
-        - path:     The path to issue the get to, in the form of a list of strings
-        - keys:     The key(s) to get at the path. Defaults to all keys
-        - dataset:  The dataset to issue the get to. Defaults to the `analytics` dataset
+        :param path:     The path to issue the get to, in the form of a list of strings
+        :param keys:     The key(s) to get at the path. Defaults to all keys
+        :param dataset:  The dataset to issue the get to. Defaults to the `analytics` dataset
         '''
         client: GRPCClient = self.getCvClient()
         query = create_query(pathKeys=[(path, keys)], dId=dataset)
@@ -615,7 +624,7 @@ class Context:
         - If it is an action context, the key generated will be in the form of
           "<executionID>"
 
-        Raises InvalidContextException if not enough context information is present
+        :raises InvalidContextException: if not enough context information is present
         to create a key
         '''
         if self.studio is not None:
@@ -634,12 +643,12 @@ class Context:
         All paths will contain "action/tmp" as the root.
 
         When building a path based on the context;
-        - If it is a studio context, the path generated will be in the form of
-          /action/tmp/workspace/<workspaceId>/studio
-        - If it is an action context, the path generated will be in the form of
-          /action/tmp/action/<actionId>
+            - If it is a studio context, the path generated will be in the form of
+            ``/action/tmp/workspace/<workspaceId>/studio``
+            - If it is an action context, the path generated will be in the form of
+            ``/action/tmp/action/<actionId>``
 
-        Raises InvalidContextException if no additional elems were passed by the user
+        :raises InvalidContextException: if no additional elems were passed by the user
         and not enough context information is present to create a path
         '''
         storage_path = TMP_STORAGE_PATH.copy()
@@ -659,23 +668,23 @@ class Context:
         '''
         store puts the passed data into a path in the Database
 
-        NOTE: This function is only available to those with write permissions to the
-        'action' path in the cvp dataset (granted by the action module), as that is
-        where the store is.
+        .. note::
+            This function is only available to those with write permissions to the
+            'action' path in the cvp dataset (granted by the action module), as that is
+            where the store is.
 
         This should be used in conjunction with the retrieve method to ensure that
         the entry is cleaned up after use.
 
-        Params:
-        - data:      The data to store
-        - path:      The path to store the data at, in the form of a list of strings.
-                     If this argument is omitted, a generic path will be created for
-                     use. All paths have "action/tmp" as the root.
-        - customKey: The key to store the data at in the path. If this argument is
-                     omitted, a generic string key will be created for use.
+        :param data:      The data to store
+        :param path:      The path to store the data at, in the form of a list of strings.
+                          If this argument is omitted, a generic path will be created for
+                          use. All paths have ``"action/tmp"`` as the root.
+        :param customKey: The key to store the data at in the path. If this argument is
+                          omitted, a generic string key will be created for use.
 
-        Raises InvalidContextException if not enough context information is
-        present to create a generic key/path (if required)
+        :raises InvalidContextException:
+            if not enough context information is present to create a generic key/path (if required)
         '''
         key = customKey if customKey else self._getGenericKey()
         storagePath = self._getStoragePath(additionalElems=path)
@@ -707,22 +716,23 @@ class Context:
         retrieve gets the passed key's data from the provided path from the
         Database store.
 
-        NOTE: This function is only available to those with read permissions to the
-        'action' path in the cvp dataset (granted by the action module), as that is
-        where the store is.
+        .. note::
 
-        Params:
-        - path:      The path where the data is stored at, in the form of a list
-                     of strings. If this argument is omitted, a generic path will be
-                     created for use. All paths have "action/tmp" as the root.
-        - customKey: The key where the data is stored at in the path. If this argument
-                     is omitted, a generic string key will be created for use.
-        - delete:    Boolean flag marking whether a delete should be issued to the
-                     store for the key/path combo to clean up after use.
-                     Deleting once the contents have been retrieved is the default.
+            This function is only available to those with read permissions to the
+            'action' path in the cvp dataset (granted by the action module), as that is
+            where the store is.
 
-        Raises InvalidContextException if not enough context information is
-        present to create a generic key/path (if required)
+        :param path:      The path where the data is stored at, in the form of a list
+                          of strings. If this argument is omitted, a generic path will be
+                          created for use. All paths have "action/tmp" as the root.
+        :param customKey: The key where the data is stored at in the path. If this argument
+                          is omitted, a generic string key will be created for use.
+        :param delete:    Boolean flag marking whether a delete should be issued to the
+                          store for the key/path combo to clean up after use.
+                          Deleting once the contents have been retrieved is the default.
+
+        :raises InvalidContextException: if not enough context information is present to create
+                                         a generic key/path (if required)
         '''
         key = customKey if customKey else self._getGenericKey()
         storagePath = self._getStoragePath(additionalElems=path)
@@ -759,16 +769,16 @@ class Context:
         issue a deletes to the full path, instead of at all sub-paths in the path. A list
         of keys to specifically delete can be provided to only delete those fields.
 
-        NOTE: While this function accepts wildcards, note that using them may
-        impact other storage paths used in other actions.
+        .. note::
+            While this function accepts wildcards, note that using them may
+            impact other storage paths used in other actions.
 
-        Params:
-        - path:         The path where the data should be purged, in the form of a list
-                        of strings or Connector Wildcards.
-        - keys:         The list of keys to delete. Defaults to a delete-all.
-        - fullPathOnly: Boolean flag marking whether a delete-all should only be issued
-                        to the store for full path.
-                        By default, deletes are issued at all sub-paths.
+        :param path:         The path where the data should be purged, in the form of a list
+                             of strings or Connector Wildcards.
+        :param keys:         The list of keys to delete. Defaults to a delete-all.
+        :param fullPathOnly: Boolean flag marking whether a delete-all should only be issued
+                             to the store for full path.
+                             By default, deletes are issued at all sub-paths.
         """
         storagePath = self._getStoragePath(additionalElems=path)
         client = self.getCvClient()
@@ -795,17 +805,19 @@ class Context:
         The context's associated device name and id will be added to the audit log metadata
         if it is available in the context.
 
-        Note: This method is a no-op when run in a Studio template rendering context. Use the
-        preferred ctx.info, ctx.error, ctx.debug etc. logging methods there instead.
+        .. note::
+            This method is a no-op when run in a Studio template rendering context. Use the
+            preferred :py:meth:`info`, :py:meth:`error`, :py:meth:`debug` etc. logging
+            methods there instead.
 
-        Args:
-            message:        The string message for the audit log entry
-            userName:       The user to make the audit log entry under. If unspecified, will
-                            use the context's user's username
-            customKey:      A custom key that will be used to alias the audit log entry if provided
-            tags:           A string dictionary of additional custom tags to add to the audit log
-                            entry. The action ID is always added as a tag to the audit log
-            ignoreFailures: Prevents logging exceptions from being raised
+        :param message:        The string message for the audit log entry
+        :param userName:       The user to make the audit log entry under. If unspecified, will
+                               use the context's user's username
+        :param customKey:      A custom key that will be used to alias the audit log entry
+                               if provided
+        :param tags:           A string dictionary of additional custom tags to add to the audit log
+                               entry. The action ID is always added as a tag to the audit log
+        :param ignoreFailures: Prevents logging exceptions from being raised
         """
         try:
             self.logger.alog(self, message, userName, customKey, tags)
@@ -817,12 +829,14 @@ class Context:
         """
         Creates a trace level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
-        Args:
-            msg:            The string message for the  log entry
-            ignoreFailures: Prevents logging exceptions from being raised
-            tags:           A string dictionary of additional custom tags to add to the log
-                            entry. Some system tags are always inserted, e.g. buildID
-                            when logging is done in a studio context.
+
+        :param msg:            The string message for the  log entry
+        :param ignoreFailures: Prevents logging exceptions from being raised
+        :type ignoreFailures:  bool
+        :param tags:           A string dictionary of additional custom tags to add to the log
+                               entry. Some system tags are always inserted, e.g. buildID
+                               when logging is done in a studio context.
+        :type tags: dict
         """
         if self.getLoggingLevel() > LoggingLevel.Trace:
             return
@@ -836,12 +850,14 @@ class Context:
         """
         Creates a debug level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
-        Args:
-            msg:            The string message for the  log entry
-            ignoreFailures: Prevents logging exceptions from being raised
-            tags:           A string dictionary of additional custom tags to add to the log
-                            entry. Some system tags are always inserted, e.g. buildID
-                            when logging is done in a studio context.
+
+        :param msg:            The string message for the  log entry
+        :param ignoreFailures: Prevents logging exceptions from being raised
+        :type ignoreFailures:  bool
+        :param tags:           A string dictionary of additional custom tags to add to the log
+                               entry. Some system tags are always inserted, e.g. buildID
+                               when logging is done in a studio context.
+        :type tags: dict
         """
         if self.getLoggingLevel() > LoggingLevel.Debug:
             return
@@ -855,12 +871,14 @@ class Context:
         """
         Creates an info level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
-        Args:
-            msg:            The string message for the  log entry
-            ignoreFailures: Prevents logging exceptions from being raised
-            tags:           A string dictionary of additional custom tags to add to the log
-                            entry. Some system tags are always inserted, e.g. buildID
-                            when logging is done in a studio context.
+
+        :param msg:            The string message for the  log entry
+        :param ignoreFailures: Prevents logging exceptions from being raised
+        :type ignoreFailures:  bool
+        :param tags:           A string dictionary of additional custom tags to add to the log
+                               entry. Some system tags are always inserted, e.g. buildID
+                               when logging is done in a studio context.
+        :type tags: dict
         """
         if self.getLoggingLevel() > LoggingLevel.Info:
             return
@@ -874,12 +892,14 @@ class Context:
         """
         Creates a warning level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
-        Args:
-            msg:            The string message for the  log entry
-            ignoreFailures: Prevents logging exceptions from being raised
-            tags:           A string dictionary of additional custom tags to add to the log
-                            entry. Some system tags are always inserted, e.g. buildID
-                            when logging is done in a studio context.
+
+        :param msg:            The string message for the  log entry
+        :param ignoreFailures: Prevents logging exceptions from being raised
+        :type ignoreFailures:  bool
+        :param tags:           A string dictionary of additional custom tags to add to the log
+                               entry. Some system tags are always inserted, e.g. buildID
+                               when logging is done in a studio context.
+        :type tags: dict
         """
         if self.getLoggingLevel() > LoggingLevel.Warn:
             return
@@ -893,12 +913,14 @@ class Context:
         """
         Creates an error level log if the context's logging level is set to allow for it
         If the logging level is higher, is a no-op
-        Args:
-            msg:            The string message for the  log entry
-            ignoreFailures: Prevents logging exceptions from being raised
-            tags:           A string dictionary of additional custom tags to add to the log
-                            entry. Some system tags are always inserted, e.g. buildID
-                            when logging is done in a studio context.
+
+        :param msg:            The string message for the  log entry
+        :param ignoreFailures: Prevents logging exceptions from being raised
+        :type ignoreFailures:  bool
+        :param tags:           A string dictionary of additional custom tags to add to the log
+                               entry. Some system tags are always inserted, e.g. buildID
+                               when logging is done in a studio context.
+        :type tags: dict
         """
         if self.getLoggingLevel() > LoggingLevel.Error:
             return
@@ -911,12 +933,14 @@ class Context:
     def critical(self, msg, ignoreFailures=False, tags: Dict[str, str] = None):
         """
         Creates a critical level log
-        Args:
-            msg:            The string message for the  log entry
-            ignoreFailures: Prevents logging exceptions from being raised
-            tags:           A string dictionary of additional custom tags to add to the log
-                            entry. Some system tags are always inserted, e.g. buildID
-                            when logging is done in a studio context.
+
+        :param msg:            The string message for the  log entry
+        :param ignoreFailures: Prevents logging exceptions from being raised
+        :type ignoreFailures:  bool
+        :param tags:           A string dictionary of additional custom tags to add to the log
+                               entry. Some system tags are always inserted, e.g. buildID
+                               when logging is done in a studio context.
+        :type tags: dict
         """
         try:
             self.logger.critical(self, msg, tags)
@@ -991,9 +1015,17 @@ class Context:
         Turns on benchmarking to collect stats such as time consumed in a routine
         of the template
         To use add the following lines into the template:
-            ctx.benchmarkingOn()   - place this as the first line after imports in the template
-            @ctx.benchmark         - decorate the functions of the template to be benchmarked
-            ctx.benchmarkDump()    - place this as the last line in the template
+
+        .. code:: python
+
+            @ctx.benchmark         # decorate the functions of the template to be benchmarked
+            def someFunc():
+                ...
+
+            ctx.benchmarkingOn()   # place this as the first line after imports in the template
+            someFunc()
+            ctx.benchmarkDump()    # place this as the last line in the template
+
         '''
         self.benchmarking = True
 

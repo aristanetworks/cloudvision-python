@@ -310,11 +310,12 @@ device_capabilities: Dict[str, Dict] = {
 class Device:
     '''
     Object to store device information
-    - ip:           IP address of device
-    - deviceId:     ID of the device
-    - deviceMac:    Mac address of the device
-    - hostName:     Hostname of the device
-    - modelName:    Model name of the device
+
+    :param ip:           IP address of device
+    :param deviceId:     ID of the device
+    :param deviceMac:    Mac address of the device
+    :param hostName:     Hostname of the device
+    :param modelName:    Model name of the device
     '''
 
     def __init__(self, deviceId: Optional[str] = None,
@@ -359,10 +360,11 @@ class Device:
 
     def getSingleTag(self, ctx, label: str, required: bool = True):
         '''
-        Returns a Tag of the label assigned to the device.
-        Raises TagTooManyValuesException if there are multiple tags of the label assigned.
-        Raises TagMissingException if required is True and the tag is missing.
-        Returns None if required is False and the tag is missing.
+        :raises TagTooManyValuesException: if there are multiple tags of the label assigned.
+        :raises TagMissingException: if required is True and the tag is missing.
+        :returns:
+            A Tag of the label assigned to the device. ``None`` if ``required is False``
+            and the tag is missing.
         '''
         devName = str(self.hostName) if self.hostName else str(self.id)
         values = ctx.tags._getDeviceTags(self.id).get(label)
@@ -430,8 +432,9 @@ class Device:
 class Interface:
     '''
     Object to store interface related information
-    - name:     The name of the interface
-    - device:   The device that the interface is on
+
+    :param name:     The name of the interface
+    :param device:   The device that the interface is on
     '''
 
     def __init__(self, name: str, device: Device):
@@ -461,10 +464,11 @@ class Interface:
 
     def getSingleTag(self, ctx, label: str, required: bool = True):
         '''
-        Returns a Tag of the label assigned to the interface.
-        Raises TagTooManyValuesException if there are multiple tags of the label assigned.
-        Raises TagMissingException if required is True and the tag is missing.
-        Returns None if required is False and the tag is missing.
+        :raises TagTooManyValuesException: if there are multiple tags of the label assigned.
+        :raises TagMissingException: if required is True and the tag is missing.
+        :returns:
+            a Tag of the label assigned to the interface. ``None`` if ``required is False``
+            and the tag is missing.
         '''
         devName = str(self._device.hostName) if self._device.hostName else str(self._device.id)
         values = ctx.tags._getInterfaceTags(self._device.id, self.name).get(label)

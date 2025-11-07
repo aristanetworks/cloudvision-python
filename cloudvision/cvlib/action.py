@@ -23,13 +23,14 @@ class ActionContext(Enum):
 class Action:
     '''
     Object to store common change control action script arguments:
-    - name:     Name of the action currently running
-    - context:  Enum for the context in which the action is running,
-                e.g. Action that is running is a change control action
-    - id:       ID of the action currently running
-    - args:     String -> String dictionary of the args associated with the action
-    - ccId:     ID of the change control, if applicable
-    - stageId:  ID of the current stage of the change control, if applicable
+
+    :param name:     Name of the action currently running
+    :param context:  Enum for the context in which the action is running,
+                     e.g. Action that is running is a change control action
+    :param id:       ID of the action currently running
+    :param args:     String -> String dictionary of the args associated with the action
+    :param ccId:     ID of the change control, if applicable
+    :param stageId:  ID of the current stage of the change control, if applicable
     '''
 
     def __init__(self, name: str,
@@ -51,6 +52,7 @@ class Action:
     def getCCStartTime(self, cvClient: GRPCClient):
         '''
         Queries the cloudvision database for the change control start time
+
         :param cvClient:  context.getCvClient() client
         :return:          nanosecond start timestamp of the change control
         '''

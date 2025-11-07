@@ -10,19 +10,21 @@ from typing import Dict, Optional
 class AuthAndEndpoints:
     '''
     The AuthAndEndpoints is an object used to communicate runtime environment variables
-    to the ctx context object in a custom python action in CloudVision.
-    - apiserverAddr:     Address of the CloudVision apiserver
-    - serviceAddr:       Address of the CloudVision service proxy server, e.g. ambassador address
-    - cacert:            Path to local CA Cert, used for establishing CV grpc connections
-    - commandEndpoint:   API endpoint information to reach a service where one can request
-                         commands to be run on a device.
-    - logEndpoint:       API endpoint information to reach a service where one can request
-                         logs to be created in CloudVision.
-    - connectionTimeout: Default timeout value (in seconds) to be used for API calls to establish
-                         connections to other services or devices.
-    - cliTimeout:        Default timeout value (in seconds) to be used for waiting on device
-                         command responses.
-    - testAddresses:     API addresses to use when execution is in a test context.
+    to the ``ctx`` context object in a custom python action in CloudVision.
+
+    :param apiserverAddr:     Address of the CloudVision apiserver
+    :param serviceAddr:       Address of the CloudVision service proxy server,
+                              e.g. ambassador address
+    :param cacert:            Path to local CA Cert, used for establishing CV grpc connections
+    :param commandEndpoint:   API endpoint information to reach a service where one can request
+                              commands to be run on a device.
+    :param logEndpoint:       API endpoint information to reach a service where one can request
+                              logs to be created in CloudVision.
+    :param connectionTimeout: Default timeout value (in seconds) to be used for API calls
+                              to establish connections to other services or devices.
+    :param cliTimeout:        Default timeout value (in seconds) to be used for waiting on device
+                              command responses.
+    :param testAddresses:     API addresses to use when execution is in a test context.
     '''
 
     def __init__(self,

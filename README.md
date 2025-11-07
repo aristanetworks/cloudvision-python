@@ -79,9 +79,9 @@ with grpc.secure_channel("www.arista.io:443", channelCredentials) as channel:
 
 ### Async support
 
-It is possible to use alternative GRPC client based on [grpclib](https://github.com/vmagamedov/grpclib),
-that supports pure-python async stubs. This stubs could be found in `cloudvision.api.arista` module.
-More specific information and specifications are provided in
+Starting from version 1.26.0+ it is be possible to use alternative GRPC client based on
+[grpclib](https://github.com/vmagamedov/grpclib),that supports pure-python async stubs.
+This stubs could be found in `cloudvision.api.arista` module. More specific information and specifications are provided in
 [the API documentation](https://aristanetworks.github.io/cloudvision-python/cloudvision.api.arista.html)
 While two types of stubs are supported, it is recommended to use ones from `cloudvision.api.arista`,
 as they use more idiomatic structure, naming conventions and leverage standard python library
@@ -91,11 +91,11 @@ Example below shows how to retrieve a list of devices:
 
 ```python
 import asyncio
-from cloudvision.cvlib import AristaProtoClient
+from cloudvision.api.client import AsyncCVClient
 from cloudvision.api.arista.inventory.v1 import DeviceServiceStub, DeviceStreamRequest
 
 async def get_auditlog():
-    client = AristaProtoClient.from_token('<your service account token>', 'your-cvp.io')
+    client = AsyncCVClient.from_token('<your service account token>', 'your-cvp.io')
 
     # get channel
     with client as channel:

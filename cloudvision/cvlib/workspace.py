@@ -15,9 +15,10 @@ from .exceptions import CVException
 class Workspace:
     '''
     Object to store workspace context:
-    - id:           Id of the workspace
-    - studioIds:    Ids of the studios edited in the associated workspace
-    - buildId:      Id of the workspace build
+
+    :param workspaceId:           Id of the workspace
+    :param studioIds:             Ids of the studios edited in the associated workspace
+    :param buildId:               Id of the workspace build
     '''
 
     def __init__(self, workspaceId: str, studioIds: List[str] = [], buildId: Optional[str] = None):
@@ -33,15 +34,13 @@ def getWorkspaceLastSynced(clientGetter, workspaceId: str):
     resource apis to gather accurate data when needing to fall back to mainline for building
     accurate state in a workspace.
 
-    Params:
-        clientGetter:   The API client getter, i.e. ctx.getApiClient
-        workspaceId:    The ID of the workspace to retrieve the timestamp for
+    :param clientGetter:   The API client getter, i.e. ctx.getApiClient
+    :param workspaceId:    The ID of the workspace to retrieve the timestamp for
 
-    Returns:
+    :returns:
         Timestamp object of the workspace's last rebased time, or created at time
 
-    Raises:
-        CVException:    If the workspace does not exist, or is mainline
+    :raises CVException:    If the workspace does not exist, or is mainline
     """
 
     if workspaceId == MAINLINE_WS_ID:

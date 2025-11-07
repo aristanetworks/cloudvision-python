@@ -36,42 +36,42 @@ from .workspace import getWorkspaceLastSynced
 class Studio:
     '''
     Object to store studio context:
-    - workspaceId:  Id of the workspace
-    - studioId:     Id of the studio
-    - inputs:       inputs provided to the studio
-    - deviceIds:    Ids of the devices associated with this studio
-    - logger:       The logger to be used with this studio
-    - execId:       Id of the execution
-    - buildId:      Id of the studio build
     '''
 
     def __init__(self, workspaceId: str, studioId: str, inputs=None,
                  deviceIds=None, logger=None, execId=None, buildId=None):
+        #: Id of the workspace
         self.workspaceId = workspaceId
+        #: Id of the studio
         self.studioId = studioId
+        #: inputs provided to the studio
         self.inputs = inputs
+        #: Ids of the devices associated with this studio
         self.deviceIds = deviceIds
+        #: The logger to be used with this studio
         self.logger = logger
+        #: Id of the execution
         self.execId = execId
+        #: Id of the studio build
         self.buildId = buildId
 
 
 class StudioCustomData:
     '''
     Object to store studio custom data context:
-    - context:   stores system and user-defined parameters.
-    - chunk_size: chunk size of stored data.
     '''
 
     def __init__(self, context):
+        #: stores system and user-defined parameters.
         self.context = context
+        #: chunk size of stored data.
         self.chunk_size = 1000 * 1024
 
     def __getBuildPath(self, studioId, path, key) -> List[str]:
         '''
         Builds a path for use in store/retrieve of studio custom data during a build
         using the studioId, path and key provided by the user. All paths contain
-        "workspace/<wsId>/build/<buildId>/studio/<studioId>/customData" as the root.
+        ``"workspace/<wsId>/build/<buildId>/studio/<studioId>/customData"`` as the root.
         Raises InvalidContextException if not enough context information is present
         to create a key
         '''
@@ -88,8 +88,8 @@ class StudioCustomData:
     def __getMainlinePath(self, studioId, path, key) -> List[str]:
         '''
         Builds a path for use in retrieve of studio custom data from mainline
-        using studioID, path and key. All paths contain
-        "/studio/<studioId>/customData" as the root.
+        using ``studioID``, ``path`` and ``key``. All paths contain
+        ``"/studio/<studioId>/customData"`` as the root.
         '''
         return ["studio", studioId, "customData"] + path + [key]
 
@@ -98,12 +98,11 @@ class StudioCustomData:
         store puts the passed studio custom data into a path in the Database.
         The data is stored in 1MB chunks.
 
-        Params:
-        - data:      The string data to be stored.
-        - path:      The path to store the data at, in the form of a list of strings.
-                     paths have "workspace/<wsId>/build/<buildId>/studio/<studioId>/customData"
+        :param data: The string data to be stored.
+        :param path: The path to store the data at, in the form of a list of strings.
+                     paths have ``"workspace/<wsId>/build/<buildId>/studio/<studioId>/customData"``
                      as the root.
-        - key:       The key to store the data at in the path.
+        :param key:  The key to store the data at in the path.
          '''
         if not isinstance(data, str):
             raise TypeError("only string data is allowed.")
@@ -147,10 +146,10 @@ class StudioCustomData:
         '''
         retrieve gets the custom data from a path and key written by a studio
         in the Database.
-        Params:
-        - studioId:  The studioId of studio that generates the data to be retrieved.
-        - path:      The path to get the data from, path is a list of strings.
-        - key:       The key to get the data from in the path.
+
+        :param studioId:  The studioId of studio that generates the data to be retrieved.
+        :param path:      The path to get the data from, path is a list of strings.
+        :param key:       The key to get the data from in the path.
         '''
         if not studioId:
             raise ValueError("studioId must be provided")
@@ -451,17 +450,15 @@ def extractInputElems(inputs, inputPath: List[str], elems: List[str] = [],
 def getSimpleResolverQueryValue(query: str):
     '''
     Autofill action arguments may be resolver queries. In these cases the string
-    argument is in the form of "<tag>:<Value>" or more complex queries such as
-    "<tag>:<ValueA> OR <tag>:<ValueB>". This function is designed to extract the
+    argument is in the form of ``"<tag>:<Value>"`` or more complex queries such as
+    ``"<tag>:<ValueA> OR <tag>:<ValueB>"``. This function is designed to extract the
     query values from a simple query.
 
-    Params:
-    - query:   The simple query string, e.g. "<tag>:<Value>"
+    :param query:   The simple query string, e.g. ``"<tag>:<Value>"``
 
-    Returns:
-    - The query value, e.g. "<Value>" from the above example.
+    :returns: The query value, e.g. "<Value>" from the above example.
 
-    Raises an InputException in the case where the passed query is not parsable as a simple query
+    :raises InputException: in the case where the passed query is not parsable as a simple query
     '''
     queryElems = query.split(":")
     if len(queryElems) == 1:
@@ -482,15 +479,18 @@ def extractStudioInfoFromArgs(args: Dict):
     and returns it to the user in the order below.
 
     These are (All return values may be None in the case the field is not present);
-    - StudioID:     The ID of the studio associated with the action
-    - WorkspaceID:  The ID of the workspace associated with the
-    - InputPath:    The string path elements leading to the input element in the action
 
-    NOTE: Input paths containing array/list indices will be stringified, so use caution when
-    iterating through the input tree using this. These are not converted to integer values
-    as they could clash with elements containing only numbers.
-    The `extractInputElems` method accounts for this and is suggested over manually traversing
-    the tree looking for elements
+        - ``StudioID``:     The ID of the studio associated with the action
+        - ``WorkspaceID``:  The ID of the workspace associated with the
+        - ``InputPath``:    The string path elements leading to the input element in the action
+
+    .. note::
+
+        Input paths containing array/list indices will be stringified, so use caution when
+        iterating through the input tree using this. These are not converted to integer values
+        as they could clash with elements containing only numbers.
+        The `extractInputElems` method accounts for this and is suggested over manually traversing
+        the tree looking for elements
     '''
     studioId = args.get(STUDIO_ID_ARG)
     workspaceId = args.get(WORKSPACE_ID_ARG)
@@ -518,19 +518,17 @@ def GetOneWithWS(apiClientGetter, stateStub, stateGetReq, configStub, confGetReq
         - If the state DOES exist there, check the X configuration endpoint of the workspace to
           see if the state has been explicitly deleted there.
 
-    Params:
-    - apiClientGetter:  The API client getter, i.e. ctx.getApiClient
-    - stateStub:        The stub for the state endpoint
-    - stateGetReq:      A workspace-aware get request to be made to the state client for the
-                        desired workspace. It is assumed that the get request has a key field
-                        "workspace_id", such that mainline can be queried in the case that the
-                        workspace query does not return anything.
-    - configStub:       The stub for the config endpoint
-    - confGetReq:       A workspace-aware get request to be made to the config client for the
-                        desired workspace.
+    :param apiClientGetter:  The API client getter, i.e. ctx.getApiClient
+    :param stateStub:        The stub for the state endpoint
+    :param stateGetReq:      A workspace-aware get request to be made to the state client for the
+                             desired workspace. It is assumed that the get request has a key field
+                             "workspace_id", such that mainline can be queried in the case that the
+                             workspace query does not return anything.
+    :param configStub:       The stub for the config endpoint
+    :param confGetReq:       A workspace-aware get request to be made to the config client for the
+                             desired workspace.
 
-    Returns:
-    - The request's value, or None if the resource has been deleted
+    :returns: - The request's value, or None if the resource has been deleted
     '''
 
     if not hasattr(stateGetReq.key, 'workspace_id'):
@@ -598,13 +596,11 @@ def mergeStudioInputs(rootInputs: Any, path: List[Any], inputsToInsert: Any):
     In the case where a studio resource returns inputs in multiple responses, they need to
     be spliced together to form a cohesive input object.
 
-    Params:
-    - rootInputs:       The root object to insert the new inputs into
-    - path:             The path in the rootInputs to insert the inputs into
-    - inputsToInsert:   The inputs to insert into the root inputs
+    :param rootInputs:       The root object to insert the new inputs into
+    :param path:             The path in the rootInputs to insert the inputs into
+    :param inputsToInsert:   The inputs to insert into the root inputs
 
-    Returns:
-    - The updated root inputs
+    :returns: The updated root inputs
     '''
     prevElem: Any | None = None
     prev = rootInputs

@@ -12,13 +12,14 @@ class Logger:
     logger cannot be used.
     Minimum required call signatures are described by the init function, where 'Any' denotes the
     context being passed to avoid cyclical imports
-    - alog:     Function to be used for audit log insertion
-    - trace:    Function to be used for trace level logging
-    - debug:    Function to be used for debug level logging
-    - info:     Function to be used for info level logging
-    - warning:  Function to be used for warning level logging
-    - error:    Function to be used for error level logging
-    - critical: Function to be used for critical level logging
+
+    :param alog:     Function to be used for audit log insertion
+    :param trace:    Function to be used for trace level logging
+    :param debug:    Function to be used for debug level logging
+    :param info:     Function to be used for info level logging
+    :param warning:  Function to be used for warning level logging
+    :param error:    Function to be used for error level logging
+    :param critical: Function to be used for critical level logging
     '''
 
     def __init__(self,

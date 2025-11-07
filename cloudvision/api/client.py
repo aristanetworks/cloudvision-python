@@ -21,6 +21,8 @@ class AsyncCVClient:
 
     .. _grpclib.client.Channel: https://grpclib.readthedocs.io/en/latest/client.html
 
+    .. versionadded:: 1.26.0
+
     .. code-block:: python
 
         import asyncio

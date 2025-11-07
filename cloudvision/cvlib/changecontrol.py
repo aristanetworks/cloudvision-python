@@ -11,11 +11,14 @@ from .utils import queryCCStartTime
 
 class ChangeControl:
     '''
-    (Deprecated) Please use ctx.action instead for various field information
-    Object to store common change control action script arguments:
-    - ccId:         ID of the change control, if applicable
-    - stageId:      ID of the current stage of the change control, if applicable
-    - args:         Dict of user-defined/script defined arguments that are passed in
+    .. deprecated:: 1.0.0
+
+        Please use :py:class:`Action` instead for various field information
+        Object to store common change control action script arguments:
+
+    :param ccId:         ID of the change control, if applicable
+    :param stageId:      ID of the current stage of the change control, if applicable
+    :param args:         Dict of user-defined/script defined arguments that are passed in
     '''
 
     def __init__(self,
@@ -30,6 +33,7 @@ class ChangeControl:
     def getStartTime(self, cvClient: GRPCClient):
         '''
         Queries the cloudvision database for the change control start time
+
         :param cvClient:  context.getCvClient() client
         :return:          nanosecond start timestamp of the change control
         '''

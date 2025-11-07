@@ -9,12 +9,14 @@ class IdAllocator:
     '''
     Object to generate unique integer ids, eg. used for generating nodeIds.
     Can also be used for checking manually entered ids for duplicates.
-    - start:        starting value of id range
-    - end:          ending value of id range
+
+    :param start:        starting value of id range
+    :param end:          ending value of id range
+
     The following are only used if checking duplicate id errors:
-    - idNames:      optional name associated with ids
-    - idLabel:      name describing id type
-    - groupLabel:   name describing what is being id'd
+
+    :param idLabel:      name describing id type
+    :param groupLabel:   name describing what is being id'd
     '''
     def __init__(self, start: int = 1,
                  end: int = 65000,
