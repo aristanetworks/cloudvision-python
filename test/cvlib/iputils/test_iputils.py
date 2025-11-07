@@ -261,7 +261,7 @@ check_subnet_utils = [
         None,
         None,
         None,
-        IpHostIndexException('1.1.1.240/28', 14, 15, 'dev1'),
+        IpHostIndexException('1.1.1.240/28', 14, 14, 'dev1'),
     ],
     [
         'ipv6 indexing one beyond last host in last subnet',
@@ -274,7 +274,7 @@ check_subnet_utils = [
         None,
         None,
         None,
-        IpHostIndexException('1:1:1::ffff:fff0/124', 15, 16, 'dev1'),
+        IpHostIndexException('1:1:1::ffff:fff0/124', 15, 15, 'dev1'),
     ],
 ]
 

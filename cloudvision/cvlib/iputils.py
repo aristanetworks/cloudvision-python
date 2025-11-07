@@ -101,15 +101,18 @@ def get_ip_from_subnet(network, index: int, hostname: str = None,
                        poolname: str = None):
     # Return the ip address at the specified index.
     # Input index is 0 based.
+    # Negative input index allocates from the end of the subnet.
     num_addresses = number_of_usable_addresses(network)
+    if index < 0:
+        index = num_addresses + index
+    if index < 0 or index >= num_addresses:
+        raise IpHostIndexException(
+            network, num_addresses, index, hostname, poolname)
     if (network.version == 4 and network.prefixlen < 31) or (
        network.version == 6 and network.prefixlen < 127):
         # When indexing directly into non p2p-link networks,
         # skip identification/anycast address
         index += 1
-    if index > num_addresses:
-        raise IpHostIndexException(
-            network, num_addresses, index, hostname, poolname)
     return network[index]
 
 
