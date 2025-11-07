@@ -993,7 +993,7 @@ global___Releases = Releases
 @typing.final
 class ConcreteFile(google.protobuf.message.Message):
     """ConcreteFile contains the name and corresponding metadata of the
-    file (like fileserver, file size)
+    file (like fileserver path, file size)
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1002,6 +1002,12 @@ class ConcreteFile(google.protobuf.message.Message):
     FILE_SERVER_PATH_FIELD_NUMBER: builtins.int
     SIZE_FIELD_NUMBER: builtins.int
     RELEASE_FIELD_NUMBER: builtins.int
+    VARIANT_FIELD_NUMBER: builtins.int
+    FLAVOR_FIELD_NUMBER: builtins.int
+    variant: global___Variant.ValueType
+    """variant specifies the swi image variant"""
+    flavor: global___Flavor.ValueType
+    """flavor is the swi image flavor"""
     @property
     def name(self) -> google.protobuf.wrappers_pb2.StringValue:
         """name is the name of the concrete file"""
@@ -1025,9 +1031,11 @@ class ConcreteFile(google.protobuf.message.Message):
         file_server_path: google.protobuf.wrappers_pb2.StringValue | None = ...,
         size: google.protobuf.wrappers_pb2.UInt64Value | None = ...,
         release: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        variant: global___Variant.ValueType = ...,
+        flavor: global___Flavor.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["file_server_path", b"file_server_path", "name", b"name", "release", b"release", "size", b"size"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["file_server_path", b"file_server_path", "name", b"name", "release", b"release", "size", b"size"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["file_server_path", b"file_server_path", "flavor", b"flavor", "name", b"name", "release", b"release", "size", b"size", "variant", b"variant"]) -> None: ...
 
 global___ConcreteFile = ConcreteFile
 
