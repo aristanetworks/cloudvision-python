@@ -2,11 +2,13 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-import pytest
 import ssl
 import asyncio
 import functools
+
+import pytest
 from grpclib import utils, server
+import pytest_asyncio
 from cloudvision.api.arista.inventory import v1 as inventory
 from cloudvision.api.client import AsyncCVClient
 from pathlib import Path
@@ -32,7 +34,7 @@ class MockInventoryService(inventory.DeviceServiceBase):
             )
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def grpc_server(unused_tcp_port_factory):
     invService = MockInventoryService()
     srv = server.Server([invService])
@@ -41,15 +43,15 @@ async def grpc_server(unused_tcp_port_factory):
     context.load_cert_chain(certfile=Path.joinpath(TEST_DATA_DIR, "cert.pem"),
                             keyfile=Path.joinpath(TEST_DATA_DIR, "key.pem"))
     with utils.graceful_exit([server]):
-        port = unused_tcp_port_factory()
-        await srv.start('localhost', port, ssl=context)
-        yield 'localhost', port
-        await srv.wait_closed()
+        async with srv:
+            port = unused_tcp_port_factory()
+            await srv.start('localhost', port, ssl=context)
+            yield 'localhost', port
 
 
 @pytest.mark.asyncio
 async def test_token_auth(grpc_server):
-    host, port = await anext(grpc_server)
+    host, port = grpc_server
     callable = functools.partial(AsyncCVClient.from_token, TEST_TOKEN, host=host, port=port)
     # Need to run this in executor, otherwise it would block the event loop forever
     client = await asyncio.get_running_loop().run_in_executor(None, callable)

@@ -74,7 +74,7 @@ class mockCtx(Context):
 
 
 cases = [
-    [
+    pytest.param(
         ''.join(random.choices(string.ascii_lowercase, k=15 * 1024 * 1024)),
         ["path1", "path2"],
         "key",
@@ -91,11 +91,14 @@ cases = [
                       "studio", "studio1", "customData", "path1", "path2"],
             "key": ["workspace", "workspace1", "status", "build", "build1",
                     "studio", "studio1", "customData", "path1", "path2", "key"]},
-    ]
+        id='base_case'
+    )
 ]
 
 
 @pytest.mark.parametrize('data, path, key, expPaths', cases)
+# Suppresses warning from inside google lib about using datatetime.datetime.utcnow()
+@pytest.mark.filterwarnings("ignore::DeprecationWarning:google.protobuf.internal.well_known_types")
 def test_studioCustomData(data, path, key, expPaths):
     client = mockClient(expPaths)
     ctx = mockCtx(client)
