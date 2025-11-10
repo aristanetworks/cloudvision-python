@@ -107,7 +107,7 @@ def report(client, device):
             ipaddr = getConnMonCfg(client, device, i)['ipAddr']
             hdr_part1 = f"{hostname + ' (' + vrf + '/' + intf + ') to ' + host:<50}"
             hdr_part2 = f"{ipaddr:<30}{str(httpResp) + 'ms':<30}{str(jitter) + 'ms':<30}"
-            hdr_part3 = f"{str(latency) + 'ms':<30}{str(pktloss)  + '%':<30}"
+            hdr_part3 = f"{str(latency) + 'ms':<30}{str(pktloss) + '%':<30}"
             print(hdr_part1 + hdr_part2 + hdr_part3)
 
 

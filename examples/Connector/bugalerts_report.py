@@ -183,7 +183,7 @@ def main(apiserverAddr, token=None, certs=None, key=None, ca=None):
             hostname = list(device.keys())[0]
             eol_model = []
             eol_model_temp = device[hostname]['component']
-            if type(eol_model_temp) != str:
+            if not isinstance(eol_model_temp, str):
                 for km, vm in eol_model_temp.items():
                     eol_model.append(km + "(" + str(vm) + ")")
                 eol_mod = ", ".join(eol_model)

@@ -2,10 +2,10 @@ isort==5.11.4
 black==24.3.0
 mypy-protobuf==3.6.0
 mypy==0.981
-pytest==7.1.2
+pytest==8.3.4
 numpy==1.26.4
 pyyaml==6.0.1
-flake8==3.8.4
+flake8==7.3.0
 grpcio-tools>=1.53.2
 twine==4.0.1
 types-attrs>=19.1.0

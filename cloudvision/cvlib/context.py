@@ -324,7 +324,7 @@ class Context:
         return result
 
     def Get(self, path: List[str], dataset="analytics"):
-        if not isinstance(path, List) or any([not(isinstance(i, str)) for i in path]):
+        if not isinstance(path, List) or any([not (isinstance(i, str)) for i in path]):
             raise TypeError("path should be a list of type string")
         client: GRPCClient = self.getCvClient()
         query = create_query(pathKeys=[(path, [])], dId=dataset)
