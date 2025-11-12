@@ -79,7 +79,7 @@ with grpc.secure_channel("www.arista.io:443", channelCredentials) as channel:
 
 ### Async support
 
-Starting from version 1.26.0+ it is be possible to use alternative GRPC client based on
+Starting from version 1.26.1+ it is possible to use alternative GRPC client based on
 [grpclib](https://github.com/vmagamedov/grpclib),that supports pure-python async stubs.
 This stubs could be found in `cloudvision.api.arista` module. More specific information and specifications are provided in
 [the API documentation](https://aristanetworks.github.io/cloudvision-python/cloudvision.api.arista.html)

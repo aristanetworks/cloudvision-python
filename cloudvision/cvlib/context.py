@@ -238,7 +238,7 @@ class Context:
         this GRPC client. ``stub`` should be a subclass of :py:class:`aristaproto.ServiceStub` from
         :py:mod:`cloudvision.api.arista`.
 
-        .. versionadded:: 1.26.0
+        .. versionadded:: 1.26.1
 
         :param stub: subclass of :py:class:`!aristaproto.ServiceStub`
 
