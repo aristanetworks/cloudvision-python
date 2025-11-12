@@ -782,7 +782,7 @@ class Releases(aristaproto.Message):
 class ConcreteFile(aristaproto.Message):
     """
     ConcreteFile contains the name and corresponding metadata of the
-    file (like fileserver, file size)
+    file (like fileserver path, file size)
     """
 
     name: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
@@ -800,6 +800,12 @@ class ConcreteFile(aristaproto.Message):
 
     release: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """release is the release version of the concrete file"""
+
+    variant: "Variant" = aristaproto.enum_field(5)
+    """variant specifies the swi image variant"""
+
+    flavor: "Flavor" = aristaproto.enum_field(6)
+    """flavor is the swi image flavor"""
 
 
 @dataclass(eq=False, repr=False)

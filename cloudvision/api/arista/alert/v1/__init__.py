@@ -354,6 +354,17 @@ class EndpointErrorType(aristaproto.Enum):
     OAuth apis
     """
 
+    INTERNAL_ERROR = 12
+    """
+    ENDPOINT_ERROR_TYPE_INTERNAL_ERROR indicates an unexpected internal error
+    """
+
+    BROADCAST_GROUP_MISSING = 13
+    """
+    ENDPOINT_ERROR_TYPE_BROADCAST_GROUP_MISSING is caused when Alerter is trying to send
+    an alert to a broadcast group that isn't present in the config
+    """
+
 
 class CueSyslogMessageFormat(aristaproto.Enum):
     """CueSyslogMessageFormat is the message format for cue syslog messages"""
