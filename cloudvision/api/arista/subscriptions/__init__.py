@@ -48,3 +48,14 @@ class Operation(aristaproto.Enum):
     a deletion. The Resource's key will always be set in this case,
     but no other fields should be expected.
     """
+
+    PARTIAL_DELETE = 40
+    """
+    PARTIAL_DELETE indicates the associated notification carries
+    deletions of specific fields within the last-streamed state.
+    The Resource's key is always set.
+
+    Note:
+    Not used at the moment. Deletion of specific fields will
+    come with UPDATED operation.
+    """

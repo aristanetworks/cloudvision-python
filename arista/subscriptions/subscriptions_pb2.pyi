@@ -47,6 +47,15 @@ class _OperationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enum
     a deletion. The Resource's key will always be set in this case,
     but no other fields should be expected.
     """
+    PARTIAL_DELETE: _Operation.ValueType  # 40
+    """PARTIAL_DELETE indicates the associated notification carries
+    deletions of specific fields within the last-streamed state.
+    The Resource's key is always set.
+
+    Note:
+    Not used at the moment. Deletion of specific fields will
+    come with UPDATED operation.
+    """
 
 class Operation(_Operation, metaclass=_OperationEnumTypeWrapper): ...
 
@@ -71,5 +80,14 @@ DELETED: Operation.ValueType  # 30
 """DETLETED indicates the associated notification carries
 a deletion. The Resource's key will always be set in this case,
 but no other fields should be expected.
+"""
+PARTIAL_DELETE: Operation.ValueType  # 40
+"""PARTIAL_DELETE indicates the associated notification carries
+deletions of specific fields within the last-streamed state.
+The Resource's key is always set.
+
+Note:
+Not used at the moment. Deletion of specific fields will
+come with UPDATED operation.
 """
 global___Operation = Operation
