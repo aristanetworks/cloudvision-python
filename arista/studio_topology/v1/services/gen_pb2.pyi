@@ -161,7 +161,11 @@ class DecommissionSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Decommission instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -204,8 +208,6 @@ class DecommissionStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Decommission response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -286,8 +288,6 @@ class DecommissionBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Decommission response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -318,7 +318,7 @@ class DecommissionBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DecommissionStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -438,7 +438,11 @@ class DecommissionConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        DecommissionConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -481,8 +485,6 @@ class DecommissionConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DecommissionConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -563,8 +565,6 @@ class DecommissionConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DecommissionConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -595,7 +595,7 @@ class DecommissionConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DecommissionConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -961,7 +961,11 @@ class DeviceInputConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        DeviceInputConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1004,8 +1008,6 @@ class DeviceInputConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DeviceInputConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1086,8 +1088,6 @@ class DeviceInputConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DeviceInputConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -1118,7 +1118,7 @@ class DeviceInputConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceInputConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -1484,7 +1484,11 @@ class DeviceStateSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        DeviceState instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1527,8 +1531,6 @@ class DeviceStateStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DeviceState response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1609,8 +1611,6 @@ class DeviceStateBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DeviceState response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -1641,7 +1641,7 @@ class DeviceStateBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceStateStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -1761,7 +1761,11 @@ class InterfaceInputConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        InterfaceInputConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1804,8 +1808,6 @@ class InterfaceInputConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each InterfaceInputConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1886,8 +1888,6 @@ class InterfaceInputConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each InterfaceInputConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -1918,7 +1918,7 @@ class InterfaceInputConfigBatchedStreamResponse(google.protobuf.message.Message)
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___InterfaceInputConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -2284,7 +2284,11 @@ class ReplaceSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Replace instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -2327,8 +2331,6 @@ class ReplaceStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Replace response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -2409,8 +2411,6 @@ class ReplaceBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Replace response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -2441,7 +2441,7 @@ class ReplaceBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ReplaceStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -2561,7 +2561,11 @@ class ReplaceConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        ReplaceConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -2604,8 +2608,6 @@ class ReplaceConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each ReplaceConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -2686,8 +2688,6 @@ class ReplaceConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each ReplaceConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -2718,7 +2718,7 @@ class ReplaceConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ReplaceConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -3084,7 +3084,11 @@ class RevertConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        RevertConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -3127,8 +3131,6 @@ class RevertConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each RevertConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -3209,8 +3211,6 @@ class RevertConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each RevertConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -3241,7 +3241,7 @@ class RevertConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___RevertConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -3607,7 +3607,11 @@ class UpdateSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Update instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -3650,8 +3654,6 @@ class UpdateStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Update response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -3732,8 +3734,6 @@ class UpdateBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Update response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -3764,7 +3764,7 @@ class UpdateBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___UpdateStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -3884,7 +3884,11 @@ class UpdateConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        UpdateConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -3927,8 +3931,6 @@ class UpdateConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each UpdateConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -4009,8 +4011,6 @@ class UpdateConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each UpdateConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -4041,7 +4041,7 @@ class UpdateConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___UpdateConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -4407,7 +4407,11 @@ class UpdateSyncConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        UpdateSyncConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -4450,8 +4454,6 @@ class UpdateSyncConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each UpdateSyncConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -4532,8 +4534,6 @@ class UpdateSyncConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each UpdateSyncConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -4564,7 +4564,7 @@ class UpdateSyncConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___UpdateSyncConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 

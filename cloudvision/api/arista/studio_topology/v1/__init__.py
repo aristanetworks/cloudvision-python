@@ -11,6 +11,7 @@ __all__ = (
     "Element",
     "Operation",
     "UpdateStatus",
+    "DeviceStatus",
     "DecommissionStatus",
     "ReplaceStatus",
     "DeviceInfo",
@@ -286,6 +287,31 @@ class UpdateStatus(aristaproto.Enum):
     """UPDATE_STATUS_IGNORED indicates the update is ignored."""
 
 
+class DeviceStatus(aristaproto.Enum):
+    """DeviceStatus defines the set of statuses that apply to a device."""
+
+    UNSPECIFIED = 0
+    """DEVICE_STATUS_UNSPECIFIED is the default unspecified device status."""
+
+    ACTIVE = 1
+    """
+    DEVICE_STATUS_ACTIVE indicates a device is streaming its telemetry data
+    to CloudVision.
+    """
+
+    INACTIVE = 2
+    """
+    DEVICE_STATUS_INACTIVE indicates a device is not streaming its telemetry data
+    to CloudVision.
+    """
+
+    EXPECTED = 3
+    """
+    DEVICE_STATUS_EXPECTED indicates a device has not yet streamed its telemetry
+    data to CloudVision.
+    """
+
+
 class DecommissionStatus(aristaproto.Enum):
     """
     DecommissionStatus enumerates the status of decommissioning a device.
@@ -348,6 +374,31 @@ class DeviceInfo(aristaproto.Message):
     )
     """hostname indicates the hostname of the device."""
 
+    match_any_device: Optional[bool] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_BOOL
+    )
+    """
+    match_any_device is an indicator to match any online device with the device
+    identified by the device_id field above. An online device is any EOS device
+    which is streaming to CVP and has not been provisioned yet.
+    This argument is used only if the device is an expected device and not relevant
+    to other devices.
+    For an expected device, the device_id fields holds an temporary UUID. Hence,
+    the match has to occur based on the combination of expected_serial_numbers
+    and match_any_device fields and not the device_id field.
+    This field is mandatory for an expected device.
+    If this field is true, expected_serial_numbers should be empty.
+    If this field is false, expected_serial_numbers should be provided.
+    """
+
+    expected_serial_numbers: "___fmp__.RepeatedString" = aristaproto.message_field(6)
+    """
+    expected_serial_numbers indicates a list of possible serial numbers which can
+    be expected for this device. The expected device entry specified by the device_id
+    field above will be matched with only one of the serial numbers in this list.
+    Should be populated only for an expected device and when match_any_device is set to false.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class InterfaceInfo(aristaproto.Message):
@@ -362,6 +413,10 @@ class InterfaceInfo(aristaproto.Message):
     """
     neighbor_device_id indicates the device ID of the neighbor to which
     this interface is connected.
+    For an expected device, this would be a device_id (temporary UUID in case
+    the neighbour is also an expected device) of a known device resource to the
+    studios or lldp sysname in case of a non Arista device like third party
+    external router.
     """
 
     neighbor_interface_name: Optional[str] = aristaproto.message_field(
@@ -370,6 +425,16 @@ class InterfaceInfo(aristaproto.Message):
     """
     neighbor_interface_name indicates the interface on the neighbor to which
     this interface is connected.
+    For expected devices having the neighbour as a non Arista device, this field
+    does not need to be populated.
+    """
+
+    non_provisioned: Optional[bool] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_BOOL
+    )
+    """
+    non_provisioned indicates if the interface is connected to a non-provisioned device, ie, a
+    device which is not part of the I&T studio and cannot be provisioned by CloudVision.
     """
 
 
@@ -409,8 +474,13 @@ class DeviceInputConfig(aristaproto.Message):
     remove: Optional[bool] = aristaproto.message_field(3, wraps=aristaproto.TYPE_BOOL)
     """
     remove if set to true will remove the device from mainline
-    post workspace merge
+    post workspace merge.
     """
+
+    is_expected_device: Optional[bool] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_BOOL
+    )
+    """is_expected_device specifies if this is an expected device."""
 
 
 @dataclass(eq=False, repr=False)
@@ -440,7 +510,7 @@ class InterfaceInputKey(aristaproto.Message):
 class InterfaceInputConfig(aristaproto.Message):
     """
     InterfaceInputConfig is the resource for manually adding
-    an interface in I&T studios
+    an interface in I&T studios.
     """
 
     key: "InterfaceInputKey" = aristaproto.message_field(1)
@@ -452,7 +522,7 @@ class InterfaceInputConfig(aristaproto.Message):
     remove: Optional[bool] = aristaproto.message_field(3, wraps=aristaproto.TYPE_BOOL)
     """
     remove if set to true will remove the interface from mainline
-    post workspace merge
+    post workspace merge.
     """
 
 
@@ -461,20 +531,23 @@ class DeviceState(aristaproto.Message):
     """
     DeviceState is the state of a device written by
     InterfaceInputConfig, DeviceInputConfig and
-    UpdateConfig resources
+    UpdateConfig resources.
     """
 
     key: "DeviceKey" = aristaproto.message_field(1)
     """key uniquely identifies the device for a given workspace."""
 
     device_info: "DeviceInfo" = aristaproto.message_field(2)
-    """device_info contains device properties"""
+    """device_info contains device properties."""
 
     interface_infos: "InterfaceInfos" = aristaproto.message_field(3)
     """
     interface_infos contains interface properties of all the interfaces
-    belonging to the device
+    belonging to the device.
     """
+
+    device_status: "DeviceStatus" = aristaproto.enum_field(4)
+    """device_status contains the status of the device."""
 
 
 @dataclass(eq=False, repr=False)
@@ -507,7 +580,7 @@ class UpdateConfig(aristaproto.Message):
     remove if set to true will remove the update key from mainline
     post workspace merge. This can only be set true for ignored keys
     since we don't carry accepted keys to mainline post workspace
-    merge
+    merge.
     """
 
 
@@ -609,10 +682,10 @@ class Decommission(aristaproto.Message):
     """
 
     status: "DecommissionStatus" = aristaproto.enum_field(6)
-    """status of the decommissioning operation"""
+    """status is the status of the decommissioning operation."""
 
     error: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
-    """error indicates if there is a failure in decommissioning"""
+    """error indicates if there is a failure in decommissioning."""
 
 
 @dataclass(eq=False, repr=False)
@@ -770,6 +843,8 @@ class DecommissionSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Decommission instance in this response.
     """
 
 
@@ -801,8 +876,6 @@ class DecommissionStreamRequest(aristaproto.Message):
         until end.
         * Each Decommission response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -857,8 +930,6 @@ class DecommissionBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each Decommission response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -955,6 +1026,8 @@ class DecommissionConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    DecommissionConfig instance in this response.
     """
 
 
@@ -986,8 +1059,6 @@ class DecommissionConfigStreamRequest(aristaproto.Message):
         until end.
         * Each DecommissionConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1044,8 +1115,6 @@ class DecommissionConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each DecommissionConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1286,6 +1355,8 @@ class DeviceInputConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    DeviceInputConfig instance in this response.
     """
 
 
@@ -1317,8 +1388,6 @@ class DeviceInputConfigStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceInputConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1375,8 +1444,6 @@ class DeviceInputConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceInputConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1617,6 +1684,8 @@ class DeviceStateSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    DeviceState instance in this response.
     """
 
 
@@ -1648,8 +1717,6 @@ class DeviceStateStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceState response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1704,8 +1771,6 @@ class DeviceStateBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceState response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1802,6 +1867,8 @@ class InterfaceInputConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    InterfaceInputConfig instance in this response.
     """
 
 
@@ -1833,8 +1900,6 @@ class InterfaceInputConfigStreamRequest(aristaproto.Message):
         until end.
         * Each InterfaceInputConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1891,8 +1956,6 @@ class InterfaceInputConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each InterfaceInputConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -2135,6 +2198,8 @@ class ReplaceSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Replace instance in this response.
     """
 
 
@@ -2166,8 +2231,6 @@ class ReplaceStreamRequest(aristaproto.Message):
         until end.
         * Each Replace response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -2222,8 +2285,6 @@ class ReplaceBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each Replace response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -2320,6 +2381,8 @@ class ReplaceConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    ReplaceConfig instance in this response.
     """
 
 
@@ -2351,8 +2414,6 @@ class ReplaceConfigStreamRequest(aristaproto.Message):
         until end.
         * Each ReplaceConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -2407,8 +2468,6 @@ class ReplaceConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each ReplaceConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -2647,6 +2706,8 @@ class RevertConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    RevertConfig instance in this response.
     """
 
 
@@ -2678,8 +2739,6 @@ class RevertConfigStreamRequest(aristaproto.Message):
         until end.
         * Each RevertConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -2734,8 +2793,6 @@ class RevertConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each RevertConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -2974,6 +3031,8 @@ class UpdateSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Update instance in this response.
     """
 
 
@@ -3005,8 +3064,6 @@ class UpdateStreamRequest(aristaproto.Message):
         until end.
         * Each Update response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -3061,8 +3118,6 @@ class UpdateBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each Update response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -3159,6 +3214,8 @@ class UpdateConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    UpdateConfig instance in this response.
     """
 
 
@@ -3190,8 +3247,6 @@ class UpdateConfigStreamRequest(aristaproto.Message):
         until end.
         * Each UpdateConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -3246,8 +3301,6 @@ class UpdateConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each UpdateConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -3486,6 +3539,8 @@ class UpdateSyncConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    UpdateSyncConfig instance in this response.
     """
 
 
@@ -3517,8 +3572,6 @@ class UpdateSyncConfigStreamRequest(aristaproto.Message):
         until end.
         * Each UpdateSyncConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -3575,8 +3628,6 @@ class UpdateSyncConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each UpdateSyncConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(

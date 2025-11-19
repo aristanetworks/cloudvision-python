@@ -12,6 +12,7 @@ Please see workspace.v1 for more information.
 import arista.workspace.v1.workspace_pb2
 import builtins
 import collections.abc
+import fmp.wrappers_pb2
 import fmp.yang_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
@@ -113,6 +114,46 @@ UPDATE_STATUS_IGNORED: UpdateStatus.ValueType  # 3
 """UPDATE_STATUS_IGNORED indicates the update is ignored."""
 global___UpdateStatus = UpdateStatus
 
+class _DeviceStatus:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _DeviceStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DeviceStatus.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    DEVICE_STATUS_UNSPECIFIED: _DeviceStatus.ValueType  # 0
+    """DEVICE_STATUS_UNSPECIFIED is the default unspecified device status."""
+    DEVICE_STATUS_ACTIVE: _DeviceStatus.ValueType  # 1
+    """DEVICE_STATUS_ACTIVE indicates a device is streaming its telemetry data
+    to CloudVision.
+    """
+    DEVICE_STATUS_INACTIVE: _DeviceStatus.ValueType  # 2
+    """DEVICE_STATUS_INACTIVE indicates a device is not streaming its telemetry data
+    to CloudVision.
+    """
+    DEVICE_STATUS_EXPECTED: _DeviceStatus.ValueType  # 3
+    """DEVICE_STATUS_EXPECTED indicates a device has not yet streamed its telemetry
+    data to CloudVision.
+    """
+
+class DeviceStatus(_DeviceStatus, metaclass=_DeviceStatusEnumTypeWrapper):
+    """DeviceStatus defines the set of statuses that apply to a device."""
+
+DEVICE_STATUS_UNSPECIFIED: DeviceStatus.ValueType  # 0
+"""DEVICE_STATUS_UNSPECIFIED is the default unspecified device status."""
+DEVICE_STATUS_ACTIVE: DeviceStatus.ValueType  # 1
+"""DEVICE_STATUS_ACTIVE indicates a device is streaming its telemetry data
+to CloudVision.
+"""
+DEVICE_STATUS_INACTIVE: DeviceStatus.ValueType  # 2
+"""DEVICE_STATUS_INACTIVE indicates a device is not streaming its telemetry data
+to CloudVision.
+"""
+DEVICE_STATUS_EXPECTED: DeviceStatus.ValueType  # 3
+"""DEVICE_STATUS_EXPECTED indicates a device has not yet streamed its telemetry
+data to CloudVision.
+"""
+global___DeviceStatus = DeviceStatus
+
 class _DecommissionStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -179,6 +220,8 @@ class DeviceInfo(google.protobuf.message.Message):
     MODEL_NAME_FIELD_NUMBER: builtins.int
     MAC_ADDRESS_FIELD_NUMBER: builtins.int
     HOSTNAME_FIELD_NUMBER: builtins.int
+    MATCH_ANY_DEVICE_FIELD_NUMBER: builtins.int
+    EXPECTED_SERIAL_NUMBERS_FIELD_NUMBER: builtins.int
     @property
     def device_id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """device_id identifies the device uniquely."""
@@ -195,6 +238,29 @@ class DeviceInfo(google.protobuf.message.Message):
     def hostname(self) -> google.protobuf.wrappers_pb2.StringValue:
         """hostname indicates the hostname of the device."""
 
+    @property
+    def match_any_device(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """match_any_device is an indicator to match any online device with the device
+        identified by the device_id field above. An online device is any EOS device
+        which is streaming to CVP and has not been provisioned yet.
+        This argument is used only if the device is an expected device and not relevant
+        to other devices.
+        For an expected device, the device_id fields holds an temporary UUID. Hence,
+        the match has to occur based on the combination of expected_serial_numbers
+        and match_any_device fields and not the device_id field.
+        This field is mandatory for an expected device.
+        If this field is true, expected_serial_numbers should be empty.
+        If this field is false, expected_serial_numbers should be provided.
+        """
+
+    @property
+    def expected_serial_numbers(self) -> fmp.wrappers_pb2.RepeatedString:
+        """expected_serial_numbers indicates a list of possible serial numbers which can
+        be expected for this device. The expected device entry specified by the device_id
+        field above will be matched with only one of the serial numbers in this list.
+        Should be populated only for an expected device and when match_any_device is set to false.
+        """
+
     def __init__(
         self,
         *,
@@ -202,9 +268,11 @@ class DeviceInfo(google.protobuf.message.Message):
         model_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
         mac_address: fmp.yang_pb2.MACAddress | None = ...,
         hostname: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        match_any_device: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        expected_serial_numbers: fmp.wrappers_pb2.RepeatedString | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["device_id", b"device_id", "hostname", b"hostname", "mac_address", b"mac_address", "model_name", b"model_name"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["device_id", b"device_id", "hostname", b"hostname", "mac_address", b"mac_address", "model_name", b"model_name"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["device_id", b"device_id", "expected_serial_numbers", b"expected_serial_numbers", "hostname", b"hostname", "mac_address", b"mac_address", "match_any_device", b"match_any_device", "model_name", b"model_name"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_id", b"device_id", "expected_serial_numbers", b"expected_serial_numbers", "hostname", b"hostname", "mac_address", b"mac_address", "match_any_device", b"match_any_device", "model_name", b"model_name"]) -> None: ...
 
 global___DeviceInfo = DeviceInfo
 
@@ -217,6 +285,7 @@ class InterfaceInfo(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     NEIGHBOR_DEVICE_ID_FIELD_NUMBER: builtins.int
     NEIGHBOR_INTERFACE_NAME_FIELD_NUMBER: builtins.int
+    NON_PROVISIONED_FIELD_NUMBER: builtins.int
     @property
     def name(self) -> google.protobuf.wrappers_pb2.StringValue:
         """name is the name of an interface."""
@@ -225,12 +294,24 @@ class InterfaceInfo(google.protobuf.message.Message):
     def neighbor_device_id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """neighbor_device_id indicates the device ID of the neighbor to which
         this interface is connected.
+        For an expected device, this would be a device_id (temporary UUID in case
+        the neighbour is also an expected device) of a known device resource to the
+        studios or lldp sysname in case of a non Arista device like third party
+        external router.
         """
 
     @property
     def neighbor_interface_name(self) -> google.protobuf.wrappers_pb2.StringValue:
         """neighbor_interface_name indicates the interface on the neighbor to which
         this interface is connected.
+        For expected devices having the neighbour as a non Arista device, this field
+        does not need to be populated.
+        """
+
+    @property
+    def non_provisioned(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """non_provisioned indicates if the interface is connected to a non-provisioned device, ie, a
+        device which is not part of the I&T studio and cannot be provisioned by CloudVision.
         """
 
     def __init__(
@@ -239,9 +320,10 @@ class InterfaceInfo(google.protobuf.message.Message):
         name: google.protobuf.wrappers_pb2.StringValue | None = ...,
         neighbor_device_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
         neighbor_interface_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        non_provisioned: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["name", b"name", "neighbor_device_id", b"neighbor_device_id", "neighbor_interface_name", b"neighbor_interface_name"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["name", b"name", "neighbor_device_id", b"neighbor_device_id", "neighbor_interface_name", b"neighbor_interface_name"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["name", b"name", "neighbor_device_id", b"neighbor_device_id", "neighbor_interface_name", b"neighbor_interface_name", "non_provisioned", b"non_provisioned"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name", "neighbor_device_id", b"neighbor_device_id", "neighbor_interface_name", b"neighbor_interface_name", "non_provisioned", b"non_provisioned"]) -> None: ...
 
 global___InterfaceInfo = InterfaceInfo
 
@@ -301,6 +383,7 @@ class DeviceInputConfig(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     DEVICE_INFO_FIELD_NUMBER: builtins.int
     REMOVE_FIELD_NUMBER: builtins.int
+    IS_EXPECTED_DEVICE_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___DeviceKey:
         """key uniquely identifies the device ID for a given workspace."""
@@ -312,8 +395,12 @@ class DeviceInputConfig(google.protobuf.message.Message):
     @property
     def remove(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """remove if set to true will remove the device from mainline
-        post workspace merge
+        post workspace merge.
         """
+
+    @property
+    def is_expected_device(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """is_expected_device specifies if this is an expected device."""
 
     def __init__(
         self,
@@ -321,9 +408,10 @@ class DeviceInputConfig(google.protobuf.message.Message):
         key: global___DeviceKey | None = ...,
         device_info: global___DeviceInfo | None = ...,
         remove: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        is_expected_device: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["device_info", b"device_info", "key", b"key", "remove", b"remove"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["device_info", b"device_info", "key", b"key", "remove", b"remove"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["device_info", b"device_info", "is_expected_device", b"is_expected_device", "key", b"key", "remove", b"remove"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_info", b"device_info", "is_expected_device", b"is_expected_device", "key", b"key", "remove", b"remove"]) -> None: ...
 
 global___DeviceInputConfig = DeviceInputConfig
 
@@ -365,7 +453,7 @@ global___InterfaceInputKey = InterfaceInputKey
 @typing.final
 class InterfaceInputConfig(google.protobuf.message.Message):
     """InterfaceInputConfig is the resource for manually adding
-    an interface in I&T studios
+    an interface in I&T studios.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -384,7 +472,7 @@ class InterfaceInputConfig(google.protobuf.message.Message):
     @property
     def remove(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """remove if set to true will remove the interface from mainline
-        post workspace merge
+        post workspace merge.
         """
 
     def __init__(
@@ -403,7 +491,7 @@ global___InterfaceInputConfig = InterfaceInputConfig
 class DeviceState(google.protobuf.message.Message):
     """DeviceState is the state of a device written by
     InterfaceInputConfig, DeviceInputConfig and
-    UpdateConfig resources
+    UpdateConfig resources.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -411,18 +499,21 @@ class DeviceState(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     DEVICE_INFO_FIELD_NUMBER: builtins.int
     INTERFACE_INFOS_FIELD_NUMBER: builtins.int
+    DEVICE_STATUS_FIELD_NUMBER: builtins.int
+    device_status: global___DeviceStatus.ValueType
+    """device_status contains the status of the device."""
     @property
     def key(self) -> global___DeviceKey:
         """key uniquely identifies the device for a given workspace."""
 
     @property
     def device_info(self) -> global___DeviceInfo:
-        """device_info contains device properties"""
+        """device_info contains device properties."""
 
     @property
     def interface_infos(self) -> global___InterfaceInfos:
         """interface_infos contains interface properties of all the interfaces
-        belonging to the device
+        belonging to the device.
         """
 
     def __init__(
@@ -431,9 +522,10 @@ class DeviceState(google.protobuf.message.Message):
         key: global___DeviceKey | None = ...,
         device_info: global___DeviceInfo | None = ...,
         interface_infos: global___InterfaceInfos | None = ...,
+        device_status: global___DeviceStatus.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["device_info", b"device_info", "interface_infos", b"interface_infos", "key", b"key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["device_info", b"device_info", "interface_infos", b"interface_infos", "key", b"key"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["device_info", b"device_info", "device_status", b"device_status", "interface_infos", b"interface_infos", "key", b"key"]) -> None: ...
 
 global___DeviceState = DeviceState
 
@@ -484,7 +576,7 @@ class UpdateConfig(google.protobuf.message.Message):
         """remove if set to true will remove the update key from mainline
         post workspace merge. This can only be set true for ignored keys
         since we don't carry accepted keys to mainline post workspace
-        merge
+        merge.
         """
 
     def __init__(
@@ -637,7 +729,7 @@ class Decommission(google.protobuf.message.Message):
     STATUS_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
     status: global___DecommissionStatus.ValueType
-    """status of the decommissioning operation"""
+    """status is the status of the decommissioning operation."""
     @property
     def key(self) -> global___DeviceKey:
         """key uniquely identifies the device in a given workspace."""
@@ -660,7 +752,7 @@ class Decommission(google.protobuf.message.Message):
 
     @property
     def error(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """error indicates if there is a failure in decommissioning"""
+        """error indicates if there is a failure in decommissioning."""
 
     def __init__(
         self,
