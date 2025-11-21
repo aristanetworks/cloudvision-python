@@ -1726,6 +1726,15 @@ class BroadcastGroup(aristaproto.Message):
     to authenticate as the calling user.
     """
 
+    sensor_name: Optional[str] = aristaproto.message_field(
+        19, wraps=aristaproto.TYPE_STRING
+    )
+    """
+    sensor_name is the name of the sensor that runs on prem for a CVaaS customer, that has its
+    own alert-sender running to send alerts to internal endpoints. This is an optional field and
+    if left empty the alerts are sent using the alert-sender on CVaaS.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class EmailEndpoints(aristaproto.Message):
