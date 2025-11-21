@@ -2312,6 +2312,7 @@ class BroadcastGroup(google.protobuf.message.Message):
     ZOOM_FIELD_NUMBER: builtins.int
     MS_GRAPH_SEND_MAIL_FIELD_NUMBER: builtins.int
     CV_ACTION_FIELD_NUMBER: builtins.int
+    SENSOR_NAME_FIELD_NUMBER: builtins.int
     @property
     def email(self) -> global___EmailEndpoints:
         """email is a set of email endpoints to send alerts to as part of this group"""
@@ -2389,6 +2390,13 @@ class BroadcastGroup(google.protobuf.message.Message):
         to authenticate as the calling user.
         """
 
+    @property
+    def sensor_name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """sensor_name is the name of the sensor that runs on prem for a CVaaS customer, that has its
+        own alert-sender running to send alerts to internal endpoints. This is an optional field and
+        if left empty the alerts are sent using the alert-sender on CVaaS.
+        """
+
     def __init__(
         self,
         *,
@@ -2410,9 +2418,10 @@ class BroadcastGroup(google.protobuf.message.Message):
         zoom: global___ZoomEndpoints | None = ...,
         ms_graph_send_mail: global___MsGraphSendMailEndpoints | None = ...,
         cv_action: global___CvActionEndpoints | None = ...,
+        sensor_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "cv_action", b"cv_action", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "cv_action", b"cv_action", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "cv_action", b"cv_action", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "sensor_name", b"sensor_name", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["cue_sendgrid", b"cue_sendgrid", "cue_snmp", b"cue_snmp", "cue_syslog", b"cue_syslog", "cv_action", b"cv_action", "email", b"email", "gchat", b"gchat", "ms_graph_send_mail", b"ms_graph_send_mail", "msteams", b"msteams", "opsgenie", b"opsgenie", "pagerduty", b"pagerduty", "pushover", b"pushover", "sendgrid", b"sendgrid", "sensor_name", b"sensor_name", "slack", b"slack", "snmp", b"snmp", "syslog", b"syslog", "victorops", b"victorops", "webhook", b"webhook", "zoom", b"zoom"]) -> None: ...
 
 global___BroadcastGroup = BroadcastGroup
 
