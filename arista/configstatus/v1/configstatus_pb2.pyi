@@ -42,6 +42,8 @@ class _ErrorCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enum
     """ERROR_CODE_CONFIG_FILTER_ERROR indicates error from partial config management filters"""
     ERROR_CODE_INTERNAL: _ErrorCode.ValueType  # 5
     """ERROR_CODE_INTERNAL indicates internal errors"""
+    ERROR_CODE_PROPOSED_CONFIG_CHECK: _ErrorCode.ValueType  # 6
+    """ERROR_CODE_PROPOSED_CONFIG_CHECK indicates an issue with the content of proposed configuration."""
 
 class ErrorCode(_ErrorCode, metaclass=_ErrorCodeEnumTypeWrapper):
     """ErrorCode indicates warnings and errors produced during computing config"""
@@ -58,6 +60,8 @@ ERROR_CODE_CONFIG_FILTER_ERROR: ErrorCode.ValueType  # 4
 """ERROR_CODE_CONFIG_FILTER_ERROR indicates error from partial config management filters"""
 ERROR_CODE_INTERNAL: ErrorCode.ValueType  # 5
 """ERROR_CODE_INTERNAL indicates internal errors"""
+ERROR_CODE_PROPOSED_CONFIG_CHECK: ErrorCode.ValueType  # 6
+"""ERROR_CODE_PROPOSED_CONFIG_CHECK indicates an issue with the content of proposed configuration."""
 global___ErrorCode = ErrorCode
 
 class _DiffOp:

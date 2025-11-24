@@ -140,6 +140,11 @@ class ErrorCode(aristaproto.Enum):
     INTERNAL = 5
     """ERROR_CODE_INTERNAL indicates internal errors"""
 
+    PROPOSED_CONFIG_CHECK = 6
+    """
+    ERROR_CODE_PROPOSED_CONFIG_CHECK indicates an issue with the content of proposed configuration.
+    """
+
 
 class DiffOp(aristaproto.Enum):
     """
@@ -722,6 +727,8 @@ class ConfigDiffSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    ConfigDiff instance in this response.
     """
 
 
@@ -753,8 +760,6 @@ class ConfigDiffStreamRequest(aristaproto.Message):
         until end.
         * Each ConfigDiff response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -809,8 +814,6 @@ class ConfigDiffBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each ConfigDiff response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -907,6 +910,8 @@ class ConfigurationSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Configuration instance in this response.
     """
 
 
@@ -938,8 +943,6 @@ class ConfigurationStreamRequest(aristaproto.Message):
         until end.
         * Each Configuration response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -994,8 +997,6 @@ class ConfigurationBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each Configuration response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1092,6 +1093,8 @@ class SecurityProfileSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    SecurityProfile instance in this response.
     """
 
 
@@ -1123,8 +1126,6 @@ class SecurityProfileStreamRequest(aristaproto.Message):
         until end.
         * Each SecurityProfile response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1181,8 +1182,6 @@ class SecurityProfileBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each SecurityProfile response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1279,6 +1278,8 @@ class SecurityProfileDiffSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    SecurityProfileDiff instance in this response.
     """
 
 
@@ -1310,8 +1311,6 @@ class SecurityProfileDiffStreamRequest(aristaproto.Message):
         until end.
         * Each SecurityProfileDiff response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1368,8 +1367,6 @@ class SecurityProfileDiffBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each SecurityProfileDiff response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1466,6 +1463,8 @@ class SecurityProfileDiffSummarySomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    SecurityProfileDiffSummary instance in this response.
     """
 
 
@@ -1497,8 +1496,6 @@ class SecurityProfileDiffSummaryStreamRequest(aristaproto.Message):
         until end.
         * Each SecurityProfileDiffSummary response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1555,8 +1552,6 @@ class SecurityProfileDiffSummaryBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each SecurityProfileDiffSummary response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1655,6 +1650,8 @@ class SummarySomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Summary instance in this response.
     """
 
 
@@ -1686,8 +1683,6 @@ class SummaryStreamRequest(aristaproto.Message):
         until end.
         * Each Summary response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1742,8 +1737,6 @@ class SummaryBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each Summary response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
