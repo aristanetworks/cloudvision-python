@@ -2,6 +2,8 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
+import re
+import crypt
 from typing import Any, Dict
 from json import loads
 
@@ -61,3 +63,44 @@ def extractJSONEncodedListArg(listArg: str):
     if not isinstance(extractedList, list):
         raise ValueError("Extracted arg must be a list")
     return extractedList
+
+
+def doType7obfuscation(plaintext: str, salt: int, obf: str):
+    """
+    Perform Type 7 password obfuscation using XOR encoding.
+
+    Args:
+        plaintext : The plaintext password to obfuscate.
+        salt : The salt value (0-99) to use for obfuscation.
+        obf : The obfuscator string to use for obfuscation.
+
+    Returns:
+        The obfuscated password as a string.
+    """
+    assert 0 <= salt < 100
+    if not plaintext:
+        return plaintext
+    result = f"{salt:02d}"
+    obfsize = len(obf)
+    for i, x in enumerate(plaintext):
+        y = obf[(i + salt) % obfsize]
+        key = ord(x) ^ ord(y)
+        result += f'{key:02X}'
+    return result
+
+
+def doSHA512Hashing(plaintext: str, salt: str):
+    """
+    Generate SHA-512 password hash using Unix crypt format.
+
+    Args:
+        plaintext: The plaintext password to hash.
+        salt: Salt string (only alphanumeric characters, periods, and slashes are used).
+
+    Returns:
+        The hashed password in Unix crypt format ($6$salt$hash).
+    """
+    if not plaintext:
+        return plaintext
+    sanitized_salt = re.sub(r'[^A-Za-z0-9\.\/]', '', salt)
+    return crypt.crypt(plaintext, f"$6${sanitized_salt}$")
