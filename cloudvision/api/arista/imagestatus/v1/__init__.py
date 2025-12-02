@@ -366,6 +366,12 @@ class InfoCode(aristaproto.Enum):
     release is available for download.
     """
 
+    UNIVERSAL_IMAGE_ARCH_APPLIED = 2
+    """
+    INFO_CODE_UNIVERSAL_IMAGE_ARCH_APPLIED represents cases where a specific architecture is
+    picked for a Universal (multiarch) EOS image.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class SoftwareImage(aristaproto.Message):

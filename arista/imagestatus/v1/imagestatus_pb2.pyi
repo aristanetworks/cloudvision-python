@@ -430,6 +430,10 @@ class _InfoCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumT
     """INFO_CODE_NEWER_VERSION_AVAILABLE represents cases where a newer EOS maintainance
     release is available for download.
     """
+    INFO_CODE_UNIVERSAL_IMAGE_ARCH_APPLIED: _InfoCode.ValueType  # 2
+    """INFO_CODE_UNIVERSAL_IMAGE_ARCH_APPLIED represents cases where a specific architecture is
+    picked for a Universal (multiarch) EOS image.
+    """
 
 class InfoCode(_InfoCode, metaclass=_InfoCodeEnumTypeWrapper):
     """InfoCode indicates info messages produced during image validations."""
@@ -439,6 +443,10 @@ INFO_CODE_UNSPECIFIED: InfoCode.ValueType  # 0
 INFO_CODE_NEWER_VERSION_AVAILABLE: InfoCode.ValueType  # 1
 """INFO_CODE_NEWER_VERSION_AVAILABLE represents cases where a newer EOS maintainance
 release is available for download.
+"""
+INFO_CODE_UNIVERSAL_IMAGE_ARCH_APPLIED: InfoCode.ValueType  # 2
+"""INFO_CODE_UNIVERSAL_IMAGE_ARCH_APPLIED represents cases where a specific architecture is
+picked for a Universal (multiarch) EOS image.
 """
 global___InfoCode = InfoCode
 
