@@ -65,14 +65,14 @@ def extractJSONEncodedListArg(listArg: str):
     return extractedList
 
 
-def doType7obfuscation(plaintext: str, salt: int, obf: str):
+def doType7Obfuscation(plaintext: str, salt: int, obf: str):
     """
     Perform Type 7 password obfuscation using XOR encoding.
 
     Args:
-        plaintext : The plaintext password to obfuscate.
-        salt : The salt value (0-99) to use for obfuscation.
-        obf : The obfuscator string to use for obfuscation.
+        plaintext (str): The plaintext password to obfuscate.
+        salt (int): The salt value (0-99) to use for obfuscation.
+        obf (str): The obfuscator string to use for obfuscation.
 
     Returns:
         The obfuscated password as a string.
@@ -94,8 +94,8 @@ def doSHA512Hashing(plaintext: str, salt: str):
     Generate SHA-512 password hash using Unix crypt format.
 
     Args:
-        plaintext: The plaintext password to hash.
-        salt: Salt string (only alphanumeric characters, periods, and slashes are used).
+        plaintext (str): The plaintext password to hash.
+        salt (str): Salt string (only alphanumeric characters, periods, and slashes are used).
 
     Returns:
         The hashed password in Unix crypt format ($6$salt$hash).
