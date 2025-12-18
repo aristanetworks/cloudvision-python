@@ -4,6 +4,7 @@
 
 import re
 import crypt
+import random
 from typing import Any, Dict
 from json import loads
 
@@ -65,28 +66,45 @@ def extractJSONEncodedListArg(listArg: str):
     return extractedList
 
 
-def doType7Obfuscation(plaintext: str, salt: int, obf: str):
+OBFUSCATOR = "dsfd;kfoA,.iyewrkldJKDHSUBsgvca69834ncxv9873254k;fg87"
+
+
+def doType7Obfuscation(plaintext: str, salt: int | None = None, obf: str = ""):
     """
     Perform Type 7 password obfuscation using XOR encoding.
 
     Args:
         plaintext (str): The plaintext password to obfuscate.
-        salt (int): The salt value (0-99) to use for obfuscation.
-        obf (str): The obfuscator string to use for obfuscation.
+        salt (int | None): The salt value (0-15). If None, a random salt is generated.
+        obf (str): The obfuscator string for XOR encoding. If empty,
+            a default obfuscator is used.
 
     Returns:
-        The obfuscated password as a string.
+        The obfuscated password prefixed with the 2-digit salt,
+            or empty string if plaintext is empty.
     """
-    assert 0 <= salt < 100
     if not plaintext:
+        # If the password is empty, return an empty string without the salt
         return plaintext
-    result = f"{salt:02d}"
-    obfsize = len(obf)
-    for i, x in enumerate(plaintext):
-        y = obf[(i + salt) % obfsize]
-        key = ord(x) ^ ord(y)
-        result += f'{key:02X}'
-    return result
+
+    if salt is None:
+        salt = random.randint(0, 15)
+
+    if salt < 0 or salt > 15:
+        raise ValueError("Salt must be between 0 and 15")
+
+    if not obf:
+        obf = OBFUSCATOR
+
+    obf_bytes = obf.encode("UTF-8")
+    plaintext_bytes = plaintext.encode("UTF-8")
+
+    result_bytes = bytearray()
+    for i, char_byte in enumerate(plaintext_bytes):
+        key_byte = obf_bytes[(i + salt) % len(obf_bytes)]
+        result_bytes.append(char_byte ^ key_byte)
+
+    return f"{salt:02d}{result_bytes.hex().upper()}"
 
 
 def doSHA512Hashing(plaintext: str, salt: str):
