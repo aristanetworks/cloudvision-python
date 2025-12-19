@@ -3,10 +3,10 @@
 # that can be found in the COPYING file.
 
 import re
-import crypt
 import random
 from typing import Any, Dict
 from json import loads
+from pyavd_utils.passwords import sha512_crypt
 
 from cloudvision.Connector.grpc_client import GRPCClient, create_query
 
@@ -121,4 +121,4 @@ def doSHA512Hashing(plaintext: str, salt: str):
     if not plaintext:
         return plaintext
     sanitized_salt = re.sub(r'[^A-Za-z0-9\.\/]', '', salt)
-    return crypt.crypt(plaintext, f"$6${sanitized_salt}$")
+    return sha512_crypt(plaintext, sanitized_salt)

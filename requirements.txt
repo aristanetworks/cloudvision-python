@@ -1,7 +1,8 @@
+aristaproto==0.1.4
 cryptography==46.0.3
 grpcio>=1.53.0
 msgpack>=1.0.3
 protobuf>=5.28.3,<6.0dev
+pyavd-utils==0.0.1
 requests>=2.20.1
 typing-extensions>=4.2.0
-aristaproto==0.1.4
