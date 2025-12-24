@@ -177,6 +177,36 @@ class MacType(aristaproto.Enum):
     MAC_TYPE_SOFTWARE_LEARNED_DYNAMIC indicates a MAC learned behind VTEP in software in the case of a VxLAN remote MAC.
     """
 
+    PROGRAMMED_STATIC = 26
+    """
+    MAC_TYPE_PROGRAMMED_STATIC indicates a programmed static MAC address.
+    """
+
+    EVPN_VESPA_DYNAMIC = 27
+    """
+    MAC_TYPE_EVPN_VESPA_DYNAMIC indicates a MAC received over BGP from a member of the same VESPA GW (Gateway) Set.
+    """
+
+    EVPN_INTF_DYNAMIC_FRR = 28
+    """
+    MAC_TYPE_EVPN_INTF_DYNAMIC_FRR indicates an ESI MAC protected by an EVPN FRR backup tunnel.
+    """
+
+    EVPN_INTF_STATIC_FRR = 29
+    """
+    MAC_TYPE_EVPN_INTF_STATIC_FRR indicates an ESI Static MAC protected by an EVPN FRR backup tunnel.
+    """
+
+    LEARNED_DYNAMIC_FRR = 30
+    """
+    MAC_TYPE_LEARNED_DYNAMIC_FRR indicates a MAC learned dynamically and protected by an EVPN FRR backup tunnel.
+    """
+
+    CONFIGURED_STATIC_FRR = 31
+    """
+    MAC_TYPE_CONFIGURED_STATIC_FRR indicates a MAC configured statically and protected by an EVPN FRR backup tunnel.
+    """
+
     OTHER = 99999
     """MAC_TYPE_OTHER is used for capturing future MAC types."""
 
@@ -717,6 +747,8 @@ class EndpointLocationSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    EndpointLocation instance in this response.
     """
 
 
@@ -748,8 +780,6 @@ class EndpointLocationStreamRequest(aristaproto.Message):
         until end.
         * Each EndpointLocation response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -806,8 +836,6 @@ class EndpointLocationBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each EndpointLocation response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(

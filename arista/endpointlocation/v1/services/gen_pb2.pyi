@@ -159,7 +159,11 @@ class EndpointLocationSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        EndpointLocation instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -202,8 +206,6 @@ class EndpointLocationStreamRequest(google.protobuf.message.Message):
             until end.
             * Each EndpointLocation response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -284,8 +286,6 @@ class EndpointLocationBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each EndpointLocation response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -316,7 +316,7 @@ class EndpointLocationBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___EndpointLocationStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 

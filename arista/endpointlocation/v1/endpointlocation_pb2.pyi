@@ -83,6 +83,18 @@ class _MacTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTy
     """MAC_TYPE_PENDING_SECURE indicates a secure MAC in a pending state."""
     MAC_TYPE_SOFTWARE_LEARNED_DYNAMIC: _MacType.ValueType  # 25
     """MAC_TYPE_SOFTWARE_LEARNED_DYNAMIC indicates a MAC learned behind VTEP in software in the case of a VxLAN remote MAC."""
+    MAC_TYPE_PROGRAMMED_STATIC: _MacType.ValueType  # 26
+    """MAC_TYPE_PROGRAMMED_STATIC indicates a programmed static MAC address."""
+    MAC_TYPE_EVPN_VESPA_DYNAMIC: _MacType.ValueType  # 27
+    """MAC_TYPE_EVPN_VESPA_DYNAMIC indicates a MAC received over BGP from a member of the same VESPA GW (Gateway) Set."""
+    MAC_TYPE_EVPN_INTF_DYNAMIC_FRR: _MacType.ValueType  # 28
+    """MAC_TYPE_EVPN_INTF_DYNAMIC_FRR indicates an ESI MAC protected by an EVPN FRR backup tunnel."""
+    MAC_TYPE_EVPN_INTF_STATIC_FRR: _MacType.ValueType  # 29
+    """MAC_TYPE_EVPN_INTF_STATIC_FRR indicates an ESI Static MAC protected by an EVPN FRR backup tunnel."""
+    MAC_TYPE_LEARNED_DYNAMIC_FRR: _MacType.ValueType  # 30
+    """MAC_TYPE_LEARNED_DYNAMIC_FRR indicates a MAC learned dynamically and protected by an EVPN FRR backup tunnel."""
+    MAC_TYPE_CONFIGURED_STATIC_FRR: _MacType.ValueType  # 31
+    """MAC_TYPE_CONFIGURED_STATIC_FRR indicates a MAC configured statically and protected by an EVPN FRR backup tunnel."""
     MAC_TYPE_OTHER: _MacType.ValueType  # 99999
     """MAC_TYPE_OTHER is used for capturing future MAC types."""
 
@@ -141,6 +153,18 @@ MAC_TYPE_PENDING_SECURE: MacType.ValueType  # 24
 """MAC_TYPE_PENDING_SECURE indicates a secure MAC in a pending state."""
 MAC_TYPE_SOFTWARE_LEARNED_DYNAMIC: MacType.ValueType  # 25
 """MAC_TYPE_SOFTWARE_LEARNED_DYNAMIC indicates a MAC learned behind VTEP in software in the case of a VxLAN remote MAC."""
+MAC_TYPE_PROGRAMMED_STATIC: MacType.ValueType  # 26
+"""MAC_TYPE_PROGRAMMED_STATIC indicates a programmed static MAC address."""
+MAC_TYPE_EVPN_VESPA_DYNAMIC: MacType.ValueType  # 27
+"""MAC_TYPE_EVPN_VESPA_DYNAMIC indicates a MAC received over BGP from a member of the same VESPA GW (Gateway) Set."""
+MAC_TYPE_EVPN_INTF_DYNAMIC_FRR: MacType.ValueType  # 28
+"""MAC_TYPE_EVPN_INTF_DYNAMIC_FRR indicates an ESI MAC protected by an EVPN FRR backup tunnel."""
+MAC_TYPE_EVPN_INTF_STATIC_FRR: MacType.ValueType  # 29
+"""MAC_TYPE_EVPN_INTF_STATIC_FRR indicates an ESI Static MAC protected by an EVPN FRR backup tunnel."""
+MAC_TYPE_LEARNED_DYNAMIC_FRR: MacType.ValueType  # 30
+"""MAC_TYPE_LEARNED_DYNAMIC_FRR indicates a MAC learned dynamically and protected by an EVPN FRR backup tunnel."""
+MAC_TYPE_CONFIGURED_STATIC_FRR: MacType.ValueType  # 31
+"""MAC_TYPE_CONFIGURED_STATIC_FRR indicates a MAC configured statically and protected by an EVPN FRR backup tunnel."""
 MAC_TYPE_OTHER: MacType.ValueType  # 99999
 """MAC_TYPE_OTHER is used for capturing future MAC types."""
 global___MacType = MacType
