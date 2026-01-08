@@ -160,7 +160,11 @@ class ConfigletSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Configlet instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -211,8 +215,6 @@ class ConfigletStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Configlet response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -302,8 +304,6 @@ class ConfigletBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Configlet response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -335,7 +335,7 @@ class ConfigletBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConfigletStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -455,7 +455,11 @@ class ConfigletAssignmentSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        ConfigletAssignment instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -498,8 +502,6 @@ class ConfigletAssignmentStreamRequest(google.protobuf.message.Message):
             until end.
             * Each ConfigletAssignment response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -580,8 +582,6 @@ class ConfigletAssignmentBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each ConfigletAssignment response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -612,7 +612,7 @@ class ConfigletAssignmentBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConfigletAssignmentStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -732,7 +732,11 @@ class ConfigletAssignmentConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        ConfigletAssignmentConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -775,8 +779,6 @@ class ConfigletAssignmentConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each ConfigletAssignmentConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -857,8 +859,6 @@ class ConfigletAssignmentConfigBatchedStreamRequest(google.protobuf.message.Mess
             until end.
             * Each ConfigletAssignmentConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -889,7 +889,7 @@ class ConfigletAssignmentConfigBatchedStreamResponse(google.protobuf.message.Mes
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConfigletAssignmentConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -1255,7 +1255,11 @@ class ConfigletConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        ConfigletConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1306,8 +1310,6 @@ class ConfigletConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each ConfigletConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1397,8 +1399,6 @@ class ConfigletConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each ConfigletConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -1430,7 +1430,7 @@ class ConfigletConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConfigletConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 

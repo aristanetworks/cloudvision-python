@@ -30,6 +30,7 @@ class _MatchPolicy:
 class _MatchPolicyEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MatchPolicy.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     MATCH_POLICY_UNSPECIFIED: _MatchPolicy.ValueType  # 0
+    """MATCH_POLICY_UNSPECIFIED is the unspecified match policy."""
     MATCH_POLICY_MATCH_FIRST: _MatchPolicy.ValueType  # 1
     """MATCH_POLICY_MATCH_FIRST dictates that matching devices are used only for the first match amongst its children"""
     MATCH_POLICY_MATCH_ALL: _MatchPolicy.ValueType  # 2
@@ -41,6 +42,7 @@ class MatchPolicy(_MatchPolicy, metaclass=_MatchPolicyEnumTypeWrapper):
     """
 
 MATCH_POLICY_UNSPECIFIED: MatchPolicy.ValueType  # 0
+"""MATCH_POLICY_UNSPECIFIED is the unspecified match policy."""
 MATCH_POLICY_MATCH_FIRST: MatchPolicy.ValueType  # 1
 """MATCH_POLICY_MATCH_FIRST dictates that matching devices are used only for the first match amongst its children"""
 MATCH_POLICY_MATCH_ALL: MatchPolicy.ValueType  # 2
@@ -118,7 +120,9 @@ class Configlet(google.protobuf.message.Message):
     DIGEST_FIELD_NUMBER: builtins.int
     SIZE_FIELD_NUMBER: builtins.int
     @property
-    def key(self) -> global___ConfigletKey: ...
+    def key(self) -> global___ConfigletKey:
+        """key uniquely identifies the static configlet."""
+
     @property
     def display_name(self) -> google.protobuf.wrappers_pb2.StringValue:
         """display_name is the display name of the static configlet."""
@@ -194,7 +198,9 @@ class ConfigletConfig(google.protobuf.message.Message):
     MIGRATED_FROM_FIELD_NUMBER: builtins.int
     BODY_FIELD_NUMBER: builtins.int
     @property
-    def key(self) -> global___ConfigletKey: ...
+    def key(self) -> global___ConfigletKey:
+        """key uniquely identifies the static configlet."""
+
     @property
     def remove(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """remove specifies the static configlet is to be removed from the workspace.
@@ -289,11 +295,17 @@ class ConfigletAssignmentConfig(google.protobuf.message.Message):
     match_policy: global___MatchPolicy.ValueType
     """match_policy is the discriminator for the query field"""
     @property
-    def key(self) -> global___ConfigletAssignmentKey: ...
+    def key(self) -> global___ConfigletAssignmentKey:
+        """key uniquely identifies the configlet assignment."""
+
     @property
-    def display_name(self) -> google.protobuf.wrappers_pb2.StringValue: ...
+    def display_name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """display_name is the display name of the configlet assignment."""
+
     @property
-    def description(self) -> google.protobuf.wrappers_pb2.StringValue: ...
+    def description(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """description is the description of the configlet assignment."""
+
     @property
     def configlet_ids(self) -> fmp.wrappers_pb2.RepeatedString:
         """configlet_ids is the list of configlets to be assigned"""
@@ -318,7 +330,7 @@ class ConfigletAssignmentConfig(google.protobuf.message.Message):
 
     @property
     def child_assignment_ids(self) -> fmp.wrappers_pb2.RepeatedString:
-        """list of child assignments"""
+        """child_assignment_ids is the list of child assignment IDs."""
 
     def __init__(
         self,
@@ -357,11 +369,17 @@ class ConfigletAssignment(google.protobuf.message.Message):
     match_policy: global___MatchPolicy.ValueType
     """match_policy is the discriminator for the query field"""
     @property
-    def key(self) -> global___ConfigletAssignmentKey: ...
+    def key(self) -> global___ConfigletAssignmentKey:
+        """key uniquely identifies the configlet assignment."""
+
     @property
-    def display_name(self) -> google.protobuf.wrappers_pb2.StringValue: ...
+    def display_name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """display_name is the display name of the configlet assignment."""
+
     @property
-    def description(self) -> google.protobuf.wrappers_pb2.StringValue: ...
+    def description(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """description is the description of the configlet assignment."""
+
     @property
     def configlet_ids(self) -> fmp.wrappers_pb2.RepeatedString:
         """configlet_ids is the list of configlets which are assigned"""
@@ -372,7 +390,7 @@ class ConfigletAssignment(google.protobuf.message.Message):
 
     @property
     def child_assignment_ids(self) -> fmp.wrappers_pb2.RepeatedString:
-        """list of child assignments"""
+        """child_assignment_ids is the list of child assignment IDs."""
 
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:

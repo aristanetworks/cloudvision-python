@@ -79,7 +79,7 @@ __all__ = (
     "ConfigletConfigServiceBase",
 )
 
-
+import warnings
 from dataclasses import dataclass
 from datetime import datetime
 from typing import (
@@ -107,8 +107,7 @@ class MatchPolicy(aristaproto.Enum):
     """
 
     UNSPECIFIED = 0
-    """
-    """
+    """MATCH_POLICY_UNSPECIFIED is the unspecified match policy."""
 
     MATCH_FIRST = 1
     """
@@ -158,8 +157,7 @@ class Configlet(aristaproto.Message):
     """
 
     key: "ConfigletKey" = aristaproto.message_field(1)
-    """
-    """
+    """key uniquely identifies the static configlet."""
 
     display_name: Optional[str] = aristaproto.message_field(
         2, wraps=aristaproto.TYPE_STRING
@@ -206,14 +204,18 @@ class Configlet(aristaproto.Message):
     size: Optional[int] = aristaproto.message_field(11, wraps=aristaproto.TYPE_INT64)
     """size of configlet body in bytes."""
 
+    def __post_init__(self) -> None:
+        super().__post_init__()
+        if self.is_set("migrated_from"):
+            warnings.warn("Configlet.migrated_from is deprecated", DeprecationWarning)
+
 
 @dataclass(eq=False, repr=False)
 class ConfigletConfig(aristaproto.Message):
     """ConfigletConfig updates a static configlet in a workspace."""
 
     key: "ConfigletKey" = aristaproto.message_field(1)
-    """
-    """
+    """key uniquely identifies the static configlet."""
 
     remove: Optional[bool] = aristaproto.message_field(2, wraps=aristaproto.TYPE_BOOL)
     """
@@ -241,6 +243,13 @@ class ConfigletConfig(aristaproto.Message):
 
     body: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
     """body is the static configlet body."""
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+        if self.is_set("migrated_from"):
+            warnings.warn(
+                "ConfigletConfig.migrated_from is deprecated", DeprecationWarning
+            )
 
 
 @dataclass(eq=False, repr=False)
@@ -277,20 +286,17 @@ class ConfigletAssignmentConfig(aristaproto.Message):
     """
 
     key: "ConfigletAssignmentKey" = aristaproto.message_field(1)
-    """
-    """
+    """key uniquely identifies the configlet assignment."""
 
     display_name: Optional[str] = aristaproto.message_field(
         3, wraps=aristaproto.TYPE_STRING
     )
-    """
-    """
+    """display_name is the display name of the configlet assignment."""
 
     description: Optional[str] = aristaproto.message_field(
         4, wraps=aristaproto.TYPE_STRING
     )
-    """
-    """
+    """description is the description of the configlet assignment."""
 
     configlet_ids: "___fmp__.RepeatedString" = aristaproto.message_field(5)
     """configlet_ids is the list of configlets to be assigned"""
@@ -317,7 +323,7 @@ class ConfigletAssignmentConfig(aristaproto.Message):
     """match_policy is the discriminator for the query field"""
 
     child_assignment_ids: "___fmp__.RepeatedString" = aristaproto.message_field(9)
-    """list of child assignments"""
+    """child_assignment_ids is the list of child assignment IDs."""
 
 
 @dataclass(eq=False, repr=False)
@@ -327,20 +333,17 @@ class ConfigletAssignment(aristaproto.Message):
     """
 
     key: "ConfigletAssignmentKey" = aristaproto.message_field(1)
-    """
-    """
+    """key uniquely identifies the configlet assignment."""
 
     display_name: Optional[str] = aristaproto.message_field(
         3, wraps=aristaproto.TYPE_STRING
     )
-    """
-    """
+    """display_name is the display name of the configlet assignment."""
 
     description: Optional[str] = aristaproto.message_field(
         4, wraps=aristaproto.TYPE_STRING
     )
-    """
-    """
+    """description is the description of the configlet assignment."""
 
     configlet_ids: "___fmp__.RepeatedString" = aristaproto.message_field(5)
     """configlet_ids is the list of configlets which are assigned"""
@@ -352,7 +355,7 @@ class ConfigletAssignment(aristaproto.Message):
     """match_policy is the discriminator for the query field"""
 
     child_assignment_ids: "___fmp__.RepeatedString" = aristaproto.message_field(8)
-    """list of child assignments"""
+    """child_assignment_ids is the list of child assignment IDs."""
 
     created_at: datetime = aristaproto.message_field(9)
     """created_at is the time when the ConfigletAssignment was created."""
@@ -470,6 +473,8 @@ class ConfigletSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Configlet instance in this response.
     """
 
 
@@ -508,8 +513,6 @@ class ConfigletStreamRequest(aristaproto.Message):
         until end.
         * Each Configlet response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -571,8 +574,6 @@ class ConfigletBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each Configlet response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -669,6 +670,8 @@ class ConfigletAssignmentSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    ConfigletAssignment instance in this response.
     """
 
 
@@ -700,8 +703,6 @@ class ConfigletAssignmentStreamRequest(aristaproto.Message):
         until end.
         * Each ConfigletAssignment response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -758,8 +759,6 @@ class ConfigletAssignmentBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each ConfigletAssignment response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -856,6 +855,8 @@ class ConfigletAssignmentConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    ConfigletAssignmentConfig instance in this response.
     """
 
 
@@ -887,8 +888,6 @@ class ConfigletAssignmentConfigStreamRequest(aristaproto.Message):
         until end.
         * Each ConfigletAssignmentConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -945,8 +944,6 @@ class ConfigletAssignmentConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each ConfigletAssignmentConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1191,6 +1188,8 @@ class ConfigletConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    ConfigletConfig instance in this response.
     """
 
 
@@ -1229,8 +1228,6 @@ class ConfigletConfigStreamRequest(aristaproto.Message):
         until end.
         * Each ConfigletConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1294,8 +1291,6 @@ class ConfigletConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each ConfigletConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
