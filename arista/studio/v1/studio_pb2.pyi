@@ -831,9 +831,26 @@ class InputsKey(google.protobuf.message.Message):
         The members of a group are referenced by field name. E.g., for a group
         A with a member B, the path to B would be `["A", "B"]`.
 
-        The members of a collection or resolver are referenced by an integer
-        string. E.g., for a collection A with three members, the path to the
-        second member would be `["A", "1"]`.
+        Collection and resolver members can be referenced in two ways:
+
+        1. Index-based: Using an integer string index.
+           E.g., for a collection A with three members, the path to the
+           second member would be `["A", "1"]`.
+
+        2. Key-based: Using bracket notation to specify
+           key-value pairs for keyed collections:
+           `["collectionName", "[keyName=keyValue]", ...]`
+           E.g., for a collection of NTP servers keyed by IP address:
+           `["ntpServers", "[ip=10.10.10.10]", "vrf"]`
+
+        For resolver fields with tag queries, bracket notation is supported
+        with the mandatory "inputs" keyword:
+        `["resolverName", "[tags/query=tagQuery]", "inputs", ...]`
+        E.g., for a device resolver with tag query "device:leaf1":
+        `["devices", "[tags/query=device:leaf1]", "inputs", "hostname"]`
+
+        Both index-based and key-based formats are supported for collections
+        and resolvers.
         """
 
     def __init__(

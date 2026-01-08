@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Arista Networks, Inc.  All rights reserved.
+# Copyright (c) 2026 Arista Networks, Inc.  All rights reserved.
 
 # pylint: disable=wildcard-import
 from arista.action.v1.services.gen_pb2 import *

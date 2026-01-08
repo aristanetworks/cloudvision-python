@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Arista Networks, Inc.  All rights reserved.
+# Copyright (c) 2026 Arista Networks, Inc.  All rights reserved.
 
 import fmp.pages_pb2 as pages
 import fmp.inet_pb2 as inet
