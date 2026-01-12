@@ -251,6 +251,12 @@ class ErrorCode(aristaproto.Enum):
     supported by CloudVision.
     """
 
+    EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE = 18
+    """
+    ERROR_CODE_EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE represents the case where EOS architecture
+    and Extension architecture are incompatible.
+    """
+
 
 class WarningCode(aristaproto.Enum):
     """WarningCode indicates warnings produced during image validations."""

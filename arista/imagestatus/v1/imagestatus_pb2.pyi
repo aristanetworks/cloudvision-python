@@ -202,6 +202,10 @@ class _ErrorCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enum
     """ERROR_CODE_ARCH_UNSUPPORTED represents the case where the given image architecture is not
     supported by CloudVision.
     """
+    ERROR_CODE_EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE: _ErrorCode.ValueType  # 18
+    """ERROR_CODE_EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE represents the case where EOS architecture
+    and Extension architecture are incompatible.
+    """
 
 class ErrorCode(_ErrorCode, metaclass=_ErrorCodeEnumTypeWrapper):
     """ErrorCode indicates errors produced during image validations."""
@@ -277,6 +281,10 @@ version doesn't support the given EOS version.
 ERROR_CODE_ARCH_UNSUPPORTED: ErrorCode.ValueType  # 17
 """ERROR_CODE_ARCH_UNSUPPORTED represents the case where the given image architecture is not
 supported by CloudVision.
+"""
+ERROR_CODE_EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE: ErrorCode.ValueType  # 18
+"""ERROR_CODE_EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE represents the case where EOS architecture
+and Extension architecture are incompatible.
 """
 global___ErrorCode = ErrorCode
 
