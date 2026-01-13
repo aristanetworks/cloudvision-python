@@ -687,6 +687,14 @@ class _EntityTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     """ENTITY_TYPE_TAG indicates the tags entity type."""
     ENTITY_TYPE_TAG_ASSIGNMENT: _EntityType.ValueType  # 9
     """ENTITY_TYPE_TAG_ASSIGNMENT indicates the tag assignment entity type."""
+    ENTITY_TYPE_FIXTURE_INSTANCE: _EntityType.ValueType  # 10
+    """ENTITY_TYPE_FIXTURE_INSTANCE indicates the FixtureInstance entity type."""
+    ENTITY_TYPE_FIXTURE_CLASS: _EntityType.ValueType  # 11
+    """ENTITY_TYPE_FIXTURE_CLASS indicates the FixtureClass entity type."""
+    ENTITY_TYPE_PROCESSOR: _EntityType.ValueType  # 12
+    """ENTITY_TYPE_PROCESSOR indicates the Processor entity type."""
+    ENTITY_TYPE_NODE: _EntityType.ValueType  # 13
+    """ENTITY_TYPE_NODE indicates the Node entity type."""
 
 class EntityType(_EntityType, metaclass=_EntityTypeEnumTypeWrapper):
     """EntityType enumerates the different types of entities that can be
@@ -717,6 +725,14 @@ ENTITY_TYPE_TAG: EntityType.ValueType  # 8
 """ENTITY_TYPE_TAG indicates the tags entity type."""
 ENTITY_TYPE_TAG_ASSIGNMENT: EntityType.ValueType  # 9
 """ENTITY_TYPE_TAG_ASSIGNMENT indicates the tag assignment entity type."""
+ENTITY_TYPE_FIXTURE_INSTANCE: EntityType.ValueType  # 10
+"""ENTITY_TYPE_FIXTURE_INSTANCE indicates the FixtureInstance entity type."""
+ENTITY_TYPE_FIXTURE_CLASS: EntityType.ValueType  # 11
+"""ENTITY_TYPE_FIXTURE_CLASS indicates the FixtureClass entity type."""
+ENTITY_TYPE_PROCESSOR: EntityType.ValueType  # 12
+"""ENTITY_TYPE_PROCESSOR indicates the Processor entity type."""
+ENTITY_TYPE_NODE: EntityType.ValueType  # 13
+"""ENTITY_TYPE_NODE indicates the Node entity type."""
 global___EntityType = EntityType
 
 class _DiffType:
@@ -2093,6 +2109,11 @@ class DiffKey(google.protobuf.message.Message):
         ["creator_type", "2", "element_type", "2", "element_sub_type", "1",
         "label", <label>, "value", <value>, "device_id", <id>,
         "interface_id", <id>]
+        hierarchy related entities:
+        node: ["node_id", <id>]
+        fixture_class: ["fixture_class_id", <id>]
+        fixture_instance: ["fixture_instance_id", <id>]
+        processor: ["processor_id", <id>]
         """
 
     def __init__(

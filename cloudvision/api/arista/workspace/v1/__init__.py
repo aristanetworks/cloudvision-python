@@ -644,6 +644,20 @@ class EntityType(aristaproto.Enum):
     TAG_ASSIGNMENT = 9
     """ENTITY_TYPE_TAG_ASSIGNMENT indicates the tag assignment entity type."""
 
+    FIXTURE_INSTANCE = 10
+    """
+    ENTITY_TYPE_FIXTURE_INSTANCE indicates the FixtureInstance entity type.
+    """
+
+    FIXTURE_CLASS = 11
+    """ENTITY_TYPE_FIXTURE_CLASS indicates the FixtureClass entity type."""
+
+    PROCESSOR = 12
+    """ENTITY_TYPE_PROCESSOR indicates the Processor entity type."""
+
+    NODE = 13
+    """ENTITY_TYPE_NODE indicates the Node entity type."""
+
 
 class DiffType(aristaproto.Enum):
     """DiffType enumerates types of diff."""
@@ -1465,6 +1479,11 @@ class DiffKey(aristaproto.Message):
     [\"creator_type\", \"2\", \"element_type\", \"2\", \"element_sub_type\", \"1\",
     \"label\", <label>, \"value\", <value>, \"device_id\", <id>,
     \"interface_id\", <id>]
+    hierarchy related entities:
+    node: [\"node_id\", <id>]
+    fixture_class: [\"fixture_class_id\", <id>]
+    fixture_instance: [\"fixture_instance_id\", <id>]
+    processor: [\"processor_id\", <id>]
     """
 
 
