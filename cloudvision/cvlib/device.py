@@ -117,7 +117,7 @@ device_capabilities: Dict[str, Dict] = {
         "per_interface_mtu": False,
     },
     "trident3x2-fixed-poe": {
-        "regexes": [r'CCS-720DP-48S', r'CCS-722XP'],
+        "regexes": [r'CCS-720DP-48S', r'CCS-722XP', r'CCS-720XPM'],
         "info": "Configured in standard settings",
         "reload_delay": {
             "mlag": 300,
