@@ -1078,3 +1078,193 @@ class ConcreteTypeToConcreteSwiMap(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
 global___ConcreteTypeToConcreteSwiMap = ConcreteTypeToConcreteSwiMap
+
+@typing.final
+class Device(google.protobuf.message.Message):
+    """Device represents a device that has a designed image that references the software image
+    identified by the key
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DEVICE_ID_FIELD_NUMBER: builtins.int
+    @property
+    def device_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """device_id contains the unique device id string for a device"""
+
+    def __init__(
+        self,
+        *,
+        device_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["device_id", b"device_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_id", b"device_id"]) -> None: ...
+
+global___Device = Device
+
+@typing.final
+class Devices(google.protobuf.message.Message):
+    """Devices is the collection of devices whose designed images reference the software image
+    identified by the key.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Device]:
+        """values is a list of devices"""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___Device] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___Devices = Devices
+
+@typing.final
+class ZtpUpgradeRule(google.protobuf.message.Message):
+    """ZtpUpgradeRule represents a Zero Touch Provisioning (ZTP) rule (identified by its model_regex
+    string) that references the software image identified by the key.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MODEL_REGEX_FIELD_NUMBER: builtins.int
+    @property
+    def model_regex(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """model_regex represents a ZTP upgrade rule. It is a RE2-style regular expression used to match
+        against the model names of devices undergoing the ZTP software upgrade workflow.
+        """
+
+    def __init__(
+        self,
+        *,
+        model_regex: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["model_regex", b"model_regex"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["model_regex", b"model_regex"]) -> None: ...
+
+global___ZtpUpgradeRule = ZtpUpgradeRule
+
+@typing.final
+class ZtpUpgradeRules(google.protobuf.message.Message):
+    """ZtpUpgradeRules is the collection of Zero Touch Provisioning (ZTP) rules
+    which are currently referencing the software image identified by the key.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ZtpUpgradeRule]:
+        """values is a list of ZtpUpgradeRules"""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___ZtpUpgradeRule] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___ZtpUpgradeRules = ZtpUpgradeRules
+
+@typing.final
+class StudioTagQuery(google.protobuf.message.Message):
+    """StudioTagQuery is a device tag query used in the Software Management Studio (SMS)
+    inputs. The software image represented by the key will be assigned to
+    the set of devices identified by the device tag query.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    STUDIO_TAG_QUERY_FIELD_NUMBER: builtins.int
+    @property
+    def studio_tag_query(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """studio_tag_query stores a device tag query string that conforms to the CloudVision
+        tag query language. E.g., the query, `"datacenter:NYC,SFO AND sflow:enabled"`, matches all
+        devices with sflow enabled in data centers NYC and SFO
+        """
+
+    def __init__(
+        self,
+        *,
+        studio_tag_query: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["studio_tag_query", b"studio_tag_query"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["studio_tag_query", b"studio_tag_query"]) -> None: ...
+
+global___StudioTagQuery = StudioTagQuery
+
+@typing.final
+class StudioTagQueries(google.protobuf.message.Message):
+    """StudioTagQueries is the collection of device tag queries which are currently referencing the
+    software image identified by the key
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___StudioTagQuery]:
+        """values is a list of studio tag queries"""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___StudioTagQuery] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___StudioTagQueries = StudioTagQueries
+
+@typing.final
+class Assignments(google.protobuf.message.Message):
+    """Assignments returns the lists of devices, ZTP upgrade rules, and studio tags queries that
+    reference the software image identified by the key
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    DEVICES_FIELD_NUMBER: builtins.int
+    ZTP_UPGRADE_RULES_FIELD_NUMBER: builtins.int
+    STUDIO_TAG_QUERIES_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> global___RepositoryKey:
+        """key uniquely identifies the software image resource being queried.
+        This key is defined as part of the repository configuration request when an image is added to the software repository.
+        """
+
+    @property
+    def devices(self) -> global___Devices:
+        """devices is a list of devices whose designed image references the software image identified by
+        the key.
+        """
+
+    @property
+    def ztp_upgrade_rules(self) -> global___ZtpUpgradeRules:
+        """ztp_upgrade_rules is a list of ztp upgrade rules which reference the software image identified
+        by the key.
+        """
+
+    @property
+    def studio_tag_queries(self) -> global___StudioTagQueries:
+        """studio_tag_queries contains the studio tags queries which reference the software image identified
+        by the key.
+        """
+
+    def __init__(
+        self,
+        *,
+        key: global___RepositoryKey | None = ...,
+        devices: global___Devices | None = ...,
+        ztp_upgrade_rules: global___ZtpUpgradeRules | None = ...,
+        studio_tag_queries: global___StudioTagQueries | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["devices", b"devices", "key", b"key", "studio_tag_queries", b"studio_tag_queries", "ztp_upgrade_rules", b"ztp_upgrade_rules"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["devices", b"devices", "key", b"key", "studio_tag_queries", b"studio_tag_queries", "ztp_upgrade_rules", b"ztp_upgrade_rules"]) -> None: ...
+
+global___Assignments = Assignments

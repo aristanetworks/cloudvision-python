@@ -29,7 +29,22 @@ __all__ = (
     "Releases",
     "ConcreteFile",
     "ConcreteTypeToConcreteSwiMap",
+    "Device",
+    "Devices",
+    "ZtpUpgradeRule",
+    "ZtpUpgradeRules",
+    "StudioTagQuery",
+    "StudioTagQueries",
+    "Assignments",
     "MetaResponse",
+    "AssignmentsRequest",
+    "AssignmentsResponse",
+    "AssignmentsSomeRequest",
+    "AssignmentsSomeResponse",
+    "AssignmentsStreamRequest",
+    "AssignmentsStreamResponse",
+    "AssignmentsBatchedStreamRequest",
+    "AssignmentsBatchedStreamResponse",
     "ReleasesRequest",
     "ReleasesResponse",
     "ReleasesStreamRequest",
@@ -60,6 +75,8 @@ __all__ = (
     "RepositoryConfigDeleteSomeResponse",
     "RepositoryConfigDeleteAllRequest",
     "RepositoryConfigDeleteAllResponse",
+    "AssignmentsServiceStub",
+    "AssignmentsServiceBase",
     "ReleasesServiceStub",
     "ReleasesServiceBase",
     "RepositoryServiceStub",
@@ -822,6 +839,118 @@ class ConcreteTypeToConcreteSwiMap(aristaproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class Device(aristaproto.Message):
+    """
+    Device represents a device that has a designed image that references the software image
+    identified by the key
+    """
+
+    device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
+    """device_id contains the unique device id string for a device"""
+
+
+@dataclass(eq=False, repr=False)
+class Devices(aristaproto.Message):
+    """
+    Devices is the collection of devices whose designed images reference the software image
+    identified by the key.
+    """
+
+    values: List["Device"] = aristaproto.message_field(1)
+    """values is a list of devices"""
+
+
+@dataclass(eq=False, repr=False)
+class ZtpUpgradeRule(aristaproto.Message):
+    """
+    ZtpUpgradeRule represents a Zero Touch Provisioning (ZTP) rule (identified by its model_regex
+    string) that references the software image identified by the key.
+    """
+
+    model_regex: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
+    """
+    model_regex represents a ZTP upgrade rule. It is a RE2-style regular expression used to match
+    against the model names of devices undergoing the ZTP software upgrade workflow.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class ZtpUpgradeRules(aristaproto.Message):
+    """
+    ZtpUpgradeRules is the collection of Zero Touch Provisioning (ZTP) rules
+    which are currently referencing the software image identified by the key.
+    """
+
+    values: List["ZtpUpgradeRule"] = aristaproto.message_field(1)
+    """values is a list of ZtpUpgradeRules"""
+
+
+@dataclass(eq=False, repr=False)
+class StudioTagQuery(aristaproto.Message):
+    """
+    StudioTagQuery is a device tag query used in the Software Management Studio (SMS)
+    inputs. The software image represented by the key will be assigned to
+    the set of devices identified by the device tag query.
+    """
+
+    studio_tag_query: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
+    """
+    studio_tag_query stores a device tag query string that conforms to the CloudVision
+    tag query language. E.g., the query, `\"datacenter:NYC,SFO AND sflow:enabled\"`, matches all
+    devices with sflow enabled in data centers NYC and SFO
+    """
+
+
+@dataclass(eq=False, repr=False)
+class StudioTagQueries(aristaproto.Message):
+    """
+    StudioTagQueries is the collection of device tag queries which are currently referencing the
+    software image identified by the key
+    """
+
+    values: List["StudioTagQuery"] = aristaproto.message_field(1)
+    """values is a list of studio tag queries"""
+
+
+@dataclass(eq=False, repr=False)
+class Assignments(aristaproto.Message):
+    """
+    Assignments returns the lists of devices, ZTP upgrade rules, and studio tags queries that
+    reference the software image identified by the key
+    """
+
+    key: "RepositoryKey" = aristaproto.message_field(1)
+    """
+    key uniquely identifies the software image resource being queried.
+    This key is defined as part of the repository configuration request when an image is added to the software repository.
+    """
+
+    devices: "Devices" = aristaproto.message_field(2)
+    """
+    devices is a list of devices whose designed image references the software image identified by
+    the key.
+    """
+
+    ztp_upgrade_rules: "ZtpUpgradeRules" = aristaproto.message_field(3)
+    """
+    ztp_upgrade_rules is a list of ztp upgrade rules which reference the software image identified
+    by the key.
+    """
+
+    studio_tag_queries: "StudioTagQueries" = aristaproto.message_field(4)
+    """
+    studio_tag_queries contains the studio tags queries which reference the software image identified
+    by the key.
+    """
+
+
+@dataclass(eq=False, repr=False)
 class MetaResponse(aristaproto.Message):
     """ """
 
@@ -841,6 +970,189 @@ class MetaResponse(aristaproto.Message):
     count: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_UINT32)
     """
     Count is the number of items present under the conditions of the request.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AssignmentsRequest(aristaproto.Message):
+    """ """
+
+    key: "RepositoryKey" = aristaproto.message_field(1)
+    """
+    Key uniquely identifies a Assignments instance to retrieve.
+    This value must be populated.
+    """
+
+    time: datetime = aristaproto.message_field(2)
+    """
+    Time indicates the time for which you are interested in the data.
+    If no time is given, the server will use the time at which it makes the request.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AssignmentsResponse(aristaproto.Message):
+    """ """
+
+    value: "Assignments" = aristaproto.message_field(1)
+    """
+    Value is the value requested.
+    This structure will be fully-populated as it exists in the datastore. If
+    optional fields were not given at creation, these fields will be empty or
+    set to default values.
+    """
+
+    time: datetime = aristaproto.message_field(2)
+    """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Assignments instance in this response.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AssignmentsSomeRequest(aristaproto.Message):
+    """ """
+
+    keys: List["RepositoryKey"] = aristaproto.message_field(1)
+    """
+    """
+
+    time: datetime = aristaproto.message_field(2)
+    """
+    Time indicates the time for which you are interested in the data.
+    If no time is given, the server will use the time at which it makes the request.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AssignmentsSomeResponse(aristaproto.Message):
+    """ """
+
+    value: "Assignments" = aristaproto.message_field(1)
+    """
+    Value is the value requested.
+    This structure will be fully-populated as it exists in the datastore. If
+    optional fields were not given at creation, these fields will be empty or
+    set to default values.
+    """
+
+    error: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    """
+    Error is an optional field.
+    It should be filled when there is an error in the GetSome process.
+    """
+
+    time: datetime = aristaproto.message_field(3)
+    """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Assignments instance in this response.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AssignmentsStreamRequest(aristaproto.Message):
+    """ """
+
+    partial_eq_filter: List["Assignments"] = aristaproto.message_field(1)
+    """
+    PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+    This requires all provided fields to be equal to the response.
+
+    While transparent to users, this field also allows services to optimize internal
+    subscriptions if filter(s) are sufficiently specific.
+    """
+
+    time: "__time__.TimeBounds" = aristaproto.message_field(3)
+    """
+    TimeRange allows limiting response data to within a specified time window.
+    If this field is populated, at least one of the two time fields are required.
+
+    For GetAll, the fields start and end can be used as follows:
+
+      * end: Returns the state of each Assignments at end.
+        * Each Assignments response is fully-specified (all fields set).
+      * start: Returns the state of each Assignments at start, followed by updates until now.
+        * Each Assignments response at start is fully-specified, but updates may be partial.
+      * start and end: Returns the state of each Assignments at start, followed by updates
+        until end.
+        * Each Assignments response at start is fully-specified, but updates until end may
+          be partial.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AssignmentsStreamResponse(aristaproto.Message):
+    """ """
+
+    value: "Assignments" = aristaproto.message_field(1)
+    """
+    Value is a value deemed relevant to the initiating request.
+    This structure will always have its key-field populated. Which other fields are
+    populated, and why, depends on the value of Operation and what triggered this notification.
+    """
+
+    time: datetime = aristaproto.message_field(2)
+    """Time holds the timestamp of this Assignments's last modification."""
+
+    type: "__subscriptions__.Operation" = aristaproto.enum_field(3)
+    """
+    Operation indicates how the Assignments value in this response should be considered.
+    Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+    once all initial data is streamed and the client begins to receive modification updates,
+    you should not see INITIAL again.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AssignmentsBatchedStreamRequest(aristaproto.Message):
+    """ """
+
+    partial_eq_filter: List["Assignments"] = aristaproto.message_field(1)
+    """
+    PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+    This requires all provided fields to be equal to the response.
+
+    While transparent to users, this field also allows services to optimize internal
+    subscriptions if filter(s) are sufficiently specific.
+    """
+
+    time: "__time__.TimeBounds" = aristaproto.message_field(3)
+    """
+    TimeRange allows limiting response data to within a specified time window.
+    If this field is populated, at least one of the two time fields are required.
+
+    For GetAll, the fields start and end can be used as follows:
+
+      * end: Returns the state of each Assignments at end.
+        * Each Assignments response is fully-specified (all fields set).
+      * start: Returns the state of each Assignments at start, followed by updates until now.
+        * Each Assignments response at start is fully-specified, but updates may be partial.
+      * start and end: Returns the state of each Assignments at start, followed by updates
+        until end.
+        * Each Assignments response at start is fully-specified, but updates until end may
+          be partial.
+    """
+
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
+    """
+    MaxMessages limits the maximum number of messages that can be contained in one batch.
+    MaxMessages is required to be at least 1.
+    The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+    INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AssignmentsBatchedStreamResponse(aristaproto.Message):
+    """ """
+
+    responses: List["AssignmentsStreamResponse"] = aristaproto.message_field(1)
+    """
+    Values are the values deemed relevant to the initiating request.
+    The length of this structure is guaranteed to be between (inclusive) 1 and
+    min(req.max_messages, INTERNAL_BATCH_LIMIT).
     """
 
 
@@ -902,8 +1214,6 @@ class ReleasesStreamRequest(aristaproto.Message):
         until end.
         * Each Releases response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1001,6 +1311,8 @@ class RepositorySomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Repository instance in this response.
     """
 
 
@@ -1032,8 +1344,6 @@ class RepositoryStreamRequest(aristaproto.Message):
         until end.
         * Each Repository response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1088,8 +1398,6 @@ class RepositoryBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each Repository response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1186,6 +1494,8 @@ class RepositoryConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    RepositoryConfig instance in this response.
     """
 
 
@@ -1217,8 +1527,6 @@ class RepositoryConfigStreamRequest(aristaproto.Message):
         until end.
         * Each RepositoryConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1275,8 +1583,6 @@ class RepositoryConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each RepositoryConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1444,6 +1750,168 @@ class RepositoryConfigDeleteAllResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(4)
     """Time indicates the (UTC) timestamp when the key was being deleted."""
+
+
+class AssignmentsServiceStub(aristaproto.ServiceStub):
+    """ """
+
+    async def get_one(
+        self,
+        assignments_request: "AssignmentsRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AssignmentsResponse":
+        """ """
+
+        return await self._unary_unary(
+            "/arista.softwaremanagement.v1.AssignmentsService/GetOne",
+            assignments_request,
+            AssignmentsResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        )
+
+    async def get_some(
+        self,
+        assignments_some_request: "AssignmentsSomeRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AsyncIterator[AssignmentsSomeResponse]":
+        """ """
+
+        async for response in self._unary_stream(
+            "/arista.softwaremanagement.v1.AssignmentsService/GetSome",
+            assignments_some_request,
+            AssignmentsSomeResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        ):
+            yield response
+
+    async def get_all(
+        self,
+        assignments_stream_request: "AssignmentsStreamRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AsyncIterator[AssignmentsStreamResponse]":
+        """ """
+
+        async for response in self._unary_stream(
+            "/arista.softwaremanagement.v1.AssignmentsService/GetAll",
+            assignments_stream_request,
+            AssignmentsStreamResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        ):
+            yield response
+
+    async def subscribe(
+        self,
+        assignments_stream_request: "AssignmentsStreamRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AsyncIterator[AssignmentsStreamResponse]":
+        """ """
+
+        async for response in self._unary_stream(
+            "/arista.softwaremanagement.v1.AssignmentsService/Subscribe",
+            assignments_stream_request,
+            AssignmentsStreamResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        ):
+            yield response
+
+    async def get_meta(
+        self,
+        assignments_stream_request: "AssignmentsStreamRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "MetaResponse":
+        """ """
+
+        return await self._unary_unary(
+            "/arista.softwaremanagement.v1.AssignmentsService/GetMeta",
+            assignments_stream_request,
+            MetaResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        )
+
+    async def subscribe_meta(
+        self,
+        assignments_stream_request: "AssignmentsStreamRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AsyncIterator[MetaResponse]":
+        """ """
+
+        async for response in self._unary_stream(
+            "/arista.softwaremanagement.v1.AssignmentsService/SubscribeMeta",
+            assignments_stream_request,
+            MetaResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        ):
+            yield response
+
+    async def get_all_batched(
+        self,
+        assignments_batched_stream_request: "AssignmentsBatchedStreamRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AsyncIterator[AssignmentsBatchedStreamResponse]":
+        """ """
+
+        async for response in self._unary_stream(
+            "/arista.softwaremanagement.v1.AssignmentsService/GetAllBatched",
+            assignments_batched_stream_request,
+            AssignmentsBatchedStreamResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        ):
+            yield response
+
+    async def subscribe_batched(
+        self,
+        assignments_batched_stream_request: "AssignmentsBatchedStreamRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AsyncIterator[AssignmentsBatchedStreamResponse]":
+        """ """
+
+        async for response in self._unary_stream(
+            "/arista.softwaremanagement.v1.AssignmentsService/SubscribeBatched",
+            assignments_batched_stream_request,
+            AssignmentsBatchedStreamResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        ):
+            yield response
 
 
 class ReleasesServiceStub(aristaproto.ServiceStub):
@@ -1954,6 +2422,197 @@ class RepositoryConfigServiceStub(aristaproto.ServiceStub):
 from .... import fmp as ___fmp__
 from ... import subscriptions as __subscriptions__
 from ... import time as __time__
+
+
+class AssignmentsServiceBase(ServiceBase):
+    """ """
+
+    async def get_one(
+        self, assignments_request: "AssignmentsRequest"
+    ) -> "AssignmentsResponse":
+        """ """
+
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def get_some(
+        self, assignments_some_request: "AssignmentsSomeRequest"
+    ) -> AsyncIterator[AssignmentsSomeResponse]:
+        """ """
+
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def get_all(
+        self, assignments_stream_request: "AssignmentsStreamRequest"
+    ) -> AsyncIterator[AssignmentsStreamResponse]:
+        """ """
+
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def subscribe(
+        self, assignments_stream_request: "AssignmentsStreamRequest"
+    ) -> AsyncIterator[AssignmentsStreamResponse]:
+        """ """
+
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def get_meta(
+        self, assignments_stream_request: "AssignmentsStreamRequest"
+    ) -> "MetaResponse":
+        """ """
+
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def subscribe_meta(
+        self, assignments_stream_request: "AssignmentsStreamRequest"
+    ) -> AsyncIterator[MetaResponse]:
+        """ """
+
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def get_all_batched(
+        self, assignments_batched_stream_request: "AssignmentsBatchedStreamRequest"
+    ) -> AsyncIterator[AssignmentsBatchedStreamResponse]:
+        """ """
+
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def subscribe_batched(
+        self, assignments_batched_stream_request: "AssignmentsBatchedStreamRequest"
+    ) -> AsyncIterator[AssignmentsBatchedStreamResponse]:
+        """ """
+
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def __rpc_get_one(
+        self, stream: "grpclib.server.Stream[AssignmentsRequest, AssignmentsResponse]"
+    ) -> None:
+        request = await stream.recv_message()
+        response = await self.get_one(request)
+        await stream.send_message(response)
+
+    async def __rpc_get_some(
+        self,
+        stream: "grpclib.server.Stream[AssignmentsSomeRequest, AssignmentsSomeResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        await self._call_rpc_handler_server_stream(
+            self.get_some,
+            stream,
+            request,
+        )
+
+    async def __rpc_get_all(
+        self,
+        stream: "grpclib.server.Stream[AssignmentsStreamRequest, AssignmentsStreamResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        await self._call_rpc_handler_server_stream(
+            self.get_all,
+            stream,
+            request,
+        )
+
+    async def __rpc_subscribe(
+        self,
+        stream: "grpclib.server.Stream[AssignmentsStreamRequest, AssignmentsStreamResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        await self._call_rpc_handler_server_stream(
+            self.subscribe,
+            stream,
+            request,
+        )
+
+    async def __rpc_get_meta(
+        self, stream: "grpclib.server.Stream[AssignmentsStreamRequest, MetaResponse]"
+    ) -> None:
+        request = await stream.recv_message()
+        response = await self.get_meta(request)
+        await stream.send_message(response)
+
+    async def __rpc_subscribe_meta(
+        self, stream: "grpclib.server.Stream[AssignmentsStreamRequest, MetaResponse]"
+    ) -> None:
+        request = await stream.recv_message()
+        await self._call_rpc_handler_server_stream(
+            self.subscribe_meta,
+            stream,
+            request,
+        )
+
+    async def __rpc_get_all_batched(
+        self,
+        stream: "grpclib.server.Stream[AssignmentsBatchedStreamRequest, AssignmentsBatchedStreamResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        await self._call_rpc_handler_server_stream(
+            self.get_all_batched,
+            stream,
+            request,
+        )
+
+    async def __rpc_subscribe_batched(
+        self,
+        stream: "grpclib.server.Stream[AssignmentsBatchedStreamRequest, AssignmentsBatchedStreamResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        await self._call_rpc_handler_server_stream(
+            self.subscribe_batched,
+            stream,
+            request,
+        )
+
+    def __mapping__(self) -> Dict[str, grpclib.const.Handler]:
+        return {
+            "/arista.softwaremanagement.v1.AssignmentsService/GetOne": grpclib.const.Handler(
+                self.__rpc_get_one,
+                grpclib.const.Cardinality.UNARY_UNARY,
+                AssignmentsRequest,
+                AssignmentsResponse,
+            ),
+            "/arista.softwaremanagement.v1.AssignmentsService/GetSome": grpclib.const.Handler(
+                self.__rpc_get_some,
+                grpclib.const.Cardinality.UNARY_STREAM,
+                AssignmentsSomeRequest,
+                AssignmentsSomeResponse,
+            ),
+            "/arista.softwaremanagement.v1.AssignmentsService/GetAll": grpclib.const.Handler(
+                self.__rpc_get_all,
+                grpclib.const.Cardinality.UNARY_STREAM,
+                AssignmentsStreamRequest,
+                AssignmentsStreamResponse,
+            ),
+            "/arista.softwaremanagement.v1.AssignmentsService/Subscribe": grpclib.const.Handler(
+                self.__rpc_subscribe,
+                grpclib.const.Cardinality.UNARY_STREAM,
+                AssignmentsStreamRequest,
+                AssignmentsStreamResponse,
+            ),
+            "/arista.softwaremanagement.v1.AssignmentsService/GetMeta": grpclib.const.Handler(
+                self.__rpc_get_meta,
+                grpclib.const.Cardinality.UNARY_UNARY,
+                AssignmentsStreamRequest,
+                MetaResponse,
+            ),
+            "/arista.softwaremanagement.v1.AssignmentsService/SubscribeMeta": grpclib.const.Handler(
+                self.__rpc_subscribe_meta,
+                grpclib.const.Cardinality.UNARY_STREAM,
+                AssignmentsStreamRequest,
+                MetaResponse,
+            ),
+            "/arista.softwaremanagement.v1.AssignmentsService/GetAllBatched": grpclib.const.Handler(
+                self.__rpc_get_all_batched,
+                grpclib.const.Cardinality.UNARY_STREAM,
+                AssignmentsBatchedStreamRequest,
+                AssignmentsBatchedStreamResponse,
+            ),
+            "/arista.softwaremanagement.v1.AssignmentsService/SubscribeBatched": grpclib.const.Handler(
+                self.__rpc_subscribe_batched,
+                grpclib.const.Cardinality.UNARY_STREAM,
+                AssignmentsBatchedStreamRequest,
+                AssignmentsBatchedStreamResponse,
+            ),
+        }
 
 
 class ReleasesServiceBase(ServiceBase):

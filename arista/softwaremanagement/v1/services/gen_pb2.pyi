@@ -54,6 +54,283 @@ class MetaResponse(google.protobuf.message.Message):
 global___MetaResponse = MetaResponse
 
 @typing.final
+class AssignmentsRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryKey:
+        """Key uniquely identifies a Assignments instance to retrieve.
+        This value must be populated.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+
+    def __init__(
+        self,
+        *,
+        key: arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryKey | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["key", b"key", "time", b"time"]) -> None: ...
+
+global___AssignmentsRequest = AssignmentsRequest
+
+@typing.final
+class AssignmentsResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Assignments instance in this response.
+        """
+
+    def __init__(
+        self,
+        *,
+        value: arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> None: ...
+
+global___AssignmentsResponse = AssignmentsResponse
+
+@typing.final
+class AssignmentsSomeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEYS_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryKey]: ...
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time indicates the time for which you are interested in the data.
+        If no time is given, the server will use the time at which it makes the request.
+        """
+
+    def __init__(
+        self,
+        *,
+        keys: collections.abc.Iterable[arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryKey] | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["keys", b"keys", "time", b"time"]) -> None: ...
+
+global___AssignmentsSomeRequest = AssignmentsSomeRequest
+
+@typing.final
+class AssignmentsSomeResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def value(self) -> arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments:
+        """Value is the value requested.
+        This structure will be fully-populated as it exists in the datastore. If
+        optional fields were not given at creation, these fields will be empty or
+        set to default values.
+        """
+
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """Error is an optional field.
+        It should be filled when there is an error in the GetSome process.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Assignments instance in this response.
+        """
+
+    def __init__(
+        self,
+        *,
+        value: arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments | None = ...,
+        error: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["error", b"error", "time", b"time", "value", b"value"]) -> None: ...
+
+global___AssignmentsSomeResponse = AssignmentsSomeResponse
+
+@typing.final
+class AssignmentsStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each Assignments at end.
+            * Each Assignments response is fully-specified (all fields set).
+          * start: Returns the state of each Assignments at start, followed by updates until now.
+            * Each Assignments response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each Assignments at start, followed by updates
+            until end.
+            * Each Assignments response at start is fully-specified, but updates until end may
+              be partial.
+        """
+
+    def __init__(
+        self,
+        *,
+        partial_eq_filter: collections.abc.Iterable[arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments] | None = ...,
+        time: arista.time.time_pb2.TimeBounds | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
+
+global___AssignmentsStreamRequest = AssignmentsStreamRequest
+
+@typing.final
+class AssignmentsStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUE_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    type: arista.subscriptions.subscriptions_pb2.Operation.ValueType
+    """Operation indicates how the Assignments value in this response should be considered.
+    Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+    once all initial data is streamed and the client begins to receive modification updates,
+    you should not see INITIAL again.
+    """
+    @property
+    def value(self) -> arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments:
+        """Value is a value deemed relevant to the initiating request.
+        This structure will always have its key-field populated. Which other fields are
+        populated, and why, depends on the value of Operation and what triggered this notification.
+        """
+
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time holds the timestamp of this Assignments's last modification."""
+
+    def __init__(
+        self,
+        *,
+        value: arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments | None = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        type: arista.subscriptions.subscriptions_pb2.Operation.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "type", b"type", "value", b"value"]) -> None: ...
+
+global___AssignmentsStreamResponse = AssignmentsStreamResponse
+
+@typing.final
+class AssignmentsBatchedStreamRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    TIME_FIELD_NUMBER: builtins.int
+    MAX_MESSAGES_FIELD_NUMBER: builtins.int
+    @property
+    def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments]:
+        """PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+        This requires all provided fields to be equal to the response.
+
+        While transparent to users, this field also allows services to optimize internal
+        subscriptions if filter(s) are sufficiently specific.
+        """
+
+    @property
+    def time(self) -> arista.time.time_pb2.TimeBounds:
+        """TimeRange allows limiting response data to within a specified time window.
+        If this field is populated, at least one of the two time fields are required.
+
+        For GetAll, the fields start and end can be used as follows:
+
+          * end: Returns the state of each Assignments at end.
+            * Each Assignments response is fully-specified (all fields set).
+          * start: Returns the state of each Assignments at start, followed by updates until now.
+            * Each Assignments response at start is fully-specified, but updates may be partial.
+          * start and end: Returns the state of each Assignments at start, followed by updates
+            until end.
+            * Each Assignments response at start is fully-specified, but updates until end may
+              be partial.
+        """
+
+    @property
+    def max_messages(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """MaxMessages limits the maximum number of messages that can be contained in one batch.
+        MaxMessages is required to be at least 1.
+        The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+        INTERNAL_BATCH_LIMIT is set based on the maximum message size.
+        """
+
+    def __init__(
+        self,
+        *,
+        partial_eq_filter: collections.abc.Iterable[arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments] | None = ...,
+        time: arista.time.time_pb2.TimeBounds | None = ...,
+        max_messages: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["max_messages", b"max_messages", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["max_messages", b"max_messages", "partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
+
+global___AssignmentsBatchedStreamRequest = AssignmentsBatchedStreamRequest
+
+@typing.final
+class AssignmentsBatchedStreamResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RESPONSES_FIELD_NUMBER: builtins.int
+    @property
+    def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AssignmentsStreamResponse]:
+        """Values are the values deemed relevant to the initiating request.
+        The length of this structure is guaranteed to be between (inclusive) 1 and
+        min(req.max_messages, INTERNAL_BATCH_LIMIT).
+        """
+
+    def __init__(
+        self,
+        *,
+        responses: collections.abc.Iterable[global___AssignmentsStreamResponse] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["responses", b"responses"]) -> None: ...
+
+global___AssignmentsBatchedStreamResponse = AssignmentsBatchedStreamResponse
+
+@typing.final
 class ReleasesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -135,8 +412,6 @@ class ReleasesStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Releases response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -293,7 +568,11 @@ class RepositorySomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Repository instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -336,8 +615,6 @@ class RepositoryStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Repository response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -418,8 +695,6 @@ class RepositoryBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Repository response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -450,7 +725,7 @@ class RepositoryBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___RepositoryStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -570,7 +845,11 @@ class RepositoryConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        RepositoryConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -613,8 +892,6 @@ class RepositoryConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each RepositoryConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -695,8 +972,6 @@ class RepositoryConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each RepositoryConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -727,7 +1002,7 @@ class RepositoryConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___RepositoryConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
