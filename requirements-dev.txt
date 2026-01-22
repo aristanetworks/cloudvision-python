@@ -14,4 +14,4 @@ types-protobuf==5.29.1.20241207
 types-PyYAML>=6.0.7
 types-requests>=2.27.25
 types-setuptools>=69.0.0.0
-wheel==0.38.4
+wheel==0.46.2
