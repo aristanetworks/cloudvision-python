@@ -103,10 +103,13 @@ Mainline inputs have been written to: studio-avd-campus-fabric-inputs.yaml
 
 ```shell
  python3 studio_update.py --server www.arista.io --token-file token.tok \
-      --operation=set \
+      --operation set \
       --studio-id studio-avd-campus-fabric \
-      --yaml-file=studio-avd-campus-fabric-inputs.yaml \
-      --build-only True
+      --yaml-file studio-avd-campus-fabric-inputs.yaml \
+      --build-only true \
+      --sync true \
+      --sync-diffs true
+
 
 Reading inline script metadata from: studio_update.py
 Creating workspace "studio-avd-campus-fabric config push"
@@ -114,6 +117,12 @@ Creating workspace "studio-avd-campus-fabric config push"
 Studio inputs set from yaml:
 	studio-avd-campus-fabric-inputs.yaml
 	Devices assigned to studio: *
+Synchronizing workspace with mainline
+	Synchronization request a5f840c5-e9cf-4118-b4d7-611fd0a46aa2 sent
+	Waiting for synchronization to complete
+	Synchronization succeeded
+Downloading sync diffs...
+	Sync diffs saved to ef3c470c-bade-431a-bc7e-11a4ce656dc8_sync_diffs.yaml
 Building workspace
 	Build request f6b4bdc0-5e0a-4409-8231-34c6cab0e5c2 sent
 	Waiting for build to complete

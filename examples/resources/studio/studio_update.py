@@ -9,8 +9,9 @@
 # exclude-newer = "2024-08-05T00:00:00Z"
 # ///
 
-# Copyright (c) 2024 Arista Networks, Inc.  All rights reserved.
-# Arista Networks, Inc. Confidential and Proprietary.
+# Copyright (c) 2025 Arista Networks, Inc.
+# Use of this source code is governed by the Apache License 2.0
+# that can be found in the COPYING file.
 #
 # example usages:
 #   python3 studio_update.py
@@ -54,8 +55,10 @@ from arista.changecontrol.v1 import models as changecontrol_models
 from arista.changecontrol.v1 import services as changecontrol_services
 from arista.action.v1 import models as action_models
 from arista.action.v1 import services as action_services
+from arista.time import time_pb2
 
 from fmp import wrappers_pb2 as fmp_wrappers
+from google.protobuf import json_format
 from google.protobuf import wrappers_pb2 as wrappers
 import grpc
 
@@ -509,6 +512,121 @@ def build_failure_message(res):
     return fail_msg
 
 
+def synchronize_workspace(channel, workspace_id):
+    '''
+    Sends a request to synchronize a workspace with the latest
+    mainline content, waits for it to finish, and reports the result.
+    Returns True if the synchronization was successful and False otherwise.
+    '''
+    # pylint: disable=no-member
+    log(0, 'Synchronizing workspace with mainline')
+    # Check if workspace needs rebase by getting current workspace state
+    get_req = workspace_services.WorkspaceRequest(
+        key=workspace_models.WorkspaceKey(
+            workspace_id=wrappers.StringValue(value=workspace_id)
+        )
+    )
+    stub = workspace_services.WorkspaceServiceStub(channel)
+    workspace_resp = stub.GetOne(get_req, timeout=RPC_TIMEOUT)
+
+    # Check if rebase is needed
+    if not workspace_resp.value.needs_rebase.value:
+        log(0, '\tWorkspace is already up to date, no rebase needed')
+        return True
+
+    log(0, '\tWorkspace needs rebase, proceeding with synchronization')
+    sync_id = str(uuid.uuid4())
+    req = workspace_services.WorkspaceConfigSetRequest(
+        value=workspace_models.WorkspaceConfig(
+            key=workspace_models.WorkspaceKey(
+                workspace_id=wrappers.StringValue(value=workspace_id)
+            ),
+            request=workspace_models.REQUEST_REBASE,
+            request_params=workspace_models.RequestParams(
+                request_id=wrappers.StringValue(value=sync_id)
+            )
+        )
+    )
+    stub = workspace_services.WorkspaceConfigServiceStub(channel)
+    stub.Set(req, timeout=RPC_TIMEOUT)
+    log(0, f'\tSynchronization request {sync_id} sent')
+    # Wait until the workspace sync request finishes.
+    req = workspace_services.WorkspaceStreamRequest(
+        partial_eq_filter=[
+            workspace_models.Workspace(
+                key=workspace_models.WorkspaceKey(
+                    workspace_id=wrappers.StringValue(value=workspace_id),
+                )
+            )
+        ]
+    )
+    stub = workspace_services.WorkspaceServiceStub(channel)
+    log(0, '\tWaiting for synchronization to complete')
+    for res in stub.Subscribe(req, timeout=RPC_TIMEOUT):
+        if sync_id in res.value.responses.values:
+            sync_res = res.value.responses.values[sync_id]
+            if sync_res.status == workspace_models.RESPONSE_STATUS_FAIL:
+                log(0, f'\tSynchronization failed: {sync_res.message.value}')
+                return False
+            if sync_res.status == workspace_models.RESPONSE_STATUS_SUCCESS:
+                log(0, '\tSynchronization succeeded')
+                download_sync_diffs(channel, workspace_id, res.value.last_rebased_at)
+                return True
+    log(0, '\tSynchronization failed')
+    return False
+
+
+def download_sync_diffs(channel, workspace_id, last_rebased_at=None):
+    '''
+    Downloads synchronization diffs for a workspace and saves them to a file.
+    Returns True if successful, False otherwise.
+
+    Note: This feature requires CloudVision API support for WorkspaceDiffsService.
+    If not available, the function will log a warning and return False.
+    '''
+    # pylint: disable=no-member
+    filename = f'{workspace_id}_sync_diffs.yaml'
+    log(0, '\tDownloading sync diffs...')
+    try:
+        req = workspace_services.WorkspaceDiffsStreamRequest(
+            partial_eq_filter=[
+                workspace_models.WorkspaceDiffs(
+                    key=workspace_models.DiffKey(
+                        workspace_id=wrappers.StringValue(value=workspace_id),
+                        diff_type=workspace_models.DIFF_TYPE_REBASE
+                    )
+                )
+            ]
+        )
+        # If last_rebased_at timestamp is provided, use it to filter the diffs
+        if last_rebased_at:
+            req.time.end.CopyFrom(last_rebased_at)
+            req.time.start.CopyFrom(last_rebased_at)
+
+        stub = workspace_services.WorkspaceDiffsServiceStub(channel)
+        diffs_data = []
+        for resp in stub.GetAll(req, timeout=RPC_TIMEOUT):
+            response_dict = json_format.MessageToDict(resp)
+            # Extract only the 'value' field, excluding metadata 'time' and 'type'
+            if 'value' in response_dict:
+                diffs_data.append(response_dict['value'])
+        with open(filename, 'w', encoding='utf8') as f:
+            yaml.dump(diffs_data, f, default_flow_style=False)
+        log(0, f'\tSync diffs saved to {filename}')
+        return True
+    except grpc.RpcError as e:
+        if e.code() == grpc.StatusCode.UNIMPLEMENTED:
+            log(0, '\tWorkspaceDiffsService is not supported on this CloudVision server')
+            log(0, '\tThis feature may require a newer CloudVision version')
+            log(0, '\tSkipping sync diffs download')
+        else:
+            log(0, f'\tFailed to download sync diffs: {e.details()}')
+        return False
+    except Exception as e:
+        log(0, f'\tFailed to download sync diffs: {e}')
+        return False
+
+
 def submit_workspace(channel, workspace_id):
     '''
     Sends a request to submit a workspace, waits for it to
@@ -650,6 +768,11 @@ def main(args, channel):
             actionInvoked = True
         if not inputSet and not actionInvoked:
             return
+        # Synchronize workspace if requested (before build)
+        if args.sync:
+            if not synchronize_workspace(channel, workspace_id):
+                return
+
         # Build the workspace.
         if not build_workspace(channel, workspace_id):
             return
@@ -685,6 +808,8 @@ if __name__ == '__main__':
         "            --action-id=action-ports-table\n"
         "   Optionally to build only and not submit:\n"
         "            --build-only=True\n"
+        "   Optionally to synchronize workspace with mainline before building:\n"
+        "            --sync=True\n"
     )
     parser = argparse.ArgumentParser(description=desc,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -711,6 +836,8 @@ if __name__ == '__main__':
                         help="ID of the action, e.g. action-ports-table")
     parser.add_argument("--wsid", type=str, default=False,
                         help="existing workspace ID, if not wanting to create a new one")
+    parser.add_argument("--sync", type=bool, default=False,
+                        help="synchronize workspace with mainline before building")
     pargs = parser.parse_args()
     studio_id = pargs.studio_id
     if pargs.action_id:
