@@ -27,10 +27,13 @@ __all__ = (
     "Change",
     "Flag",
     "TimestampFlag",
+    "Creation",
     "Filter",
     "DeviceToStageMap",
     "ChangeControl",
     "ApproveConfig",
+    "ActionCount",
+    "ChangeControlSummary",
     "MetaResponse",
     "ApproveConfigRequest",
     "ApproveConfigResponse",
@@ -558,6 +561,19 @@ class TimestampFlag(aristaproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class Creation(aristaproto.Message):
+    """
+    Creation holds information about when and by whom a change control was created.
+    """
+
+    time: datetime = aristaproto.message_field(1)
+    """time is the time when the change control was created."""
+
+    user: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    """user is the user who created the change control."""
+
+
+@dataclass(eq=False, repr=False)
 class Filter(aristaproto.Message):
     """Filter is used to filter changecontrols for requested device ids."""
 
@@ -642,6 +658,11 @@ class ChangeControl(aristaproto.Message):
     info about all the devices associated with a CC ID.
     """
 
+    creation: "Creation" = aristaproto.message_field(10)
+    """
+    creation holds information about when and by whom the change control was created.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class ApproveConfig(aristaproto.Message):
@@ -663,6 +684,111 @@ class ApproveConfig(aristaproto.Message):
     and is intended to safeguard against approving a change control
     that has been updated since last read.
     """
+
+
+@dataclass(eq=False, repr=False)
+class ActionCount(aristaproto.Message):
+    """ActionCount holds the count of the various action types."""
+
+    values: Dict[str, int] = aristaproto.map_field(
+        1, aristaproto.TYPE_STRING, aristaproto.TYPE_UINT32
+    )
+    """values is a map from action id to number of actions of said type."""
+
+
+@dataclass(eq=False, repr=False)
+class ChangeControlSummary(aristaproto.Message):
+    """ChangeControlSummary provides the summary of the change control."""
+
+    key: "ChangeControlKey" = aristaproto.message_field(1)
+    """key uniquely identifies the change control."""
+
+    name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    """name is the name of the change control."""
+
+    status: "ChangeControlStatus" = aristaproto.enum_field(3)
+    """status is the status of the change control."""
+
+    device_count: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
+    """
+    device_count is the count of the devices impacted in the change control.
+    """
+
+    action_count: "ActionCount" = aristaproto.message_field(5)
+    """
+    action_count is the map of action types to their corresponding counts.
+    """
+
+    created_time: datetime = aristaproto.message_field(6)
+    """created_time is the time at which the change control was created."""
+
+    created_user: Optional[str] = aristaproto.message_field(
+        7, wraps=aristaproto.TYPE_STRING
+    )
+    """created_user is the user by whom the change control was created."""
+
+    last_edited_time: datetime = aristaproto.message_field(8)
+    """
+    last_edited_time is the time at which the change control was last edited.
+    """
+
+    last_edited_user: Optional[str] = aristaproto.message_field(
+        9, wraps=aristaproto.TYPE_STRING
+    )
+    """
+    last_edited_user is the user by whom the change control was last edited.
+    """
+
+    last_approved_time: datetime = aristaproto.message_field(10)
+    """
+    last_approved_time is the time of the last approve or unapprove operation.
+    """
+
+    last_approved_user: Optional[str] = aristaproto.message_field(
+        11, wraps=aristaproto.TYPE_STRING
+    )
+    """
+    last_approved_user is the user who performed the last approve or unapprove operation.
+    """
+
+    last_scheduled_time: datetime = aristaproto.message_field(12)
+    """
+    last_scheduled_time is the time of the last schedule or unschedule operation.
+    """
+
+    last_scheduled_user: Optional[str] = aristaproto.message_field(
+        13, wraps=aristaproto.TYPE_STRING
+    )
+    """
+    last_scheduled_user is the user who performed the last schedule or unschedule operation.
+    """
+
+    start_time: datetime = aristaproto.message_field(14)
+    """
+    start_time is the time at which the change control started execution.
+    """
+
+    start_user: Optional[str] = aristaproto.message_field(
+        15, wraps=aristaproto.TYPE_STRING
+    )
+    """start_user is the user who started the change control execution."""
+
+    end_time: datetime = aristaproto.message_field(16)
+    """
+    end_time is the time at which the change control completed execution.
+    """
+
+    error: Optional[str] = aristaproto.message_field(17, wraps=aristaproto.TYPE_STRING)
+    """
+    error is any error that occurred during the execution of the change control.
+    """
+
+    approved: Optional[bool] = aristaproto.message_field(
+        18, wraps=aristaproto.TYPE_BOOL
+    )
+    """approved indicates whether the change control is approved."""
 
 
 @dataclass(eq=False, repr=False)

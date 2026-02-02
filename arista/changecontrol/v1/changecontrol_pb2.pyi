@@ -836,6 +836,33 @@ class TimestampFlag(google.protobuf.message.Message):
 global___TimestampFlag = TimestampFlag
 
 @typing.final
+class Creation(google.protobuf.message.Message):
+    """Creation holds information about when and by whom a change control was created."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TIME_FIELD_NUMBER: builtins.int
+    USER_FIELD_NUMBER: builtins.int
+    @property
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """time is the time when the change control was created."""
+
+    @property
+    def user(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """user is the user who created the change control."""
+
+    def __init__(
+        self,
+        *,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        user: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["time", b"time", "user", b"user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["time", b"time", "user", b"user"]) -> None: ...
+
+global___Creation = Creation
+
+@typing.final
 class Filter(google.protobuf.message.Message):
     """Filter is used to filter changecontrols for requested device ids."""
 
@@ -914,6 +941,7 @@ class ChangeControl(google.protobuf.message.Message):
     SCHEDULE_FIELD_NUMBER: builtins.int
     DEVICE_IDS_FIELD_NUMBER: builtins.int
     DEVICE_ID_TO_STAGE_IDS_FIELD_NUMBER: builtins.int
+    CREATION_FIELD_NUMBER: builtins.int
     status: global___ChangeControlStatus.ValueType
     """status is the execution status of the change control."""
     @property
@@ -965,6 +993,10 @@ class ChangeControl(google.protobuf.message.Message):
         info about all the devices associated with a CC ID.
         """
 
+    @property
+    def creation(self) -> global___Creation:
+        """creation holds information about when and by whom the change control was created."""
+
     def __init__(
         self,
         *,
@@ -977,9 +1009,10 @@ class ChangeControl(google.protobuf.message.Message):
         schedule: global___TimestampFlag | None = ...,
         device_ids: fmp.wrappers_pb2.RepeatedString | None = ...,
         device_id_to_stage_ids: global___DeviceToStageMap | None = ...,
+        creation: global___Creation | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "schedule", b"schedule", "start", b"start"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "schedule", b"schedule", "start", b"start", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "creation", b"creation", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "schedule", b"schedule", "start", b"start"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "creation", b"creation", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "schedule", b"schedule", "start", b"start", "status", b"status"]) -> None: ...
 
 global___ChangeControl = ChangeControl
 
@@ -1021,3 +1054,160 @@ class ApproveConfig(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["approve", b"approve", "key", b"key", "version", b"version"]) -> None: ...
 
 global___ApproveConfig = ApproveConfig
+
+@typing.final
+class ActionCount(google.protobuf.message.Message):
+    """ActionCount holds the count of the various action types."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing.final
+    class ValuesEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        value: builtins.int
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: builtins.int = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.int]:
+        """values is a map from action id to number of actions of said type."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Mapping[builtins.str, builtins.int] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___ActionCount = ActionCount
+
+@typing.final
+class ChangeControlSummary(google.protobuf.message.Message):
+    """ChangeControlSummary provides the summary of the change control."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    STATUS_FIELD_NUMBER: builtins.int
+    DEVICE_COUNT_FIELD_NUMBER: builtins.int
+    ACTION_COUNT_FIELD_NUMBER: builtins.int
+    CREATED_TIME_FIELD_NUMBER: builtins.int
+    CREATED_USER_FIELD_NUMBER: builtins.int
+    LAST_EDITED_TIME_FIELD_NUMBER: builtins.int
+    LAST_EDITED_USER_FIELD_NUMBER: builtins.int
+    LAST_APPROVED_TIME_FIELD_NUMBER: builtins.int
+    LAST_APPROVED_USER_FIELD_NUMBER: builtins.int
+    LAST_SCHEDULED_TIME_FIELD_NUMBER: builtins.int
+    LAST_SCHEDULED_USER_FIELD_NUMBER: builtins.int
+    START_TIME_FIELD_NUMBER: builtins.int
+    START_USER_FIELD_NUMBER: builtins.int
+    END_TIME_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    APPROVED_FIELD_NUMBER: builtins.int
+    status: global___ChangeControlStatus.ValueType
+    """status is the status of the change control."""
+    @property
+    def key(self) -> global___ChangeControlKey:
+        """key uniquely identifies the change control."""
+
+    @property
+    def name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """name is the name of the change control."""
+
+    @property
+    def device_count(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """device_count is the count of the devices impacted in the change control."""
+
+    @property
+    def action_count(self) -> global___ActionCount:
+        """action_count is the map of action types to their corresponding counts."""
+
+    @property
+    def created_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """created_time is the time at which the change control was created."""
+
+    @property
+    def created_user(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """created_user is the user by whom the change control was created."""
+
+    @property
+    def last_edited_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """last_edited_time is the time at which the change control was last edited."""
+
+    @property
+    def last_edited_user(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """last_edited_user is the user by whom the change control was last edited."""
+
+    @property
+    def last_approved_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """last_approved_time is the time of the last approve or unapprove operation."""
+
+    @property
+    def last_approved_user(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """last_approved_user is the user who performed the last approve or unapprove operation."""
+
+    @property
+    def last_scheduled_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """last_scheduled_time is the time of the last schedule or unschedule operation."""
+
+    @property
+    def last_scheduled_user(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """last_scheduled_user is the user who performed the last schedule or unschedule operation."""
+
+    @property
+    def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """start_time is the time at which the change control started execution."""
+
+    @property
+    def start_user(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """start_user is the user who started the change control execution."""
+
+    @property
+    def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """end_time is the time at which the change control completed execution."""
+
+    @property
+    def error(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """error is any error that occurred during the execution of the change control."""
+
+    @property
+    def approved(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """approved indicates whether the change control is approved."""
+
+    def __init__(
+        self,
+        *,
+        key: global___ChangeControlKey | None = ...,
+        name: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        status: global___ChangeControlStatus.ValueType = ...,
+        device_count: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
+        action_count: global___ActionCount | None = ...,
+        created_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        created_user: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        last_edited_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        last_edited_user: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        last_approved_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        last_approved_user: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        last_scheduled_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        last_scheduled_user: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        start_user: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        end_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        error: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        approved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["action_count", b"action_count", "approved", b"approved", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["action_count", b"action_count", "approved", b"approved", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user", "status", b"status"]) -> None: ...
+
+global___ChangeControlSummary = ChangeControlSummary
