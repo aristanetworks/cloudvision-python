@@ -286,12 +286,13 @@ class GRPCClient(object):
         stream = self.__client.Get(request, metadata=self.metadata, timeout=timeout)
         return (self.decode_batch(nb) for nb in stream)
 
-    def subscribe(self, queries, sharding=None, timeout: Optional[float] = TIMEOUT_REQUEST):
+    def subscribe(self, queries, sharding=None, timeout: Optional[float] = None):
         """
         Subscribe creates and executes a Subscribe protobuf message,
         returning a stream of notificationBatch.
         queries must be a list of querry protobuf messages.
         sharding, if present must be a protobuf sharding message.
+        timeout: if present, sets the GRPC timeout in seconds. Default is None (no timeout).
         """
 
         req = rtr.SubscribeRequest(
