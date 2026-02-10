@@ -160,7 +160,11 @@ class DashboardSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Dashboard instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -211,8 +215,6 @@ class DashboardStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Dashboard response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -302,8 +304,6 @@ class DashboardBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Dashboard response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -335,7 +335,7 @@ class DashboardBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DashboardStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -455,7 +455,11 @@ class DashboardConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        DashboardConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -498,8 +502,6 @@ class DashboardConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DashboardConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -580,8 +582,6 @@ class DashboardConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DashboardConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -612,7 +612,7 @@ class DashboardConfigBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DashboardConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -953,8 +953,6 @@ class GlobalDashboardConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each GlobalDashboardConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(

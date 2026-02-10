@@ -239,6 +239,7 @@ class DashboardConfig(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     WIDGETS_FIELD_NUMBER: builtins.int
+    LAYOUT_TYPE_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___DashboardKey:
         """key is the unique identifier. It always must be defined.
@@ -257,6 +258,10 @@ class DashboardConfig(google.protobuf.message.Message):
     def widgets(self) -> global___Widgets:
         """widgets list of widgets in the dashboard."""
 
+    @property
+    def layout_type(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """layout_type is the dashboard layout type, which changes the behaviour of the dashboard."""
+
     def __init__(
         self,
         *,
@@ -264,9 +269,10 @@ class DashboardConfig(google.protobuf.message.Message):
         name: google.protobuf.wrappers_pb2.StringValue | None = ...,
         description: google.protobuf.wrappers_pb2.StringValue | None = ...,
         widgets: global___Widgets | None = ...,
+        layout_type: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["description", b"description", "key", b"key", "name", b"name", "widgets", b"widgets"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["description", b"description", "key", b"key", "name", b"name", "widgets", b"widgets"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["description", b"description", "key", b"key", "layout_type", b"layout_type", "name", b"name", "widgets", b"widgets"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["description", b"description", "key", b"key", "layout_type", b"layout_type", "name", b"name", "widgets", b"widgets"]) -> None: ...
 
 global___DashboardConfig = DashboardConfig
 
@@ -352,6 +358,7 @@ class Dashboard(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     WIDGETS_FIELD_NUMBER: builtins.int
+    LAYOUT_TYPE_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___DashboardKey:
         """key is the unique identifier. It will always be defined."""
@@ -396,6 +403,10 @@ class Dashboard(google.protobuf.message.Message):
     def widgets(self) -> global___Widgets:
         """widgets list of widgets in the dashboard."""
 
+    @property
+    def layout_type(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """layout_type is the dashboard layout type, which changes the behaviour of the dashboard."""
+
     def __init__(
         self,
         *,
@@ -408,9 +419,10 @@ class Dashboard(google.protobuf.message.Message):
         name: google.protobuf.wrappers_pb2.StringValue | None = ...,
         description: google.protobuf.wrappers_pb2.StringValue | None = ...,
         widgets: global___Widgets | None = ...,
+        layout_type: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["created_at", b"created_at", "created_by", b"created_by", "description", b"description", "key", b"key", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "meta_data", b"meta_data", "name", b"name", "widgets", b"widgets"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["created_at", b"created_at", "created_by", b"created_by", "description", b"description", "key", b"key", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "meta_data", b"meta_data", "name", b"name", "widgets", b"widgets"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["created_at", b"created_at", "created_by", b"created_by", "description", b"description", "key", b"key", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "layout_type", b"layout_type", "meta_data", b"meta_data", "name", b"name", "widgets", b"widgets"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["created_at", b"created_at", "created_by", b"created_by", "description", b"description", "key", b"key", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "layout_type", b"layout_type", "meta_data", b"meta_data", "name", b"name", "widgets", b"widgets"]) -> None: ...
 
 global___Dashboard = Dashboard
 

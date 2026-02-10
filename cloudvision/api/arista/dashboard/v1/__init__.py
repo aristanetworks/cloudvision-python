@@ -225,6 +225,13 @@ class DashboardConfig(aristaproto.Message):
     widgets: "Widgets" = aristaproto.message_field(4)
     """widgets list of widgets in the dashboard."""
 
+    layout_type: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
+    """
+    layout_type is the dashboard layout type, which changes the behaviour of the dashboard.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class DashboardMetadata(aristaproto.Message):
@@ -324,6 +331,13 @@ class Dashboard(aristaproto.Message):
 
     widgets: "Widgets" = aristaproto.message_field(9)
     """widgets list of widgets in the dashboard."""
+
+    layout_type: Optional[str] = aristaproto.message_field(
+        10, wraps=aristaproto.TYPE_STRING
+    )
+    """
+    layout_type is the dashboard layout type, which changes the behaviour of the dashboard.
+    """
 
 
 @dataclass(eq=False, repr=False)
@@ -431,6 +445,8 @@ class DashboardSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Dashboard instance in this response.
     """
 
 
@@ -469,8 +485,6 @@ class DashboardStreamRequest(aristaproto.Message):
         until end.
         * Each Dashboard response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -532,8 +546,6 @@ class DashboardBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each Dashboard response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -630,6 +642,8 @@ class DashboardConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    DashboardConfig instance in this response.
     """
 
 
@@ -661,8 +675,6 @@ class DashboardConfigStreamRequest(aristaproto.Message):
         until end.
         * Each DashboardConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -719,8 +731,6 @@ class DashboardConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each DashboardConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -948,8 +958,6 @@ class GlobalDashboardConfigStreamRequest(aristaproto.Message):
         until end.
         * Each GlobalDashboardConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
