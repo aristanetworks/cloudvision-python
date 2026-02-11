@@ -350,6 +350,14 @@ class DeviceOnboarding(aristaproto.Message):
     purposes only (its structure and contents may change).
     """
 
+    profile_name: Optional[str] = aristaproto.message_field(
+        6, wraps=aristaproto.TYPE_STRING
+    )
+    """
+    profile_name is the name of the custom TerminAttr profile that was specified in the
+    onboarding request.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class DeviceDecommissioningConfig(aristaproto.Message):
@@ -620,6 +628,8 @@ class DeviceSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    Device instance in this response.
     """
 
 
@@ -651,8 +661,6 @@ class DeviceStreamRequest(aristaproto.Message):
         until end.
         * Each Device response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -707,8 +715,6 @@ class DeviceBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each Device response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -805,6 +811,8 @@ class DeviceDecommissioningSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    DeviceDecommissioning instance in this response.
     """
 
 
@@ -836,8 +844,6 @@ class DeviceDecommissioningStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceDecommissioning response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -894,8 +900,6 @@ class DeviceDecommissioningBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceDecommissioning response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -994,6 +998,8 @@ class DeviceDecommissioningConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    DeviceDecommissioningConfig instance in this response.
     """
 
 
@@ -1027,8 +1033,6 @@ class DeviceDecommissioningConfigStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceDecommissioningConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1087,8 +1091,6 @@ class DeviceDecommissioningConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceDecommissioningConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1335,6 +1337,8 @@ class DeviceOnboardingSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    DeviceOnboarding instance in this response.
     """
 
 
@@ -1366,8 +1370,6 @@ class DeviceOnboardingStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceOnboarding response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1424,8 +1426,6 @@ class DeviceOnboardingBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceOnboarding response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1522,6 +1522,8 @@ class DeviceOnboardingConfigSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    DeviceOnboardingConfig instance in this response.
     """
 
 
@@ -1553,8 +1555,6 @@ class DeviceOnboardingConfigStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceOnboardingConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1611,8 +1611,6 @@ class DeviceOnboardingConfigBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each DeviceOnboardingConfig response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(
@@ -1857,6 +1855,8 @@ class ProvisionedDeviceSomeResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(3)
     """
+    Time carries the (UTC) timestamp of the last-modification of the
+    ProvisionedDevice instance in this response.
     """
 
 
@@ -1888,8 +1888,6 @@ class ProvisionedDeviceStreamRequest(aristaproto.Message):
         until end.
         * Each ProvisionedDevice response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
 
@@ -1946,8 +1944,6 @@ class ProvisionedDeviceBatchedStreamRequest(aristaproto.Message):
         until end.
         * Each ProvisionedDevice response at start is fully-specified, but updates until end may
           be partial.
-
-    This field is not allowed in the Subscribe RPC.
     """
 
     max_messages: Optional[int] = aristaproto.message_field(

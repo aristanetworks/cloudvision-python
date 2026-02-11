@@ -339,6 +339,7 @@ class DeviceOnboarding(google.protobuf.message.Message):
     STATUS_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
     STATUS_MESSAGE_FIELD_NUMBER: builtins.int
+    PROFILE_NAME_FIELD_NUMBER: builtins.int
     status: global___OnboardingStatus.ValueType
     """status describes the onboarding status of the device."""
     @property
@@ -360,6 +361,12 @@ class DeviceOnboarding(google.protobuf.message.Message):
         purposes only (its structure and contents may change).
         """
 
+    @property
+    def profile_name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """profile_name is the name of the custom TerminAttr profile that was specified in the
+        onboarding request.
+        """
+
     def __init__(
         self,
         *,
@@ -368,9 +375,10 @@ class DeviceOnboarding(google.protobuf.message.Message):
         status: global___OnboardingStatus.ValueType = ...,
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
         status_message: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        profile_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["device_id", b"device_id", "error", b"error", "key", b"key", "status_message", b"status_message"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["device_id", b"device_id", "error", b"error", "key", b"key", "status", b"status", "status_message", b"status_message"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["device_id", b"device_id", "error", b"error", "key", b"key", "profile_name", b"profile_name", "status_message", b"status_message"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_id", b"device_id", "error", b"error", "key", b"key", "profile_name", b"profile_name", "status", b"status", "status_message", b"status_message"]) -> None: ...
 
 global___DeviceOnboarding = DeviceOnboarding
 

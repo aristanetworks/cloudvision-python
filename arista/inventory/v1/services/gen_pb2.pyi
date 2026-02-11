@@ -160,7 +160,11 @@ class DeviceSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        Device instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -203,8 +207,6 @@ class DeviceStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Device response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -285,8 +287,6 @@ class DeviceBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Device response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -317,7 +317,7 @@ class DeviceBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -437,7 +437,11 @@ class DeviceDecommissioningSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        DeviceDecommissioning instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -480,8 +484,6 @@ class DeviceDecommissioningStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DeviceDecommissioning response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -562,8 +564,6 @@ class DeviceDecommissioningBatchedStreamRequest(google.protobuf.message.Message)
             until end.
             * Each DeviceDecommissioning response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -594,7 +594,7 @@ class DeviceDecommissioningBatchedStreamResponse(google.protobuf.message.Message
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceDecommissioningStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -714,7 +714,11 @@ class DeviceDecommissioningConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        DeviceDecommissioningConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -757,8 +761,6 @@ class DeviceDecommissioningConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DeviceDecommissioningConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -839,8 +841,6 @@ class DeviceDecommissioningConfigBatchedStreamRequest(google.protobuf.message.Me
             until end.
             * Each DeviceDecommissioningConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -871,7 +871,7 @@ class DeviceDecommissioningConfigBatchedStreamResponse(google.protobuf.message.M
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceDecommissioningConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -1237,7 +1237,11 @@ class DeviceOnboardingSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        DeviceOnboarding instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1280,8 +1284,6 @@ class DeviceOnboardingStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DeviceOnboarding response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1362,8 +1364,6 @@ class DeviceOnboardingBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DeviceOnboarding response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -1394,7 +1394,7 @@ class DeviceOnboardingBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceOnboardingStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -1514,7 +1514,11 @@ class DeviceOnboardingConfigSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        DeviceOnboardingConfig instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -1557,8 +1561,6 @@ class DeviceOnboardingConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each DeviceOnboardingConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1639,8 +1641,6 @@ class DeviceOnboardingConfigBatchedStreamRequest(google.protobuf.message.Message
             until end.
             * Each DeviceOnboardingConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -1671,7 +1671,7 @@ class DeviceOnboardingConfigBatchedStreamResponse(google.protobuf.message.Messag
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceOnboardingConfigStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
@@ -2037,7 +2037,11 @@ class ProvisionedDeviceSomeResponse(google.protobuf.message.Message):
         """
 
     @property
-    def time(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time carries the (UTC) timestamp of the last-modification of the
+        ProvisionedDevice instance in this response.
+        """
+
     def __init__(
         self,
         *,
@@ -2080,8 +2084,6 @@ class ProvisionedDeviceStreamRequest(google.protobuf.message.Message):
             until end.
             * Each ProvisionedDevice response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -2162,8 +2164,6 @@ class ProvisionedDeviceBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each ProvisionedDevice response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -2194,7 +2194,7 @@ class ProvisionedDeviceBatchedStreamResponse(google.protobuf.message.Message):
     @property
     def responses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProvisionedDeviceStreamResponse]:
         """Values are the values deemed relevant to the initiating request.
-        The length of this structure is guaranteed to be between (inclusive) 1 and 
+        The length of this structure is guaranteed to be between (inclusive) 1 and
         min(req.max_messages, INTERNAL_BATCH_LIMIT).
         """
 
