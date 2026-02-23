@@ -134,9 +134,7 @@ class ExportKey(aristaproto.Message):
     ExportKey uniquely identifies a syslog server to which to export logs.
     """
 
-    hostname_or_ip: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    hostname_or_ip: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """hostname_or_ip is the IP address or hostname of the syslog server."""
 
     port_num: "___fmp__.Port" = aristaproto.message_field(2)
@@ -189,14 +187,10 @@ class ExportStats(aristaproto.Message):
     ExportStats provide statistics of export operations to a syslog sever.
     """
 
-    num_success: Optional[int] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_UINT64
-    )
+    num_success: Optional[int] = aristaproto.message_field(1, wraps=aristaproto.TYPE_UINT64)
     """num_success indicates the count of successful exports."""
 
-    num_errors: Optional[int] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_UINT64
-    )
+    num_errors: Optional[int] = aristaproto.message_field(2, wraps=aristaproto.TYPE_UINT64)
     """num_errors indicates the count of export errors."""
 
     last_result: "ExportResult" = aristaproto.enum_field(3)
@@ -1259,9 +1253,7 @@ class ExportServiceBase(ServiceBase):
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(
-        self, export_stream_request: "ExportStreamRequest"
-    ) -> "MetaResponse":
+    async def get_meta(self, export_stream_request: "ExportStreamRequest") -> "MetaResponse":
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
@@ -1371,9 +1363,7 @@ class ExportServiceBase(ServiceBase):
 class ExportConfigServiceBase(ServiceBase):
     """ """
 
-    async def get_one(
-        self, export_config_request: "ExportConfigRequest"
-    ) -> "ExportConfigResponse":
+    async def get_one(self, export_config_request: "ExportConfigRequest") -> "ExportConfigResponse":
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
@@ -1456,8 +1446,7 @@ class ExportConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[ExportConfigSomeRequest, ExportConfigSomeResponse]",
+        self, stream: "grpclib.server.Stream[ExportConfigSomeRequest, ExportConfigSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1467,8 +1456,7 @@ class ExportConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[ExportConfigStreamRequest, ExportConfigStreamResponse]",
+        self, stream: "grpclib.server.Stream[ExportConfigStreamRequest, ExportConfigStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1478,8 +1466,7 @@ class ExportConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[ExportConfigStreamRequest, ExportConfigStreamResponse]",
+        self, stream: "grpclib.server.Stream[ExportConfigStreamRequest, ExportConfigStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1506,8 +1493,7 @@ class ExportConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self,
-        stream: "grpclib.server.Stream[ExportConfigSetRequest, ExportConfigSetResponse]",
+        self, stream: "grpclib.server.Stream[ExportConfigSetRequest, ExportConfigSetResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -1525,8 +1511,7 @@ class ExportConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete(
-        self,
-        stream: "grpclib.server.Stream[ExportConfigDeleteRequest, ExportConfigDeleteResponse]",
+        self, stream: "grpclib.server.Stream[ExportConfigDeleteRequest, ExportConfigDeleteResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.delete(request)
@@ -1664,8 +1649,7 @@ class ExportFormatConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[ExportFormatConfigRequest, ExportFormatConfigResponse]",
+        self, stream: "grpclib.server.Stream[ExportFormatConfigRequest, ExportFormatConfigResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -1694,8 +1678,7 @@ class ExportFormatConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[ExportFormatConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[ExportFormatConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

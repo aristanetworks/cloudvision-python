@@ -332,9 +332,7 @@ class ChangeConfig(aristaproto.Message):
     name: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """name is the name of the change."""
 
-    root_stage_id: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    root_stage_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """
     root_stage_id is the ID of the root stage or the stage that
     should execute first.
@@ -499,9 +497,7 @@ class Change(aristaproto.Message):
     name: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """name is the name of the change."""
 
-    root_stage_id: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    root_stage_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """
     root_stage_id is the ID of the root stage or the stage that
     should execute first.
@@ -709,9 +705,7 @@ class ChangeControlSummary(aristaproto.Message):
     status: "ChangeControlStatus" = aristaproto.enum_field(3)
     """status is the status of the change control."""
 
-    device_count: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    device_count: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     device_count is the count of the devices impacted in the change control.
     """
@@ -724,9 +718,7 @@ class ChangeControlSummary(aristaproto.Message):
     created_time: datetime = aristaproto.message_field(6)
     """created_time is the time at which the change control was created."""
 
-    created_user: Optional[str] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_STRING
-    )
+    created_user: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """created_user is the user by whom the change control was created."""
 
     last_edited_time: datetime = aristaproto.message_field(8)
@@ -734,9 +726,7 @@ class ChangeControlSummary(aristaproto.Message):
     last_edited_time is the time at which the change control was last edited.
     """
 
-    last_edited_user: Optional[str] = aristaproto.message_field(
-        9, wraps=aristaproto.TYPE_STRING
-    )
+    last_edited_user: Optional[str] = aristaproto.message_field(9, wraps=aristaproto.TYPE_STRING)
     """
     last_edited_user is the user by whom the change control was last edited.
     """
@@ -746,9 +736,7 @@ class ChangeControlSummary(aristaproto.Message):
     last_approved_time is the time of the last approve or unapprove operation.
     """
 
-    last_approved_user: Optional[str] = aristaproto.message_field(
-        11, wraps=aristaproto.TYPE_STRING
-    )
+    last_approved_user: Optional[str] = aristaproto.message_field(11, wraps=aristaproto.TYPE_STRING)
     """
     last_approved_user is the user who performed the last approve or unapprove operation.
     """
@@ -770,9 +758,7 @@ class ChangeControlSummary(aristaproto.Message):
     start_time is the time at which the change control started execution.
     """
 
-    start_user: Optional[str] = aristaproto.message_field(
-        15, wraps=aristaproto.TYPE_STRING
-    )
+    start_user: Optional[str] = aristaproto.message_field(15, wraps=aristaproto.TYPE_STRING)
     """start_user is the user who started the change control execution."""
 
     end_time: datetime = aristaproto.message_field(16)
@@ -785,9 +771,7 @@ class ChangeControlSummary(aristaproto.Message):
     error is any error that occurred during the execution of the change control.
     """
 
-    approved: Optional[bool] = aristaproto.message_field(
-        18, wraps=aristaproto.TYPE_BOOL
-    )
+    approved: Optional[bool] = aristaproto.message_field(18, wraps=aristaproto.TYPE_BOOL)
     """approved indicates whether the change control is approved."""
 
 
@@ -976,9 +960,7 @@ class ApproveConfigBatchedStreamRequest(aristaproto.Message):
     This field is not allowed in the Subscribe RPC.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1317,9 +1299,7 @@ class ChangeControlBatchedStreamRequest(aristaproto.Message):
     This field is not allowed in the Subscribe RPC.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1504,9 +1484,7 @@ class ChangeControlConfigBatchedStreamRequest(aristaproto.Message):
     This field is not allowed in the Subscribe RPC.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2453,16 +2431,14 @@ class ApproveConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[ApproveConfigRequest, ApproveConfigResponse]",
+        self, stream: "grpclib.server.Stream[ApproveConfigRequest, ApproveConfigResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[ApproveConfigSomeRequest, ApproveConfigSomeResponse]",
+        self, stream: "grpclib.server.Stream[ApproveConfigSomeRequest, ApproveConfigSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2511,8 +2487,7 @@ class ApproveConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self,
-        stream: "grpclib.server.Stream[ApproveConfigSetRequest, ApproveConfigSetResponse]",
+        self, stream: "grpclib.server.Stream[ApproveConfigSetRequest, ApproveConfigSetResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -2724,16 +2699,14 @@ class ChangeControlServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[ChangeControlRequest, ChangeControlResponse]",
+        self, stream: "grpclib.server.Stream[ChangeControlRequest, ChangeControlResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[ChangeControlSomeRequest, ChangeControlSomeResponse]",
+        self, stream: "grpclib.server.Stream[ChangeControlSomeRequest, ChangeControlSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2909,8 +2882,7 @@ class ChangeControlConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
-        self,
-        change_control_config_set_some_request: "ChangeControlConfigSetSomeRequest",
+        self, change_control_config_set_some_request: "ChangeControlConfigSetSomeRequest"
     ) -> AsyncIterator[ChangeControlConfigSetSomeResponse]:
         """ """
 
@@ -2924,16 +2896,14 @@ class ChangeControlConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_some(
-        self,
-        change_control_config_delete_some_request: "ChangeControlConfigDeleteSomeRequest",
+        self, change_control_config_delete_some_request: "ChangeControlConfigDeleteSomeRequest"
     ) -> AsyncIterator[ChangeControlConfigDeleteSomeResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_all(
-        self,
-        change_control_config_delete_all_request: "ChangeControlConfigDeleteAllRequest",
+        self, change_control_config_delete_all_request: "ChangeControlConfigDeleteAllRequest"
     ) -> AsyncIterator[ChangeControlConfigDeleteAllResponse]:
         """ """
 
@@ -2997,16 +2967,14 @@ class ChangeControlConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[ChangeControlConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[ChangeControlConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[ChangeControlConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[ChangeControlConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

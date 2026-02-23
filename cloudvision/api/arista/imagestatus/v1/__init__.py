@@ -431,9 +431,7 @@ class Extension(aristaproto.Message):
     version: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """version is the version of the extension."""
 
-    reboot_required: Optional[bool] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_BOOL
-    )
+    reboot_required: Optional[bool] = aristaproto.message_field(3, wraps=aristaproto.TYPE_BOOL)
     """
     reboot_required indicates whether applying/deleting this extension
     would result in a reboot.
@@ -451,16 +449,12 @@ class Extension(aristaproto.Message):
     installed or force installed.
     """
 
-    status_detail: Optional[str] = aristaproto.message_field(
-        6, wraps=aristaproto.TYPE_STRING
-    )
+    status_detail: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
     """
     status_detail gives the details behind installation of the extension.
     """
 
-    is_embedded: Optional[bool] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_BOOL
-    )
+    is_embedded: Optional[bool] = aristaproto.message_field(7, wraps=aristaproto.TYPE_BOOL)
     """
     is_embedded indicates whether the extension is embedded in the EOS swi
     or not.
@@ -650,17 +644,13 @@ class ImageSummary(aristaproto.Message):
     dual_sup: Optional[bool] = aristaproto.message_field(4, wraps=aristaproto.TYPE_BOOL)
     """dual_sup indicates if a device is a dual supervisor."""
 
-    active_slot: Optional[int] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_INT32
-    )
+    active_slot: Optional[int] = aristaproto.message_field(5, wraps=aristaproto.TYPE_INT32)
     """
     active_slot indicates the physical slot number for the the active
     supervisor.
     """
 
-    standby_slot: Optional[int] = aristaproto.message_field(
-        6, wraps=aristaproto.TYPE_INT32
-    )
+    standby_slot: Optional[int] = aristaproto.message_field(6, wraps=aristaproto.TYPE_INT32)
     """
     standby_slot indicates the physical slot number for the standby
     supervisor.
@@ -703,9 +693,7 @@ class ImageSummary(aristaproto.Message):
 class SummaryKey(aristaproto.Message):
     """SummaryKey uniquely identifies a device summary request."""
 
-    device_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """device_id is the serial number of the device"""
 
 
@@ -748,9 +736,7 @@ class ImageError(aristaproto.Message):
     error_code: "ErrorCode" = aristaproto.enum_field(2)
     """error_code is the error code."""
 
-    error_msg: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    error_msg: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """error_msg provides a description of the error."""
 
 
@@ -775,9 +761,7 @@ class ImageWarning(aristaproto.Message):
     warning_code: "WarningCode" = aristaproto.enum_field(2)
     """warning_code is the warning code."""
 
-    warning_msg: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    warning_msg: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """warning_msg provides a description of the warning."""
 
 
@@ -802,9 +786,7 @@ class ImageInfo(aristaproto.Message):
     info_code: "InfoCode" = aristaproto.enum_field(2)
     """info_code is the info code."""
 
-    info_msg: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    info_msg: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """info_msg provides a description of the info."""
 
 
@@ -1001,9 +983,7 @@ class SummaryBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1219,9 +1199,7 @@ class SummaryServiceBase(ServiceBase):
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(
-        self, summary_stream_request: "SummaryStreamRequest"
-    ) -> "MetaResponse":
+    async def get_meta(self, summary_stream_request: "SummaryStreamRequest") -> "MetaResponse":
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
@@ -1265,8 +1243,7 @@ class SummaryServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[SummaryStreamRequest, SummaryStreamResponse]",
+        self, stream: "grpclib.server.Stream[SummaryStreamRequest, SummaryStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1276,8 +1253,7 @@ class SummaryServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[SummaryStreamRequest, SummaryStreamResponse]",
+        self, stream: "grpclib.server.Stream[SummaryStreamRequest, SummaryStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

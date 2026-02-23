@@ -451,17 +451,13 @@ class Repository(aristaproto.Message):
     key: "RepositoryKey" = aristaproto.message_field(1)
     """key is the unique identifier"""
 
-    uploaded_by: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    uploaded_by: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """uploaded_by specifies the author of the upload"""
 
     uploaded_at: datetime = aristaproto.message_field(3)
     """uploaded_at specifies the date and time of the upload"""
 
-    last_modified_by: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    last_modified_by: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """
     last_modified_by is the author of the most recent metadata modification
     """
@@ -577,9 +573,7 @@ class RepositoryConfig(aristaproto.Message):
     be populated with the CloudVision file server identifier.
     """
 
-    reboot_required: Optional[bool] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_BOOL
-    )
+    reboot_required: Optional[bool] = aristaproto.message_field(3, wraps=aristaproto.TYPE_BOOL)
     """
     reboot_required is a Boolean indicating if a device requires a reboot after software
     installation. .swi images always require a reboot.
@@ -622,9 +616,7 @@ class SoftwareMetadata(aristaproto.Message):
     size: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_UINT64)
     """size is the size of the image or extension in bytes"""
 
-    reboot_required: Optional[bool] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_BOOL
-    )
+    reboot_required: Optional[bool] = aristaproto.message_field(4, wraps=aristaproto.TYPE_BOOL)
     """
     reboot_required boolean indicating if a device requires a reboot after software installation
     """
@@ -643,9 +635,7 @@ class SoftwareMetadata(aristaproto.Message):
     extension_metadata is versioning information for extensions (.rpm and .swix)
     """
 
-    file_server_path: Optional[str] = aristaproto.message_field(
-        8, wraps=aristaproto.TYPE_STRING
-    )
+    file_server_path: Optional[str] = aristaproto.message_field(8, wraps=aristaproto.TYPE_STRING)
     """
     file_server_path is the location of the image or extension as stored in CloudVision
     """
@@ -676,9 +666,7 @@ class SwiMetadata(aristaproto.Message):
     arch: "Arch" = aristaproto.enum_field(5)
     """arch is the swi architecture"""
 
-    max_hardware_epoch: Optional[int] = aristaproto.message_field(
-        6, wraps=aristaproto.TYPE_UINT32
-    )
+    max_hardware_epoch: Optional[int] = aristaproto.message_field(6, wraps=aristaproto.TYPE_UINT32)
     """max_hardware_epoch specifies the max hardware epoch value supported"""
 
     blessed: Optional[bool] = aristaproto.message_field(7, wraps=aristaproto.TYPE_BOOL)
@@ -693,16 +681,14 @@ class SwiMetadata(aristaproto.Message):
     EOS swi image
     """
 
-    optimization: Optional[str] = aristaproto.message_field(
-        10, wraps=aristaproto.TYPE_STRING
-    )
+    optimization: Optional[str] = aristaproto.message_field(10, wraps=aristaproto.TYPE_STRING)
     """
     optimization specifies any adaptations made to the image for specific products or
     use-cases
     """
 
-    concrete_type_to_concrete_swi_map: "ConcreteTypeToConcreteSwiMap" = (
-        aristaproto.message_field(11)
+    concrete_type_to_concrete_swi_map: "ConcreteTypeToConcreteSwiMap" = aristaproto.message_field(
+        11
     )
     """
     concrete_type_to_concrete_swi_map indicates a map to the concrete swi metadata
@@ -715,9 +701,7 @@ class ExtensionMetadata(aristaproto.Message):
     ExtensionMetadata is versioning metadata describing extensions (.swix and .rpm).
     """
 
-    description: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """description is the swix or rpm description"""
 
     name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
@@ -805,9 +789,7 @@ class ConcreteFile(aristaproto.Message):
     name: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """name is the name of the concrete file"""
 
-    file_server_path: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    file_server_path: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """
     file_server_path is the location of the image or extension as stored in CloudVision
     """
@@ -845,9 +827,7 @@ class Device(aristaproto.Message):
     identified by the key
     """
 
-    device_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """device_id contains the unique device id string for a device"""
 
 
@@ -869,9 +849,7 @@ class ZtpUpgradeRule(aristaproto.Message):
     string) that references the software image identified by the key.
     """
 
-    model_regex: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    model_regex: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     model_regex represents a ZTP upgrade rule. It is a RE2-style regular expression used to match
     against the model names of devices undergoing the ZTP software upgrade workflow.
@@ -897,9 +875,7 @@ class StudioTagQuery(aristaproto.Message):
     the set of devices identified by the device tag query.
     """
 
-    studio_tag_query: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    studio_tag_query: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     studio_tag_query stores a device tag query string that conforms to the CloudVision
     tag query language. E.g., the query, `\"datacenter:NYC,SFO AND sflow:enabled\"`, matches all
@@ -1133,9 +1109,7 @@ class AssignmentsBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1400,9 +1374,7 @@ class RepositoryBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1585,9 +1557,7 @@ class RepositoryConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2427,9 +2397,7 @@ from ... import time as __time__
 class AssignmentsServiceBase(ServiceBase):
     """ """
 
-    async def get_one(
-        self, assignments_request: "AssignmentsRequest"
-    ) -> "AssignmentsResponse":
+    async def get_one(self, assignments_request: "AssignmentsRequest") -> "AssignmentsResponse":
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
@@ -2491,8 +2459,7 @@ class AssignmentsServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[AssignmentsSomeRequest, AssignmentsSomeResponse]",
+        self, stream: "grpclib.server.Stream[AssignmentsSomeRequest, AssignmentsSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2502,8 +2469,7 @@ class AssignmentsServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[AssignmentsStreamRequest, AssignmentsStreamResponse]",
+        self, stream: "grpclib.server.Stream[AssignmentsStreamRequest, AssignmentsStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2513,8 +2479,7 @@ class AssignmentsServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[AssignmentsStreamRequest, AssignmentsStreamResponse]",
+        self, stream: "grpclib.server.Stream[AssignmentsStreamRequest, AssignmentsStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2652,8 +2617,7 @@ class ReleasesServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[ReleasesStreamRequest, ReleasesStreamResponse]",
+        self, stream: "grpclib.server.Stream[ReleasesStreamRequest, ReleasesStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2663,8 +2627,7 @@ class ReleasesServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[ReleasesStreamRequest, ReleasesStreamResponse]",
+        self, stream: "grpclib.server.Stream[ReleasesStreamRequest, ReleasesStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2715,9 +2678,7 @@ class ReleasesServiceBase(ServiceBase):
 class RepositoryServiceBase(ServiceBase):
     """ """
 
-    async def get_one(
-        self, repository_request: "RepositoryRequest"
-    ) -> "RepositoryResponse":
+    async def get_one(self, repository_request: "RepositoryRequest") -> "RepositoryResponse":
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
@@ -2779,8 +2740,7 @@ class RepositoryServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[RepositorySomeRequest, RepositorySomeResponse]",
+        self, stream: "grpclib.server.Stream[RepositorySomeRequest, RepositorySomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2790,8 +2750,7 @@ class RepositoryServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[RepositoryStreamRequest, RepositoryStreamResponse]",
+        self, stream: "grpclib.server.Stream[RepositoryStreamRequest, RepositoryStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2801,8 +2760,7 @@ class RepositoryServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[RepositoryStreamRequest, RepositoryStreamResponse]",
+        self, stream: "grpclib.server.Stream[RepositoryStreamRequest, RepositoryStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2984,24 +2942,21 @@ class RepositoryConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self,
-        repository_config_batched_stream_request: "RepositoryConfigBatchedStreamRequest",
+        self, repository_config_batched_stream_request: "RepositoryConfigBatchedStreamRequest"
     ) -> AsyncIterator[RepositoryConfigBatchedStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self,
-        repository_config_batched_stream_request: "RepositoryConfigBatchedStreamRequest",
+        self, repository_config_batched_stream_request: "RepositoryConfigBatchedStreamRequest"
     ) -> AsyncIterator[RepositoryConfigBatchedStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[RepositoryConfigRequest, RepositoryConfigResponse]",
+        self, stream: "grpclib.server.Stream[RepositoryConfigRequest, RepositoryConfigResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -3041,16 +2996,14 @@ class RepositoryConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[RepositoryConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[RepositoryConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[RepositoryConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[RepositoryConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

@@ -124,17 +124,13 @@ class MatchPolicy(aristaproto.Enum):
 class ConfigletKey(aristaproto.Message):
     """ConfigletKey uniquely identifies a static configlet."""
 
-    workspace_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    workspace_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     workspace_id identifies the workspace within which the static configlet resides
     empty string (\"\") stands for the \"mainline\".
     """
 
-    configlet_id: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    configlet_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """configlet_id is the static configlet ID."""
 
 
@@ -142,9 +138,7 @@ class ConfigletKey(aristaproto.Message):
 class Filter(aristaproto.Message):
     """Filter is used to filter static configlets."""
 
-    include_body: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    include_body: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """include_body specifies the static configlet body is to be included."""
 
 
@@ -159,19 +153,13 @@ class Configlet(aristaproto.Message):
     key: "ConfigletKey" = aristaproto.message_field(1)
     """key uniquely identifies the static configlet."""
 
-    display_name: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    display_name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """display_name is the display name of the static configlet."""
 
-    description: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """description is the description of the static configlet."""
 
-    migrated_from: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    migrated_from: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """
     migrated_from is populated with the source configlet name when migrated
     from network provisioning to studio.
@@ -183,17 +171,13 @@ class Configlet(aristaproto.Message):
     created_at: datetime = aristaproto.message_field(6)
     """created_at is the time when the Configlet was created."""
 
-    created_by: Optional[str] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_STRING
-    )
+    created_by: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """created_by is the user who created the Configlet."""
 
     last_modified_at: datetime = aristaproto.message_field(8)
     """last_modified_at is the time when the Configlet was last modified."""
 
-    last_modified_by: Optional[str] = aristaproto.message_field(
-        9, wraps=aristaproto.TYPE_STRING
-    )
+    last_modified_by: Optional[str] = aristaproto.message_field(9, wraps=aristaproto.TYPE_STRING)
     """last_modified_by is the user who last modified the Configlet."""
 
     digest: Optional[str] = aristaproto.message_field(10, wraps=aristaproto.TYPE_STRING)
@@ -223,19 +207,13 @@ class ConfigletConfig(aristaproto.Message):
     Other data fields are not allowed when this field is set to true.
     """
 
-    display_name: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    display_name: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """display_name is the display name of the static configlet."""
 
-    description: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """description is the description of the static configlet."""
 
-    migrated_from: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    migrated_from: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """
     migrated_from is populated with the source configlet name when migrated
     from network provisioning to studio.
@@ -247,18 +225,14 @@ class ConfigletConfig(aristaproto.Message):
     def __post_init__(self) -> None:
         super().__post_init__()
         if self.is_set("migrated_from"):
-            warnings.warn(
-                "ConfigletConfig.migrated_from is deprecated", DeprecationWarning
-            )
+            warnings.warn("ConfigletConfig.migrated_from is deprecated", DeprecationWarning)
 
 
 @dataclass(eq=False, repr=False)
 class ConfigletAssignmentKey(aristaproto.Message):
     """ConfigletAssignmentKey uniquely identifies a configlet assignment"""
 
-    workspace_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    workspace_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """workspace_id is the unique identifier of the workspace."""
 
     configlet_assignment_id: Optional[str] = aristaproto.message_field(
@@ -288,14 +262,10 @@ class ConfigletAssignmentConfig(aristaproto.Message):
     key: "ConfigletAssignmentKey" = aristaproto.message_field(1)
     """key uniquely identifies the configlet assignment."""
 
-    display_name: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    display_name: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """display_name is the display name of the configlet assignment."""
 
-    description: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """description is the description of the configlet assignment."""
 
     configlet_ids: "___fmp__.RepeatedString" = aristaproto.message_field(5)
@@ -335,14 +305,10 @@ class ConfigletAssignment(aristaproto.Message):
     key: "ConfigletAssignmentKey" = aristaproto.message_field(1)
     """key uniquely identifies the configlet assignment."""
 
-    display_name: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    display_name: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """display_name is the display name of the configlet assignment."""
 
-    description: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """description is the description of the configlet assignment."""
 
     configlet_ids: "___fmp__.RepeatedString" = aristaproto.message_field(5)
@@ -360,9 +326,7 @@ class ConfigletAssignment(aristaproto.Message):
     created_at: datetime = aristaproto.message_field(9)
     """created_at is the time when the ConfigletAssignment was created."""
 
-    created_by: Optional[str] = aristaproto.message_field(
-        10, wraps=aristaproto.TYPE_STRING
-    )
+    created_by: Optional[str] = aristaproto.message_field(10, wraps=aristaproto.TYPE_STRING)
     """created_by is the user who created the ConfigletAssignment."""
 
     last_modified_at: datetime = aristaproto.message_field(11)
@@ -371,9 +335,7 @@ class ConfigletAssignment(aristaproto.Message):
     was last modified.
     """
 
-    last_modified_by: Optional[str] = aristaproto.message_field(
-        12, wraps=aristaproto.TYPE_STRING
-    )
+    last_modified_by: Optional[str] = aristaproto.message_field(12, wraps=aristaproto.TYPE_STRING)
     """
     last_modified_by is the user who last modified the ConfigletAssignment.
     """
@@ -576,9 +538,7 @@ class ConfigletBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -761,9 +721,7 @@ class ConfigletAssignmentBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -946,9 +904,7 @@ class ConfigletAssignmentConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -961,9 +917,7 @@ class ConfigletAssignmentConfigBatchedStreamRequest(aristaproto.Message):
 class ConfigletAssignmentConfigBatchedStreamResponse(aristaproto.Message):
     """ """
 
-    responses: List["ConfigletAssignmentConfigStreamResponse"] = (
-        aristaproto.message_field(1)
-    )
+    responses: List["ConfigletAssignmentConfigStreamResponse"] = aristaproto.message_field(1)
     """
     Values are the values deemed relevant to the initiating request.
     The length of this structure is guaranteed to be between (inclusive) 1 and
@@ -1293,9 +1247,7 @@ class ConfigletConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2319,9 +2271,7 @@ from ... import time as __time__
 class ConfigletServiceBase(ServiceBase):
     """ """
 
-    async def get_one(
-        self, configlet_request: "ConfigletRequest"
-    ) -> "ConfigletResponse":
+    async def get_one(self, configlet_request: "ConfigletRequest") -> "ConfigletResponse":
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
@@ -2347,9 +2297,7 @@ class ConfigletServiceBase(ServiceBase):
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(
-        self, configlet_stream_request: "ConfigletStreamRequest"
-    ) -> "MetaResponse":
+    async def get_meta(self, configlet_stream_request: "ConfigletStreamRequest") -> "MetaResponse":
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
@@ -2383,8 +2331,7 @@ class ConfigletServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[ConfigletSomeRequest, ConfigletSomeResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletSomeRequest, ConfigletSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2394,8 +2341,7 @@ class ConfigletServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[ConfigletStreamRequest, ConfigletStreamResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletStreamRequest, ConfigletStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2405,8 +2351,7 @@ class ConfigletServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[ConfigletStreamRequest, ConfigletStreamResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletStreamRequest, ConfigletStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2553,16 +2498,14 @@ class ConfigletAssignmentServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self,
-        configlet_assignment_batched_stream_request: "ConfigletAssignmentBatchedStreamRequest",
+        self, configlet_assignment_batched_stream_request: "ConfigletAssignmentBatchedStreamRequest"
     ) -> AsyncIterator[ConfigletAssignmentBatchedStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self,
-        configlet_assignment_batched_stream_request: "ConfigletAssignmentBatchedStreamRequest",
+        self, configlet_assignment_batched_stream_request: "ConfigletAssignmentBatchedStreamRequest"
     ) -> AsyncIterator[ConfigletAssignmentBatchedStreamResponse]:
         """ """
 
@@ -2610,16 +2553,14 @@ class ConfigletAssignmentServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[ConfigletAssignmentStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletAssignmentStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[ConfigletAssignmentStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletAssignmentStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2714,48 +2655,42 @@ class ConfigletAssignmentConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
-        self,
-        configlet_assignment_config_some_request: "ConfigletAssignmentConfigSomeRequest",
+        self, configlet_assignment_config_some_request: "ConfigletAssignmentConfigSomeRequest"
     ) -> AsyncIterator[ConfigletAssignmentConfigSomeResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self,
-        configlet_assignment_config_stream_request: "ConfigletAssignmentConfigStreamRequest",
+        self, configlet_assignment_config_stream_request: "ConfigletAssignmentConfigStreamRequest"
     ) -> AsyncIterator[ConfigletAssignmentConfigStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self,
-        configlet_assignment_config_stream_request: "ConfigletAssignmentConfigStreamRequest",
+        self, configlet_assignment_config_stream_request: "ConfigletAssignmentConfigStreamRequest"
     ) -> AsyncIterator[ConfigletAssignmentConfigStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
-        self,
-        configlet_assignment_config_stream_request: "ConfigletAssignmentConfigStreamRequest",
+        self, configlet_assignment_config_stream_request: "ConfigletAssignmentConfigStreamRequest"
     ) -> "MetaResponse":
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self,
-        configlet_assignment_config_stream_request: "ConfigletAssignmentConfigStreamRequest",
+        self, configlet_assignment_config_stream_request: "ConfigletAssignmentConfigStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set(
-        self,
-        configlet_assignment_config_set_request: "ConfigletAssignmentConfigSetRequest",
+        self, configlet_assignment_config_set_request: "ConfigletAssignmentConfigSetRequest"
     ) -> "ConfigletAssignmentConfigSetResponse":
         """ """
 
@@ -2770,8 +2705,7 @@ class ConfigletAssignmentConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete(
-        self,
-        configlet_assignment_config_delete_request: "ConfigletAssignmentConfigDeleteRequest",
+        self, configlet_assignment_config_delete_request: "ConfigletAssignmentConfigDeleteRequest"
     ) -> "ConfigletAssignmentConfigDeleteResponse":
         """ """
 
@@ -2851,16 +2785,14 @@ class ConfigletAssignmentConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[ConfigletAssignmentConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletAssignmentConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[ConfigletAssignmentConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletAssignmentConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3104,24 +3036,21 @@ class ConfigletConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self,
-        configlet_config_batched_stream_request: "ConfigletConfigBatchedStreamRequest",
+        self, configlet_config_batched_stream_request: "ConfigletConfigBatchedStreamRequest"
     ) -> AsyncIterator[ConfigletConfigBatchedStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self,
-        configlet_config_batched_stream_request: "ConfigletConfigBatchedStreamRequest",
+        self, configlet_config_batched_stream_request: "ConfigletConfigBatchedStreamRequest"
     ) -> AsyncIterator[ConfigletConfigBatchedStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[ConfigletConfigRequest, ConfigletConfigResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletConfigRequest, ConfigletConfigResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -3161,16 +3090,14 @@ class ConfigletConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[ConfigletConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[ConfigletConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3180,8 +3107,7 @@ class ConfigletConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self,
-        stream: "grpclib.server.Stream[ConfigletConfigSetRequest, ConfigletConfigSetResponse]",
+        self, stream: "grpclib.server.Stream[ConfigletConfigSetRequest, ConfigletConfigSetResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)

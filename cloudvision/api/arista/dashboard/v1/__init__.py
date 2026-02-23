@@ -109,28 +109,20 @@ class Dimensions(aristaproto.Message):
 class WidgetStyles(aristaproto.Message):
     """WidgetStyles represents the widget's panel appearance."""
 
-    hide_title: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    hide_title: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     hide_title is used to hint the dashboard that the widget title must be hidden.
     """
 
-    background_color: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    background_color: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """background_color is used to set the widget's background color."""
 
-    hide_horizontal_bar: Optional[bool] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_BOOL
-    )
+    hide_horizontal_bar: Optional[bool] = aristaproto.message_field(3, wraps=aristaproto.TYPE_BOOL)
     """
     hide_horizontal_bar is used to hint the dashboard that the title separator must be hidden.
     """
 
-    title_size: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    title_size: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """title_size is used to set widget's title size."""
 
 
@@ -170,9 +162,7 @@ class Widget(aristaproto.Message):
     Internal data vary based on the widget type `type` and is managed by the client.
     """
 
-    location: Optional[str] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_STRING
-    )
+    location: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """
     location is used as a position display hint, used and managed by the UI.
     """
@@ -196,9 +186,7 @@ class Widgets(aristaproto.Message):
 class DashboardKey(aristaproto.Message):
     """DashboardKey represents the dashboard unique identifier."""
 
-    dashboard_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    dashboard_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """dashboard_id holds the id of the dashboard"""
 
 
@@ -215,9 +203,7 @@ class DashboardConfig(aristaproto.Message):
     name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """name is the dashboard name, displayed at the top of the dashboard."""
 
-    description: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     description may include details about what is displayed in the dashboard.
     """
@@ -225,9 +211,7 @@ class DashboardConfig(aristaproto.Message):
     widgets: "Widgets" = aristaproto.message_field(4)
     """widgets list of widgets in the dashboard."""
 
-    layout_type: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    layout_type: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """
     layout_type is the dashboard layout type, which changes the behaviour of the dashboard.
     """
@@ -240,28 +224,20 @@ class DashboardMetadata(aristaproto.Message):
     is read-only.
     """
 
-    schema_version: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    schema_version: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """schema_version is managed internally."""
 
-    legacy_key: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    legacy_key: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """
     legacy_key holds the key of a previous version of the dashboard, in case it was migrated.
     """
 
-    legacy_version: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    legacy_version: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     legacy_version tells from which version the dashboard was migrated from.
     """
 
-    from_package: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    from_package: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """
     from_package records the contributing package key and version, if applicable.
     """
@@ -294,9 +270,7 @@ class Dashboard(aristaproto.Message):
     Old dashboards may not have this field set.
     """
 
-    created_by: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    created_by: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     created_by keeps the name of the user who first created this dashboard.
     Old dashboards may not have this field set.
@@ -308,9 +282,7 @@ class Dashboard(aristaproto.Message):
     Old dashboards may not have this field set.
     """
 
-    last_modified_by: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    last_modified_by: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """
     last_modified_by holds the username who last updated this dashboard.
     Old dashboards may not have this field set.
@@ -322,9 +294,7 @@ class Dashboard(aristaproto.Message):
     name: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """name is the dashboard name, displayed at the top of the dashboard."""
 
-    description: Optional[str] = aristaproto.message_field(
-        8, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(8, wraps=aristaproto.TYPE_STRING)
     """
     description may include details about what is displayed in the dashboard.
     """
@@ -332,9 +302,7 @@ class Dashboard(aristaproto.Message):
     widgets: "Widgets" = aristaproto.message_field(9)
     """widgets list of widgets in the dashboard."""
 
-    layout_type: Optional[str] = aristaproto.message_field(
-        10, wraps=aristaproto.TYPE_STRING
-    )
+    layout_type: Optional[str] = aristaproto.message_field(10, wraps=aristaproto.TYPE_STRING)
     """
     layout_type is the dashboard layout type, which changes the behaviour of the dashboard.
     """
@@ -548,9 +516,7 @@ class DashboardBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -733,9 +699,7 @@ class DashboardConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1549,9 +1513,7 @@ from ... import time as __time__
 class DashboardServiceBase(ServiceBase):
     """ """
 
-    async def get_one(
-        self, dashboard_request: "DashboardRequest"
-    ) -> "DashboardResponse":
+    async def get_one(self, dashboard_request: "DashboardRequest") -> "DashboardResponse":
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
@@ -1577,9 +1539,7 @@ class DashboardServiceBase(ServiceBase):
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(
-        self, dashboard_stream_request: "DashboardStreamRequest"
-    ) -> "MetaResponse":
+    async def get_meta(self, dashboard_stream_request: "DashboardStreamRequest") -> "MetaResponse":
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
@@ -1613,8 +1573,7 @@ class DashboardServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[DashboardSomeRequest, DashboardSomeResponse]",
+        self, stream: "grpclib.server.Stream[DashboardSomeRequest, DashboardSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1624,8 +1583,7 @@ class DashboardServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[DashboardStreamRequest, DashboardStreamResponse]",
+        self, stream: "grpclib.server.Stream[DashboardStreamRequest, DashboardStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1635,8 +1593,7 @@ class DashboardServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[DashboardStreamRequest, DashboardStreamResponse]",
+        self, stream: "grpclib.server.Stream[DashboardStreamRequest, DashboardStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1818,24 +1775,21 @@ class DashboardConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self,
-        dashboard_config_batched_stream_request: "DashboardConfigBatchedStreamRequest",
+        self, dashboard_config_batched_stream_request: "DashboardConfigBatchedStreamRequest"
     ) -> AsyncIterator[DashboardConfigBatchedStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self,
-        dashboard_config_batched_stream_request: "DashboardConfigBatchedStreamRequest",
+        self, dashboard_config_batched_stream_request: "DashboardConfigBatchedStreamRequest"
     ) -> AsyncIterator[DashboardConfigBatchedStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[DashboardConfigRequest, DashboardConfigResponse]",
+        self, stream: "grpclib.server.Stream[DashboardConfigRequest, DashboardConfigResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -1875,16 +1829,14 @@ class DashboardConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[DashboardConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[DashboardConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[DashboardConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[DashboardConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1894,8 +1846,7 @@ class DashboardConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self,
-        stream: "grpclib.server.Stream[DashboardConfigSetRequest, DashboardConfigSetResponse]",
+        self, stream: "grpclib.server.Stream[DashboardConfigSetRequest, DashboardConfigSetResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -2058,24 +2009,21 @@ class GlobalDashboardConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self,
-        global_dashboard_config_stream_request: "GlobalDashboardConfigStreamRequest",
+        self, global_dashboard_config_stream_request: "GlobalDashboardConfigStreamRequest"
     ) -> AsyncIterator[GlobalDashboardConfigStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self,
-        global_dashboard_config_stream_request: "GlobalDashboardConfigStreamRequest",
+        self, global_dashboard_config_stream_request: "GlobalDashboardConfigStreamRequest"
     ) -> AsyncIterator[GlobalDashboardConfigStreamResponse]:
         """ """
 
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self,
-        global_dashboard_config_stream_request: "GlobalDashboardConfigStreamRequest",
+        self, global_dashboard_config_stream_request: "GlobalDashboardConfigStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
         """ """
 
@@ -2119,8 +2067,7 @@ class GlobalDashboardConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[GlobalDashboardConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[GlobalDashboardConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
