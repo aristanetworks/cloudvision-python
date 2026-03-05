@@ -167,12 +167,12 @@ class _ErrorCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enum
     TerminAttr architecture are incompatible.
     """
     ERROR_CODE_TA_CV_INCOMPATIBLE: _ErrorCode.ValueType  # 9
-    """ERROR_CODE_TA_CV_INCOMPATIBLE represents the case where TerminAttr is incompatible with
-    CloudVision; i.e., the TerminAttr version is below CloudVision's minimum supported version.
+    """ERROR_CODE_TA_CV_INCOMPATIBLE represents the case where TerminAttr is too low for CV to
+    support or manage the device.
     """
     ERROR_CODE_EOS_CV_INCOMPATIBLE: _ErrorCode.ValueType  # 10
-    """ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not supported by CV.
-    The given EOS is below CV's minimum supported EOS version.
+    """ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is too low for CV to support
+    or manage the device.
     """
     ERROR_CODE_EOS_SUPPORT_NOT_INTRODUCED: _ErrorCode.ValueType  # 11
     """ERROR_CODE_EOS_SUPPORT_NOT_INTRODUCED represents the case where the given EOS version does
@@ -247,12 +247,12 @@ ERROR_CODE_EOS_TA_ARCHITECTURE_INCOMPATIBLE: ErrorCode.ValueType  # 8
 TerminAttr architecture are incompatible.
 """
 ERROR_CODE_TA_CV_INCOMPATIBLE: ErrorCode.ValueType  # 9
-"""ERROR_CODE_TA_CV_INCOMPATIBLE represents the case where TerminAttr is incompatible with
-CloudVision; i.e., the TerminAttr version is below CloudVision's minimum supported version.
+"""ERROR_CODE_TA_CV_INCOMPATIBLE represents the case where TerminAttr is too low for CV to
+support or manage the device.
 """
 ERROR_CODE_EOS_CV_INCOMPATIBLE: ErrorCode.ValueType  # 10
-"""ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not supported by CV.
-The given EOS is below CV's minimum supported EOS version.
+"""ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is too low for CV to support
+or manage the device.
 """
 ERROR_CODE_EOS_SUPPORT_NOT_INTRODUCED: ErrorCode.ValueType  # 11
 """ERROR_CODE_EOS_SUPPORT_NOT_INTRODUCED represents the case where the given EOS version does
@@ -313,13 +313,13 @@ class _WarningCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     TA is lower than embedded TA in swi or given TA is unsupported by the EOS.
     """
     WARNING_CODE_TA_CV_INCOMPATIBLE: _WarningCode.ValueType  # 6
-    """WARNING_CODE_TA_CV_INCOMPATIBLE represents cases where TA is incompatible with CV.
-    TA is lower than minimum supported TA on CV.
-    Deprecated - use ERROR_CODE_TA_CV_INCOMPATIBLE.
+    """WARNING_CODE_TA_CV_INCOMPATIBLE represents cases where TA is lower than CV's minimum
+    supported version for SMS assignments.
     """
     WARNING_CODE_EOS_CV_INCOMPATIBLE: _WarningCode.ValueType  # 7
-    """WARNING_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not yet supported by CV.
-    The given EOS exceeds CV's maximum supported EOS version.
+    """WARNING_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not supported by CV.
+    The given EOS exceeds CV's maximum supported EOS version or for SMS assignments, the given
+    EOS is below CV's minimum supported EOS version.
     """
     WARNING_CODE_EOS_ARCH_UNKNOWN: _WarningCode.ValueType  # 8
     """WARNING_CODE_EOS_ARCH_UNKNOWN represents cases where the specified architecture is
@@ -380,13 +380,13 @@ WARNING_CODE_TA_EOS_INCOMPATIBLE: WarningCode.ValueType  # 5
 TA is lower than embedded TA in swi or given TA is unsupported by the EOS.
 """
 WARNING_CODE_TA_CV_INCOMPATIBLE: WarningCode.ValueType  # 6
-"""WARNING_CODE_TA_CV_INCOMPATIBLE represents cases where TA is incompatible with CV.
-TA is lower than minimum supported TA on CV.
-Deprecated - use ERROR_CODE_TA_CV_INCOMPATIBLE.
+"""WARNING_CODE_TA_CV_INCOMPATIBLE represents cases where TA is lower than CV's minimum
+supported version for SMS assignments.
 """
 WARNING_CODE_EOS_CV_INCOMPATIBLE: WarningCode.ValueType  # 7
-"""WARNING_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not yet supported by CV.
-The given EOS exceeds CV's maximum supported EOS version.
+"""WARNING_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not supported by CV.
+The given EOS exceeds CV's maximum supported EOS version or for SMS assignments, the given
+EOS is below CV's minimum supported EOS version.
 """
 WARNING_CODE_EOS_ARCH_UNKNOWN: WarningCode.ValueType  # 8
 """WARNING_CODE_EOS_ARCH_UNKNOWN represents cases where the specified architecture is

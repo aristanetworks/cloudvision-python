@@ -199,14 +199,14 @@ class ErrorCode(aristaproto.Enum):
 
     TA_CV_INCOMPATIBLE = 9
     """
-    ERROR_CODE_TA_CV_INCOMPATIBLE represents the case where TerminAttr is incompatible with
-    CloudVision; i.e., the TerminAttr version is below CloudVision's minimum supported version.
+    ERROR_CODE_TA_CV_INCOMPATIBLE represents the case where TerminAttr is too low for CV to
+    support or manage the device.
     """
 
     EOS_CV_INCOMPATIBLE = 10
     """
-    ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not supported by CV.
-    The given EOS is below CV's minimum supported EOS version.
+    ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is too low for CV to support
+    or manage the device.
     """
 
     EOS_SUPPORT_NOT_INTRODUCED = 11
@@ -294,15 +294,15 @@ class WarningCode(aristaproto.Enum):
 
     TA_CV_INCOMPATIBLE = 6
     """
-    WARNING_CODE_TA_CV_INCOMPATIBLE represents cases where TA is incompatible with CV.
-    TA is lower than minimum supported TA on CV.
-    Deprecated - use ERROR_CODE_TA_CV_INCOMPATIBLE.
+    WARNING_CODE_TA_CV_INCOMPATIBLE represents cases where TA is lower than CV's minimum
+    supported version for SMS assignments.
     """
 
     EOS_CV_INCOMPATIBLE = 7
     """
-    WARNING_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not yet supported by CV.
-    The given EOS exceeds CV's maximum supported EOS version.
+    WARNING_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not supported by CV.
+    The given EOS exceeds CV's maximum supported EOS version or for SMS assignments, the given
+    EOS is below CV's minimum supported EOS version.
     """
 
     EOS_ARCH_UNKNOWN = 8
