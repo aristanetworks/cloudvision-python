@@ -35,8 +35,9 @@ devices and their interfaces.
 
 ```shell
 python examples/resources/studio/studio_onboarding.py --help
-usage: studio_onboarding.py [-h] --server SERVER --token-file TOKEN_FILE [--cert-file CERT_FILE] [--wsid WSID]
-                            [--operation {set,get,set-all}] [--update-id UPDATE_ID] [--build-only BUILD_ONLY]
+usage: studio_onboarding.py [-h] --server SERVER --token-file TOKEN_FILE [--cert-file CERT_FILE]
+                            [--wsid WSID] [--operation {set,get,set-all}] [--update-id UPDATE_ID]
+                            [--build-only BUILD_ONLY] [--insecure]
 
 options:
   -h, --help            show this help message and exit
@@ -44,7 +45,7 @@ options:
   --token-file TOKEN_FILE
                         file with access token
   --cert-file CERT_FILE
-                        certificate to use as root CA
+                        path to certificate file to use as root CA
   --wsid WSID           existing workspace ID, if not wanting to create a new one
   --operation {set,get,set-all}
                         whether to get or set inputs
@@ -52,6 +53,7 @@ options:
                         Update ID from UpdateService call to set
   --build-only BUILD_ONLY
                         whether to stop after building the changes (no submission)
+  --insecure            skip TLS certificate verification
 ```
 
 ### Get the updates
@@ -91,10 +93,64 @@ python studio_onboarding.py --server www.cv-staging.corp.arista.io:443 --token-f
 
 The `studio_update.py` can be used to manage built-in and custom studios
 
+```shell
+python studio_update.py --help
+INFO: cloudvision package version: 1.28.0
+usage: studio_update.py [-h] --server www.arista.io|192.0.2.10:443 --token-file TOKEN_FILE
+                        [--cert-file CERT_FILE] [--operation {set,get}] [--yaml-file YAML_FILE]
+                        [--action-file ACTION_FILE] [--build-only BUILD_ONLY] --studio-id STUDIO_ID
+                        [--action-id ACTION_ID] [--wsid WSID] [--sync SYNC] [--insecure]
+
+1. Get studio inputs from mainline.
+   Example:
+     python3 studio_update.py --server=192.0.2.10:443
+            --token-file=token.tok --cert-file=cvp.crt
+            --operation=get --studio-id=studio-evpn-services
+2. Set studio inputs using a YAML input file or autofill input file.
+   This will populate, build and submit the studio change.
+   Example:
+     python3 studio_update.py --server=192.0.2.10:443
+            --token-file=token.tok --cert-file=cvp.crt
+            --operation=set --studio-id=studio-evpn-services
+            --yaml-file=studio-evpn-services-inputs.yaml
+   Optionally to trigger action:
+            --action-file=actions.csv
+            --action-id=action-ports-table
+   Optionally to build only and not submit:
+            --build-only=True
+   Optionally to synchronize workspace with mainline before building:
+            --sync=True
+
+options:
+  -h, --help            show this help message and exit
+  --server www.arista.io|192.0.2.10:443
+                        endpoint for CVP on-prem cluster or CVaaS tenant (must be the www endpoint
+                        in case of CVaaS)
+  --token-file TOKEN_FILE
+                        file with access token
+  --cert-file CERT_FILE
+                        path to certificate file to use as root CA
+  --operation {set,get}
+                        whether to get or set inputs
+  --yaml-file YAML_FILE
+                        YAML file containing studio inputs
+  --action-file ACTION_FILE
+                        csv file containing studio autofill inputs
+  --build-only BUILD_ONLY
+                        whether to stop after building the changes (no submission)
+  --studio-id STUDIO_ID
+                        ID of the Studio, e.g. studio-interface-v2-pkg
+  --action-id ACTION_ID
+                        ID of the action, e.g. action-ports-table
+  --wsid WSID           existing workspace ID, if not wanting to create a new one
+  --sync SYNC           synchronize workspace with mainline before building
+  --insecure            skip TLS certificate verification
+```
+
 ### Get the input of a studio
 
 ```shell
-python3 studio_update.py --server www.arista.io --token-file token.tok \
+python3 studio_update.py --server www.arista.io:443 --token-file token.tok \
         --operation=get --studio-id=studio-avd-campus-fabric-inputs
 Mainline inputs have been written to: studio-avd-campus-fabric-inputs.yaml
 ```
@@ -102,7 +158,7 @@ Mainline inputs have been written to: studio-avd-campus-fabric-inputs.yaml
 ### Update the inputs of a studio
 
 ```shell
- python3 studio_update.py --server www.arista.io --token-file token.tok \
+ python3 studio_update.py --server www.arista.io:443 --token-file token.tok \
       --operation set \
       --studio-id studio-avd-campus-fabric \
       --yaml-file studio-avd-campus-fabric-inputs.yaml \

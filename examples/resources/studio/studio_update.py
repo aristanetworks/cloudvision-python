@@ -2,14 +2,12 @@
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
-#     "cloudvision",
 #     "pyyaml",
+#     "cloudvision>=1.28.0"
 # ]
-# [tool.uv]
-# exclude-newer = "2024-08-05T00:00:00Z"
 # ///
 
-# Copyright (c) 2025 Arista Networks, Inc.
+# Copyright (c) 2026 Arista Networks, Inc.
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 #
@@ -30,64 +28,51 @@
 # Note:
 #   It's necessary to first log onto the cvp and create a service account,
 #   generate a token, and copy the token to a local token.tok file.
-#   If this is for a cvp dut using self-signed certs, then it's also
-#   necessary to copy the file at /usr/share/nginx/certs/NginxCerts/cvp.crt
-#   to a local file and send that in as an additional parameter, eg:
+#   If this is for a cvp dut using self-signed certs use the --insecure flag
+#   eg:
 #   python3 studio_update.py
 #        --server 192.0.2.10:443
 #        --token-file token.tok
-#        --cert-file cvp.crt
+#        --insecure
 #        --operation=get
 #        --studio-id=studio-interface-v2-pkg
 
 import argparse
+import asyncio
 import json
+import logging
+import sys
 import uuid
 import time
 import yaml
 
-# pylint: disable=import-error
-from arista.workspace.v1 import models as workspace_models
-from arista.workspace.v1 import services as workspace_services
-from arista.studio.v1 import models as studio_models
-from arista.studio.v1 import services as studio_services
-from arista.changecontrol.v1 import models as changecontrol_models
-from arista.changecontrol.v1 import services as changecontrol_services
-from arista.action.v1 import models as action_models
-from arista.action.v1 import services as action_services
-from arista.time import time_pb2
+from cloudvision.api import client as cv_client
+from cloudvision.api import fmp
+from cloudvision.api.arista.workspace import v1 as workspace
+from cloudvision.api.arista.studio import v1 as studio
+from cloudvision.api.arista.changecontrol import v1 as changecontrol
+from cloudvision.api.arista.action import v1 as action
 
-from fmp import wrappers_pb2 as fmp_wrappers
-from google.protobuf import json_format
-from google.protobuf import wrappers_pb2 as wrappers
-import grpc
-
-LOGLEVEL = 0
-
-
-def log(loglevel=0, logstring=''):
-    if loglevel <= LOGLEVEL:
-        print(logstring)
-
+logger = logging.getLogger(__name__)
 
 RPC_TIMEOUT = 30  # in seconds
 CC_EXECUTION_TIMEOUT = 60  # in seconds
 MAINLINE_ID = ""  # ID to reference merged workspace data
 
 
-def cv_client(server, token, cert_file):
+def create_client(args):
     '''
-    Create secure connection to CloudVision.
+    Creates an AsyncCVClient from common CLI arguments
+    (--server, --token-file, --cert-file, --insecure).
     '''
-
-    callCreds = grpc.access_token_call_credentials(token)
-    if cert_file:
-        cert = cert_file.read()
-        channelCreds = grpc.ssl_channel_credentials(root_certificates=cert)
-    else:
-        channelCreds = grpc.ssl_channel_credentials()
-    connCreds = grpc.composite_channel_credentials(channelCreds, callCreds)
-    return grpc.secure_channel(server, connCreds)
+    token = args.token_file.read().strip()
+    host_parts = args.server.split(':')
+    host = host_parts[0]
+    port = int(host_parts[1]) if len(host_parts) > 1 else 443
+    return cv_client.AsyncCVClient.from_token(
+        token=token, host=host, port=port,
+        cacert=args.cert_file, insecure=args.insecure,
+    )
 
 
 def mergeInputs(root=None, path=None, inputs=None):
@@ -170,50 +155,47 @@ def mergeInputs(root=None, path=None, inputs=None):
     return root
 
 
-def get_inputs(channel, filename):
+async def get_inputs(channel, filename):
     '''
     Gets studio inputs from the mainline.
     Dumps then into a file named <studio_id>_inputs.yaml.
     '''
-    # pylint: disable=no-member
-    sid = wrappers.StringValue(value=studio_id)
-    wid = wrappers.StringValue(value=MAINLINE_ID)
-    key = studio_models.InputsKey(studio_id=sid,
-                                  workspace_id=wid)
-    pfilter = studio_models.Inputs(key=key)
-    req = studio_services.InputsStreamRequest()
+    sid = studio_id
+    key = studio.InputsKey(studio_id=sid,
+                           workspace_id=MAINLINE_ID)
+    pfilter = studio.Inputs(key=key)
+    req = studio.InputsStreamRequest()
     req.partial_eq_filter.append(pfilter)
-    stub = studio_services.InputsServiceStub(channel)
+    stub = studio.InputsServiceStub(channel)
     mergedinputs = None
-    for resp in stub.GetAll(req, timeout=RPC_TIMEOUT):
+    async for resp in stub.get_all(req, timeout=RPC_TIMEOUT):
         path = resp.value.key.path.values
-        split = json.loads(resp.value.inputs.value)
+        split = json.loads(resp.value.inputs)
         mergedinputs = mergeInputs(mergedinputs, path, split)
     jsonPathInputs = {'path': [], 'inputs': mergedinputs}
     with open(filename, 'w', encoding='utf8') as f:
         yaml.dump(jsonPathInputs, f)
 
 
-def create_workspace(channel, workspace_name):
+async def create_workspace(channel, workspace_name):
     '''
     Creates a workspace with a UUID using workspace_name
     as the display name. Returns the UUID.
     '''
-    # pylint: disable=no-member
-    log(0, f'Creating workspace "{workspace_name}"')
-    workspace_id = str(uuid.uuid4())
-    req = workspace_services.WorkspaceConfigSetRequest(
-        value=workspace_models.WorkspaceConfig(
-            key=workspace_models.WorkspaceKey(
-                workspace_id=wrappers.StringValue(value=workspace_id)
+    logger.info('Creating workspace "%s"', workspace_name)
+    ws_id = str(uuid.uuid4())
+    req = workspace.WorkspaceConfigSetRequest(
+        value=workspace.WorkspaceConfig(
+            key=workspace.WorkspaceKey(
+                workspace_id=ws_id
             ),
-            display_name=wrappers.StringValue(value=workspace_name)
+            display_name=workspace_name
         )
     )
-    stub = workspace_services.WorkspaceConfigServiceStub(channel)
-    stub.Set(req, timeout=RPC_TIMEOUT)
-    log(0, f'\tWorkspaceID created: {workspace_id}')
-    return workspace_id
+    stub = workspace.WorkspaceConfigServiceStub(channel)
+    await stub.set(req, timeout=RPC_TIMEOUT)
+    logger.info('\tWorkspaceID created: %s', ws_id)
+    return ws_id
 
 
 def getActionTriggers(filename):
@@ -278,8 +260,8 @@ def getActionTriggers(filename):
 
                 # Skip malformed lines where column count doesn't match header count
                 if len(aline) != len(dyn_names):
-                    log(0, f'skipping invalid dynamic args values in action-file:'
-                        f'{aline}')
+                    logger.warning('skipping invalid dynamic args values in '
+                                   'action-file: %s', aline)
                     continue
 
                 # Create the action dictionary
@@ -290,10 +272,10 @@ def getActionTriggers(filename):
                 dyn_values.append(dyn_dict)
 
     except FileNotFoundError:
-        print(f"Error: The file '{filename}' was not found.")
+        logger.error("The file '%s' was not found.", filename)
         return [], []
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        logger.error("An unexpected error occurred: %s", e)
         return [], []
 
     # if path and no args required,
@@ -303,57 +285,54 @@ def getActionTriggers(filename):
     return input_path, dyn_names, dyn_values
 
 
-def update_inputs_via_autofill(channel, workspace_id, path, dyn_names, dyn_value):
+async def update_inputs_via_autofill(channel, ws_id, path, dyn_names, dyn_value):
     '''
     Sets inputs to the studio using autofill action.
     '''
-    # pylint: disable=no-member
     exec_id = str(uuid.uuid4())
-    req = action_services.ActionRunConfigSetRequest( # noqa
-        value=action_models.ActionRunConfig(   # noqa
-            key=action_models.ActionRunKey(  # noqa
-                run_id=wrappers.StringValue(value=exec_id)
-            ),
-            action_id=wrappers.StringValue(value=action_id),
-            dynamic_args=action_models.ActionArgValues(  # noqa
-            )
-        )
-    )
-    runConfig = action_models.ActionRunConfig()  # noqa
     dynamicArgs = {
         "InputPath": path,
         "StudioID": studio_id,
-        "WorkspaceID": workspace_id,
+        "WorkspaceID": ws_id,
     }
     for dyn_name in dyn_names:
         dynamicArgs[dyn_name] = dyn_value.get(dyn_name)
 
-    runConfig.key.run_id.value = exec_id
-    runConfig.action_id.value = action_id
-    for k, v in dynamicArgs.items():
-        runConfig.dynamic_args.values[k].value.value = v
-    req.value.CopyFrom(runConfig)
-    stub = action_services.ActionRunConfigServiceStub(channel)   # noqa
-    stub.Set(req, timeout=RPC_TIMEOUT)
-    log(0, f'Studio inputs set from autofill action:'
-        f'\n\t{dyn_value}')
-    stub = action_services.ActionRunServiceStub(channel)   # noqa
-    for res in stub.Subscribe(req, timeout=RPC_TIMEOUT):
-        if res.value.error.value != "":
-            log(0, f'autofill failed with error:'
-                f'\n\t{res.value.error.value}')
+    run_config = action.ActionRunConfig(
+        key=action.ActionRunKey(run_id=exec_id),
+        action_id=action_id,
+        dynamic_args=action.ActionArgValues(
+            values={k: action.ActionArgValue(value=v) for k, v in dynamicArgs.items()}
+        )
+    )
+    req = action.ActionRunConfigSetRequest(value=run_config)
+    stub = action.ActionRunConfigServiceStub(channel)
+    await stub.set(req, timeout=RPC_TIMEOUT)
+    logger.info('Studio inputs set from autofill action:'
+                '\n\t%s', dyn_value)
+
+    # Subscribe to action run to wait for completion.
+    sub_req = action.ActionRunStreamRequest(
+        partial_eq_filter=[
+            action.ActionRun(key=action.ActionRunKey(run_id=exec_id))
+        ]
+    )
+    run_stub = action.ActionRunServiceStub(channel)
+    async for res in run_stub.subscribe(sub_req, timeout=RPC_TIMEOUT):
+        if res.value.error and res.value.error != "":
+            logger.error('autofill failed with error:'
+                         '\n\t%s', res.value.error)
             break
-        if res.value.is_finished.value:
-            log(0, '\tautofill succeeded')
+        if res.value.is_finished:
+            logger.info('\tautofill succeeded')
             break
 
 
-def update_inputs_via_yaml(channel, workspace_id, filename, dev_ids):
+async def update_inputs_via_yaml(channel, ws_id, filename, dev_ids):
     '''
     Sets inputs to the studio using the yaml file.
     Also assigns studio to a set of devices.
     '''
-    # pylint: disable=no-member
     # convert YAML input file to json inputs.
     with open(f'{filename}', encoding='utf8') as f:
         config = yaml.load(f, Loader=yaml.loader.SafeLoader)
@@ -361,146 +340,149 @@ def update_inputs_via_yaml(channel, workspace_id, filename, dev_ids):
     path = config['path']
     inputs = json.dumps(inputs)
     # Set the root path of the studio to the given inputs.
-    req = studio_services.InputsConfigSetRequest(
-        value=studio_models.InputsConfig(
-            key=studio_models.InputsKey(
-                workspace_id=wrappers.StringValue(value=workspace_id),
-                studio_id=wrappers.StringValue(value=studio_id),
-                path=fmp_wrappers.RepeatedString(values=path)
+    req = studio.InputsConfigSetRequest(
+        value=studio.InputsConfig(
+            key=studio.InputsKey(
+                workspace_id=ws_id,
+                studio_id=studio_id,
+                path=fmp.RepeatedString(values=path)
             ),
-            inputs=wrappers.StringValue(value=inputs)
+            inputs=inputs
         )
     )
-    stub = studio_services.InputsConfigServiceStub(channel)
-    stub.Set(req, timeout=RPC_TIMEOUT)
-    log(0, f'Studio inputs set from yaml:'
-        f'\n\t{filename}')
+    stub = studio.InputsConfigServiceStub(channel)
+    await stub.set(req, timeout=RPC_TIMEOUT)
+    logger.info('Studio inputs set from yaml:'
+                '\n\t%s', filename)
     # Assign the studio to the given set of devices.
-    req = studio_services.AssignedTagsConfigSetRequest(
-        value=studio_models.AssignedTagsConfig(
-            key=studio_models.StudioKey(
-                workspace_id=wrappers.StringValue(value=workspace_id),
-                studio_id=wrappers.StringValue(value=studio_id)
+    req = studio.AssignedTagsConfigSetRequest(
+        value=studio.AssignedTagsConfig(
+            key=studio.StudioKey(
+                workspace_id=ws_id,
+                studio_id=studio_id
             ),
-            query=wrappers.StringValue(value=f'device:{",".join(dev_ids)}')
+            query=f'device:{",".join(dev_ids)}'
         )
     )
-    stub = studio_services.AssignedTagsConfigServiceStub(channel)
-    stub.Set(req, timeout=RPC_TIMEOUT)
-    log(0, f'\tDevices assigned to studio: {dev_ids}')
+    stub = studio.AssignedTagsConfigServiceStub(channel)
+    await stub.set(req, timeout=RPC_TIMEOUT)
+    logger.info('\tDevices assigned to studio: %s', dev_ids)
 
 
-def build_workspace(channel, workspace_id):
+async def build_workspace(channel, ws_id):
     '''
     Sends a request to build a workspace, waits for it
     to finish, and reports the result. Returns True if
     the build was successful and False otherwise.
     '''
-    # pylint: disable=no-member
-    log(0, 'Building workspace')
+    logger.info('Building workspace')
     # Send a request to build the workspace.
     build_id = str(uuid.uuid4())
-    req = workspace_services.WorkspaceConfigSetRequest(
-        value=workspace_models.WorkspaceConfig(
-            key=workspace_models.WorkspaceKey(
-                workspace_id=wrappers.StringValue(value=workspace_id)
+    req = workspace.WorkspaceConfigSetRequest(
+        value=workspace.WorkspaceConfig(
+            key=workspace.WorkspaceKey(
+                workspace_id=ws_id
             ),
-            request=workspace_models.REQUEST_START_BUILD,
-            request_params=workspace_models.RequestParams(
-                request_id=wrappers.StringValue(value=build_id)
+            request=workspace.Request.START_BUILD,
+            request_params=workspace.RequestParams(
+                request_id=build_id
             )
         )
     )
-    stub = workspace_services.WorkspaceConfigServiceStub(channel)
-    stub.Set(req, timeout=RPC_TIMEOUT)
-    log(0, f'\tBuild request {build_id} sent')
+    stub = workspace.WorkspaceConfigServiceStub(channel)
+    await stub.set(req, timeout=RPC_TIMEOUT)
+    logger.info('\tBuild request %s sent', build_id)
     # Wait until the workspace build request finishes.
-    req = workspace_services.WorkspaceStreamRequest(
+    req = workspace.WorkspaceStreamRequest(
         partial_eq_filter=[
-            workspace_models.Workspace(
-                key=workspace_models.WorkspaceKey(
-                    workspace_id=wrappers.StringValue(value=workspace_id),
+            workspace.Workspace(
+                key=workspace.WorkspaceKey(
+                    workspace_id=ws_id,
                 )
             )
         ]
     )
-    stub = workspace_services.WorkspaceServiceStub(channel)
-    log(0, '\tWaiting for build to complete')
-    for res in stub.Subscribe(req, timeout=RPC_TIMEOUT):
+    stub = workspace.WorkspaceServiceStub(channel)
+    logger.info('\tWaiting for build to complete')
+    async for res in stub.subscribe(req, timeout=RPC_TIMEOUT):
         if build_id in res.value.responses.values:
             build_res = res.value.responses.values[build_id]
             break
-    if build_res.status == workspace_models.RESPONSE_STATUS_FAIL:
-        # Get the workspace build results.
-        req = workspace_services.WorkspaceBuildRequest(
-            key=workspace_models.WorkspaceBuildKey(
-                workspace_id=wrappers.StringValue(value=workspace_id),
-                build_id=wrappers.StringValue(value=build_id)
-            )
-        )
-        stub = workspace_services.WorkspaceBuildServiceStub(channel)
-        res = stub.GetOne(req, timeout=RPC_TIMEOUT)
-        # Print the build failure into a more readable format.
-        fail_msg = build_failure_message(res)
-        log(0, f'\tBuild failed:\n{fail_msg}')
+    if build_res.status == workspace.ResponseStatus.FAIL:
+        # Get the workspace build details.
+        fail_msg = await build_failure_message(channel, ws_id, build_id)
+        logger.error('\tBuild failed:\n%s', fail_msg)
         return False
-    if build_res.status == workspace_models.RESPONSE_STATUS_SUCCESS:
-        log(0, '\tBuild succeeded')
+    if build_res.status == workspace.ResponseStatus.SUCCESS:
+        logger.info('\tBuild succeeded')
         return True
-    log(0, '\tBuild failed')
+    logger.error('\tBuild failed')
     return False
 
 
-def build_failure_message(res):
+async def build_failure_message(channel, ws_id, build_id):
     fail_msg = ''
-    for dev_id, result in res.value.build_results.values.items():
-        if result.state == workspace_models.BUILD_STATE_FAIL:
+    details_req = workspace.WorkspaceBuildDetailsStreamRequest(
+        partial_eq_filter=[
+            workspace.WorkspaceBuildDetails(
+                key=workspace.WorkspaceBuildDetailsKey(
+                    workspace_id=ws_id,
+                    build_id=build_id
+                )
+            )
+        ]
+    )
+    details_stub = workspace.WorkspaceBuildDetailsServiceStub(channel)
+    async for resp in details_stub.get_all(details_req, timeout=RPC_TIMEOUT):
+        result = resp.value
+        dev_id = result.key.device_id
+        if result.state == workspace.BuildState.FAIL:
             fail_msg += f'\t\tDevice {dev_id}:\n'
-            if result.stage == workspace_models.BUILD_STAGE_INPUT_VALIDATION:
+            if result.stage == workspace.BuildStage.INPUT_VALIDATION:
                 fail_msg += '\t\t\tInput validation:\n'
-                ivr = result.input_validation_results.values[
-                    studio_id]
-                schema_errs = ivr.input_schema_errors.values
-                if len(schema_errs) > 0:
-                    fail_msg += '\t\t\t\tInput schema errors:\n'
-                for i, err in enumerate(schema_errs, start=1):
-                    fail_msg += f'\t\t\t\t\t--- # {i}\n'
-                    fail_msg += f'\t\t\t\t\tField ID: {err.field_id.value}\n'
-                    fail_msg += f'\t\t\t\t\tPath: {err.path.values}\n'
-                    fail_msg += f'\t\t\t\t\tMembers: {err.members.values}\n'
-                    fail_msg += f'\t\t\t\t\tDetails: {err.message.value}\n'
-                value_errs = ivr.input_value_errors.values
-                if len(value_errs) > 0:
-                    fail_msg += '\t\t\t\tInput value errors:\n'
-                for i, err in enumerate(value_errs, start=1):
-                    fail_msg += f'\t\t\t\t\t--- # {i}\n'
-                    fail_msg += f'\t\t\t\t\tField ID: {err.field_id.value}\n'
-                    fail_msg += f'\t\t\t\t\tPath: {err.path.values}\n'
-                    fail_msg += f'\t\t\t\t\tMembers: {err.members.values}\n'
-                    fail_msg += f'\t\t\t\t\tDetails: {err.message.value}\n'
-                other_errs = ivr.other_errors.values
-                if len(other_errs) > 0:
-                    fail_msg += '\t\t\t\tOther errors:\n'
-                for i, err in enumerate(other_errs, start=1):
-                    fail_msg += f'\t\t\t\t\t--- # {i}\n'
-                    fail_msg += f'\t\t\t\t\t{err}\n'
-            if result.stage == workspace_models.BUILD_STAGE_CONFIGLET_BUILD:
+                for sid, ivr in result.input_validation_results.values.items():
+                    fail_msg += f'\t\t\t\tStudio: {sid}\n'
+                    schema_errs = ivr.input_schema_errors.values
+                    if len(schema_errs) > 0:
+                        fail_msg += '\t\t\t\tInput schema errors:\n'
+                    for i, err in enumerate(schema_errs, start=1):
+                        fail_msg += f'\t\t\t\t\t--- # {i}\n'
+                        fail_msg += f'\t\t\t\t\tField ID: {err.field_id}\n'
+                        fail_msg += f'\t\t\t\t\tPath: {err.path.values}\n'
+                        fail_msg += f'\t\t\t\t\tMembers: {err.members.values}\n'
+                        fail_msg += f'\t\t\t\t\tDetails: {err.message}\n'
+                    value_errs = ivr.input_value_errors.values
+                    if len(value_errs) > 0:
+                        fail_msg += '\t\t\t\tInput value errors:\n'
+                    for i, err in enumerate(value_errs, start=1):
+                        fail_msg += f'\t\t\t\t\t--- # {i}\n'
+                        fail_msg += f'\t\t\t\t\tField ID: {err.field_id}\n'
+                        fail_msg += f'\t\t\t\t\tPath: {err.path.values}\n'
+                        fail_msg += f'\t\t\t\t\tMembers: {err.members.values}\n'
+                        fail_msg += f'\t\t\t\t\tDetails: {err.message}\n'
+                    other_errs = ivr.other_errors.values
+                    if len(other_errs) > 0:
+                        fail_msg += '\t\t\t\tOther errors:\n'
+                    for i, err in enumerate(other_errs, start=1):
+                        fail_msg += f'\t\t\t\t\t--- # {i}\n'
+                        fail_msg += f'\t\t\t\t\t{err}\n'
+            if result.stage == workspace.BuildStage.CONFIGLET_BUILD:
                 fail_msg += '\t\t\tConfiglet compilation:\n'
-                cbr = result.configlet_build_results.values[
-                    studio_id]
-                templ_errs = cbr.template_errors.values
-                if len(templ_errs) > 0:
-                    fail_msg += '\t\t\t\tTemplate errors:\n'
-                for i, err in enumerate(templ_errs, start=1):
-                    fail_msg += f'\t\t\t\t\t--- # {i}\n'
-                    fail_msg += f'\t\t\t\t\tLine number: {err.line_num.value}\n'
-                    fail_msg += f'\t\t\t\t\tException: {err.exception.value}\n'
-                    fail_msg += f'\t\t\t\t\tDetails: {err.details.value}\n'
-            if result.stage == workspace_models.BUILD_STAGE_CONFIG_VALIDATION:
+                for sid, cbr in result.configlet_build_results.values.items():
+                    fail_msg += f'\t\t\t\tStudio: {sid}\n'
+                    templ_errs = cbr.template_errors.values
+                    if len(templ_errs) > 0:
+                        fail_msg += '\t\t\t\tTemplate errors:\n'
+                    for i, err in enumerate(templ_errs, start=1):
+                        fail_msg += f'\t\t\t\t\t--- # {i}\n'
+                        fail_msg += f'\t\t\t\t\tLine number: {err.line_num}\n'
+                        fail_msg += f'\t\t\t\t\tException: {err.exception}\n'
+                        fail_msg += f'\t\t\t\t\tDetails: {err.detail}\n'
+                    if cbr.other_error:
+                        fail_msg += f'\t\t\t\tOther error: {cbr.other_error}\n'
+            if result.stage == workspace.BuildStage.CONFIG_VALIDATION:
                 fail_msg += '\t\t\tConfiglet validation:\n'
-                cvr = result.configlet_validation_results.values[
-                    studio_id]
-                errs = cvr.errors.values
+                errs = result.config_validation_result.errors.values
                 if len(errs) > 0:
                     fail_msg += '\t\t\t\tErrors:\n'
                 for i, err in enumerate(errs, start=1):
@@ -512,284 +494,280 @@ def build_failure_message(res):
     return fail_msg
 
 
-def synchronize_workspace(channel, workspace_id):
+async def synchronize_workspace(channel, ws_id):
     '''
     Sends a request to synchronize a workspace with the latest
     mainline content, waits for it to finish, and reports the result.
     Returns True if the synchronization was successful and False otherwise.
     '''
-    # pylint: disable=no-member
-    log(0, 'Synchronizing workspace with mainline')
+    logger.info('Synchronizing workspace with mainline')
     # Check if workspace needs rebase by getting current workspace state
-    get_req = workspace_services.WorkspaceRequest(
-        key=workspace_models.WorkspaceKey(
-            workspace_id=wrappers.StringValue(value=workspace_id)
+    get_req = workspace.WorkspaceRequest(
+        key=workspace.WorkspaceKey(
+            workspace_id=ws_id
         )
     )
-    stub = workspace_services.WorkspaceServiceStub(channel)
-    workspace_resp = stub.GetOne(get_req, timeout=RPC_TIMEOUT)
+    stub = workspace.WorkspaceServiceStub(channel)
+    workspace_resp = await stub.get_one(get_req, timeout=RPC_TIMEOUT)
 
     # Check if rebase is needed
-    if not workspace_resp.value.needs_rebase.value:
-        log(0, '\tWorkspace is already up to date, no rebase needed')
+    if not workspace_resp.value.needs_rebase:
+        logger.info('\tWorkspace is already up to date, no rebase needed')
         return True
 
-    log(0, '\tWorkspace needs rebase, proceeding with synchronization')
+    logger.info('\tWorkspace needs rebase, proceeding with synchronization')
     sync_id = str(uuid.uuid4())
-    req = workspace_services.WorkspaceConfigSetRequest(
-        value=workspace_models.WorkspaceConfig(
-            key=workspace_models.WorkspaceKey(
-                workspace_id=wrappers.StringValue(value=workspace_id)
+    req = workspace.WorkspaceConfigSetRequest(
+        value=workspace.WorkspaceConfig(
+            key=workspace.WorkspaceKey(
+                workspace_id=ws_id
             ),
-            request=workspace_models.REQUEST_REBASE,
-            request_params=workspace_models.RequestParams(
-                request_id=wrappers.StringValue(value=sync_id)
+            request=workspace.Request.REBASE,
+            request_params=workspace.RequestParams(
+                request_id=sync_id
             )
         )
     )
-    stub = workspace_services.WorkspaceConfigServiceStub(channel)
-    stub.Set(req, timeout=RPC_TIMEOUT)
-    log(0, f'\tSynchronization request {sync_id} sent')
+    stub = workspace.WorkspaceConfigServiceStub(channel)
+    await stub.set(req, timeout=RPC_TIMEOUT)
+    logger.info('\tSynchronization request %s sent', sync_id)
     # Wait until the workspace sync request finishes.
-    req = workspace_services.WorkspaceStreamRequest(
+    req = workspace.WorkspaceStreamRequest(
         partial_eq_filter=[
-            workspace_models.Workspace(
-                key=workspace_models.WorkspaceKey(
-                    workspace_id=wrappers.StringValue(value=workspace_id),
+            workspace.Workspace(
+                key=workspace.WorkspaceKey(
+                    workspace_id=ws_id,
                 )
             )
         ]
     )
-    stub = workspace_services.WorkspaceServiceStub(channel)
-    log(0, '\tWaiting for synchronization to complete')
-    for res in stub.Subscribe(req, timeout=RPC_TIMEOUT):
+    stub = workspace.WorkspaceServiceStub(channel)
+    logger.info('\tWaiting for synchronization to complete')
+    async for res in stub.subscribe(req, timeout=RPC_TIMEOUT):
         if sync_id in res.value.responses.values:
             sync_res = res.value.responses.values[sync_id]
-            if sync_res.status == workspace_models.RESPONSE_STATUS_FAIL:
-                log(0, f'\tSynchronization failed: {sync_res.message.value}')
+            if sync_res.status == workspace.ResponseStatus.FAIL:
+                logger.error('\tSynchronization failed: %s', sync_res.message)
                 return False
-            if sync_res.status == workspace_models.RESPONSE_STATUS_SUCCESS:
-                log(0, '\tSynchronization succeeded')
-                download_sync_diffs(channel, workspace_id, res.value.last_rebased_at)
+            if sync_res.status == workspace.ResponseStatus.SUCCESS:
+                logger.info('\tSynchronization succeeded')
+                await download_sync_diffs(channel, ws_id, res.value.last_rebased_at)
                 return True
-    log(0, '\tSynchronization failed')
+    logger.error('\tSynchronization failed')
     return False
 
 
-def download_sync_diffs(channel, workspace_id, last_rebased_at=None):
+async def download_sync_diffs(channel, ws_id, last_rebased_at=None):
     '''
     Downloads synchronization diffs for a workspace and saves them to a file.
     Returns True if successful, False otherwise.
-
-    Note: This feature requires CloudVision API support for WorkspaceDiffsService.
-    If not available, the function will log a warning and return False.
     '''
-    # pylint: disable=no-member
-    filename = f'{workspace_id}_sync_diffs.yaml'
-    log(0, '\tDownloading sync diffs...')
+    filename = f'{ws_id}_sync_diffs.yaml'
+    logger.info('\tDownloading sync diffs...')
     try:
-        req = workspace_services.WorkspaceDiffsStreamRequest(
+        req = workspace.WorkspaceDiffsStreamRequest(
             partial_eq_filter=[
-                workspace_models.WorkspaceDiffs(
-                    key=workspace_models.DiffKey(
-                        workspace_id=wrappers.StringValue(value=workspace_id),
-                        diff_type=workspace_models.DIFF_TYPE_REBASE
+                workspace.WorkspaceDiffs(
+                    key=workspace.DiffKey(
+                        workspace_id=ws_id,
+                        diff_type=workspace.DiffType.REBASE
                     )
                 )
             ]
         )
-        # If last_rebased_at timestamp is provided, use it to filter the diffs
-        if last_rebased_at:
-            req.time.end.CopyFrom(last_rebased_at)
-            req.time.start.CopyFrom(last_rebased_at)
-
-        stub = workspace_services.WorkspaceDiffsServiceStub(channel)
+        stub = workspace.WorkspaceDiffsServiceStub(channel)
         diffs_data = []
-        for resp in stub.GetAll(req, timeout=RPC_TIMEOUT):
-            response_dict = json_format.MessageToDict(resp)
-            # Extract only the 'value' field, excluding metadata 'time' and 'type'
+        async for resp in stub.get_all(req, timeout=RPC_TIMEOUT):
+            response_dict = resp.to_dict()
             if 'value' in response_dict:
                 diffs_data.append(response_dict['value'])
         with open(filename, 'w', encoding='utf8') as f:
             yaml.dump(diffs_data, f, default_flow_style=False)
-        log(0, f'\tSync diffs saved to {filename}')
+        logger.info('\tSync diffs saved to %s', filename)
         return True
-    except grpc.RpcError as e:
-        if e.code() == grpc.StatusCode.UNIMPLEMENTED:
-            log(0, '\tWorkspaceDiffsService is not supported on this CloudVision server')
-            log(0, '\tThis feature may require a newer CloudVision version')
-            log(0, '\tSkipping sync diffs download')
-        else:
-            log(0, f'\tFailed to download sync diffs: {e.details()}')
-        return False
     except Exception as e:
-        log(0, f'\tFailed to download sync diffs: {e}')
+        logger.error('\tFailed to download sync diffs: %s', e)
         return False
 
 
-def submit_workspace(channel, workspace_id):
+async def submit_workspace(channel, ws_id):
     '''
     Sends a request to submit a workspace, waits for it to
     finish, and reports the result. Returns the IDs of the
     spawned change controls.
     '''
-    # pylint: disable=no-member
-    log(0, 'Submitting workspace')
+    logger.info('Submitting workspace')
     # Send a request to submit the workspace.
     submit_id = str(uuid.uuid4())
-    req = workspace_services.WorkspaceConfigSetRequest(
-        value=workspace_models.WorkspaceConfig(
-            key=workspace_models.WorkspaceKey(
-                workspace_id=wrappers.StringValue(value=workspace_id)
+    req = workspace.WorkspaceConfigSetRequest(
+        value=workspace.WorkspaceConfig(
+            key=workspace.WorkspaceKey(
+                workspace_id=ws_id
             ),
-            request=workspace_models.REQUEST_SUBMIT,
-            request_params=workspace_models.RequestParams(
-                request_id=wrappers.StringValue(value=submit_id)
+            request=workspace.Request.SUBMIT,
+            request_params=workspace.RequestParams(
+                request_id=submit_id
             )
         )
     )
-    stub = workspace_services.WorkspaceConfigServiceStub(channel)
-    stub.Set(req, timeout=RPC_TIMEOUT)
-    log(0, f'\tSubmission request {submit_id} sent')
+    stub = workspace.WorkspaceConfigServiceStub(channel)
+    await stub.set(req, timeout=RPC_TIMEOUT)
+    logger.info('\tSubmission request %s sent', submit_id)
     # Wait until the submission request finishes.
-    req = workspace_services.WorkspaceStreamRequest(
+    req = workspace.WorkspaceStreamRequest(
         partial_eq_filter=[
-            workspace_models.Workspace(
-                key=workspace_models.WorkspaceKey(
-                    workspace_id=wrappers.StringValue(value=workspace_id),
+            workspace.Workspace(
+                key=workspace.WorkspaceKey(
+                    workspace_id=ws_id,
                 )
             )
         ]
     )
-    stub = workspace_services.WorkspaceServiceStub(channel)
-    log(0, '\tWaiting for submission to complete')
-    for res in stub.Subscribe(req, timeout=RPC_TIMEOUT):
+    stub = workspace.WorkspaceServiceStub(channel)
+    logger.info('\tWaiting for submission to complete')
+    async for res in stub.subscribe(req, timeout=RPC_TIMEOUT):
         if submit_id in res.value.responses.values:
             submit_res = res.value.responses.values[submit_id]
-            if submit_res.status == workspace_models.RESPONSE_STATUS_FAIL:
-                log(0, f'\tSubmission failed: {submit_res.message.value}')
+            if submit_res.status == workspace.ResponseStatus.FAIL:
+                logger.error('\tSubmission failed: %s', submit_res.message)
                 return None, False
-            if submit_res.status == workspace_models.RESPONSE_STATUS_SUCCESS:
-                log(0, '\tSubmission succeeded')
-        if res.value.state == workspace_models.WORKSPACE_STATE_SUBMITTED:
+            if submit_res.status == workspace.ResponseStatus.SUCCESS:
+                logger.info('\tSubmission succeeded')
+        if res.value.state == workspace.WorkspaceState.SUBMITTED:
             return res.value.cc_ids.values, True
-    log(0, '\tSubmission failed')
+    logger.error('\tSubmission failed')
     return None, False
 
 
-def run_change_control(channel, cc_id):
+async def run_change_control(channel, cc_id):
     '''
     Approves and starts a change control, waits for it to finish,
     and reports the result. Returns True if execution was successful
     and False otherwise.
     '''
-    # pylint: disable=no-member
-    log(0, f'Executing change control {cc_id}')
-    key = changecontrol_models.ChangeControlKey(
-        id=wrappers.StringValue(value=cc_id)
+    logger.info('Executing change control %s', cc_id)
+    key = changecontrol.ChangeControlKey(
+        id=cc_id
     )
     # Approve the change control.
-    req = changecontrol_services.ChangeControlRequest(key=key)
-    stub = changecontrol_services.ChangeControlServiceStub(channel)
-    res = stub.GetOne(req)
-    req = changecontrol_services.ApproveConfigSetRequest(
-        value=changecontrol_models.ApproveConfig(
+    req = changecontrol.ChangeControlRequest(key=key)
+    stub = changecontrol.ChangeControlServiceStub(channel)
+    res = await stub.get_one(req)
+    req = changecontrol.ApproveConfigSetRequest(
+        value=changecontrol.ApproveConfig(
             key=key,
-            approve=changecontrol_models.FlagConfig(
-                value=wrappers.BoolValue(value=True)
+            approve=changecontrol.FlagConfig(
+                value=True
             ),
             version=res.time
         )
     )
-    stub = changecontrol_services.ApproveConfigServiceStub(channel)
-    stub.Set(req)
-    log(0, '\tChange control approved')
+    stub = changecontrol.ApproveConfigServiceStub(channel)
+    await stub.set(req)
+    logger.info('\tChange control approved')
     # Send a request to start the change control.
-    req = changecontrol_services.ChangeControlConfigSetRequest(
-        value=changecontrol_models.ChangeControlConfig(
+    req = changecontrol.ChangeControlConfigSetRequest(
+        value=changecontrol.ChangeControlConfig(
             key=key,
-            start=changecontrol_models.FlagConfig(
-                value=wrappers.BoolValue(value=True)
+            start=changecontrol.FlagConfig(
+                value=True
             )
         )
     )
-    stub = changecontrol_services.ChangeControlConfigServiceStub(channel)
-    stub.Set(req)
-    log(0, '\tChange control flagged to start')
+    stub = changecontrol.ChangeControlConfigServiceStub(channel)
+    await stub.set(req)
+    logger.info('\tChange control flagged to start')
     # Wait until the change control completes execution.
-    req = changecontrol_services.ChangeControlStreamRequest(
+    req = changecontrol.ChangeControlStreamRequest(
         partial_eq_filter=[
-            changecontrol_models.ChangeControl(key=key)
+            changecontrol.ChangeControl(key=key)
         ]
     )
-    stub = changecontrol_services.ChangeControlServiceStub(channel)
-    log(0, '\tWaiting for execution to complete')
-    for res in stub.Subscribe(req, timeout=CC_EXECUTION_TIMEOUT):
-        if res.value.status == changecontrol_models.CHANGE_CONTROL_STATUS_COMPLETED:
-            if res.value.error.value != "":
-                log(0, f'\tExecution failed: {res.value.error.value}')
+    stub = changecontrol.ChangeControlServiceStub(channel)
+    logger.info('\tWaiting for execution to complete')
+    async for res in stub.subscribe(req, timeout=CC_EXECUTION_TIMEOUT):
+        if res.value.status == changecontrol.ChangeControlStatus.COMPLETED:
+            if res.value.error and res.value.error != "":
+                logger.error('\tExecution failed: %s', res.value.error)
                 return False
-            log(0, '\tExecution succeeded')
+            logger.info('\tExecution succeeded')
             return True
-    log(0, '\tExecution failed')
+    logger.error('\tExecution failed')
     return False
 
 
-def main(args, channel):
-    with channel:
+async def main(args, client):
+    with client as channel:
         # Get Inputs
         if args.operation == 'get':
             filename = f'{studio_id}-inputs.yaml'
-            get_inputs(channel, filename)
-            log(0, f'Mainline inputs have been written to: {filename}')
+            await get_inputs(channel, filename)
+            logger.info('Mainline inputs have been written to: %s', filename)
             return
         # Set Inputs in Multiple Steps
         # Create a workspace.
         workspace_name = f'{studio_id} config push'
         if args.wsid:
-            workspace_id = args.wsid
+            ws_id = args.wsid
         else:
-            workspace_id = create_workspace(channel, workspace_name)
+            ws_id = await create_workspace(channel, workspace_name)
         time.sleep(1)
         # Update the studio with yaml file
         inputSet = False
         actionInvoked = False
         if args.yaml_file:
-            update_inputs_via_yaml(
-                channel, workspace_id, args.yaml_file.name, "*")
+            await update_inputs_via_yaml(
+                channel, ws_id, args.yaml_file.name, "*")
             inputSet = True
         # Update the studio with autofill action
         dyn_values = []
         if args.action_file:
             input_path, dyn_names, dyn_values = getActionTriggers(args.action_file.name)
         for dyn_value in dyn_values:
-            update_inputs_via_autofill(
-                channel, workspace_id, input_path, dyn_names, dyn_value)
+            await update_inputs_via_autofill(
+                channel, ws_id, input_path, dyn_names, dyn_value)
             actionInvoked = True
         if not inputSet and not actionInvoked:
             return
         # Synchronize workspace if requested (before build)
         if args.sync:
-            if not synchronize_workspace(channel, workspace_id):
+            if not await synchronize_workspace(channel, ws_id):
                 return
 
         # Build the workspace.
-        if not build_workspace(channel, workspace_id):
+        if not await build_workspace(channel, ws_id):
             return
         # Stop here if --build-only.
         if args.build_only:
             return
         # Submit the workspace.
-        cc_ids, submitted = submit_workspace(channel, workspace_id)
+        cc_ids, submitted = await submit_workspace(channel, ws_id)
         if not submitted:
             return
         # Execute the spawned change control.
-        log(0, f'{len(cc_ids)} change control(s) created')
+        logger.info('%s change control(s) created', len(cc_ids))
         for cc_id in cc_ids:
-            run_change_control(channel, cc_id)
+            await run_change_control(channel, cc_id)
+
+
+def check_cloudvision_version():
+    from importlib.metadata import version as pkg_version
+    MIN_VERSION = (1, 28, 0)
+    cv_version = pkg_version("cloudvision")
+    logger.info("cloudvision package version: %s", cv_version)
+    version_tuple = tuple(int(x) for x in cv_version.split(".")[:3])
+    if version_tuple < MIN_VERSION:
+        min_ver_str = ".".join(str(x) for x in MIN_VERSION)
+        logger.error("cloudvision >= %s is required (found %s).", min_ver_str, cv_version)
+        logger.error("  Please upgrade:  pip install --upgrade cloudvision")
+        logger.error("  Alternatively, use the older version of the script from"
+                     " branches older than v1.28.0")
+        sys.exit(1)
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+    check_cloudvision_version()
     desc = (
         "1. Get studio inputs from mainline.\n"
         "   Example:\n"
@@ -820,8 +798,8 @@ if __name__ == '__main__':
                               "(must be the www endpoint in case of CVaaS)"))
     parser.add_argument("--token-file", required=True, type=argparse.FileType('r'),
                         help="file with access token")
-    parser.add_argument("--cert-file", type=argparse.FileType('rb'),
-                        help="file with certificate to use as root CA")
+    parser.add_argument("--cert-file", type=str,
+                        help="path to certificate file to use as root CA")
     parser.add_argument("--operation", choices=['set', 'get'], default='get',
                         help="whether to get or set inputs")
     parser.add_argument("--yaml-file", type=argparse.FileType('r'),
@@ -838,12 +816,11 @@ if __name__ == '__main__':
                         help="existing workspace ID, if not wanting to create a new one")
     parser.add_argument("--sync", type=bool, default=False,
                         help="synchronize workspace with mainline before building")
+    parser.add_argument("--insecure", action="store_true", default=False,
+                        help="skip TLS certificate verification")
     pargs = parser.parse_args()
     studio_id = pargs.studio_id
     if pargs.action_id:
         action_id = pargs.action_id
-    conn = cv_client(
-        server=pargs.server, token=pargs.token_file.read().strip(),
-        cert_file=pargs.cert_file
-    )
-    main(pargs, conn)
+    conn = create_client(pargs)
+    asyncio.run(main(pargs, conn))

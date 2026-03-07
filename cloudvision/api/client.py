@@ -78,24 +78,23 @@ class AsyncCVClient:
 
     @classmethod
     def _get_ssl_context(cls, host, port=443, cacert=None, insecure=False):
-        if not insecure:
-            if not cacert:
-                # This would be the case for on prem deployments as they will have self-signed
-                # certificates. This won't save from bogus cert, but at least it verify that
-                # the cert didn't expired and the hostname is right
-                cadata = ssl.get_server_certificate((host, port))
-            else:
-                cacert = pathlib.Path(cacert)
-                with cacert.open("r") as f:
-                    cadata = f.read()
-
-            context = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH,
-                                                 cadata=cadata)
-            context.set_alpn_protocols(["h2"])
-        else:
+        if insecure:
             context = ssl.create_default_context()
             context.check_hostname = False
             context.verify_mode = ssl.CERT_NONE
+        elif cacert:
+            cacert = pathlib.Path(cacert)
+            with cacert.open("r") as f:
+                cadata = f.read()
+            context = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH,
+                                                 cadata=cadata)
+        else:
+            # Use system CA bundle; works for publicly-signed certs (CVaaS).
+            # For on-prem deployments with self-signed certificates,
+            # provide the CA cert via cacert or set insecure=True.
+            cadata = ssl.get_server_certificate((host, port))
+            context = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH, cadata=cadata)
+        context.set_alpn_protocols(["h2"])
         return context
 
     @classmethod
