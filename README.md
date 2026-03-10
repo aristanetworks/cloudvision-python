@@ -94,7 +94,7 @@ import asyncio
 from cloudvision.api.client import AsyncCVClient
 from cloudvision.api.arista.inventory.v1 import DeviceServiceStub, DeviceStreamRequest
 
-async def get_auditlog():
+async def get_devices():
     client = AsyncCVClient.from_token('<your service account token>', 'your-cvp.io')
 
     # get channel
@@ -107,7 +107,7 @@ async def get_auditlog():
         async for item in service.get_all(DeviceStreamRequest()):
             print(item)
 
-asyncio.run(get_auditlog())
+asyncio.run(get_devices())
 ```
 
 ## CloudVision Connector

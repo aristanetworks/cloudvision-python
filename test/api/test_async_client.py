@@ -3,64 +3,161 @@
 # that can be found in the COPYING file.
 
 import ssl
-import asyncio
 import functools
+import tempfile
 
+import urllib3
 import pytest
-from grpclib import utils, server
-import pytest_asyncio
-from cloudvision.api.arista.inventory import v1 as inventory
-from cloudvision.api.client import AsyncCVClient
+from cloudvision.api.client import AsyncCVClient, UnableToAuthenticateException
 from pathlib import Path
 
-TEST_TOKEN = 'test'
-THIS_DIR = Path(__file__).parent
-TEST_DIR = THIS_DIR.parent
-TEST_DATA_DIR = Path.joinpath(TEST_DIR, "test_data")
+from . import utils
+
+pytestmark = [pytest.mark.filterwarnings(
+    "ignore:Unverified HTTPS request is being made to host 'localhost'")]
 
 
-class MockInventoryService(inventory.DeviceServiceBase):
+@pytest.fixture
+def tmp_dir_factory():
+    with tempfile.TemporaryDirectory() as td:
+        counter = 1
+        td = Path(td)
 
-    async def _call_rpc_handler_server_stream(self, handler, stream, request):
-        assert stream.metadata['authorization'] == f'Bearer {TEST_TOKEN}'
-        return await super()._call_rpc_handler_server_stream(handler, stream, request)
+        def factory():
+            nonlocal counter
+            d = td / str(counter)
+            d.mkdir()
+            counter += 1
+            return d
 
-    async def get_all(self, device_stream_request):
-        for i in range(3):
-            yield inventory.DeviceStreamResponse(
-                value=inventory.Device(
-                    key=inventory.DeviceKey(device_id=f'device-{i}')
-                )
-            )
-
-
-@pytest_asyncio.fixture
-async def grpc_server(unused_tcp_port_factory):
-    invService = MockInventoryService()
-    srv = server.Server([invService])
-
-    context = ssl.create_default_context(purpose=ssl.Purpose.CLIENT_AUTH)
-    context.load_cert_chain(certfile=Path.joinpath(TEST_DATA_DIR, "cert.pem"),
-                            keyfile=Path.joinpath(TEST_DATA_DIR, "key.pem"))
-    with utils.graceful_exit([server]):
-        async with srv:
-            port = unused_tcp_port_factory()
-            await srv.start('localhost', port, ssl=context)
-            yield 'localhost', port
+        yield factory
 
 
 @pytest.mark.asyncio
-async def test_token_auth(grpc_server):
-    host, port = grpc_server
-    callable = functools.partial(AsyncCVClient.from_token, TEST_TOKEN, host=host, port=port)
-    # Need to run this in executor, otherwise it would block the event loop forever
-    client = await asyncio.get_running_loop().run_in_executor(None, callable)
-    with client as channel:
-        stub = inventory.DeviceServiceStub(channel)
-        result = []
-        async for device in stub.get_all(inventory.DeviceStreamRequest(), timeout=10):
-            result.append(device)
+async def test_self_signed(tmp_dir_factory, unused_tcp_port_factory):
+    certs = utils.create_self_signed_cert(tmp_dir_factory())
+    async with utils.grpc_server(unused_tcp_port_factory(), certs) as (host, port):
+        f = functools.partial(AsyncCVClient.from_token, utils.TEST_TOKEN, host=host,
+                              port=port)
+        await utils.assert_grpc_response(f)
 
-        assert len(result) == 3
-        assert set([dev.value.key.device_id for dev in result]) == \
-            {'device-0', 'device-1', 'device-2'}
+
+@pytest.mark.asyncio
+async def test_self_signed_insecure(tmp_dir_factory, unused_tcp_port_factory):
+    certs = utils.create_self_signed_cert(tmp_dir_factory())
+
+    async with utils.grpc_server(unused_tcp_port_factory(), certs) as (host, port):
+        f = functools.partial(AsyncCVClient.from_token, utils.TEST_TOKEN, host=host,
+                              port=port, insecure=True)
+        await utils.assert_grpc_response(f)
+
+
+@pytest.mark.asyncio
+async def test_self_signed_insecure_wrong_host(tmp_dir_factory, unused_tcp_port_factory):
+    certs = utils.create_self_signed_cert(tmp_dir_factory(), hostname='example.org')
+    async with utils.grpc_server(unused_tcp_port_factory(), certs) as (host, port):
+        f = functools.partial(AsyncCVClient.from_token, utils.TEST_TOKEN, host=host,
+                              port=port, insecure=True)
+        await utils.assert_grpc_response(f)
+
+
+@pytest.mark.asyncio
+async def test_self_signed_wrong_host(tmp_dir_factory, unused_tcp_port_factory):
+    certs = utils.create_self_signed_cert(tmp_dir_factory(), hostname='example.org')
+    async with utils.grpc_server(unused_tcp_port_factory(), certs) as (host, port):
+        f = functools.partial(AsyncCVClient.from_token, utils.TEST_TOKEN, host=host,
+                              port=port)
+        with pytest.raises(ssl.SSLCertVerificationError):
+            await utils.assert_grpc_response(f)
+
+
+@pytest.mark.asyncio
+async def test_ca_cert_provided(tmp_dir_factory, unused_tcp_port_factory):
+    certs = utils.create_ca_signed_certs(tmp_dir_factory())
+    async with utils.grpc_server(unused_tcp_port_factory(), certs) as (host, port):
+        f = functools.partial(AsyncCVClient.from_token, utils.TEST_TOKEN, host=host,
+                              port=port, cacert=certs.cacert)
+
+        await utils.assert_grpc_response(f)
+
+
+@pytest.mark.asyncio
+async def test_bogus_ca_cert(tmp_dir_factory, unused_tcp_port_factory):
+    realCerts = utils.create_ca_signed_certs(tmp_dir_factory())
+    bogusCerts = utils.create_ca_signed_certs(tmp_dir_factory())
+
+    async with utils.grpc_server(unused_tcp_port_factory(), bogusCerts) as (host, port):
+        f = functools.partial(AsyncCVClient.from_token, utils.TEST_TOKEN, host=host,
+                              port=port, cacert=realCerts.cacert)
+        with pytest.raises(ssl.SSLCertVerificationError):
+            await utils.assert_grpc_response(f)
+
+
+@pytest.mark.asyncio
+async def test_insecure(tmp_dir_factory, unused_tcp_port_factory):
+    bogusCerts = utils.create_ca_signed_certs(tmp_dir_factory())
+
+    async with utils.grpc_server(unused_tcp_port_factory(), bogusCerts) as (host, port):
+        f = functools.partial(AsyncCVClient.from_token, utils.TEST_TOKEN, host=host,
+                              port=port, insecure=True)
+        await utils.assert_grpc_response(f)
+
+
+@pytest.mark.asyncio
+async def test_user_password_sefl_signed(tmp_dir_factory, unused_tcp_port_factory):
+    certs = utils.create_self_signed_cert(tmp_dir_factory())
+    port = unused_tcp_port_factory()
+    async with utils.http_server(port=port, certs=certs):
+        client = AsyncCVClient.from_user_credentials(username=utils.USERNAME,
+                                                     password=utils.PASSWORD, host='localhost',
+                                                     port=port)
+        assert client.token == utils.TEST_TOKEN
+
+
+@pytest.mark.asyncio
+async def test_user_password_with_ca(tmp_dir_factory, unused_tcp_port_factory):
+    certs = utils.create_ca_signed_certs(tmp_dir_factory())
+    port = unused_tcp_port_factory()
+    async with utils.http_server(port=port, certs=certs):
+        client = AsyncCVClient.from_user_credentials(username=utils.USERNAME,
+                                                     password=utils.PASSWORD, host='localhost',
+                                                     port=port, cacert=certs.cacert)
+        assert client.token == utils.TEST_TOKEN
+
+
+@pytest.mark.asyncio
+async def test_user_password_wrong_ca_cert(tmp_dir_factory, unused_tcp_port_factory):
+    realCert = utils.create_ca_signed_certs(tmp_dir_factory())
+    bogusCert = utils.create_ca_signed_certs(tmp_dir_factory())
+
+    port = unused_tcp_port_factory()
+    async with utils.http_server(port=port, certs=bogusCert):
+        with pytest.raises(UnableToAuthenticateException):
+            AsyncCVClient.from_user_credentials(username=utils.USERNAME,
+                                                password=utils.PASSWORD, host='localhost',
+                                                port=port, cacert=realCert.cacert)
+
+
+@pytest.mark.asyncio
+async def test_user_password_wrong_ca_cert_insecure(tmp_dir_factory, unused_tcp_port_factory):
+    bogusCert = utils.create_ca_signed_certs(tmp_dir_factory())
+
+    port = unused_tcp_port_factory()
+    async with utils.http_server(port=port, certs=bogusCert):
+        client = AsyncCVClient.from_user_credentials(username=utils.USERNAME,
+                                                     password=utils.PASSWORD, host='localhost',
+                                                     port=port,
+                                                     insecure=True)
+        assert client.token == utils.TEST_TOKEN
+
+
+@pytest.mark.asyncio
+async def test_user_password_wrong_password(tmp_dir_factory, unused_tcp_port_factory):
+    certs = utils.create_ca_signed_certs(tmp_dir_factory())
+
+    port = unused_tcp_port_factory()
+    async with utils.http_server(port=port, certs=certs):
+        with pytest.raises(UnableToAuthenticateException):
+            AsyncCVClient.from_user_credentials(username=utils.USERNAME,
+                                                password='wrong', host='localhost',
+                                                port=port, cacert=certs.cacert)

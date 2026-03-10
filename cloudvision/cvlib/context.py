@@ -253,7 +253,7 @@ class Context:
         if not self.__asyncServiceChann:
             self.__asyncServiceChann = AsyncCVClient.from_token(
                 token=self.user.token, username=self.user.username,
-                host=host, port=port
+                host=host, port=port, cacert=self.connections.serviceCACert
             )._init_channel()
 
         return stub(self.__asyncServiceChann)
