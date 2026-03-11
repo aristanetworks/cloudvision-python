@@ -1,0 +1,6 @@
+# Copyright (c) 2026 Arista Networks, Inc.  All rights reserved.
+
+# pylint: disable=wildcard-import
+from arista.asset_manager.v1.services.gen_pb2 import *
+# pylint: disable=wildcard-import
+from arista.asset_manager.v1.services.gen_pb2_grpc import *
