@@ -4,7 +4,6 @@
 
 import json
 import signal
-import ssl
 from collections.abc import Callable
 from enum import IntEnum
 from logging import getLogger
@@ -30,7 +29,6 @@ from .constants import (
     BUILD_ID_ARG,
     STUDIO_ID_ARG,
     STUDIO_IDS_ARG,
-    TIMEOUT_REQUEST,
     TIMEOUT_REQUEST_DI,
     WORKSPACE_ID_ARG,
 )
