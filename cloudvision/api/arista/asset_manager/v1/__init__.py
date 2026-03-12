@@ -364,6 +364,7 @@ class DeviceTenantAssignment(aristaproto.Message):
     DeviceTenantAssignment represents tenant/customer information for a device
     This api could also be used to get a list of all devices assigned to a tenant
     id. Example : get list of devices assigned to a tenant
+    ```
     Request :
      {
        \"partial_eq_filter\": [
@@ -387,6 +388,7 @@ class DeviceTenantAssignment(aristaproto.Message):
        \"model_name\": \"DCS-7130\",
        ...
      }
+    ```
     """
 
     key: "DeviceKey" = aristaproto.message_field(1)
@@ -461,6 +463,7 @@ class LicenseTenantAssignment(aristaproto.Message):
     LicenseTenantAssignment represents tenant/customer information for a license
     This api could also be used to get a list of all licenses assigned to a tenant
     id. Example : get list of licenses assigned to a tenant
+    ```
     Request :
      {
        \"partial_eq_filter\": [
@@ -484,6 +487,7 @@ class LicenseTenantAssignment(aristaproto.Message):
        \"sku\": \"LIC-FIX-4-MACSEC\",
        ...
      }
+    ```
     """
 
     key: "__license_v1__.PurchasedLicenseKey" = aristaproto.message_field(1)
@@ -626,6 +630,7 @@ class AllowedTenants(aristaproto.Message):
     AllowedTenants represents a list of authorized
     customers whose assets (devices/licenses) the tenant key has
     permission to view or move.
+    ```
     Request :
      {
        \"key\" : {
@@ -644,7 +649,8 @@ class AllowedTenants(aristaproto.Message):
                 \"tenant_3\"
               ]
         }
-     }
+    }
+    ```
     """
 
     key: "TenantKey" = aristaproto.message_field(1)

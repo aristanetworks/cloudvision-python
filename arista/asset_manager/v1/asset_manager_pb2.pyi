@@ -315,6 +315,7 @@ class DeviceTenantAssignment(google.protobuf.message.Message):
     """DeviceTenantAssignment represents tenant/customer information for a device
     This api could also be used to get a list of all devices assigned to a tenant
     id. Example : get list of devices assigned to a tenant
+    ```
     Request :
      {
        "partial_eq_filter": [
@@ -338,6 +339,7 @@ class DeviceTenantAssignment(google.protobuf.message.Message):
        "model_name": "DCS-7130",
        ...
      }
+    ```
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -460,6 +462,7 @@ class LicenseTenantAssignment(google.protobuf.message.Message):
     """LicenseTenantAssignment represents tenant/customer information for a license
     This api could also be used to get a list of all licenses assigned to a tenant
     id. Example : get list of licenses assigned to a tenant
+    ```
     Request :
      {
        "partial_eq_filter": [
@@ -483,6 +486,7 @@ class LicenseTenantAssignment(google.protobuf.message.Message):
        "sku": "LIC-FIX-4-MACSEC",
        ...
      }
+    ```
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -712,6 +716,7 @@ class AllowedTenants(google.protobuf.message.Message):
     """AllowedTenants represents a list of authorized
     customers whose assets (devices/licenses) the tenant key has
     permission to view or move.
+    ```
     Request :
      {
        "key" : {
@@ -730,7 +735,8 @@ class AllowedTenants(google.protobuf.message.Message):
     		"tenant_3"
     	  ]
     	}
-     }
+    }
+    ```
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
