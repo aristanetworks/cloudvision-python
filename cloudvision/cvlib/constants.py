@@ -16,3 +16,5 @@ WORKSPACE_ID_ARG = "WorkspaceID"
 TIMEOUT_REQUEST = 60  # 1 min in seconds
 # General timeout for device command requests
 TIMEOUT_REQUEST_DI = 300  # 5 min in seconds
+
+SYSTYPE_TAG_LABEL = "systype"

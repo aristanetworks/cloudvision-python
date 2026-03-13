@@ -8,7 +8,20 @@ from .exceptions import (
     TagMissingException,
     TagTooManyValuesException
 )
+from arista.tag.v2.services import (
+    TagAssignmentServiceStub,
+    TagAssignmentStreamRequest
+)
+from arista.tag.v2.tag_pb2 import (
+    TagAssignment,
+    ELEMENT_TYPE_DEVICE,
+    CREATOR_TYPE_SYSTEM
+)
 from .tags import Tag
+from .constants import (
+    MAINLINE_WS_ID,
+    SYSTYPE_TAG_LABEL
+)
 
 
 OLD_VEOS_REGEX = r'(v|c)EOS(-)*(Lab)*'
@@ -430,6 +443,54 @@ class Device:
                 elif not inTopology:
                     interfaces.append(Interface(name=intfId, device=self))
         return interfaces
+
+    def getPrimaryManagementIntf(self, ctx):
+        '''
+        Returns the primary management interface of the device. This would be Management0 for
+        modular devices and Management1 for fixed systems. It also makes sure that the interface
+        Management1/1 exists on the device. If not, returns the first management interface in the
+        alphabetical sorted order.
+        '''
+        mgmtIntfs = []
+        for intf in self.getInterfaces():
+            if intf.name.startswith("Management"):
+                mgmtIntfs.append(intf.name)
+        if not mgmtIntfs:
+            # If the device mac is empty, it is an expected/pre-provisioned device. Should return a
+            # default value to prevent errors.
+            if not self.mac:
+                return "Management1"
+            return ""
+        mgmtIntfs.sort()
+        tagClient = ctx.getApiClient(TagAssignmentServiceStub)
+        tagRequest = TagAssignmentStreamRequest()
+        tagFilter = TagAssignment()
+        tagFilter.tag_creator_type = CREATOR_TYPE_SYSTEM
+        tagFilter.key.element_type = ELEMENT_TYPE_DEVICE
+        tagFilter.key.workspace_id.value = MAINLINE_WS_ID
+        tagFilter.key.label.value = SYSTYPE_TAG_LABEL
+        tagFilter.key.device_id.value = self.id
+        tagRequest.partial_eq_filter.append(tagFilter)
+        systemType = ""
+        primaryMgmtIntf = ""
+        for resp in tagClient.GetAll(tagRequest):
+            systemType = resp.value.key.value.value
+        if systemType.lower() == "fixed":
+            primaryMgmtIntf = "Management1"
+        elif systemType.lower() == "modular":
+            primaryMgmtIntf = "Management0"
+        elif systemType:
+            raise Exception("found unexpected systype tag for device")
+        else:
+            raise Exception("could not find systype tag for device")
+        # There are cases where Mgmt0 and Mgmt1 are not present and a different primary interface
+        # is needed. For example, devices with AWE sku have systype tag as fixed but don't have
+        # management1 on the device but Management1/1 interface instead.
+        # Checking this only for fixed systems as Management0 is not a physical interface
+        # and is not returned by device object.
+        if primaryMgmtIntf == "Management1" and primaryMgmtIntf not in mgmtIntfs:
+            primaryMgmtIntf = mgmtIntfs[0]
+        return primaryMgmtIntf
 
 
 # Interfaces and devices are defined together to avoid circular imports
