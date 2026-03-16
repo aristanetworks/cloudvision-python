@@ -14,6 +14,7 @@ __all__ = (
     "ResponseCode",
     "BuildState",
     "BuildStage",
+    "HierarchyErrorCode",
     "DeviceAuthzStatus",
     "HierarchyBuildStatusCode",
     "ConfigValidationSkipCause",
@@ -31,6 +32,8 @@ __all__ = (
     "Workspace",
     "InputError",
     "InputErrors",
+    "HierarchyError",
+    "HierarchyErrors",
     "InputWarning",
     "InputWarnings",
     "InputValidationResult",
@@ -384,6 +387,21 @@ class BuildStage(aristaproto.Enum):
     """
     BUILD_STAGE_IMAGE_VALIDATION describes the stage that validates the
     generated images (e.g., checks device compatibility).
+    """
+
+
+class HierarchyErrorCode(aristaproto.Enum):
+    """HierarchyErrorCode is an error code related to hierarchy."""
+
+    UNSPECIFIED = 0
+    """
+    HIERARCHY_ERROR_CODE_UNSPECIFIED indicates unspecified hierarchy error code.
+    """
+
+    INPUT_VALIDATION = 1
+    """
+    HIERARCHY_ERROR_CODE_INPUT_VALIDATION indicates an input validation error
+    for software image assignments in hierarchy.
     """
 
 
@@ -873,6 +891,28 @@ class InputErrors(aristaproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class HierarchyError(aristaproto.Message):
+    """
+    HierarchyError holds the details for a hierarchy
+    validation error.
+    """
+
+    message: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    """message is the error message."""
+
+    code: "HierarchyErrorCode" = aristaproto.enum_field(2)
+    """code is the error code of hierarchy error."""
+
+
+@dataclass(eq=False, repr=False)
+class HierarchyErrors(aristaproto.Message):
+    """HierarchyErrors is a list of HierarchyError."""
+
+    values: List["HierarchyError"] = aristaproto.message_field(1)
+    """values is a list of HierarchyError."""
+
+
+@dataclass(eq=False, repr=False)
 class InputWarning(aristaproto.Message):
     """
     InputWarning holds the details for a warning on a studio input field or value.
@@ -920,6 +960,9 @@ class InputValidationResult(aristaproto.Message):
     """
     input_warnings are warnings for values assigned to fields in the input schema.
     """
+
+    hierarchy_errors: "HierarchyErrors" = aristaproto.message_field(6)
+    """hierarchy_errors are errors for hierarchy."""
 
 
 @dataclass(eq=False, repr=False)

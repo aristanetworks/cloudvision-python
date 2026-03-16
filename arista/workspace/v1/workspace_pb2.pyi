@@ -355,6 +355,30 @@ generated images (e.g., checks device compatibility).
 """
 global___BuildStage = BuildStage
 
+class _HierarchyErrorCode:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _HierarchyErrorCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_HierarchyErrorCode.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    HIERARCHY_ERROR_CODE_UNSPECIFIED: _HierarchyErrorCode.ValueType  # 0
+    """HIERARCHY_ERROR_CODE_UNSPECIFIED indicates unspecified hierarchy error code."""
+    HIERARCHY_ERROR_CODE_INPUT_VALIDATION: _HierarchyErrorCode.ValueType  # 1
+    """HIERARCHY_ERROR_CODE_INPUT_VALIDATION indicates an input validation error
+    for software image assignments in hierarchy.
+    """
+
+class HierarchyErrorCode(_HierarchyErrorCode, metaclass=_HierarchyErrorCodeEnumTypeWrapper):
+    """HierarchyErrorCode is an error code related to hierarchy."""
+
+HIERARCHY_ERROR_CODE_UNSPECIFIED: HierarchyErrorCode.ValueType  # 0
+"""HIERARCHY_ERROR_CODE_UNSPECIFIED indicates unspecified hierarchy error code."""
+HIERARCHY_ERROR_CODE_INPUT_VALIDATION: HierarchyErrorCode.ValueType  # 1
+"""HIERARCHY_ERROR_CODE_INPUT_VALIDATION indicates an input validation error
+for software image assignments in hierarchy.
+"""
+global___HierarchyErrorCode = HierarchyErrorCode
+
 class _DeviceAuthzStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -1140,6 +1164,53 @@ class InputErrors(google.protobuf.message.Message):
 global___InputErrors = InputErrors
 
 @typing.final
+class HierarchyError(google.protobuf.message.Message):
+    """HierarchyError holds the details for a hierarchy
+    validation error.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MESSAGE_FIELD_NUMBER: builtins.int
+    CODE_FIELD_NUMBER: builtins.int
+    code: global___HierarchyErrorCode.ValueType
+    """code is the error code of hierarchy error."""
+    @property
+    def message(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """message is the error message."""
+
+    def __init__(
+        self,
+        *,
+        message: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        code: global___HierarchyErrorCode.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["message", b"message"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["code", b"code", "message", b"message"]) -> None: ...
+
+global___HierarchyError = HierarchyError
+
+@typing.final
+class HierarchyErrors(google.protobuf.message.Message):
+    """HierarchyErrors is a list of HierarchyError."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HierarchyError]:
+        """values is a list of HierarchyError."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___HierarchyError] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___HierarchyErrors = HierarchyErrors
+
+@typing.final
 class InputWarning(google.protobuf.message.Message):
     """InputWarning holds the details for a warning on a studio input field or value."""
 
@@ -1208,6 +1279,7 @@ class InputValidationResult(google.protobuf.message.Message):
     INPUT_VALUE_ERRORS_FIELD_NUMBER: builtins.int
     OTHER_ERRORS_FIELD_NUMBER: builtins.int
     INPUT_WARNINGS_FIELD_NUMBER: builtins.int
+    HIERARCHY_ERRORS_FIELD_NUMBER: builtins.int
     @property
     def input_schema_errors(self) -> global___InputErrors:
         """input_schema_errors are errors for fields in the input schema."""
@@ -1224,6 +1296,10 @@ class InputValidationResult(google.protobuf.message.Message):
     def input_warnings(self) -> global___InputWarnings:
         """input_warnings are warnings for values assigned to fields in the input schema."""
 
+    @property
+    def hierarchy_errors(self) -> global___HierarchyErrors:
+        """hierarchy_errors are errors for hierarchy."""
+
     def __init__(
         self,
         *,
@@ -1231,9 +1307,10 @@ class InputValidationResult(google.protobuf.message.Message):
         input_value_errors: global___InputErrors | None = ...,
         other_errors: fmp.wrappers_pb2.RepeatedString | None = ...,
         input_warnings: global___InputWarnings | None = ...,
+        hierarchy_errors: global___HierarchyErrors | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["input_schema_errors", b"input_schema_errors", "input_value_errors", b"input_value_errors", "input_warnings", b"input_warnings", "other_errors", b"other_errors"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["input_schema_errors", b"input_schema_errors", "input_value_errors", b"input_value_errors", "input_warnings", b"input_warnings", "other_errors", b"other_errors"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["hierarchy_errors", b"hierarchy_errors", "input_schema_errors", b"input_schema_errors", "input_value_errors", b"input_value_errors", "input_warnings", b"input_warnings", "other_errors", b"other_errors"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["hierarchy_errors", b"hierarchy_errors", "input_schema_errors", b"input_schema_errors", "input_value_errors", b"input_value_errors", "input_warnings", b"input_warnings", "other_errors", b"other_errors"]) -> None: ...
 
 global___InputValidationResult = InputValidationResult
 
