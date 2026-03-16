@@ -41,6 +41,7 @@ files=`git diff-tree --no-commit-id --name-only --diff-filter=ACMR -r $branchBas
 	grep -v 'docsrc/'`
 status=0
 
+
 for file in $files; do
 	if egrep -q "$confidential" $file ; then
 		# Need to omit the check_copyright script from this check as it will always fail
