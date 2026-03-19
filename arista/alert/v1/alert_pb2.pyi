@@ -2199,6 +2199,7 @@ class Matches(google.protobuf.message.Message):
     EVENT_TYPES_FIELD_NUMBER: builtins.int
     DEVICE_TAGS_FIELD_NUMBER: builtins.int
     INTF_TAGS_FIELD_NUMBER: builtins.int
+    VIRTUAL_TAGS_FIELD_NUMBER: builtins.int
     RULE_IDS_FIELD_NUMBER: builtins.int
     @property
     def severities(self) -> fmp.wrappers_pb2.RepeatedString:
@@ -2228,6 +2229,10 @@ class Matches(google.protobuf.message.Message):
         """intf_tags is a string tag query that is used to match on the event's interface tags"""
 
     @property
+    def virtual_tags(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """virtual_tags is a string tag query that is used to match on the event's virtual tags"""
+
+    @property
     def rule_ids(self) -> fmp.wrappers_pb2.RepeatedString:
         """rule_ids is a list of rule IDs to filter on,
         if an event does not have one of these rule IDs, it will not match
@@ -2241,10 +2246,11 @@ class Matches(google.protobuf.message.Message):
         event_types: fmp.wrappers_pb2.RepeatedString | None = ...,
         device_tags: google.protobuf.wrappers_pb2.StringValue | None = ...,
         intf_tags: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        virtual_tags: google.protobuf.wrappers_pb2.StringValue | None = ...,
         rule_ids: fmp.wrappers_pb2.RepeatedString | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["device_tags", b"device_tags", "devices", b"devices", "event_types", b"event_types", "intf_tags", b"intf_tags", "rule_ids", b"rule_ids", "severities", b"severities"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["device_tags", b"device_tags", "devices", b"devices", "event_types", b"event_types", "intf_tags", b"intf_tags", "rule_ids", b"rule_ids", "severities", b"severities"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["device_tags", b"device_tags", "devices", b"devices", "event_types", b"event_types", "intf_tags", b"intf_tags", "rule_ids", b"rule_ids", "severities", b"severities", "virtual_tags", b"virtual_tags"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_tags", b"device_tags", "devices", b"devices", "event_types", b"event_types", "intf_tags", b"intf_tags", "rule_ids", b"rule_ids", "severities", b"severities", "virtual_tags", b"virtual_tags"]) -> None: ...
 
 global___Matches = Matches
 

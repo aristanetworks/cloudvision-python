@@ -1527,6 +1527,11 @@ class Matches(aristaproto.Message):
     intf_tags is a string tag query that is used to match on the event's interface tags
     """
 
+    virtual_tags: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
+    """
+    virtual_tags is a string tag query that is used to match on the event's virtual tags
+    """
+
     rule_ids: "___fmp__.RepeatedString" = aristaproto.message_field(6)
     """
     rule_ids is a list of rule IDs to filter on,
