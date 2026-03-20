@@ -32,7 +32,8 @@ __all__ = (
     "DeviceToStageMap",
     "ChangeControl",
     "ApproveConfig",
-    "ActionCount",
+    "ActionSummary",
+    "ActionSummaries",
     "ChangeControlSummary",
     "MetaResponse",
     "ApproveConfigRequest",
@@ -683,13 +684,34 @@ class ApproveConfig(aristaproto.Message):
 
 
 @dataclass(eq=False, repr=False)
-class ActionCount(aristaproto.Message):
-    """ActionCount holds the count of the various action types."""
+class ActionSummary(aristaproto.Message):
+    """
+    ActionSummary provides detailed information about actions in a change control.
+    """
 
-    values: Dict[str, int] = aristaproto.map_field(
-        1, aristaproto.TYPE_STRING, aristaproto.TYPE_UINT32
-    )
-    """values is a map from action id to number of actions of said type."""
+    id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    """
+    id uniquely identifies the action.
+    For built-in actions: it will be the action identifier (e.g., \"setImage\", \"setConfig\")
+    For custom scripts: it will be the script UUID
+    For task actions: it will be the task type (e.g., \"ADD\", \"CONFIG_PUSH\", \"IMAGE_PUSH\")
+    """
+
+    name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    """name is the name of the action."""
+
+    count: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_UINT32)
+    """
+    count is the number of times this action appears in the change control.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class ActionSummaries(aristaproto.Message):
+    """ActionSummaries contains a list of ActionSummary values."""
+
+    values: List["ActionSummary"] = aristaproto.message_field(1)
+    """values is a list of ActionSummary."""
 
 
 @dataclass(eq=False, repr=False)
@@ -710,9 +732,9 @@ class ChangeControlSummary(aristaproto.Message):
     device_count is the count of the devices impacted in the change control.
     """
 
-    action_count: "ActionCount" = aristaproto.message_field(5)
+    action_summaries: "ActionSummaries" = aristaproto.message_field(5)
     """
-    action_count is the map of action types to their corresponding counts.
+    action_summaries provides detailed information about each action type used in the change control.
     """
 
     created_time: datetime = aristaproto.message_field(6)

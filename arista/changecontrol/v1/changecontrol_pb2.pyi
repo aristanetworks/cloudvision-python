@@ -1056,40 +1056,61 @@ class ApproveConfig(google.protobuf.message.Message):
 global___ApproveConfig = ApproveConfig
 
 @typing.final
-class ActionCount(google.protobuf.message.Message):
-    """ActionCount holds the count of the various action types."""
+class ActionSummary(google.protobuf.message.Message):
+    """ActionSummary provides detailed information about actions in a change control."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing.final
-    class ValuesEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.int
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.int = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
-
-    VALUES_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    COUNT_FIELD_NUMBER: builtins.int
     @property
-    def values(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.int]:
-        """values is a map from action id to number of actions of said type."""
+    def id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """id uniquely identifies the action.
+        For built-in actions: it will be the action identifier (e.g., "setImage", "setConfig")
+        For custom scripts: it will be the script UUID
+        For task actions: it will be the task type (e.g., "ADD", "CONFIG_PUSH", "IMAGE_PUSH")
+        """
+
+    @property
+    def name(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """name is the name of the action."""
+
+    @property
+    def count(self) -> google.protobuf.wrappers_pb2.UInt32Value:
+        """count is the number of times this action appears in the change control."""
 
     def __init__(
         self,
         *,
-        values: collections.abc.Mapping[builtins.str, builtins.int] | None = ...,
+        id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        name: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        count: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["count", b"count", "id", b"id", "name", b"name"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["count", b"count", "id", b"id", "name", b"name"]) -> None: ...
+
+global___ActionSummary = ActionSummary
+
+@typing.final
+class ActionSummaries(google.protobuf.message.Message):
+    """ActionSummaries contains a list of ActionSummary values."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ActionSummary]:
+        """values is a list of ActionSummary."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___ActionSummary] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
-global___ActionCount = ActionCount
+global___ActionSummaries = ActionSummaries
 
 @typing.final
 class ChangeControlSummary(google.protobuf.message.Message):
@@ -1101,7 +1122,7 @@ class ChangeControlSummary(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     DEVICE_COUNT_FIELD_NUMBER: builtins.int
-    ACTION_COUNT_FIELD_NUMBER: builtins.int
+    ACTION_SUMMARIES_FIELD_NUMBER: builtins.int
     CREATED_TIME_FIELD_NUMBER: builtins.int
     CREATED_USER_FIELD_NUMBER: builtins.int
     LAST_EDITED_TIME_FIELD_NUMBER: builtins.int
@@ -1130,8 +1151,8 @@ class ChangeControlSummary(google.protobuf.message.Message):
         """device_count is the count of the devices impacted in the change control."""
 
     @property
-    def action_count(self) -> global___ActionCount:
-        """action_count is the map of action types to their corresponding counts."""
+    def action_summaries(self) -> global___ActionSummaries:
+        """action_summaries provides detailed information about each action type used in the change control."""
 
     @property
     def created_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -1192,7 +1213,7 @@ class ChangeControlSummary(google.protobuf.message.Message):
         name: google.protobuf.wrappers_pb2.StringValue | None = ...,
         status: global___ChangeControlStatus.ValueType = ...,
         device_count: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
-        action_count: global___ActionCount | None = ...,
+        action_summaries: global___ActionSummaries | None = ...,
         created_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         created_user: google.protobuf.wrappers_pb2.StringValue | None = ...,
         last_edited_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -1207,7 +1228,7 @@ class ChangeControlSummary(google.protobuf.message.Message):
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
         approved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["action_count", b"action_count", "approved", b"approved", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["action_count", b"action_count", "approved", b"approved", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["action_summaries", b"action_summaries", "approved", b"approved", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["action_summaries", b"action_summaries", "approved", b"approved", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user", "status", b"status"]) -> None: ...
 
 global___ChangeControlSummary = ChangeControlSummary
