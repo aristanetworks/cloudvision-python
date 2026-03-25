@@ -56,6 +56,17 @@ class _OperationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enum
     Not used at the moment. Deletion of specific fields will
     come with UPDATED operation.
     """
+    BATCH_START: _Operation.ValueType  # 50
+    """BATCH_START indicates the beginning of a batch of notifications.
+    This message will carry no resource value. A corresponding BATCH_END
+    message will mark the end of the batch. The semantics of what a
+    batch means is defined by the service.
+    """
+    BATCH_END: _Operation.ValueType  # 51
+    """BATCH_END indicates the end of a batch of notifications that
+    began with a BATCH_START message. This message will carry no
+    resource value.
+    """
 
 class Operation(_Operation, metaclass=_OperationEnumTypeWrapper): ...
 
@@ -89,5 +100,16 @@ The Resource's key is always set.
 Note:
 Not used at the moment. Deletion of specific fields will
 come with UPDATED operation.
+"""
+BATCH_START: Operation.ValueType  # 50
+"""BATCH_START indicates the beginning of a batch of notifications.
+This message will carry no resource value. A corresponding BATCH_END
+message will mark the end of the batch. The semantics of what a
+batch means is defined by the service.
+"""
+BATCH_END: Operation.ValueType  # 51
+"""BATCH_END indicates the end of a batch of notifications that
+began with a BATCH_START message. This message will carry no
+resource value.
 """
 global___Operation = Operation

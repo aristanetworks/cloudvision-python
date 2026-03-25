@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(arista/subscriptions/subscriptions.proto\x12\x14\x61rista.subscriptions*r\n\tOperation\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07INITIAL\x10\n\x12\x19\n\x15INITIAL_SYNC_COMPLETE\x10\x0b\x12\x0b\n\x07UPDATED\x10\x14\x12\x0b\n\x07\x44\x45LETED\x10\x1e\x12\x12\n\x0ePARTIAL_DELETE\x10(BCZAgithub.com/aristanetworks/cloudvision-go/api/arista/subscriptionsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(arista/subscriptions/subscriptions.proto\x12\x14\x61rista.subscriptions*\x92\x01\n\tOperation\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07INITIAL\x10\n\x12\x19\n\x15INITIAL_SYNC_COMPLETE\x10\x0b\x12\x0b\n\x07UPDATED\x10\x14\x12\x0b\n\x07\x44\x45LETED\x10\x1e\x12\x12\n\x0ePARTIAL_DELETE\x10(\x12\x0f\n\x0b\x42\x41TCH_START\x10\x32\x12\r\n\tBATCH_END\x10\x33\x42\x43ZAgithub.com/aristanetworks/cloudvision-go/api/arista/subscriptionsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,6 +32,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'arista.subscriptions.subscr
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'ZAgithub.com/aristanetworks/cloudvision-go/api/arista/subscriptions'
-  _globals['_OPERATION']._serialized_start=66
-  _globals['_OPERATION']._serialized_end=180
+  _globals['_OPERATION']._serialized_start=67
+  _globals['_OPERATION']._serialized_end=213
 # @@protoc_insertion_point(module_scope)
