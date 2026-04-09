@@ -20,7 +20,6 @@ NO_DEFAULT_FILTER_FIELD_NUMBER: builtins.int
 REQUIRE_SET_KEY_FIELD_NUMBER: builtins.int
 UNKEYED_MODEL_FIELD_NUMBER: builtins.int
 PAGINATED_FIELD_NUMBER: builtins.int
-DISABLE_YANG_FOR_MESSAGE_FIELD_NUMBER: builtins.int
 CHILD_RESOURCE_FIELD_NUMBER: builtins.int
 SORTABLE_FIELD_NUMBER: builtins.int
 DISABLE_YANG_FIELD_NUMBER: builtins.int
@@ -34,7 +33,6 @@ no_default_filter: google.protobuf.internal.extension_dict._ExtensionFieldDescri
 require_set_key: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.MessageOptions, builtins.bool]
 unkeyed_model: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.MessageOptions, builtins.str]
 paginated: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.MessageOptions, builtins.bool]
-disable_yang_for_message: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.MessageOptions, builtins.bool]
 child_resource: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, builtins.str]
 sortable: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, builtins.str]
 disable_yang: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FileOptions, builtins.str]
