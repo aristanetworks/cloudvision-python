@@ -290,7 +290,7 @@ class GRPCClient(object):
         """
         Subscribe creates and executes a Subscribe protobuf message,
         returning a stream of notificationBatch.
-        queries must be a list of querry protobuf messages.
+        queries must be a list of query protobuf messages.
         sharding, if present must be a protobuf sharding message.
         timeout: if present, sets the GRPC timeout in seconds. Default is None (no timeout).
         """
@@ -300,6 +300,42 @@ class GRPCClient(object):
             sharded_sub=sharding,
         )
         stream = self.__client.Subscribe(req, metadata=self.metadata, timeout=timeout)
+        return (self.decode_batch(nb) for nb in stream)
+
+    def getAndSubscribe(
+        self,
+        queries: List[rtr.Query],
+        start: Optional[TIME_TYPE] = None,
+        versions=0,
+        sharding=None,
+        exact_range=False,
+        timeout: Optional[float] = None,
+    ):
+        """
+        GetAndSubscribe creates and executes a GetAndSubscribe protobuf message,
+        returning a stream of notificationBatch. This will initially consist of notifications
+        of the current state in CloudVision (i.e. a Get), after which it will transition to a
+        subscription method, where update notifications will be received for changes occurring to
+        the queried paths.
+        queries must be a list of query protobuf messages.
+        start, if present, must be a google.protobuf.timestamp_pb2.Timestamp or a datetime object.
+        versions, if present, specifies the maximum number of versions to retrieve.
+        sharding, if present must be a protobuf sharding message.
+        exact_range, if present, specifies whether to return the initial state at time `start`.
+        timeout: if present, sets the GRPC timeout in seconds. Default is None (no timeout).
+        """
+        start_ts = 0
+        if start:
+            start_ts = to_pbts(start).ToNanoseconds()
+
+        request = rtr.GetAndSubscribeRequest(
+            query=queries,
+            start=start_ts,
+            versions=versions,
+            sharded_sub=sharding,
+            exact_range=exact_range,
+        )
+        stream = self.__client.GetAndSubscribe(request, metadata=self.metadata, timeout=timeout)
         return (self.decode_batch(nb) for nb in stream)
 
     def publish(
@@ -359,6 +395,7 @@ class GRPCClient(object):
                 "name": batch.dataset.name,
                 "type": batch.dataset.type,
             },
+            "metadata": batch.metadata,
             "notifications": [self.decode_notification(n) for n in batch.notifications],
         }
         return res

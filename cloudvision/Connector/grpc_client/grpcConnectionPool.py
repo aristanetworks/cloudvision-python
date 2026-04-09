@@ -187,6 +187,47 @@ class PooledGRPCClient:
 
         return wrapped_stream()
 
+    def getAndSubscribe(
+        self,
+        queries: List[rtr.Query],
+        start: Optional[TIME_TYPE] = None,
+        versions=0,
+        sharding=None,
+        exact_range=False,
+        timeout: Optional[float] = None,
+    ):
+        """
+        GetAndSubscribe creates and executes a GetAndSubscribe protobuf message,
+        returning a stream of notificationBatch. This will initially consist of notifications
+        of the current state in CloudVision (i.e. a Get), after which it will transition to a
+        subscription method, where update notifications will be received for changes occurring to
+        the queried paths.
+        queries must be a list of query protobuf messages.
+        start, if present, must be a google.protobuf.timestamp_pb2.Timestamp or a datetime object.
+        versions, if present, specifies the maximum number of versions to retrieve.
+        sharding, if present, must be a protobuf sharding message.
+        exact_range, if present, specifies whether to return the initial state at time `start`.
+        timeout: if present, sets the GRPC timeout in seconds. Default is None (no timeout).
+        """
+        client = self._get_or_create_client()
+        stream = client.getAndSubscribe(
+            queries=queries,
+            start=start,
+            versions=versions,
+            sharding=sharding,
+            exact_range=exact_range,
+            timeout=timeout,
+        )
+
+        def wrapped_stream():
+            try:
+                for item in stream:
+                    yield item
+            finally:
+                client.release_stream()
+
+        return wrapped_stream()
+
     def get(
         self,
         queries: List[rtr.Query],
@@ -201,7 +242,8 @@ class PooledGRPCClient:
         notificationBatch.
         queries must be a list of querry protobuf messages.
         start and end, if present, must be nanoseconds timestamps (uint64).
-        sharding, if present must be a protobuf sharding message.
+        versions, if present, specifies the maximum number of versions to retrieve.
+        sharding, if present, must be a protobuf sharding message.
         Unary get request — uses any client, does not reserve a stream.
         """
         client = self._get_any_client()
