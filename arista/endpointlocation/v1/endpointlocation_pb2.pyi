@@ -95,6 +95,10 @@ class _MacTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTy
     """MAC_TYPE_LEARNED_DYNAMIC_FRR indicates a MAC learned dynamically and protected by an EVPN FRR backup tunnel."""
     MAC_TYPE_CONFIGURED_STATIC_FRR: _MacType.ValueType  # 31
     """MAC_TYPE_CONFIGURED_STATIC_FRR indicates a MAC configured statically and protected by an EVPN FRR backup tunnel."""
+    MAC_TYPE_VPLS_DYNAMIC_REMOTE: _MacType.ValueType  # 32
+    """MAC_TYPE_VPLS_DYNAMIC_REMOTE indicates a remote MAC learned dynamically from the VPLS."""
+    MAC_TYPE_CONFIGURED_SYS: _MacType.ValueType  # 33
+    """MAC_TYPE_CONFIGURED_SYS indicates a system MAC address configured on an interface."""
     MAC_TYPE_OTHER: _MacType.ValueType  # 99999
     """MAC_TYPE_OTHER is used for capturing future MAC types."""
 
@@ -165,6 +169,10 @@ MAC_TYPE_LEARNED_DYNAMIC_FRR: MacType.ValueType  # 30
 """MAC_TYPE_LEARNED_DYNAMIC_FRR indicates a MAC learned dynamically and protected by an EVPN FRR backup tunnel."""
 MAC_TYPE_CONFIGURED_STATIC_FRR: MacType.ValueType  # 31
 """MAC_TYPE_CONFIGURED_STATIC_FRR indicates a MAC configured statically and protected by an EVPN FRR backup tunnel."""
+MAC_TYPE_VPLS_DYNAMIC_REMOTE: MacType.ValueType  # 32
+"""MAC_TYPE_VPLS_DYNAMIC_REMOTE indicates a remote MAC learned dynamically from the VPLS."""
+MAC_TYPE_CONFIGURED_SYS: MacType.ValueType  # 33
+"""MAC_TYPE_CONFIGURED_SYS indicates a system MAC address configured on an interface."""
 MAC_TYPE_OTHER: MacType.ValueType  # 99999
 """MAC_TYPE_OTHER is used for capturing future MAC types."""
 global___MacType = MacType
