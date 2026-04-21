@@ -1207,7 +1207,7 @@ global___EmailSettings = EmailSettings
 
 @typing.final
 class AzureOAuth(google.protobuf.message.Message):
-    """AzureOAuth contains the settings for the sending of emails on Azure smtp server"""
+    """AzureOAuth contains the settings for authenticating against Azure using OAuth2"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1252,6 +1252,52 @@ class AzureOAuth(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["auth_uri", b"auth_uri", "client_id", b"client_id", "client_secret", b"client_secret", "scopes", b"scopes", "tenant_id", b"tenant_id"]) -> None: ...
 
 global___AzureOAuth = AzureOAuth
+
+@typing.final
+class OAuth2ClientCredentials(google.protobuf.message.Message):
+    """OAuth2ClientCredentials contains generic settings for authenticating webhook
+    requests using the OAuth2 client credentials (including OpenID Connect) flow.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CLIENT_ID_FIELD_NUMBER: builtins.int
+    CLIENT_SECRET_FIELD_NUMBER: builtins.int
+    TOKEN_URL_FIELD_NUMBER: builtins.int
+    SCOPE_FIELD_NUMBER: builtins.int
+    @property
+    def client_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """client_id of the OAuth2 client"""
+
+    @property
+    def client_secret(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """client_secret for the OAuth2 client"""
+
+    @property
+    def token_url(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """token_url is the full URL of the OAuth2/OIDC token endpoint
+        e.g. https://example.com/oauth2/token
+        """
+
+    @property
+    def scope(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """scope is the optional OAuth2 scope string requested for the access token.
+        Multiple scopes can be defined by separating them with spaces,
+        e.g. "scope1 scope2 scope3".
+        """
+
+    def __init__(
+        self,
+        *,
+        client_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        client_secret: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        token_url: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        scope: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["client_id", b"client_id", "client_secret", b"client_secret", "scope", b"scope", "token_url", b"token_url"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["client_id", b"client_id", "client_secret", b"client_secret", "scope", b"scope", "token_url", b"token_url"]) -> None: ...
+
+global___OAuth2ClientCredentials = OAuth2ClientCredentials
 
 @typing.final
 class HttpSettings(google.protobuf.message.Message):
@@ -1497,19 +1543,23 @@ class WebhookSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     AZURE_O_AUTH_FIELD_NUMBER: builtins.int
+    OAUTH2_CLIENT_CREDENTIALS_FIELD_NUMBER: builtins.int
     @property
     def azure_o_auth(self) -> global___AzureOAuth:
-        """azure_o_auth used for auth when using an Azure smtp server
-        uses auth_username
-        """
+        """azure_o_auth used for auth when using Azure to authenticate webhook requests"""
+
+    @property
+    def oauth2_client_credentials(self) -> global___OAuth2ClientCredentials:
+        """oauth2_client_credentials used for generic OAuth2/OIDC client-credentials auth for webhook"""
 
     def __init__(
         self,
         *,
         azure_o_auth: global___AzureOAuth | None = ...,
+        oauth2_client_credentials: global___OAuth2ClientCredentials | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth", "oauth2_client_credentials", b"oauth2_client_credentials"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["azure_o_auth", b"azure_o_auth", "oauth2_client_credentials", b"oauth2_client_credentials"]) -> None: ...
 
 global___WebhookSettings = WebhookSettings
 
