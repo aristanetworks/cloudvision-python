@@ -41,7 +41,7 @@ The token should be copied and saved to a file that can later be referred to.
 
 ## Example 1) Making servers visible on Topology
 
-As of 2020.2.0 the only supported LLDP Chassis ID TLV is subtype 4 (MAC Address). Due to this some 3rd party devices, like ESXI servers, which might advertise UUID or ifName instead of the Chassis MAC in the TLV, those devices will not be drawn on Topology, even though their LLDP states are seen in EOS. To workaround this we can tag the interfaces on the switches where these servers are connected with `lldp_chassis`, `lldp_mode` and `lldp_hostname` tags, thus forcing the values for those states.
+As of 2020.2.0 the only supported LLDP Chassis ID TLV is subtype 4 (MAC Address). Due to this some 3rd party devices, like ESXI servers, which might advertise UUID or ifName instead of the Chassis MAC in the TLV, those devices will not be drawn on Topology, even though their LLDP states are seen in EOS. To workaround this we can tag the interfaces on the switches where these servers are connected with `lldp_chassis`, `lldp_mode`, `lldp_hostname`, `lldp_interface` tags, thus forcing the values for those states.
 
 Consider the following setup: **tacsrv34 (ens34) -- (et47) co590 --  ro224**
 
@@ -102,11 +102,21 @@ tags:
     value: tacsrv18
     device_id: JPE14243257
     interface_id: Ethernet24
+  - label: lldp_interface
+    value: eth1
+    device_id: JPE14243257
+    interface_id: Ethernet24
+  - label: lldp_mode
+    value: forced
+    device_id: JPE14243257
+    interface_id: Ethernet24
 ```
 
 `lldp_hostname` is optional
 
 `lldp_mode` can be `default` or `forced` and it should already exist, in case they don't, they can be added to the yaml file.
+
+`lldp_interface` is the remote peer's interface name
 
 2\. Create and assign the tags
 

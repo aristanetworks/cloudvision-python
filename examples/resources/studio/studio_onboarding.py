@@ -3,7 +3,7 @@
 # requires-python = ">=3.12"
 # dependencies = [
 #     "pyyaml",
-#     "cloudvision>=1.28.0"
+#     "cloudvision>=1.29.1"
 # ]
 # ///
 
@@ -337,7 +337,7 @@ async def main(args):
 
 def check_cloudvision_version():
     from importlib.metadata import version as pkg_version
-    MIN_VERSION = (1, 28, 0)
+    MIN_VERSION = (1, 29, 1)
     cv_version = pkg_version("cloudvision")
     logger.info("cloudvision package version: %s", cv_version)
     version_tuple = tuple(int(x) for x in cv_version.split(".")[:3])
@@ -346,7 +346,7 @@ def check_cloudvision_version():
         logger.error("cloudvision >= %s is required (found %s).", min_ver_str, cv_version)
         logger.error("  Please upgrade:  pip install --upgrade cloudvision")
         logger.error("  Alternatively, use the older version of the script from"
-                     " branches older than v1.28.0")
+                     " branches older than v1.29.1")
         sys.exit(1)
 
 
