@@ -328,23 +328,26 @@ class Device:
     '''
     Object to store device information
 
-    :param ip:           IP address of device
-    :param deviceId:     ID of the device
-    :param deviceMac:    Mac address of the device
-    :param hostName:     Hostname of the device
-    :param modelName:    Model name of the device
+    :param ip:                     IP address of device
+    :param deviceId:               ID of the device
+    :param deviceMac:              Mac address of the device
+    :param hostName:               Hostname of the device
+    :param modelName:              Model name of the device
+    :param isPreprovisionedDevice: Boolean to indicate if the device is preprovisioned
     '''
 
     def __init__(self, deviceId: Optional[str] = None,
                  ip: Optional[str] = None,
                  deviceMac: Optional[str] = "",
                  hostName: Optional[str] = "",
-                 modelName: Optional[str] = ""):
+                 modelName: Optional[str] = "",
+                 isPreprovisionedDevice: Optional[bool] = False):
         self.id = deviceId
         self.ip = ip
         self.mac = deviceMac
         self.hostName = hostName
         self.modelName = modelName
+        self.isPreprovisionedDevice = isPreprovisionedDevice
         # dict of interface name -> interface
         self._interfaces: Dict = {}
 
