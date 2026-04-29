@@ -1558,6 +1558,9 @@ class ImageValidationResult(google.protobuf.message.Message):
     WARNINGS_FIELD_NUMBER: builtins.int
     IMAGE_INPUT_ERROR_FIELD_NUMBER: builtins.int
     INFOS_FIELD_NUMBER: builtins.int
+    IMAGE_SOURCE_FIELD_NUMBER: builtins.int
+    image_source: arista.imagestatus.v1.imagestatus_pb2.ImageSource.ValueType
+    """image_source identifies the source of the image."""
     @property
     def summary(self) -> arista.imagestatus.v1.imagestatus_pb2.ImageSummary:
         """summary is a summary of the changes to the previous image."""
@@ -1586,9 +1589,10 @@ class ImageValidationResult(google.protobuf.message.Message):
         warnings: arista.imagestatus.v1.imagestatus_pb2.ImageWarnings | None = ...,
         image_input_error: google.protobuf.wrappers_pb2.StringValue | None = ...,
         infos: arista.imagestatus.v1.imagestatus_pb2.ImageInfos | None = ...,
+        image_source: arista.imagestatus.v1.imagestatus_pb2.ImageSource.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["errors", b"errors", "image_input_error", b"image_input_error", "infos", b"infos", "summary", b"summary", "warnings", b"warnings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["errors", b"errors", "image_input_error", b"image_input_error", "infos", b"infos", "summary", b"summary", "warnings", b"warnings"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["errors", b"errors", "image_input_error", b"image_input_error", "image_source", b"image_source", "infos", b"infos", "summary", b"summary", "warnings", b"warnings"]) -> None: ...
 
 global___ImageValidationResult = ImageValidationResult
 

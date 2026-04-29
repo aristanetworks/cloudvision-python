@@ -458,6 +458,38 @@ picked for a Universal (multiarch) EOS image.
 """
 global___InfoCode = InfoCode
 
+class _ImageSource:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _ImageSourceEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ImageSource.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    IMAGE_SOURCE_UNSPECIFIED: _ImageSource.ValueType  # 0
+    """IMAGE_SOURCE_UNSPECIFIED uninitialized value"""
+    IMAGE_SOURCE_STUDIO: _ImageSource.ValueType  # 1
+    """IMAGE_SOURCE_STUDIO - image configured from studio"""
+    IMAGE_SOURCE_NETWORK_PROVISIONING: _ImageSource.ValueType  # 2
+    """IMAGE_SOURCE_NETWORK_PROVISIONING - image configured from
+    network provisioning workflow
+    """
+    IMAGE_SOURCE_HIERARCHY: _ImageSource.ValueType  # 3
+    """IMAGE_SOURCE_HIERARCHY - image configured from hierarchy workflow"""
+
+class ImageSource(_ImageSource, metaclass=_ImageSourceEnumTypeWrapper):
+    """ImageSource indicates the source type for the image configuration."""
+
+IMAGE_SOURCE_UNSPECIFIED: ImageSource.ValueType  # 0
+"""IMAGE_SOURCE_UNSPECIFIED uninitialized value"""
+IMAGE_SOURCE_STUDIO: ImageSource.ValueType  # 1
+"""IMAGE_SOURCE_STUDIO - image configured from studio"""
+IMAGE_SOURCE_NETWORK_PROVISIONING: ImageSource.ValueType  # 2
+"""IMAGE_SOURCE_NETWORK_PROVISIONING - image configured from
+network provisioning workflow
+"""
+IMAGE_SOURCE_HIERARCHY: ImageSource.ValueType  # 3
+"""IMAGE_SOURCE_HIERARCHY - image configured from hierarchy workflow"""
+global___ImageSource = ImageSource
+
 @typing.final
 class SoftwareImage(google.protobuf.message.Message):
     """SoftwareImage provides information of the running/designed EOS image."""

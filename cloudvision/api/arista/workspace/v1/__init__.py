@@ -1097,6 +1097,9 @@ class ImageValidationResult(aristaproto.Message):
     infos: "__imagestatus_v1__.ImageInfos" = aristaproto.message_field(5)
     """infos are any info messages about the generated image."""
 
+    image_source: "__imagestatus_v1__.ImageSource" = aristaproto.enum_field(6)
+    """image_source identifies the source of the image."""
+
 
 @dataclass(eq=False, repr=False)
 class ConfigSyncResult(aristaproto.Message):
