@@ -719,6 +719,8 @@ class _EntityTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     """ENTITY_TYPE_PROCESSOR indicates the Processor entity type."""
     ENTITY_TYPE_NODE: _EntityType.ValueType  # 13
     """ENTITY_TYPE_NODE indicates the Node entity type."""
+    ENTITY_TYPE_DEPENDENCIES: _EntityType.ValueType  # 14
+    """ENTITY_TYPE_DEPENDENCIES indicates the dependencies entity type."""
 
 class EntityType(_EntityType, metaclass=_EntityTypeEnumTypeWrapper):
     """EntityType enumerates the different types of entities that can be
@@ -757,6 +759,8 @@ ENTITY_TYPE_PROCESSOR: EntityType.ValueType  # 12
 """ENTITY_TYPE_PROCESSOR indicates the Processor entity type."""
 ENTITY_TYPE_NODE: EntityType.ValueType  # 13
 """ENTITY_TYPE_NODE indicates the Node entity type."""
+ENTITY_TYPE_DEPENDENCIES: EntityType.ValueType  # 14
+"""ENTITY_TYPE_DEPENDENCIES indicates the dependencies entity type."""
 global___EntityType = EntityType
 
 class _DiffType:
@@ -2173,28 +2177,28 @@ class DiffKey(google.protobuf.message.Message):
         by [key1, value1, key2, value2, ...]
         studio_id are well known e.g studio-date-time
         e.g entity_ids for entity types
-        studio, inputs, assigned tags: [“studio_id”, <id>]
-        buildhook: [“studio_id”, <id>, “hook_id”, <id>]
-        autofill: [“studio_id”, <id>, “input_field_id”, <id>]
-        configlet: [“configlet_id”, <id>]
-        configletassignment : [“configlet_assignment_id”, <id>]
-        tags:
-        element_type is one of "1" (device), "2" (interface)
-        ["creator_type", "2", "element_type", <element_type>,
-        "element_sub_type", "1", "label", <label>, "value", <value>]
-        tag assignments:
-        For element_type = "1" (device)
-        ["creator_type", "2", "element_type", "1", "element_sub_type", "1",
-        "label", <label>, "value", <value>, "device_id", <id>]
-        For element_type = "2" (interface)
-        ["creator_type", "2", "element_type", "2", "element_sub_type", "1",
-        "label", <label>, "value", <value>, "device_id", <id>,
-        "interface_id", <id>]
-        hierarchy related entities:
-        node: ["node_id", <id>]
-        fixture_class: ["fixture_class_id", <id>]
-        fixture_instance: ["fixture_instance_id", <id>]
-        processor: ["processor_id", <id>]
+          studio, inputs, assigned tags, dependencies: [“studio_id”, <id>]
+          buildhook: [“studio_id”, <id>, “hook_id”, <id>]
+          autofill: [“studio_id”, <id>, “input_field_id”, <id>]
+          configlet: [“configlet_id”, <id>]
+          configletassignment: [“configlet_assignment_id”, <id>]
+          tags:
+            element_type is one of “1” (device), “2” (interface)
+            [“creator_type”, “2”, “element_type”, <element_type>,
+             “element_sub_type”, “1”, “label”, <label>, “value”, <value>]
+          tag assignments:
+            For element_type = “1” (device)
+              [“creator_type”, “2”, “element_type”, “1”, “element_sub_type”, “1”,
+               “label”, <label>, “value”, <value>, “device_id”, <id>]
+            For element_type = “2” (interface)
+              [“creator_type”, “2”, “element_type”, “2”, “element_sub_type”, “1”,
+               “label”, <label>, “value”, <value>, “device_id”, <id>,
+               “interface_id”, <id>]
+          hierarchy related entities:
+            node: [“node_id”, <id>]
+            fixture_class: [“fixture_class_id”, <id>]
+            fixture_instance: [“fixture_instance_id”, <id>]
+            processor: [“processor_id”, <id>]
         """
 
     def __init__(
