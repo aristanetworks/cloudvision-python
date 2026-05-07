@@ -54,6 +54,8 @@ class _EntityTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     """ENTITY_TYPE_CONFIGLET_ASSIGNMENT indicates the ConfigletAssignment
     entity type for static config studio.
     """
+    ENTITY_TYPE_DEPENDENCIES: _EntityType.ValueType  # 8
+    """ENTITY_TYPE_DEPENDENCIES indicates the Dependencies entity type."""
 
 class EntityType(_EntityType, metaclass=_EntityTypeEnumTypeWrapper):
     """EntityType enumerates the set of entity types."""
@@ -78,6 +80,8 @@ ENTITY_TYPE_CONFIGLET_ASSIGNMENT: EntityType.ValueType  # 7
 """ENTITY_TYPE_CONFIGLET_ASSIGNMENT indicates the ConfigletAssignment
 entity type for static config studio.
 """
+ENTITY_TYPE_DEPENDENCIES: EntityType.ValueType  # 8
+"""ENTITY_TYPE_DEPENDENCIES indicates the Dependencies entity type."""
 global___EntityType = EntityType
 
 class _TemplateType:
@@ -605,10 +609,14 @@ class Entities(google.protobuf.message.Message):
     VALUES_FIELD_NUMBER: builtins.int
     @property
     def values(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___Entity]:
-        """values is a map from entity type name to entity
-        The possible keys to this map are ENTITY_TYPE_STUDIO,
-        ENTITY_TYPE_INPUTS, ENTITY_TYPE_ASSIGNED_TAGS,
-        ENTITY_TYPE_BUILD_HOOK and ENTITY_TYPE_AUTOFILL_ACTION.
+        """values is a map from EntityType enum name to Entity.
+        Keys are the EntityType enum names defined below, e.g.:
+          "ENTITY_TYPE_INPUTS" -> Entity{
+              entity_type:      ENTITY_TYPE_INPUTS,
+              last_modified_at: 2026-05-07T12:34:56Z,
+              last_modified_by: "admin",
+              removed:          false,
+          }
         """
 
     def __init__(
