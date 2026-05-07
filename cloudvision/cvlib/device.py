@@ -459,9 +459,9 @@ class Device:
             if intf.name.startswith("Management"):
                 mgmtIntfs.append(intf.name)
         if not mgmtIntfs:
-            # If the device mac is empty, it is an expected/pre-provisioned device. Should return a
+            # If the device is an expected/pre-provisioned device, Should return a
             # default value to prevent errors.
-            if not self.mac:
+            if self.isPreprovisionedDevice:
                 return "Management1"
             return ""
         mgmtIntfs.sort()
