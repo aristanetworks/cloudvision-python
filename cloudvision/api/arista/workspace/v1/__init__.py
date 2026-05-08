@@ -865,6 +865,15 @@ class Workspace(aristaproto.Message):
     configured to exclude Network Provisioning.
     """
 
+    decommission_request_ids: "___fmp__.MapStringString" = aristaproto.message_field(16)
+    """
+    decommission_request_ids provides, for each device staged for
+    decommission in this workspace, the corresponding request UUID passed
+    to inventory.v1.DeviceDecommissioningConfig. These request UUIDs can
+    be used to track the status using the inventory.v1.DeviceDecommissioning
+    resource.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class InputError(aristaproto.Message):

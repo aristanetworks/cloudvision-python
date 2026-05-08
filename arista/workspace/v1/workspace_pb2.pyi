@@ -1014,6 +1014,7 @@ class Workspace(google.protobuf.message.Message):
     DISPLAY_NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     EXCLUDE_NETWORK_PROVISIONING_FIELD_NUMBER: builtins.int
+    DECOMMISSION_REQUEST_IDS_FIELD_NUMBER: builtins.int
     state: global___WorkspaceState.ValueType
     """state describes the status of the workspace."""
     @property
@@ -1084,6 +1085,15 @@ class Workspace(google.protobuf.message.Message):
         configured to exclude Network Provisioning.
         """
 
+    @property
+    def decommission_request_ids(self) -> fmp.wrappers_pb2.MapStringString:
+        """decommission_request_ids provides, for each device staged for
+        decommission in this workspace, the corresponding request UUID passed
+        to inventory.v1.DeviceDecommissioningConfig. These request UUIDs can
+        be used to track the status using the inventory.v1.DeviceDecommissioning
+        resource.
+        """
+
     def __init__(
         self,
         *,
@@ -1102,9 +1112,10 @@ class Workspace(google.protobuf.message.Message):
         display_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
         description: google.protobuf.wrappers_pb2.StringValue | None = ...,
         exclude_network_provisioning: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        decommission_request_ids: fmp.wrappers_pb2.MapStringString | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses", "state", b"state"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "decommission_request_ids", b"decommission_request_ids", "description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "decommission_request_ids", b"decommission_request_ids", "description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses", "state", b"state"]) -> None: ...
 
 global___Workspace = Workspace
 
