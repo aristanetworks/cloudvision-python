@@ -611,12 +611,15 @@ class Entities(google.protobuf.message.Message):
     def values(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___Entity]:
         """values is a map from EntityType enum name to Entity.
         Keys are the EntityType enum names defined below, e.g.:
-          "ENTITY_TYPE_INPUTS" -> Entity{
-              entity_type:      ENTITY_TYPE_INPUTS,
-              last_modified_at: 2026-05-07T12:34:56Z,
-              last_modified_by: "admin",
-              removed:          false,
-          }
+
+        ```
+        "ENTITY_TYPE_INPUTS" -> Entity{
+            entity_type:      ENTITY_TYPE_INPUTS,
+            last_modified_at: 2026-05-07T12:34:56Z,
+            last_modified_by: "admin",
+            removed:          false,
+        }
+        ```
         """
 
     def __init__(
@@ -1151,10 +1154,13 @@ class FloatInputFieldProps(google.protobuf.message.Message):
         `{ fieldId: field_id }`.
 
         E.g,
+
+        ```
         [
-          `{ fieldId: floatField1ID }`,
-          `{ fieldId: floatField2ID }`
+          { fieldId: floatField1ID },
+          { fieldId: floatField2ID }
         ]
+        ```
         Here, the possible values for the floats identified by
         `floatField1ID` and `floatField2ID` are used as the
         possible values for this float.

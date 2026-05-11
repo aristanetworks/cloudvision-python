@@ -586,12 +586,15 @@ class Entities(aristaproto.Message):
     """
     values is a map from EntityType enum name to Entity.
     Keys are the EntityType enum names defined below, e.g.:
-      \"ENTITY_TYPE_INPUTS\" -> Entity{
-          entity_type:      ENTITY_TYPE_INPUTS,
-          last_modified_at: 2026-05-07T12:34:56Z,
-          last_modified_by: \"admin\",
-          removed:          false,
-      }
+
+    ```
+    \"ENTITY_TYPE_INPUTS\" -> Entity{
+        entity_type:      ENTITY_TYPE_INPUTS,
+        last_modified_at: 2026-05-07T12:34:56Z,
+        last_modified_by: \"admin\",
+        removed:          false,
+    }
+    ```
     """
 
 
@@ -940,10 +943,13 @@ class FloatInputFieldProps(aristaproto.Message):
     `{ fieldId: field_id }`.
 
     E.g,
+
+    ```
     [
-      `{ fieldId: floatField1ID }`,
-      `{ fieldId: floatField2ID }`
+      { fieldId: floatField1ID },
+      { fieldId: floatField2ID }
     ]
+    ```
     Here, the possible values for the floats identified by
     `floatField1ID` and `floatField2ID` are used as the
     possible values for this float.

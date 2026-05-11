@@ -1425,9 +1425,12 @@ class DiffEntry(aristaproto.Message):
     - value: the element’s identifier
 
     Example:
-      users = [\{\"id\":\"u1\",\"name\":\"Alice\"\}]
-      key_path = [\"users\", \"[id=u1]\", \"name\"]
-      path     = [\"users\", \"0\", \"name\"]
+
+    ```
+    users = [{\"id\":\"u1\",\"name\":\"Alice\"}]
+    key_path = [\"users\", \"[id=u1]\", \"name\"]
+    path     = [\"users\", \"0\", \"name\"]
+    ```
     """
 
 
