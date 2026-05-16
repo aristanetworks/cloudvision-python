@@ -55,9 +55,34 @@ from cloudvision.api.arista.action import v1 as action
 
 logger = logging.getLogger(__name__)
 
-RPC_TIMEOUT = 30  # in seconds
-CC_EXECUTION_TIMEOUT = 60  # in seconds
-MAINLINE_ID = ""  # ID to reference merged workspace data
+# RPC_TIMEOUT
+#     - used for quick requests (in seconds)
+RPC_TIMEOUT = 30
+# BUILD_TIMEOUT
+#     - set to max expected build time (in seconds)
+#     - set higher proportional to supported device count
+BUILD_TIMEOUT = 300
+# SYNC_TIMEOUT
+#     - set to max expected synchronization time (in seconds)
+#     - synchronization can take as long as a build since it triggers a rebuild
+SYNC_TIMEOUT = 300
+# CC_EXECUTION_TIMEOUT
+#     - set to max expected CC time (in seconds)
+#     - set higher proportional to supported device count and config size
+CC_EXECUTION_TIMEOUT = 600
+# MAX_SYNC_RETRIES
+#     - set at minimum to max number parallel workspace requests
+#     - since submits are serial, Nth workspace will need N-1 syncs
+MAX_SYNC_RETRIES = 10
+# MAINLINE_ID
+#     - mainline to which workspaces submit
+MAINLINE_ID = ""
+# assign_studio
+#     - whether to modify studio device selection
+assign_studio = False
+# get_sync_diffs
+#     - whether to get and output sync diffs into a file
+get_sync_diffs = False
 
 
 def create_client(args):
@@ -331,29 +356,72 @@ async def update_inputs_via_autofill(channel, ws_id, path, dyn_names, dyn_value)
 async def update_inputs_via_yaml(channel, ws_id, filename, dev_ids):
     '''
     Sets inputs to the studio using the yaml file.
-    Also assigns studio to a set of devices.
+    Optionally assigns studio to a set of devices.
+
+    Supports two formats:
+    1. Single path/inputs pair:
+       path: [...]
+       inputs: {...}
+
+    2. Multiple path/inputs pairs (list format):
+       - path: [...]
+         inputs: {...}
+       - path: [...]
+         inputs: {...}
     '''
     # convert YAML input file to json inputs.
     with open(f'{filename}', encoding='utf8') as f:
         config = yaml.load(f, Loader=yaml.loader.SafeLoader)
-    inputs = config['inputs']
-    path = config['path']
-    inputs = json.dumps(inputs)
-    # Set the root path of the studio to the given inputs.
-    req = studio.InputsConfigSetRequest(
-        value=studio.InputsConfig(
-            key=studio.InputsKey(
-                workspace_id=ws_id,
-                studio_id=studio_id,
-                path=fmp.RepeatedString(values=path)
-            ),
-            inputs=inputs
-        )
-    )
+
+    # Determine if this is a single path/inputs or multiple
+    # If config is a list, it contains multiple path/inputs pairs
+    # If config is a dict with 'path' and 'inputs' keys, it's a single pair
+    configs = []
+    if isinstance(config, list):
+        # Multiple path/inputs pairs
+        configs = config
+        logger.info('Processing %d path/inputs pairs from yaml file: %s',
+                    len(configs), filename)
+    elif isinstance(config, dict) and 'path' in config and 'inputs' in config:
+        # Single path/inputs pair (legacy format)
+        configs = [config]
+        logger.info('Processing single path/inputs pair from yaml file: %s', filename)
+    else:
+        raise ValueError(f"Invalid YAML format in {filename}. "
+                         "Expected either a dict with 'path' and 'inputs' keys, "
+                         "or a list of such dicts.")
+
+    # Process each path/inputs pair
     stub = studio.InputsConfigServiceStub(channel)
-    await stub.set(req, timeout=RPC_TIMEOUT)
-    logger.info('Studio inputs set from yaml:'
-                '\n\t%s', filename)
+    for i, cfg in enumerate(configs, start=1):
+        # Validate each config has required keys
+        if not isinstance(cfg, dict) or 'path' not in cfg or 'inputs' not in cfg:
+            raise ValueError(f"Invalid YAML format in {filename} "
+                             f"for config at index {i}. "
+                             "Expected a dict with 'path' and 'inputs' keys. ")
+        inputs = cfg['inputs']
+        path = cfg['path']
+        inputs_json = json.dumps(inputs)
+
+        # Set the root path of the studio to the given inputs.
+        req = studio.InputsConfigSetRequest(
+            value=studio.InputsConfig(
+                key=studio.InputsKey(
+                    workspace_id=ws_id,
+                    studio_id=studio_id,
+                    path=fmp.RepeatedString(values=path)
+                ),
+                inputs=inputs_json
+            )
+        )
+        await stub.set(req, timeout=RPC_TIMEOUT)
+        logger.info('\tStudio inputs set (%d/%d) - path: %s', i, len(configs), path)
+
+    logger.info('All studio inputs set from yaml: %s', filename)
+
+    if not assign_studio:
+        return
+
     # Assign the studio to the given set of devices.
     req = studio.AssignedTagsConfigSetRequest(
         value=studio.AssignedTagsConfig(
@@ -404,7 +472,7 @@ async def build_workspace(channel, ws_id):
     )
     stub = workspace.WorkspaceServiceStub(channel)
     logger.info('\tWaiting for build to complete')
-    async for res in stub.subscribe(req, timeout=RPC_TIMEOUT):
+    async for res in stub.subscribe(req, timeout=BUILD_TIMEOUT):
         if build_id in res.value.responses.values:
             build_res = res.value.responses.values[build_id]
             break
@@ -543,7 +611,7 @@ async def synchronize_workspace(channel, ws_id):
     )
     stub = workspace.WorkspaceServiceStub(channel)
     logger.info('\tWaiting for synchronization to complete')
-    async for res in stub.subscribe(req, timeout=RPC_TIMEOUT):
+    async for res in stub.subscribe(req, timeout=SYNC_TIMEOUT):
         if sync_id in res.value.responses.values:
             sync_res = res.value.responses.values[sync_id]
             if sync_res.status == workspace.ResponseStatus.FAIL:
@@ -551,7 +619,8 @@ async def synchronize_workspace(channel, ws_id):
                 return False
             if sync_res.status == workspace.ResponseStatus.SUCCESS:
                 logger.info('\tSynchronization succeeded')
-                await download_sync_diffs(channel, ws_id, res.value.last_rebased_at)
+                if get_sync_diffs:
+                    await download_sync_diffs(channel, ws_id, res.value.last_rebased_at)
                 return True
     logger.error('\tSynchronization failed')
     return False
@@ -593,8 +662,11 @@ async def download_sync_diffs(channel, ws_id, last_rebased_at=None):
 async def submit_workspace(channel, ws_id):
     '''
     Sends a request to submit a workspace, waits for it to
-    finish, and reports the result. Returns the IDs of the
-    spawned change controls.
+    finish, and reports the result. Returns a tuple of:
+    (cc_ids, submitted, sync_required) where:
+    - cc_ids: List of change control IDs (or None if failed)
+    - submitted: Boolean indicating if submission succeeded
+    - sync_required: Boolean indicating if synchronization is required
     '''
     logger.info('Submitting workspace')
     # Send a request to submit the workspace.
@@ -629,14 +701,21 @@ async def submit_workspace(channel, ws_id):
         if submit_id in res.value.responses.values:
             submit_res = res.value.responses.values[submit_id]
             if submit_res.status == workspace.ResponseStatus.FAIL:
+                # Check for synchronization requirement first
+                if submit_res.code == workspace.ResponseCode.SYNCHRONIZATION_REQUIRED:
+                    logger.warning('\tSubmission requires synchronization: %s',
+                                   submit_res.message)
+                    return None, False, True
+                # Then handle general failure
                 logger.error('\tSubmission failed: %s', submit_res.message)
-                return None, False
+                return None, False, False
+            # Now handle success
             if submit_res.status == workspace.ResponseStatus.SUCCESS:
                 logger.info('\tSubmission succeeded')
         if res.value.state == workspace.WorkspaceState.SUBMITTED:
-            return res.value.cc_ids.values, True
+            return res.value.cc_ids.values, True, False
     logger.error('\tSubmission failed')
-    return None, False
+    return None, False, False
 
 
 async def run_change_control(channel, cc_id):
@@ -734,15 +813,47 @@ async def main(args, client):
             if not await synchronize_workspace(channel, ws_id):
                 return
 
-        # Build the workspace.
-        if not await build_workspace(channel, ws_id):
-            return
-        # Stop here if --build-only.
-        if args.build_only:
-            return
-        # Submit the workspace.
-        cc_ids, submitted = await submit_workspace(channel, ws_id)
-        if not submitted:
+        # Build-submit loop with synchronization retry
+        sync_retry_count = 0
+        cc_ids = None
+
+        while sync_retry_count <= MAX_SYNC_RETRIES:
+            # Build the workspace.
+            if not await build_workspace(channel, ws_id):
+                return
+
+            # Stop here if --build-only.
+            if args.build_only:
+                return
+
+            # Submit the workspace.
+            cc_ids, submitted, sync_required = await submit_workspace(channel, ws_id)
+
+            if not submitted:
+                if sync_required and sync_retry_count < MAX_SYNC_RETRIES:
+                    logger.info('Synchronization required. Retry attempt %d of %d',
+                                sync_retry_count + 1, MAX_SYNC_RETRIES)
+                    # Perform synchronization
+                    if not await synchronize_workspace(channel, ws_id):
+                        logger.error('Synchronization failed during retry')
+                        return
+                    # Increment retry counter and loop back to rebuild
+                    sync_retry_count += 1
+                    continue
+                else:
+                    # Either not sync-related failure, or max retries exceeded
+                    if sync_required and sync_retry_count >= MAX_SYNC_RETRIES:
+                        logger.error('Maximum synchronization retries (%d) exceeded',
+                                     MAX_SYNC_RETRIES)
+                    return
+
+            # Success - break out of retry loop
+            break
+
+        # Stop here if --submit-only.
+        if args.submit_only:
+            logger.info('%s change control(s) created', len(cc_ids))
+            logger.info('Change control IDs: %s', cc_ids)
             return
         # Execute the spawned change control.
         logger.info('%s change control(s) created', len(cc_ids))
@@ -766,7 +877,9 @@ def check_cloudvision_version():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+    logging.basicConfig(level=logging.INFO,
+                        format='%(asctime)s %(levelname)s: %(message)s',
+                        datefmt='%H:%M:%S')
     check_cloudvision_version()
     desc = (
         "1. Get studio inputs from mainline.\n"
@@ -786,6 +899,8 @@ if __name__ == '__main__':
         "            --action-id=action-ports-table\n"
         "   Optionally to build only and not submit:\n"
         "            --build-only=True\n"
+        "   Optionally to submit only and not execute the change controls:\n"
+        "            --submit-only=True\n"
         "   Optionally to synchronize workspace with mainline before building:\n"
         "            --sync=True\n"
     )
@@ -808,6 +923,9 @@ if __name__ == '__main__':
                         help="csv file containing studio autofill inputs")
     parser.add_argument("--build-only", type=bool, default=False,
                         help="whether to stop after building the changes (no submission)")
+    parser.add_argument("--submit-only", type=bool, default=False,
+                        help="whether to stop after submitting the workspace "
+                             "(no change control execution)")
     parser.add_argument("--studio-id", type=str, required=True,
                         help="ID of the Studio, e.g. studio-interface-v2-pkg")
     parser.add_argument("--action-id", type=str,
