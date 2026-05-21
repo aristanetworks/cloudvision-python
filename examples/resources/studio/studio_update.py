@@ -36,6 +36,11 @@
 #        --insecure
 #        --operation=get
 #        --studio-id=studio-interface-v2-pkg
+#
+# This script can be invoked from a multi-threaded program.  It has the
+# ability to rebase and order CCs appropriately to correctly process
+# parallel executions.
+#
 
 import argparse
 import asyncio
@@ -52,9 +57,14 @@ from cloudvision.api.arista.workspace import v1 as workspace
 from cloudvision.api.arista.studio import v1 as studio
 from cloudvision.api.arista.changecontrol import v1 as changecontrol
 from cloudvision.api.arista.action import v1 as action
+from cloudvision.cvlib.constants import MAINLINE_WS_ID
 
 logger = logging.getLogger(__name__)
 
+# CHANGE_SIGNATURE
+#     - substring used in workspace and change control names,
+#       used to identify changes automated by this script
+CHANGE_SIGNATURE = "studio_update.py config push"
 # RPC_TIMEOUT
 #     - used for quick requests (in seconds)
 RPC_TIMEOUT = 30
@@ -64,7 +74,6 @@ RPC_TIMEOUT = 30
 BUILD_TIMEOUT = 300
 # SYNC_TIMEOUT
 #     - set to max expected synchronization time (in seconds)
-#     - synchronization can take as long as a build since it triggers a rebuild
 SYNC_TIMEOUT = 300
 # CC_EXECUTION_TIMEOUT
 #     - set to max expected CC time (in seconds)
@@ -74,9 +83,16 @@ CC_EXECUTION_TIMEOUT = 600
 #     - set at minimum to max number parallel workspace requests
 #     - since submits are serial, Nth workspace will need N-1 syncs
 MAX_SYNC_RETRIES = 10
-# MAINLINE_ID
-#     - mainline to which workspaces submit
-MAINLINE_ID = ""
+# CC_ORDERING_ENABLED
+#     - when True, CCs will execute in creation order (waits for earlier CCs)
+#     - when False, CCs execute immediately after submission
+CC_ORDERING_ENABLED = True
+# MAX_CC_WAIT_ITERATIONS
+#     - maximum iterations to wait for earlier CCs to complete
+MAX_CC_WAIT_ITERATIONS = 120
+# CC_POLL_INTERVAL
+#     - seconds to wait between polling for earlier CCs
+CC_POLL_INTERVAL = 5
 # assign_studio
 #     - whether to modify studio device selection
 assign_studio = False
@@ -187,7 +203,7 @@ async def get_inputs(channel, filename):
     '''
     sid = studio_id
     key = studio.InputsKey(studio_id=sid,
-                           workspace_id=MAINLINE_ID)
+                           workspace_id=MAINLINE_WS_ID)
     pfilter = studio.Inputs(key=key)
     req = studio.InputsStreamRequest()
     req.partial_eq_filter.append(pfilter)
@@ -718,20 +734,135 @@ async def submit_workspace(channel, ws_id):
     return None, False, False
 
 
+async def get_earlier_change_controls(channel, my_timestamp):
+    '''
+    Query all CCs that:
+    1. Were created before my_timestamp
+    2. Are still pending, approved, or running (not completed/cancelled)
+    3. Were created by studio_update.py (name contains CHANGE_SIGNATURE)
+
+    Returns a list of earlier CCs that are still active.
+    '''
+    stub = changecontrol.ChangeControlServiceStub(channel)
+
+    # Query CCs with active statuses (server-side filter to reduce data transfer)
+    # We still need to filter by timestamp and name client-side
+    req = changecontrol.ChangeControlStreamRequest(
+        partial_eq_filter=[
+            changecontrol.ChangeControl(
+                status=changecontrol.ChangeControlStatus.NOT_STARTED
+            ),
+            changecontrol.ChangeControl(
+                status=changecontrol.ChangeControlStatus.SCHEDULED
+            ),
+            changecontrol.ChangeControl(
+                status=changecontrol.ChangeControlStatus.RUNNING
+            )
+        ]
+    )
+
+    earlier_ccs = []
+
+    try:
+        async for resp in stub.get_all(req, timeout=RPC_TIMEOUT):
+            cc_data = resp.value
+            cc_timestamp = cc_data.creation.time
+
+            # Check if this CC was created before mine
+            # aristaproto converts Timestamp to datetime, so we can compare directly
+            is_earlier = cc_timestamp < my_timestamp
+
+            if not is_earlier:
+                continue
+
+            # Only consider CCs created by studio_update.py
+            # These have CHANGE_SIGNATURE in their name
+            cc_name = cc_data.change.name if cc_data.change and cc_data.change.name else ""
+            if CHANGE_SIGNATURE not in cc_name:
+                continue
+
+            # Status already filtered server-side, so we can add directly
+            earlier_ccs.append(cc_data)
+    except Exception as e:
+        logger.warning('\tError querying earlier CCs: %s', e)
+        return []
+
+    return earlier_ccs
+
+
+async def wait_for_earlier_change_controls(channel, my_timestamp):
+    '''
+    Wait until all CCs created before this one have completed.
+    This ensures CCs execute in creation order.
+
+    This is best-effort: on timeout, proceed anyway to avoid deadlock.
+    '''
+    if not CC_ORDERING_ENABLED:
+        return
+
+    logger.info('\tChecking for earlier change controls...')
+
+    for iteration in range(MAX_CC_WAIT_ITERATIONS):
+        # Get all pending and running CCs created before mine
+        earlier_ccs = await get_earlier_change_controls(channel, my_timestamp)
+
+        if not earlier_ccs:
+            # No earlier CCs pending/running, safe to proceed
+            if iteration == 0:
+                logger.info('\tNo earlier CCs blocking execution')
+            else:
+                logger.info('\tAll earlier CCs completed, proceeding with execution')
+            return
+
+        # Log waiting status with CC names
+        earlier_cc_info = [(cc.key.id, cc.change.name if cc.change else 'unknown')
+                           for cc in earlier_ccs]
+        if len(earlier_cc_info) <= 3:
+            logger.info('\tWaiting for %d earlier CC(s): %s',
+                        len(earlier_ccs), [name for _, name in earlier_cc_info])
+        else:
+            logger.info('\tWaiting for %d earlier CC(s): %s ... and %d more',
+                        len(earlier_ccs), [name for _, name in earlier_cc_info[:3]],
+                        len(earlier_ccs) - 3)
+
+        # Wait before next check
+        await asyncio.sleep(CC_POLL_INTERVAL)
+
+    # Timeout waiting for earlier CCs
+    max_wait_time = MAX_CC_WAIT_ITERATIONS * CC_POLL_INTERVAL
+    logger.warning('Timeout waiting for earlier CCs after %ds, proceeding anyway',
+                   max_wait_time)
+
+
 async def run_change_control(channel, cc_id):
     '''
     Approves and starts a change control, waits for it to finish,
     and reports the result. Returns True if execution was successful
     and False otherwise.
+
+    If CC_ORDERING_ENABLED is True, waits for all earlier CCs to complete
+    before executing this one.
     '''
     logger.info('Executing change control %s', cc_id)
     key = changecontrol.ChangeControlKey(
         id=cc_id
     )
-    # Approve the change control.
+
+    # Get this CC's creation timestamp for ordering
     req = changecontrol.ChangeControlRequest(key=key)
     stub = changecontrol.ChangeControlServiceStub(channel)
     res = await stub.get_one(req)
+
+    my_timestamp = res.value.creation.time
+    my_cc_name = res.value.change.name if res.value.change else "unknown"
+    logger.info('\tCC "%s" created at: %s', my_cc_name, my_timestamp)
+
+    # Best-effort wait for all earlier CCs to complete,
+    # if ordering is enabled
+    await wait_for_earlier_change_controls(channel, my_timestamp)
+
+    # Now safe to proceed with approval and execution
+    # Approve the change control
     req = changecontrol.ApproveConfigSetRequest(
         value=changecontrol.ApproveConfig(
             key=key,
@@ -785,7 +916,7 @@ async def main(args, client):
             return
         # Set Inputs in Multiple Steps
         # Create a workspace.
-        workspace_name = f'{studio_id} config push'
+        workspace_name = f'{studio_id} {CHANGE_SIGNATURE}'
         if args.wsid:
             ws_id = args.wsid
         else:
