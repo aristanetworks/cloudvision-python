@@ -82,6 +82,11 @@ class _ElementSubTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper.
     a subset of the application’s functionality. An application can exist without
     a service but not vice-versa.
     """
+    ELEMENT_SUB_TYPE_CONNECTIVITY_MONITOR_PROBE: _ElementSubType.ValueType  # 6
+    """ELEMENT_SUB_TYPE_CONNECTIVITY_MONITOR_PROBE is used for connectivity monitor probe tags.
+    A connectivity monitor probe represents a configured probe (ICMP, HTTP, or TCP) that
+    monitors connectivity to a specific target from a device.
+    """
 
 class ElementSubType(_ElementSubType, metaclass=_ElementSubTypeEnumTypeWrapper):
     """ElementSubType enumerates the sub-types of network elements that can
@@ -112,6 +117,11 @@ ELEMENT_SUB_TYPE_APPLICATION: ElementSubType.ValueType  # 5
 An application is defined as a set of services where each service provides
 a subset of the application’s functionality. An application can exist without
 a service but not vice-versa.
+"""
+ELEMENT_SUB_TYPE_CONNECTIVITY_MONITOR_PROBE: ElementSubType.ValueType  # 6
+"""ELEMENT_SUB_TYPE_CONNECTIVITY_MONITOR_PROBE is used for connectivity monitor probe tags.
+A connectivity monitor probe represents a configured probe (ICMP, HTTP, or TCP) that
+monitors connectivity to a specific target from a device.
 """
 global___ElementSubType = ElementSubType
 

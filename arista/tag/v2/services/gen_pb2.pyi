@@ -215,8 +215,6 @@ class ElementStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Element response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -306,8 +304,6 @@ class ElementBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Element response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -506,8 +502,6 @@ class TagStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Tag response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -588,8 +582,6 @@ class TagBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each Tag response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -787,8 +779,6 @@ class TagAssignmentStreamRequest(google.protobuf.message.Message):
             until end.
             * Each TagAssignment response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -869,8 +859,6 @@ class TagAssignmentBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each TagAssignment response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -1068,8 +1056,6 @@ class TagAssignmentConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each TagAssignmentConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1150,8 +1136,6 @@ class TagAssignmentConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each TagAssignmentConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
@@ -1595,8 +1579,6 @@ class TagConfigStreamRequest(google.protobuf.message.Message):
             until end.
             * Each TagConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     def __init__(
@@ -1677,8 +1659,6 @@ class TagConfigBatchedStreamRequest(google.protobuf.message.Message):
             until end.
             * Each TagConfig response at start is fully-specified, but updates until end may
               be partial.
-
-        This field is not allowed in the Subscribe RPC.
         """
 
     @property
