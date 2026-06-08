@@ -161,6 +161,34 @@ started. This would include approved and not approved change controls.
 """
 global___ChangeControlStatus = ChangeControlStatus
 
+class _CompletionReason:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _CompletionReasonEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CompletionReason.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    COMPLETION_REASON_UNSPECIFIED: _CompletionReason.ValueType  # 0
+    """COMPLETION_REASON_UNSPECIFIED means the completion reason is unknown."""
+    COMPLETION_REASON_SUCCESS: _CompletionReason.ValueType  # 1
+    """COMPLETION_REASON_SUCCESS means the change control completed successfully."""
+    COMPLETION_REASON_FAILED: _CompletionReason.ValueType  # 2
+    """COMPLETION_REASON_FAILED means the change control completed due to failure."""
+    COMPLETION_REASON_STOPPED: _CompletionReason.ValueType  # 3
+    """COMPLETION_REASON_STOPPED means the change control was stopped by a user."""
+
+class CompletionReason(_CompletionReason, metaclass=_CompletionReasonEnumTypeWrapper):
+    """CompletionReason describes the reason behind the terminal state of an executed change control."""
+
+COMPLETION_REASON_UNSPECIFIED: CompletionReason.ValueType  # 0
+"""COMPLETION_REASON_UNSPECIFIED means the completion reason is unknown."""
+COMPLETION_REASON_SUCCESS: CompletionReason.ValueType  # 1
+"""COMPLETION_REASON_SUCCESS means the change control completed successfully."""
+COMPLETION_REASON_FAILED: CompletionReason.ValueType  # 2
+"""COMPLETION_REASON_FAILED means the change control completed due to failure."""
+COMPLETION_REASON_STOPPED: CompletionReason.ValueType  # 3
+"""COMPLETION_REASON_STOPPED means the change control was stopped by a user."""
+global___CompletionReason = CompletionReason
+
 @typing.final
 class RepeatedRepeatedString(google.protobuf.message.Message):
     """RepeatedRepeatedString wraps a repeated `fmp.RepeatedString`
@@ -942,8 +970,13 @@ class ChangeControl(google.protobuf.message.Message):
     DEVICE_IDS_FIELD_NUMBER: builtins.int
     DEVICE_ID_TO_STAGE_IDS_FIELD_NUMBER: builtins.int
     CREATION_FIELD_NUMBER: builtins.int
+    COMPLETION_REASON_FIELD_NUMBER: builtins.int
     status: global___ChangeControlStatus.ValueType
     """status is the execution status of the change control."""
+    completion_reason: global___CompletionReason.ValueType
+    """completion_reason indicates why the change control completed (only relevant when
+    status is CHANGE_CONTROL_STATUS_COMPLETED).
+    """
     @property
     def key(self) -> global___ChangeControlKey:
         """key uniquely identifies the change control."""
@@ -1010,9 +1043,10 @@ class ChangeControl(google.protobuf.message.Message):
         device_ids: fmp.wrappers_pb2.RepeatedString | None = ...,
         device_id_to_stage_ids: global___DeviceToStageMap | None = ...,
         creation: global___Creation | None = ...,
+        completion_reason: global___CompletionReason.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "creation", b"creation", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "schedule", b"schedule", "start", b"start"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "creation", b"creation", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "schedule", b"schedule", "start", b"start", "status", b"status"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "completion_reason", b"completion_reason", "creation", b"creation", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "schedule", b"schedule", "start", b"start", "status", b"status"]) -> None: ...
 
 global___ChangeControl = ChangeControl
 
@@ -1136,8 +1170,13 @@ class ChangeControlSummary(google.protobuf.message.Message):
     END_TIME_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
     APPROVED_FIELD_NUMBER: builtins.int
+    COMPLETION_REASON_FIELD_NUMBER: builtins.int
     status: global___ChangeControlStatus.ValueType
     """status is the status of the change control."""
+    completion_reason: global___CompletionReason.ValueType
+    """completion_reason indicates why the change control completed (only relevant when
+    status is CHANGE_CONTROL_STATUS_COMPLETED).
+    """
     @property
     def key(self) -> global___ChangeControlKey:
         """key uniquely identifies the change control."""
@@ -1188,7 +1227,7 @@ class ChangeControlSummary(google.protobuf.message.Message):
 
     @property
     def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """start_time is the time at which the change control started execution."""
+        """start_time is the time at which the change control execution was started."""
 
     @property
     def start_user(self) -> google.protobuf.wrappers_pb2.StringValue:
@@ -1196,7 +1235,7 @@ class ChangeControlSummary(google.protobuf.message.Message):
 
     @property
     def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """end_time is the time at which the change control completed execution."""
+        """end_time is the time at which the change control execution was completed."""
 
     @property
     def error(self) -> google.protobuf.wrappers_pb2.StringValue:
@@ -1204,7 +1243,7 @@ class ChangeControlSummary(google.protobuf.message.Message):
 
     @property
     def approved(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """approved indicates whether the change control is approved."""
+        """approved indicates whether the change control is currently approved or unapproved."""
 
     def __init__(
         self,
@@ -1227,8 +1266,9 @@ class ChangeControlSummary(google.protobuf.message.Message):
         end_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
         approved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        completion_reason: global___CompletionReason.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["action_summaries", b"action_summaries", "approved", b"approved", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["action_summaries", b"action_summaries", "approved", b"approved", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user", "status", b"status"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["action_summaries", b"action_summaries", "approved", b"approved", "completion_reason", b"completion_reason", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user", "status", b"status"]) -> None: ...
 
 global___ChangeControlSummary = ChangeControlSummary

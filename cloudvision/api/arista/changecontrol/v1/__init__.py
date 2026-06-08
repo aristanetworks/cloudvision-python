@@ -11,6 +11,7 @@ __all__ = (
     "StageStatus",
     "StepStatus",
     "ChangeControlStatus",
+    "CompletionReason",
     "RepeatedRepeatedString",
     "ChangeControlKey",
     "Action",
@@ -203,6 +204,32 @@ class ChangeControlStatus(aristaproto.Enum):
     """
     CHANGE_CONTROL_STATUS_NOT_STARTED means the change control has not been
     started. This would include approved and not approved change controls.
+    """
+
+
+class CompletionReason(aristaproto.Enum):
+    """
+    CompletionReason describes the reason behind the terminal state of an executed change control.
+    """
+
+    UNSPECIFIED = 0
+    """
+    COMPLETION_REASON_UNSPECIFIED means the completion reason is unknown.
+    """
+
+    SUCCESS = 1
+    """
+    COMPLETION_REASON_SUCCESS means the change control completed successfully.
+    """
+
+    FAILED = 2
+    """
+    COMPLETION_REASON_FAILED means the change control completed due to failure.
+    """
+
+    STOPPED = 3
+    """
+    COMPLETION_REASON_STOPPED means the change control was stopped by a user.
     """
 
 
@@ -660,6 +687,12 @@ class ChangeControl(aristaproto.Message):
     creation holds information about when and by whom the change control was created.
     """
 
+    completion_reason: "CompletionReason" = aristaproto.enum_field(11)
+    """
+    completion_reason indicates why the change control completed (only relevant when
+    status is CHANGE_CONTROL_STATUS_COMPLETED).
+    """
+
 
 @dataclass(eq=False, repr=False)
 class ApproveConfig(aristaproto.Message):
@@ -777,7 +810,7 @@ class ChangeControlSummary(aristaproto.Message):
 
     start_time: datetime = aristaproto.message_field(14)
     """
-    start_time is the time at which the change control started execution.
+    start_time is the time at which the change control execution was started.
     """
 
     start_user: Optional[str] = aristaproto.message_field(15, wraps=aristaproto.TYPE_STRING)
@@ -785,7 +818,7 @@ class ChangeControlSummary(aristaproto.Message):
 
     end_time: datetime = aristaproto.message_field(16)
     """
-    end_time is the time at which the change control completed execution.
+    end_time is the time at which the change control execution was completed.
     """
 
     error: Optional[str] = aristaproto.message_field(17, wraps=aristaproto.TYPE_STRING)
@@ -794,7 +827,15 @@ class ChangeControlSummary(aristaproto.Message):
     """
 
     approved: Optional[bool] = aristaproto.message_field(18, wraps=aristaproto.TYPE_BOOL)
-    """approved indicates whether the change control is approved."""
+    """
+    approved indicates whether the change control is currently approved or unapproved.
+    """
+
+    completion_reason: "CompletionReason" = aristaproto.enum_field(19)
+    """
+    completion_reason indicates why the change control completed (only relevant when
+    status is CHANGE_CONTROL_STATUS_COMPLETED).
+    """
 
 
 @dataclass(eq=False, repr=False)
