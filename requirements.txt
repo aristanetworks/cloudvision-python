@@ -1,4 +1,4 @@
-aristaproto==0.1.4
+aristaproto==0.1.5
 cryptography==46.0.7
 grpcio>=1.53.0
 msgpack>=1.0.3
