@@ -451,18 +451,19 @@ class Device:
         '''
         Returns the primary management interface of the device. This would be Management0 for
         modular devices and Management1 for fixed systems. It also makes sure that the interface
-        Management1/1 exists on the device. If not, returns the first management interface in the
-        alphabetical sorted order.
+        Management1 exists on the device. If not, returns the first management interface in the
+        alphabetical sorted order. For preprovisioned devices, always returns Management1 as the
+        primary management interface irrespective of the device type.
         '''
+        # If the device is an expected/pre-provisioned device, Should return a
+        # default value to prevent errors.
+        if self.isPreprovisionedDevice:
+            return "Management1"
         mgmtIntfs = []
         for intf in self.getInterfaces():
             if intf.name.startswith("Management"):
                 mgmtIntfs.append(intf.name)
         if not mgmtIntfs:
-            # If the device is an expected/pre-provisioned device, Should return a
-            # default value to prevent errors.
-            if self.isPreprovisionedDevice:
-                return "Management1"
             return ""
         mgmtIntfs.sort()
         tagClient = ctx.getApiClient(TagAssignmentServiceStub)
