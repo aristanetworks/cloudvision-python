@@ -70,6 +70,7 @@ TMP_STORAGE_PATH = ["action", "tmp"]
 USERNAME = "username"
 DATASET_TYPE = "dataset_type"
 ORGANIZATION = "organization"
+MAX_SERVICE_GRPC_MSG_LEN = 20 * 1024 * 1024
 GRPC_RETRY_POLICY_JSON = json.dumps(
     {
         "methodConfig": [
@@ -303,6 +304,8 @@ class Context:
         tokCreds = grpc.access_token_call_credentials(token)
         creds = grpc.composite_channel_credentials(creds, tokCreds)
         channel_options = []
+        channel_options.append(("grpc.max_send_message_length", MAX_SERVICE_GRPC_MSG_LEN))
+        channel_options.append(("grpc.max_receive_message_length", MAX_SERVICE_GRPC_MSG_LEN))
         channel_options.append(("grpc.enable_retries", 1))
         channel_options.append(("grpc.service_config", GRPC_RETRY_POLICY_JSON))
         self.__serviceChann = grpc.secure_channel(
