@@ -1,6 +1,22 @@
 #!/usr/bin/env python3
 
-# Create containers, and assigns static configlets to devices in the CVP Studio Static Configuration.
+import argparse
+import asyncio
+import json
+import logging
+import sys
+import uuid
+from uuid import uuid5, NAMESPACE_URL
+from cloudvision.api import client as cv_client
+from cloudvision.api import fmp
+from cloudvision.api.arista.workspace import v1 as workspace
+from cloudvision.api.arista.studio import v1 as studio
+from cloudvision.api.arista.configlet import v1 as configlet
+from cloudvision.api.arista.tag import v2 as tag
+from cloudvision.cvlib.constants import MAINLINE_WS_ID
+
+# Create containers, and assigns static configlets to devices in the CVP Studio
+# "Static Configuration".
 #
 # Prerequisites:
 #   pip install "cloudvision>=1.29.1" pyyaml
@@ -24,7 +40,7 @@
 # under "US/DC1" and "US/DC2") are created only once.
 #
 # "containers" can carry their own configlets that apply to all
-# devices matched by the container query # (default 
+# devices matched by the container query # (default
 # "location: <name-of-the-container>").
 # "devices" carry per-device configlets and are placed under a
 # container when "container" is specified.
@@ -33,12 +49,14 @@
 #   {"name": "x", "configlet_file": "path"}  → create from file
 #   {"name": "x"}                            → look up by name on CV (should exist already)
 
-# Warning: the script will re-create the container hierarchy from scratch every time the script is run.
-# Thus, as it is, it does not support managing extra containers 'inside' what is defined in the script. 
-# i.e. in the example below, if I create manually a 'US/DC3' container it will be deleted next time the 
-# script is run. 
-# However, it's possible to create a container outside of the 'US' hierarchy. 
-# i.e. if I create a container 'France/DC3' using the UI, this will not be touched by the script.   
+# Warning: the script will re-create the container hierarchy from scratch every time the script
+# is run.
+# Thus, as it is, it does not support managing extra containers 'inside' what is defined in
+# the script, i.e. in the example below, if I create manually a 'US/DC3' container it
+# will be deleted next time the script is run.
+# However, it's possible to create a container outside of the 'US' hierarchy.
+# i.e. if I create a container 'France/DC3' using the UI, this will not be touched by the script.
+
 INVENTORY = {
     "containers": [
         {
@@ -69,21 +87,6 @@ INVENTORY = {
 }
 
 
-import argparse
-import asyncio
-import json
-import logging
-import sys
-import uuid
-from uuid import uuid5, NAMESPACE_URL
-from cloudvision.api import client as cv_client
-from cloudvision.api import fmp
-from cloudvision.api.arista.workspace import v1 as workspace
-from cloudvision.api.arista.studio import v1 as studio
-from cloudvision.api.arista.configlet import v1 as configlet
-from cloudvision.api.arista.tag import v2 as tag
-from cloudvision.cvlib.constants import MAINLINE_WS_ID
-
 logger = logging.getLogger(__name__)
 
 STATIC_CONFIGLET_STUDIO_ID = "studio-static-configlet"
@@ -91,7 +94,6 @@ RPC_TIMEOUT = 30
 BUILD_TIMEOUT = 300
 
 ID_NAMESPACE = uuid5(NAMESPACE_URL, 'assign-static-configlet')
-
 
 
 def create_client(args):
@@ -122,7 +124,10 @@ async def get_configlets_and_assignments(channel):
         c = resp.value
         print(f"  ID:   {c.key.configlet_id}")
         print(f"  Name: {c.display_name}")
-        body_preview = (c.body[:100] + '...') if c.body and len(c.body) > 100 else (c.body or '(empty)')
+        if c.body and len(c.body) > 100:
+            body_preview = (c.body[:100] + '...')
+        else:
+            body_preview = (c.body or '(empty)')
         print(f"  Body: {body_preview}")
         print()
 
@@ -386,7 +391,7 @@ async def create_container(channel, ws_id, container_id, display_name,
                 configlet_assignment_id=container_id,
             ),
             display_name=display_name,
-            description=f'Container created by assign_static_configlet.py',
+            description='Container created by assign_static_configlet.py',
             query=f'location:{display_name}',
             configlet_ids=fmp.RepeatedString(values=configlet_ids or []),
             child_assignment_ids=fmp.RepeatedString(values=child_assignment_ids),
@@ -509,8 +514,8 @@ async def main(args, client):
         def _container_id_for_path(path):
             return str(uuid5(ID_NAMESPACE, f'container:{path}'))
 
-        tree = {}          # path -> {"children": {}, "device_ids": [], "configlet_ids": []}
-        root_children = {} # name -> path   (top-level containers)
+        tree = {}           # path -> {"children": {}, "device_ids": [], "configlet_ids": []}
+        root_children = {}  # name -> path   (top-level containers)
 
         def _ensure_path(path):
             if path in tree:
@@ -650,4 +655,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
     client = create_client(args)
     asyncio.run(main(args, client))
-
