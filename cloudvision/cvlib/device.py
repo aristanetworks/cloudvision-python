@@ -307,6 +307,18 @@ device_capabilities: Dict[str, Dict] = {
             "interface_storm_control": False
         },
     },
+    "swag": {
+        "regexes": [r'Switch Aggregation Group'],
+        "info": "SWAG: all interface capabilities enabled, EOS validates at deploy",
+        "feature_support": {
+            "queue_monitor_length_notify": False,
+            "phone": True,
+            "poe": True,
+        },
+        "ip_locking": {
+            "support": True
+        },
+    },
     "default": {
         "regexes": [r'.+'],
         "info": "Configured in standard settings",
