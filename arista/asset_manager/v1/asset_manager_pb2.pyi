@@ -353,6 +353,7 @@ class DeviceTenantAssignment(google.protobuf.message.Message):
     SALES_ORDER_NUMBER_FIELD_NUMBER: builtins.int
     SOURCE_FIELD_NUMBER: builtins.int
     UPDATED_BY_USER_FIELD_NUMBER: builtins.int
+    END_CUSTOMER_PURCHASE_ORDER_NUMBER_FIELD_NUMBER: builtins.int
     source: global___Source.ValueType
     """source is the source of device data"""
     @property
@@ -400,6 +401,10 @@ class DeviceTenantAssignment(google.protobuf.message.Message):
         last device assignment.
         """
 
+    @property
+    def end_customer_purchase_order_number(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """end_customer_purchase_order_number is the purchase order number associated with this device."""
+
     def __init__(
         self,
         *,
@@ -412,9 +417,10 @@ class DeviceTenantAssignment(google.protobuf.message.Message):
         sales_order_number: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         source: global___Source.ValueType = ...,
         updated_by_user: global___UserInfo | None = ...,
+        end_customer_purchase_order_number: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["customer_id", b"customer_id", "key", b"key", "model_name", b"model_name", "preferred_customer_name", b"preferred_customer_name", "sales_order_number", b"sales_order_number", "shipping_date", b"shipping_date", "tenant_id", b"tenant_id", "updated_by_user", b"updated_by_user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["customer_id", b"customer_id", "key", b"key", "model_name", b"model_name", "preferred_customer_name", b"preferred_customer_name", "sales_order_number", b"sales_order_number", "shipping_date", b"shipping_date", "source", b"source", "tenant_id", b"tenant_id", "updated_by_user", b"updated_by_user"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["customer_id", b"customer_id", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "key", b"key", "model_name", b"model_name", "preferred_customer_name", b"preferred_customer_name", "sales_order_number", b"sales_order_number", "shipping_date", b"shipping_date", "tenant_id", b"tenant_id", "updated_by_user", b"updated_by_user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["customer_id", b"customer_id", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "key", b"key", "model_name", b"model_name", "preferred_customer_name", b"preferred_customer_name", "sales_order_number", b"sales_order_number", "shipping_date", b"shipping_date", "source", b"source", "tenant_id", b"tenant_id", "updated_by_user", b"updated_by_user"]) -> None: ...
 
 global___DeviceTenantAssignment = DeviceTenantAssignment
 
@@ -506,6 +512,7 @@ class LicenseTenantAssignment(google.protobuf.message.Message):
     UPDATED_BY_USER_FIELD_NUMBER: builtins.int
     ASSIGNED_DEVICE_FIELD_NUMBER: builtins.int
     LICENSE_BUNDLE_UUID_FIELD_NUMBER: builtins.int
+    END_CUSTOMER_PURCHASE_ORDER_NUMBER_FIELD_NUMBER: builtins.int
     feature: arista.license.v1.license_pb2.Feature.ValueType
     """feature is the name of the feature for which the
     license was purchased.
@@ -585,6 +592,10 @@ class LicenseTenantAssignment(google.protobuf.message.Message):
         the license belongs to
         """
 
+    @property
+    def end_customer_purchase_order_number(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """end_customer_purchase_order_number is the purchase order number associated with this license."""
+
     def __init__(
         self,
         *,
@@ -603,9 +614,10 @@ class LicenseTenantAssignment(google.protobuf.message.Message):
         updated_by_user: global___UserInfo | None = ...,
         assigned_device: google.protobuf.wrappers_pb2.StringValue | None = ...,
         license_bundle_uuid: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        end_customer_purchase_order_number: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "customer_id", b"customer_id", "end_date", b"end_date", "invoice_line_number", b"invoice_line_number", "invoice_number", b"invoice_number", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "platform_class", b"platform_class", "preferred_customer_name", b"preferred_customer_name", "sales_order_number", b"sales_order_number", "sku", b"sku", "start_date", b"start_date", "tenant_id", b"tenant_id", "updated_by_user", b"updated_by_user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "customer_id", b"customer_id", "end_date", b"end_date", "feature", b"feature", "invoice_line_number", b"invoice_line_number", "invoice_number", b"invoice_number", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "platform_class", b"platform_class", "preferred_customer_name", b"preferred_customer_name", "sales_order_number", b"sales_order_number", "sku", b"sku", "start_date", b"start_date", "tenant_id", b"tenant_id", "updated_by_user", b"updated_by_user"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "customer_id", b"customer_id", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_date", b"end_date", "invoice_line_number", b"invoice_line_number", "invoice_number", b"invoice_number", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "platform_class", b"platform_class", "preferred_customer_name", b"preferred_customer_name", "sales_order_number", b"sales_order_number", "sku", b"sku", "start_date", b"start_date", "tenant_id", b"tenant_id", "updated_by_user", b"updated_by_user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "customer_id", b"customer_id", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_date", b"end_date", "feature", b"feature", "invoice_line_number", b"invoice_line_number", "invoice_number", b"invoice_number", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "platform_class", b"platform_class", "preferred_customer_name", b"preferred_customer_name", "sales_order_number", b"sales_order_number", "sku", b"sku", "start_date", b"start_date", "tenant_id", b"tenant_id", "updated_by_user", b"updated_by_user"]) -> None: ...
 
 global___LicenseTenantAssignment = LicenseTenantAssignment
 

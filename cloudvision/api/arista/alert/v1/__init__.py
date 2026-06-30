@@ -2314,8 +2314,6 @@ class DefaultTemplate(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class MetaResponse(aristaproto.Message):
-    """ """
-
     time: datetime = aristaproto.message_field(1)
     """
     Time holds the timestamp of the last item included in the metadata calculation.
@@ -2337,8 +2335,6 @@ class MetaResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class AlertRequest(aristaproto.Message):
-    """ """
-
     time: datetime = aristaproto.message_field(2)
     """
     Time indicates the time for which you are interested in the data.
@@ -2348,8 +2344,6 @@ class AlertRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class AlertResponse(aristaproto.Message):
-    """ """
-
     value: "Alert" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -2367,8 +2361,6 @@ class AlertResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class AlertStreamRequest(aristaproto.Message):
-    """ """
-
     time: "__time__.TimeBounds" = aristaproto.message_field(3)
     """
     TimeRange allows limiting response data to within a specified time window.
@@ -2389,8 +2381,6 @@ class AlertStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class AlertStreamResponse(aristaproto.Message):
-    """ """
-
     value: "Alert" = aristaproto.message_field(1)
     """
     Value is a value deemed relevant to the initiating request.
@@ -2412,8 +2402,6 @@ class AlertStreamResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class AlertConfigRequest(aristaproto.Message):
-    """ """
-
     time: datetime = aristaproto.message_field(2)
     """
     Time indicates the time for which you are interested in the data.
@@ -2423,8 +2411,6 @@ class AlertConfigRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class AlertConfigResponse(aristaproto.Message):
-    """ """
-
     value: "AlertConfig" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -2442,8 +2428,6 @@ class AlertConfigResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class AlertConfigStreamRequest(aristaproto.Message):
-    """ """
-
     time: "__time__.TimeBounds" = aristaproto.message_field(3)
     """
     TimeRange allows limiting response data to within a specified time window.
@@ -2464,8 +2448,6 @@ class AlertConfigStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class AlertConfigStreamResponse(aristaproto.Message):
-    """ """
-
     value: "AlertConfig" = aristaproto.message_field(1)
     """
     Value is a value deemed relevant to the initiating request.
@@ -2487,8 +2469,6 @@ class AlertConfigStreamResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class AlertConfigSetRequest(aristaproto.Message):
-    """ """
-
     value: "AlertConfig" = aristaproto.message_field(1)
     """
     AlertConfig carries the value to set into the datastore.
@@ -2498,8 +2478,6 @@ class AlertConfigSetRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class AlertConfigSetResponse(aristaproto.Message):
-    """ """
-
     value: "AlertConfig" = aristaproto.message_field(1)
     """
     Value carries all the values given in the AlertConfigSetRequest as well
@@ -2518,8 +2496,6 @@ class AlertConfigSetResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DefaultTemplateRequest(aristaproto.Message):
-    """ """
-
     key: "TemplateKey" = aristaproto.message_field(1)
     """
     Key uniquely identifies a DefaultTemplate instance to retrieve.
@@ -2535,8 +2511,6 @@ class DefaultTemplateRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DefaultTemplateResponse(aristaproto.Message):
-    """ """
-
     value: "DefaultTemplate" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -2554,12 +2528,7 @@ class DefaultTemplateResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DefaultTemplateSomeRequest(aristaproto.Message):
-    """ """
-
     keys: List["TemplateKey"] = aristaproto.message_field(1)
-    """
-    """
-
     time: datetime = aristaproto.message_field(2)
     """
     Time indicates the time for which you are interested in the data.
@@ -2569,8 +2538,6 @@ class DefaultTemplateSomeRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DefaultTemplateSomeResponse(aristaproto.Message):
-    """ """
-
     value: "DefaultTemplate" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -2594,8 +2561,6 @@ class DefaultTemplateSomeResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DefaultTemplateStreamRequest(aristaproto.Message):
-    """ """
-
     time: "__time__.TimeBounds" = aristaproto.message_field(3)
     """
     TimeRange allows limiting response data to within a specified time window.
@@ -2616,8 +2581,6 @@ class DefaultTemplateStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DefaultTemplateStreamResponse(aristaproto.Message):
-    """ """
-
     value: "DefaultTemplate" = aristaproto.message_field(1)
     """
     Value is a value deemed relevant to the initiating request.
@@ -2641,8 +2604,6 @@ class DefaultTemplateStreamResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DefaultTemplateBatchedStreamRequest(aristaproto.Message):
-    """ """
-
     time: "__time__.TimeBounds" = aristaproto.message_field(3)
     """
     TimeRange allows limiting response data to within a specified time window.
@@ -2671,8 +2632,6 @@ class DefaultTemplateBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DefaultTemplateBatchedStreamResponse(aristaproto.Message):
-    """ """
-
     responses: List["DefaultTemplateStreamResponse"] = aristaproto.message_field(1)
     """
     Values are the values deemed relevant to the initiating request.
@@ -2683,8 +2642,6 @@ class DefaultTemplateBatchedStreamResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class SenderStatusRequest(aristaproto.Message):
-    """ """
-
     key: "SenderStatusKey" = aristaproto.message_field(1)
     """
     Key uniquely identifies a SenderStatus instance to retrieve.
@@ -2700,8 +2657,6 @@ class SenderStatusRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class SenderStatusResponse(aristaproto.Message):
-    """ """
-
     value: "SenderStatus" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -2719,12 +2674,7 @@ class SenderStatusResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class SenderStatusSomeRequest(aristaproto.Message):
-    """ """
-
     keys: List["SenderStatusKey"] = aristaproto.message_field(1)
-    """
-    """
-
     time: datetime = aristaproto.message_field(2)
     """
     Time indicates the time for which you are interested in the data.
@@ -2734,8 +2684,6 @@ class SenderStatusSomeRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class SenderStatusSomeResponse(aristaproto.Message):
-    """ """
-
     value: "SenderStatus" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -2759,8 +2707,6 @@ class SenderStatusSomeResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class SenderStatusStreamRequest(aristaproto.Message):
-    """ """
-
     partial_eq_filter: List["SenderStatus"] = aristaproto.message_field(1)
     """
     PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
@@ -2797,8 +2743,6 @@ class SenderStatusStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class SenderStatusStreamResponse(aristaproto.Message):
-    """ """
-
     value: "SenderStatus" = aristaproto.message_field(1)
     """
     Value is a value deemed relevant to the initiating request.
@@ -2820,8 +2764,6 @@ class SenderStatusStreamResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class SenderStatusBatchedStreamRequest(aristaproto.Message):
-    """ """
-
     partial_eq_filter: List["SenderStatus"] = aristaproto.message_field(1)
     """
     PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
@@ -2866,8 +2808,6 @@ class SenderStatusBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class SenderStatusBatchedStreamResponse(aristaproto.Message):
-    """ """
-
     responses: List["SenderStatusStreamResponse"] = aristaproto.message_field(1)
     """
     Values are the values deemed relevant to the initiating request.
@@ -2878,8 +2818,6 @@ class SenderStatusBatchedStreamResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigRequest(aristaproto.Message):
-    """ """
-
     key: "TemplateKey" = aristaproto.message_field(1)
     """
     Key uniquely identifies a TemplateConfig instance to retrieve.
@@ -2895,8 +2833,6 @@ class TemplateConfigRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigResponse(aristaproto.Message):
-    """ """
-
     value: "TemplateConfig" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -2914,12 +2850,7 @@ class TemplateConfigResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigSomeRequest(aristaproto.Message):
-    """ """
-
     keys: List["TemplateKey"] = aristaproto.message_field(1)
-    """
-    """
-
     time: datetime = aristaproto.message_field(2)
     """
     Time indicates the time for which you are interested in the data.
@@ -2929,8 +2860,6 @@ class TemplateConfigSomeRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigSomeResponse(aristaproto.Message):
-    """ """
-
     value: "TemplateConfig" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -2954,8 +2883,6 @@ class TemplateConfigSomeResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigStreamRequest(aristaproto.Message):
-    """ """
-
     time: "__time__.TimeBounds" = aristaproto.message_field(3)
     """
     TimeRange allows limiting response data to within a specified time window.
@@ -2976,8 +2903,6 @@ class TemplateConfigStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigStreamResponse(aristaproto.Message):
-    """ """
-
     value: "TemplateConfig" = aristaproto.message_field(1)
     """
     Value is a value deemed relevant to the initiating request.
@@ -2999,8 +2924,6 @@ class TemplateConfigStreamResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigBatchedStreamRequest(aristaproto.Message):
-    """ """
-
     time: "__time__.TimeBounds" = aristaproto.message_field(3)
     """
     TimeRange allows limiting response data to within a specified time window.
@@ -3029,8 +2952,6 @@ class TemplateConfigBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigBatchedStreamResponse(aristaproto.Message):
-    """ """
-
     responses: List["TemplateConfigStreamResponse"] = aristaproto.message_field(1)
     """
     Values are the values deemed relevant to the initiating request.
@@ -3041,8 +2962,6 @@ class TemplateConfigBatchedStreamResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigSetRequest(aristaproto.Message):
-    """ """
-
     value: "TemplateConfig" = aristaproto.message_field(1)
     """
     TemplateConfig carries the value to set into the datastore.
@@ -3052,8 +2971,6 @@ class TemplateConfigSetRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigSetResponse(aristaproto.Message):
-    """ """
-
     value: "TemplateConfig" = aristaproto.message_field(1)
     """
     Value carries all the values given in the TemplateConfigSetRequest as well
@@ -3072,8 +2989,6 @@ class TemplateConfigSetResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigSetSomeRequest(aristaproto.Message):
-    """ """
-
     values: List["TemplateConfig"] = aristaproto.message_field(1)
     """
     value contains a list of TemplateConfig values to write.
@@ -3087,21 +3002,12 @@ class TemplateConfigSetSomeRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigSetSomeResponse(aristaproto.Message):
-    """ """
-
     key: "TemplateKey" = aristaproto.message_field(1)
-    """
-    """
-
     error: str = aristaproto.string_field(2)
-    """
-    """
 
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigDeleteRequest(aristaproto.Message):
-    """ """
-
     key: "TemplateKey" = aristaproto.message_field(1)
     """
     Key indicates which TemplateConfig instance to remove.
@@ -3111,8 +3017,6 @@ class TemplateConfigDeleteRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigDeleteResponse(aristaproto.Message):
-    """ """
-
     key: "TemplateKey" = aristaproto.message_field(1)
     """Key echoes back the key of the deleted TemplateConfig instance."""
 
@@ -3128,8 +3032,6 @@ class TemplateConfigDeleteResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigDeleteSomeRequest(aristaproto.Message):
-    """ """
-
     keys: List["TemplateKey"] = aristaproto.message_field(1)
     """key contains a list of TemplateConfig keys to delete"""
 
@@ -3141,25 +3043,16 @@ class TemplateConfigDeleteSomeResponse(aristaproto.Message):
     """
 
     key: "TemplateKey" = aristaproto.message_field(1)
-    """
-    """
-
     error: str = aristaproto.string_field(2)
-    """
-    """
 
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigDeleteAllRequest(aristaproto.Message):
-    """ """
-
     pass
 
 
 @dataclass(eq=False, repr=False)
 class TemplateConfigDeleteAllResponse(aristaproto.Message):
-    """ """
-
     type: "___fmp__.DeleteError" = aristaproto.enum_field(1)
     """
     This describes the class of delete error.
@@ -3179,8 +3072,6 @@ class TemplateConfigDeleteAllResponse(aristaproto.Message):
 
 
 class AlertServiceStub(aristaproto.ServiceStub):
-    """ """
-
     async def get_one(
         self,
         alert_request: "AlertRequest",
@@ -3189,8 +3080,6 @@ class AlertServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AlertResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.AlertService/GetOne",
             alert_request,
@@ -3208,8 +3097,6 @@ class AlertServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[AlertStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.AlertService/GetAll",
             alert_stream_request,
@@ -3228,8 +3115,6 @@ class AlertServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[AlertStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.AlertService/Subscribe",
             alert_stream_request,
@@ -3248,8 +3133,6 @@ class AlertServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[MetaResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.AlertService/SubscribeMeta",
             alert_stream_request,
@@ -3262,8 +3145,6 @@ class AlertServiceStub(aristaproto.ServiceStub):
 
 
 class AlertConfigServiceStub(aristaproto.ServiceStub):
-    """ """
-
     async def get_one(
         self,
         alert_config_request: "AlertConfigRequest",
@@ -3272,8 +3153,6 @@ class AlertConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AlertConfigResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.AlertConfigService/GetOne",
             alert_config_request,
@@ -3291,8 +3170,6 @@ class AlertConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[AlertConfigStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.AlertConfigService/GetAll",
             alert_config_stream_request,
@@ -3311,8 +3188,6 @@ class AlertConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[AlertConfigStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.AlertConfigService/Subscribe",
             alert_config_stream_request,
@@ -3331,8 +3206,6 @@ class AlertConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[MetaResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.AlertConfigService/SubscribeMeta",
             alert_config_stream_request,
@@ -3351,8 +3224,6 @@ class AlertConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AlertConfigSetResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.AlertConfigService/Set",
             alert_config_set_request,
@@ -3364,8 +3235,6 @@ class AlertConfigServiceStub(aristaproto.ServiceStub):
 
 
 class DefaultTemplateServiceStub(aristaproto.ServiceStub):
-    """ """
-
     async def get_one(
         self,
         default_template_request: "DefaultTemplateRequest",
@@ -3374,8 +3243,6 @@ class DefaultTemplateServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "DefaultTemplateResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.DefaultTemplateService/GetOne",
             default_template_request,
@@ -3393,8 +3260,6 @@ class DefaultTemplateServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[DefaultTemplateSomeResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.DefaultTemplateService/GetSome",
             default_template_some_request,
@@ -3413,8 +3278,6 @@ class DefaultTemplateServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[DefaultTemplateStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.DefaultTemplateService/GetAll",
             default_template_stream_request,
@@ -3433,8 +3296,6 @@ class DefaultTemplateServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[DefaultTemplateStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.DefaultTemplateService/Subscribe",
             default_template_stream_request,
@@ -3453,8 +3314,6 @@ class DefaultTemplateServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "MetaResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.DefaultTemplateService/GetMeta",
             default_template_stream_request,
@@ -3472,8 +3331,6 @@ class DefaultTemplateServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[MetaResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.DefaultTemplateService/SubscribeMeta",
             default_template_stream_request,
@@ -3492,8 +3349,6 @@ class DefaultTemplateServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[DefaultTemplateBatchedStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.DefaultTemplateService/GetAllBatched",
             default_template_batched_stream_request,
@@ -3512,8 +3367,6 @@ class DefaultTemplateServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[DefaultTemplateBatchedStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.DefaultTemplateService/SubscribeBatched",
             default_template_batched_stream_request,
@@ -3526,8 +3379,6 @@ class DefaultTemplateServiceStub(aristaproto.ServiceStub):
 
 
 class SenderStatusServiceStub(aristaproto.ServiceStub):
-    """ """
-
     async def get_one(
         self,
         sender_status_request: "SenderStatusRequest",
@@ -3536,8 +3387,6 @@ class SenderStatusServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "SenderStatusResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.SenderStatusService/GetOne",
             sender_status_request,
@@ -3555,8 +3404,6 @@ class SenderStatusServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[SenderStatusSomeResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.SenderStatusService/GetSome",
             sender_status_some_request,
@@ -3575,8 +3422,6 @@ class SenderStatusServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[SenderStatusStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.SenderStatusService/GetAll",
             sender_status_stream_request,
@@ -3595,8 +3440,6 @@ class SenderStatusServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[SenderStatusStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.SenderStatusService/Subscribe",
             sender_status_stream_request,
@@ -3615,8 +3458,6 @@ class SenderStatusServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "MetaResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.SenderStatusService/GetMeta",
             sender_status_stream_request,
@@ -3634,8 +3475,6 @@ class SenderStatusServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[MetaResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.SenderStatusService/SubscribeMeta",
             sender_status_stream_request,
@@ -3654,8 +3493,6 @@ class SenderStatusServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[SenderStatusBatchedStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.SenderStatusService/GetAllBatched",
             sender_status_batched_stream_request,
@@ -3674,8 +3511,6 @@ class SenderStatusServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[SenderStatusBatchedStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.SenderStatusService/SubscribeBatched",
             sender_status_batched_stream_request,
@@ -3688,8 +3523,6 @@ class SenderStatusServiceStub(aristaproto.ServiceStub):
 
 
 class TemplateConfigServiceStub(aristaproto.ServiceStub):
-    """ """
-
     async def get_one(
         self,
         template_config_request: "TemplateConfigRequest",
@@ -3698,8 +3531,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "TemplateConfigResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.TemplateConfigService/GetOne",
             template_config_request,
@@ -3717,8 +3548,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[TemplateConfigSomeResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.TemplateConfigService/GetSome",
             template_config_some_request,
@@ -3737,8 +3566,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[TemplateConfigStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.TemplateConfigService/GetAll",
             template_config_stream_request,
@@ -3757,8 +3584,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[TemplateConfigStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.TemplateConfigService/Subscribe",
             template_config_stream_request,
@@ -3777,8 +3602,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "MetaResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.TemplateConfigService/GetMeta",
             template_config_stream_request,
@@ -3796,8 +3619,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[MetaResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.TemplateConfigService/SubscribeMeta",
             template_config_stream_request,
@@ -3816,8 +3637,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "TemplateConfigSetResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.TemplateConfigService/Set",
             template_config_set_request,
@@ -3835,8 +3654,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[TemplateConfigSetSomeResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.TemplateConfigService/SetSome",
             template_config_set_some_request,
@@ -3855,8 +3672,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "TemplateConfigDeleteResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.alert.v1.TemplateConfigService/Delete",
             template_config_delete_request,
@@ -3874,8 +3689,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[TemplateConfigDeleteSomeResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.TemplateConfigService/DeleteSome",
             template_config_delete_some_request,
@@ -3894,8 +3707,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[TemplateConfigDeleteAllResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.TemplateConfigService/DeleteAll",
             template_config_delete_all_request,
@@ -3914,8 +3725,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[TemplateConfigBatchedStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.TemplateConfigService/GetAllBatched",
             template_config_batched_stream_request,
@@ -3934,8 +3743,6 @@ class TemplateConfigServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[TemplateConfigBatchedStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.alert.v1.TemplateConfigService/SubscribeBatched",
             template_config_batched_stream_request,
@@ -3953,32 +3760,22 @@ from ... import time as __time__
 
 
 class AlertServiceBase(ServiceBase):
-    """ """
-
     async def get_one(self, alert_request: "AlertRequest") -> "AlertResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
         self, alert_stream_request: "AlertStreamRequest"
     ) -> AsyncIterator[AlertStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
         self, alert_stream_request: "AlertStreamRequest"
     ) -> AsyncIterator[AlertStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
         self, alert_stream_request: "AlertStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
@@ -4048,39 +3845,27 @@ class AlertServiceBase(ServiceBase):
 
 
 class AlertConfigServiceBase(ServiceBase):
-    """ """
-
     async def get_one(self, alert_config_request: "AlertConfigRequest") -> "AlertConfigResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
         self, alert_config_stream_request: "AlertConfigStreamRequest"
     ) -> AsyncIterator[AlertConfigStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
         self, alert_config_stream_request: "AlertConfigStreamRequest"
     ) -> AsyncIterator[AlertConfigStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
         self, alert_config_stream_request: "AlertConfigStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set(
         self, alert_config_set_request: "AlertConfigSetRequest"
     ) -> "AlertConfigSetResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
@@ -4163,62 +3948,44 @@ class AlertConfigServiceBase(ServiceBase):
 
 
 class DefaultTemplateServiceBase(ServiceBase):
-    """ """
-
     async def get_one(
         self, default_template_request: "DefaultTemplateRequest"
     ) -> "DefaultTemplateResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
         self, default_template_some_request: "DefaultTemplateSomeRequest"
     ) -> AsyncIterator[DefaultTemplateSomeResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
         self, default_template_stream_request: "DefaultTemplateStreamRequest"
     ) -> AsyncIterator[DefaultTemplateStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
         self, default_template_stream_request: "DefaultTemplateStreamRequest"
     ) -> AsyncIterator[DefaultTemplateStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
         self, default_template_stream_request: "DefaultTemplateStreamRequest"
     ) -> "MetaResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
         self, default_template_stream_request: "DefaultTemplateStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
         self, default_template_batched_stream_request: "DefaultTemplateBatchedStreamRequest"
     ) -> AsyncIterator[DefaultTemplateBatchedStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
         self, default_template_batched_stream_request: "DefaultTemplateBatchedStreamRequest"
     ) -> AsyncIterator[DefaultTemplateBatchedStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
@@ -4354,60 +4121,42 @@ class DefaultTemplateServiceBase(ServiceBase):
 
 
 class SenderStatusServiceBase(ServiceBase):
-    """ """
-
     async def get_one(self, sender_status_request: "SenderStatusRequest") -> "SenderStatusResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
         self, sender_status_some_request: "SenderStatusSomeRequest"
     ) -> AsyncIterator[SenderStatusSomeResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
         self, sender_status_stream_request: "SenderStatusStreamRequest"
     ) -> AsyncIterator[SenderStatusStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
         self, sender_status_stream_request: "SenderStatusStreamRequest"
     ) -> AsyncIterator[SenderStatusStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
         self, sender_status_stream_request: "SenderStatusStreamRequest"
     ) -> "MetaResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
         self, sender_status_stream_request: "SenderStatusStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
         self, sender_status_batched_stream_request: "SenderStatusBatchedStreamRequest"
     ) -> AsyncIterator[SenderStatusBatchedStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
         self, sender_status_batched_stream_request: "SenderStatusBatchedStreamRequest"
     ) -> AsyncIterator[SenderStatusBatchedStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
@@ -4540,97 +4289,69 @@ class SenderStatusServiceBase(ServiceBase):
 
 
 class TemplateConfigServiceBase(ServiceBase):
-    """ """
-
     async def get_one(
         self, template_config_request: "TemplateConfigRequest"
     ) -> "TemplateConfigResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
         self, template_config_some_request: "TemplateConfigSomeRequest"
     ) -> AsyncIterator[TemplateConfigSomeResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
         self, template_config_stream_request: "TemplateConfigStreamRequest"
     ) -> AsyncIterator[TemplateConfigStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
         self, template_config_stream_request: "TemplateConfigStreamRequest"
     ) -> AsyncIterator[TemplateConfigStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
         self, template_config_stream_request: "TemplateConfigStreamRequest"
     ) -> "MetaResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
         self, template_config_stream_request: "TemplateConfigStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set(
         self, template_config_set_request: "TemplateConfigSetRequest"
     ) -> "TemplateConfigSetResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
         self, template_config_set_some_request: "TemplateConfigSetSomeRequest"
     ) -> AsyncIterator[TemplateConfigSetSomeResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete(
         self, template_config_delete_request: "TemplateConfigDeleteRequest"
     ) -> "TemplateConfigDeleteResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_some(
         self, template_config_delete_some_request: "TemplateConfigDeleteSomeRequest"
     ) -> AsyncIterator[TemplateConfigDeleteSomeResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_all(
         self, template_config_delete_all_request: "TemplateConfigDeleteAllRequest"
     ) -> AsyncIterator[TemplateConfigDeleteAllResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
         self, template_config_batched_stream_request: "TemplateConfigBatchedStreamRequest"
     ) -> AsyncIterator[TemplateConfigBatchedStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
         self, template_config_batched_stream_request: "TemplateConfigBatchedStreamRequest"
     ) -> AsyncIterator[TemplateConfigBatchedStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(

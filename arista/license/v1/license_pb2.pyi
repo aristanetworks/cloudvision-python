@@ -333,6 +333,7 @@ class PurchasedLicense(google.protobuf.message.Message):
     END_CUSTOMER_PARENT_ACCOUNT_ID_FIELD_NUMBER: builtins.int
     END_CUSTOMER_PARENT_ACCOUNT_NAME_FIELD_NUMBER: builtins.int
     PLATFORM_CLASS_FIELD_NUMBER: builtins.int
+    END_CUSTOMER_PURCHASE_ORDER_NUMBER_FIELD_NUMBER: builtins.int
     feature: global___Feature.ValueType
     """feature is the name of the feature for which the
     license was purchased.
@@ -400,6 +401,10 @@ class PurchasedLicense(google.protobuf.message.Message):
     def platform_class(self) -> google.protobuf.wrappers_pb2.StringValue:
         """platform_class is the platform class of the license sku."""
 
+    @property
+    def end_customer_purchase_order_number(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """end_customer_purchase_order_number is the purchase order number associated with this license."""
+
     def __init__(
         self,
         *,
@@ -419,9 +424,10 @@ class PurchasedLicense(google.protobuf.message.Message):
         end_customer_parent_account_id: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         end_customer_parent_account_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
         platform_class: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        end_customer_purchase_order_number: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "end_customer_parent_account_id", b"end_customer_parent_account_id", "end_customer_parent_account_name", b"end_customer_parent_account_name", "end_time", b"end_time", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "original_sales_order_number", b"original_sales_order_number", "original_subscription_record_number", b"original_subscription_record_number", "platform_class", b"platform_class", "renewal_status", b"renewal_status", "renewal_status_date", b"renewal_status_date", "sku", b"sku", "so_number", b"so_number", "start_time", b"start_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "end_customer_parent_account_id", b"end_customer_parent_account_id", "end_customer_parent_account_name", b"end_customer_parent_account_name", "end_time", b"end_time", "feature", b"feature", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "original_sales_order_number", b"original_sales_order_number", "original_subscription_record_number", b"original_subscription_record_number", "plan_name", b"plan_name", "platform_class", b"platform_class", "renewal_status", b"renewal_status", "renewal_status_date", b"renewal_status_date", "sku", b"sku", "so_number", b"so_number", "start_time", b"start_time"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "end_customer_parent_account_id", b"end_customer_parent_account_id", "end_customer_parent_account_name", b"end_customer_parent_account_name", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "original_sales_order_number", b"original_sales_order_number", "original_subscription_record_number", b"original_subscription_record_number", "platform_class", b"platform_class", "renewal_status", b"renewal_status", "renewal_status_date", b"renewal_status_date", "sku", b"sku", "so_number", b"so_number", "start_time", b"start_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "end_customer_parent_account_id", b"end_customer_parent_account_id", "end_customer_parent_account_name", b"end_customer_parent_account_name", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "feature", b"feature", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "original_sales_order_number", b"original_sales_order_number", "original_subscription_record_number", b"original_subscription_record_number", "plan_name", b"plan_name", "platform_class", b"platform_class", "renewal_status", b"renewal_status", "renewal_status_date", b"renewal_status_date", "sku", b"sku", "so_number", b"so_number", "start_time", b"start_time"]) -> None: ...
 
 global___PurchasedLicense = PurchasedLicense
 
@@ -819,6 +825,7 @@ class DeviceData(google.protobuf.message.Message):
     PLATFORM_CLASSES_FIELD_NUMBER: builtins.int
     LICENSES_FIELD_NUMBER: builtins.int
     APPLICABLE_LICENSE_SKUS_FIELD_NUMBER: builtins.int
+    END_CUSTOMER_PURCHASE_ORDER_NUMBER_FIELD_NUMBER: builtins.int
     @property
     def serial(self) -> google.protobuf.wrappers_pb2.StringValue:
         """ serial is the serial number of the device."""
@@ -849,6 +856,10 @@ class DeviceData(google.protobuf.message.Message):
         of the requested feature.
         """
 
+    @property
+    def end_customer_purchase_order_number(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """end_customer_purchase_order_number is the purchase order number associated with this device."""
+
     def __init__(
         self,
         *,
@@ -859,9 +870,10 @@ class DeviceData(google.protobuf.message.Message):
         platform_classes: fmp.wrappers_pb2.RepeatedString | None = ...,
         licenses: global___RepeatedLicenseInfo | None = ...,
         applicable_license_skus: fmp.wrappers_pb2.RepeatedString | None = ...,
+        end_customer_purchase_order_number: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["applicable_license_skus", b"applicable_license_skus", "hostname", b"hostname", "licenses", b"licenses", "model", b"model", "platform_classes", b"platform_classes", "sales_order_number", b"sales_order_number", "serial", b"serial"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["applicable_license_skus", b"applicable_license_skus", "hostname", b"hostname", "licenses", b"licenses", "model", b"model", "platform_classes", b"platform_classes", "sales_order_number", b"sales_order_number", "serial", b"serial"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["applicable_license_skus", b"applicable_license_skus", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "hostname", b"hostname", "licenses", b"licenses", "model", b"model", "platform_classes", b"platform_classes", "sales_order_number", b"sales_order_number", "serial", b"serial"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["applicable_license_skus", b"applicable_license_skus", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "hostname", b"hostname", "licenses", b"licenses", "model", b"model", "platform_classes", b"platform_classes", "sales_order_number", b"sales_order_number", "serial", b"serial"]) -> None: ...
 
 global___DeviceData = DeviceData
 
@@ -991,6 +1003,7 @@ class LicenseBundle(google.protobuf.message.Message):
     UNASSIGNED_LICENSE_COUNT_FIELD_NUMBER: builtins.int
     IS_PREFERRED_FIELD_NUMBER: builtins.int
     PREFERRED_BUNDLE_REASON_FIELD_NUMBER: builtins.int
+    END_CUSTOMER_PURCHASE_ORDER_NUMBER_FIELD_NUMBER: builtins.int
     plan_name: global___PlanName.ValueType
     """plan_name indicates type of license (perpetual/subscription)."""
     preferred_bundle_reason: global___PreferredBundleReason.ValueType
@@ -1031,6 +1044,10 @@ class LicenseBundle(google.protobuf.message.Message):
     def is_preferred(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """is_preferred indicates if this bundle is the preferred bundle."""
 
+    @property
+    def end_customer_purchase_order_number(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """end_customer_purchase_order_number is the purchase order number associated with this bundle."""
+
     def __init__(
         self,
         *,
@@ -1044,9 +1061,10 @@ class LicenseBundle(google.protobuf.message.Message):
         unassigned_license_count: google.protobuf.wrappers_pb2.UInt64Value | None = ...,
         is_preferred: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         preferred_bundle_reason: global___PreferredBundleReason.ValueType = ...,
+        end_customer_purchase_order_number: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["end_time", b"end_time", "is_preferred", b"is_preferred", "license_bundle_uuid", b"license_bundle_uuid", "sales_order_number", b"sales_order_number", "sku", b"sku", "start_time", b"start_time", "total_license_count", b"total_license_count", "unassigned_license_count", b"unassigned_license_count"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["end_time", b"end_time", "is_preferred", b"is_preferred", "license_bundle_uuid", b"license_bundle_uuid", "plan_name", b"plan_name", "preferred_bundle_reason", b"preferred_bundle_reason", "sales_order_number", b"sales_order_number", "sku", b"sku", "start_time", b"start_time", "total_license_count", b"total_license_count", "unassigned_license_count", b"unassigned_license_count"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "is_preferred", b"is_preferred", "license_bundle_uuid", b"license_bundle_uuid", "sales_order_number", b"sales_order_number", "sku", b"sku", "start_time", b"start_time", "total_license_count", b"total_license_count", "unassigned_license_count", b"unassigned_license_count"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "is_preferred", b"is_preferred", "license_bundle_uuid", b"license_bundle_uuid", "plan_name", b"plan_name", "preferred_bundle_reason", b"preferred_bundle_reason", "sales_order_number", b"sales_order_number", "sku", b"sku", "start_time", b"start_time", "total_license_count", b"total_license_count", "unassigned_license_count", b"unassigned_license_count"]) -> None: ...
 
 global___LicenseBundle = LicenseBundle
 

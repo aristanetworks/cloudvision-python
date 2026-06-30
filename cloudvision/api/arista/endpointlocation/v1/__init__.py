@@ -653,8 +653,6 @@ class EndpointLocation(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class MetaResponse(aristaproto.Message):
-    """ """
-
     time: datetime = aristaproto.message_field(1)
     """
     Time holds the timestamp of the last item included in the metadata calculation.
@@ -676,8 +674,6 @@ class MetaResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class EndpointLocationRequest(aristaproto.Message):
-    """ """
-
     key: "EndpointLocationKey" = aristaproto.message_field(1)
     """
     Key uniquely identifies a EndpointLocation instance to retrieve.
@@ -693,8 +689,6 @@ class EndpointLocationRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class EndpointLocationResponse(aristaproto.Message):
-    """ """
-
     value: "EndpointLocation" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -712,12 +706,7 @@ class EndpointLocationResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class EndpointLocationSomeRequest(aristaproto.Message):
-    """ """
-
     keys: List["EndpointLocationKey"] = aristaproto.message_field(1)
-    """
-    """
-
     time: datetime = aristaproto.message_field(2)
     """
     Time indicates the time for which you are interested in the data.
@@ -727,8 +716,6 @@ class EndpointLocationSomeRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class EndpointLocationSomeResponse(aristaproto.Message):
-    """ """
-
     value: "EndpointLocation" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -752,8 +739,6 @@ class EndpointLocationSomeResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class EndpointLocationStreamRequest(aristaproto.Message):
-    """ """
-
     partial_eq_filter: List["EndpointLocation"] = aristaproto.message_field(1)
     """
     PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
@@ -783,8 +768,6 @@ class EndpointLocationStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class EndpointLocationStreamResponse(aristaproto.Message):
-    """ """
-
     value: "EndpointLocation" = aristaproto.message_field(1)
     """
     Value is a value deemed relevant to the initiating request.
@@ -808,8 +791,6 @@ class EndpointLocationStreamResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class EndpointLocationBatchedStreamRequest(aristaproto.Message):
-    """ """
-
     partial_eq_filter: List["EndpointLocation"] = aristaproto.message_field(1)
     """
     PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
@@ -847,8 +828,6 @@ class EndpointLocationBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class EndpointLocationBatchedStreamResponse(aristaproto.Message):
-    """ """
-
     responses: List["EndpointLocationStreamResponse"] = aristaproto.message_field(1)
     """
     Values are the values deemed relevant to the initiating request.
@@ -858,8 +837,6 @@ class EndpointLocationBatchedStreamResponse(aristaproto.Message):
 
 
 class EndpointLocationServiceStub(aristaproto.ServiceStub):
-    """ """
-
     async def get_one(
         self,
         endpoint_location_request: "EndpointLocationRequest",
@@ -868,8 +845,6 @@ class EndpointLocationServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "EndpointLocationResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.endpointlocation.v1.EndpointLocationService/GetOne",
             endpoint_location_request,
@@ -887,8 +862,6 @@ class EndpointLocationServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[EndpointLocationSomeResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.endpointlocation.v1.EndpointLocationService/GetSome",
             endpoint_location_some_request,
@@ -907,8 +880,6 @@ class EndpointLocationServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[EndpointLocationStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.endpointlocation.v1.EndpointLocationService/GetAll",
             endpoint_location_stream_request,
@@ -927,8 +898,6 @@ class EndpointLocationServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[EndpointLocationStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.endpointlocation.v1.EndpointLocationService/Subscribe",
             endpoint_location_stream_request,
@@ -947,8 +916,6 @@ class EndpointLocationServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "MetaResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.endpointlocation.v1.EndpointLocationService/GetMeta",
             endpoint_location_stream_request,
@@ -966,8 +933,6 @@ class EndpointLocationServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[MetaResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.endpointlocation.v1.EndpointLocationService/SubscribeMeta",
             endpoint_location_stream_request,
@@ -986,8 +951,6 @@ class EndpointLocationServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[EndpointLocationBatchedStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.endpointlocation.v1.EndpointLocationService/GetAllBatched",
             endpoint_location_batched_stream_request,
@@ -1006,8 +969,6 @@ class EndpointLocationServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[EndpointLocationBatchedStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.endpointlocation.v1.EndpointLocationService/SubscribeBatched",
             endpoint_location_batched_stream_request,
@@ -1025,62 +986,44 @@ from ... import time as __time__
 
 
 class EndpointLocationServiceBase(ServiceBase):
-    """ """
-
     async def get_one(
         self, endpoint_location_request: "EndpointLocationRequest"
     ) -> "EndpointLocationResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
         self, endpoint_location_some_request: "EndpointLocationSomeRequest"
     ) -> AsyncIterator[EndpointLocationSomeResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
         self, endpoint_location_stream_request: "EndpointLocationStreamRequest"
     ) -> AsyncIterator[EndpointLocationStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
         self, endpoint_location_stream_request: "EndpointLocationStreamRequest"
     ) -> AsyncIterator[EndpointLocationStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
         self, endpoint_location_stream_request: "EndpointLocationStreamRequest"
     ) -> "MetaResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
         self, endpoint_location_stream_request: "EndpointLocationStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
         self, endpoint_location_batched_stream_request: "EndpointLocationBatchedStreamRequest"
     ) -> AsyncIterator[EndpointLocationBatchedStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
         self, endpoint_location_batched_stream_request: "EndpointLocationBatchedStreamRequest"
     ) -> AsyncIterator[EndpointLocationBatchedStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(

@@ -41,6 +41,7 @@ class _DeviceTenantAssignmentSortableFieldEnumTypeWrapper(google.protobuf.intern
     DEVICE_TENANT_ASSIGNMENT_SORTABLE_FIELD_TENANT_ID: _DeviceTenantAssignmentSortableField.ValueType  # 590923987
     DEVICE_TENANT_ASSIGNMENT_SORTABLE_FIELD_SHIPPING_DATE: _DeviceTenantAssignmentSortableField.ValueType  # 190779440
     DEVICE_TENANT_ASSIGNMENT_SORTABLE_FIELD_SALES_ORDER_NUMBER: _DeviceTenantAssignmentSortableField.ValueType  # -988583176
+    DEVICE_TENANT_ASSIGNMENT_SORTABLE_FIELD_END_CUSTOMER_PURCHASE_ORDER_NUMBER: _DeviceTenantAssignmentSortableField.ValueType  # 1422231240
 
 class DeviceTenantAssignmentSortableField(_DeviceTenantAssignmentSortableField, metaclass=_DeviceTenantAssignmentSortableFieldEnumTypeWrapper): ...
 
@@ -50,6 +51,7 @@ DEVICE_TENANT_ASSIGNMENT_SORTABLE_FIELD_MODEL_NAME: DeviceTenantAssignmentSortab
 DEVICE_TENANT_ASSIGNMENT_SORTABLE_FIELD_TENANT_ID: DeviceTenantAssignmentSortableField.ValueType  # 590923987
 DEVICE_TENANT_ASSIGNMENT_SORTABLE_FIELD_SHIPPING_DATE: DeviceTenantAssignmentSortableField.ValueType  # 190779440
 DEVICE_TENANT_ASSIGNMENT_SORTABLE_FIELD_SALES_ORDER_NUMBER: DeviceTenantAssignmentSortableField.ValueType  # -988583176
+DEVICE_TENANT_ASSIGNMENT_SORTABLE_FIELD_END_CUSTOMER_PURCHASE_ORDER_NUMBER: DeviceTenantAssignmentSortableField.ValueType  # 1422231240
 global___DeviceTenantAssignmentSortableField = DeviceTenantAssignmentSortableField
 
 class _LicenseTenantAssignmentSortableField:
@@ -64,6 +66,7 @@ class _LicenseTenantAssignmentSortableFieldEnumTypeWrapper(google.protobuf.inter
     LICENSE_TENANT_ASSIGNMENT_SORTABLE_FIELD_START_DATE: _LicenseTenantAssignmentSortableField.ValueType  # -787429676
     LICENSE_TENANT_ASSIGNMENT_SORTABLE_FIELD_END_DATE: _LicenseTenantAssignmentSortableField.ValueType  # 1326735083
     LICENSE_TENANT_ASSIGNMENT_SORTABLE_FIELD_TENANT_ID: _LicenseTenantAssignmentSortableField.ValueType  # 590923987
+    LICENSE_TENANT_ASSIGNMENT_SORTABLE_FIELD_END_CUSTOMER_PURCHASE_ORDER_NUMBER: _LicenseTenantAssignmentSortableField.ValueType  # 1422231240
 
 class LicenseTenantAssignmentSortableField(_LicenseTenantAssignmentSortableField, metaclass=_LicenseTenantAssignmentSortableFieldEnumTypeWrapper): ...
 
@@ -73,6 +76,7 @@ LICENSE_TENANT_ASSIGNMENT_SORTABLE_FIELD_SALES_ORDER_NUMBER: LicenseTenantAssign
 LICENSE_TENANT_ASSIGNMENT_SORTABLE_FIELD_START_DATE: LicenseTenantAssignmentSortableField.ValueType  # -787429676
 LICENSE_TENANT_ASSIGNMENT_SORTABLE_FIELD_END_DATE: LicenseTenantAssignmentSortableField.ValueType  # 1326735083
 LICENSE_TENANT_ASSIGNMENT_SORTABLE_FIELD_TENANT_ID: LicenseTenantAssignmentSortableField.ValueType  # 590923987
+LICENSE_TENANT_ASSIGNMENT_SORTABLE_FIELD_END_CUSTOMER_PURCHASE_ORDER_NUMBER: LicenseTenantAssignmentSortableField.ValueType  # 1422231240
 global___LicenseTenantAssignmentSortableField = LicenseTenantAssignmentSortableField
 
 @typing.final

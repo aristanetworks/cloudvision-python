@@ -127,8 +127,6 @@ class DeviceLifecycleSummary(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class MetaResponse(aristaproto.Message):
-    """ """
-
     time: datetime = aristaproto.message_field(1)
     """
     Time holds the timestamp of the last item included in the metadata calculation.
@@ -150,8 +148,6 @@ class MetaResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceLifecycleSummaryRequest(aristaproto.Message):
-    """ """
-
     key: "DeviceLifecycleSummaryKey" = aristaproto.message_field(1)
     """
     Key uniquely identifies a DeviceLifecycleSummary instance to retrieve.
@@ -167,8 +163,6 @@ class DeviceLifecycleSummaryRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceLifecycleSummaryResponse(aristaproto.Message):
-    """ """
-
     value: "DeviceLifecycleSummary" = aristaproto.message_field(1)
     """
     Value is the value requested.
@@ -186,8 +180,6 @@ class DeviceLifecycleSummaryResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceLifecycleSummaryStreamRequest(aristaproto.Message):
-    """ """
-
     partial_eq_filter: List["DeviceLifecycleSummary"] = aristaproto.message_field(1)
     """
     PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
@@ -219,8 +211,6 @@ class DeviceLifecycleSummaryStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceLifecycleSummaryStreamResponse(aristaproto.Message):
-    """ """
-
     value: "DeviceLifecycleSummary" = aristaproto.message_field(1)
     """
     Value is a value deemed relevant to the initiating request.
@@ -243,8 +233,6 @@ class DeviceLifecycleSummaryStreamResponse(aristaproto.Message):
 
 
 class DeviceLifecycleSummaryServiceStub(aristaproto.ServiceStub):
-    """ """
-
     async def get_one(
         self,
         device_lifecycle_summary_request: "DeviceLifecycleSummaryRequest",
@@ -253,8 +241,6 @@ class DeviceLifecycleSummaryServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "DeviceLifecycleSummaryResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.lifecycle.v1.DeviceLifecycleSummaryService/GetOne",
             device_lifecycle_summary_request,
@@ -272,8 +258,6 @@ class DeviceLifecycleSummaryServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[DeviceLifecycleSummaryStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.lifecycle.v1.DeviceLifecycleSummaryService/GetAll",
             device_lifecycle_summary_stream_request,
@@ -292,8 +276,6 @@ class DeviceLifecycleSummaryServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[DeviceLifecycleSummaryStreamResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.lifecycle.v1.DeviceLifecycleSummaryService/Subscribe",
             device_lifecycle_summary_stream_request,
@@ -312,8 +294,6 @@ class DeviceLifecycleSummaryServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "MetaResponse":
-        """ """
-
         return await self._unary_unary(
             "/arista.lifecycle.v1.DeviceLifecycleSummaryService/GetMeta",
             device_lifecycle_summary_stream_request,
@@ -331,8 +311,6 @@ class DeviceLifecycleSummaryServiceStub(aristaproto.ServiceStub):
         deadline: Optional["Deadline"] = None,
         metadata: Optional["MetadataLike"] = None,
     ) -> "AsyncIterator[MetaResponse]":
-        """ """
-
         async for response in self._unary_stream(
             "/arista.lifecycle.v1.DeviceLifecycleSummaryService/SubscribeMeta",
             device_lifecycle_summary_stream_request,
@@ -350,41 +328,29 @@ from ... import time as __time__
 
 
 class DeviceLifecycleSummaryServiceBase(ServiceBase):
-    """ """
-
     async def get_one(
         self, device_lifecycle_summary_request: "DeviceLifecycleSummaryRequest"
     ) -> "DeviceLifecycleSummaryResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
         self, device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest"
     ) -> AsyncIterator[DeviceLifecycleSummaryStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
         self, device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest"
     ) -> AsyncIterator[DeviceLifecycleSummaryStreamResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
         self, device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest"
     ) -> "MetaResponse":
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
         self, device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
-        """ """
-
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
