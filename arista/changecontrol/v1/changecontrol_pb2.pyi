@@ -189,6 +189,102 @@ COMPLETION_REASON_STOPPED: CompletionReason.ValueType  # 3
 """COMPLETION_REASON_STOPPED means the change control was stopped by a user."""
 global___CompletionReason = CompletionReason
 
+class _OverrideReason:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _OverrideReasonEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_OverrideReason.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    OVERRIDE_REASON_UNSPECIFIED: _OverrideReason.ValueType  # 0
+    """OVERRIDE_REASON_UNSPECIFIED indicates that the reason for overriding the validation
+    is unknown.
+    """
+    OVERRIDE_REASON_USER_FORCED: _OverrideReason.ValueType  # 1
+    """OVERRIDE_REASON_USER_FORCED indicates that the user has overridden the validation and forced
+    the approval of the change control.
+    """
+
+class OverrideReason(_OverrideReason, metaclass=_OverrideReasonEnumTypeWrapper):
+    """OverrideReason provides a reason for overriding the validation."""
+
+OVERRIDE_REASON_UNSPECIFIED: OverrideReason.ValueType  # 0
+"""OVERRIDE_REASON_UNSPECIFIED indicates that the reason for overriding the validation
+is unknown.
+"""
+OVERRIDE_REASON_USER_FORCED: OverrideReason.ValueType  # 1
+"""OVERRIDE_REASON_USER_FORCED indicates that the user has overridden the validation and forced
+the approval of the change control.
+"""
+global___OverrideReason = OverrideReason
+
+class _ChangeControlValidationStatus:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _ChangeControlValidationStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ChangeControlValidationStatus.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    CHANGE_CONTROL_VALIDATION_STATUS_UNSPECIFIED: _ChangeControlValidationStatus.ValueType  # 0
+    """CHANGE_CONTROL_VALIDATION_STATUS_UNSPECIFIED indicates that the validation status
+    is unknown.
+    """
+    CHANGE_CONTROL_VALIDATION_STATUS_SUCCESS: _ChangeControlValidationStatus.ValueType  # 1
+    """CHANGE_CONTROL_VALIDATION_STATUS_SUCCESS indicates that the validation has succeeded."""
+    CHANGE_CONTROL_VALIDATION_STATUS_OBSOLETED: _ChangeControlValidationStatus.ValueType  # 2
+    """CHANGE_CONTROL_VALIDATION_STATUS_OBSOLETED indicates that the validation has failed, and the
+    change control has been obsoleted. This is due to the execution of a newer change control.
+    """
+
+class ChangeControlValidationStatus(_ChangeControlValidationStatus, metaclass=_ChangeControlValidationStatusEnumTypeWrapper):
+    """ChangeControlValidationStatus is used to indicate the status of the change control validation."""
+
+CHANGE_CONTROL_VALIDATION_STATUS_UNSPECIFIED: ChangeControlValidationStatus.ValueType  # 0
+"""CHANGE_CONTROL_VALIDATION_STATUS_UNSPECIFIED indicates that the validation status
+is unknown.
+"""
+CHANGE_CONTROL_VALIDATION_STATUS_SUCCESS: ChangeControlValidationStatus.ValueType  # 1
+"""CHANGE_CONTROL_VALIDATION_STATUS_SUCCESS indicates that the validation has succeeded."""
+CHANGE_CONTROL_VALIDATION_STATUS_OBSOLETED: ChangeControlValidationStatus.ValueType  # 2
+"""CHANGE_CONTROL_VALIDATION_STATUS_OBSOLETED indicates that the validation has failed, and the
+change control has been obsoleted. This is due to the execution of a newer change control.
+"""
+global___ChangeControlValidationStatus = ChangeControlValidationStatus
+
+class _DeviceValidationFailure:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _DeviceValidationFailureEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DeviceValidationFailure.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    DEVICE_VALIDATION_FAILURE_UNSPECIFIED: _DeviceValidationFailure.ValueType  # 0
+    """DEVICE_VALIDATION_FAILURE_UNSPECIFIED indicates that the reason for the validation failure
+    is unknown.
+    """
+    DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER: _DeviceValidationFailure.ValueType  # 1
+    """DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER indicates that the designed config is out of
+    order due to the execution of a newer change control.
+    """
+    DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER: _DeviceValidationFailure.ValueType  # 2
+    """DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER indicates that the designed image is out of
+    order due to the execution of a newer change control.
+    """
+
+class DeviceValidationFailure(_DeviceValidationFailure, metaclass=_DeviceValidationFailureEnumTypeWrapper):
+    """DeviceValidationFailure is used to indicate the type of the validation failure."""
+
+DEVICE_VALIDATION_FAILURE_UNSPECIFIED: DeviceValidationFailure.ValueType  # 0
+"""DEVICE_VALIDATION_FAILURE_UNSPECIFIED indicates that the reason for the validation failure
+is unknown.
+"""
+DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER: DeviceValidationFailure.ValueType  # 1
+"""DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER indicates that the designed config is out of
+order due to the execution of a newer change control.
+"""
+DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER: DeviceValidationFailure.ValueType  # 2
+"""DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER indicates that the designed image is out of
+order due to the execution of a newer change control.
+"""
+global___DeviceValidationFailure = DeviceValidationFailure
+
 @typing.final
 class RepeatedRepeatedString(google.protobuf.message.Message):
     """RepeatedRepeatedString wraps a repeated `fmp.RepeatedString`
@@ -825,7 +921,7 @@ global___Flag = Flag
 @typing.final
 class TimestampFlag(google.protobuf.message.Message):
     """TimestampFlag holds the configuration of a timestamp flag
-    plus some information about when and by whom is was set.
+    plus some information about when and by whom it was set.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -971,12 +1067,17 @@ class ChangeControl(google.protobuf.message.Message):
     DEVICE_ID_TO_STAGE_IDS_FIELD_NUMBER: builtins.int
     CREATION_FIELD_NUMBER: builtins.int
     COMPLETION_REASON_FIELD_NUMBER: builtins.int
+    VALIDATION_STATUSES_FIELD_NUMBER: builtins.int
+    VALIDATION_DETAIL_FIELD_NUMBER: builtins.int
+    OVERRIDE_REASON_FIELD_NUMBER: builtins.int
     status: global___ChangeControlStatus.ValueType
     """status is the execution status of the change control."""
     completion_reason: global___CompletionReason.ValueType
     """completion_reason indicates why the change control completed (only relevant when
     status is CHANGE_CONTROL_STATUS_COMPLETED).
     """
+    override_reason: global___OverrideReason.ValueType
+    """override_reason indicates user intent to override change control validation."""
     @property
     def key(self) -> global___ChangeControlKey:
         """key uniquely identifies the change control."""
@@ -1030,6 +1131,18 @@ class ChangeControl(google.protobuf.message.Message):
     def creation(self) -> global___Creation:
         """creation holds information about when and by whom the change control was created."""
 
+    @property
+    def validation_statuses(self) -> global___ChangeControlValidationStatuses:
+        """validation_statuses indicates failed validation statuses for the change control.
+        This is only relevant when one or more devices fail validation.
+        """
+
+    @property
+    def validation_detail(self) -> global___ChangeControlValidationDetail:
+        """validation_detail contains additional information about the validation statuses.
+        This is only relevant when one or more devices fail validation.
+        """
+
     def __init__(
         self,
         *,
@@ -1044,9 +1157,12 @@ class ChangeControl(google.protobuf.message.Message):
         device_id_to_stage_ids: global___DeviceToStageMap | None = ...,
         creation: global___Creation | None = ...,
         completion_reason: global___CompletionReason.ValueType = ...,
+        validation_statuses: global___ChangeControlValidationStatuses | None = ...,
+        validation_detail: global___ChangeControlValidationDetail | None = ...,
+        override_reason: global___OverrideReason.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "creation", b"creation", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "schedule", b"schedule", "start", b"start"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "completion_reason", b"completion_reason", "creation", b"creation", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "schedule", b"schedule", "start", b"start", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "creation", b"creation", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "schedule", b"schedule", "start", b"start", "validation_detail", b"validation_detail", "validation_statuses", b"validation_statuses"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["approve", b"approve", "change", b"change", "completion_reason", b"completion_reason", "creation", b"creation", "device_id_to_stage_ids", b"device_id_to_stage_ids", "device_ids", b"device_ids", "error", b"error", "key", b"key", "override_reason", b"override_reason", "schedule", b"schedule", "start", b"start", "status", b"status", "validation_detail", b"validation_detail", "validation_statuses", b"validation_statuses"]) -> None: ...
 
 global___ChangeControl = ChangeControl
 
@@ -1059,6 +1175,9 @@ class ApproveConfig(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     APPROVE_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
+    OVERRIDE_REASON_FIELD_NUMBER: builtins.int
+    override_reason: global___OverrideReason.ValueType
+    """override_reason indicates user intent to override change control validation."""
     @property
     def key(self) -> global___ChangeControlKey:
         """key uniquely identifies the change control."""
@@ -1083,9 +1202,10 @@ class ApproveConfig(google.protobuf.message.Message):
         key: global___ChangeControlKey | None = ...,
         approve: global___FlagConfig | None = ...,
         version: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        override_reason: global___OverrideReason.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["approve", b"approve", "key", b"key", "version", b"version"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["approve", b"approve", "key", b"key", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["approve", b"approve", "key", b"key", "override_reason", b"override_reason", "version", b"version"]) -> None: ...
 
 global___ApproveConfig = ApproveConfig
 
@@ -1171,6 +1291,7 @@ class ChangeControlSummary(google.protobuf.message.Message):
     ERROR_FIELD_NUMBER: builtins.int
     APPROVED_FIELD_NUMBER: builtins.int
     COMPLETION_REASON_FIELD_NUMBER: builtins.int
+    VALIDATION_STATUSES_FIELD_NUMBER: builtins.int
     status: global___ChangeControlStatus.ValueType
     """status is the status of the change control."""
     completion_reason: global___CompletionReason.ValueType
@@ -1245,6 +1366,12 @@ class ChangeControlSummary(google.protobuf.message.Message):
     def approved(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """approved indicates whether the change control is currently approved or unapproved."""
 
+    @property
+    def validation_statuses(self) -> global___ChangeControlValidationStatuses:
+        """validation_statuses indicates failed validation statuses for the change control.
+        This field is only populated when one or more validations fail.
+        """
+
     def __init__(
         self,
         *,
@@ -1267,8 +1394,111 @@ class ChangeControlSummary(google.protobuf.message.Message):
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
         approved: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         completion_reason: global___CompletionReason.ValueType = ...,
+        validation_statuses: global___ChangeControlValidationStatuses | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["action_summaries", b"action_summaries", "approved", b"approved", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["action_summaries", b"action_summaries", "approved", b"approved", "completion_reason", b"completion_reason", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["action_summaries", b"action_summaries", "approved", b"approved", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user", "validation_statuses", b"validation_statuses"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["action_summaries", b"action_summaries", "approved", b"approved", "completion_reason", b"completion_reason", "created_time", b"created_time", "created_user", b"created_user", "device_count", b"device_count", "end_time", b"end_time", "error", b"error", "key", b"key", "last_approved_time", b"last_approved_time", "last_approved_user", b"last_approved_user", "last_edited_time", b"last_edited_time", "last_edited_user", b"last_edited_user", "last_scheduled_time", b"last_scheduled_time", "last_scheduled_user", b"last_scheduled_user", "name", b"name", "start_time", b"start_time", "start_user", b"start_user", "status", b"status", "validation_statuses", b"validation_statuses"]) -> None: ...
 
 global___ChangeControlSummary = ChangeControlSummary
+
+@typing.final
+class ChangeControlValidationStatuses(google.protobuf.message.Message):
+    """ChangeControlValidationStatuses is a list of validation statuses for the change control."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___ChangeControlValidationStatus.ValueType]:
+        """values is a list of validation statuses."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___ChangeControlValidationStatus.ValueType] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___ChangeControlValidationStatuses = ChangeControlValidationStatuses
+
+@typing.final
+class ChangeControlValidationDetail(google.protobuf.message.Message):
+    """ChangeControlValidationDetail contains validation details for a change control."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DEVICES_FIELD_NUMBER: builtins.int
+    @property
+    def devices(self) -> global___DeviceValidationDetails:
+        """devices is a list of devices that failed the change control validation.
+        The failure type is included in the details.
+        """
+
+    def __init__(
+        self,
+        *,
+        devices: global___DeviceValidationDetails | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["devices", b"devices"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["devices", b"devices"]) -> None: ...
+
+global___ChangeControlValidationDetail = ChangeControlValidationDetail
+
+@typing.final
+class DeviceValidationDetails(google.protobuf.message.Message):
+    """DeviceValidationDetails is a list of devices that failed validation, along with details
+    about each failure.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DeviceValidationDetail]:
+        """values is a list of devices with validation failures."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___DeviceValidationDetail] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___DeviceValidationDetails = DeviceValidationDetails
+
+@typing.final
+class DeviceValidationDetail(google.protobuf.message.Message):
+    """DeviceValidationDetail represents a device and its failure type."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DEVICE_ID_FIELD_NUMBER: builtins.int
+    FAILURE_TYPE_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
+    failure_type: global___DeviceValidationFailure.ValueType
+    """failure_type indicates the type of validation failure."""
+    @property
+    def device_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """device_id is the ID of the device."""
+
+    @property
+    def metadata(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """metadata is a string that contains additional information related to the failure.
+        Current failures and their corresponding metadata are:
+        DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER: ID of the newer Change Control that
+        caused the designed config to be out of order.
+        DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER: ID of the newer Change Control that
+        caused the designed image to be out of order.
+        """
+
+    def __init__(
+        self,
+        *,
+        device_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        failure_type: global___DeviceValidationFailure.ValueType = ...,
+        metadata: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["device_id", b"device_id", "metadata", b"metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_id", b"device_id", "failure_type", b"failure_type", "metadata", b"metadata"]) -> None: ...
+
+global___DeviceValidationDetail = DeviceValidationDetail

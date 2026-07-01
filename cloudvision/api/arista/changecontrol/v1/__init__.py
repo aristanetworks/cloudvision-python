@@ -12,6 +12,9 @@ __all__ = (
     "StepStatus",
     "ChangeControlStatus",
     "CompletionReason",
+    "OverrideReason",
+    "ChangeControlValidationStatus",
+    "DeviceValidationFailure",
     "RepeatedRepeatedString",
     "ChangeControlKey",
     "Action",
@@ -36,6 +39,10 @@ __all__ = (
     "ActionSummary",
     "ActionSummaries",
     "ChangeControlSummary",
+    "ChangeControlValidationStatuses",
+    "ChangeControlValidationDetail",
+    "DeviceValidationDetails",
+    "DeviceValidationDetail",
     "MetaResponse",
     "ApproveConfigRequest",
     "ApproveConfigResponse",
@@ -230,6 +237,69 @@ class CompletionReason(aristaproto.Enum):
     STOPPED = 3
     """
     COMPLETION_REASON_STOPPED means the change control was stopped by a user.
+    """
+
+
+class OverrideReason(aristaproto.Enum):
+    """OverrideReason provides a reason for overriding the validation."""
+
+    UNSPECIFIED = 0
+    """
+    OVERRIDE_REASON_UNSPECIFIED indicates that the reason for overriding the validation
+    is unknown.
+    """
+
+    USER_FORCED = 1
+    """
+    OVERRIDE_REASON_USER_FORCED indicates that the user has overridden the validation and forced
+    the approval of the change control.
+    """
+
+
+class ChangeControlValidationStatus(aristaproto.Enum):
+    """
+    ChangeControlValidationStatus is used to indicate the status of the change control validation.
+    """
+
+    UNSPECIFIED = 0
+    """
+    CHANGE_CONTROL_VALIDATION_STATUS_UNSPECIFIED indicates that the validation status
+    is unknown.
+    """
+
+    SUCCESS = 1
+    """
+    CHANGE_CONTROL_VALIDATION_STATUS_SUCCESS indicates that the validation has succeeded.
+    """
+
+    OBSOLETED = 2
+    """
+    CHANGE_CONTROL_VALIDATION_STATUS_OBSOLETED indicates that the validation has failed, and the
+    change control has been obsoleted. This is due to the execution of a newer change control.
+    """
+
+
+class DeviceValidationFailure(aristaproto.Enum):
+    """
+    DeviceValidationFailure is used to indicate the type of the validation failure.
+    """
+
+    UNSPECIFIED = 0
+    """
+    DEVICE_VALIDATION_FAILURE_UNSPECIFIED indicates that the reason for the validation failure
+    is unknown.
+    """
+
+    CONFIG_OUT_OF_ORDER = 1
+    """
+    DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER indicates that the designed config is out of
+    order due to the execution of a newer change control.
+    """
+
+    IMAGE_OUT_OF_ORDER = 2
+    """
+    DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER indicates that the designed image is out of
+    order due to the execution of a newer change control.
     """
 
 
@@ -568,7 +638,7 @@ class Flag(aristaproto.Message):
 class TimestampFlag(aristaproto.Message):
     """
     TimestampFlag holds the configuration of a timestamp flag
-    plus some information about when and by whom is was set.
+    plus some information about when and by whom it was set.
     """
 
     value: datetime = aristaproto.message_field(1)
@@ -693,6 +763,23 @@ class ChangeControl(aristaproto.Message):
     status is CHANGE_CONTROL_STATUS_COMPLETED).
     """
 
+    validation_statuses: "ChangeControlValidationStatuses" = aristaproto.message_field(12)
+    """
+    validation_statuses indicates failed validation statuses for the change control.
+    This is only relevant when one or more devices fail validation.
+    """
+
+    validation_detail: "ChangeControlValidationDetail" = aristaproto.message_field(13)
+    """
+    validation_detail contains additional information about the validation statuses.
+    This is only relevant when one or more devices fail validation.
+    """
+
+    override_reason: "OverrideReason" = aristaproto.enum_field(14)
+    """
+    override_reason indicates user intent to override change control validation.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class ApproveConfig(aristaproto.Message):
@@ -713,6 +800,11 @@ class ApproveConfig(aristaproto.Message):
     This field must be set when `approve.value` is set to `true`
     and is intended to safeguard against approving a change control
     that has been updated since last read.
+    """
+
+    override_reason: "OverrideReason" = aristaproto.enum_field(4)
+    """
+    override_reason indicates user intent to override change control validation.
     """
 
 
@@ -835,6 +927,67 @@ class ChangeControlSummary(aristaproto.Message):
     """
     completion_reason indicates why the change control completed (only relevant when
     status is CHANGE_CONTROL_STATUS_COMPLETED).
+    """
+
+    validation_statuses: "ChangeControlValidationStatuses" = aristaproto.message_field(20)
+    """
+    validation_statuses indicates failed validation statuses for the change control.
+    This field is only populated when one or more validations fail.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class ChangeControlValidationStatuses(aristaproto.Message):
+    """
+    ChangeControlValidationStatuses is a list of validation statuses for the change control.
+    """
+
+    values: List["ChangeControlValidationStatus"] = aristaproto.enum_field(1)
+    """values is a list of validation statuses."""
+
+
+@dataclass(eq=False, repr=False)
+class ChangeControlValidationDetail(aristaproto.Message):
+    """
+    ChangeControlValidationDetail contains validation details for a change control.
+    """
+
+    devices: "DeviceValidationDetails" = aristaproto.message_field(1)
+    """
+    devices is a list of devices that failed the change control validation.
+    The failure type is included in the details.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class DeviceValidationDetails(aristaproto.Message):
+    """
+    DeviceValidationDetails is a list of devices that failed validation, along with details
+    about each failure.
+    """
+
+    values: List["DeviceValidationDetail"] = aristaproto.message_field(1)
+    """values is a list of devices with validation failures."""
+
+
+@dataclass(eq=False, repr=False)
+class DeviceValidationDetail(aristaproto.Message):
+    """DeviceValidationDetail represents a device and its failure type."""
+
+    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    """device_id is the ID of the device."""
+
+    failure_type: "DeviceValidationFailure" = aristaproto.enum_field(2)
+    """failure_type indicates the type of validation failure."""
+
+    metadata: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    """
+    metadata is a string that contains additional information related to the failure.
+    Current failures and their corresponding metadata are:
+    DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER: ID of the newer Change Control that
+    caused the designed config to be out of order.
+    DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER: ID of the newer Change Control that
+    caused the designed image to be out of order.
     """
 
 
