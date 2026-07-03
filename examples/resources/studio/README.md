@@ -194,3 +194,64 @@ uv run studio_update.py  --server 192.0.2.10:443 --token-file token.tok --cert-f
     --yaml-file=studio-avd-campus-fabric-inputs.yaml \
     --build-only True
 ```
+
+## studio_static_config_simple.py
+
+The `studio_static_config_simple.py` script manages the **Static Configuration** studio. It creates
+containers, assigns configlets to containers and devices, and handles tag-based device matching.
+
+The script is driven by the `INVENTORY` variable defined at the top of the file. It supports:
+
+- **Containers** with their own configlets (matched via `location:<name>` tags).
+- **Devices** placed under containers, with per-device configlets.
+- **Configlet resolution**: create a new configlet from a file (`configlet_file`), or reference an
+  existing one on CloudVision by name only.
+- **Automatic tag assignment**: devices inherit `location:<segment>` tags for every segment in their
+  container path, so that container queries match correctly.
+
+> **Note:** The script re-creates the container hierarchy from scratch on every run. Containers
+> created manually *inside* the same hierarchy will be removed. Containers outside the hierarchy
+> (e.g. `France/DC3` when the script only manages `US/...`) are not affected.
+
+```shell
+python3 studio_static_config_simple.py --help
+usage: studio_static_config_simple.py [-h] --server SERVER --token-file TOKEN_FILE
+                                      [--cert-file CERT_FILE] [--insecure]
+                                      [--operation {get,set}] [--build-only]
+
+options:
+  -h, --help            show this help message and exit
+  --server SERVER       CVP server in <host>:<port> format
+  --token-file TOKEN_FILE
+                        File containing the service account token
+  --cert-file CERT_FILE
+                        Path to CA certificate file
+  --insecure            Skip TLS certificate verification
+  --operation {get,set} get: list configlets/assignments; set: assign configlets
+  --build-only          Stop after building (no submission)
+```
+
+### List existing configlets and assignments
+
+```shell
+python3 studio_static_config_simple.py \
+    --server 192.0.2.10:443 --token-file token.tok --insecure \
+    --operation get
+```
+
+### Assign configlets defined in INVENTORY
+
+```shell
+python3 studio_static_config_simple.py \
+    --server 192.0.2.10:443 --token-file token.tok --insecure \
+    --operation set
+```
+
+### Build only (no submission)
+
+```shell
+python3 studio_static_config_simple.py \
+    --server 192.0.2.10:443 --token-file token.tok --insecure \
+    --operation set --build-only
+```
+
