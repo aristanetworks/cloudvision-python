@@ -134,6 +134,8 @@ class _DeviceStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     """DEVICE_STATUS_EXPECTED indicates a device has not yet streamed its telemetry
     data to CloudVision.
     """
+    DEVICE_STATUS_DECOMMISSIONED: _DeviceStatus.ValueType  # 4
+    """DEVICE_STATUS_DECOMMISSIONED indicates a device that has been previously decommissioned."""
 
 class DeviceStatus(_DeviceStatus, metaclass=_DeviceStatusEnumTypeWrapper):
     """DeviceStatus defines the set of statuses that apply to a device."""
@@ -152,6 +154,8 @@ DEVICE_STATUS_EXPECTED: DeviceStatus.ValueType  # 3
 """DEVICE_STATUS_EXPECTED indicates a device has not yet streamed its telemetry
 data to CloudVision.
 """
+DEVICE_STATUS_DECOMMISSIONED: DeviceStatus.ValueType  # 4
+"""DEVICE_STATUS_DECOMMISSIONED indicates a device that has been previously decommissioned."""
 global___DeviceStatus = DeviceStatus
 
 class _DecommissionStatus:
