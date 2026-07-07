@@ -108,56 +108,56 @@ class _ChangeControlStatus:
 class _ChangeControlStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ChangeControlStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CHANGE_CONTROL_STATUS_UNSPECIFIED: _ChangeControlStatus.ValueType  # 0
-    """CHANGE_CONTROL_STATUS_UNSPECIFIED means the change control status is unknown."""
+    """CHANGE_CONTROL_STATUS_UNSPECIFIED means the Change Control status is unknown."""
     CHANGE_CONTROL_STATUS_RUNNING: _ChangeControlStatus.ValueType  # 1
-    """CHANGE_CONTROL_STATUS_RUNNING means the change control has begun
+    """CHANGE_CONTROL_STATUS_RUNNING means the Change Control has begun
     execution.
     """
     CHANGE_CONTROL_STATUS_COMPLETED: _ChangeControlStatus.ValueType  # 2
-    """CHANGE_CONTROL_STATUS_COMPLETED means the change control has ceased
-    execution. Success/failure of a change control cannot be inferred
-    from this status alone but rather this status plus the change control
+    """CHANGE_CONTROL_STATUS_COMPLETED means the Change Control has ceased
+    execution. Success/failure of a Change Control cannot be inferred
+    from this status alone but rather this status plus the Change Control
     error. That is, no error implies success and some error implies failure.
     """
     CHANGE_CONTROL_STATUS_SCHEDULED: _ChangeControlStatus.ValueType  # 3
-    """CHANGE_CONTROL_STATUS_SCHEDULED means the change control has been
+    """CHANGE_CONTROL_STATUS_SCHEDULED means the Change Control has been
     scheduled for execution at some time. Any failure that occurs during
     this process will cause a transition back to the unspecified status,
     a reset of the schedule flag by the system, and an error on the change
     control reporting the details of the failure.
     """
     CHANGE_CONTROL_STATUS_NOT_STARTED: _ChangeControlStatus.ValueType  # 4
-    """CHANGE_CONTROL_STATUS_NOT_STARTED means the change control has not been
-    started. This would include approved and not approved change controls.
+    """CHANGE_CONTROL_STATUS_NOT_STARTED means the Change Control has not been
+    started. This would include approved and not approved Change Controls.
     """
 
 class ChangeControlStatus(_ChangeControlStatus, metaclass=_ChangeControlStatusEnumTypeWrapper):
     """ChangeControlStatus defines the possible execution statuses of
-    a change control.
+    a Change Control.
     """
 
 CHANGE_CONTROL_STATUS_UNSPECIFIED: ChangeControlStatus.ValueType  # 0
-"""CHANGE_CONTROL_STATUS_UNSPECIFIED means the change control status is unknown."""
+"""CHANGE_CONTROL_STATUS_UNSPECIFIED means the Change Control status is unknown."""
 CHANGE_CONTROL_STATUS_RUNNING: ChangeControlStatus.ValueType  # 1
-"""CHANGE_CONTROL_STATUS_RUNNING means the change control has begun
+"""CHANGE_CONTROL_STATUS_RUNNING means the Change Control has begun
 execution.
 """
 CHANGE_CONTROL_STATUS_COMPLETED: ChangeControlStatus.ValueType  # 2
-"""CHANGE_CONTROL_STATUS_COMPLETED means the change control has ceased
-execution. Success/failure of a change control cannot be inferred
-from this status alone but rather this status plus the change control
+"""CHANGE_CONTROL_STATUS_COMPLETED means the Change Control has ceased
+execution. Success/failure of a Change Control cannot be inferred
+from this status alone but rather this status plus the Change Control
 error. That is, no error implies success and some error implies failure.
 """
 CHANGE_CONTROL_STATUS_SCHEDULED: ChangeControlStatus.ValueType  # 3
-"""CHANGE_CONTROL_STATUS_SCHEDULED means the change control has been
+"""CHANGE_CONTROL_STATUS_SCHEDULED means the Change Control has been
 scheduled for execution at some time. Any failure that occurs during
 this process will cause a transition back to the unspecified status,
 a reset of the schedule flag by the system, and an error on the change
 control reporting the details of the failure.
 """
 CHANGE_CONTROL_STATUS_NOT_STARTED: ChangeControlStatus.ValueType  # 4
-"""CHANGE_CONTROL_STATUS_NOT_STARTED means the change control has not been
-started. This would include approved and not approved change controls.
+"""CHANGE_CONTROL_STATUS_NOT_STARTED means the Change Control has not been
+started. This would include approved and not approved Change Controls.
 """
 global___ChangeControlStatus = ChangeControlStatus
 
@@ -170,23 +170,23 @@ class _CompletionReasonEnumTypeWrapper(google.protobuf.internal.enum_type_wrappe
     COMPLETION_REASON_UNSPECIFIED: _CompletionReason.ValueType  # 0
     """COMPLETION_REASON_UNSPECIFIED means the completion reason is unknown."""
     COMPLETION_REASON_SUCCESS: _CompletionReason.ValueType  # 1
-    """COMPLETION_REASON_SUCCESS means the change control completed successfully."""
+    """COMPLETION_REASON_SUCCESS means the Change Control completed successfully."""
     COMPLETION_REASON_FAILED: _CompletionReason.ValueType  # 2
-    """COMPLETION_REASON_FAILED means the change control completed due to failure."""
+    """COMPLETION_REASON_FAILED means the Change Control completed due to failure."""
     COMPLETION_REASON_STOPPED: _CompletionReason.ValueType  # 3
-    """COMPLETION_REASON_STOPPED means the change control was stopped by a user."""
+    """COMPLETION_REASON_STOPPED means the Change Control was stopped by a user."""
 
 class CompletionReason(_CompletionReason, metaclass=_CompletionReasonEnumTypeWrapper):
-    """CompletionReason describes the reason behind the terminal state of an executed change control."""
+    """CompletionReason describes the reason behind the terminal state of an executed Change Control."""
 
 COMPLETION_REASON_UNSPECIFIED: CompletionReason.ValueType  # 0
 """COMPLETION_REASON_UNSPECIFIED means the completion reason is unknown."""
 COMPLETION_REASON_SUCCESS: CompletionReason.ValueType  # 1
-"""COMPLETION_REASON_SUCCESS means the change control completed successfully."""
+"""COMPLETION_REASON_SUCCESS means the Change Control completed successfully."""
 COMPLETION_REASON_FAILED: CompletionReason.ValueType  # 2
-"""COMPLETION_REASON_FAILED means the change control completed due to failure."""
+"""COMPLETION_REASON_FAILED means the Change Control completed due to failure."""
 COMPLETION_REASON_STOPPED: CompletionReason.ValueType  # 3
-"""COMPLETION_REASON_STOPPED means the change control was stopped by a user."""
+"""COMPLETION_REASON_STOPPED means the Change Control was stopped by a user."""
 global___CompletionReason = CompletionReason
 
 class _OverrideReason:
@@ -201,7 +201,7 @@ class _OverrideReasonEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper.
     """
     OVERRIDE_REASON_USER_FORCED: _OverrideReason.ValueType  # 1
     """OVERRIDE_REASON_USER_FORCED indicates that the user has overridden the validation and forced
-    the approval of the change control.
+    the approval of the Change Control.
     """
 
 class OverrideReason(_OverrideReason, metaclass=_OverrideReasonEnumTypeWrapper):
@@ -213,7 +213,7 @@ is unknown.
 """
 OVERRIDE_REASON_USER_FORCED: OverrideReason.ValueType  # 1
 """OVERRIDE_REASON_USER_FORCED indicates that the user has overridden the validation and forced
-the approval of the change control.
+the approval of the Change Control.
 """
 global___OverrideReason = OverrideReason
 
@@ -231,11 +231,17 @@ class _ChangeControlValidationStatusEnumTypeWrapper(google.protobuf.internal.enu
     """CHANGE_CONTROL_VALIDATION_STATUS_SUCCESS indicates that the validation has succeeded."""
     CHANGE_CONTROL_VALIDATION_STATUS_OBSOLETED: _ChangeControlValidationStatus.ValueType  # 2
     """CHANGE_CONTROL_VALIDATION_STATUS_OBSOLETED indicates that the validation has failed, and the
-    change control has been obsoleted. This is due to the execution of a newer change control.
+    Change Control has been obsoleted. This is due to the execution of a newer Change Control.
+    """
+    CHANGE_CONTROL_VALIDATION_STATUS_CONCURRENT_EXECUTION: _ChangeControlValidationStatus.ValueType  # 3
+    """CHANGE_CONTROL_VALIDATION_STATUS_CONCURRENT_EXECUTION indicates that validation failed
+    because execution would conflict with another Change Control that is currently running
+    on one or more target devices. This Change Control is blocked until the conflicting
+    execution completes.
     """
 
 class ChangeControlValidationStatus(_ChangeControlValidationStatus, metaclass=_ChangeControlValidationStatusEnumTypeWrapper):
-    """ChangeControlValidationStatus is used to indicate the status of the change control validation."""
+    """ChangeControlValidationStatus is used to indicate the status of the Change Control validation."""
 
 CHANGE_CONTROL_VALIDATION_STATUS_UNSPECIFIED: ChangeControlValidationStatus.ValueType  # 0
 """CHANGE_CONTROL_VALIDATION_STATUS_UNSPECIFIED indicates that the validation status
@@ -245,7 +251,13 @@ CHANGE_CONTROL_VALIDATION_STATUS_SUCCESS: ChangeControlValidationStatus.ValueTyp
 """CHANGE_CONTROL_VALIDATION_STATUS_SUCCESS indicates that the validation has succeeded."""
 CHANGE_CONTROL_VALIDATION_STATUS_OBSOLETED: ChangeControlValidationStatus.ValueType  # 2
 """CHANGE_CONTROL_VALIDATION_STATUS_OBSOLETED indicates that the validation has failed, and the
-change control has been obsoleted. This is due to the execution of a newer change control.
+Change Control has been obsoleted. This is due to the execution of a newer Change Control.
+"""
+CHANGE_CONTROL_VALIDATION_STATUS_CONCURRENT_EXECUTION: ChangeControlValidationStatus.ValueType  # 3
+"""CHANGE_CONTROL_VALIDATION_STATUS_CONCURRENT_EXECUTION indicates that validation failed
+because execution would conflict with another Change Control that is currently running
+on one or more target devices. This Change Control is blocked until the conflicting
+execution completes.
 """
 global___ChangeControlValidationStatus = ChangeControlValidationStatus
 
@@ -261,11 +273,15 @@ class _DeviceValidationFailureEnumTypeWrapper(google.protobuf.internal.enum_type
     """
     DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER: _DeviceValidationFailure.ValueType  # 1
     """DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER indicates that the designed config is out of
-    order due to the execution of a newer change control.
+    order due to the execution of a newer Change Control.
     """
     DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER: _DeviceValidationFailure.ValueType  # 2
     """DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER indicates that the designed image is out of
-    order due to the execution of a newer change control.
+    order due to the execution of a newer Change Control.
+    """
+    DEVICE_VALIDATION_FAILURE_CONCURRENT_EXECUTION: _DeviceValidationFailure.ValueType  # 3
+    """DEVICE_VALIDATION_FAILURE_CONCURRENT_EXECUTION indicates that the device is currently
+    executing another Change Control.
     """
 
 class DeviceValidationFailure(_DeviceValidationFailure, metaclass=_DeviceValidationFailureEnumTypeWrapper):
@@ -277,11 +293,15 @@ is unknown.
 """
 DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER: DeviceValidationFailure.ValueType  # 1
 """DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER indicates that the designed config is out of
-order due to the execution of a newer change control.
+order due to the execution of a newer Change Control.
 """
 DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER: DeviceValidationFailure.ValueType  # 2
 """DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER indicates that the designed image is out of
-order due to the execution of a newer change control.
+order due to the execution of a newer Change Control.
+"""
+DEVICE_VALIDATION_FAILURE_CONCURRENT_EXECUTION: DeviceValidationFailure.ValueType  # 3
+"""DEVICE_VALIDATION_FAILURE_CONCURRENT_EXECUTION indicates that the device is currently
+executing another Change Control.
 """
 global___DeviceValidationFailure = DeviceValidationFailure
 
@@ -310,14 +330,14 @@ global___RepeatedRepeatedString = RepeatedRepeatedString
 
 @typing.final
 class ChangeControlKey(google.protobuf.message.Message):
-    """ChangeControlKey uniquely identifies a change control."""
+    """ChangeControlKey uniquely identifies a Change Control."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ID_FIELD_NUMBER: builtins.int
     @property
     def id(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """id is the ID of the change control."""
+        """id is the ID of the Change Control."""
 
     def __init__(
         self,
@@ -332,7 +352,7 @@ global___ChangeControlKey = ChangeControlKey
 @typing.final
 class Action(google.protobuf.message.Message):
     """Action is an action to perform during the execution of
-    a stage of a change control. Available actions can be
+    a stage of a Change Control. Available actions can be
     fetched using the "action" services.
     """
 
@@ -422,7 +442,7 @@ global___StageConfig = StageConfig
 class StageConfigMap(google.protobuf.message.Message):
     """StageConfigMap wraps a map from stage ID to `StageConfig`.
     This defines the configuration and order of execution
-    for the stages in a change control.
+    for the stages in a Change Control.
 
     For example:
 
@@ -438,7 +458,7 @@ class StageConfigMap(google.protobuf.message.Message):
     }
     ```
 
-    Assuming the root stage ID of the enclosing change control
+    Assuming the root stage ID of the enclosing Change Control
     is "root", this would mean to do the following in sequence:
 
     ```
@@ -534,7 +554,7 @@ global___ChangeConfig = ChangeConfig
 
 @typing.final
 class FlagConfig(google.protobuf.message.Message):
-    """FlagConfig is used to set a flag on a change control that takes
+    """FlagConfig is used to set a flag on a Change Control that takes
     a boolean value (e.g. start/stop, approve/unapprove).
     """
 
@@ -563,7 +583,7 @@ global___FlagConfig = FlagConfig
 
 @typing.final
 class TimestampFlagConfig(google.protobuf.message.Message):
-    """TimestampFlagConfig is used to set a flag on a change control
+    """TimestampFlagConfig is used to set a flag on a Change Control
     that takes a timestamp value (e.g. schedule/unschedule).
     """
 
@@ -592,7 +612,7 @@ global___TimestampFlagConfig = TimestampFlagConfig
 
 @typing.final
 class ChangeControlConfig(google.protobuf.message.Message):
-    """ChangeControlConfig holds the configuration of a change control."""
+    """ChangeControlConfig holds the configuration of a Change Control."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -602,7 +622,7 @@ class ChangeControlConfig(google.protobuf.message.Message):
     SCHEDULE_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___ChangeControlKey:
-        """key uniquely identifies the change control."""
+        """key uniquely identifies the Change Control."""
 
     @property
     def change(self) -> global___ChangeConfig:
@@ -612,14 +632,14 @@ class ChangeControlConfig(google.protobuf.message.Message):
     def start(self) -> global___FlagConfig:
         """start is the flag to start (`start.value` set to `true`)
         or stop (`start.value` set to `false`) execution of the
-        change control.
+        Change Control.
         """
 
     @property
     def schedule(self) -> global___TimestampFlagConfig:
         """schedule is the flag to schedule (`schedule.value` set to
         some timestamp) or unschedule (`schedule.value` set to
-        `nil`) the change control for execution.
+        `nil`) the Change Control for execution.
         """
 
     def __init__(
@@ -759,7 +779,7 @@ class Stage(google.protobuf.message.Message):
     @property
     def steps(self) -> global___ActionSteps:
         """steps represent the granular steps and their statuses
-        associated with the action performed in the change control stage.
+        associated with the action performed in the Change Control stage.
         Each stage generally defines either an action
         or a series of sub-stages.
         """
@@ -825,7 +845,7 @@ global___StageMap = StageMap
 @typing.final
 class Change(google.protobuf.message.Message):
     """Change holds the configuration and status of the change of a
-    change control.
+    Change Control.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -961,7 +981,7 @@ global___TimestampFlag = TimestampFlag
 
 @typing.final
 class Creation(google.protobuf.message.Message):
-    """Creation holds information about when and by whom a change control was created."""
+    """Creation holds information about when and by whom a Change Control was created."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -969,11 +989,11 @@ class Creation(google.protobuf.message.Message):
     USER_FIELD_NUMBER: builtins.int
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """time is the time when the change control was created."""
+        """time is the time when the Change Control was created."""
 
     @property
     def user(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """user is the user who created the change control."""
+        """user is the user who created the Change Control."""
 
     def __init__(
         self,
@@ -1052,7 +1072,7 @@ global___DeviceToStageMap = DeviceToStageMap
 
 @typing.final
 class ChangeControl(google.protobuf.message.Message):
-    """ChangeControl holds the configuration and status of a change control."""
+    """ChangeControl holds the configuration and status of a Change Control."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1071,33 +1091,33 @@ class ChangeControl(google.protobuf.message.Message):
     VALIDATION_DETAIL_FIELD_NUMBER: builtins.int
     OVERRIDE_REASON_FIELD_NUMBER: builtins.int
     status: global___ChangeControlStatus.ValueType
-    """status is the execution status of the change control."""
+    """status is the execution status of the Change Control."""
     completion_reason: global___CompletionReason.ValueType
-    """completion_reason indicates why the change control completed (only relevant when
+    """completion_reason indicates why the Change Control completed (only relevant when
     status is CHANGE_CONTROL_STATUS_COMPLETED).
     """
     override_reason: global___OverrideReason.ValueType
-    """override_reason indicates user intent to override change control validation."""
+    """override_reason indicates user intent to override Change Control validation."""
     @property
     def key(self) -> global___ChangeControlKey:
-        """key uniquely identifies the change control."""
+        """key uniquely identifies the Change Control."""
 
     @property
     def change(self) -> global___Change:
         """change holds the configuration and status of the change of
-        the change control.
+        the Change Control.
         """
 
     @property
     def approve(self) -> global___Flag:
-        """approve indicates whether the change control was flagged
+        """approve indicates whether the Change Control was flagged
         as approved (`approve.value` set to `true`) or unapproved
         (`approve.value` set to `false`).
         """
 
     @property
     def start(self) -> global___Flag:
-        """start indicates whether the change control was flagged to
+        """start indicates whether the Change Control was flagged to
         start (`start.value` set to `true`) or stop (`start.value`
         set to `false`) execution.
         """
@@ -1105,19 +1125,19 @@ class ChangeControl(google.protobuf.message.Message):
     @property
     def error(self) -> google.protobuf.wrappers_pb2.StringValue:
         """error is any error that occurred during the execution of the
-        change control.
+        Change Control.
         """
 
     @property
     def schedule(self) -> global___TimestampFlag:
-        """schedule indicates whether the change control was flagged
+        """schedule indicates whether the Change Control was flagged
         to be scheduled (`schedule.value` set to some timestamp) or
         unscheduled (`schedule.value` set to `nil`) for execution.
         """
 
     @property
     def device_ids(self) -> fmp.wrappers_pb2.RepeatedString:
-        """device_ids is a list of device IDs on which the change control will operate."""
+        """device_ids is a list of device IDs on which the Change Control will operate."""
 
     @property
     def device_id_to_stage_ids(self) -> global___DeviceToStageMap:
@@ -1129,11 +1149,11 @@ class ChangeControl(google.protobuf.message.Message):
 
     @property
     def creation(self) -> global___Creation:
-        """creation holds information about when and by whom the change control was created."""
+        """creation holds information about when and by whom the Change Control was created."""
 
     @property
     def validation_statuses(self) -> global___ChangeControlValidationStatuses:
-        """validation_statuses indicates failed validation statuses for the change control.
+        """validation_statuses indicates failed validation statuses for the Change Control.
         This is only relevant when one or more devices fail validation.
         """
 
@@ -1168,7 +1188,7 @@ global___ChangeControl = ChangeControl
 
 @typing.final
 class ApproveConfig(google.protobuf.message.Message):
-    """ApproveConfig is used to configure the approval of a change control."""
+    """ApproveConfig is used to configure the approval of a Change Control."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1177,22 +1197,22 @@ class ApproveConfig(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     OVERRIDE_REASON_FIELD_NUMBER: builtins.int
     override_reason: global___OverrideReason.ValueType
-    """override_reason indicates user intent to override change control validation."""
+    """override_reason indicates user intent to override Change Control validation."""
     @property
     def key(self) -> global___ChangeControlKey:
-        """key uniquely identifies the change control."""
+        """key uniquely identifies the Change Control."""
 
     @property
     def approve(self) -> global___FlagConfig:
         """approve is the flag to approve (`approve.value` set to `true`)
-        or unapprove (`approve.value` set to `false`) the change control.
+        or unapprove (`approve.value` set to `false`) the Change Control.
         """
 
     @property
     def version(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """version is the timestamp of the change control to approve.
+        """version is the timestamp of the Change Control to approve.
         This field must be set when `approve.value` is set to `true`
-        and is intended to safeguard against approving a change control
+        and is intended to safeguard against approving a Change Control
         that has been updated since last read.
         """
 
@@ -1211,7 +1231,7 @@ global___ApproveConfig = ApproveConfig
 
 @typing.final
 class ActionSummary(google.protobuf.message.Message):
-    """ActionSummary provides detailed information about actions in a change control."""
+    """ActionSummary provides detailed information about actions in a Change Control."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1232,7 +1252,7 @@ class ActionSummary(google.protobuf.message.Message):
 
     @property
     def count(self) -> google.protobuf.wrappers_pb2.UInt32Value:
-        """count is the number of times this action appears in the change control."""
+        """count is the number of times this action appears in the Change Control."""
 
     def __init__(
         self,
@@ -1268,7 +1288,7 @@ global___ActionSummaries = ActionSummaries
 
 @typing.final
 class ChangeControlSummary(google.protobuf.message.Message):
-    """ChangeControlSummary provides the summary of the change control."""
+    """ChangeControlSummary provides the summary of the Change Control."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1293,42 +1313,42 @@ class ChangeControlSummary(google.protobuf.message.Message):
     COMPLETION_REASON_FIELD_NUMBER: builtins.int
     VALIDATION_STATUSES_FIELD_NUMBER: builtins.int
     status: global___ChangeControlStatus.ValueType
-    """status is the status of the change control."""
+    """status is the status of the Change Control."""
     completion_reason: global___CompletionReason.ValueType
-    """completion_reason indicates why the change control completed (only relevant when
+    """completion_reason indicates why the Change Control completed (only relevant when
     status is CHANGE_CONTROL_STATUS_COMPLETED).
     """
     @property
     def key(self) -> global___ChangeControlKey:
-        """key uniquely identifies the change control."""
+        """key uniquely identifies the Change Control."""
 
     @property
     def name(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """name is the name of the change control."""
+        """name is the name of the Change Control."""
 
     @property
     def device_count(self) -> google.protobuf.wrappers_pb2.UInt32Value:
-        """device_count is the count of the devices impacted in the change control."""
+        """device_count is the count of the devices impacted in the Change Control."""
 
     @property
     def action_summaries(self) -> global___ActionSummaries:
-        """action_summaries provides detailed information about each action type used in the change control."""
+        """action_summaries provides detailed information about each action type used in the Change Control."""
 
     @property
     def created_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """created_time is the time at which the change control was created."""
+        """created_time is the time at which the Change Control was created."""
 
     @property
     def created_user(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """created_user is the user by whom the change control was created."""
+        """created_user is the user by whom the Change Control was created."""
 
     @property
     def last_edited_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """last_edited_time is the time at which the change control was last edited."""
+        """last_edited_time is the time at which the Change Control was last edited."""
 
     @property
     def last_edited_user(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """last_edited_user is the user by whom the change control was last edited."""
+        """last_edited_user is the user by whom the Change Control was last edited."""
 
     @property
     def last_approved_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -1348,28 +1368,32 @@ class ChangeControlSummary(google.protobuf.message.Message):
 
     @property
     def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """start_time is the time at which the change control execution was started."""
+        """start_time is the time at which the Change Control execution was started."""
 
     @property
     def start_user(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """start_user is the user who started the change control execution."""
+        """start_user is the user who started the Change Control execution."""
 
     @property
     def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """end_time is the time at which the change control execution was completed."""
+        """end_time is the time at which the Change Control execution was completed."""
 
     @property
     def error(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """error is any error that occurred during the execution of the change control."""
+        """error is any error that occurred during the execution of the Change Control."""
 
     @property
     def approved(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """approved indicates whether the change control is currently approved or unapproved."""
+        """approved indicates whether the Change Control is currently approved or unapproved."""
 
     @property
     def validation_statuses(self) -> global___ChangeControlValidationStatuses:
-        """validation_statuses indicates failed validation statuses for the change control.
-        This field is only populated when one or more validations fail.
+        """validation_statuses indicates the active failed validation statuses surfaced
+        in the Change Control summary. This field may contain multiple values when
+        more than one validation condition fails. For example, a Change Control may
+        be obsolete due to ordering and also temporarily blocked by concurrent
+        execution. An empty value means there are no active validation failures to
+        surface in the summary.
         """
 
     def __init__(
@@ -1403,7 +1427,7 @@ global___ChangeControlSummary = ChangeControlSummary
 
 @typing.final
 class ChangeControlValidationStatuses(google.protobuf.message.Message):
-    """ChangeControlValidationStatuses is a list of validation statuses for the change control."""
+    """ChangeControlValidationStatuses is a list of validation statuses for the Change Control."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1423,14 +1447,14 @@ global___ChangeControlValidationStatuses = ChangeControlValidationStatuses
 
 @typing.final
 class ChangeControlValidationDetail(google.protobuf.message.Message):
-    """ChangeControlValidationDetail contains validation details for a change control."""
+    """ChangeControlValidationDetail contains validation details for a Change Control."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     DEVICES_FIELD_NUMBER: builtins.int
     @property
     def devices(self) -> global___DeviceValidationDetails:
-        """devices is a list of devices that failed the change control validation.
+        """devices is a list of devices that failed the Change Control validation.
         The failure type is included in the details.
         """
 
@@ -1484,11 +1508,13 @@ class DeviceValidationDetail(google.protobuf.message.Message):
     @property
     def metadata(self) -> google.protobuf.wrappers_pb2.StringValue:
         """metadata is a string that contains additional information related to the failure.
+        This field may contain multiple values when more than one validation condition fails.
         Current failures and their corresponding metadata are:
         DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER: ID of the newer Change Control that
         caused the designed config to be out of order.
         DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER: ID of the newer Change Control that
         caused the designed image to be out of order.
+        DEVICE_VALIDATION_FAILURE_CONCURRENT_EXECUTION: ID of the running Change Control.
         """
 
     def __init__(

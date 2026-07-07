@@ -176,31 +176,31 @@ class StepStatus(aristaproto.Enum):
 class ChangeControlStatus(aristaproto.Enum):
     """
     ChangeControlStatus defines the possible execution statuses of
-    a change control.
+    a Change Control.
     """
 
     UNSPECIFIED = 0
     """
-    CHANGE_CONTROL_STATUS_UNSPECIFIED means the change control status is unknown.
+    CHANGE_CONTROL_STATUS_UNSPECIFIED means the Change Control status is unknown.
     """
 
     RUNNING = 1
     """
-    CHANGE_CONTROL_STATUS_RUNNING means the change control has begun
+    CHANGE_CONTROL_STATUS_RUNNING means the Change Control has begun
     execution.
     """
 
     COMPLETED = 2
     """
-    CHANGE_CONTROL_STATUS_COMPLETED means the change control has ceased
-    execution. Success/failure of a change control cannot be inferred
-    from this status alone but rather this status plus the change control
+    CHANGE_CONTROL_STATUS_COMPLETED means the Change Control has ceased
+    execution. Success/failure of a Change Control cannot be inferred
+    from this status alone but rather this status plus the Change Control
     error. That is, no error implies success and some error implies failure.
     """
 
     SCHEDULED = 3
     """
-    CHANGE_CONTROL_STATUS_SCHEDULED means the change control has been
+    CHANGE_CONTROL_STATUS_SCHEDULED means the Change Control has been
     scheduled for execution at some time. Any failure that occurs during
     this process will cause a transition back to the unspecified status,
     a reset of the schedule flag by the system, and an error on the change
@@ -209,14 +209,14 @@ class ChangeControlStatus(aristaproto.Enum):
 
     NOT_STARTED = 4
     """
-    CHANGE_CONTROL_STATUS_NOT_STARTED means the change control has not been
-    started. This would include approved and not approved change controls.
+    CHANGE_CONTROL_STATUS_NOT_STARTED means the Change Control has not been
+    started. This would include approved and not approved Change Controls.
     """
 
 
 class CompletionReason(aristaproto.Enum):
     """
-    CompletionReason describes the reason behind the terminal state of an executed change control.
+    CompletionReason describes the reason behind the terminal state of an executed Change Control.
     """
 
     UNSPECIFIED = 0
@@ -226,17 +226,17 @@ class CompletionReason(aristaproto.Enum):
 
     SUCCESS = 1
     """
-    COMPLETION_REASON_SUCCESS means the change control completed successfully.
+    COMPLETION_REASON_SUCCESS means the Change Control completed successfully.
     """
 
     FAILED = 2
     """
-    COMPLETION_REASON_FAILED means the change control completed due to failure.
+    COMPLETION_REASON_FAILED means the Change Control completed due to failure.
     """
 
     STOPPED = 3
     """
-    COMPLETION_REASON_STOPPED means the change control was stopped by a user.
+    COMPLETION_REASON_STOPPED means the Change Control was stopped by a user.
     """
 
 
@@ -252,13 +252,13 @@ class OverrideReason(aristaproto.Enum):
     USER_FORCED = 1
     """
     OVERRIDE_REASON_USER_FORCED indicates that the user has overridden the validation and forced
-    the approval of the change control.
+    the approval of the Change Control.
     """
 
 
 class ChangeControlValidationStatus(aristaproto.Enum):
     """
-    ChangeControlValidationStatus is used to indicate the status of the change control validation.
+    ChangeControlValidationStatus is used to indicate the status of the Change Control validation.
     """
 
     UNSPECIFIED = 0
@@ -275,7 +275,15 @@ class ChangeControlValidationStatus(aristaproto.Enum):
     OBSOLETED = 2
     """
     CHANGE_CONTROL_VALIDATION_STATUS_OBSOLETED indicates that the validation has failed, and the
-    change control has been obsoleted. This is due to the execution of a newer change control.
+    Change Control has been obsoleted. This is due to the execution of a newer Change Control.
+    """
+
+    CONCURRENT_EXECUTION = 3
+    """
+    CHANGE_CONTROL_VALIDATION_STATUS_CONCURRENT_EXECUTION indicates that validation failed
+    because execution would conflict with another Change Control that is currently running
+    on one or more target devices. This Change Control is blocked until the conflicting
+    execution completes.
     """
 
 
@@ -293,13 +301,19 @@ class DeviceValidationFailure(aristaproto.Enum):
     CONFIG_OUT_OF_ORDER = 1
     """
     DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER indicates that the designed config is out of
-    order due to the execution of a newer change control.
+    order due to the execution of a newer Change Control.
     """
 
     IMAGE_OUT_OF_ORDER = 2
     """
     DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER indicates that the designed image is out of
-    order due to the execution of a newer change control.
+    order due to the execution of a newer Change Control.
+    """
+
+    CONCURRENT_EXECUTION = 3
+    """
+    DEVICE_VALIDATION_FAILURE_CONCURRENT_EXECUTION indicates that the device is currently
+    executing another Change Control.
     """
 
 
@@ -317,17 +331,17 @@ class RepeatedRepeatedString(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class ChangeControlKey(aristaproto.Message):
-    """ChangeControlKey uniquely identifies a change control."""
+    """ChangeControlKey uniquely identifies a Change Control."""
 
     id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
-    """id is the ID of the change control."""
+    """id is the ID of the Change Control."""
 
 
 @dataclass(eq=False, repr=False)
 class Action(aristaproto.Message):
     """
     Action is an action to perform during the execution of
-    a stage of a change control. Available actions can be
+    a stage of a Change Control. Available actions can be
     fetched using the \"action\" services.
     """
 
@@ -383,7 +397,7 @@ class StageConfigMap(aristaproto.Message):
     """
     StageConfigMap wraps a map from stage ID to `StageConfig`.
     This defines the configuration and order of execution
-    for the stages in a change control.
+    for the stages in a Change Control.
 
     For example:
 
@@ -399,7 +413,7 @@ class StageConfigMap(aristaproto.Message):
     }
     ```
 
-    Assuming the root stage ID of the enclosing change control
+    Assuming the root stage ID of the enclosing Change Control
     is \"root\", this would mean to do the following in sequence:
 
     ```
@@ -449,7 +463,7 @@ class ChangeConfig(aristaproto.Message):
 @dataclass(eq=False, repr=False)
 class FlagConfig(aristaproto.Message):
     """
-    FlagConfig is used to set a flag on a change control that takes
+    FlagConfig is used to set a flag on a Change Control that takes
     a boolean value (e.g. start/stop, approve/unapprove).
     """
 
@@ -463,7 +477,7 @@ class FlagConfig(aristaproto.Message):
 @dataclass(eq=False, repr=False)
 class TimestampFlagConfig(aristaproto.Message):
     """
-    TimestampFlagConfig is used to set a flag on a change control
+    TimestampFlagConfig is used to set a flag on a Change Control
     that takes a timestamp value (e.g. schedule/unschedule).
     """
 
@@ -476,10 +490,10 @@ class TimestampFlagConfig(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class ChangeControlConfig(aristaproto.Message):
-    """ChangeControlConfig holds the configuration of a change control."""
+    """ChangeControlConfig holds the configuration of a Change Control."""
 
     key: "ChangeControlKey" = aristaproto.message_field(1)
-    """key uniquely identifies the change control."""
+    """key uniquely identifies the Change Control."""
 
     change: "ChangeConfig" = aristaproto.message_field(2)
     """change is the change subject to execution."""
@@ -488,14 +502,14 @@ class ChangeControlConfig(aristaproto.Message):
     """
     start is the flag to start (`start.value` set to `true`)
     or stop (`start.value` set to `false`) execution of the
-    change control.
+    Change Control.
     """
 
     schedule: "TimestampFlagConfig" = aristaproto.message_field(4)
     """
     schedule is the flag to schedule (`schedule.value` set to
     some timestamp) or unschedule (`schedule.value` set to
-    `nil`) the change control for execution.
+    `nil`) the Change Control for execution.
     """
 
 
@@ -565,7 +579,7 @@ class Stage(aristaproto.Message):
     steps: "ActionSteps" = aristaproto.message_field(8)
     """
     steps represent the granular steps and their statuses
-    associated with the action performed in the change control stage.
+    associated with the action performed in the Change Control stage.
     Each stage generally defines either an action
     or a series of sub-stages.
     """
@@ -589,7 +603,7 @@ class StageMap(aristaproto.Message):
 class Change(aristaproto.Message):
     """
     Change holds the configuration and status of the change of a
-    change control.
+    Change Control.
     """
 
     name: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
@@ -657,14 +671,14 @@ class TimestampFlag(aristaproto.Message):
 @dataclass(eq=False, repr=False)
 class Creation(aristaproto.Message):
     """
-    Creation holds information about when and by whom a change control was created.
+    Creation holds information about when and by whom a Change Control was created.
     """
 
     time: datetime = aristaproto.message_field(1)
-    """time is the time when the change control was created."""
+    """time is the time when the Change Control was created."""
 
     user: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
-    """user is the user who created the change control."""
+    """user is the user who created the Change Control."""
 
 
 @dataclass(eq=False, repr=False)
@@ -697,51 +711,51 @@ class DeviceToStageMap(aristaproto.Message):
 @dataclass(eq=False, repr=False)
 class ChangeControl(aristaproto.Message):
     """
-    ChangeControl holds the configuration and status of a change control.
+    ChangeControl holds the configuration and status of a Change Control.
     """
 
     key: "ChangeControlKey" = aristaproto.message_field(1)
-    """key uniquely identifies the change control."""
+    """key uniquely identifies the Change Control."""
 
     change: "Change" = aristaproto.message_field(2)
     """
     change holds the configuration and status of the change of
-    the change control.
+    the Change Control.
     """
 
     approve: "Flag" = aristaproto.message_field(3)
     """
-    approve indicates whether the change control was flagged
+    approve indicates whether the Change Control was flagged
     as approved (`approve.value` set to `true`) or unapproved
     (`approve.value` set to `false`).
     """
 
     start: "Flag" = aristaproto.message_field(4)
     """
-    start indicates whether the change control was flagged to
+    start indicates whether the Change Control was flagged to
     start (`start.value` set to `true`) or stop (`start.value`
     set to `false`) execution.
     """
 
     status: "ChangeControlStatus" = aristaproto.enum_field(5)
-    """status is the execution status of the change control."""
+    """status is the execution status of the Change Control."""
 
     error: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
     """
     error is any error that occurred during the execution of the
-    change control.
+    Change Control.
     """
 
     schedule: "TimestampFlag" = aristaproto.message_field(7)
     """
-    schedule indicates whether the change control was flagged
+    schedule indicates whether the Change Control was flagged
     to be scheduled (`schedule.value` set to some timestamp) or
     unscheduled (`schedule.value` set to `nil`) for execution.
     """
 
     device_ids: "___fmp__.RepeatedString" = aristaproto.message_field(8)
     """
-    device_ids is a list of device IDs on which the change control will operate.
+    device_ids is a list of device IDs on which the Change Control will operate.
     """
 
     device_id_to_stage_ids: "DeviceToStageMap" = aristaproto.message_field(9)
@@ -754,18 +768,18 @@ class ChangeControl(aristaproto.Message):
 
     creation: "Creation" = aristaproto.message_field(10)
     """
-    creation holds information about when and by whom the change control was created.
+    creation holds information about when and by whom the Change Control was created.
     """
 
     completion_reason: "CompletionReason" = aristaproto.enum_field(11)
     """
-    completion_reason indicates why the change control completed (only relevant when
+    completion_reason indicates why the Change Control completed (only relevant when
     status is CHANGE_CONTROL_STATUS_COMPLETED).
     """
 
     validation_statuses: "ChangeControlValidationStatuses" = aristaproto.message_field(12)
     """
-    validation_statuses indicates failed validation statuses for the change control.
+    validation_statuses indicates failed validation statuses for the Change Control.
     This is only relevant when one or more devices fail validation.
     """
 
@@ -777,41 +791,41 @@ class ChangeControl(aristaproto.Message):
 
     override_reason: "OverrideReason" = aristaproto.enum_field(14)
     """
-    override_reason indicates user intent to override change control validation.
+    override_reason indicates user intent to override Change Control validation.
     """
 
 
 @dataclass(eq=False, repr=False)
 class ApproveConfig(aristaproto.Message):
-    """ApproveConfig is used to configure the approval of a change control."""
+    """ApproveConfig is used to configure the approval of a Change Control."""
 
     key: "ChangeControlKey" = aristaproto.message_field(1)
-    """key uniquely identifies the change control."""
+    """key uniquely identifies the Change Control."""
 
     approve: "FlagConfig" = aristaproto.message_field(2)
     """
     approve is the flag to approve (`approve.value` set to `true`)
-    or unapprove (`approve.value` set to `false`) the change control.
+    or unapprove (`approve.value` set to `false`) the Change Control.
     """
 
     version: datetime = aristaproto.message_field(3)
     """
-    version is the timestamp of the change control to approve.
+    version is the timestamp of the Change Control to approve.
     This field must be set when `approve.value` is set to `true`
-    and is intended to safeguard against approving a change control
+    and is intended to safeguard against approving a Change Control
     that has been updated since last read.
     """
 
     override_reason: "OverrideReason" = aristaproto.enum_field(4)
     """
-    override_reason indicates user intent to override change control validation.
+    override_reason indicates user intent to override Change Control validation.
     """
 
 
 @dataclass(eq=False, repr=False)
 class ActionSummary(aristaproto.Message):
     """
-    ActionSummary provides detailed information about actions in a change control.
+    ActionSummary provides detailed information about actions in a Change Control.
     """
 
     id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
@@ -827,7 +841,7 @@ class ActionSummary(aristaproto.Message):
 
     count: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_UINT32)
     """
-    count is the number of times this action appears in the change control.
+    count is the number of times this action appears in the Change Control.
     """
 
 
@@ -841,41 +855,41 @@ class ActionSummaries(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class ChangeControlSummary(aristaproto.Message):
-    """ChangeControlSummary provides the summary of the change control."""
+    """ChangeControlSummary provides the summary of the Change Control."""
 
     key: "ChangeControlKey" = aristaproto.message_field(1)
-    """key uniquely identifies the change control."""
+    """key uniquely identifies the Change Control."""
 
     name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
-    """name is the name of the change control."""
+    """name is the name of the Change Control."""
 
     status: "ChangeControlStatus" = aristaproto.enum_field(3)
-    """status is the status of the change control."""
+    """status is the status of the Change Control."""
 
     device_count: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
-    device_count is the count of the devices impacted in the change control.
+    device_count is the count of the devices impacted in the Change Control.
     """
 
     action_summaries: "ActionSummaries" = aristaproto.message_field(5)
     """
-    action_summaries provides detailed information about each action type used in the change control.
+    action_summaries provides detailed information about each action type used in the Change Control.
     """
 
     created_time: datetime = aristaproto.message_field(6)
-    """created_time is the time at which the change control was created."""
+    """created_time is the time at which the Change Control was created."""
 
     created_user: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
-    """created_user is the user by whom the change control was created."""
+    """created_user is the user by whom the Change Control was created."""
 
     last_edited_time: datetime = aristaproto.message_field(8)
     """
-    last_edited_time is the time at which the change control was last edited.
+    last_edited_time is the time at which the Change Control was last edited.
     """
 
     last_edited_user: Optional[str] = aristaproto.message_field(9, wraps=aristaproto.TYPE_STRING)
     """
-    last_edited_user is the user by whom the change control was last edited.
+    last_edited_user is the user by whom the Change Control was last edited.
     """
 
     last_approved_time: datetime = aristaproto.message_field(10)
@@ -902,44 +916,48 @@ class ChangeControlSummary(aristaproto.Message):
 
     start_time: datetime = aristaproto.message_field(14)
     """
-    start_time is the time at which the change control execution was started.
+    start_time is the time at which the Change Control execution was started.
     """
 
     start_user: Optional[str] = aristaproto.message_field(15, wraps=aristaproto.TYPE_STRING)
-    """start_user is the user who started the change control execution."""
+    """start_user is the user who started the Change Control execution."""
 
     end_time: datetime = aristaproto.message_field(16)
     """
-    end_time is the time at which the change control execution was completed.
+    end_time is the time at which the Change Control execution was completed.
     """
 
     error: Optional[str] = aristaproto.message_field(17, wraps=aristaproto.TYPE_STRING)
     """
-    error is any error that occurred during the execution of the change control.
+    error is any error that occurred during the execution of the Change Control.
     """
 
     approved: Optional[bool] = aristaproto.message_field(18, wraps=aristaproto.TYPE_BOOL)
     """
-    approved indicates whether the change control is currently approved or unapproved.
+    approved indicates whether the Change Control is currently approved or unapproved.
     """
 
     completion_reason: "CompletionReason" = aristaproto.enum_field(19)
     """
-    completion_reason indicates why the change control completed (only relevant when
+    completion_reason indicates why the Change Control completed (only relevant when
     status is CHANGE_CONTROL_STATUS_COMPLETED).
     """
 
     validation_statuses: "ChangeControlValidationStatuses" = aristaproto.message_field(20)
     """
-    validation_statuses indicates failed validation statuses for the change control.
-    This field is only populated when one or more validations fail.
+    validation_statuses indicates the active failed validation statuses surfaced
+    in the Change Control summary. This field may contain multiple values when
+    more than one validation condition fails. For example, a Change Control may
+    be obsolete due to ordering and also temporarily blocked by concurrent
+    execution. An empty value means there are no active validation failures to
+    surface in the summary.
     """
 
 
 @dataclass(eq=False, repr=False)
 class ChangeControlValidationStatuses(aristaproto.Message):
     """
-    ChangeControlValidationStatuses is a list of validation statuses for the change control.
+    ChangeControlValidationStatuses is a list of validation statuses for the Change Control.
     """
 
     values: List["ChangeControlValidationStatus"] = aristaproto.enum_field(1)
@@ -949,12 +967,12 @@ class ChangeControlValidationStatuses(aristaproto.Message):
 @dataclass(eq=False, repr=False)
 class ChangeControlValidationDetail(aristaproto.Message):
     """
-    ChangeControlValidationDetail contains validation details for a change control.
+    ChangeControlValidationDetail contains validation details for a Change Control.
     """
 
     devices: "DeviceValidationDetails" = aristaproto.message_field(1)
     """
-    devices is a list of devices that failed the change control validation.
+    devices is a list of devices that failed the Change Control validation.
     The failure type is included in the details.
     """
 
@@ -983,11 +1001,13 @@ class DeviceValidationDetail(aristaproto.Message):
     metadata: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     metadata is a string that contains additional information related to the failure.
+    This field may contain multiple values when more than one validation condition fails.
     Current failures and their corresponding metadata are:
     DEVICE_VALIDATION_FAILURE_CONFIG_OUT_OF_ORDER: ID of the newer Change Control that
     caused the designed config to be out of order.
     DEVICE_VALIDATION_FAILURE_IMAGE_OUT_OF_ORDER: ID of the newer Change Control that
     caused the designed image to be out of order.
+    DEVICE_VALIDATION_FAILURE_CONCURRENT_EXECUTION: ID of the running Change Control.
     """
 
 
