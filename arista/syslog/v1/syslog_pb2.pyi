@@ -75,6 +75,30 @@ FORMAT_CUSTOM: Format.ValueType  # 3
 """FORMAT_CUSTOM indicates a native custom format with a UTC timestamp."""
 global___Format = Format
 
+class _EndpointType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _EndpointTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_EndpointType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    ENDPOINT_TYPE_UNSPECIFIED: _EndpointType.ValueType  # 0
+    """ENDPOINT_TYPE_UNSPECIFIED indicates unspecified endpoint type."""
+    ENDPOINT_TYPE_INTERNAL_CLIENT: _EndpointType.ValueType  # 1
+    """ENDPOINT_TYPE_INTERNAL_CLIENT indicates an internal client."""
+    ENDPOINT_TYPE_SPLUNK_CLIENT: _EndpointType.ValueType  # 2
+    """ENDPOINT_TYPE_SPLUNK_CLIENT indicates a splunk client."""
+
+class EndpointType(_EndpointType, metaclass=_EndpointTypeEnumTypeWrapper):
+    """EndpointType defines the type of export endpoint."""
+
+ENDPOINT_TYPE_UNSPECIFIED: EndpointType.ValueType  # 0
+"""ENDPOINT_TYPE_UNSPECIFIED indicates unspecified endpoint type."""
+ENDPOINT_TYPE_INTERNAL_CLIENT: EndpointType.ValueType  # 1
+"""ENDPOINT_TYPE_INTERNAL_CLIENT indicates an internal client."""
+ENDPOINT_TYPE_SPLUNK_CLIENT: EndpointType.ValueType  # 2
+"""ENDPOINT_TYPE_SPLUNK_CLIENT indicates a splunk client."""
+global___EndpointType = EndpointType
+
 class _ExportResult:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -236,17 +260,29 @@ class ExportConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     KEY_FIELD_NUMBER: builtins.int
+    ENDPOINT_TYPE_FIELD_NUMBER: builtins.int
+    ENDPOINT_TOKEN_FIELD_NUMBER: builtins.int
+    endpoint_type: global___EndpointType.ValueType
+    """endpoint_type defines the type of export client to use.
+    If unset, it defaults to internal client.
+    """
     @property
     def key(self) -> global___ExportKey:
         """key uniquely identifies a syslog server."""
+
+    @property
+    def endpoint_token(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """endpoint_token is the authentication token for a splunk endpoint."""
 
     def __init__(
         self,
         *,
         key: global___ExportKey | None = ...,
+        endpoint_type: global___EndpointType.ValueType = ...,
+        endpoint_token: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["key", b"key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["key", b"key"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["endpoint_token", b"endpoint_token", "key", b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["endpoint_token", b"endpoint_token", "endpoint_type", b"endpoint_type", "key", b"key"]) -> None: ...
 
 global___ExportConfig = ExportConfig
 
