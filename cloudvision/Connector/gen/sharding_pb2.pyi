@@ -7,7 +7,9 @@ that can be found in the COPYING file.
 """
 
 import builtins
+import collections.abc
 import google.protobuf.descriptor
+import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import sys
@@ -46,13 +48,19 @@ global___ShardingFunction = ShardingFunction
 @typing.final
 class Sharding(google.protobuf.message.Message):
     """Sharding contains the information for horizontal scaling of subscriptions and get requests.
-    Multitenancy, i.e., matching notifications across multiple parent datasets, is enabled by setting
-    numParentShards >= 1. Dataset/Path sharding must be configured orthogonally to Parent sharding.
-    This makes it possible to map an entire org to a single client instance. Examples:
-      {numShards = 1, numParentShards = M} => distributes notifs among M shards preserving org grouping
-      {numShards = N, numParentShards = 1} => distributes among N shards without preserving org grouping
+
+    A basic example is dividing notifications between two parallel processes, where one process
+    receives only notifications deemed to belong to shard 0, and the other to shard 1. Such splitting
+    can improve performance.
+
+    Multitenancy, i.e., routing each notif based on its Parent dataset, is based on `parentShard`.
+    This makes it possible to map an entire org to a single client instance.
+    Orthogonal to it is Dataset/Path sharding which is done with `shard` and `shardingRule`. Examples:
+
+      {numShards = 1, numParentShards = M} => distributes notifs among M shards keeping org grouping
+      {numShards = N, numParentShards = 1} => distributes notifs among N shards disregarding orgs
       {numShards = N, numParentShards = M} => means that there will be N*M shards in total where the
-         notification from a single org will be sharded into N bins based on the ShardingFunction.
+         notification from a single org will be sharded into N bins based on the shardingRule.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -62,16 +70,47 @@ class Sharding(google.protobuf.message.Message):
     SHARDINGFUNC_FIELD_NUMBER: builtins.int
     PARENTSHARD_FIELD_NUMBER: builtins.int
     NUMPARENTSHARDS_FIELD_NUMBER: builtins.int
+    BYDATASETIDANDPATH_FIELD_NUMBER: builtins.int
+    BYDATASETID_FIELD_NUMBER: builtins.int
+    BYDATASETNAME_FIELD_NUMBER: builtins.int
+    BYPATH_FIELD_NUMBER: builtins.int
+    BYKEY_FIELD_NUMBER: builtins.int
+    BYPATHELEMENTS_FIELD_NUMBER: builtins.int
+    BYCOMPLEXKEY_FIELD_NUMBER: builtins.int
+    BYCOMPLEXPATHELEMENTS_FIELD_NUMBER: builtins.int
     shard: builtins.int
-    """shard is the unique ID of the client instance for horizontal scaling"""
+    """shard is the requested ID of the client instance, from 0 to numShards-1. The notifications
+    are divided up based on the shardingRule.
+    """
     numShards: builtins.int
-    """numShards is the number of instances of the client for horizontal scaling"""
+    """numShards is the number of shards for the shardingRule."""
     shardingFunc: global___ShardingFunction.ValueType
-    """shardingFunc defines which sharding function to use for horizontal scaling"""
+    """Deprecated legacy enum field retained for compatibility. Use shardingRule."""
     parentShard: builtins.int
-    """parentShard is the unique ID of the client instance if multitenant is enabled"""
+    """parentShard is the requested ID of the client instance for parent dataset sharding, value
+    from 0 to numParentShards-1.
+    """
     numParentShards: builtins.int
-    """numParentShards is the number of client instances for parent dataset sharding"""
+    """numParentShards is how many parentShard IDs there can be. Setting this value to 0 means
+    that notifications are not divided based on parent, similarly as with value 1 (but still,
+    some parts of the stack treat value 0 as a marker of a non-multitenant client).
+    """
+    @property
+    def byDatasetIDAndPath(self) -> global___ByDatasetIDAndPath: ...
+    @property
+    def byDatasetID(self) -> global___ByDatasetID: ...
+    @property
+    def byDatasetName(self) -> global___ByDatasetName: ...
+    @property
+    def byPath(self) -> global___ByPath: ...
+    @property
+    def byKey(self) -> global___ByKey: ...
+    @property
+    def byPathElements(self) -> global___ByPathElements: ...
+    @property
+    def byComplexKey(self) -> global___ByComplexKey: ...
+    @property
+    def byComplexPathElements(self) -> global___ByComplexPathElements: ...
     def __init__(
         self,
         *,
@@ -80,7 +119,146 @@ class Sharding(google.protobuf.message.Message):
         shardingFunc: global___ShardingFunction.ValueType = ...,
         parentShard: builtins.int = ...,
         numParentShards: builtins.int = ...,
+        byDatasetIDAndPath: global___ByDatasetIDAndPath | None = ...,
+        byDatasetID: global___ByDatasetID | None = ...,
+        byDatasetName: global___ByDatasetName | None = ...,
+        byPath: global___ByPath | None = ...,
+        byKey: global___ByKey | None = ...,
+        byPathElements: global___ByPathElements | None = ...,
+        byComplexKey: global___ByComplexKey | None = ...,
+        byComplexPathElements: global___ByComplexPathElements | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["numParentShards", b"numParentShards", "numShards", b"numShards", "parentShard", b"parentShard", "shard", b"shard", "shardingFunc", b"shardingFunc"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["byComplexKey", b"byComplexKey", "byComplexPathElements", b"byComplexPathElements", "byDatasetID", b"byDatasetID", "byDatasetIDAndPath", b"byDatasetIDAndPath", "byDatasetName", b"byDatasetName", "byKey", b"byKey", "byPath", b"byPath", "byPathElements", b"byPathElements", "shardingRule", b"shardingRule"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["byComplexKey", b"byComplexKey", "byComplexPathElements", b"byComplexPathElements", "byDatasetID", b"byDatasetID", "byDatasetIDAndPath", b"byDatasetIDAndPath", "byDatasetName", b"byDatasetName", "byKey", b"byKey", "byPath", b"byPath", "byPathElements", b"byPathElements", "numParentShards", b"numParentShards", "numShards", b"numShards", "parentShard", b"parentShard", "shard", b"shard", "shardingFunc", b"shardingFunc", "shardingRule", b"shardingRule"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["shardingRule", b"shardingRule"]) -> typing.Literal["byDatasetIDAndPath", "byDatasetID", "byDatasetName", "byPath", "byKey", "byPathElements", "byComplexKey", "byComplexPathElements"] | None: ...
 
 global___Sharding = Sharding
+
+@typing.final
+class ByDatasetIDAndPath(google.protobuf.message.Message):
+    """ByDatasetIDAndPath shards by dataset ID and Path"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___ByDatasetIDAndPath = ByDatasetIDAndPath
+
+@typing.final
+class ByDatasetID(google.protobuf.message.Message):
+    """ByDatasetID shards by dataset ID"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___ByDatasetID = ByDatasetID
+
+@typing.final
+class ByDatasetName(google.protobuf.message.Message):
+    """ByDatasetName shards by dataset name"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___ByDatasetName = ByDatasetName
+
+@typing.final
+class ByPath(google.protobuf.message.Message):
+    """ByPath shards by notification's path"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___ByPath = ByPath
+
+@typing.final
+class ByKey(google.protobuf.message.Message):
+    """ByKey shards by notification's keys"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___ByKey = ByKey
+
+@typing.final
+class ByComplexKey(google.protobuf.message.Message):
+    """ByComplexKey shards by notification's complex keys"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEYS_FIELD_NUMBER: builtins.int
+    @property
+    def keys(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def __init__(
+        self,
+        *,
+        keys: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["keys", b"keys"]) -> None: ...
+
+global___ByComplexKey = ByComplexKey
+
+@typing.final
+class ByPathElements(google.protobuf.message.Message):
+    """ByPathElements shards by specified notification's paths components"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    INDICES_FIELD_NUMBER: builtins.int
+    @property
+    def indices(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]: ...
+    def __init__(
+        self,
+        *,
+        indices: collections.abc.Iterable[builtins.int] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["indices", b"indices"]) -> None: ...
+
+global___ByPathElements = ByPathElements
+
+@typing.final
+class ByComplexPathElements(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing.final
+    class Index(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        INDEX_FIELD_NUMBER: builtins.int
+        KEYS_FIELD_NUMBER: builtins.int
+        index: builtins.int
+        @property
+        def keys(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+        def __init__(
+            self,
+            *,
+            index: builtins.int = ...,
+            keys: collections.abc.Iterable[builtins.str] | None = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing.Literal["index", b"index", "keys", b"keys"]) -> None: ...
+
+    INDICES_FIELD_NUMBER: builtins.int
+    @property
+    def indices(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ByComplexPathElements.Index]: ...
+    def __init__(
+        self,
+        *,
+        indices: collections.abc.Iterable[global___ByComplexPathElements.Index] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["indices", b"indices"]) -> None: ...
+
+global___ByComplexPathElements = ByComplexPathElements

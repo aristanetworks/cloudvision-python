@@ -14,22 +14,76 @@ enum ShardingFunction {
 }
 
 // Sharding contains the information for horizontal scaling of subscriptions and get requests.
-// Multitenancy, i.e., matching notifications across multiple parent datasets, is enabled by setting
-// numParentShards >= 1. Dataset/Path sharding must be configured orthogonally to Parent sharding.
-// This makes it possible to map an entire org to a single client instance. Examples:
-//   {numShards = 1, numParentShards = M} => distributes notifs among M shards preserving org grouping
-//   {numShards = N, numParentShards = 1} => distributes among N shards without preserving org grouping
+//
+// A basic example is dividing notifications between two parallel processes, where one process
+// receives only notifications deemed to belong to shard 0, and the other to shard 1. Such splitting
+// can improve performance.
+//
+// Multitenancy, i.e., routing each notif based on its Parent dataset, is based on `parentShard`.
+// This makes it possible to map an entire org to a single client instance.
+// Orthogonal to it is Dataset/Path sharding which is done with `shard` and `shardingRule`. Examples:
+//
+//   {numShards = 1, numParentShards = M} => distributes notifs among M shards keeping org grouping
+//   {numShards = N, numParentShards = 1} => distributes notifs among N shards disregarding orgs
 //   {numShards = N, numParentShards = M} => means that there will be N*M shards in total where the
-//      notification from a single org will be sharded into N bins based on the ShardingFunction.
+//      notification from a single org will be sharded into N bins based on the shardingRule.
 message Sharding {
-    // shard is the unique ID of the client instance for horizontal scaling
+    // shard is the requested ID of the client instance, from 0 to numShards-1. The notifications
+    // are divided up based on the shardingRule.
     uint32 shard = 1;
-    // numShards is the number of instances of the client for horizontal scaling
+    // numShards is the number of shards for the shardingRule.
     uint32 numShards = 2;
-    // shardingFunc defines which sharding function to use for horizontal scaling
-    ShardingFunction shardingFunc = 3;
-    // parentShard is the unique ID of the client instance if multitenant is enabled
+    // Deprecated legacy enum field retained for compatibility. Use shardingRule.
+    ShardingFunction shardingFunc = 3 [deprecated = true];
+    // parentShard is the requested ID of the client instance for parent dataset sharding, value
+    // from 0 to numParentShards-1.
     uint32 parentShard = 4;
-    // numParentShards is the number of client instances for parent dataset sharding
-    uint32 numParentShards = 5; 
+    // numParentShards is how many parentShard IDs there can be. Setting this value to 0 means
+    // that notifications are not divided based on parent, similarly as with value 1 (but still,
+    // some parts of the stack treat value 0 as a marker of a non-multitenant client).
+    uint32 numParentShards = 5;
+    // shardingRule defines which rule to use when numShards > 1.
+    oneof shardingRule {
+        ByDatasetIDAndPath byDatasetIDAndPath = 6;
+        ByDatasetID byDatasetID = 7;
+        ByDatasetName byDatasetName = 8;
+        ByPath byPath = 9;
+        ByKey byKey = 10;
+        ByPathElements byPathElements = 11;
+        ByComplexKey byComplexKey = 12;
+        ByComplexPathElements byComplexPathElements = 13;
+    }
+}
+
+// ByDatasetIDAndPath shards by dataset ID and Path
+message ByDatasetIDAndPath {}
+
+// ByDatasetID shards by dataset ID
+message ByDatasetID {}
+
+// ByDatasetName shards by dataset name
+message ByDatasetName {}
+
+// ByPath shards by notification's path
+message ByPath {}
+
+// ByKey shards by notification's keys
+message ByKey {}
+
+// ByComplexKey shards by notification's complex keys
+message ByComplexKey {
+    repeated string keys = 1;
+}
+
+// ByPathElements shards by specified notification's paths components
+message ByPathElements {
+    repeated uint32 indices = 1;
+}
+
+message ByComplexPathElements{
+    message Index{
+        uint32 index = 1;
+        repeated string keys = 2;
+    }
+    repeated Index indices = 1;
 }

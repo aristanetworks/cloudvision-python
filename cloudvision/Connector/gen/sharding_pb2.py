@@ -24,15 +24,35 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0esharding.proto\"\x83\x01\n\x08Sharding\x12\r\n\x05shard\x18\x01 \x01(\r\x12\x11\n\tnumShards\x18\x02 \x01(\r\x12\'\n\x0cshardingFunc\x18\x03 \x01(\x0e\x32\x11.ShardingFunction\x12\x13\n\x0bparentShard\x18\x04 \x01(\r\x12\x17\n\x0fnumParentShards\x18\x05 \x01(\r*=\n\x10ShardingFunction\x12\x12\n\x0e\x44\x41TASETANDPATH\x10\x00\x12\x0b\n\x07\x44\x41TASET\x10\x01\x12\x08\n\x04PATH\x10\x02\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0esharding.proto\"\xd7\x03\n\x08Sharding\x12\r\n\x05shard\x18\x01 \x01(\r\x12\x11\n\tnumShards\x18\x02 \x01(\r\x12+\n\x0cshardingFunc\x18\x03 \x01(\x0e\x32\x11.ShardingFunctionB\x02\x18\x01\x12\x13\n\x0bparentShard\x18\x04 \x01(\r\x12\x17\n\x0fnumParentShards\x18\x05 \x01(\r\x12\x31\n\x12\x62yDatasetIDAndPath\x18\x06 \x01(\x0b\x32\x13.ByDatasetIDAndPathH\x00\x12#\n\x0b\x62yDatasetID\x18\x07 \x01(\x0b\x32\x0c.ByDatasetIDH\x00\x12\'\n\rbyDatasetName\x18\x08 \x01(\x0b\x32\x0e.ByDatasetNameH\x00\x12\x19\n\x06\x62yPath\x18\t \x01(\x0b\x32\x07.ByPathH\x00\x12\x17\n\x05\x62yKey\x18\n \x01(\x0b\x32\x06.ByKeyH\x00\x12)\n\x0e\x62yPathElements\x18\x0b \x01(\x0b\x32\x0f.ByPathElementsH\x00\x12%\n\x0c\x62yComplexKey\x18\x0c \x01(\x0b\x32\r.ByComplexKeyH\x00\x12\x37\n\x15\x62yComplexPathElements\x18\r \x01(\x0b\x32\x16.ByComplexPathElementsH\x00\x42\x0e\n\x0cshardingRule\"\x14\n\x12\x42yDatasetIDAndPath\"\r\n\x0b\x42yDatasetID\"\x0f\n\rByDatasetName\"\x08\n\x06\x42yPath\"\x07\n\x05\x42yKey\"\x1c\n\x0c\x42yComplexKey\x12\x0c\n\x04keys\x18\x01 \x03(\t\"!\n\x0e\x42yPathElements\x12\x0f\n\x07indices\x18\x01 \x03(\r\"l\n\x15\x42yComplexPathElements\x12-\n\x07indices\x18\x01 \x03(\x0b\x32\x1c.ByComplexPathElements.Index\x1a$\n\x05Index\x12\r\n\x05index\x18\x01 \x01(\r\x12\x0c\n\x04keys\x18\x02 \x03(\t*=\n\x10ShardingFunction\x12\x12\n\x0e\x44\x41TASETANDPATH\x10\x00\x12\x0b\n\x07\x44\x41TASET\x10\x01\x12\x08\n\x04PATH\x10\x02\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'sharding_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_SHARDINGFUNCTION']._serialized_start=152
-  _globals['_SHARDINGFUNCTION']._serialized_end=213
+  _globals['_SHARDING'].fields_by_name['shardingFunc']._loaded_options = None
+  _globals['_SHARDING'].fields_by_name['shardingFunc']._serialized_options = b'\030\001'
+  _globals['_SHARDINGFUNCTION']._serialized_start=740
+  _globals['_SHARDINGFUNCTION']._serialized_end=801
   _globals['_SHARDING']._serialized_start=19
-  _globals['_SHARDING']._serialized_end=150
+  _globals['_SHARDING']._serialized_end=490
+  _globals['_BYDATASETIDANDPATH']._serialized_start=492
+  _globals['_BYDATASETIDANDPATH']._serialized_end=512
+  _globals['_BYDATASETID']._serialized_start=514
+  _globals['_BYDATASETID']._serialized_end=527
+  _globals['_BYDATASETNAME']._serialized_start=529
+  _globals['_BYDATASETNAME']._serialized_end=544
+  _globals['_BYPATH']._serialized_start=546
+  _globals['_BYPATH']._serialized_end=554
+  _globals['_BYKEY']._serialized_start=556
+  _globals['_BYKEY']._serialized_end=563
+  _globals['_BYCOMPLEXKEY']._serialized_start=565
+  _globals['_BYCOMPLEXKEY']._serialized_end=593
+  _globals['_BYPATHELEMENTS']._serialized_start=595
+  _globals['_BYPATHELEMENTS']._serialized_end=628
+  _globals['_BYCOMPLEXPATHELEMENTS']._serialized_start=630
+  _globals['_BYCOMPLEXPATHELEMENTS']._serialized_end=738
+  _globals['_BYCOMPLEXPATHELEMENTS_INDEX']._serialized_start=702
+  _globals['_BYCOMPLEXPATHELEMENTS_INDEX']._serialized_end=738
 # @@protoc_insertion_point(module_scope)
