@@ -16,19 +16,20 @@
 #        --server www.arista.io
 #        --token-file token.tok
 #        --operation=get
-#        --studio-id=studio-interface-v2-pkg
+#        --studio-id=studio-evpn-services
+#        --yaml-file=get_paths.yaml
 #   python3 studio_update.py
 #        --server www.arista.io
 #        --token-file token.tok
 #        --operation=set
-#        --studio-id=studio-interface-v2-pkg
-#        --yaml-file=studio-interface-v2-pkg_inputs.yaml
-#        --build-only True
+#        --studio-id=studio-evpn-services
+#        --yaml-file=set_inputs.yaml
+#        --build-only=True
 #
 # Note:
 #   It's necessary to first log onto the cvp and create a service account,
 #   generate a token, and copy the token to a local token.tok file.
-#   If this is for a cvp dut using self-signed certs use the --insecure flag
+#   If the cvp server uses self-signed certs use the --insecure flag
 #   eg:
 #   python3 studio_update.py
 #        --server 192.0.2.10:443
@@ -48,8 +49,10 @@ import json
 import logging
 import sys
 import uuid
-import time
 import yaml
+
+from grpclib import Status
+from grpclib.exceptions import GRPCError
 
 from cloudvision.api import client as cv_client
 from cloudvision.api import fmp
@@ -60,6 +63,11 @@ from cloudvision.api.arista.action import v1 as action
 from cloudvision.cvlib.constants import MAINLINE_WS_ID
 
 logger = logging.getLogger(__name__)
+
+
+class InputPathNotFoundError(Exception):
+    '''Indicates that a requested studio input path does not exist.'''
+
 
 # CHANGE_SIGNATURE
 #     - substring used in workspace and change control names,
@@ -196,12 +204,65 @@ def mergeInputs(root=None, path=None, inputs=None):
     return root
 
 
-async def get_inputs(channel, filename):
+def get_input_paths(filename):
+    '''Loads and validates one or more input paths from a YAML file.'''
+    with open(filename, encoding='utf8') as f:
+        config = yaml.safe_load(f)
+
+    configs = config if isinstance(config, list) else [config]
+    if not configs:
+        raise ValueError(f"Invalid YAML format in {filename}. "
+                         "Expected at least one path.")
+
+    paths = []
+    for i, cfg in enumerate(configs, start=1):
+        if not isinstance(cfg, dict) or set(cfg) != {'path'}:
+            raise ValueError(f"Invalid YAML format in {filename} "
+                             f"for config at index {i}. "
+                             "Expected a dict containing only a 'path' key.")
+        path = cfg['path']
+        if (not isinstance(path, list)
+                or not all(isinstance(elem, str) for elem in path)):
+            raise ValueError(f"Invalid YAML format in {filename} "
+                             f"for config at index {i}. "
+                             "The 'path' value must be a list of strings.")
+        paths.append(path)
+    return paths, isinstance(config, list)
+
+
+async def get_inputs(channel, filename, path_filename=None):
     '''
-    Gets studio inputs from the mainline.
-    Dumps then into a file named <studio_id>_inputs.yaml.
+    Gets studio inputs from the mainline, defaulting to the root path,
+    but optionally at paths in a YAML file.
+    Dumps them into a file named <studio_id>_inputs.yaml.
     '''
     sid = studio_id
+    if path_filename is not None:
+        paths, multiple = get_input_paths(path_filename)
+        stub = studio.InputsServiceStub(channel)
+        path_inputs = []
+        for path in paths:
+            key = studio.InputsKey(
+                studio_id=sid,
+                workspace_id=MAINLINE_WS_ID,
+                path=fmp.RepeatedString(values=path),
+            )
+            req = studio.InputsRequest(key=key)
+            try:
+                resp = await stub.get_one(req, timeout=RPC_TIMEOUT)
+            except GRPCError as err:
+                if err.status == Status.NOT_FOUND:
+                    raise InputPathNotFoundError(path) from None
+                raise
+            path_inputs.append({
+                'path': path,
+                'inputs': json.loads(resp.value.inputs),
+            })
+        output = path_inputs if multiple else path_inputs[0]
+        with open(filename, 'w', encoding='utf8') as f:
+            yaml.dump(output, f)
+        return
+
     key = studio.InputsKey(studio_id=sid,
                            workspace_id=MAINLINE_WS_ID)
     pfilter = studio.Inputs(key=key)
@@ -225,18 +286,29 @@ async def create_workspace(channel, workspace_name):
     '''
     logger.info('Creating workspace "%s"', workspace_name)
     ws_id = str(uuid.uuid4())
+    key = workspace.WorkspaceKey(workspace_id=ws_id)
     req = workspace.WorkspaceConfigSetRequest(
         value=workspace.WorkspaceConfig(
-            key=workspace.WorkspaceKey(
-                workspace_id=ws_id
-            ),
+            key=key,
             display_name=workspace_name
         )
     )
     stub = workspace.WorkspaceConfigServiceStub(channel)
     await stub.set(req, timeout=RPC_TIMEOUT)
-    logger.info('\tWorkspaceID created: %s', ws_id)
-    return ws_id
+
+    req = workspace.WorkspaceStreamRequest(
+        partial_eq_filter=[
+            workspace.Workspace(key=key)
+        ]
+    )
+    stub = workspace.WorkspaceServiceStub(channel)
+    logger.info('\tWaiting for workspace to become ready')
+    async for res in stub.subscribe(req, timeout=RPC_TIMEOUT):
+        if res.value.state == workspace.WorkspaceState.PENDING:
+            logger.info('\tWorkspaceID created: %s', ws_id)
+            return ws_id
+
+    raise RuntimeError(f'Workspace {ws_id} did not become ready')
 
 
 def getActionTriggers(filename):
@@ -371,69 +443,96 @@ async def update_inputs_via_autofill(channel, ws_id, path, dyn_names, dyn_value)
 
 async def update_inputs_via_yaml(channel, ws_id, filename, dev_ids):
     '''
-    Sets inputs to the studio using the yaml file.
+    Adds or removes studio inputs using the yaml file.
     Optionally assigns studio to a set of devices.
 
     Supports two formats:
-    1. Single path/inputs pair:
+    1. Single input update:
        path: [...]
        inputs: {...}
 
-    2. Multiple path/inputs pairs (list format):
+       Or removal:
+       path: [...]
+       remove: true
+
+    2. Multiple input updates (list format):
        - path: [...]
          inputs: {...}
        - path: [...]
-         inputs: {...}
+         remove: true
     '''
     # convert YAML input file to json inputs.
     with open(f'{filename}', encoding='utf8') as f:
-        config = yaml.load(f, Loader=yaml.loader.SafeLoader)
+        config = yaml.safe_load(f)
 
-    # Determine if this is a single path/inputs or multiple
-    # If config is a list, it contains multiple path/inputs pairs
-    # If config is a dict with 'path' and 'inputs' keys, it's a single pair
+    # Determine if this is a single input update or multiple updates.
     configs = []
     if isinstance(config, list):
-        # Multiple path/inputs pairs
         configs = config
-        logger.info('Processing %d path/inputs pairs from yaml file: %s',
+        logger.info('Processing %d input updates from yaml file: %s',
                     len(configs), filename)
-    elif isinstance(config, dict) and 'path' in config and 'inputs' in config:
-        # Single path/inputs pair (legacy format)
+    elif isinstance(config, dict):
         configs = [config]
-        logger.info('Processing single path/inputs pair from yaml file: %s', filename)
+        logger.info('Processing single input update from yaml file: %s', filename)
     else:
         raise ValueError(f"Invalid YAML format in {filename}. "
-                         "Expected either a dict with 'path' and 'inputs' keys, "
-                         "or a list of such dicts.")
+                         "Expected an input update or a list of input updates.")
 
-    # Process each path/inputs pair
+    # Process each input update in the order given.
     stub = studio.InputsConfigServiceStub(channel)
     for i, cfg in enumerate(configs, start=1):
-        # Validate each config has required keys
-        if not isinstance(cfg, dict) or 'path' not in cfg or 'inputs' not in cfg:
+        if not isinstance(cfg, dict) or 'path' not in cfg:
             raise ValueError(f"Invalid YAML format in {filename} "
                              f"for config at index {i}. "
-                             "Expected a dict with 'path' and 'inputs' keys. ")
-        inputs = cfg['inputs']
-        path = cfg['path']
-        inputs_json = json.dumps(inputs)
+                             "Expected a dict with a 'path' key.")
 
-        # Set the root path of the studio to the given inputs.
-        req = studio.InputsConfigSetRequest(
-            value=studio.InputsConfig(
-                key=studio.InputsKey(
-                    workspace_id=ws_id,
-                    studio_id=studio_id,
-                    path=fmp.RepeatedString(values=path)
-                ),
-                inputs=inputs_json
+        has_inputs = 'inputs' in cfg
+        remove = cfg.get('remove', False)
+        if not isinstance(remove, bool):
+            raise ValueError(f"Invalid YAML format in {filename} "
+                             f"for config at index {i}. "
+                             "The 'remove' value must be true or false.")
+        if remove and has_inputs:
+            raise ValueError(f"Invalid YAML format in {filename} "
+                             f"for config at index {i}. "
+                             "Do not specify 'inputs' with 'remove: true'.")
+        if not remove and not has_inputs:
+            raise ValueError(f"Invalid YAML format in {filename} "
+                             f"for config at index {i}. "
+                             "Specify 'inputs' unless 'remove' is true.")
+
+        path = cfg['path']
+        if (not isinstance(path, list)
+                or not all(isinstance(elem, str) for elem in path)):
+            raise ValueError(f"Invalid YAML format in {filename} "
+                             f"for config at index {i}. "
+                             "The 'path' value must be a list of strings.")
+        key = studio.InputsKey(
+            workspace_id=ws_id,
+            studio_id=studio_id,
+            path=fmp.RepeatedString(values=path)
+        )
+        if remove:
+            value = studio.InputsConfig(
+                key=key,
+                remove=True
             )
+            operation = 'removed'
+        else:
+            value = studio.InputsConfig(
+                key=key,
+                inputs=json.dumps(cfg['inputs'])
+            )
+            operation = 'set'
+
+        req = studio.InputsConfigSetRequest(
+            value=value
         )
         await stub.set(req, timeout=RPC_TIMEOUT)
-        logger.info('\tStudio inputs set (%d/%d) - path: %s', i, len(configs), path)
+        logger.info('\tStudio inputs %s (%d/%d) - path: %s',
+                    operation, i, len(configs), path)
 
-    logger.info('All studio inputs set from yaml: %s', filename)
+    logger.info('All studio input updates applied from yaml: %s', filename)
 
     if not assign_studio:
         return
@@ -911,7 +1010,8 @@ async def main(args, client):
         # Get Inputs
         if args.operation == 'get':
             filename = f'{studio_id}-inputs.yaml'
-            await get_inputs(channel, filename)
+            path_filename = args.yaml_file.name if args.yaml_file else None
+            await get_inputs(channel, filename, path_filename)
             logger.info('Mainline inputs have been written to: %s', filename)
             return
         # Set Inputs in Multiple Steps
@@ -921,7 +1021,6 @@ async def main(args, client):
             ws_id = args.wsid
         else:
             ws_id = await create_workspace(channel, workspace_name)
-        time.sleep(1)
         # Update the studio with yaml file
         inputSet = False
         actionInvoked = False
@@ -1018,6 +1117,8 @@ if __name__ == '__main__':
         "     python3 studio_update.py --server=192.0.2.10:443\n"
         "            --token-file=token.tok --cert-file=cvp.crt\n"
         "            --operation=get --studio-id=studio-evpn-services\n"
+        "   Optionally get inputs at paths specified in a YAML file:\n"
+        "            --yaml-file=studio-evpn-services-paths.yaml\n"
         "2. Set studio inputs using a YAML input file or autofill input file.\n"
         "   This will populate, build and submit the studio change.\n"
         "   Example:\n"
@@ -1034,6 +1135,14 @@ if __name__ == '__main__':
         "            --submit-only=True\n"
         "   Optionally to synchronize workspace with mainline before building:\n"
         "            --sync=True\n"
+        "3. Inputs yaml file.\n"
+        "   Example:\n"
+        "   - path: ['tenants', '[name=Arista1]', 'vlans', '[vlanId=100]']\n"
+        "     remove: true\n"
+        "   - path: ['tenants', '[name=Arista1]', 'vlans', '[vlanId=101]']\n"
+        "     inputs:\n"
+        "       name: vlan101\n"
+        "       vlanId: 101\n"
     )
     parser = argparse.ArgumentParser(description=desc,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -1049,7 +1158,8 @@ if __name__ == '__main__':
     parser.add_argument("--operation", choices=['set', 'get'], default='get',
                         help="whether to get or set inputs")
     parser.add_argument("--yaml-file", type=argparse.FileType('r'),
-                        help="YAML file containing studio inputs")
+                        help=("YAML file containing studio inputs for set, "
+                              "or input paths for get"))
     parser.add_argument("--action-file", type=argparse.FileType('r'),
                         help="csv file containing studio autofill inputs")
     parser.add_argument("--build-only", type=bool, default=False,
@@ -1072,4 +1182,8 @@ if __name__ == '__main__':
     if pargs.action_id:
         action_id = pargs.action_id
     conn = create_client(pargs)
-    asyncio.run(main(pargs, conn))
+    try:
+        asyncio.run(main(pargs, conn))
+    except InputPathNotFoundError as err:
+        logger.error("Studio inputs path does not exist: %s", err)
+        sys.exit(1)
