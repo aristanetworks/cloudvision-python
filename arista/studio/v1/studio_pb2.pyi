@@ -54,8 +54,6 @@ class _EntityTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     """ENTITY_TYPE_CONFIGLET_ASSIGNMENT indicates the ConfigletAssignment
     entity type for static config studio.
     """
-    ENTITY_TYPE_DEPENDENCIES: _EntityType.ValueType  # 8
-    """ENTITY_TYPE_DEPENDENCIES indicates the Dependencies entity type."""
 
 class EntityType(_EntityType, metaclass=_EntityTypeEnumTypeWrapper):
     """EntityType enumerates the set of entity types."""
@@ -80,8 +78,6 @@ ENTITY_TYPE_CONFIGLET_ASSIGNMENT: EntityType.ValueType  # 7
 """ENTITY_TYPE_CONFIGLET_ASSIGNMENT indicates the ConfigletAssignment
 entity type for static config studio.
 """
-ENTITY_TYPE_DEPENDENCIES: EntityType.ValueType  # 8
-"""ENTITY_TYPE_DEPENDENCIES indicates the Dependencies entity type."""
 global___EntityType = EntityType
 
 class _TemplateType:
@@ -1154,13 +1150,10 @@ class FloatInputFieldProps(google.protobuf.message.Message):
         `{ fieldId: field_id }`.
 
         E.g,
-
-        ```
         [
-          { fieldId: floatField1ID },
-          { fieldId: floatField2ID }
+          `{ fieldId: floatField1ID }`,
+          `{ fieldId: floatField2ID }`
         ]
-        ```
         Here, the possible values for the floats identified by
         `floatField1ID` and `floatField2ID` are used as the
         possible values for this float.

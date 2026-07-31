@@ -244,9 +244,6 @@ class EntityType(aristaproto.Enum):
     entity type for static config studio.
     """
 
-    DEPENDENCIES = 8
-    """ENTITY_TYPE_DEPENDENCIES indicates the Dependencies entity type."""
-
 
 class TemplateType(aristaproto.Enum):
     """
@@ -943,13 +940,10 @@ class FloatInputFieldProps(aristaproto.Message):
     `{ fieldId: field_id }`.
 
     E.g,
-
-    ```
     [
-      { fieldId: floatField1ID },
-      { fieldId: floatField2ID }
+      `{ fieldId: floatField1ID }`,
+      `{ fieldId: floatField2ID }`
     ]
-    ```
     Here, the possible values for the floats identified by
     `floatField1ID` and `floatField2ID` are used as the
     possible values for this float.
