@@ -1813,6 +1813,7 @@ class WorkspaceDiffsStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     @property
     def partial_eq_filter(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[arista.workspace.v1.workspace_pb2.WorkspaceDiffs]:
@@ -1821,6 +1822,13 @@ class WorkspaceDiffsStreamRequest(google.protobuf.message.Message):
 
         While transparent to users, this field also allows services to optimize internal
         subscriptions if filter(s) are sufficiently specific.
+        """
+
+    @property
+    def filter(self) -> arista.workspace.v1.workspace_pb2.WorkspaceDiffsFilter:
+        """For each WorkspaceDiffs in the list, all populated fields are considered ANDed together
+        as a filtering operation. Similarly, the list itself is ORed such that any individual
+        filter that matches a given WorkspaceDiffs is streamed to the user.
         """
 
     @property
@@ -1844,10 +1852,11 @@ class WorkspaceDiffsStreamRequest(google.protobuf.message.Message):
         self,
         *,
         partial_eq_filter: collections.abc.Iterable[arista.workspace.v1.workspace_pb2.WorkspaceDiffs] | None = ...,
+        filter: arista.workspace.v1.workspace_pb2.WorkspaceDiffsFilter | None = ...,
         time: arista.time.time_pb2.TimeBounds | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["time", b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["filter", b"filter", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["filter", b"filter", "partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
 
 global___WorkspaceDiffsStreamRequest = WorkspaceDiffsStreamRequest
 
@@ -1892,6 +1901,7 @@ class WorkspaceDiffsBatchedStreamRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PARTIAL_EQ_FILTER_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     MAX_MESSAGES_FIELD_NUMBER: builtins.int
     @property
@@ -1901,6 +1911,13 @@ class WorkspaceDiffsBatchedStreamRequest(google.protobuf.message.Message):
 
         While transparent to users, this field also allows services to optimize internal
         subscriptions if filter(s) are sufficiently specific.
+        """
+
+    @property
+    def filter(self) -> arista.workspace.v1.workspace_pb2.WorkspaceDiffsFilter:
+        """For each WorkspaceDiffs in the list, all populated fields are considered ANDed together
+        as a filtering operation. Similarly, the list itself is ORed such that any individual
+        filter that matches a given WorkspaceDiffs is streamed to the user.
         """
 
     @property
@@ -1932,11 +1949,12 @@ class WorkspaceDiffsBatchedStreamRequest(google.protobuf.message.Message):
         self,
         *,
         partial_eq_filter: collections.abc.Iterable[arista.workspace.v1.workspace_pb2.WorkspaceDiffs] | None = ...,
+        filter: arista.workspace.v1.workspace_pb2.WorkspaceDiffsFilter | None = ...,
         time: arista.time.time_pb2.TimeBounds | None = ...,
         max_messages: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["max_messages", b"max_messages", "time", b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["max_messages", b"max_messages", "partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["filter", b"filter", "max_messages", b"max_messages", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["filter", b"filter", "max_messages", b"max_messages", "partial_eq_filter", b"partial_eq_filter", "time", b"time"]) -> None: ...
 
 global___WorkspaceDiffsBatchedStreamRequest = WorkspaceDiffsBatchedStreamRequest
 

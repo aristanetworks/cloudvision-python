@@ -24,6 +24,7 @@ __all__ = (
     "EntityType",
     "DiffType",
     "DiffOp",
+    "DiffScope",
     "RequestParams",
     "Response",
     "Responses",
@@ -62,6 +63,7 @@ __all__ = (
     "DiffEntries",
     "WorkspaceDiffSet",
     "WorkspaceDiffSets",
+    "WorkspaceDiffsFilter",
     "WorkspaceDiffs",
     "MetaResponse",
     "StudioGeneratedConfigurationRequest",
@@ -714,6 +716,25 @@ class DiffOp(aristaproto.Enum):
 
     MOVE = 4
     """DIFF_OP_MOVE indicates change in position of an item in a list."""
+
+
+class DiffScope(aristaproto.Enum):
+    """DiffScope controls which category of diffs the server returns."""
+
+    UNSPECIFIED = 0
+    """DIFF_SCOPE_UNSPECIFIED indicates an unspecified diff scope."""
+
+    MODIFIED = 1
+    """
+    DIFF_SCOPE_MODIFIED returns workspace and mainline diffs for entities
+    modified in this workspace.
+    """
+
+    UNMODIFIED = 2
+    """
+    DIFF_SCOPE_UNMODIFIED returns mainline only diffs for entities not
+    modified in this workspace.
+    """
 
 
 @dataclass(eq=False, repr=False)
@@ -1425,7 +1446,6 @@ class DiffEntry(aristaproto.Message):
     - value: the element’s identifier
 
     Example:
-
     ```
     users = [{\"id\":\"u1\",\"name\":\"Alice\"}]
     key_path = [\"users\", \"[id=u1]\", \"name\"]
@@ -1520,6 +1540,14 @@ class WorkspaceDiffSets(aristaproto.Message):
     values contains a list of WorkspaceDiffSet messages, each detailing the differences
     between a pair of workspaces.
     """
+
+
+@dataclass(eq=False, repr=False)
+class WorkspaceDiffsFilter(aristaproto.Message):
+    """WorkspaceDiffsFilter controls what diffs the server returns."""
+
+    scope: "DiffScope" = aristaproto.enum_field(1)
+    """scope selects which category of diffs to return."""
 
 
 @dataclass(eq=False, repr=False)
@@ -2582,6 +2610,13 @@ class WorkspaceDiffsStreamRequest(aristaproto.Message):
     subscriptions if filter(s) are sufficiently specific.
     """
 
+    filter: "WorkspaceDiffsFilter" = aristaproto.message_field(2)
+    """
+    For each WorkspaceDiffs in the list, all populated fields are considered ANDed together
+    as a filtering operation. Similarly, the list itself is ORed such that any individual
+    filter that matches a given WorkspaceDiffs is streamed to the user.
+    """
+
     time: "__time__.TimeBounds" = aristaproto.message_field(3)
     """
     TimeRange allows limiting response data to within a specified time window.
@@ -2630,6 +2665,13 @@ class WorkspaceDiffsBatchedStreamRequest(aristaproto.Message):
 
     While transparent to users, this field also allows services to optimize internal
     subscriptions if filter(s) are sufficiently specific.
+    """
+
+    filter: "WorkspaceDiffsFilter" = aristaproto.message_field(2)
+    """
+    For each WorkspaceDiffs in the list, all populated fields are considered ANDed together
+    as a filtering operation. Similarly, the list itself is ORed such that any individual
+    filter that matches a given WorkspaceDiffs is streamed to the user.
     """
 
     time: "__time__.TimeBounds" = aristaproto.message_field(3)

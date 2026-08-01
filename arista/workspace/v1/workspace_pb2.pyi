@@ -823,6 +823,38 @@ DIFF_OP_MOVE: DiffOp.ValueType  # 4
 """DIFF_OP_MOVE indicates change in position of an item in a list."""
 global___DiffOp = DiffOp
 
+class _DiffScope:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _DiffScopeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DiffScope.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    DIFF_SCOPE_UNSPECIFIED: _DiffScope.ValueType  # 0
+    """DIFF_SCOPE_UNSPECIFIED indicates an unspecified diff scope."""
+    DIFF_SCOPE_MODIFIED: _DiffScope.ValueType  # 1
+    """DIFF_SCOPE_MODIFIED returns workspace and mainline diffs for entities
+    modified in this workspace.
+    """
+    DIFF_SCOPE_UNMODIFIED: _DiffScope.ValueType  # 2
+    """DIFF_SCOPE_UNMODIFIED returns mainline only diffs for entities not
+    modified in this workspace.
+    """
+
+class DiffScope(_DiffScope, metaclass=_DiffScopeEnumTypeWrapper):
+    """DiffScope controls which category of diffs the server returns."""
+
+DIFF_SCOPE_UNSPECIFIED: DiffScope.ValueType  # 0
+"""DIFF_SCOPE_UNSPECIFIED indicates an unspecified diff scope."""
+DIFF_SCOPE_MODIFIED: DiffScope.ValueType  # 1
+"""DIFF_SCOPE_MODIFIED returns workspace and mainline diffs for entities
+modified in this workspace.
+"""
+DIFF_SCOPE_UNMODIFIED: DiffScope.ValueType  # 2
+"""DIFF_SCOPE_UNMODIFIED returns mainline only diffs for entities not
+modified in this workspace.
+"""
+global___DiffScope = DiffScope
+
 @typing.final
 class RequestParams(google.protobuf.message.Message):
     """RequestParams define the parameters for a Request."""
@@ -2144,7 +2176,6 @@ class DiffEntry(google.protobuf.message.Message):
         - value: the element’s identifier
 
         Example:
-
         ```
         users = [{"id":"u1","name":"Alice"}]
         key_path = ["users", "[id=u1]", "name"]
@@ -2304,6 +2335,24 @@ class WorkspaceDiffSets(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
 
 global___WorkspaceDiffSets = WorkspaceDiffSets
+
+@typing.final
+class WorkspaceDiffsFilter(google.protobuf.message.Message):
+    """WorkspaceDiffsFilter controls what diffs the server returns."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SCOPE_FIELD_NUMBER: builtins.int
+    scope: global___DiffScope.ValueType
+    """scope selects which category of diffs to return."""
+    def __init__(
+        self,
+        *,
+        scope: global___DiffScope.ValueType = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["scope", b"scope"]) -> None: ...
+
+global___WorkspaceDiffsFilter = WorkspaceDiffsFilter
 
 @typing.final
 class WorkspaceDiffs(google.protobuf.message.Message):
