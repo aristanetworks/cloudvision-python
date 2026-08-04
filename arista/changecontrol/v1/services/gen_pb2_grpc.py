@@ -5,7 +5,7 @@ import warnings
 
 from arista.changecontrol.v1.services import gen_pb2 as arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/changecontrol.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/changecontrol.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class ApproveConfigServiceStub(object):
+class ApproveConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -101,7 +101,7 @@ class ApproveConfigServiceStub(object):
                 _registered_method=True)
 
 
-class ApproveConfigServiceServicer(object):
+class ApproveConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -258,7 +258,7 @@ def add_ApproveConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ApproveConfigService(object):
+class ApproveConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -613,7 +613,7 @@ class ApproveConfigService(object):
             _registered_method=True)
 
 
-class ChangeControlServiceStub(object):
+class ChangeControlServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -664,7 +664,7 @@ class ChangeControlServiceStub(object):
                 _registered_method=True)
 
 
-class ChangeControlServiceServicer(object):
+class ChangeControlServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -766,7 +766,7 @@ def add_ChangeControlServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ChangeControlService(object):
+class ChangeControlService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -986,7 +986,7 @@ class ChangeControlService(object):
             _registered_method=True)
 
 
-class ChangeControlConfigServiceStub(object):
+class ChangeControlConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1062,7 +1062,7 @@ class ChangeControlConfigServiceStub(object):
                 _registered_method=True)
 
 
-class ChangeControlConfigServiceServicer(object):
+class ChangeControlConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1219,7 +1219,7 @@ def add_ChangeControlConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ChangeControlConfigService(object):
+class ChangeControlConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1574,7 +1574,7 @@ class ChangeControlConfigService(object):
             _registered_method=True)
 
 
-class ChangeControlSummaryServiceStub(object):
+class ChangeControlSummaryServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1625,7 +1625,7 @@ class ChangeControlSummaryServiceStub(object):
                 _registered_method=True)
 
 
-class ChangeControlSummaryServiceServicer(object):
+class ChangeControlSummaryServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1727,7 +1727,7 @@ def add_ChangeControlSummaryServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ChangeControlSummaryService(object):
+class ChangeControlSummaryService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

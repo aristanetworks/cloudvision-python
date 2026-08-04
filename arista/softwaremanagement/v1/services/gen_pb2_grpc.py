@@ -5,7 +5,7 @@ import warnings
 
 from arista.softwaremanagement.v1.services import gen_pb2 as arista_dot_softwaremanagement_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/softwaremanagement.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/softwaremanagement.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class AssignmentsServiceStub(object):
+class AssignmentsServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class AssignmentsServiceStub(object):
                 _registered_method=True)
 
 
-class AssignmentsServiceServicer(object):
+class AssignmentsServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_AssignmentsServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class AssignmentsService(object):
+class AssignmentsService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class AssignmentsService(object):
             _registered_method=True)
 
 
-class ReleasesServiceStub(object):
+class ReleasesServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -429,7 +429,7 @@ class ReleasesServiceStub(object):
                 _registered_method=True)
 
 
-class ReleasesServiceServicer(object):
+class ReleasesServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -487,7 +487,7 @@ def add_ReleasesServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ReleasesService(object):
+class ReleasesService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -599,7 +599,7 @@ class ReleasesService(object):
             _registered_method=True)
 
 
-class RepositoryServiceStub(object):
+class RepositoryServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -650,7 +650,7 @@ class RepositoryServiceStub(object):
                 _registered_method=True)
 
 
-class RepositoryServiceServicer(object):
+class RepositoryServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -752,7 +752,7 @@ def add_RepositoryServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class RepositoryService(object):
+class RepositoryService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -972,7 +972,7 @@ class RepositoryService(object):
             _registered_method=True)
 
 
-class RepositoryConfigServiceStub(object):
+class RepositoryConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1048,7 +1048,7 @@ class RepositoryConfigServiceStub(object):
                 _registered_method=True)
 
 
-class RepositoryConfigServiceServicer(object):
+class RepositoryConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1205,7 +1205,7 @@ def add_RepositoryConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class RepositoryConfigService(object):
+class RepositoryConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

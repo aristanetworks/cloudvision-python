@@ -5,7 +5,7 @@ import warnings
 
 from arista.syslog.v1.services import gen_pb2 as arista_dot_syslog_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/syslog.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/syslog.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class ExportServiceStub(object):
+class ExportServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -66,7 +66,7 @@ class ExportServiceStub(object):
                 _registered_method=True)
 
 
-class ExportServiceServicer(object):
+class ExportServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -146,7 +146,7 @@ def add_ExportServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ExportService(object):
+class ExportService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -312,7 +312,7 @@ class ExportService(object):
             _registered_method=True)
 
 
-class ExportConfigServiceStub(object):
+class ExportConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -378,7 +378,7 @@ class ExportConfigServiceStub(object):
                 _registered_method=True)
 
 
-class ExportConfigServiceServicer(object):
+class ExportConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -513,7 +513,7 @@ def add_ExportConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ExportConfigService(object):
+class ExportConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -814,7 +814,7 @@ class ExportConfigService(object):
             _registered_method=True)
 
 
-class ExportFormatConfigServiceStub(object):
+class ExportFormatConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -850,7 +850,7 @@ class ExportFormatConfigServiceStub(object):
                 _registered_method=True)
 
 
-class ExportFormatConfigServiceServicer(object):
+class ExportFormatConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -919,7 +919,7 @@ def add_ExportFormatConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ExportFormatConfigService(object):
+class ExportFormatConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

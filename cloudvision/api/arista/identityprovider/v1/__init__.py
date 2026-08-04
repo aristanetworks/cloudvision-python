@@ -100,7 +100,9 @@ class ProtocolBinding(aristaproto.Enum):
 class OAuthKey(aristaproto.Message):
     """OAuthKey contains OAuth provider ID."""
 
-    provider_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    provider_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """provider_id is the ID of the OAuth provider."""
 
 
@@ -111,7 +113,9 @@ class OAuthConfig(aristaproto.Message):
     key: "OAuthKey" = aristaproto.message_field(1)
     """key is the ID of the OAuth provider."""
 
-    endpoint: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    endpoint: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """
     endpoint is the URL that identifies an OAuth authorization server.
     This endpoint is used to interact with the provider. It must be a
@@ -119,13 +123,17 @@ class OAuthConfig(aristaproto.Message):
     and optionally, port and path components, but no query or fragment components.
     """
 
-    client_id: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    client_id: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """
     client_id is the ID that the OAuth authorization server issues to the
     registered client.
     """
 
-    client_secret: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    client_secret: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """
     client_secret is the secret that the OAuth authorization server issues
     to the registered client.
@@ -146,7 +154,9 @@ class OAuthConfig(aristaproto.Message):
     provider. This is an optional field and set to false by default.
     """
 
-    jwks_uri: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
+    jwks_uri: Optional[str] = aristaproto.message_field(
+        7, wraps=aristaproto.TYPE_STRING
+    )
     """
     jwks_uri is where signing keys are downloaded. This is an optional field.
     Only needed if the default construction from endpoint would be incorrect.
@@ -158,7 +168,9 @@ class OAuthConfig(aristaproto.Message):
     This is an optional field. If not set, all domains are accepted by default.
     """
 
-    roles_scope_name: Optional[str] = aristaproto.message_field(9, wraps=aristaproto.TYPE_STRING)
+    roles_scope_name: Optional[str] = aristaproto.message_field(
+        9, wraps=aristaproto.TYPE_STRING
+    )
     """
     roles_scope_name is the name for a scope tied to a claim that holds
     CloudVision roles in ID Token. CloudVision uses scope values to specify
@@ -179,7 +191,9 @@ class OAuthConfig(aristaproto.Message):
     the provider to log in automated user accounts.
     """
 
-    roles_claim_name: Optional[str] = aristaproto.message_field(11, wraps=aristaproto.TYPE_STRING)
+    roles_claim_name: Optional[str] = aristaproto.message_field(
+        11, wraps=aristaproto.TYPE_STRING
+    )
     """
     roles_claim_name is the name for a claim that holds CloudVision roles in ID Token.
     CloudVision uses this value to look up roles in the ID Token.
@@ -193,7 +207,9 @@ class OAuthConfig(aristaproto.Message):
 class SamlKey(aristaproto.Message):
     """SAMLKey contains SAML Provider ID."""
 
-    provider_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    provider_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """provider_id is the ID of the SAML provider."""
 
 
@@ -204,13 +220,17 @@ class SamlConfig(aristaproto.Message):
     key: "SamlKey" = aristaproto.message_field(1)
     """key is the ID of the SAML provider."""
 
-    idp_issuer: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    idp_issuer: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """
     idp_issuer identifies the SAML provider. There is no restriction on its format
     other than a string to carry the issuer's name.
     """
 
-    idp_metadata_url: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    idp_metadata_url: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """
     idp_metadata_url is the URL that CloudVision uses to fetch the
     SAML provider metadata.
@@ -222,7 +242,9 @@ class SamlConfig(aristaproto.Message):
     request to the SAML provider.
     """
 
-    email_attrname: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
+    email_attrname: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
     """
     email_attrname specifies the Attribute name for email ID in Assertion of SAMLResponse
     from the SAML provider.
@@ -242,20 +264,26 @@ class SamlConfig(aristaproto.Message):
     This is an optional field. If not set, all domains are accepted by default.
     """
 
-    force_saml_authn: Optional[bool] = aristaproto.message_field(8, wraps=aristaproto.TYPE_BOOL)
+    force_saml_authn: Optional[bool] = aristaproto.message_field(
+        8, wraps=aristaproto.TYPE_BOOL
+    )
     """
     force_saml_authn indicates wether or not enable force authentication in SAML login.
     This is an optional field. If not set, it defaults to false.
     """
 
-    roles_attrname: Optional[str] = aristaproto.message_field(9, wraps=aristaproto.TYPE_STRING)
+    roles_attrname: Optional[str] = aristaproto.message_field(
+        9, wraps=aristaproto.TYPE_STRING
+    )
     """
     roles_attrname specifies the Attribute name for CloudVision roles in the Assertion
     of SAMLResponse. This is an optional field. If not set, CloudVision determines that
     mapping roles from the provider is disabled.
     """
 
-    org_attrname: Optional[str] = aristaproto.message_field(10, wraps=aristaproto.TYPE_STRING)
+    org_attrname: Optional[str] = aristaproto.message_field(
+        10, wraps=aristaproto.TYPE_STRING
+    )
     """
     org_attrname specifies the Attribute name for CloudVision organization/tenant in
     the Assertion of SAMLResponse. This is an optional field. CloudVision supports use
@@ -272,7 +300,9 @@ class SamlConfig(aristaproto.Message):
     is not specified.
     """
 
-    username_attrname: Optional[str] = aristaproto.message_field(11, wraps=aristaproto.TYPE_STRING)
+    username_attrname: Optional[str] = aristaproto.message_field(
+        11, wraps=aristaproto.TYPE_STRING
+    )
     """
     username_attrname specifies Attribute name for CloudVision users' username in the
     Assertion of SAMLResponse. This is an optional field as long as mapping roles from
@@ -444,7 +474,9 @@ class OAuthConfigBatchedStreamRequest(aristaproto.Message):
     This field is not allowed in the Subscribe RPC.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -720,7 +752,9 @@ class SamlConfigBatchedStreamRequest(aristaproto.Message):
     This field is not allowed in the Subscribe RPC.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1323,7 +1357,9 @@ from ... import time as __time__
 
 
 class OAuthConfigServiceBase(ServiceBase):
-    async def get_one(self, o_auth_config_request: "OAuthConfigRequest") -> "OAuthConfigResponse":
+    async def get_one(
+        self, o_auth_config_request: "OAuthConfigRequest"
+    ) -> "OAuthConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -1394,7 +1430,8 @@ class OAuthConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[OAuthConfigSomeRequest, OAuthConfigSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[OAuthConfigSomeRequest, OAuthConfigSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1404,7 +1441,8 @@ class OAuthConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[OAuthConfigStreamRequest, OAuthConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[OAuthConfigStreamRequest, OAuthConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1414,7 +1452,8 @@ class OAuthConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[OAuthConfigStreamRequest, OAuthConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[OAuthConfigStreamRequest, OAuthConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1441,14 +1480,16 @@ class OAuthConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[OAuthConfigSetRequest, OAuthConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[OAuthConfigSetRequest, OAuthConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
         await stream.send_message(response)
 
     async def __rpc_set_some(
-        self, stream: "grpclib.server.Stream[OAuthConfigSetSomeRequest, OAuthConfigSetSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[OAuthConfigSetSomeRequest, OAuthConfigSetSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1458,7 +1499,8 @@ class OAuthConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete(
-        self, stream: "grpclib.server.Stream[OAuthConfigDeleteRequest, OAuthConfigDeleteResponse]"
+        self,
+        stream: "grpclib.server.Stream[OAuthConfigDeleteRequest, OAuthConfigDeleteResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.delete(request)
@@ -1592,7 +1634,9 @@ class OAuthConfigServiceBase(ServiceBase):
 
 
 class SamlConfigServiceBase(ServiceBase):
-    async def get_one(self, saml_config_request: "SamlConfigRequest") -> "SamlConfigResponse":
+    async def get_one(
+        self, saml_config_request: "SamlConfigRequest"
+    ) -> "SamlConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -1620,7 +1664,9 @@ class SamlConfigServiceBase(ServiceBase):
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def set(self, saml_config_set_request: "SamlConfigSetRequest") -> "SamlConfigSetResponse":
+    async def set(
+        self, saml_config_set_request: "SamlConfigSetRequest"
+    ) -> "SamlConfigSetResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
@@ -1661,7 +1707,8 @@ class SamlConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[SamlConfigSomeRequest, SamlConfigSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[SamlConfigSomeRequest, SamlConfigSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1671,7 +1718,8 @@ class SamlConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[SamlConfigStreamRequest, SamlConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[SamlConfigStreamRequest, SamlConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1681,7 +1729,8 @@ class SamlConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[SamlConfigStreamRequest, SamlConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[SamlConfigStreamRequest, SamlConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1708,14 +1757,16 @@ class SamlConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[SamlConfigSetRequest, SamlConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[SamlConfigSetRequest, SamlConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
         await stream.send_message(response)
 
     async def __rpc_set_some(
-        self, stream: "grpclib.server.Stream[SamlConfigSetSomeRequest, SamlConfigSetSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[SamlConfigSetSomeRequest, SamlConfigSetSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1725,7 +1776,8 @@ class SamlConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete(
-        self, stream: "grpclib.server.Stream[SamlConfigDeleteRequest, SamlConfigDeleteResponse]"
+        self,
+        stream: "grpclib.server.Stream[SamlConfigDeleteRequest, SamlConfigDeleteResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.delete(request)

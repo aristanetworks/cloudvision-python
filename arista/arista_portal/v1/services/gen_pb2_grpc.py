@@ -5,7 +5,7 @@ import warnings
 
 from arista.arista_portal.v1.services import gen_pb2 as arista_dot_arista__portal_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/arista_portal.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/arista_portal.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class APIProxyServiceStub(object):
+class APIProxyServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -56,7 +56,7 @@ class APIProxyServiceStub(object):
                 _registered_method=True)
 
 
-class APIProxyServiceServicer(object):
+class APIProxyServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -114,7 +114,7 @@ def add_APIProxyServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class APIProxyService(object):
+class APIProxyService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -226,7 +226,7 @@ class APIProxyService(object):
             _registered_method=True)
 
 
-class APIProxyConfigServiceStub(object):
+class APIProxyConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -267,7 +267,7 @@ class APIProxyConfigServiceStub(object):
                 _registered_method=True)
 
 
-class APIProxyConfigServiceServicer(object):
+class APIProxyConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -347,7 +347,7 @@ def add_APIProxyConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class APIProxyConfigService(object):
+class APIProxyConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -513,7 +513,7 @@ class APIProxyConfigService(object):
             _registered_method=True)
 
 
-class APITokenServiceStub(object):
+class APITokenServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -544,7 +544,7 @@ class APITokenServiceStub(object):
                 _registered_method=True)
 
 
-class APITokenServiceServicer(object):
+class APITokenServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -602,7 +602,7 @@ def add_APITokenServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class APITokenService(object):
+class APITokenService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -714,7 +714,7 @@ class APITokenService(object):
             _registered_method=True)
 
 
-class APITokenConfigServiceStub(object):
+class APITokenConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -755,7 +755,7 @@ class APITokenConfigServiceStub(object):
                 _registered_method=True)
 
 
-class APITokenConfigServiceServicer(object):
+class APITokenConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -835,7 +835,7 @@ def add_APITokenConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class APITokenConfigService(object):
+class APITokenConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

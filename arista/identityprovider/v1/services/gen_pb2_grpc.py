@@ -5,7 +5,7 @@ import warnings
 
 from arista.identityprovider.v1.services import gen_pb2 as arista_dot_identityprovider_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/identityprovider.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/identityprovider.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class OAuthConfigServiceStub(object):
+class OAuthConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -101,7 +101,7 @@ class OAuthConfigServiceStub(object):
                 _registered_method=True)
 
 
-class OAuthConfigServiceServicer(object):
+class OAuthConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -258,7 +258,7 @@ def add_OAuthConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class OAuthConfigService(object):
+class OAuthConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -613,7 +613,7 @@ class OAuthConfigService(object):
             _registered_method=True)
 
 
-class SAMLConfigServiceStub(object):
+class SAMLConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -689,7 +689,7 @@ class SAMLConfigServiceStub(object):
                 _registered_method=True)
 
 
-class SAMLConfigServiceServicer(object):
+class SAMLConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -846,7 +846,7 @@ def add_SAMLConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class SAMLConfigService(object):
+class SAMLConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

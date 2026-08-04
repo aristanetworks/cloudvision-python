@@ -5,7 +5,7 @@ import warnings
 
 from arista.studio_topology.v1.services import gen_pb2 as arista_dot_studio__topology_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/studio_topology.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/studio_topology.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class DecommissionServiceStub(object):
+class DecommissionServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class DecommissionServiceStub(object):
                 _registered_method=True)
 
 
-class DecommissionServiceServicer(object):
+class DecommissionServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_DecommissionServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DecommissionService(object):
+class DecommissionService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class DecommissionService(object):
             _registered_method=True)
 
 
-class DecommissionConfigServiceStub(object):
+class DecommissionConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -474,7 +474,7 @@ class DecommissionConfigServiceStub(object):
                 _registered_method=True)
 
 
-class DecommissionConfigServiceServicer(object):
+class DecommissionConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -631,7 +631,7 @@ def add_DecommissionConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DecommissionConfigService(object):
+class DecommissionConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -986,7 +986,7 @@ class DecommissionConfigService(object):
             _registered_method=True)
 
 
-class DeviceInputConfigServiceStub(object):
+class DeviceInputConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1062,7 +1062,7 @@ class DeviceInputConfigServiceStub(object):
                 _registered_method=True)
 
 
-class DeviceInputConfigServiceServicer(object):
+class DeviceInputConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1219,7 +1219,7 @@ def add_DeviceInputConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DeviceInputConfigService(object):
+class DeviceInputConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1574,7 +1574,7 @@ class DeviceInputConfigService(object):
             _registered_method=True)
 
 
-class DeviceStateServiceStub(object):
+class DeviceStateServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1625,7 +1625,7 @@ class DeviceStateServiceStub(object):
                 _registered_method=True)
 
 
-class DeviceStateServiceServicer(object):
+class DeviceStateServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1727,7 +1727,7 @@ def add_DeviceStateServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DeviceStateService(object):
+class DeviceStateService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1947,7 +1947,7 @@ class DeviceStateService(object):
             _registered_method=True)
 
 
-class InterfaceInputConfigServiceStub(object):
+class InterfaceInputConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2023,7 +2023,7 @@ class InterfaceInputConfigServiceStub(object):
                 _registered_method=True)
 
 
-class InterfaceInputConfigServiceServicer(object):
+class InterfaceInputConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2180,7 +2180,7 @@ def add_InterfaceInputConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class InterfaceInputConfigService(object):
+class InterfaceInputConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -2535,7 +2535,7 @@ class InterfaceInputConfigService(object):
             _registered_method=True)
 
 
-class ReplaceServiceStub(object):
+class ReplaceServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2586,7 +2586,7 @@ class ReplaceServiceStub(object):
                 _registered_method=True)
 
 
-class ReplaceServiceServicer(object):
+class ReplaceServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2688,7 +2688,7 @@ def add_ReplaceServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ReplaceService(object):
+class ReplaceService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -2908,7 +2908,7 @@ class ReplaceService(object):
             _registered_method=True)
 
 
-class ReplaceConfigServiceStub(object):
+class ReplaceConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2984,7 +2984,7 @@ class ReplaceConfigServiceStub(object):
                 _registered_method=True)
 
 
-class ReplaceConfigServiceServicer(object):
+class ReplaceConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -3141,7 +3141,7 @@ def add_ReplaceConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ReplaceConfigService(object):
+class ReplaceConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -3496,7 +3496,7 @@ class ReplaceConfigService(object):
             _registered_method=True)
 
 
-class RevertConfigServiceStub(object):
+class RevertConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -3572,7 +3572,7 @@ class RevertConfigServiceStub(object):
                 _registered_method=True)
 
 
-class RevertConfigServiceServicer(object):
+class RevertConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -3729,7 +3729,7 @@ def add_RevertConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class RevertConfigService(object):
+class RevertConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -4084,7 +4084,7 @@ class RevertConfigService(object):
             _registered_method=True)
 
 
-class UpdateServiceStub(object):
+class UpdateServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -4135,7 +4135,7 @@ class UpdateServiceStub(object):
                 _registered_method=True)
 
 
-class UpdateServiceServicer(object):
+class UpdateServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -4237,7 +4237,7 @@ def add_UpdateServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class UpdateService(object):
+class UpdateService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -4457,7 +4457,7 @@ class UpdateService(object):
             _registered_method=True)
 
 
-class UpdateConfigServiceStub(object):
+class UpdateConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -4533,7 +4533,7 @@ class UpdateConfigServiceStub(object):
                 _registered_method=True)
 
 
-class UpdateConfigServiceServicer(object):
+class UpdateConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -4690,7 +4690,7 @@ def add_UpdateConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class UpdateConfigService(object):
+class UpdateConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -5045,7 +5045,7 @@ class UpdateConfigService(object):
             _registered_method=True)
 
 
-class UpdateSyncConfigServiceStub(object):
+class UpdateSyncConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -5121,7 +5121,7 @@ class UpdateSyncConfigServiceStub(object):
                 _registered_method=True)
 
 
-class UpdateSyncConfigServiceServicer(object):
+class UpdateSyncConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -5278,7 +5278,7 @@ def add_UpdateSyncConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class UpdateSyncConfigService(object):
+class UpdateSyncConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

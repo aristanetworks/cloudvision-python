@@ -5,7 +5,7 @@ import warnings
 
 from arista.license.v1.services import gen_pb2 as arista_dot_license_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/license.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/license.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class ApplicableDevicesServiceStub(object):
+class ApplicableDevicesServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class ApplicableDevicesServiceStub(object):
                 _registered_method=True)
 
 
-class ApplicableDevicesServiceServicer(object):
+class ApplicableDevicesServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_ApplicableDevicesServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ApplicableDevicesService(object):
+class ApplicableDevicesService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class ApplicableDevicesService(object):
             _registered_method=True)
 
 
-class ApplicableLicenseBundlesServiceStub(object):
+class ApplicableLicenseBundlesServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -449,7 +449,7 @@ class ApplicableLicenseBundlesServiceStub(object):
                 _registered_method=True)
 
 
-class ApplicableLicenseBundlesServiceServicer(object):
+class ApplicableLicenseBundlesServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -551,7 +551,7 @@ def add_ApplicableLicenseBundlesServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ApplicableLicenseBundlesService(object):
+class ApplicableLicenseBundlesService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -771,7 +771,7 @@ class ApplicableLicenseBundlesService(object):
             _registered_method=True)
 
 
-class LicenseAssignmentServiceStub(object):
+class LicenseAssignmentServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -822,7 +822,7 @@ class LicenseAssignmentServiceStub(object):
                 _registered_method=True)
 
 
-class LicenseAssignmentServiceServicer(object):
+class LicenseAssignmentServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -924,7 +924,7 @@ def add_LicenseAssignmentServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class LicenseAssignmentService(object):
+class LicenseAssignmentService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1144,7 +1144,7 @@ class LicenseAssignmentService(object):
             _registered_method=True)
 
 
-class LicenseAssignmentConfigServiceStub(object):
+class LicenseAssignmentConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1220,7 +1220,7 @@ class LicenseAssignmentConfigServiceStub(object):
                 _registered_method=True)
 
 
-class LicenseAssignmentConfigServiceServicer(object):
+class LicenseAssignmentConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1377,7 +1377,7 @@ def add_LicenseAssignmentConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class LicenseAssignmentConfigService(object):
+class LicenseAssignmentConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1732,7 +1732,7 @@ class LicenseAssignmentConfigService(object):
             _registered_method=True)
 
 
-class LicenseFileServiceStub(object):
+class LicenseFileServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1783,7 +1783,7 @@ class LicenseFileServiceStub(object):
                 _registered_method=True)
 
 
-class LicenseFileServiceServicer(object):
+class LicenseFileServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1885,7 +1885,7 @@ def add_LicenseFileServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class LicenseFileService(object):
+class LicenseFileService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -2105,7 +2105,7 @@ class LicenseFileService(object):
             _registered_method=True)
 
 
-class LicenseFileConfigServiceStub(object):
+class LicenseFileConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2181,7 +2181,7 @@ class LicenseFileConfigServiceStub(object):
                 _registered_method=True)
 
 
-class LicenseFileConfigServiceServicer(object):
+class LicenseFileConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2338,7 +2338,7 @@ def add_LicenseFileConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class LicenseFileConfigService(object):
+class LicenseFileConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -2693,7 +2693,7 @@ class LicenseFileConfigService(object):
             _registered_method=True)
 
 
-class PurchasedLicenseServiceStub(object):
+class PurchasedLicenseServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2744,7 +2744,7 @@ class PurchasedLicenseServiceStub(object):
                 _registered_method=True)
 
 
-class PurchasedLicenseServiceServicer(object):
+class PurchasedLicenseServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2846,7 +2846,7 @@ def add_PurchasedLicenseServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class PurchasedLicenseService(object):
+class PurchasedLicenseService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

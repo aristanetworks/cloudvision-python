@@ -5,7 +5,7 @@ import warnings
 
 from arista.configlet.v1.services import gen_pb2 as arista_dot_configlet_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/configlet.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/configlet.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class ConfigletServiceStub(object):
+class ConfigletServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class ConfigletServiceStub(object):
                 _registered_method=True)
 
 
-class ConfigletServiceServicer(object):
+class ConfigletServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_ConfigletServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ConfigletService(object):
+class ConfigletService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class ConfigletService(object):
             _registered_method=True)
 
 
-class ConfigletAssignmentServiceStub(object):
+class ConfigletAssignmentServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -449,7 +449,7 @@ class ConfigletAssignmentServiceStub(object):
                 _registered_method=True)
 
 
-class ConfigletAssignmentServiceServicer(object):
+class ConfigletAssignmentServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -551,7 +551,7 @@ def add_ConfigletAssignmentServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ConfigletAssignmentService(object):
+class ConfigletAssignmentService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -771,7 +771,7 @@ class ConfigletAssignmentService(object):
             _registered_method=True)
 
 
-class ConfigletAssignmentConfigServiceStub(object):
+class ConfigletAssignmentConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -847,7 +847,7 @@ class ConfigletAssignmentConfigServiceStub(object):
                 _registered_method=True)
 
 
-class ConfigletAssignmentConfigServiceServicer(object):
+class ConfigletAssignmentConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1004,7 +1004,7 @@ def add_ConfigletAssignmentConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ConfigletAssignmentConfigService(object):
+class ConfigletAssignmentConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1359,7 +1359,7 @@ class ConfigletAssignmentConfigService(object):
             _registered_method=True)
 
 
-class ConfigletConfigServiceStub(object):
+class ConfigletConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1435,7 +1435,7 @@ class ConfigletConfigServiceStub(object):
                 _registered_method=True)
 
 
-class ConfigletConfigServiceServicer(object):
+class ConfigletConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1592,7 +1592,7 @@ def add_ConfigletConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ConfigletConfigService(object):
+class ConfigletConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

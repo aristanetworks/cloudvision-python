@@ -495,13 +495,17 @@ class Location(aristaproto.Message):
     at least one identifier has been discovered.
     """
 
-    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """device_id identifies the device of the port."""
 
     device_status: "DeviceStatus" = aristaproto.enum_field(2)
     """device_status is the status of the device identified by device_id."""
 
-    interface: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    interface: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """interface is the interface of the port."""
 
     vlan_id: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
@@ -542,7 +546,9 @@ class DeviceInfo(aristaproto.Message):
     DeviceInfo holds various attributes of a device (typically an endpoint) from Fingerbank.
     """
 
-    device_name: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    device_name: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """device_name is the name of the device."""
 
     mobile: Optional[bool] = aristaproto.message_field(2, wraps=aristaproto.TYPE_BOOL)
@@ -561,12 +567,16 @@ class DeviceInfo(aristaproto.Message):
     version: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """version is the version of device_name."""
 
-    mac_vendor: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
+    mac_vendor: Optional[str] = aristaproto.message_field(
+        6, wraps=aristaproto.TYPE_STRING
+    )
     """
     mac_vendor is the enterprise that assigns the MAC address of the device.
     """
 
-    classification: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
+    classification: Optional[str] = aristaproto.message_field(
+        7, wraps=aristaproto.TYPE_STRING
+    )
     """
     classification is the broadest category to which device_name belongs.
     This is the highest level in hierarchy.
@@ -627,7 +637,9 @@ class DeviceMap(aristaproto.Message):
 class EndpointLocationKey(aristaproto.Message):
     """EndpointLocationKey holds a search term used to locate an endpoint."""
 
-    search_term: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    search_term: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """
     search_term is used to match against identifiers on devices.
     This could be a MAC/IP address, hostname, etc.
@@ -817,7 +829,9 @@ class EndpointLocationBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1017,17 +1031,20 @@ class EndpointLocationServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self, endpoint_location_batched_stream_request: "EndpointLocationBatchedStreamRequest"
+        self,
+        endpoint_location_batched_stream_request: "EndpointLocationBatchedStreamRequest",
     ) -> AsyncIterator[EndpointLocationBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self, endpoint_location_batched_stream_request: "EndpointLocationBatchedStreamRequest"
+        self,
+        endpoint_location_batched_stream_request: "EndpointLocationBatchedStreamRequest",
     ) -> AsyncIterator[EndpointLocationBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[EndpointLocationRequest, EndpointLocationResponse]"
+        self,
+        stream: "grpclib.server.Stream[EndpointLocationRequest, EndpointLocationResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -1067,14 +1084,16 @@ class EndpointLocationServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[EndpointLocationStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[EndpointLocationStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[EndpointLocationStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[EndpointLocationStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

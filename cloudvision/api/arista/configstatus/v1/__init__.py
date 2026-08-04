@@ -256,13 +256,17 @@ class ConfigError(aristaproto.Message):
     error_code: "ErrorCode" = aristaproto.enum_field(1)
     """error_code - type of error."""
 
-    error_msg: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    error_msg: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """error_msg - details of error"""
 
     line_num: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_INT32)
     """line_num represents line number, if any"""
 
-    configlet_name: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    configlet_name: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """
     configlet_name represents the originating configlet name. Configlet_name
     and line_num point to the line where config warning or config error originate.
@@ -284,13 +288,19 @@ class DiffEntry(aristaproto.Message):
     op: "DiffOp" = aristaproto.enum_field(1)
     """op specifies type of diff operation"""
 
-    a_line_num: Optional[int] = aristaproto.message_field(2, wraps=aristaproto.TYPE_INT32)
+    a_line_num: Optional[int] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_INT32
+    )
     """a_line_num indicates the line number in A where the diff is applied"""
 
-    b_line_num: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_INT32)
+    b_line_num: Optional[int] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_INT32
+    )
     """b_line_num indicates the line number in B where this diff is applied"""
 
-    b_parent_line_num: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_INT32)
+    b_parent_line_num: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_INT32
+    )
     """
     b_parent_line_num represents the line number of the parent command in B
     """
@@ -307,7 +317,9 @@ class DiffEntry(aristaproto.Message):
     b_filter_code: "ConfigFilterCode" = aristaproto.enum_field(8)
     """b_filter_code represents the config filter code for the line in B"""
 
-    a_parent_line_num: Optional[int] = aristaproto.message_field(9, wraps=aristaproto.TYPE_INT32)
+    a_parent_line_num: Optional[int] = aristaproto.message_field(
+        9, wraps=aristaproto.TYPE_INT32
+    )
     """
     a_parent_line_num represents the line number of the parent command in A
     """
@@ -338,7 +350,9 @@ class ConfigSource(aristaproto.Message):
     source_type: "ConfigSourceType" = aristaproto.enum_field(1)
     """source_type - app type of the config snippet"""
 
-    source_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    source_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """
      source_id identifier to distinguish between multiple instances of the source type
      source_id is :
@@ -364,19 +378,29 @@ class ConfigSummary(aristaproto.Message):
     sync: "ConfigSyncCode" = aristaproto.enum_field(1)
     """sync - state of DC vs RC"""
 
-    nop_lines: Optional[int] = aristaproto.message_field(2, wraps=aristaproto.TYPE_INT32)
+    nop_lines: Optional[int] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_INT32
+    )
     """nop_lines - Number of lines with code no-operation"""
 
-    ignored_lines: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_INT32)
+    ignored_lines: Optional[int] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_INT32
+    )
     """ignored_lines - Number of lines with code IGNORE"""
 
-    added_lines: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_INT32)
+    added_lines: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_INT32
+    )
     """added_lines - Number of lines with code ADD"""
 
-    deleted_lines: Optional[int] = aristaproto.message_field(5, wraps=aristaproto.TYPE_INT32)
+    deleted_lines: Optional[int] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_INT32
+    )
     """deleted_lines - Number of lines with code DELETE"""
 
-    changed_lines: Optional[int] = aristaproto.message_field(6, wraps=aristaproto.TYPE_INT32)
+    changed_lines: Optional[int] = aristaproto.message_field(
+        6, wraps=aristaproto.TYPE_INT32
+    )
     """changed_lines - Number of lines with code CHANGE"""
 
     designed_config_errors: Optional[int] = aristaproto.message_field(
@@ -399,7 +423,9 @@ class ConfigSummary(aristaproto.Message):
     designed_config_update_time - Timestamp at which designed config is updated
     """
 
-    running_config_uri: Optional[str] = aristaproto.message_field(11, wraps=aristaproto.TYPE_STRING)
+    running_config_uri: Optional[str] = aristaproto.message_field(
+        11, wraps=aristaproto.TYPE_STRING
+    )
     """
     running_config_uri - The HTTP URI client can use to GET running config and associated errors
     """
@@ -411,7 +437,9 @@ class ConfigSummary(aristaproto.Message):
     designed_config_uri - The HTTP URI client can use to GET designed config and associated errors
     """
 
-    diff_uri: Optional[str] = aristaproto.message_field(13, wraps=aristaproto.TYPE_STRING)
+    diff_uri: Optional[str] = aristaproto.message_field(
+        13, wraps=aristaproto.TYPE_STRING
+    )
     """
     diff_uri - The HTTP URI client can use to GET config diff and associated errors
     """
@@ -424,7 +452,9 @@ class ConfigSummary(aristaproto.Message):
 class ConfigKey(aristaproto.Message):
     """ConfigKey uniquely identifies a config request."""
 
-    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """device_id is the serial number of the device"""
 
     type: "ConfigType" = aristaproto.enum_field(2)
@@ -448,7 +478,9 @@ class Configuration(aristaproto.Message):
 class ConfigDiffKey(aristaproto.Message):
     """ConfigDiffKey uniquely identifies a configuration diff request"""
 
-    a_device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    a_device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """
     a_device_id is the serial number of the device on A side (left hand side)
     """
@@ -461,7 +493,9 @@ class ConfigDiffKey(aristaproto.Message):
     a_time is the time at which to fetch config on A side (left hand side)
     """
 
-    b_device_id: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    b_device_id: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """
     b_device_id is the serial number of the device on B side (right hand side)
     """
@@ -492,7 +526,9 @@ class ConfigDiff(aristaproto.Message):
 class SummaryKey(aristaproto.Message):
     """SummaryKey uniquely identifies a device summary request"""
 
-    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """device_id is the serial number of the device"""
 
 
@@ -530,19 +566,29 @@ class SecurityProfileComplianceSummary(aristaproto.Message):
     sync: "ConfigSyncCode" = aristaproto.enum_field(1)
     """sync - sync state of the device"""
 
-    nop_lines: Optional[int] = aristaproto.message_field(2, wraps=aristaproto.TYPE_INT32)
+    nop_lines: Optional[int] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_INT32
+    )
     """nop_lines is the number of lines with code no-operation"""
 
-    ignored_lines: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_INT32)
+    ignored_lines: Optional[int] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_INT32
+    )
     """ignored_lines is the number of lines with code IGNORE"""
 
-    added_lines: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_INT32)
+    added_lines: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_INT32
+    )
     """added_lines is the number of lines with code ADD"""
 
-    deleted_lines: Optional[int] = aristaproto.message_field(5, wraps=aristaproto.TYPE_INT32)
+    deleted_lines: Optional[int] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_INT32
+    )
     """deleted_lines is the number of lines with code DELETE"""
 
-    changed_lines: Optional[int] = aristaproto.message_field(6, wraps=aristaproto.TYPE_INT32)
+    changed_lines: Optional[int] = aristaproto.message_field(
+        6, wraps=aristaproto.TYPE_INT32
+    )
     """changed_lines is the Number of lines with code CHANGE"""
 
     digest: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
@@ -751,7 +797,9 @@ class ConfigDiffBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -913,7 +961,9 @@ class ConfigurationBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1077,7 +1127,9 @@ class SecurityProfileBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1241,7 +1293,9 @@ class SecurityProfileDiffBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1405,7 +1459,9 @@ class SecurityProfileDiffSummaryBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1416,7 +1472,9 @@ class SecurityProfileDiffSummaryBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class SecurityProfileDiffSummaryBatchedStreamResponse(aristaproto.Message):
-    responses: List["SecurityProfileDiffSummaryStreamResponse"] = aristaproto.message_field(1)
+    responses: List["SecurityProfileDiffSummaryStreamResponse"] = (
+        aristaproto.message_field(1)
+    )
     """
     Values are the values deemed relevant to the initiating request.
     The length of this structure is guaranteed to be between (inclusive) 1 and
@@ -1567,7 +1625,9 @@ class SummaryBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2455,7 +2515,9 @@ from ... import time as __time__
 
 
 class ConfigDiffServiceBase(ServiceBase):
-    async def get_one(self, config_diff_request: "ConfigDiffRequest") -> "ConfigDiffResponse":
+    async def get_one(
+        self, config_diff_request: "ConfigDiffRequest"
+    ) -> "ConfigDiffResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -2501,7 +2563,8 @@ class ConfigDiffServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[ConfigDiffSomeRequest, ConfigDiffSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[ConfigDiffSomeRequest, ConfigDiffSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2511,7 +2574,8 @@ class ConfigDiffServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[ConfigDiffStreamRequest, ConfigDiffStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ConfigDiffStreamRequest, ConfigDiffStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2521,7 +2585,8 @@ class ConfigDiffServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[ConfigDiffStreamRequest, ConfigDiffStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ConfigDiffStreamRequest, ConfigDiffStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2664,14 +2729,16 @@ class ConfigurationServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[ConfigurationRequest, ConfigurationResponse]"
+        self,
+        stream: "grpclib.server.Stream[ConfigurationRequest, ConfigurationResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[ConfigurationSomeRequest, ConfigurationSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[ConfigurationSomeRequest, ConfigurationSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2826,17 +2893,20 @@ class SecurityProfileServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self, security_profile_batched_stream_request: "SecurityProfileBatchedStreamRequest"
+        self,
+        security_profile_batched_stream_request: "SecurityProfileBatchedStreamRequest",
     ) -> AsyncIterator[SecurityProfileBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self, security_profile_batched_stream_request: "SecurityProfileBatchedStreamRequest"
+        self,
+        security_profile_batched_stream_request: "SecurityProfileBatchedStreamRequest",
     ) -> AsyncIterator[SecurityProfileBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[SecurityProfileRequest, SecurityProfileResponse]"
+        self,
+        stream: "grpclib.server.Stream[SecurityProfileRequest, SecurityProfileResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -2876,14 +2946,16 @@ class SecurityProfileServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[SecurityProfileStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[SecurityProfileStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[SecurityProfileStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[SecurityProfileStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3052,14 +3124,16 @@ class SecurityProfileDiffServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[SecurityProfileDiffStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[SecurityProfileDiffStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[SecurityProfileDiffStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[SecurityProfileDiffStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3150,7 +3224,8 @@ class SecurityProfileDiffSummaryServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
-        self, security_profile_diff_summary_some_request: "SecurityProfileDiffSummarySomeRequest"
+        self,
+        security_profile_diff_summary_some_request: "SecurityProfileDiffSummarySomeRequest",
     ) -> AsyncIterator[SecurityProfileDiffSummarySomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3232,14 +3307,16 @@ class SecurityProfileDiffSummaryServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[SecurityProfileDiffSummaryStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[SecurityProfileDiffSummaryStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[SecurityProfileDiffSummaryStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[SecurityProfileDiffSummaryStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3342,7 +3419,9 @@ class SummaryServiceBase(ServiceBase):
     ) -> AsyncIterator[SummaryStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, summary_stream_request: "SummaryStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, summary_stream_request: "SummaryStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -3378,7 +3457,8 @@ class SummaryServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[SummaryStreamRequest, SummaryStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[SummaryStreamRequest, SummaryStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3388,7 +3468,8 @@ class SummaryServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[SummaryStreamRequest, SummaryStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[SummaryStreamRequest, SummaryStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

@@ -178,7 +178,9 @@ class LoggingAudit(aristaproto.Message):
     and only accessible in the state model.
     """
 
-    added_by: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    added_by: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """added_by contains the name of the user who added the log."""
 
 
@@ -914,7 +916,9 @@ class LoggingServiceBase(ServiceBase):
     ) -> AsyncIterator[LoggingStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, logging_stream_request: "LoggingStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, logging_stream_request: "LoggingStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -940,7 +944,8 @@ class LoggingServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[LoggingStreamRequest, LoggingStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[LoggingStreamRequest, LoggingStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -950,7 +955,8 @@ class LoggingServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[LoggingStreamRequest, LoggingStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[LoggingStreamRequest, LoggingStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1074,14 +1080,16 @@ class LoggingConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[LoggingConfigRequest, LoggingConfigResponse]"
+        self,
+        stream: "grpclib.server.Stream[LoggingConfigRequest, LoggingConfigResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[LoggingConfigSomeRequest, LoggingConfigSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[LoggingConfigSomeRequest, LoggingConfigSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1130,7 +1138,8 @@ class LoggingConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[LoggingConfigSetRequest, LoggingConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[LoggingConfigSetRequest, LoggingConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)

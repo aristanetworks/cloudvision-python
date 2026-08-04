@@ -361,19 +361,27 @@ class ReplaceStatus(aristaproto.Enum):
 class DeviceInfo(aristaproto.Message):
     """DeviceInfo contains device properties."""
 
-    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """device_id identifies the device uniquely."""
 
-    model_name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    model_name: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """model_name indicates the model of the device."""
 
     mac_address: "___fmp__.MacAddress" = aristaproto.message_field(3)
     """mac_address indicates the MAC address of the device."""
 
-    hostname: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    hostname: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """hostname indicates the hostname of the device."""
 
-    match_any_device: Optional[bool] = aristaproto.message_field(5, wraps=aristaproto.TYPE_BOOL)
+    match_any_device: Optional[bool] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_BOOL
+    )
     """
     match_any_device is an indicator to match any online device with the device
     identified by the device_id field above. An online device is any EOS device
@@ -404,7 +412,9 @@ class InterfaceInfo(aristaproto.Message):
     name: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """name is the name of an interface."""
 
-    neighbor_device_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    neighbor_device_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """
     neighbor_device_id indicates the device ID of the neighbor to which
     this interface is connected.
@@ -424,7 +434,9 @@ class InterfaceInfo(aristaproto.Message):
     does not need to be populated.
     """
 
-    non_provisioned: Optional[bool] = aristaproto.message_field(4, wraps=aristaproto.TYPE_BOOL)
+    non_provisioned: Optional[bool] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_BOOL
+    )
     """
     non_provisioned indicates if the interface is connected to a non-provisioned device, ie, a
     device which is not part of the I&T studio and cannot be provisioned by CloudVision.
@@ -443,10 +455,14 @@ class InterfaceInfos(aristaproto.Message):
 class DeviceKey(aristaproto.Message):
     """DeviceKey uniquely identifies the device for a workspace."""
 
-    workspace_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    workspace_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """workspace_id identifies the workspace uniquely."""
 
-    device_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """device_id identifies the device uniquely."""
 
 
@@ -466,7 +482,9 @@ class DeviceInputConfig(aristaproto.Message):
     post workspace merge.
     """
 
-    is_expected_device: Optional[bool] = aristaproto.message_field(4, wraps=aristaproto.TYPE_BOOL)
+    is_expected_device: Optional[bool] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_BOOL
+    )
     """is_expected_device specifies if this is an expected device."""
 
 
@@ -477,13 +495,19 @@ class InterfaceInputKey(aristaproto.Message):
     the interface for a workspace.
     """
 
-    workspace_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    workspace_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """workspace_id identifies the workspace uniquely."""
 
-    device_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """device_id identifies the device uniquely."""
 
-    interface_id: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    interface_id: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """interface_id along with device_id identifies the interface uniquely."""
 
 
@@ -535,10 +559,14 @@ class DeviceState(aristaproto.Message):
 class UpdateKey(aristaproto.Message):
     """UpdateKey uniquely identifies a workspace topology update."""
 
-    workspace_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    workspace_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """workspace_id identifies the workspace uniquely."""
 
-    update_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    update_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """update_id identifies the update uniquely."""
 
 
@@ -577,10 +605,14 @@ class Update(aristaproto.Message):
     status: "UpdateStatus" = aristaproto.enum_field(4)
     """status indicates the status of the topology update."""
 
-    description: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
+    description: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
     """description describes the topology update in short."""
 
-    device_id: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        6, wraps=aristaproto.TYPE_STRING
+    )
     """device_id indicates the device associated with the update."""
 
 
@@ -635,7 +667,9 @@ class Decommission(aristaproto.Message):
     created_at: datetime = aristaproto.message_field(2)
     """created_at is the time at which decommissioning was first initiated."""
 
-    created_by: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    created_by: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """
     created_by is the name of the user who first initiated decommissioning.
     """
@@ -645,7 +679,9 @@ class Decommission(aristaproto.Message):
     last_modified_at is the time at which the decommissioning was last modified.
     """
 
-    last_modified_by: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
+    last_modified_by: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
     """
     last_modified_by is the name of the user that last modified the status.
     """
@@ -696,13 +732,17 @@ class Replace(aristaproto.Message):
     created_at: datetime = aristaproto.message_field(3)
     """created_at is the time at which the status was first set."""
 
-    created_by: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    created_by: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """created_by is the name of the user that first set the status."""
 
     last_modified_at: datetime = aristaproto.message_field(5)
     """last_modified_at is the time at which the status was last modified."""
 
-    last_modified_by: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
+    last_modified_by: Optional[str] = aristaproto.message_field(
+        6, wraps=aristaproto.TYPE_STRING
+    )
     """
     last_modified_by is the name of the user that last modified the status.
     """
@@ -878,7 +918,9 @@ class DecommissionBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1042,7 +1084,9 @@ class DecommissionConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1322,7 +1366,9 @@ class DeviceInputConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1600,7 +1646,9 @@ class DeviceStateBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1764,7 +1812,9 @@ class InterfaceInputConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2044,7 +2094,9 @@ class ReplaceBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2206,7 +2258,9 @@ class ReplaceConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2482,7 +2536,9 @@ class RevertConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2758,7 +2814,9 @@ class UpdateBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2920,7 +2978,9 @@ class UpdateConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -3198,7 +3258,9 @@ class UpdateSyncConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -5540,7 +5602,9 @@ from ...workspace import v1 as __workspace_v1__
 
 
 class DecommissionServiceBase(ServiceBase):
-    async def get_one(self, decommission_request: "DecommissionRequest") -> "DecommissionResponse":
+    async def get_one(
+        self, decommission_request: "DecommissionRequest"
+    ) -> "DecommissionResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -5586,7 +5650,8 @@ class DecommissionServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[DecommissionSomeRequest, DecommissionSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[DecommissionSomeRequest, DecommissionSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -5596,7 +5661,8 @@ class DecommissionServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[DecommissionStreamRequest, DecommissionStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[DecommissionStreamRequest, DecommissionStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -5606,7 +5672,8 @@ class DecommissionServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[DecommissionStreamRequest, DecommissionStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[DecommissionStreamRequest, DecommissionStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -5754,27 +5821,32 @@ class DecommissionConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_some(
-        self, decommission_config_delete_some_request: "DecommissionConfigDeleteSomeRequest"
+        self,
+        decommission_config_delete_some_request: "DecommissionConfigDeleteSomeRequest",
     ) -> AsyncIterator[DecommissionConfigDeleteSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_all(
-        self, decommission_config_delete_all_request: "DecommissionConfigDeleteAllRequest"
+        self,
+        decommission_config_delete_all_request: "DecommissionConfigDeleteAllRequest",
     ) -> AsyncIterator[DecommissionConfigDeleteAllResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self, decommission_config_batched_stream_request: "DecommissionConfigBatchedStreamRequest"
+        self,
+        decommission_config_batched_stream_request: "DecommissionConfigBatchedStreamRequest",
     ) -> AsyncIterator[DecommissionConfigBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self, decommission_config_batched_stream_request: "DecommissionConfigBatchedStreamRequest"
+        self,
+        decommission_config_batched_stream_request: "DecommissionConfigBatchedStreamRequest",
     ) -> AsyncIterator[DecommissionConfigBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[DecommissionConfigRequest, DecommissionConfigResponse]"
+        self,
+        stream: "grpclib.server.Stream[DecommissionConfigRequest, DecommissionConfigResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -5814,14 +5886,16 @@ class DecommissionConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[DecommissionConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DecommissionConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[DecommissionConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DecommissionConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6031,27 +6105,32 @@ class DeviceInputConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_some(
-        self, device_input_config_delete_some_request: "DeviceInputConfigDeleteSomeRequest"
+        self,
+        device_input_config_delete_some_request: "DeviceInputConfigDeleteSomeRequest",
     ) -> AsyncIterator[DeviceInputConfigDeleteSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_all(
-        self, device_input_config_delete_all_request: "DeviceInputConfigDeleteAllRequest"
+        self,
+        device_input_config_delete_all_request: "DeviceInputConfigDeleteAllRequest",
     ) -> AsyncIterator[DeviceInputConfigDeleteAllResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self, device_input_config_batched_stream_request: "DeviceInputConfigBatchedStreamRequest"
+        self,
+        device_input_config_batched_stream_request: "DeviceInputConfigBatchedStreamRequest",
     ) -> AsyncIterator[DeviceInputConfigBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self, device_input_config_batched_stream_request: "DeviceInputConfigBatchedStreamRequest"
+        self,
+        device_input_config_batched_stream_request: "DeviceInputConfigBatchedStreamRequest",
     ) -> AsyncIterator[DeviceInputConfigBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[DeviceInputConfigRequest, DeviceInputConfigResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceInputConfigRequest, DeviceInputConfigResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -6091,14 +6170,16 @@ class DeviceInputConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[DeviceInputConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceInputConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[DeviceInputConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceInputConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6262,7 +6343,9 @@ class DeviceInputConfigServiceBase(ServiceBase):
 
 
 class DeviceStateServiceBase(ServiceBase):
-    async def get_one(self, device_state_request: "DeviceStateRequest") -> "DeviceStateResponse":
+    async def get_one(
+        self, device_state_request: "DeviceStateRequest"
+    ) -> "DeviceStateResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -6308,7 +6391,8 @@ class DeviceStateServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[DeviceStateSomeRequest, DeviceStateSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceStateSomeRequest, DeviceStateSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6318,7 +6402,8 @@ class DeviceStateServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[DeviceStateStreamRequest, DeviceStateStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceStateStreamRequest, DeviceStateStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6328,7 +6413,8 @@ class DeviceStateServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[DeviceStateStreamRequest, DeviceStateStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceStateStreamRequest, DeviceStateStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6466,7 +6552,8 @@ class InterfaceInputConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
-        self, interface_input_config_set_some_request: "InterfaceInputConfigSetSomeRequest"
+        self,
+        interface_input_config_set_some_request: "InterfaceInputConfigSetSomeRequest",
     ) -> AsyncIterator[InterfaceInputConfigSetSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -6476,12 +6563,14 @@ class InterfaceInputConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_some(
-        self, interface_input_config_delete_some_request: "InterfaceInputConfigDeleteSomeRequest"
+        self,
+        interface_input_config_delete_some_request: "InterfaceInputConfigDeleteSomeRequest",
     ) -> AsyncIterator[InterfaceInputConfigDeleteSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_all(
-        self, interface_input_config_delete_all_request: "InterfaceInputConfigDeleteAllRequest"
+        self,
+        interface_input_config_delete_all_request: "InterfaceInputConfigDeleteAllRequest",
     ) -> AsyncIterator[InterfaceInputConfigDeleteAllResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -6539,14 +6628,16 @@ class InterfaceInputConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[InterfaceInputConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[InterfaceInputConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[InterfaceInputConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[InterfaceInputConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6728,7 +6819,9 @@ class ReplaceServiceBase(ServiceBase):
     ) -> AsyncIterator[ReplaceStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, replace_stream_request: "ReplaceStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, replace_stream_request: "ReplaceStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -6764,7 +6857,8 @@ class ReplaceServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[ReplaceStreamRequest, ReplaceStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ReplaceStreamRequest, ReplaceStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6774,7 +6868,8 @@ class ReplaceServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[ReplaceStreamRequest, ReplaceStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ReplaceStreamRequest, ReplaceStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6942,14 +7037,16 @@ class ReplaceConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[ReplaceConfigRequest, ReplaceConfigResponse]"
+        self,
+        stream: "grpclib.server.Stream[ReplaceConfigRequest, ReplaceConfigResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[ReplaceConfigSomeRequest, ReplaceConfigSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[ReplaceConfigSomeRequest, ReplaceConfigSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6998,7 +7095,8 @@ class ReplaceConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[ReplaceConfigSetRequest, ReplaceConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[ReplaceConfigSetRequest, ReplaceConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -7151,7 +7249,9 @@ class ReplaceConfigServiceBase(ServiceBase):
 
 
 class RevertConfigServiceBase(ServiceBase):
-    async def get_one(self, revert_config_request: "RevertConfigRequest") -> "RevertConfigResponse":
+    async def get_one(
+        self, revert_config_request: "RevertConfigRequest"
+    ) -> "RevertConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -7222,7 +7322,8 @@ class RevertConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[RevertConfigSomeRequest, RevertConfigSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[RevertConfigSomeRequest, RevertConfigSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -7232,7 +7333,8 @@ class RevertConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[RevertConfigStreamRequest, RevertConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[RevertConfigStreamRequest, RevertConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -7242,7 +7344,8 @@ class RevertConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[RevertConfigStreamRequest, RevertConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[RevertConfigStreamRequest, RevertConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -7269,7 +7372,8 @@ class RevertConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[RevertConfigSetRequest, RevertConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[RevertConfigSetRequest, RevertConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -7287,7 +7391,8 @@ class RevertConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete(
-        self, stream: "grpclib.server.Stream[RevertConfigDeleteRequest, RevertConfigDeleteResponse]"
+        self,
+        stream: "grpclib.server.Stream[RevertConfigDeleteRequest, RevertConfigDeleteResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.delete(request)
@@ -7439,7 +7544,9 @@ class UpdateServiceBase(ServiceBase):
     ) -> AsyncIterator[UpdateStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, update_stream_request: "UpdateStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, update_stream_request: "UpdateStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -7587,7 +7694,9 @@ class UpdateServiceBase(ServiceBase):
 
 
 class UpdateConfigServiceBase(ServiceBase):
-    async def get_one(self, update_config_request: "UpdateConfigRequest") -> "UpdateConfigResponse":
+    async def get_one(
+        self, update_config_request: "UpdateConfigRequest"
+    ) -> "UpdateConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -7658,7 +7767,8 @@ class UpdateConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[UpdateConfigSomeRequest, UpdateConfigSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[UpdateConfigSomeRequest, UpdateConfigSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -7668,7 +7778,8 @@ class UpdateConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[UpdateConfigStreamRequest, UpdateConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[UpdateConfigStreamRequest, UpdateConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -7678,7 +7789,8 @@ class UpdateConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[UpdateConfigStreamRequest, UpdateConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[UpdateConfigStreamRequest, UpdateConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -7705,7 +7817,8 @@ class UpdateConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[UpdateConfigSetRequest, UpdateConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[UpdateConfigSetRequest, UpdateConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -7723,7 +7836,8 @@ class UpdateConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete(
-        self, stream: "grpclib.server.Stream[UpdateConfigDeleteRequest, UpdateConfigDeleteResponse]"
+        self,
+        stream: "grpclib.server.Stream[UpdateConfigDeleteRequest, UpdateConfigDeleteResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.delete(request)
@@ -7903,7 +8017,8 @@ class UpdateSyncConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_some(
-        self, update_sync_config_delete_some_request: "UpdateSyncConfigDeleteSomeRequest"
+        self,
+        update_sync_config_delete_some_request: "UpdateSyncConfigDeleteSomeRequest",
     ) -> AsyncIterator[UpdateSyncConfigDeleteSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -7913,17 +8028,20 @@ class UpdateSyncConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self, update_sync_config_batched_stream_request: "UpdateSyncConfigBatchedStreamRequest"
+        self,
+        update_sync_config_batched_stream_request: "UpdateSyncConfigBatchedStreamRequest",
     ) -> AsyncIterator[UpdateSyncConfigBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self, update_sync_config_batched_stream_request: "UpdateSyncConfigBatchedStreamRequest"
+        self,
+        update_sync_config_batched_stream_request: "UpdateSyncConfigBatchedStreamRequest",
     ) -> AsyncIterator[UpdateSyncConfigBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[UpdateSyncConfigRequest, UpdateSyncConfigResponse]"
+        self,
+        stream: "grpclib.server.Stream[UpdateSyncConfigRequest, UpdateSyncConfigResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -7963,14 +8081,16 @@ class UpdateSyncConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[UpdateSyncConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[UpdateSyncConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[UpdateSyncConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[UpdateSyncConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

@@ -5,7 +5,7 @@ import warnings
 
 from arista.workspace.v1.services import gen_pb2 as arista_dot_workspace_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/workspace.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/workspace.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class StudioGeneratedConfigurationServiceStub(object):
+class StudioGeneratedConfigurationServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class StudioGeneratedConfigurationServiceStub(object):
                 _registered_method=True)
 
 
-class StudioGeneratedConfigurationServiceServicer(object):
+class StudioGeneratedConfigurationServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_StudioGeneratedConfigurationServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class StudioGeneratedConfigurationService(object):
+class StudioGeneratedConfigurationService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class StudioGeneratedConfigurationService(object):
             _registered_method=True)
 
 
-class WorkspaceServiceStub(object):
+class WorkspaceServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -449,7 +449,7 @@ class WorkspaceServiceStub(object):
                 _registered_method=True)
 
 
-class WorkspaceServiceServicer(object):
+class WorkspaceServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -551,7 +551,7 @@ def add_WorkspaceServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class WorkspaceService(object):
+class WorkspaceService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -771,7 +771,7 @@ class WorkspaceService(object):
             _registered_method=True)
 
 
-class WorkspaceBuildServiceStub(object):
+class WorkspaceBuildServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -822,7 +822,7 @@ class WorkspaceBuildServiceStub(object):
                 _registered_method=True)
 
 
-class WorkspaceBuildServiceServicer(object):
+class WorkspaceBuildServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -924,7 +924,7 @@ def add_WorkspaceBuildServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class WorkspaceBuildService(object):
+class WorkspaceBuildService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1144,7 +1144,7 @@ class WorkspaceBuildService(object):
             _registered_method=True)
 
 
-class WorkspaceBuildDetailsServiceStub(object):
+class WorkspaceBuildDetailsServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1195,7 +1195,7 @@ class WorkspaceBuildDetailsServiceStub(object):
                 _registered_method=True)
 
 
-class WorkspaceBuildDetailsServiceServicer(object):
+class WorkspaceBuildDetailsServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1297,7 +1297,7 @@ def add_WorkspaceBuildDetailsServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class WorkspaceBuildDetailsService(object):
+class WorkspaceBuildDetailsService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1517,7 +1517,7 @@ class WorkspaceBuildDetailsService(object):
             _registered_method=True)
 
 
-class WorkspaceConfigServiceStub(object):
+class WorkspaceConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1593,7 +1593,7 @@ class WorkspaceConfigServiceStub(object):
                 _registered_method=True)
 
 
-class WorkspaceConfigServiceServicer(object):
+class WorkspaceConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1750,7 +1750,7 @@ def add_WorkspaceConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class WorkspaceConfigService(object):
+class WorkspaceConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -2105,7 +2105,7 @@ class WorkspaceConfigService(object):
             _registered_method=True)
 
 
-class WorkspaceDiffsServiceStub(object):
+class WorkspaceDiffsServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2156,7 +2156,7 @@ class WorkspaceDiffsServiceStub(object):
                 _registered_method=True)
 
 
-class WorkspaceDiffsServiceServicer(object):
+class WorkspaceDiffsServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2258,7 +2258,7 @@ def add_WorkspaceDiffsServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class WorkspaceDiffsService(object):
+class WorkspaceDiffsService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -2478,7 +2478,7 @@ class WorkspaceDiffsService(object):
             _registered_method=True)
 
 
-class WorkspaceSyncConfigServiceStub(object):
+class WorkspaceSyncConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2554,7 +2554,7 @@ class WorkspaceSyncConfigServiceStub(object):
                 _registered_method=True)
 
 
-class WorkspaceSyncConfigServiceServicer(object):
+class WorkspaceSyncConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2711,7 +2711,7 @@ def add_WorkspaceSyncConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class WorkspaceSyncConfigService(object):
+class WorkspaceSyncConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

@@ -164,7 +164,9 @@ class Attributes(aristaproto.Message):
     eg: Debug, Info, Error
     """
 
-    device_name: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    device_name: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """device_name of the device for which audit log is sent."""
 
     service: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
@@ -258,14 +260,18 @@ class Category(aristaproto.Message):
     type: "CategoryType" = aristaproto.enum_field(1)
     """type of the category."""
 
-    identifier: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    identifier: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """
     identifier is the object with which we want to filter the category.
     eg: fetch all logs from the device with id abc
     Here the category is inventory and the identifier is abc.
     """
 
-    custom_type: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    custom_type: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """
     custom_type is a custom category that can be created by the user.
     this is used if none of the existing categories can support the users's usecase.
@@ -538,7 +544,9 @@ class AuditlogServiceBase(ServiceBase):
     ) -> AsyncIterator[AuditlogStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, auditlog_stream_request: "AuditlogStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, auditlog_stream_request: "AuditlogStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -564,7 +572,8 @@ class AuditlogServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[AuditlogStreamRequest, AuditlogStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[AuditlogStreamRequest, AuditlogStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -574,7 +583,8 @@ class AuditlogServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[AuditlogStreamRequest, AuditlogStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[AuditlogStreamRequest, AuditlogStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

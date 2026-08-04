@@ -5,7 +5,7 @@ import warnings
 
 from arista.asset_manager.v1.services import gen_pb2 as arista_dot_asset__manager_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/asset_manager.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/asset_manager.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class AllowedTenantsServiceStub(object):
+class AllowedTenantsServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class AllowedTenantsServiceStub(object):
                 _registered_method=True)
 
 
-class AllowedTenantsServiceServicer(object):
+class AllowedTenantsServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_AllowedTenantsServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class AllowedTenantsService(object):
+class AllowedTenantsService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class AllowedTenantsService(object):
             _registered_method=True)
 
 
-class DeviceTenantAssignConfigServiceStub(object):
+class DeviceTenantAssignConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -474,7 +474,7 @@ class DeviceTenantAssignConfigServiceStub(object):
                 _registered_method=True)
 
 
-class DeviceTenantAssignConfigServiceServicer(object):
+class DeviceTenantAssignConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -631,7 +631,7 @@ def add_DeviceTenantAssignConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DeviceTenantAssignConfigService(object):
+class DeviceTenantAssignConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -986,7 +986,7 @@ class DeviceTenantAssignConfigService(object):
             _registered_method=True)
 
 
-class DeviceTenantAssignmentServiceStub(object):
+class DeviceTenantAssignmentServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1042,7 +1042,7 @@ class DeviceTenantAssignmentServiceStub(object):
                 _registered_method=True)
 
 
-class DeviceTenantAssignmentServiceServicer(object):
+class DeviceTenantAssignmentServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1155,7 +1155,7 @@ def add_DeviceTenantAssignmentServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DeviceTenantAssignmentService(object):
+class DeviceTenantAssignmentService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1402,7 +1402,7 @@ class DeviceTenantAssignmentService(object):
             _registered_method=True)
 
 
-class LicenseTenantAssignConfigServiceStub(object):
+class LicenseTenantAssignConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1478,7 +1478,7 @@ class LicenseTenantAssignConfigServiceStub(object):
                 _registered_method=True)
 
 
-class LicenseTenantAssignConfigServiceServicer(object):
+class LicenseTenantAssignConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1635,7 +1635,7 @@ def add_LicenseTenantAssignConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class LicenseTenantAssignConfigService(object):
+class LicenseTenantAssignConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1990,7 +1990,7 @@ class LicenseTenantAssignConfigService(object):
             _registered_method=True)
 
 
-class LicenseTenantAssignmentServiceStub(object):
+class LicenseTenantAssignmentServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2046,7 +2046,7 @@ class LicenseTenantAssignmentServiceStub(object):
                 _registered_method=True)
 
 
-class LicenseTenantAssignmentServiceServicer(object):
+class LicenseTenantAssignmentServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2159,7 +2159,7 @@ def add_LicenseTenantAssignmentServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class LicenseTenantAssignmentService(object):
+class LicenseTenantAssignmentService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -2406,7 +2406,7 @@ class LicenseTenantAssignmentService(object):
             _registered_method=True)
 
 
-class SalesOrderServiceStub(object):
+class SalesOrderServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2457,7 +2457,7 @@ class SalesOrderServiceStub(object):
                 _registered_method=True)
 
 
-class SalesOrderServiceServicer(object):
+class SalesOrderServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2559,7 +2559,7 @@ def add_SalesOrderServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class SalesOrderService(object):
+class SalesOrderService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

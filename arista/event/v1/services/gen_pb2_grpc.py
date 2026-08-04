@@ -5,7 +5,7 @@ import warnings
 
 from arista.event.v1.services import gen_pb2 as arista_dot_event_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/event.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/event.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class EventServiceStub(object):
+class EventServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -66,7 +66,7 @@ class EventServiceStub(object):
                 _registered_method=True)
 
 
-class EventServiceServicer(object):
+class EventServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -146,7 +146,7 @@ def add_EventServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class EventService(object):
+class EventService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -312,7 +312,7 @@ class EventService(object):
             _registered_method=True)
 
 
-class EventAnnotationConfigServiceStub(object):
+class EventAnnotationConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -378,7 +378,7 @@ class EventAnnotationConfigServiceStub(object):
                 _registered_method=True)
 
 
-class EventAnnotationConfigServiceServicer(object):
+class EventAnnotationConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -513,7 +513,7 @@ def add_EventAnnotationConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class EventAnnotationConfigService(object):
+class EventAnnotationConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -814,7 +814,7 @@ class EventAnnotationConfigService(object):
             _registered_method=True)
 
 
-class UserEventCreationConfigServiceStub(object):
+class UserEventCreationConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -880,7 +880,7 @@ class UserEventCreationConfigServiceStub(object):
                 _registered_method=True)
 
 
-class UserEventCreationConfigServiceServicer(object):
+class UserEventCreationConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1015,7 +1015,7 @@ def add_UserEventCreationConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class UserEventCreationConfigService(object):
+class UserEventCreationConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

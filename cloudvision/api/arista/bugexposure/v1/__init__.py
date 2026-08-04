@@ -91,7 +91,9 @@ class BugExposureKey(aristaproto.Message):
     BugExposure model
     """
 
-    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """device_id is the device ID"""
 
     acknowledgement: "Acknowledgement" = aristaproto.enum_field(2)
@@ -126,13 +128,17 @@ class BugExposure(aristaproto.Message):
     with type CVE
     """
 
-    bug_count: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_INT32)
+    bug_count: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_INT32
+    )
     """
     bug_count is the number of bug alerts
     with type Bug
     """
 
-    cve_count: Optional[int] = aristaproto.message_field(5, wraps=aristaproto.TYPE_INT32)
+    cve_count: Optional[int] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_INT32
+    )
     """
     cve_count is the number of bug alerts
     with type CVE
@@ -352,7 +358,9 @@ from ... import time as __time__
 
 
 class BugExposureServiceBase(ServiceBase):
-    async def get_one(self, bug_exposure_request: "BugExposureRequest") -> "BugExposureResponse":
+    async def get_one(
+        self, bug_exposure_request: "BugExposureRequest"
+    ) -> "BugExposureResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
@@ -383,7 +391,8 @@ class BugExposureServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[BugExposureStreamRequest, BugExposureStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[BugExposureStreamRequest, BugExposureStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -393,7 +402,8 @@ class BugExposureServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[BugExposureStreamRequest, BugExposureStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[BugExposureStreamRequest, BugExposureStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

@@ -138,7 +138,9 @@ class AccountConfig(aristaproto.Message):
     enabled by default.
     """
 
-    description: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    description: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """description is a comment describing the service account."""
 
     groups: "___fmp__.RepeatedString" = aristaproto.message_field(4)
@@ -146,7 +148,9 @@ class AccountConfig(aristaproto.Message):
     groups is a list of roles that the service account inherits permissions from.
     """
 
-    allow_token_refresh: Optional[bool] = aristaproto.message_field(7, wraps=aristaproto.TYPE_BOOL)
+    allow_token_refresh: Optional[bool] = aristaproto.message_field(
+        7, wraps=aristaproto.TYPE_BOOL
+    )
     """
     allow_token_refresh determines whether or not the service account can refresh
     any of its own active tokens, including preexisting ones.
@@ -165,7 +169,9 @@ class Account(aristaproto.Message):
     status determines whether the service account is enabled or disabled.
     """
 
-    description: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    description: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """description is a comment describing the service account."""
 
     groups: "___fmp__.RepeatedString" = aristaproto.message_field(4)
@@ -173,7 +179,9 @@ class Account(aristaproto.Message):
     groups is a list of roles that the service account inherits permissions from.
     """
 
-    created_by: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
+    created_by: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
     """
     created_by is the name of the entity that created the service account.
     """
@@ -181,7 +189,9 @@ class Account(aristaproto.Message):
     last_access: datetime = aristaproto.message_field(6)
     """last_access is the time when the service account was last fetched."""
 
-    allow_token_refresh: Optional[bool] = aristaproto.message_field(7, wraps=aristaproto.TYPE_BOOL)
+    allow_token_refresh: Optional[bool] = aristaproto.message_field(
+        7, wraps=aristaproto.TYPE_BOOL
+    )
     """
     allow_token_refresh determines whether or not the service account can refresh
     any of its own active tokens, including preexisting ones.
@@ -211,7 +221,9 @@ class TokenConfig(aristaproto.Message):
     user is the name of the service account that the token is generated for.
     """
 
-    description: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    description: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """
     description is a short name or comment used to identify the service account token.
     """
@@ -240,7 +252,9 @@ class Token(aristaproto.Message):
     user is the name of the service account that the token is generated for.
     """
 
-    description: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    description: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """
     description is a short name or comment used to identify the service account token.
     """
@@ -250,7 +264,9 @@ class Token(aristaproto.Message):
     valid_until is the time that the service account token will be valid until.
     """
 
-    created_by: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
+    created_by: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
     """
     created_by is the name of the entity that created the service account token.
     """
@@ -279,7 +295,9 @@ class TokenSelfRefreshConfig(aristaproto.Message):
     Default value will be the original token duration.
     """
 
-    new_token: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    new_token: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """
     new_token is the JWT token generated for a service account token.
     This is populated in the response of a Set() request.
@@ -1822,7 +1840,9 @@ class AccountServiceBase(ServiceBase):
     ) -> AsyncIterator[AccountStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, account_stream_request: "AccountStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, account_stream_request: "AccountStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -1848,7 +1868,8 @@ class AccountServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[AccountStreamRequest, AccountStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[AccountStreamRequest, AccountStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1858,7 +1879,8 @@ class AccountServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[AccountStreamRequest, AccountStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[AccountStreamRequest, AccountStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1982,14 +2004,16 @@ class AccountConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[AccountConfigRequest, AccountConfigResponse]"
+        self,
+        stream: "grpclib.server.Stream[AccountConfigRequest, AccountConfigResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[AccountConfigSomeRequest, AccountConfigSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[AccountConfigSomeRequest, AccountConfigSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2038,7 +2062,8 @@ class AccountConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[AccountConfigSetRequest, AccountConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[AccountConfigSetRequest, AccountConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -2175,7 +2200,9 @@ class TokenServiceBase(ServiceBase):
     ) -> AsyncIterator[TokenStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, token_stream_request: "TokenStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, token_stream_request: "TokenStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -2279,7 +2306,9 @@ class TokenServiceBase(ServiceBase):
 
 
 class TokenConfigServiceBase(ServiceBase):
-    async def get_one(self, token_config_request: "TokenConfigRequest") -> "TokenConfigResponse":
+    async def get_one(
+        self, token_config_request: "TokenConfigRequest"
+    ) -> "TokenConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -2340,7 +2369,8 @@ class TokenConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[TokenConfigSomeRequest, TokenConfigSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[TokenConfigSomeRequest, TokenConfigSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2350,7 +2380,8 @@ class TokenConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[TokenConfigStreamRequest, TokenConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[TokenConfigStreamRequest, TokenConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2360,7 +2391,8 @@ class TokenConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[TokenConfigStreamRequest, TokenConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[TokenConfigStreamRequest, TokenConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2387,14 +2419,16 @@ class TokenConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[TokenConfigSetRequest, TokenConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[TokenConfigSetRequest, TokenConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
         await stream.send_message(response)
 
     async def __rpc_set_some(
-        self, stream: "grpclib.server.Stream[TokenConfigSetSomeRequest, TokenConfigSetSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[TokenConfigSetSomeRequest, TokenConfigSetSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2404,7 +2438,8 @@ class TokenConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete(
-        self, stream: "grpclib.server.Stream[TokenConfigDeleteRequest, TokenConfigDeleteResponse]"
+        self,
+        stream: "grpclib.server.Stream[TokenConfigDeleteRequest, TokenConfigDeleteResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.delete(request)
@@ -2510,17 +2545,20 @@ class TokenSelfRefreshConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self, token_self_refresh_config_stream_request: "TokenSelfRefreshConfigStreamRequest"
+        self,
+        token_self_refresh_config_stream_request: "TokenSelfRefreshConfigStreamRequest",
     ) -> AsyncIterator[TokenSelfRefreshConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self, token_self_refresh_config_stream_request: "TokenSelfRefreshConfigStreamRequest"
+        self,
+        token_self_refresh_config_stream_request: "TokenSelfRefreshConfigStreamRequest",
     ) -> AsyncIterator[TokenSelfRefreshConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self, token_self_refresh_config_stream_request: "TokenSelfRefreshConfigStreamRequest"
+        self,
+        token_self_refresh_config_stream_request: "TokenSelfRefreshConfigStreamRequest",
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -2560,7 +2598,8 @@ class TokenSelfRefreshConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[TokenSelfRefreshConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[TokenSelfRefreshConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

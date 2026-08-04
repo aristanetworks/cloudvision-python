@@ -5,7 +5,7 @@ import warnings
 
 from arista.dashboard.v1.services import gen_pb2 as arista_dot_dashboard_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/dashboard.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/dashboard.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class DashboardServiceStub(object):
+class DashboardServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class DashboardServiceStub(object):
                 _registered_method=True)
 
 
-class DashboardServiceServicer(object):
+class DashboardServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_DashboardServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DashboardService(object):
+class DashboardService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class DashboardService(object):
             _registered_method=True)
 
 
-class DashboardConfigServiceStub(object):
+class DashboardConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -474,7 +474,7 @@ class DashboardConfigServiceStub(object):
                 _registered_method=True)
 
 
-class DashboardConfigServiceServicer(object):
+class DashboardConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -631,7 +631,7 @@ def add_DashboardConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DashboardConfigService(object):
+class DashboardConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -986,7 +986,7 @@ class DashboardConfigService(object):
             _registered_method=True)
 
 
-class GlobalDashboardConfigServiceStub(object):
+class GlobalDashboardConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1022,7 +1022,7 @@ class GlobalDashboardConfigServiceStub(object):
                 _registered_method=True)
 
 
-class GlobalDashboardConfigServiceServicer(object):
+class GlobalDashboardConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1091,7 +1091,7 @@ def add_GlobalDashboardConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class GlobalDashboardConfigService(object):
+class GlobalDashboardConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

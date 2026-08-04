@@ -208,7 +208,9 @@ class LicenseTenantAssignmentSortableField(aristaproto.Enum):
 class SalesOrderKey(aristaproto.Message):
     """SalesOrderKey uniquely identifies a sales order"""
 
-    sales_order_number: Optional[int] = aristaproto.message_field(1, wraps=aristaproto.TYPE_INT64)
+    sales_order_number: Optional[int] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_INT64
+    )
     """sales_order_number is the invoice number of the entire order"""
 
 
@@ -255,13 +257,17 @@ class SalesOrderFilter(aristaproto.Message):
     assets of a sales order are assigned
     """
 
-    device_serial: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    device_serial: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """
     device_serial represents a device which is present in
     the given sales order
     """
 
-    device_model: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    device_model: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """
     device_model corresponds to the model of a device which
     is present in the given sales order
@@ -304,13 +310,17 @@ class SalesOrder(aristaproto.Message):
 class UserInfo(aristaproto.Message):
     """UserInfo contains information about a user within a system."""
 
-    user_tenant: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    user_tenant: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """
     user_tenant represents the tenant identifier associated
     with the user.
     """
 
-    user_name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    user_name: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """user_name represents the name of the user."""
 
 
@@ -318,7 +328,9 @@ class UserInfo(aristaproto.Message):
 class DeviceKey(aristaproto.Message):
     """DeviceKey uniquely identifies the device"""
 
-    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """device_id uniquely identifies the device via its serial number"""
 
 
@@ -358,10 +370,14 @@ class DeviceTenantAssignment(aristaproto.Message):
     key: "DeviceKey" = aristaproto.message_field(1)
     """key is device serial to uniquely identify a device"""
 
-    model_name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    model_name: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """model_name describes the hardware model of this device."""
 
-    customer_id: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_INT64)
+    customer_id: Optional[int] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_INT64
+    )
     """
     customer_id uniquely identifies a customer. Customer refers
     to the entity (organization or business) that subscribes to
@@ -379,7 +395,9 @@ class DeviceTenantAssignment(aristaproto.Message):
     actual customer name
     """
 
-    tenant_id: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
+    tenant_id: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
     """
     tenant_id uniquely identifies a tenant. Tenant represents an
     organization within CloudVision dedicated to a specific
@@ -389,7 +407,9 @@ class DeviceTenantAssignment(aristaproto.Message):
     shipping_date: datetime = aristaproto.message_field(6)
     """shipping_date is the date on which the order was fulfilled"""
 
-    sales_order_number: Optional[int] = aristaproto.message_field(7, wraps=aristaproto.TYPE_INT64)
+    sales_order_number: Optional[int] = aristaproto.message_field(
+        7, wraps=aristaproto.TYPE_INT64
+    )
     """sales_order_number is the invoice number of the entire order"""
 
     source: "Source" = aristaproto.enum_field(8)
@@ -416,7 +436,9 @@ class DeviceTenantAssignConfig(aristaproto.Message):
     key: "DeviceKey" = aristaproto.message_field(1)
     """key uniquely identifies a device"""
 
-    source_tenant_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    source_tenant_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """source_tenant_id is the existing tenant for a device"""
 
     destination_tenant_id: Optional[str] = aristaproto.message_field(
@@ -476,15 +498,21 @@ class LicenseTenantAssignment(aristaproto.Message):
     license was purchased.
     """
 
-    invoice_number: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_INT64)
+    invoice_number: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_INT64
+    )
     """invoice_number represent invoice number on which order is paid"""
 
-    invoice_line_number: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
+    invoice_line_number: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
     """
     invoice_line_number identifies a unique line in case of multiple line in an invoice
     """
 
-    customer_id: Optional[int] = aristaproto.message_field(6, wraps=aristaproto.TYPE_INT64)
+    customer_id: Optional[int] = aristaproto.message_field(
+        6, wraps=aristaproto.TYPE_INT64
+    )
     """
     customer_id uniquely identifies a customer. Customer refers
     to the entity (organization or business) that subscribes to
@@ -502,7 +530,9 @@ class LicenseTenantAssignment(aristaproto.Message):
     actual customer name
     """
 
-    sales_order_number: Optional[int] = aristaproto.message_field(8, wraps=aristaproto.TYPE_INT64)
+    sales_order_number: Optional[int] = aristaproto.message_field(
+        8, wraps=aristaproto.TYPE_INT64
+    )
     """sales_order_number is integer number for an order"""
 
     start_date: datetime = aristaproto.message_field(9)
@@ -511,14 +541,18 @@ class LicenseTenantAssignment(aristaproto.Message):
     end_date: datetime = aristaproto.message_field(10)
     """end_date indicates the date when the license validity expires"""
 
-    tenant_id: Optional[str] = aristaproto.message_field(11, wraps=aristaproto.TYPE_STRING)
+    tenant_id: Optional[str] = aristaproto.message_field(
+        11, wraps=aristaproto.TYPE_STRING
+    )
     """
     tenant_id uniquely identifies a tenant. Tenant represents an
     organization within CloudVision dedicated to a specific
     segment of the customer's operations.
     """
 
-    platform_class: Optional[str] = aristaproto.message_field(12, wraps=aristaproto.TYPE_STRING)
+    platform_class: Optional[str] = aristaproto.message_field(
+        12, wraps=aristaproto.TYPE_STRING
+    )
     """platform_class is the platform class of the license."""
 
     updated_by_user: "UserInfo" = aristaproto.message_field(13)
@@ -527,7 +561,9 @@ class LicenseTenantAssignment(aristaproto.Message):
     last license assignment.
     """
 
-    assigned_device: Optional[str] = aristaproto.message_field(14, wraps=aristaproto.TYPE_STRING)
+    assigned_device: Optional[str] = aristaproto.message_field(
+        14, wraps=aristaproto.TYPE_STRING
+    )
     """
     assigned_device represents the device to which the license
     is assigned to currently
@@ -556,7 +592,9 @@ class LicenseTenantAssignConfig(aristaproto.Message):
     key: "__license_v1__.PurchasedLicenseKey" = aristaproto.message_field(1)
     """key is used to uniquely identify a license"""
 
-    source_tenant_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    source_tenant_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """source_tenant_id is the existing tenant for a license"""
 
     destination_tenant_id: Optional[str] = aristaproto.message_field(
@@ -572,7 +610,9 @@ class LicenseTenantAssignConfig(aristaproto.Message):
 class TenantKey(aristaproto.Message):
     """TenantKey is used to uniquely identify a tenant"""
 
-    tenant_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    tenant_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """tenant_id is unique id assigned to every tenant"""
 
 
@@ -586,10 +626,14 @@ class CustomerInfo(aristaproto.Message):
     such as different departments, branches, or subsidiaries.
     """
 
-    customer_id: Optional[int] = aristaproto.message_field(1, wraps=aristaproto.TYPE_INT64)
+    customer_id: Optional[int] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_INT64
+    )
     """customer_id uniquely identifies a customer."""
 
-    customer_name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    customer_name: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """
     customer_name is the name associated with corresponding
     customer_id.
@@ -810,7 +854,9 @@ class AllowedTenantsBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -974,7 +1020,9 @@ class DeviceTenantAssignConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -985,7 +1033,9 @@ class DeviceTenantAssignConfigBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceTenantAssignConfigBatchedStreamResponse(aristaproto.Message):
-    responses: List["DeviceTenantAssignConfigStreamResponse"] = aristaproto.message_field(1)
+    responses: List["DeviceTenantAssignConfigStreamResponse"] = (
+        aristaproto.message_field(1)
+    )
     """
     Values are the values deemed relevant to the initiating request.
     The length of this structure is guaranteed to be between (inclusive) 1 and
@@ -1256,7 +1306,9 @@ class DeviceTenantAssignmentBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1267,7 +1319,9 @@ class DeviceTenantAssignmentBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceTenantAssignmentBatchedStreamResponse(aristaproto.Message):
-    responses: List["DeviceTenantAssignmentStreamResponse"] = aristaproto.message_field(1)
+    responses: List["DeviceTenantAssignmentStreamResponse"] = aristaproto.message_field(
+        1
+    )
     """
     Values are the values deemed relevant to the initiating request.
     The length of this structure is guaranteed to be between (inclusive) 1 and
@@ -1467,7 +1521,9 @@ class LicenseTenantAssignConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1478,7 +1534,9 @@ class LicenseTenantAssignConfigBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class LicenseTenantAssignConfigBatchedStreamResponse(aristaproto.Message):
-    responses: List["LicenseTenantAssignConfigStreamResponse"] = aristaproto.message_field(1)
+    responses: List["LicenseTenantAssignConfigStreamResponse"] = (
+        aristaproto.message_field(1)
+    )
     """
     Values are the values deemed relevant to the initiating request.
     The length of this structure is guaranteed to be between (inclusive) 1 and
@@ -1749,7 +1807,9 @@ class LicenseTenantAssignmentBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1760,7 +1820,9 @@ class LicenseTenantAssignmentBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class LicenseTenantAssignmentBatchedStreamResponse(aristaproto.Message):
-    responses: List["LicenseTenantAssignmentStreamResponse"] = aristaproto.message_field(1)
+    responses: List["LicenseTenantAssignmentStreamResponse"] = (
+        aristaproto.message_field(1)
+    )
     """
     Values are the values deemed relevant to the initiating request.
     The length of this structure is guaranteed to be between (inclusive) 1 and
@@ -1972,7 +2034,9 @@ class SalesOrderBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -3105,24 +3169,28 @@ class AllowedTenantsServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self, allowed_tenants_batched_stream_request: "AllowedTenantsBatchedStreamRequest"
+        self,
+        allowed_tenants_batched_stream_request: "AllowedTenantsBatchedStreamRequest",
     ) -> AsyncIterator[AllowedTenantsBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self, allowed_tenants_batched_stream_request: "AllowedTenantsBatchedStreamRequest"
+        self,
+        allowed_tenants_batched_stream_request: "AllowedTenantsBatchedStreamRequest",
     ) -> AsyncIterator[AllowedTenantsBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[AllowedTenantsRequest, AllowedTenantsResponse]"
+        self,
+        stream: "grpclib.server.Stream[AllowedTenantsRequest, AllowedTenantsResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[AllowedTenantsSomeRequest, AllowedTenantsSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[AllowedTenantsSomeRequest, AllowedTenantsSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3252,42 +3320,50 @@ class DeviceTenantAssignConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
-        self, device_tenant_assign_config_some_request: "DeviceTenantAssignConfigSomeRequest"
+        self,
+        device_tenant_assign_config_some_request: "DeviceTenantAssignConfigSomeRequest",
     ) -> AsyncIterator[DeviceTenantAssignConfigSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self, device_tenant_assign_config_stream_request: "DeviceTenantAssignConfigStreamRequest"
+        self,
+        device_tenant_assign_config_stream_request: "DeviceTenantAssignConfigStreamRequest",
     ) -> AsyncIterator[DeviceTenantAssignConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self, device_tenant_assign_config_stream_request: "DeviceTenantAssignConfigStreamRequest"
+        self,
+        device_tenant_assign_config_stream_request: "DeviceTenantAssignConfigStreamRequest",
     ) -> AsyncIterator[DeviceTenantAssignConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
-        self, device_tenant_assign_config_stream_request: "DeviceTenantAssignConfigStreamRequest"
+        self,
+        device_tenant_assign_config_stream_request: "DeviceTenantAssignConfigStreamRequest",
     ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self, device_tenant_assign_config_stream_request: "DeviceTenantAssignConfigStreamRequest"
+        self,
+        device_tenant_assign_config_stream_request: "DeviceTenantAssignConfigStreamRequest",
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set(
-        self, device_tenant_assign_config_set_request: "DeviceTenantAssignConfigSetRequest"
+        self,
+        device_tenant_assign_config_set_request: "DeviceTenantAssignConfigSetRequest",
     ) -> "DeviceTenantAssignConfigSetResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
-        self, device_tenant_assign_config_set_some_request: "DeviceTenantAssignConfigSetSomeRequest"
+        self,
+        device_tenant_assign_config_set_some_request: "DeviceTenantAssignConfigSetSomeRequest",
     ) -> AsyncIterator[DeviceTenantAssignConfigSetSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete(
-        self, device_tenant_assign_config_delete_request: "DeviceTenantAssignConfigDeleteRequest"
+        self,
+        device_tenant_assign_config_delete_request: "DeviceTenantAssignConfigDeleteRequest",
     ) -> "DeviceTenantAssignConfigDeleteResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3357,14 +3433,16 @@ class DeviceTenantAssignConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[DeviceTenantAssignConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceTenantAssignConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[DeviceTenantAssignConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceTenantAssignConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3539,22 +3617,26 @@ class DeviceTenantAssignmentServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self, device_tenant_assignment_stream_request: "DeviceTenantAssignmentStreamRequest"
+        self,
+        device_tenant_assignment_stream_request: "DeviceTenantAssignmentStreamRequest",
     ) -> AsyncIterator[DeviceTenantAssignmentStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self, device_tenant_assignment_stream_request: "DeviceTenantAssignmentStreamRequest"
+        self,
+        device_tenant_assignment_stream_request: "DeviceTenantAssignmentStreamRequest",
     ) -> AsyncIterator[DeviceTenantAssignmentStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
-        self, device_tenant_assignment_stream_request: "DeviceTenantAssignmentStreamRequest"
+        self,
+        device_tenant_assignment_stream_request: "DeviceTenantAssignmentStreamRequest",
     ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self, device_tenant_assignment_stream_request: "DeviceTenantAssignmentStreamRequest"
+        self,
+        device_tenant_assignment_stream_request: "DeviceTenantAssignmentStreamRequest",
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3617,14 +3699,16 @@ class DeviceTenantAssignmentServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[DeviceTenantAssignmentStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceTenantAssignmentStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[DeviceTenantAssignmentStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceTenantAssignmentStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3732,32 +3816,38 @@ class LicenseTenantAssignConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
-        self, license_tenant_assign_config_some_request: "LicenseTenantAssignConfigSomeRequest"
+        self,
+        license_tenant_assign_config_some_request: "LicenseTenantAssignConfigSomeRequest",
     ) -> AsyncIterator[LicenseTenantAssignConfigSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self, license_tenant_assign_config_stream_request: "LicenseTenantAssignConfigStreamRequest"
+        self,
+        license_tenant_assign_config_stream_request: "LicenseTenantAssignConfigStreamRequest",
     ) -> AsyncIterator[LicenseTenantAssignConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self, license_tenant_assign_config_stream_request: "LicenseTenantAssignConfigStreamRequest"
+        self,
+        license_tenant_assign_config_stream_request: "LicenseTenantAssignConfigStreamRequest",
     ) -> AsyncIterator[LicenseTenantAssignConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
-        self, license_tenant_assign_config_stream_request: "LicenseTenantAssignConfigStreamRequest"
+        self,
+        license_tenant_assign_config_stream_request: "LicenseTenantAssignConfigStreamRequest",
     ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self, license_tenant_assign_config_stream_request: "LicenseTenantAssignConfigStreamRequest"
+        self,
+        license_tenant_assign_config_stream_request: "LicenseTenantAssignConfigStreamRequest",
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set(
-        self, license_tenant_assign_config_set_request: "LicenseTenantAssignConfigSetRequest"
+        self,
+        license_tenant_assign_config_set_request: "LicenseTenantAssignConfigSetRequest",
     ) -> "LicenseTenantAssignConfigSetResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3768,7 +3858,8 @@ class LicenseTenantAssignConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete(
-        self, license_tenant_assign_config_delete_request: "LicenseTenantAssignConfigDeleteRequest"
+        self,
+        license_tenant_assign_config_delete_request: "LicenseTenantAssignConfigDeleteRequest",
     ) -> "LicenseTenantAssignConfigDeleteResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3838,14 +3929,16 @@ class LicenseTenantAssignConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[LicenseTenantAssignConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[LicenseTenantAssignConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[LicenseTenantAssignConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[LicenseTenantAssignConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4015,27 +4108,32 @@ class LicenseTenantAssignmentServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
-        self, license_tenant_assignment_some_request: "LicenseTenantAssignmentSomeRequest"
+        self,
+        license_tenant_assignment_some_request: "LicenseTenantAssignmentSomeRequest",
     ) -> AsyncIterator[LicenseTenantAssignmentSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self, license_tenant_assignment_stream_request: "LicenseTenantAssignmentStreamRequest"
+        self,
+        license_tenant_assignment_stream_request: "LicenseTenantAssignmentStreamRequest",
     ) -> AsyncIterator[LicenseTenantAssignmentStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self, license_tenant_assignment_stream_request: "LicenseTenantAssignmentStreamRequest"
+        self,
+        license_tenant_assignment_stream_request: "LicenseTenantAssignmentStreamRequest",
     ) -> AsyncIterator[LicenseTenantAssignmentStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
-        self, license_tenant_assignment_stream_request: "LicenseTenantAssignmentStreamRequest"
+        self,
+        license_tenant_assignment_stream_request: "LicenseTenantAssignmentStreamRequest",
     ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self, license_tenant_assignment_stream_request: "LicenseTenantAssignmentStreamRequest"
+        self,
+        license_tenant_assignment_stream_request: "LicenseTenantAssignmentStreamRequest",
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -4052,7 +4150,8 @@ class LicenseTenantAssignmentServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_page(
-        self, license_tenant_assignment_page_request: "LicenseTenantAssignmentPageRequest"
+        self,
+        license_tenant_assignment_page_request: "LicenseTenantAssignmentPageRequest",
     ) -> AsyncIterator[LicenseTenantAssignmentResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -4098,14 +4197,16 @@ class LicenseTenantAssignmentServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[LicenseTenantAssignmentStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[LicenseTenantAssignmentStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[LicenseTenantAssignmentStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[LicenseTenantAssignmentStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4207,7 +4308,9 @@ class LicenseTenantAssignmentServiceBase(ServiceBase):
 
 
 class SalesOrderServiceBase(ServiceBase):
-    async def get_one(self, sales_order_request: "SalesOrderRequest") -> "SalesOrderResponse":
+    async def get_one(
+        self, sales_order_request: "SalesOrderRequest"
+    ) -> "SalesOrderResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -4253,7 +4356,8 @@ class SalesOrderServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[SalesOrderSomeRequest, SalesOrderSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[SalesOrderSomeRequest, SalesOrderSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4263,7 +4367,8 @@ class SalesOrderServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[SalesOrderStreamRequest, SalesOrderStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[SalesOrderStreamRequest, SalesOrderStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4273,7 +4378,8 @@ class SalesOrderServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[SalesOrderStreamRequest, SalesOrderStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[SalesOrderStreamRequest, SalesOrderStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

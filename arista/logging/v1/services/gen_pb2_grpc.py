@@ -5,7 +5,7 @@ import warnings
 
 from arista.logging.v1.services import gen_pb2 as arista_dot_logging_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/logging.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/logging.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class LoggingServiceStub(object):
+class LoggingServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -66,7 +66,7 @@ class LoggingServiceStub(object):
                 _registered_method=True)
 
 
-class LoggingServiceServicer(object):
+class LoggingServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -146,7 +146,7 @@ def add_LoggingServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class LoggingService(object):
+class LoggingService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -312,7 +312,7 @@ class LoggingService(object):
             _registered_method=True)
 
 
-class LoggingConfigServiceStub(object):
+class LoggingConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -378,7 +378,7 @@ class LoggingConfigServiceStub(object):
                 _registered_method=True)
 
 
-class LoggingConfigServiceServicer(object):
+class LoggingConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -513,7 +513,7 @@ def add_LoggingConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class LoggingConfigService(object):
+class LoggingConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

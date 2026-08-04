@@ -5,7 +5,7 @@ import warnings
 
 from arista.action.v1.services import gen_pb2 as arista_dot_action_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/action.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/action.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class ActionServiceStub(object):
+class ActionServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -66,7 +66,7 @@ class ActionServiceStub(object):
                 _registered_method=True)
 
 
-class ActionServiceServicer(object):
+class ActionServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -146,7 +146,7 @@ def add_ActionServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ActionService(object):
+class ActionService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -312,7 +312,7 @@ class ActionService(object):
             _registered_method=True)
 
 
-class ActionArgConfigServiceStub(object):
+class ActionArgConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -378,7 +378,7 @@ class ActionArgConfigServiceStub(object):
                 _registered_method=True)
 
 
-class ActionArgConfigServiceServicer(object):
+class ActionArgConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -513,7 +513,7 @@ def add_ActionArgConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ActionArgConfigService(object):
+class ActionArgConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -814,7 +814,7 @@ class ActionArgConfigService(object):
             _registered_method=True)
 
 
-class ActionConfigServiceStub(object):
+class ActionConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -880,7 +880,7 @@ class ActionConfigServiceStub(object):
                 _registered_method=True)
 
 
-class ActionConfigServiceServicer(object):
+class ActionConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1015,7 +1015,7 @@ def add_ActionConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ActionConfigService(object):
+class ActionConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1316,7 +1316,7 @@ class ActionConfigService(object):
             _registered_method=True)
 
 
-class ActionRunServiceStub(object):
+class ActionRunServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1357,7 +1357,7 @@ class ActionRunServiceStub(object):
                 _registered_method=True)
 
 
-class ActionRunServiceServicer(object):
+class ActionRunServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1437,7 +1437,7 @@ def add_ActionRunServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ActionRunService(object):
+class ActionRunService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1603,7 +1603,7 @@ class ActionRunService(object):
             _registered_method=True)
 
 
-class ActionRunConfigServiceStub(object):
+class ActionRunConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1669,7 +1669,7 @@ class ActionRunConfigServiceStub(object):
                 _registered_method=True)
 
 
-class ActionRunConfigServiceServicer(object):
+class ActionRunConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1804,7 +1804,7 @@ def add_ActionRunConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ActionRunConfigService(object):
+class ActionRunConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

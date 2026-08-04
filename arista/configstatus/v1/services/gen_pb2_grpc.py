@@ -5,7 +5,7 @@ import warnings
 
 from arista.configstatus.v1.services import gen_pb2 as arista_dot_configstatus_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/configstatus.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/configstatus.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class ConfigDiffServiceStub(object):
+class ConfigDiffServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class ConfigDiffServiceStub(object):
                 _registered_method=True)
 
 
-class ConfigDiffServiceServicer(object):
+class ConfigDiffServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_ConfigDiffServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ConfigDiffService(object):
+class ConfigDiffService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class ConfigDiffService(object):
             _registered_method=True)
 
 
-class ConfigurationServiceStub(object):
+class ConfigurationServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -449,7 +449,7 @@ class ConfigurationServiceStub(object):
                 _registered_method=True)
 
 
-class ConfigurationServiceServicer(object):
+class ConfigurationServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -551,7 +551,7 @@ def add_ConfigurationServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ConfigurationService(object):
+class ConfigurationService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -771,7 +771,7 @@ class ConfigurationService(object):
             _registered_method=True)
 
 
-class SecurityProfileServiceStub(object):
+class SecurityProfileServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -822,7 +822,7 @@ class SecurityProfileServiceStub(object):
                 _registered_method=True)
 
 
-class SecurityProfileServiceServicer(object):
+class SecurityProfileServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -924,7 +924,7 @@ def add_SecurityProfileServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class SecurityProfileService(object):
+class SecurityProfileService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1144,7 +1144,7 @@ class SecurityProfileService(object):
             _registered_method=True)
 
 
-class SecurityProfileDiffServiceStub(object):
+class SecurityProfileDiffServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1195,7 +1195,7 @@ class SecurityProfileDiffServiceStub(object):
                 _registered_method=True)
 
 
-class SecurityProfileDiffServiceServicer(object):
+class SecurityProfileDiffServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1297,7 +1297,7 @@ def add_SecurityProfileDiffServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class SecurityProfileDiffService(object):
+class SecurityProfileDiffService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1517,7 +1517,7 @@ class SecurityProfileDiffService(object):
             _registered_method=True)
 
 
-class SecurityProfileDiffSummaryServiceStub(object):
+class SecurityProfileDiffSummaryServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1568,7 +1568,7 @@ class SecurityProfileDiffSummaryServiceStub(object):
                 _registered_method=True)
 
 
-class SecurityProfileDiffSummaryServiceServicer(object):
+class SecurityProfileDiffSummaryServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1670,7 +1670,7 @@ def add_SecurityProfileDiffSummaryServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class SecurityProfileDiffSummaryService(object):
+class SecurityProfileDiffSummaryService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1890,7 +1890,7 @@ class SecurityProfileDiffSummaryService(object):
             _registered_method=True)
 
 
-class SummaryServiceStub(object):
+class SummaryServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1941,7 +1941,7 @@ class SummaryServiceStub(object):
                 _registered_method=True)
 
 
-class SummaryServiceServicer(object):
+class SummaryServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2043,7 +2043,7 @@ def add_SummaryServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class SummaryService(object):
+class SummaryService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

@@ -5,7 +5,7 @@ import warnings
 
 from arista.studio.v1.services import gen_pb2 as arista_dot_studio_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/studio.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/studio.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class AssignedTagsServiceStub(object):
+class AssignedTagsServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class AssignedTagsServiceStub(object):
                 _registered_method=True)
 
 
-class AssignedTagsServiceServicer(object):
+class AssignedTagsServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_AssignedTagsServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class AssignedTagsService(object):
+class AssignedTagsService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class AssignedTagsService(object):
             _registered_method=True)
 
 
-class AssignedTagsConfigServiceStub(object):
+class AssignedTagsConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -474,7 +474,7 @@ class AssignedTagsConfigServiceStub(object):
                 _registered_method=True)
 
 
-class AssignedTagsConfigServiceServicer(object):
+class AssignedTagsConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -631,7 +631,7 @@ def add_AssignedTagsConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class AssignedTagsConfigService(object):
+class AssignedTagsConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -986,7 +986,7 @@ class AssignedTagsConfigService(object):
             _registered_method=True)
 
 
-class AutofillActionServiceStub(object):
+class AutofillActionServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1037,7 +1037,7 @@ class AutofillActionServiceStub(object):
                 _registered_method=True)
 
 
-class AutofillActionServiceServicer(object):
+class AutofillActionServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1139,7 +1139,7 @@ def add_AutofillActionServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class AutofillActionService(object):
+class AutofillActionService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1359,7 +1359,7 @@ class AutofillActionService(object):
             _registered_method=True)
 
 
-class AutofillActionConfigServiceStub(object):
+class AutofillActionConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1435,7 +1435,7 @@ class AutofillActionConfigServiceStub(object):
                 _registered_method=True)
 
 
-class AutofillActionConfigServiceServicer(object):
+class AutofillActionConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1592,7 +1592,7 @@ def add_AutofillActionConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class AutofillActionConfigService(object):
+class AutofillActionConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1947,7 +1947,7 @@ class AutofillActionConfigService(object):
             _registered_method=True)
 
 
-class InputsServiceStub(object):
+class InputsServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1998,7 +1998,7 @@ class InputsServiceStub(object):
                 _registered_method=True)
 
 
-class InputsServiceServicer(object):
+class InputsServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2100,7 +2100,7 @@ def add_InputsServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class InputsService(object):
+class InputsService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -2320,7 +2320,7 @@ class InputsService(object):
             _registered_method=True)
 
 
-class InputsConfigServiceStub(object):
+class InputsConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2396,7 +2396,7 @@ class InputsConfigServiceStub(object):
                 _registered_method=True)
 
 
-class InputsConfigServiceServicer(object):
+class InputsConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2553,7 +2553,7 @@ def add_InputsConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class InputsConfigService(object):
+class InputsConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -2908,7 +2908,7 @@ class InputsConfigService(object):
             _registered_method=True)
 
 
-class SecretInputServiceStub(object):
+class SecretInputServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2959,7 +2959,7 @@ class SecretInputServiceStub(object):
                 _registered_method=True)
 
 
-class SecretInputServiceServicer(object):
+class SecretInputServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -3061,7 +3061,7 @@ def add_SecretInputServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class SecretInputService(object):
+class SecretInputService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -3281,7 +3281,7 @@ class SecretInputService(object):
             _registered_method=True)
 
 
-class StudioServiceStub(object):
+class StudioServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -3332,7 +3332,7 @@ class StudioServiceStub(object):
                 _registered_method=True)
 
 
-class StudioServiceServicer(object):
+class StudioServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -3434,7 +3434,7 @@ def add_StudioServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class StudioService(object):
+class StudioService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -3654,7 +3654,7 @@ class StudioService(object):
             _registered_method=True)
 
 
-class StudioConfigServiceStub(object):
+class StudioConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -3730,7 +3730,7 @@ class StudioConfigServiceStub(object):
                 _registered_method=True)
 
 
-class StudioConfigServiceServicer(object):
+class StudioConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -3887,7 +3887,7 @@ def add_StudioConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class StudioConfigService(object):
+class StudioConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -4242,7 +4242,7 @@ class StudioConfigService(object):
             _registered_method=True)
 
 
-class StudioSummaryServiceStub(object):
+class StudioSummaryServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -4293,7 +4293,7 @@ class StudioSummaryServiceStub(object):
                 _registered_method=True)
 
 
-class StudioSummaryServiceServicer(object):
+class StudioSummaryServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -4395,7 +4395,7 @@ def add_StudioSummaryServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class StudioSummaryService(object):
+class StudioSummaryService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

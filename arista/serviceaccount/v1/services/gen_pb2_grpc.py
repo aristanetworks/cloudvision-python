@@ -5,7 +5,7 @@ import warnings
 
 from arista.serviceaccount.v1.services import gen_pb2 as arista_dot_serviceaccount_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/serviceaccount.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/serviceaccount.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class AccountServiceStub(object):
+class AccountServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -66,7 +66,7 @@ class AccountServiceStub(object):
                 _registered_method=True)
 
 
-class AccountServiceServicer(object):
+class AccountServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -146,7 +146,7 @@ def add_AccountServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class AccountService(object):
+class AccountService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -312,7 +312,7 @@ class AccountService(object):
             _registered_method=True)
 
 
-class AccountConfigServiceStub(object):
+class AccountConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -378,7 +378,7 @@ class AccountConfigServiceStub(object):
                 _registered_method=True)
 
 
-class AccountConfigServiceServicer(object):
+class AccountConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -513,7 +513,7 @@ def add_AccountConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class AccountConfigService(object):
+class AccountConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -814,7 +814,7 @@ class AccountConfigService(object):
             _registered_method=True)
 
 
-class TokenServiceStub(object):
+class TokenServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -855,7 +855,7 @@ class TokenServiceStub(object):
                 _registered_method=True)
 
 
-class TokenServiceServicer(object):
+class TokenServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -935,7 +935,7 @@ def add_TokenServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TokenService(object):
+class TokenService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1101,7 +1101,7 @@ class TokenService(object):
             _registered_method=True)
 
 
-class TokenConfigServiceStub(object):
+class TokenConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1167,7 +1167,7 @@ class TokenConfigServiceStub(object):
                 _registered_method=True)
 
 
-class TokenConfigServiceServicer(object):
+class TokenConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1302,7 +1302,7 @@ def add_TokenConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TokenConfigService(object):
+class TokenConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1603,7 +1603,7 @@ class TokenConfigService(object):
             _registered_method=True)
 
 
-class TokenSelfRefreshConfigServiceStub(object):
+class TokenSelfRefreshConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1639,7 +1639,7 @@ class TokenSelfRefreshConfigServiceStub(object):
                 _registered_method=True)
 
 
-class TokenSelfRefreshConfigServiceServicer(object):
+class TokenSelfRefreshConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1708,7 +1708,7 @@ def add_TokenSelfRefreshConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TokenSelfRefreshConfigService(object):
+class TokenSelfRefreshConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

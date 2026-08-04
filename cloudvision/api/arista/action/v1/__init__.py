@@ -199,7 +199,9 @@ class ActionAudit(aristaproto.Message):
     created_at: datetime = aristaproto.message_field(1)
     """created_at records the time when the action was originally created."""
 
-    created_by: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    created_by: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """created_by records the user who created the action."""
 
     last_modified_at: datetime = aristaproto.message_field(3)
@@ -207,12 +209,16 @@ class ActionAudit(aristaproto.Message):
     last_modified_at records the time when the action was most recently modified.
     """
 
-    last_modified_by: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    last_modified_by: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """
     last_modified_by records the user who most recently modified the action.
     """
 
-    from_package: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
+    from_package: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
     """
     from_package indicates that this action was created by a package, and can only be modified
     by the packaging service.
@@ -247,7 +253,9 @@ class ActionArgDefinition(aristaproto.Message):
     value.
     """
 
-    description: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    description: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """description is a user-friendly description of the argument."""
 
     hidden: Optional[bool] = aristaproto.message_field(4, wraps=aristaproto.TYPE_BOOL)
@@ -280,7 +288,9 @@ class ActionCore(aristaproto.Message):
     type: "ActionType" = aristaproto.enum_field(2)
     """type is the specific type of the action."""
 
-    description: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    description: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """description is a user-friendly description of the action."""
 
     static_args: "ActionSchema" = aristaproto.message_field(4)
@@ -394,7 +404,9 @@ class ActionRunConfig(aristaproto.Message):
     key uniquely identifies the ActionRunConfig and the corresponding ActionRun.
     """
 
-    action_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    action_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """action_id uniquely identifies the Action being run."""
 
     dynamic_args: "ActionArgValues" = aristaproto.message_field(3)
@@ -414,19 +426,25 @@ class ActionRun(aristaproto.Message):
     key uniquely identifies the ActionRun and the corresponding ActionRunConfig.
     """
 
-    action_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    action_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """action_id uniquely identifies the Action being run."""
 
     created_at: datetime = aristaproto.message_field(3)
     """created_at records the time when the action run has been requested."""
 
-    created_by: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    created_by: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """created_by records the user who requested the action execution."""
 
     finished_at: datetime = aristaproto.message_field(8)
     """finished_at records the time when the action finished running."""
 
-    is_finished: Optional[bool] = aristaproto.message_field(9, wraps=aristaproto.TYPE_BOOL)
+    is_finished: Optional[bool] = aristaproto.message_field(
+        9, wraps=aristaproto.TYPE_BOOL
+    )
     """
     is_finished is true only when the action has finished running and the fields `code`,
     `output`, `error`, and `finished_at` are assigned their final values.
@@ -2218,7 +2236,9 @@ class ActionServiceBase(ServiceBase):
     ) -> AsyncIterator[ActionStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, action_stream_request: "ActionStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, action_stream_request: "ActionStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -2378,7 +2398,8 @@ class ActionArgConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[ActionArgConfigRequest, ActionArgConfigResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionArgConfigRequest, ActionArgConfigResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -2418,14 +2439,16 @@ class ActionArgConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[ActionArgConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionArgConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[ActionArgConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionArgConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2435,7 +2458,8 @@ class ActionArgConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[ActionArgConfigSetRequest, ActionArgConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionArgConfigSetRequest, ActionArgConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -2554,7 +2578,9 @@ class ActionArgConfigServiceBase(ServiceBase):
 
 
 class ActionConfigServiceBase(ServiceBase):
-    async def get_one(self, action_config_request: "ActionConfigRequest") -> "ActionConfigResponse":
+    async def get_one(
+        self, action_config_request: "ActionConfigRequest"
+    ) -> "ActionConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -2615,7 +2641,8 @@ class ActionConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[ActionConfigSomeRequest, ActionConfigSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionConfigSomeRequest, ActionConfigSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2625,7 +2652,8 @@ class ActionConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[ActionConfigStreamRequest, ActionConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionConfigStreamRequest, ActionConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2635,7 +2663,8 @@ class ActionConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[ActionConfigStreamRequest, ActionConfigStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionConfigStreamRequest, ActionConfigStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2662,7 +2691,8 @@ class ActionConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[ActionConfigSetRequest, ActionConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionConfigSetRequest, ActionConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -2680,7 +2710,8 @@ class ActionConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete(
-        self, stream: "grpclib.server.Stream[ActionConfigDeleteRequest, ActionConfigDeleteResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionConfigDeleteRequest, ActionConfigDeleteResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.delete(request)
@@ -2780,7 +2811,9 @@ class ActionConfigServiceBase(ServiceBase):
 
 
 class ActionRunServiceBase(ServiceBase):
-    async def get_one(self, action_run_request: "ActionRunRequest") -> "ActionRunResponse":
+    async def get_one(
+        self, action_run_request: "ActionRunRequest"
+    ) -> "ActionRunResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -2798,7 +2831,9 @@ class ActionRunServiceBase(ServiceBase):
     ) -> AsyncIterator[ActionRunStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, action_run_stream_request: "ActionRunStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, action_run_stream_request: "ActionRunStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -2814,7 +2849,8 @@ class ActionRunServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[ActionRunSomeRequest, ActionRunSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionRunSomeRequest, ActionRunSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2824,7 +2860,8 @@ class ActionRunServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[ActionRunStreamRequest, ActionRunStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionRunStreamRequest, ActionRunStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2834,7 +2871,8 @@ class ActionRunServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[ActionRunStreamRequest, ActionRunStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionRunStreamRequest, ActionRunStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2958,7 +2996,8 @@ class ActionRunConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[ActionRunConfigRequest, ActionRunConfigResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionRunConfigRequest, ActionRunConfigResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -2998,14 +3037,16 @@ class ActionRunConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[ActionRunConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionRunConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[ActionRunConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionRunConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3015,7 +3056,8 @@ class ActionRunConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self, stream: "grpclib.server.Stream[ActionRunConfigSetRequest, ActionRunConfigSetResponse]"
+        self,
+        stream: "grpclib.server.Stream[ActionRunConfigSetRequest, ActionRunConfigSetResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)

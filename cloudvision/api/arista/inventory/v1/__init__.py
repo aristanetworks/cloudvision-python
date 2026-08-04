@@ -232,7 +232,9 @@ class ExtendedAttributes(aristaproto.Message):
 class DeviceKey(aristaproto.Message):
     """DeviceKey uniquely identifies a single device."""
 
-    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """device_id is the unique identifier of the device."""
 
 
@@ -262,7 +264,9 @@ class UuidKey(aristaproto.Message):
     UUIDKey is a key that holds a UUID for an onboarding or decommissioning request.
     """
 
-    request_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    request_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """request_id should be a UUID for the request."""
 
 
@@ -287,12 +291,16 @@ class DeviceOnboardingConfig(aristaproto.Message):
     key: "UuidKey" = aristaproto.message_field(1)
     """key identifies the request to onboard the device at hostname_or_ip."""
 
-    hostname_or_ip: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    hostname_or_ip: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """
     hostname_or_ip is a hostname or an IP at which the device can be reached.
     """
 
-    device_type: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    device_type: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """
     device_type describes the method by which to retrieve information for the
     device. The value should be \"eos\" for eos devices. For third-party devices,
@@ -302,7 +310,9 @@ class DeviceOnboardingConfig(aristaproto.Message):
     device_config: "DeviceConfiguration" = aristaproto.message_field(4)
     """device_config is the configuration for a third-party device."""
 
-    profile_name: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
+    profile_name: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
     """
     profile_name specifies the name of the TerminAttr profile which includes the
     custom TerminAttr configuration to be applied to the device while onboarding.
@@ -318,7 +328,9 @@ class DeviceOnboarding(aristaproto.Message):
     key identifies the request for which to retrieve an onboarding status.
     """
 
-    device_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """device_id is the unique device ID that is discovered via onboarding."""
 
     status: "OnboardingStatus" = aristaproto.enum_field(3)
@@ -329,14 +341,18 @@ class DeviceOnboarding(aristaproto.Message):
     error is the error that caused status to become ONBOARDING_STATUS_FAILURE.
     """
 
-    status_message: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
+    status_message: Optional[str] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_STRING
+    )
     """
     status_message contains information on the status of the onboarding attempt,
     if any. This is generally an unstructured log message that is for display
     purposes only (its structure and contents may change).
     """
 
-    profile_name: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
+    profile_name: Optional[str] = aristaproto.message_field(
+        6, wraps=aristaproto.TYPE_STRING
+    )
     """
     profile_name is the name of the custom TerminAttr profile that was specified in the
     onboarding request.
@@ -367,7 +383,9 @@ class DeviceDecommissioningConfig(aristaproto.Message):
     key: "UuidKey" = aristaproto.message_field(1)
     """key identifies the request to decommission the device."""
 
-    device_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """
     device_id is the unique device ID that was discovered via onboarding.
     """
@@ -380,7 +398,9 @@ class DeviceDecommissioningConfig(aristaproto.Message):
     tasks would be ignored and decommissioning will be continued.
     """
 
-    user_name: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    user_name: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """user_name is name of the user who decommissioned the device."""
 
 
@@ -403,7 +423,9 @@ class DeviceDecommissioning(aristaproto.Message):
     error is the error that caused status to become DECOMMISSIONING_STATUS_FAILURE.
     """
 
-    status_message: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    status_message: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """
     status_message contains information on the status of the decommissioning attempt,
     if any. This is generally an unstructured log message that is for display
@@ -418,29 +440,41 @@ class Device(aristaproto.Message):
     key: "DeviceKey" = aristaproto.message_field(1)
     """key uniquely identifies the device."""
 
-    software_version: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    software_version: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
     """
     software_version gives the currently running device software version.
     """
 
-    model_name: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    model_name: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """model_name describes the hardware model of this device."""
 
-    hardware_revision: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    hardware_revision: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """hardware_revision describes any revisional data to the model name."""
 
     fqdn: Optional[str] = aristaproto.message_field(10, wraps=aristaproto.TYPE_STRING)
     """fqdn gives the device's fully qualified domain name."""
 
-    hostname: Optional[str] = aristaproto.message_field(11, wraps=aristaproto.TYPE_STRING)
+    hostname: Optional[str] = aristaproto.message_field(
+        11, wraps=aristaproto.TYPE_STRING
+    )
     """hostname is the hostname as reported on the device."""
 
-    domain_name: Optional[str] = aristaproto.message_field(12, wraps=aristaproto.TYPE_STRING)
+    domain_name: Optional[str] = aristaproto.message_field(
+        12, wraps=aristaproto.TYPE_STRING
+    )
     """
     domain_name provides the domain name on which the device is registered.
     """
 
-    system_mac_address: Optional[str] = aristaproto.message_field(13, wraps=aristaproto.TYPE_STRING)
+    system_mac_address: Optional[str] = aristaproto.message_field(
+        13, wraps=aristaproto.TYPE_STRING
+    )
     """system_mac_address provides the MAC address of the management port."""
 
     boot_time: datetime = aristaproto.message_field(20)
@@ -664,7 +698,9 @@ class DeviceBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -828,7 +864,9 @@ class DeviceDecommissioningBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -839,7 +877,9 @@ class DeviceDecommissioningBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceDecommissioningBatchedStreamResponse(aristaproto.Message):
-    responses: List["DeviceDecommissioningStreamResponse"] = aristaproto.message_field(1)
+    responses: List["DeviceDecommissioningStreamResponse"] = aristaproto.message_field(
+        1
+    )
     """
     Values are the values deemed relevant to the initiating request.
     The length of this structure is guaranteed to be between (inclusive) 1 and
@@ -914,7 +954,9 @@ class DeviceDecommissioningConfigSomeResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceDecommissioningConfigStreamRequest(aristaproto.Message):
-    partial_eq_filter: List["DeviceDecommissioningConfig"] = aristaproto.message_field(1)
+    partial_eq_filter: List["DeviceDecommissioningConfig"] = aristaproto.message_field(
+        1
+    )
     """
     PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
     This requires all provided fields to be equal to the response.
@@ -966,7 +1008,9 @@ class DeviceDecommissioningConfigStreamResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceDecommissioningConfigBatchedStreamRequest(aristaproto.Message):
-    partial_eq_filter: List["DeviceDecommissioningConfig"] = aristaproto.message_field(1)
+    partial_eq_filter: List["DeviceDecommissioningConfig"] = aristaproto.message_field(
+        1
+    )
     """
     PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
     This requires all provided fields to be equal to the response.
@@ -992,7 +1036,9 @@ class DeviceDecommissioningConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1003,7 +1049,9 @@ class DeviceDecommissioningConfigBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceDecommissioningConfigBatchedStreamResponse(aristaproto.Message):
-    responses: List["DeviceDecommissioningConfigStreamResponse"] = aristaproto.message_field(1)
+    responses: List["DeviceDecommissioningConfigStreamResponse"] = (
+        aristaproto.message_field(1)
+    )
     """
     Values are the values deemed relevant to the initiating request.
     The length of this structure is guaranteed to be between (inclusive) 1 and
@@ -1101,7 +1149,9 @@ class DeviceDecommissioningConfigDeleteSomeResponse(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceDecommissioningConfigDeleteAllRequest(aristaproto.Message):
-    partial_eq_filter: List["DeviceDecommissioningConfig"] = aristaproto.message_field(1)
+    partial_eq_filter: List["DeviceDecommissioningConfig"] = aristaproto.message_field(
+        1
+    )
     """
     PartialEqFilter provides a way to server-side filter a DeleteAll.
     This requires all provided fields to be equal to the response.
@@ -1274,7 +1324,9 @@ class DeviceOnboardingBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1438,7 +1490,9 @@ class DeviceOnboardingConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1449,7 +1503,9 @@ class DeviceOnboardingConfigBatchedStreamRequest(aristaproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeviceOnboardingConfigBatchedStreamResponse(aristaproto.Message):
-    responses: List["DeviceOnboardingConfigStreamResponse"] = aristaproto.message_field(1)
+    responses: List["DeviceOnboardingConfigStreamResponse"] = aristaproto.message_field(
+        1
+    )
     """
     Values are the values deemed relevant to the initiating request.
     The length of this structure is guaranteed to be between (inclusive) 1 and
@@ -1720,7 +1776,9 @@ class ProvisionedDeviceBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2803,7 +2861,9 @@ class DeviceServiceBase(ServiceBase):
     ) -> AsyncIterator[DeviceStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, device_stream_request: "DeviceStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, device_stream_request: "DeviceStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -2962,22 +3022,26 @@ class DeviceDecommissioningServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self, device_decommissioning_stream_request: "DeviceDecommissioningStreamRequest"
+        self,
+        device_decommissioning_stream_request: "DeviceDecommissioningStreamRequest",
     ) -> AsyncIterator[DeviceDecommissioningStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self, device_decommissioning_stream_request: "DeviceDecommissioningStreamRequest"
+        self,
+        device_decommissioning_stream_request: "DeviceDecommissioningStreamRequest",
     ) -> AsyncIterator[DeviceDecommissioningStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
-        self, device_decommissioning_stream_request: "DeviceDecommissioningStreamRequest"
+        self,
+        device_decommissioning_stream_request: "DeviceDecommissioningStreamRequest",
     ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self, device_decommissioning_stream_request: "DeviceDecommissioningStreamRequest"
+        self,
+        device_decommissioning_stream_request: "DeviceDecommissioningStreamRequest",
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3035,14 +3099,16 @@ class DeviceDecommissioningServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[DeviceDecommissioningStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceDecommissioningStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[DeviceDecommissioningStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceDecommissioningStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3128,12 +3194,14 @@ class DeviceDecommissioningServiceBase(ServiceBase):
 
 class DeviceDecommissioningConfigServiceBase(ServiceBase):
     async def get_one(
-        self, device_decommissioning_config_request: "DeviceDecommissioningConfigRequest"
+        self,
+        device_decommissioning_config_request: "DeviceDecommissioningConfigRequest",
     ) -> "DeviceDecommissioningConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
-        self, device_decommissioning_config_some_request: "DeviceDecommissioningConfigSomeRequest"
+        self,
+        device_decommissioning_config_some_request: "DeviceDecommissioningConfigSomeRequest",
     ) -> AsyncIterator[DeviceDecommissioningConfigSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3162,7 +3230,8 @@ class DeviceDecommissioningConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set(
-        self, device_decommissioning_config_set_request: "DeviceDecommissioningConfigSetRequest"
+        self,
+        device_decommissioning_config_set_request: "DeviceDecommissioningConfigSetRequest",
     ) -> "DeviceDecommissioningConfigSetResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3448,17 +3517,20 @@ class DeviceOnboardingServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self, device_onboarding_batched_stream_request: "DeviceOnboardingBatchedStreamRequest"
+        self,
+        device_onboarding_batched_stream_request: "DeviceOnboardingBatchedStreamRequest",
     ) -> AsyncIterator[DeviceOnboardingBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self, device_onboarding_batched_stream_request: "DeviceOnboardingBatchedStreamRequest"
+        self,
+        device_onboarding_batched_stream_request: "DeviceOnboardingBatchedStreamRequest",
     ) -> AsyncIterator[DeviceOnboardingBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[DeviceOnboardingRequest, DeviceOnboardingResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceOnboardingRequest, DeviceOnboardingResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -3498,14 +3570,16 @@ class DeviceOnboardingServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[DeviceOnboardingStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceOnboardingStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[DeviceOnboardingStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceOnboardingStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3601,22 +3675,26 @@ class DeviceOnboardingConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self, device_onboarding_config_stream_request: "DeviceOnboardingConfigStreamRequest"
+        self,
+        device_onboarding_config_stream_request: "DeviceOnboardingConfigStreamRequest",
     ) -> AsyncIterator[DeviceOnboardingConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self, device_onboarding_config_stream_request: "DeviceOnboardingConfigStreamRequest"
+        self,
+        device_onboarding_config_stream_request: "DeviceOnboardingConfigStreamRequest",
     ) -> AsyncIterator[DeviceOnboardingConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
-        self, device_onboarding_config_stream_request: "DeviceOnboardingConfigStreamRequest"
+        self,
+        device_onboarding_config_stream_request: "DeviceOnboardingConfigStreamRequest",
     ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self, device_onboarding_config_stream_request: "DeviceOnboardingConfigStreamRequest"
+        self,
+        device_onboarding_config_stream_request: "DeviceOnboardingConfigStreamRequest",
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3626,12 +3704,14 @@ class DeviceOnboardingConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
-        self, device_onboarding_config_set_some_request: "DeviceOnboardingConfigSetSomeRequest"
+        self,
+        device_onboarding_config_set_some_request: "DeviceOnboardingConfigSetSomeRequest",
     ) -> AsyncIterator[DeviceOnboardingConfigSetSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete(
-        self, device_onboarding_config_delete_request: "DeviceOnboardingConfigDeleteRequest"
+        self,
+        device_onboarding_config_delete_request: "DeviceOnboardingConfigDeleteRequest",
     ) -> "DeviceOnboardingConfigDeleteResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3642,7 +3722,8 @@ class DeviceOnboardingConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_all(
-        self, device_onboarding_config_delete_all_request: "DeviceOnboardingConfigDeleteAllRequest"
+        self,
+        device_onboarding_config_delete_all_request: "DeviceOnboardingConfigDeleteAllRequest",
     ) -> AsyncIterator[DeviceOnboardingConfigDeleteAllResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3700,14 +3781,16 @@ class DeviceOnboardingConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[DeviceOnboardingConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceOnboardingConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[DeviceOnboardingConfigStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[DeviceOnboardingConfigStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3902,17 +3985,20 @@ class ProvisionedDeviceServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self, provisioned_device_batched_stream_request: "ProvisionedDeviceBatchedStreamRequest"
+        self,
+        provisioned_device_batched_stream_request: "ProvisionedDeviceBatchedStreamRequest",
     ) -> AsyncIterator[ProvisionedDeviceBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self, provisioned_device_batched_stream_request: "ProvisionedDeviceBatchedStreamRequest"
+        self,
+        provisioned_device_batched_stream_request: "ProvisionedDeviceBatchedStreamRequest",
     ) -> AsyncIterator[ProvisionedDeviceBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[ProvisionedDeviceRequest, ProvisionedDeviceResponse]"
+        self,
+        stream: "grpclib.server.Stream[ProvisionedDeviceRequest, ProvisionedDeviceResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -3952,14 +4038,16 @@ class ProvisionedDeviceServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self, stream: "grpclib.server.Stream[ProvisionedDeviceStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[ProvisionedDeviceStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self, stream: "grpclib.server.Stream[ProvisionedDeviceStreamRequest, MetaResponse]"
+        self,
+        stream: "grpclib.server.Stream[ProvisionedDeviceStreamRequest, MetaResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

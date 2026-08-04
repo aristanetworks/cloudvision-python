@@ -5,7 +5,7 @@ import warnings
 
 from arista.alert.v1.services import gen_pb2 as arista_dot_alert_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/alert.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/alert.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class AlertServiceStub(object):
+class AlertServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -56,7 +56,7 @@ class AlertServiceStub(object):
                 _registered_method=True)
 
 
-class AlertServiceServicer(object):
+class AlertServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -114,7 +114,7 @@ def add_AlertServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class AlertService(object):
+class AlertService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -226,7 +226,7 @@ class AlertService(object):
             _registered_method=True)
 
 
-class AlertConfigServiceStub(object):
+class AlertConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -262,7 +262,7 @@ class AlertConfigServiceStub(object):
                 _registered_method=True)
 
 
-class AlertConfigServiceServicer(object):
+class AlertConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -331,7 +331,7 @@ def add_AlertConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class AlertConfigService(object):
+class AlertConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -470,7 +470,7 @@ class AlertConfigService(object):
             _registered_method=True)
 
 
-class DefaultTemplateServiceStub(object):
+class DefaultTemplateServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -521,7 +521,7 @@ class DefaultTemplateServiceStub(object):
                 _registered_method=True)
 
 
-class DefaultTemplateServiceServicer(object):
+class DefaultTemplateServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -623,7 +623,7 @@ def add_DefaultTemplateServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DefaultTemplateService(object):
+class DefaultTemplateService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -843,7 +843,7 @@ class DefaultTemplateService(object):
             _registered_method=True)
 
 
-class SenderStatusServiceStub(object):
+class SenderStatusServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -894,7 +894,7 @@ class SenderStatusServiceStub(object):
                 _registered_method=True)
 
 
-class SenderStatusServiceServicer(object):
+class SenderStatusServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -996,7 +996,7 @@ def add_SenderStatusServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class SenderStatusService(object):
+class SenderStatusService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1216,7 +1216,7 @@ class SenderStatusService(object):
             _registered_method=True)
 
 
-class TemplateConfigServiceStub(object):
+class TemplateConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1292,7 +1292,7 @@ class TemplateConfigServiceStub(object):
                 _registered_method=True)
 
 
-class TemplateConfigServiceServicer(object):
+class TemplateConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1449,7 +1449,7 @@ def add_TemplateConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TemplateConfigService(object):
+class TemplateConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

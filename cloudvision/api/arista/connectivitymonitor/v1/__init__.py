@@ -60,7 +60,9 @@ if TYPE_CHECKING:
 class ProbeKey(aristaproto.Message):
     """ProbeKey uniquely identifies a connectivity monitor probe."""
 
-    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """device_id is the id of the device in the probe."""
 
     host: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
@@ -77,7 +79,9 @@ class ProbeStatsKey(aristaproto.Message):
     per source interface.
     """
 
-    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
+    device_id: Optional[str] = aristaproto.message_field(
+        1, wraps=aristaproto.TYPE_STRING
+    )
     """device_id is the id of the device in the probe."""
 
     host: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
@@ -86,7 +90,9 @@ class ProbeStatsKey(aristaproto.Message):
     vrf: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """vrf is the name of the VRF in the probe."""
 
-    source_intf: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    source_intf: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """source_intf is the name of the interface in the probe."""
 
 
@@ -104,10 +110,14 @@ class Probe(aristaproto.Message):
     ip_addr: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """ip_addr is the IP Address of the probe."""
 
-    host_name: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    host_name: Optional[str] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_STRING
+    )
     """host_name is the name of the host of the probe."""
 
-    description: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    description: Optional[str] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_STRING
+    )
     """description is the description of the probe."""
 
 
@@ -120,13 +130,17 @@ class ProbeStats(aristaproto.Message):
     key: "ProbeStatsKey" = aristaproto.message_field(1)
     """key uniquely identifies the connectivity monitor probe."""
 
-    latency_millis: Optional[float] = aristaproto.message_field(2, wraps=aristaproto.TYPE_DOUBLE)
+    latency_millis: Optional[float] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_DOUBLE
+    )
     """
     latency_millis is the latency between the device interface and the host.
     Value is in milliseconds.
     """
 
-    jitter_millis: Optional[float] = aristaproto.message_field(3, wraps=aristaproto.TYPE_DOUBLE)
+    jitter_millis: Optional[float] = aristaproto.message_field(
+        3, wraps=aristaproto.TYPE_DOUBLE
+    )
     """
     jitter_millis is the amount of jitter experienced by requests
     between the device interface and host.
@@ -142,7 +156,9 @@ class ProbeStats(aristaproto.Message):
     Value is in milliseconds.
     """
 
-    packet_loss_percent: Optional[int] = aristaproto.message_field(5, wraps=aristaproto.TYPE_INT64)
+    packet_loss_percent: Optional[int] = aristaproto.message_field(
+        5, wraps=aristaproto.TYPE_INT64
+    )
     """
     packet_loss_percent is the amount of packet loss experienced
     by requests between the device interface and host.
@@ -317,7 +333,9 @@ class ProbeBatchedStreamRequest(aristaproto.Message):
     This field is not allowed in the Subscribe RPC.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -479,7 +497,9 @@ class ProbeStatsBatchedStreamRequest(aristaproto.Message):
     This field is not allowed in the Subscribe RPC.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
+    max_messages: Optional[int] = aristaproto.message_field(
+        4, wraps=aristaproto.TYPE_UINT32
+    )
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -809,7 +829,9 @@ class ProbeServiceBase(ServiceBase):
     ) -> AsyncIterator[ProbeStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(self, probe_stream_request: "ProbeStreamRequest") -> "MetaResponse":
+    async def get_meta(
+        self, probe_stream_request: "ProbeStreamRequest"
+    ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -882,7 +904,8 @@ class ProbeServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all_batched(
-        self, stream: "grpclib.server.Stream[ProbeBatchedStreamRequest, ProbeBatchedStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ProbeBatchedStreamRequest, ProbeBatchedStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -892,7 +915,8 @@ class ProbeServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe_batched(
-        self, stream: "grpclib.server.Stream[ProbeBatchedStreamRequest, ProbeBatchedStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ProbeBatchedStreamRequest, ProbeBatchedStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -955,7 +979,9 @@ class ProbeServiceBase(ServiceBase):
 
 
 class ProbeStatsServiceBase(ServiceBase):
-    async def get_one(self, probe_stats_request: "ProbeStatsRequest") -> "ProbeStatsResponse":
+    async def get_one(
+        self, probe_stats_request: "ProbeStatsRequest"
+    ) -> "ProbeStatsResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -1001,7 +1027,8 @@ class ProbeStatsServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self, stream: "grpclib.server.Stream[ProbeStatsSomeRequest, ProbeStatsSomeResponse]"
+        self,
+        stream: "grpclib.server.Stream[ProbeStatsSomeRequest, ProbeStatsSomeResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1011,7 +1038,8 @@ class ProbeStatsServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self, stream: "grpclib.server.Stream[ProbeStatsStreamRequest, ProbeStatsStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ProbeStatsStreamRequest, ProbeStatsStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1021,7 +1049,8 @@ class ProbeStatsServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self, stream: "grpclib.server.Stream[ProbeStatsStreamRequest, ProbeStatsStreamResponse]"
+        self,
+        stream: "grpclib.server.Stream[ProbeStatsStreamRequest, ProbeStatsStreamResponse]",
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

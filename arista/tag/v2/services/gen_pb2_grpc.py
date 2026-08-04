@@ -5,7 +5,7 @@ import warnings
 
 from arista.tag.v2.services import gen_pb2 as arista_dot_tag_dot_v2_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/tag.v2/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/tag.v2/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class ElementServiceStub(object):
+class ElementServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class ElementServiceStub(object):
                 _registered_method=True)
 
 
-class ElementServiceServicer(object):
+class ElementServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_ElementServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ElementService(object):
+class ElementService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class ElementService(object):
             _registered_method=True)
 
 
-class TagServiceStub(object):
+class TagServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -449,7 +449,7 @@ class TagServiceStub(object):
                 _registered_method=True)
 
 
-class TagServiceServicer(object):
+class TagServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -551,7 +551,7 @@ def add_TagServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TagService(object):
+class TagService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -771,7 +771,7 @@ class TagService(object):
             _registered_method=True)
 
 
-class TagAssignmentServiceStub(object):
+class TagAssignmentServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -822,7 +822,7 @@ class TagAssignmentServiceStub(object):
                 _registered_method=True)
 
 
-class TagAssignmentServiceServicer(object):
+class TagAssignmentServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -924,7 +924,7 @@ def add_TagAssignmentServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TagAssignmentService(object):
+class TagAssignmentService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1144,7 +1144,7 @@ class TagAssignmentService(object):
             _registered_method=True)
 
 
-class TagAssignmentConfigServiceStub(object):
+class TagAssignmentConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1220,7 +1220,7 @@ class TagAssignmentConfigServiceStub(object):
                 _registered_method=True)
 
 
-class TagAssignmentConfigServiceServicer(object):
+class TagAssignmentConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1377,7 +1377,7 @@ def add_TagAssignmentConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TagAssignmentConfigService(object):
+class TagAssignmentConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1732,7 +1732,7 @@ class TagAssignmentConfigService(object):
             _registered_method=True)
 
 
-class TagConfigServiceStub(object):
+class TagConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1808,7 +1808,7 @@ class TagConfigServiceStub(object):
                 _registered_method=True)
 
 
-class TagConfigServiceServicer(object):
+class TagConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1965,7 +1965,7 @@ def add_TagConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TagConfigService(object):
+class TagConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

@@ -5,7 +5,7 @@ import warnings
 
 from arista.inventory.v1.services import gen_pb2 as arista_dot_inventory_dot_v1_dot_services_dot_gen__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in arista/inventory.v1/services.gen_pb2_grpc.py depends on'
+        + ' but the generated code in arista/inventory.v1/services.gen_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class DeviceServiceStub(object):
+class DeviceServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -76,7 +76,7 @@ class DeviceServiceStub(object):
                 _registered_method=True)
 
 
-class DeviceServiceServicer(object):
+class DeviceServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -178,7 +178,7 @@ def add_DeviceServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DeviceService(object):
+class DeviceService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -398,7 +398,7 @@ class DeviceService(object):
             _registered_method=True)
 
 
-class DeviceDecommissioningServiceStub(object):
+class DeviceDecommissioningServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -449,7 +449,7 @@ class DeviceDecommissioningServiceStub(object):
                 _registered_method=True)
 
 
-class DeviceDecommissioningServiceServicer(object):
+class DeviceDecommissioningServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -551,7 +551,7 @@ def add_DeviceDecommissioningServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DeviceDecommissioningService(object):
+class DeviceDecommissioningService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -771,7 +771,7 @@ class DeviceDecommissioningService(object):
             _registered_method=True)
 
 
-class DeviceDecommissioningConfigServiceStub(object):
+class DeviceDecommissioningConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -847,7 +847,7 @@ class DeviceDecommissioningConfigServiceStub(object):
                 _registered_method=True)
 
 
-class DeviceDecommissioningConfigServiceServicer(object):
+class DeviceDecommissioningConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1004,7 +1004,7 @@ def add_DeviceDecommissioningConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DeviceDecommissioningConfigService(object):
+class DeviceDecommissioningConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1359,7 +1359,7 @@ class DeviceDecommissioningConfigService(object):
             _registered_method=True)
 
 
-class DeviceOnboardingServiceStub(object):
+class DeviceOnboardingServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1410,7 +1410,7 @@ class DeviceOnboardingServiceStub(object):
                 _registered_method=True)
 
 
-class DeviceOnboardingServiceServicer(object):
+class DeviceOnboardingServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1512,7 +1512,7 @@ def add_DeviceOnboardingServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DeviceOnboardingService(object):
+class DeviceOnboardingService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1732,7 +1732,7 @@ class DeviceOnboardingService(object):
             _registered_method=True)
 
 
-class DeviceOnboardingConfigServiceStub(object):
+class DeviceOnboardingConfigServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1808,7 +1808,7 @@ class DeviceOnboardingConfigServiceStub(object):
                 _registered_method=True)
 
 
-class DeviceOnboardingConfigServiceServicer(object):
+class DeviceOnboardingConfigServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -1965,7 +1965,7 @@ def add_DeviceOnboardingConfigServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DeviceOnboardingConfigService(object):
+class DeviceOnboardingConfigService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -2320,7 +2320,7 @@ class DeviceOnboardingConfigService(object):
             _registered_method=True)
 
 
-class ProvisionedDeviceServiceStub(object):
+class ProvisionedDeviceServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -2371,7 +2371,7 @@ class ProvisionedDeviceServiceStub(object):
                 _registered_method=True)
 
 
-class ProvisionedDeviceServiceServicer(object):
+class ProvisionedDeviceServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetOne(self, request, context):
@@ -2473,7 +2473,7 @@ def add_ProvisionedDeviceServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ProvisionedDeviceService(object):
+class ProvisionedDeviceService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
