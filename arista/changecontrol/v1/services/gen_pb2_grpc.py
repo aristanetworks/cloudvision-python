@@ -1572,3 +1572,376 @@ class ChangeControlConfigService(object):
             timeout,
             metadata,
             _registered_method=True)
+
+
+class ChangeControlSummaryServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetOne = channel.unary_unary(
+                '/arista.changecontrol.v1.ChangeControlSummaryService/GetOne',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryResponse.FromString,
+                _registered_method=True)
+        self.GetSome = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlSummaryService/GetSome',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummarySomeRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummarySomeResponse.FromString,
+                _registered_method=True)
+        self.GetAll = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlSummaryService/GetAll',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamResponse.FromString,
+                _registered_method=True)
+        self.Subscribe = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlSummaryService/Subscribe',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamResponse.FromString,
+                _registered_method=True)
+        self.GetMeta = channel.unary_unary(
+                '/arista.changecontrol.v1.ChangeControlSummaryService/GetMeta',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                _registered_method=True)
+        self.SubscribeMeta = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlSummaryService/SubscribeMeta',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+                _registered_method=True)
+        self.GetAllBatched = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlSummaryService/GetAllBatched',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamResponse.FromString,
+                _registered_method=True)
+        self.SubscribeBatched = channel.unary_stream(
+                '/arista.changecontrol.v1.ChangeControlSummaryService/SubscribeBatched',
+                request_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamRequest.SerializeToString,
+                response_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamResponse.FromString,
+                _registered_method=True)
+
+
+class ChangeControlSummaryServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetOne(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSome(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeMeta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeBatched(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_ChangeControlSummaryServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetOne': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOne,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryResponse.SerializeToString,
+            ),
+            'GetSome': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetSome,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummarySomeRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummarySomeResponse.SerializeToString,
+            ),
+            'GetAll': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAll,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamResponse.SerializeToString,
+            ),
+            'GetMeta': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMeta,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'SubscribeMeta': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMeta,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.SerializeToString,
+            ),
+            'GetAllBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAllBatched,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamResponse.SerializeToString,
+            ),
+            'SubscribeBatched': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeBatched,
+                    request_deserializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamRequest.FromString,
+                    response_serializer=arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'arista.changecontrol.v1.ChangeControlSummaryService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('arista.changecontrol.v1.ChangeControlSummaryService', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class ChangeControlSummaryService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetOne(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/arista.changecontrol.v1.ChangeControlSummaryService/GetOne',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetSome(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.changecontrol.v1.ChangeControlSummaryService/GetSome',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummarySomeRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummarySomeResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.changecontrol.v1.ChangeControlSummaryService/GetAll',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.changecontrol.v1.ChangeControlSummaryService/Subscribe',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/arista.changecontrol.v1.ChangeControlSummaryService/GetMeta',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SubscribeMeta(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.changecontrol.v1.ChangeControlSummaryService/SubscribeMeta',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.MetaResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAllBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.changecontrol.v1.ChangeControlSummaryService/GetAllBatched',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SubscribeBatched(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/arista.changecontrol.v1.ChangeControlSummaryService/SubscribeBatched',
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamRequest.SerializeToString,
+            arista_dot_changecontrol_dot_v1_dot_services_dot_gen__pb2.ChangeControlSummaryBatchedStreamResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
