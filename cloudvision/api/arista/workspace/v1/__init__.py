@@ -761,6 +761,15 @@ class Response(aristaproto.Message):
     code: "ResponseCode" = aristaproto.enum_field(3)
     """code is the code of the response."""
 
+    start_time: datetime = aristaproto.message_field(4)
+    """start_time is the time when the request execution started."""
+
+    end_time: datetime = aristaproto.message_field(5)
+    """end_time is the time when the request execution completed."""
+
+    request_type: "Request" = aristaproto.enum_field(6)
+    """request_type is the type of request that this response is for."""
+
 
 @dataclass(eq=False, repr=False)
 class Responses(aristaproto.Message):

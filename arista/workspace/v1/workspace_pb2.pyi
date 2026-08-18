@@ -887,13 +887,26 @@ class Response(google.protobuf.message.Message):
     STATUS_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
     CODE_FIELD_NUMBER: builtins.int
+    START_TIME_FIELD_NUMBER: builtins.int
+    END_TIME_FIELD_NUMBER: builtins.int
+    REQUEST_TYPE_FIELD_NUMBER: builtins.int
     status: global___ResponseStatus.ValueType
     """status is the execution status of the response."""
     code: global___ResponseCode.ValueType
     """code is the code of the response."""
+    request_type: global___Request.ValueType
+    """request_type is the type of request that this response is for."""
     @property
     def message(self) -> google.protobuf.wrappers_pb2.StringValue:
         """message is a string that provides more details about the response."""
+
+    @property
+    def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """start_time is the time when the request execution started."""
+
+    @property
+    def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """end_time is the time when the request execution completed."""
 
     def __init__(
         self,
@@ -901,9 +914,12 @@ class Response(google.protobuf.message.Message):
         status: global___ResponseStatus.ValueType = ...,
         message: google.protobuf.wrappers_pb2.StringValue | None = ...,
         code: global___ResponseCode.ValueType = ...,
+        start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        end_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        request_type: global___Request.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["message", b"message"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["code", b"code", "message", b"message", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["end_time", b"end_time", "message", b"message", "start_time", b"start_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["code", b"code", "end_time", b"end_time", "message", b"message", "request_type", b"request_type", "start_time", b"start_time", "status", b"status"]) -> None: ...
 
 global___Response = Response
 
