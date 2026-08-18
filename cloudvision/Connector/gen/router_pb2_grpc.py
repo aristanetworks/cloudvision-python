@@ -7,7 +7,7 @@ from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 import notification_pb2 as notification__pb2
 import router_pb2 as router__pb2
 
-GRPC_GENERATED_VERSION = '1.67.1'
+GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -20,14 +20,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in router_pb2_grpc.py depends on'
+        + ' but the generated code in router_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class RouterV1Stub(object):
+class RouterV1Stub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -63,7 +63,7 @@ class RouterV1Stub(object):
                 _registered_method=True)
 
 
-class RouterV1Servicer(object):
+class RouterV1Servicer:
     """Missing associated documentation comment in .proto file."""
 
     def Publish(self, request, context):
@@ -198,7 +198,7 @@ def add_RouterV1Servicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class RouterV1(object):
+class RouterV1:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -337,7 +337,7 @@ class RouterV1(object):
             _registered_method=True)
 
 
-class AuthStub(object):
+class AuthStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -373,7 +373,7 @@ class AuthStub(object):
                 _registered_method=True)
 
 
-class AuthServicer(object):
+class AuthServicer:
     """Missing associated documentation comment in .proto file."""
 
     def CreateDataset(self, request, context):
@@ -448,7 +448,7 @@ def add_AuthServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Auth(object):
+class Auth:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -587,7 +587,7 @@ class Auth(object):
             _registered_method=True)
 
 
-class SearchStub(object):
+class SearchStub:
     """Search provides methods to query CloudVision using the Search service.
     """
 
@@ -629,7 +629,7 @@ class SearchStub(object):
                 _registered_method=True)
 
 
-class SearchServicer(object):
+class SearchServicer:
     """Search provides methods to query CloudVision using the Search service.
     """
 
@@ -721,7 +721,7 @@ def add_SearchServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Search(object):
+class Search:
     """Search provides methods to query CloudVision using the Search service.
     """
 
@@ -888,7 +888,7 @@ class Search(object):
             _registered_method=True)
 
 
-class AlphaStub(object):
+class AlphaStub:
     """Alpha services are deprecated. Please use SearchV1
     """
 
@@ -930,7 +930,7 @@ class AlphaStub(object):
                 _registered_method=True)
 
 
-class AlphaServicer(object):
+class AlphaServicer:
     """Alpha services are deprecated. Please use SearchV1
     """
 
@@ -1022,7 +1022,7 @@ def add_AlphaServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Alpha(object):
+class Alpha:
     """Alpha services are deprecated. Please use SearchV1
     """
 
@@ -1189,7 +1189,7 @@ class Alpha(object):
             _registered_method=True)
 
 
-class QuerierStub(object):
+class QuerierStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -1205,7 +1205,7 @@ class QuerierStub(object):
                 _registered_method=True)
 
 
-class QuerierServicer(object):
+class QuerierServicer:
     """Missing associated documentation comment in .proto file."""
 
     def SQL(self, request, context):
@@ -1230,7 +1230,7 @@ def add_QuerierServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Querier(object):
+class Querier:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -1261,7 +1261,7 @@ class Querier(object):
             _registered_method=True)
 
 
-class ClusterStub(object):
+class ClusterStub:
     """Cluster service gives some descriptions about the cluster where the service
     is running.
     """
@@ -1279,7 +1279,7 @@ class ClusterStub(object):
                 _registered_method=True)
 
 
-class ClusterServicer(object):
+class ClusterServicer:
     """Cluster service gives some descriptions about the cluster where the service
     is running.
     """
@@ -1306,7 +1306,7 @@ def add_ClusterServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Cluster(object):
+class Cluster:
     """Cluster service gives some descriptions about the cluster where the service
     is running.
     """
