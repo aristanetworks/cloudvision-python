@@ -50,9 +50,7 @@ if TYPE_CHECKING:
 class AssignmentKey(aristaproto.Message):
     """AssignmentKey allows to uniquely identify an assignment."""
 
-    system_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    system_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """system_id is the unique identifier of a device."""
 
 
@@ -257,9 +255,7 @@ class AssignmentBatchedStreamRequest(aristaproto.Message):
     This field is not allowed in the Subscribe RPC.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -428,9 +424,7 @@ from ... import time as __time__
 
 
 class AssignmentServiceBase(ServiceBase):
-    async def get_one(
-        self, assignment_request: "AssignmentRequest"
-    ) -> "AssignmentResponse":
+    async def get_one(self, assignment_request: "AssignmentRequest") -> "AssignmentResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -476,8 +470,7 @@ class AssignmentServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[AssignmentSomeRequest, AssignmentSomeResponse]",
+        self, stream: "grpclib.server.Stream[AssignmentSomeRequest, AssignmentSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -487,8 +480,7 @@ class AssignmentServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[AssignmentStreamRequest, AssignmentStreamResponse]",
+        self, stream: "grpclib.server.Stream[AssignmentStreamRequest, AssignmentStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -498,8 +490,7 @@ class AssignmentServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[AssignmentStreamRequest, AssignmentStreamResponse]",
+        self, stream: "grpclib.server.Stream[AssignmentStreamRequest, AssignmentStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

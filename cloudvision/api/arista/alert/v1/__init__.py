@@ -641,9 +641,7 @@ class Alert(aristaproto.Message):
     last_modified_at is the time at which the configuration was last modified
     """
 
-    last_modified_by: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    last_modified_by: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """last_modified_by is the user who last modified the configuration"""
 
 
@@ -708,9 +706,7 @@ class SenderStatus(aristaproto.Message):
     success: Optional[bool] = aristaproto.message_field(2, wraps=aristaproto.TYPE_BOOL)
     """success indicates whether the send succeeded or not."""
 
-    config_index: Optional[int] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_INT32
-    )
+    config_index: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_INT32)
     """
     config_index is the index of the config on the broadcast group or -1 if not applicable
     e.g.: if there are two email configs in one broadcast group,
@@ -718,9 +714,7 @@ class SenderStatus(aristaproto.Message):
     Config indices are counted per type.
     """
 
-    remaining_retries: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    remaining_retries: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     remaining_retries is the number of remaining attempts to send a particular alert.
     """
@@ -730,17 +724,13 @@ class SenderStatus(aristaproto.Message):
     error_type is the type of error. This allows custom handling of different error types.
     """
 
-    error_message: Optional[str] = aristaproto.message_field(
-        6, wraps=aristaproto.TYPE_STRING
-    )
+    error_message: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
     """error_message is a user-friendly error message."""
 
     events: "EventIdentifiers" = aristaproto.message_field(7)
     """events is a list of events triggering the alert."""
 
-    previous_attempts: Optional[int] = aristaproto.message_field(
-        8, wraps=aristaproto.TYPE_UINT32
-    )
+    previous_attempts: Optional[int] = aristaproto.message_field(8, wraps=aristaproto.TYPE_UINT32)
     """
     previous_attempts is the number of times the alert corresponding to this sender status has been
     retried.
@@ -768,9 +758,7 @@ class EventIdentifier(aristaproto.Message):
     time: datetime = aristaproto.message_field(2)
     """time is the time of event generation."""
 
-    alerter_rule_index: Optional[int] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_INT32
-    )
+    alerter_rule_index: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_INT32)
     """
     alerter_rule_index is the index of an alerter rule (don't confuse with generation rule)
     that was used to match the receiver and event.
@@ -783,9 +771,7 @@ class EventIdentifier(aristaproto.Message):
     is_test: Optional[bool] = aristaproto.message_field(5, wraps=aristaproto.TYPE_BOOL)
     """is_test is true if event was initiated via test notification page."""
 
-    event_type: Optional[str] = aristaproto.message_field(
-        6, wraps=aristaproto.TYPE_STRING
-    )
+    event_type: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
     """event_type is the type of the event."""
 
 
@@ -828,9 +814,7 @@ class EndpointError(aristaproto.Message):
     EndpointError is an error caused by a failure to send alert(s) for any reason
     """
 
-    endpoint_type: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    endpoint_type: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     endpoint_type indicates the type of endpoint which failed,
     or unknown if not endpoint-specific (eg: slack, opsgenie)
@@ -844,9 +828,7 @@ class EndpointError(aristaproto.Message):
     empty string if not group specific
     """
 
-    config_index: Optional[int] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_INT32
-    )
+    config_index: Optional[int] = aristaproto.message_field(3, wraps=aristaproto.TYPE_INT32)
     """
     config_index is the index of the config on the broadcast group or -1 if not applicable
     eg: if there are two email config in one broadcast group, then the indices for each are 0 and 1
@@ -898,16 +880,12 @@ class Settings(aristaproto.Message):
     suppressed while another event type is active
     """
 
-    base_url: Optional[str] = aristaproto.message_field(
-        10, wraps=aristaproto.TYPE_STRING
-    )
+    base_url: Optional[str] = aristaproto.message_field(10, wraps=aristaproto.TYPE_STRING)
     """
     base_url is the root address of your CloudVision app. Used to generate links in notifications.
     """
 
-    timezone: Optional[str] = aristaproto.message_field(
-        11, wraps=aristaproto.TYPE_STRING
-    )
+    timezone: Optional[str] = aristaproto.message_field(11, wraps=aristaproto.TYPE_STRING)
     """
     timezone is used for formatting event times in notifications. E.g. 'UTC', 'US/Pacific'
     """
@@ -930,9 +908,7 @@ class Settings(aristaproto.Message):
     cue_sendgrid: "CueSendgridSettings" = aristaproto.message_field(17)
     """cue_sendgrid is the global default settings for cue sendgrid"""
 
-    hide_tags: Optional[bool] = aristaproto.message_field(
-        18, wraps=aristaproto.TYPE_BOOL
-    )
+    hide_tags: Optional[bool] = aristaproto.message_field(18, wraps=aristaproto.TYPE_BOOL)
     """
     hide_tags is used to by the alerting system to omit tags and other \"superfluous\"
     values from the notifications that are sent out by the system
@@ -958,27 +934,19 @@ class EmailSettings(aristaproto.Message):
     from_: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """from is the email address to send from"""
 
-    smarthost: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    smarthost: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """smarthost is the hostname and port of the SMTP server"""
 
-    auth_username: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    auth_username: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     auth_username the username to use when sending emails
     required for all auth methods
     """
 
-    auth_password: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    auth_password: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """auth_password the password to use when sending emails"""
 
-    require_tls: Optional[bool] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_BOOL
-    )
+    require_tls: Optional[bool] = aristaproto.message_field(5, wraps=aristaproto.TYPE_BOOL)
     """require_tls always use TLS connections when sending emails"""
 
     single_alert_per_email: Optional[bool] = aristaproto.message_field(
@@ -1002,24 +970,16 @@ class AzureOAuth(aristaproto.Message):
     AzureOAuth contains the settings for authenticating against Azure using OAuth2
     """
 
-    client_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    client_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """client_id of the Azure environment"""
 
-    tenant_id: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    tenant_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """tenant_id of the Azure environment"""
 
-    client_secret: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    client_secret: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """client_secret is a user generated secret key used for auth"""
 
-    auth_uri: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    auth_uri: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """
     auth_uri is the URI used for OAuth
     this should always be https://login.microsoftonline.com/ unless using a very custom
@@ -1037,19 +997,13 @@ class OAuth2ClientCredentials(aristaproto.Message):
     requests using the OAuth2 client credentials (including OpenID Connect) flow.
     """
 
-    client_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    client_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """client_id of the OAuth2 client"""
 
-    client_secret: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    client_secret: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """client_secret for the OAuth2 client"""
 
-    token_url: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    token_url: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     token_url is the full URL of the OAuth2/OIDC token endpoint
     e.g. https://example.com/oauth2/token
@@ -1069,19 +1023,13 @@ class HttpSettings(aristaproto.Message):
     HttpSettings are the settings to be used when sending various message over a http connection
     """
 
-    username: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    username: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """username is the username to use when connecting to the http proxy"""
 
-    password: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    password: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """password is the password to use when connecting to the http proxy"""
 
-    proxy_url: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    proxy_url: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """proxy_url is the url for the http proxy"""
 
     custom_headers: "HttpHeaders" = aristaproto.message_field(4)
@@ -1206,9 +1154,7 @@ class MsGraphSendMailSettings(aristaproto.Message):
     uses auth_username
     """
 
-    user_principal_name: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    user_principal_name: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """user_principal_name is the user used to send from"""
 
 
@@ -1241,9 +1187,7 @@ class SyslogSettings(aristaproto.Message):
     tag is the syslog TAG as described in RFC-3164, it is the prefix to all syslog messages
     """
 
-    per_device: Optional[bool] = aristaproto.message_field(
-        6, wraps=aristaproto.TYPE_BOOL
-    )
+    per_device: Optional[bool] = aristaproto.message_field(6, wraps=aristaproto.TYPE_BOOL)
     """
     per_device allows message to optionally be sent per device,
     if an event concerns two devices the behaviour is changed based on this option:
@@ -1307,9 +1251,7 @@ class CueSyslogSettings(aristaproto.Message):
     message_format: "CueSyslogMessageFormat" = aristaproto.enum_field(4)
     """message_format defines the message format to use"""
 
-    append_bom_header: Optional[bool] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_BOOL
-    )
+    append_bom_header: Optional[bool] = aristaproto.message_field(5, wraps=aristaproto.TYPE_BOOL)
     """
     append_bom_header if true a BOM( Byte Order Mark ) will be appended to the outgoing message
     BOM will tell the server that is receiving the messages, that the format is UTF8.
@@ -1331,9 +1273,7 @@ class SnmpSettings(aristaproto.Message):
     port: Optional[int] = aristaproto.message_field(2, wraps=aristaproto.TYPE_INT32)
     """port is the network port to target"""
 
-    transport: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    transport: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     transport is the transport protocol to use (\"udp\" or \"tcp\"); if unset \"udp\" will be used
     """
@@ -1347,9 +1287,7 @@ class SnmpSettings(aristaproto.Message):
     auth: "SnmpAuth" = aristaproto.message_field(5)
     """auth is optional authentication settings"""
 
-    engine_id: Optional[str] = aristaproto.message_field(
-        6, wraps=aristaproto.TYPE_STRING
-    )
+    engine_id: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
     """
     engine_id is the engine ID that will be used by the Alerter
     This should be a hexadecimal string, colon separators between bytes will be accepted when
@@ -1362,17 +1300,13 @@ class SnmpSettings(aristaproto.Message):
 class SnmpAuth(aristaproto.Message):
     """SNMPAuth contain authentication information for SNMP"""
 
-    community: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    community: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     community is the community string used for authentication in SNMPv1 and v2c
     required if version < 3
     """
 
-    username: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    username: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """username the username for SNMPv3 auth"""
 
     security_level: "SnmpSecurityLevel" = aristaproto.enum_field(3)
@@ -1398,9 +1332,7 @@ class SnmpAuth(aristaproto.Message):
     required for AUTH_PRIV security level
     """
 
-    privacy_passphrase: Optional[str] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_STRING
-    )
+    privacy_passphrase: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """
     privacy_passphrase is the passphrase to use for privacy in SNMPv3
     required for AUTH_PRIV security level
@@ -1411,17 +1343,13 @@ class SnmpAuth(aristaproto.Message):
 class CueSnmpAuth(aristaproto.Message):
     """CueSNMPAuth is the authentication"""
 
-    community: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    community: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     community is the community string used for authentication in SNMPv1 and v2c
     required if version < 3
     """
 
-    username: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    username: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """username the username for SNMPv3 auth"""
 
     security_level: "SnmpSecurityLevel" = aristaproto.enum_field(3)
@@ -1447,9 +1375,7 @@ class CueSnmpAuth(aristaproto.Message):
     required for AUTH_PRIV security level
     """
 
-    privacy_passphrase: Optional[str] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_STRING
-    )
+    privacy_passphrase: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """
     privacy_passphrase is the passphrase to use for privacy in SNMPv3
     required for AUTH_PRIV security level
@@ -1468,9 +1394,7 @@ class CueSnmpSettings(aristaproto.Message):
     port: Optional[int] = aristaproto.message_field(2, wraps=aristaproto.TYPE_INT32)
     """port is the network port to target"""
 
-    transport: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    transport: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     transport is the transport protocol to use (\"udp\" or \"tcp\"); if unset \"udp\" will be used
     """
@@ -1522,9 +1446,7 @@ class ZoomSettings(aristaproto.Message):
     url: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """url is the zoom incoming webhook URL to send messages to"""
 
-    verification_token: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    verification_token: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """verification_token is the verification token to authenticate with"""
 
 
@@ -1574,9 +1496,7 @@ class Rules(aristaproto.Message):
 class Rule(aristaproto.Message):
     """Rule is a rule to send to a certain broadcast group"""
 
-    sends_to: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    sends_to: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     sends_to is the name of the broadcast group top send matching alerts to
     """
@@ -1586,9 +1506,7 @@ class Rule(aristaproto.Message):
     match_criteria is the criteria that an alert must match to be sent to the broadcast group
     """
 
-    continue_checks: Optional[bool] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_BOOL
-    )
+    continue_checks: Optional[bool] = aristaproto.message_field(3, wraps=aristaproto.TYPE_BOOL)
     """
     continue_checks if true, causes alerts matching this rule's criteria to continue
     checking against other rules, allowing for additional matches. If false,
@@ -1631,23 +1549,17 @@ class Matches(aristaproto.Message):
     if an event does not have one of these event types, it will not match
     """
 
-    device_tags: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    device_tags: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """
     device_tags is a string tag query that is used to match on the event's device tags
     """
 
-    intf_tags: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    intf_tags: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """
     intf_tags is a string tag query that is used to match on the event's interface tags
     """
 
-    virtual_tags: Optional[str] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_STRING
-    )
+    virtual_tags: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """
     virtual_tags is a string tag query that is used to match on the event's virtual tags
     """
@@ -1771,9 +1683,7 @@ class BroadcastGroup(aristaproto.Message):
     to authenticate as the calling user.
     """
 
-    sensor_name: Optional[str] = aristaproto.message_field(
-        19, wraps=aristaproto.TYPE_STRING
-    )
+    sensor_name: Optional[str] = aristaproto.message_field(19, wraps=aristaproto.TYPE_STRING)
     """
     sensor_name is the name of the sensor that runs on prem for a CVaaS customer, that has its
     own alert-sender running to send alerts to internal endpoints. This is an optional field and
@@ -1933,9 +1843,7 @@ class EmailEndpoint(aristaproto.Message):
     EmailEndpoint contains the required information for an alert to be sent to an email endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -1955,9 +1863,7 @@ class WebhookEndpoint(aristaproto.Message):
     WebhookEndpoint contains the required information for an alert to be sent to a webhook endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -1968,18 +1874,14 @@ class WebhookEndpoint(aristaproto.Message):
     http_override: "HttpSettings" = aristaproto.message_field(3)
     """http_override is the override of the global http settings"""
 
-    simple_output: Optional[bool] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_BOOL
-    )
+    simple_output: Optional[bool] = aristaproto.message_field(4, wraps=aristaproto.TYPE_BOOL)
     """
     simple_output is a boolean flag to control the JSON structure of the webhook body.
     When false the output mimics the old alertmanager format.
     When true the output is a simple array of json objects which each represent an event.
     """
 
-    single_alert: Optional[bool] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_BOOL
-    )
+    single_alert: Optional[bool] = aristaproto.message_field(5, wraps=aristaproto.TYPE_BOOL)
     """
     single_alert is a boolean flag that will cause an individual webhook message to be sent per
     alert when true.
@@ -1998,9 +1900,7 @@ class MsGraphSendMailEndpoint(aristaproto.Message):
     microsft graph send mail api
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2023,9 +1923,7 @@ class SlackEndpoint(aristaproto.Message):
     SlackEndpoint contains the required information for an alert to be sent to a slack endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2045,9 +1943,7 @@ class OpsgenieEndpoint(aristaproto.Message):
     OpsgenieEndpoint contains the required information for an alert to be sent to an opsgenie endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2067,9 +1963,7 @@ class PushoverEndpoint(aristaproto.Message):
     PushoverEndpoint contains the required information for an alert to be sent to a pushover endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2079,9 +1973,7 @@ class PushoverEndpoint(aristaproto.Message):
     token is the user's registered application's API token, see https://pushover.net/apps
     """
 
-    user_key: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    user_key: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """user_key is the user's user key"""
 
     http_override: "HttpSettings" = aristaproto.message_field(4)
@@ -2098,16 +1990,12 @@ class PagerdutyEndpoint(aristaproto.Message):
     PagerdutyEndpoint contains the required information for an alert to be sent to a pagerduty endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
 
-    routing_key: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    routing_key: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """routing_key is the routing key for sending pagerduty alerts"""
 
     http_override: "HttpSettings" = aristaproto.message_field(3)
@@ -2125,16 +2013,12 @@ class VictorOpsEndpoint(aristaproto.Message):
     VictorOpsEndpoint contains the required information for an alert to be sent to a victorOps endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
 
-    routing_key: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    routing_key: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """routing_key is the PagerDuty integration key"""
 
     http_override: "HttpSettings" = aristaproto.message_field(3)
@@ -2152,9 +2036,7 @@ class GoogleChatEndpoint(aristaproto.Message):
     GoogleChatEndpoint contains the required information for an alert to be sent to a google chat endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2174,9 +2056,7 @@ class MsTeamsEndpoint(aristaproto.Message):
     MsTeamsEndpoint contains the required information for an alert to be sent to an ms teams endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2196,9 +2076,7 @@ class SendgridEndpoint(aristaproto.Message):
     SendgridEndpoint contains the required information for an alert to be sent to a sendgrid endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2216,9 +2094,7 @@ class CueSendgridEndpoint(aristaproto.Message):
     CueSendgridEndpoint contains the required information for an alert to be sent to a cue sendgrid endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2239,9 +2115,7 @@ class SyslogEndpoint(aristaproto.Message):
     SyslogEndpoint contains the required information for an alert to be sent to a syslog endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2258,9 +2132,7 @@ class CueSyslogEndpoint(aristaproto.Message):
     CueSyslogEndpoint contains the required information for an alert to be sent to a cue syslog endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2277,9 +2149,7 @@ class SnmpEndpoint(aristaproto.Message):
     SNMPEndpoint contains the required information for an alert to be sent to an SNMP endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2296,9 +2166,7 @@ class CueSnmpEndpoint(aristaproto.Message):
     CueSNMPEndpoint contains the required information for an alert to be sent to a cue SNMP endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2315,9 +2183,7 @@ class ZoomEndpoint(aristaproto.Message):
     ZoomEndpoint contains the required information for an alert to be sent to a zoom endpoint
     """
 
-    send_resolved: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    send_resolved: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """
     send_resolved send alerts when events are resolved along with when they are triggered
     """
@@ -2365,9 +2231,7 @@ class CvActions(aristaproto.Message):
 class CvAction(aristaproto.Message):
     """CvAction is a single CloudVision Action to be executed."""
 
-    action_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    action_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     action_id identifies the Action to run. Presently one cannot specify its arguments.
     """
@@ -2388,9 +2252,7 @@ class TemplateConfig(aristaproto.Message):
     key: "TemplateKey" = aristaproto.message_field(1)
     """key identifies which template the configuration is for"""
 
-    template: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    template: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """
     template is the string template value to be used
     Templates need to be compatible with their respective parsers
@@ -2410,9 +2272,7 @@ class DefaultTemplate(aristaproto.Message):
     key: "TemplateKey" = aristaproto.message_field(1)
     """key identifies which template the configuration is for"""
 
-    template: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    template: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """
     template is the string template value to be used
     Templates need to be compatible with their respective parsers
@@ -2422,17 +2282,13 @@ class DefaultTemplate(aristaproto.Message):
     Templates must not fail for any valid input
     """
 
-    multi_alert: Optional[bool] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_BOOL
-    )
+    multi_alert: Optional[bool] = aristaproto.message_field(3, wraps=aristaproto.TYPE_BOOL)
     """
     multi_alert is true if this template uses a multiple alert context and false if a single
     alert context is used.
     """
 
-    description: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """description is a description of the template."""
 
     external_documentation: Optional[str] = aristaproto.message_field(
@@ -2450,9 +2306,7 @@ class DefaultTemplate(aristaproto.Message):
     may fail validation.
     """
 
-    display_name: Optional[str] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_STRING
-    )
+    display_name: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """
     display_name is the name that can be displayed to the user for this particular template type
     """
@@ -2767,9 +2621,7 @@ class DefaultTemplateBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2945,9 +2797,7 @@ class SenderStatusBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -3091,9 +2941,7 @@ class TemplateConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -3997,9 +3845,7 @@ class AlertServiceBase(ServiceBase):
 
 
 class AlertConfigServiceBase(ServiceBase):
-    async def get_one(
-        self, alert_config_request: "AlertConfigRequest"
-    ) -> "AlertConfigResponse":
+    async def get_one(self, alert_config_request: "AlertConfigRequest") -> "AlertConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
@@ -4030,8 +3876,7 @@ class AlertConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[AlertConfigStreamRequest, AlertConfigStreamResponse]",
+        self, stream: "grpclib.server.Stream[AlertConfigStreamRequest, AlertConfigStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4041,8 +3886,7 @@ class AlertConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[AlertConfigStreamRequest, AlertConfigStreamResponse]",
+        self, stream: "grpclib.server.Stream[AlertConfigStreamRequest, AlertConfigStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4062,8 +3906,7 @@ class AlertConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self,
-        stream: "grpclib.server.Stream[AlertConfigSetRequest, AlertConfigSetResponse]",
+        self, stream: "grpclib.server.Stream[AlertConfigSetRequest, AlertConfigSetResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -4136,20 +3979,17 @@ class DefaultTemplateServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self,
-        default_template_batched_stream_request: "DefaultTemplateBatchedStreamRequest",
+        self, default_template_batched_stream_request: "DefaultTemplateBatchedStreamRequest"
     ) -> AsyncIterator[DefaultTemplateBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self,
-        default_template_batched_stream_request: "DefaultTemplateBatchedStreamRequest",
+        self, default_template_batched_stream_request: "DefaultTemplateBatchedStreamRequest"
     ) -> AsyncIterator[DefaultTemplateBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[DefaultTemplateRequest, DefaultTemplateResponse]",
+        self, stream: "grpclib.server.Stream[DefaultTemplateRequest, DefaultTemplateResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -4189,16 +4029,14 @@ class DefaultTemplateServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[DefaultTemplateStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[DefaultTemplateStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[DefaultTemplateStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[DefaultTemplateStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4283,9 +4121,7 @@ class DefaultTemplateServiceBase(ServiceBase):
 
 
 class SenderStatusServiceBase(ServiceBase):
-    async def get_one(
-        self, sender_status_request: "SenderStatusRequest"
-    ) -> "SenderStatusResponse":
+    async def get_one(self, sender_status_request: "SenderStatusRequest") -> "SenderStatusResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -4331,8 +4167,7 @@ class SenderStatusServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[SenderStatusSomeRequest, SenderStatusSomeResponse]",
+        self, stream: "grpclib.server.Stream[SenderStatusSomeRequest, SenderStatusSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4342,8 +4177,7 @@ class SenderStatusServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[SenderStatusStreamRequest, SenderStatusStreamResponse]",
+        self, stream: "grpclib.server.Stream[SenderStatusStreamRequest, SenderStatusStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4353,8 +4187,7 @@ class SenderStatusServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[SenderStatusStreamRequest, SenderStatusStreamResponse]",
+        self, stream: "grpclib.server.Stream[SenderStatusStreamRequest, SenderStatusStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4512,28 +4345,24 @@ class TemplateConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self,
-        template_config_batched_stream_request: "TemplateConfigBatchedStreamRequest",
+        self, template_config_batched_stream_request: "TemplateConfigBatchedStreamRequest"
     ) -> AsyncIterator[TemplateConfigBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self,
-        template_config_batched_stream_request: "TemplateConfigBatchedStreamRequest",
+        self, template_config_batched_stream_request: "TemplateConfigBatchedStreamRequest"
     ) -> AsyncIterator[TemplateConfigBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[TemplateConfigRequest, TemplateConfigResponse]",
+        self, stream: "grpclib.server.Stream[TemplateConfigRequest, TemplateConfigResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[TemplateConfigSomeRequest, TemplateConfigSomeResponse]",
+        self, stream: "grpclib.server.Stream[TemplateConfigSomeRequest, TemplateConfigSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -4582,8 +4411,7 @@ class TemplateConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self,
-        stream: "grpclib.server.Stream[TemplateConfigSetRequest, TemplateConfigSetResponse]",
+        self, stream: "grpclib.server.Stream[TemplateConfigSetRequest, TemplateConfigSetResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)

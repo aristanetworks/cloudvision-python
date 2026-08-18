@@ -279,9 +279,7 @@ class EventNote(aristaproto.Message):
     note: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """note is the text of the note"""
 
-    note_creator: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    note_creator: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """note_creator is the creator of the note"""
 
 
@@ -389,14 +387,10 @@ class Event(aristaproto.Message):
     title: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """title is the title of the event"""
 
-    description: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """description is the description of the event"""
 
-    event_type: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    event_type: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """event_type is the type of the event"""
 
     data: "EventData" = aristaproto.message_field(6)
@@ -417,9 +411,7 @@ class Event(aristaproto.Message):
     read: "EventRead" = aristaproto.message_field(11)
     """read is the read status of the event"""
 
-    rule_id: Optional[str] = aristaproto.message_field(
-        12, wraps=aristaproto.TYPE_STRING
-    )
+    rule_id: Optional[str] = aristaproto.message_field(12, wraps=aristaproto.TYPE_STRING)
     """rule_id is the label of the rule associated with the event"""
 
     delete_time: datetime = aristaproto.message_field(13)
@@ -459,9 +451,7 @@ class UserEventCreationConfig(aristaproto.Message):
     title: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """title is the title of the event"""
 
-    description: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """description is the description of the event"""
 
     rule_id: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
@@ -1608,9 +1598,7 @@ class EventServiceBase(ServiceBase):
     ) -> AsyncIterator[EventStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(
-        self, event_stream_request: "EventStreamRequest"
-    ) -> "MetaResponse":
+    async def get_meta(self, event_stream_request: "EventStreamRequest") -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -1725,26 +1713,22 @@ class EventAnnotationConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self,
-        event_annotation_config_stream_request: "EventAnnotationConfigStreamRequest",
+        self, event_annotation_config_stream_request: "EventAnnotationConfigStreamRequest"
     ) -> AsyncIterator[EventAnnotationConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self,
-        event_annotation_config_stream_request: "EventAnnotationConfigStreamRequest",
+        self, event_annotation_config_stream_request: "EventAnnotationConfigStreamRequest"
     ) -> AsyncIterator[EventAnnotationConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
-        self,
-        event_annotation_config_stream_request: "EventAnnotationConfigStreamRequest",
+        self, event_annotation_config_stream_request: "EventAnnotationConfigStreamRequest"
     ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self,
-        event_annotation_config_stream_request: "EventAnnotationConfigStreamRequest",
+        self, event_annotation_config_stream_request: "EventAnnotationConfigStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -1754,26 +1738,22 @@ class EventAnnotationConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
-        self,
-        event_annotation_config_set_some_request: "EventAnnotationConfigSetSomeRequest",
+        self, event_annotation_config_set_some_request: "EventAnnotationConfigSetSomeRequest"
     ) -> AsyncIterator[EventAnnotationConfigSetSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete(
-        self,
-        event_annotation_config_delete_request: "EventAnnotationConfigDeleteRequest",
+        self, event_annotation_config_delete_request: "EventAnnotationConfigDeleteRequest"
     ) -> "EventAnnotationConfigDeleteResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_some(
-        self,
-        event_annotation_config_delete_some_request: "EventAnnotationConfigDeleteSomeRequest",
+        self, event_annotation_config_delete_some_request: "EventAnnotationConfigDeleteSomeRequest"
     ) -> AsyncIterator[EventAnnotationConfigDeleteSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_all(
-        self,
-        event_annotation_config_delete_all_request: "EventAnnotationConfigDeleteAllRequest",
+        self, event_annotation_config_delete_all_request: "EventAnnotationConfigDeleteAllRequest"
     ) -> AsyncIterator[EventAnnotationConfigDeleteAllResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -1819,16 +1799,14 @@ class EventAnnotationConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[EventAnnotationConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[EventAnnotationConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[EventAnnotationConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[EventAnnotationConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1964,50 +1942,42 @@ class UserEventCreationConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
-        self,
-        user_event_creation_config_some_request: "UserEventCreationConfigSomeRequest",
+        self, user_event_creation_config_some_request: "UserEventCreationConfigSomeRequest"
     ) -> AsyncIterator[UserEventCreationConfigSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self,
-        user_event_creation_config_stream_request: "UserEventCreationConfigStreamRequest",
+        self, user_event_creation_config_stream_request: "UserEventCreationConfigStreamRequest"
     ) -> AsyncIterator[UserEventCreationConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self,
-        user_event_creation_config_stream_request: "UserEventCreationConfigStreamRequest",
+        self, user_event_creation_config_stream_request: "UserEventCreationConfigStreamRequest"
     ) -> AsyncIterator[UserEventCreationConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
-        self,
-        user_event_creation_config_stream_request: "UserEventCreationConfigStreamRequest",
+        self, user_event_creation_config_stream_request: "UserEventCreationConfigStreamRequest"
     ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self,
-        user_event_creation_config_stream_request: "UserEventCreationConfigStreamRequest",
+        self, user_event_creation_config_stream_request: "UserEventCreationConfigStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set(
-        self,
-        user_event_creation_config_set_request: "UserEventCreationConfigSetRequest",
+        self, user_event_creation_config_set_request: "UserEventCreationConfigSetRequest"
     ) -> "UserEventCreationConfigSetResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
-        self,
-        user_event_creation_config_set_some_request: "UserEventCreationConfigSetSomeRequest",
+        self, user_event_creation_config_set_some_request: "UserEventCreationConfigSetSomeRequest"
     ) -> AsyncIterator[UserEventCreationConfigSetSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete(
-        self,
-        user_event_creation_config_delete_request: "UserEventCreationConfigDeleteRequest",
+        self, user_event_creation_config_delete_request: "UserEventCreationConfigDeleteRequest"
     ) -> "UserEventCreationConfigDeleteResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -2065,16 +2035,14 @@ class UserEventCreationConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[UserEventCreationConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[UserEventCreationConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[UserEventCreationConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[UserEventCreationConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

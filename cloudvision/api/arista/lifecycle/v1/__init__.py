@@ -50,9 +50,7 @@ class DeviceLifecycleSummaryKey(aristaproto.Message):
     DeviceLifecycleSummary model
     """
 
-    device_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    device_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """device_id is the device ID"""
 
 
@@ -120,9 +118,7 @@ class DeviceLifecycleSummary(aristaproto.Message):
     a device
     """
 
-    hardware_lifecycle_summary: "HardwareLifecycleSummary" = aristaproto.message_field(
-        3
-    )
+    hardware_lifecycle_summary: "HardwareLifecycleSummary" = aristaproto.message_field(3)
     """
     hardware_lifecycle_summary is the hardware lifecycle summary
     of a device
@@ -338,26 +334,22 @@ class DeviceLifecycleSummaryServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
-        self,
-        device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest",
+        self, device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest"
     ) -> AsyncIterator[DeviceLifecycleSummaryStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe(
-        self,
-        device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest",
+        self, device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest"
     ) -> AsyncIterator[DeviceLifecycleSummaryStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_meta(
-        self,
-        device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest",
+        self, device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest"
     ) -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
-        self,
-        device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest",
+        self, device_lifecycle_summary_stream_request: "DeviceLifecycleSummaryStreamRequest"
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -392,16 +384,14 @@ class DeviceLifecycleSummaryServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[DeviceLifecycleSummaryStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[DeviceLifecycleSummaryStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[DeviceLifecycleSummaryStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[DeviceLifecycleSummaryStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

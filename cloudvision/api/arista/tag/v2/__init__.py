@@ -213,9 +213,7 @@ class CreatorType(aristaproto.Enum):
 class TagKey(aristaproto.Message):
     """TagKey uniquely identifies a tag."""
 
-    workspace_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    workspace_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     workspace_id is the ID of a workspace. The special ID \"\"
     identifies the location where merged tags reside.
@@ -289,9 +287,7 @@ class TagAssignmentKey(aristaproto.Message):
     a tag and a network element.
     """
 
-    workspace_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    workspace_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     workspace_id is the ID of a workspace. The special ID \"\"
     identifies the location where merged assignments reside.
@@ -315,31 +311,23 @@ class TagAssignmentKey(aristaproto.Message):
     value: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """value is the value of a tag."""
 
-    device_id: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    device_id: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """device_id identifies a device."""
 
-    interface_id: Optional[str] = aristaproto.message_field(
-        6, wraps=aristaproto.TYPE_STRING
-    )
+    interface_id: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
     """interface_id identifies an interface on a device."""
 
     element_sub_type: "ElementSubType" = aristaproto.enum_field(7)
     """element_sub_type is the element sub-type of a tag."""
 
-    primary_entity_id: Optional[str] = aristaproto.message_field(
-        8, wraps=aristaproto.TYPE_STRING
-    )
+    primary_entity_id: Optional[str] = aristaproto.message_field(8, wraps=aristaproto.TYPE_STRING)
     """
     primary_entity_id holds unique identifiers of an application/device.
     The primary entity is the entity which can exist by itself or can be
     associated with a secondary entity.
     """
 
-    secondary_entity_id: Optional[str] = aristaproto.message_field(
-        9, wraps=aristaproto.TYPE_STRING
-    )
+    secondary_entity_id: Optional[str] = aristaproto.message_field(9, wraps=aristaproto.TYPE_STRING)
     """
     secondary_entity_id holds unique identifier of a service/interface. The secondary
     entity is the entity which cannot exist by itself and always has to be associated
@@ -429,9 +417,7 @@ class ElementSearchFilter(aristaproto.Message):
     TODO: Link to grammar file.
     """
 
-    workspace_id: Optional[str] = aristaproto.message_field(
-        10, wraps=aristaproto.TYPE_STRING
-    )
+    workspace_id: Optional[str] = aristaproto.message_field(10, wraps=aristaproto.TYPE_STRING)
     """
     workspace_id is the ID of a workspace. If set, it indicates that the
     search space should be constrained only to the elements that are known
@@ -465,9 +451,7 @@ class ElementKey(aristaproto.Message):
     sub_type: "ElementSubType" = aristaproto.enum_field(2)
     """sub_type is the sub-type of the element."""
 
-    primary_id: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    primary_id: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     primary_id is the device ID of the element. The value of
     this ID is based on type and sub_type:
@@ -487,9 +471,7 @@ class ElementKey(aristaproto.Message):
         id: <application_id>
     """
 
-    secondary_id: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    secondary_id: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """
     secondary_id is the interface ID of the element. The value of
     this ID is based on type and sub_type:
@@ -696,9 +678,7 @@ class ElementBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -860,9 +840,7 @@ class TagBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1024,9 +1002,7 @@ class TagAssignmentBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1190,9 +1166,7 @@ class TagAssignmentConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1470,9 +1444,7 @@ class TagConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2523,9 +2495,7 @@ class ElementServiceBase(ServiceBase):
     ) -> AsyncIterator[ElementStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(
-        self, element_stream_request: "ElementStreamRequest"
-    ) -> "MetaResponse":
+    async def get_meta(self, element_stream_request: "ElementStreamRequest") -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -2561,8 +2531,7 @@ class ElementServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[ElementStreamRequest, ElementStreamResponse]",
+        self, stream: "grpclib.server.Stream[ElementStreamRequest, ElementStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2572,8 +2541,7 @@ class ElementServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[ElementStreamRequest, ElementStreamResponse]",
+        self, stream: "grpclib.server.Stream[ElementStreamRequest, ElementStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2678,9 +2646,7 @@ class TagServiceBase(ServiceBase):
     async def get_one(self, tag_request: "TagRequest") -> "TagResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_some(
-        self, tag_some_request: "TagSomeRequest"
-    ) -> AsyncIterator[TagSomeResponse]:
+    async def get_some(self, tag_some_request: "TagSomeRequest") -> AsyncIterator[TagSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all(
@@ -2711,9 +2677,7 @@ class TagServiceBase(ServiceBase):
     ) -> AsyncIterator[TagBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def __rpc_get_one(
-        self, stream: "grpclib.server.Stream[TagRequest, TagResponse]"
-    ) -> None:
+    async def __rpc_get_one(self, stream: "grpclib.server.Stream[TagRequest, TagResponse]") -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
@@ -2766,8 +2730,7 @@ class TagServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all_batched(
-        self,
-        stream: "grpclib.server.Stream[TagBatchedStreamRequest, TagBatchedStreamResponse]",
+        self, stream: "grpclib.server.Stream[TagBatchedStreamRequest, TagBatchedStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2777,8 +2740,7 @@ class TagServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe_batched(
-        self,
-        stream: "grpclib.server.Stream[TagBatchedStreamRequest, TagBatchedStreamResponse]",
+        self, stream: "grpclib.server.Stream[TagBatchedStreamRequest, TagBatchedStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -2882,16 +2844,14 @@ class TagAssignmentServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[TagAssignmentRequest, TagAssignmentResponse]",
+        self, stream: "grpclib.server.Stream[TagAssignmentRequest, TagAssignmentResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[TagAssignmentSomeRequest, TagAssignmentSomeResponse]",
+        self, stream: "grpclib.server.Stream[TagAssignmentSomeRequest, TagAssignmentSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3051,8 +3011,7 @@ class TagAssignmentConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
-        self,
-        tag_assignment_config_set_some_request: "TagAssignmentConfigSetSomeRequest",
+        self, tag_assignment_config_set_some_request: "TagAssignmentConfigSetSomeRequest"
     ) -> AsyncIterator[TagAssignmentConfigSetSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3062,14 +3021,12 @@ class TagAssignmentConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_some(
-        self,
-        tag_assignment_config_delete_some_request: "TagAssignmentConfigDeleteSomeRequest",
+        self, tag_assignment_config_delete_some_request: "TagAssignmentConfigDeleteSomeRequest"
     ) -> AsyncIterator[TagAssignmentConfigDeleteSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_all(
-        self,
-        tag_assignment_config_delete_all_request: "TagAssignmentConfigDeleteAllRequest",
+        self, tag_assignment_config_delete_all_request: "TagAssignmentConfigDeleteAllRequest"
     ) -> AsyncIterator[TagAssignmentConfigDeleteAllResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -3127,16 +3084,14 @@ class TagAssignmentConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[TagAssignmentConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[TagAssignmentConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[TagAssignmentConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[TagAssignmentConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3300,9 +3255,7 @@ class TagAssignmentConfigServiceBase(ServiceBase):
 
 
 class TagConfigServiceBase(ServiceBase):
-    async def get_one(
-        self, tag_config_request: "TagConfigRequest"
-    ) -> "TagConfigResponse":
+    async def get_one(self, tag_config_request: "TagConfigRequest") -> "TagConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -3320,9 +3273,7 @@ class TagConfigServiceBase(ServiceBase):
     ) -> AsyncIterator[TagConfigStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(
-        self, tag_config_stream_request: "TagConfigStreamRequest"
-    ) -> "MetaResponse":
+    async def get_meta(self, tag_config_stream_request: "TagConfigStreamRequest") -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -3330,9 +3281,7 @@ class TagConfigServiceBase(ServiceBase):
     ) -> AsyncIterator[MetaResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def set(
-        self, tag_config_set_request: "TagConfigSetRequest"
-    ) -> "TagConfigSetResponse":
+    async def set(self, tag_config_set_request: "TagConfigSetRequest") -> "TagConfigSetResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
@@ -3373,8 +3322,7 @@ class TagConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[TagConfigSomeRequest, TagConfigSomeResponse]",
+        self, stream: "grpclib.server.Stream[TagConfigSomeRequest, TagConfigSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3384,8 +3332,7 @@ class TagConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[TagConfigStreamRequest, TagConfigStreamResponse]",
+        self, stream: "grpclib.server.Stream[TagConfigStreamRequest, TagConfigStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3395,8 +3342,7 @@ class TagConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[TagConfigStreamRequest, TagConfigStreamResponse]",
+        self, stream: "grpclib.server.Stream[TagConfigStreamRequest, TagConfigStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3430,8 +3376,7 @@ class TagConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_set_some(
-        self,
-        stream: "grpclib.server.Stream[TagConfigSetSomeRequest, TagConfigSetSomeResponse]",
+        self, stream: "grpclib.server.Stream[TagConfigSetSomeRequest, TagConfigSetSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -3441,8 +3386,7 @@ class TagConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete(
-        self,
-        stream: "grpclib.server.Stream[TagConfigDeleteRequest, TagConfigDeleteResponse]",
+        self, stream: "grpclib.server.Stream[TagConfigDeleteRequest, TagConfigDeleteResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.delete(request)
@@ -3460,8 +3404,7 @@ class TagConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete_all(
-        self,
-        stream: "grpclib.server.Stream[TagConfigDeleteAllRequest, TagConfigDeleteAllResponse]",
+        self, stream: "grpclib.server.Stream[TagConfigDeleteAllRequest, TagConfigDeleteAllResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(

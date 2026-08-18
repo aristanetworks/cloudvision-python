@@ -1052,8 +1052,7 @@ class ApiProxyServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[ApiProxyStreamRequest, ApiProxyStreamResponse]",
+        self, stream: "grpclib.server.Stream[ApiProxyStreamRequest, ApiProxyStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1063,8 +1062,7 @@ class ApiProxyServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[ApiProxyStreamRequest, ApiProxyStreamResponse]",
+        self, stream: "grpclib.server.Stream[ApiProxyStreamRequest, ApiProxyStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1144,8 +1142,7 @@ class ApiProxyConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[ApiProxyConfigRequest, ApiProxyConfigResponse]",
+        self, stream: "grpclib.server.Stream[ApiProxyConfigRequest, ApiProxyConfigResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -1184,8 +1181,7 @@ class ApiProxyConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self,
-        stream: "grpclib.server.Stream[ApiProxyConfigSetRequest, ApiProxyConfigSetResponse]",
+        self, stream: "grpclib.server.Stream[ApiProxyConfigSetRequest, ApiProxyConfigSetResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -1267,8 +1263,7 @@ class ApiTokenServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[ApiTokenStreamRequest, ApiTokenStreamResponse]",
+        self, stream: "grpclib.server.Stream[ApiTokenStreamRequest, ApiTokenStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1278,8 +1273,7 @@ class ApiTokenServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[ApiTokenStreamRequest, ApiTokenStreamResponse]",
+        self, stream: "grpclib.server.Stream[ApiTokenStreamRequest, ApiTokenStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -1359,8 +1353,7 @@ class ApiTokenConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[ApiTokenConfigRequest, ApiTokenConfigResponse]",
+        self, stream: "grpclib.server.Stream[ApiTokenConfigRequest, ApiTokenConfigResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -1399,8 +1392,7 @@ class ApiTokenConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self,
-        stream: "grpclib.server.Stream[ApiTokenConfigSetRequest, ApiTokenConfigSetResponse]",
+        self, stream: "grpclib.server.Stream[ApiTokenConfigSetRequest, ApiTokenConfigSetResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)

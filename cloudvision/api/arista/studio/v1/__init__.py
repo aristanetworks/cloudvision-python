@@ -461,17 +461,13 @@ class AutofillProviderType(aristaproto.Enum):
 class StudioKey(aristaproto.Message):
     """StudioKey uniquely identifies a studio."""
 
-    studio_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    studio_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     studio_id uniquely identifies the studio in the workspace indicated
     by `workspace_id`.
     """
 
-    workspace_id: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    workspace_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """
     workspace_id identifies the workspace within which the studio resides.
     """
@@ -497,9 +493,7 @@ class StudioConfig(aristaproto.Message):
     field is set to true.
     """
 
-    display_name: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    display_name: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     display_name is the name of this studio as displayed on the UI.
     This and remaining fields are config fields, with workspace changes to be applied
@@ -507,9 +501,7 @@ class StudioConfig(aristaproto.Message):
     in the workspace only if the studio is modified (via this resource).
     """
 
-    description: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """description is a brief description of the studio."""
 
     template: "Template" = aristaproto.message_field(5)
@@ -532,19 +524,13 @@ class StudioSummary(aristaproto.Message):
     key: "StudioKey" = aristaproto.message_field(1)
     """key uniquely identifies the studio."""
 
-    display_name: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    display_name: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """display_name is the name of this studio as displayed on the UI."""
 
-    description: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """description is a brief description of the studio."""
 
-    immutable: Optional[bool] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_BOOL
-    )
+    immutable: Optional[bool] = aristaproto.message_field(4, wraps=aristaproto.TYPE_BOOL)
     """
     immutable indicates if read-write studio management
     access over a given studio is granted or not.
@@ -561,9 +547,7 @@ class StudioSummary(aristaproto.Message):
     and assigned to some devices, either in a given workspace, or in mainline.
     """
 
-    from_package: Optional[str] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_STRING
-    )
+    from_package: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """
     from_package indicates that this studio was created by a package, and can only be modified
     by the packaging service. It stores packageID.
@@ -580,9 +564,7 @@ class Entity(aristaproto.Message):
     last_modified_at: datetime = aristaproto.message_field(2)
     """last_modified_at is the time at which the entity was last modified."""
 
-    last_modified_by: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    last_modified_by: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     last_modified_by is the name of the user that last modified the entity.
     """
@@ -623,24 +605,18 @@ class Studio(aristaproto.Message):
     created_at: datetime = aristaproto.message_field(2)
     """created_at is the time at which the studio was created."""
 
-    created_by: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    created_by: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """created_by is the name of the user that created the studio."""
 
     last_modified_at: datetime = aristaproto.message_field(4)
     """last_modified_at is the time at which the studio was last modified."""
 
-    last_modified_by: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    last_modified_by: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """
     last_modified_by is the name of the user that last modified the studio.
     """
 
-    display_name: Optional[str] = aristaproto.message_field(
-        6, wraps=aristaproto.TYPE_STRING
-    )
+    display_name: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
     """
     display_name is the name of this studio as displayed on the UI.
     This and remaining fields are config fields, with workspace changes applied on top of
@@ -648,9 +624,7 @@ class Studio(aristaproto.Message):
     the studio is modified (via the `StudioConfig` resource).
     """
 
-    description: Optional[str] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """description is a brief description of the studio."""
 
     template: "Template" = aristaproto.message_field(8)
@@ -665,9 +639,7 @@ class Studio(aristaproto.Message):
     by `template`.
     """
 
-    from_package: Optional[str] = aristaproto.message_field(
-        11, wraps=aristaproto.TYPE_STRING
-    )
+    from_package: Optional[str] = aristaproto.message_field(11, wraps=aristaproto.TYPE_STRING)
     """
     from_package indicates that this studio was created by a package, and can only be modified
     by the packaging service.
@@ -714,9 +686,7 @@ class AssignedTags(aristaproto.Message):
     created_at: datetime = aristaproto.message_field(2)
     """created_at is the time at which the assignment was first created."""
 
-    created_by: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    created_by: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """created_by is the name of the user that created the assignment."""
 
     last_modified_at: datetime = aristaproto.message_field(4)
@@ -724,9 +694,7 @@ class AssignedTags(aristaproto.Message):
     last_modified_at is the time at which the assignment was last modified.
     """
 
-    last_modified_by: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    last_modified_by: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """
     last_modified_by is the name of the user that last modified the assignment.
     """
@@ -742,17 +710,13 @@ class AssignedTags(aristaproto.Message):
 class InputsKey(aristaproto.Message):
     """InputsKey identifies a set of inputs for a particular studio."""
 
-    studio_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    studio_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     studio_id uniquely identifies the studio in the workspace indicated
     by `workspace_id`.
     """
 
-    workspace_id: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    workspace_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """
     workspace_id uniquely identifies the workspace in which the studio resides.
     """
@@ -865,17 +829,13 @@ class Inputs(aristaproto.Message):
     created_at: datetime = aristaproto.message_field(2)
     """created_at is the time at which the inputs were first set."""
 
-    created_by: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    created_by: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """created_by is the name of the user that first set the inputs."""
 
     last_modified_at: datetime = aristaproto.message_field(4)
     """last_modified_at is the time at which the inputs were last modified."""
 
-    last_modified_by: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    last_modified_by: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """
     last_modified_by is the name of the user that last modified the inputs.
     """
@@ -908,9 +868,7 @@ class BooleanInputFieldProps(aristaproto.Message):
     boolean field in a studio input schema.
     """
 
-    default_value: Optional[bool] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_BOOL
-    )
+    default_value: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
     """default_value is the default value of the boolean."""
 
 
@@ -921,9 +879,7 @@ class IntegerInputFieldProps(aristaproto.Message):
     integer field in a studio input schema.
     """
 
-    default_value: Optional[int] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_INT64
-    )
+    default_value: Optional[int] = aristaproto.message_field(1, wraps=aristaproto.TYPE_INT64)
     """default_value is the default value of the integer."""
 
     static_options: "___fmp__.RepeatedInt64" = aristaproto.message_field(2)
@@ -956,9 +912,7 @@ class IntegerInputFieldProps(aristaproto.Message):
     values for this integer.
     """
 
-    extra_values_allowed: Optional[bool] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_BOOL
-    )
+    extra_values_allowed: Optional[bool] = aristaproto.message_field(5, wraps=aristaproto.TYPE_BOOL)
     """
     extra_values_allowed allows adding values to the field in
     addition to what's allowed by static_options/dynamic_options.
@@ -972,9 +926,7 @@ class FloatInputFieldProps(aristaproto.Message):
     float field in a studio input schema.
     """
 
-    default_value: Optional[float] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_FLOAT
-    )
+    default_value: Optional[float] = aristaproto.message_field(2, wraps=aristaproto.TYPE_FLOAT)
     """default_value is the default value of the float."""
 
     static_options: "___fmp__.RepeatedFloat" = aristaproto.message_field(3)
@@ -997,9 +949,7 @@ class FloatInputFieldProps(aristaproto.Message):
     possible values for this float.
     """
 
-    extra_values_allowed: Optional[bool] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_BOOL
-    )
+    extra_values_allowed: Optional[bool] = aristaproto.message_field(5, wraps=aristaproto.TYPE_BOOL)
     """
     extra_values_allowed allows adding values to the field in
     addition to what's allowed by static_options/dynamic_options.
@@ -1013,9 +963,7 @@ class StringInputFieldProps(aristaproto.Message):
     string field in a studio input schema.
     """
 
-    default_value: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    default_value: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """default_value is the default value of the string."""
 
     static_options: "___fmp__.RepeatedString" = aristaproto.message_field(3)
@@ -1070,9 +1018,7 @@ class StringInputFieldProps(aristaproto.Message):
     * `\"url\"`: a URL (e.g., http://www.google.com)
     """
 
-    is_secret: Optional[bool] = aristaproto.message_field(
-        8, wraps=aristaproto.TYPE_BOOL
-    )
+    is_secret: Optional[bool] = aristaproto.message_field(8, wraps=aristaproto.TYPE_BOOL)
     """
     is_secret specifies whether the string is a secret and its
     value should be masked. E.g., if this is set to `true` and
@@ -1080,9 +1026,7 @@ class StringInputFieldProps(aristaproto.Message):
     masked as `\"**********\"`.
     """
 
-    extra_values_allowed: Optional[bool] = aristaproto.message_field(
-        9, wraps=aristaproto.TYPE_BOOL
-    )
+    extra_values_allowed: Optional[bool] = aristaproto.message_field(9, wraps=aristaproto.TYPE_BOOL)
     """
     extra_values_allowed allows adding values to the field in
     addition to what's allowed by static_options/dynamic_options.
@@ -1110,9 +1054,7 @@ class CollectionInputFieldProps(aristaproto.Message):
     collection field in a studio input schema.
     """
 
-    base_field_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    base_field_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     base_field_id (required) identifies the field in the schema
     that should be used as the type for each element in the
@@ -1135,9 +1077,7 @@ class ResolverInputFieldProps(aristaproto.Message):
     resolver field in a studio input schema.
     """
 
-    base_field_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    base_field_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     base_field_id (required) identifies the field in the schema
     to which the resolver query maps.
@@ -1149,18 +1089,14 @@ class ResolverInputFieldProps(aristaproto.Message):
     input_mode: "ResolverFieldInputMode" = aristaproto.enum_field(3)
     """input_mode (required) is the input mode of the resolver."""
 
-    input_tag_label: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    input_tag_label: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """
     input_tag_label can be used when `input_mode` is one of
     `RESOLVER_FIELD_INPUT_MODE_SINGLE_*_TAG` and it specifies
     the tag label must be used in the resolver query.
     """
 
-    tag_filter_query: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    tag_filter_query: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """
     tag_filter_query limits the set of elements that the
     resolver query can return. E.g., `\"device:D1,D2\"` will
@@ -1178,18 +1114,14 @@ class TagMatcherInputFieldProps(aristaproto.Message):
     tag_matcher_mode: "TagMatcherFieldMode" = aristaproto.enum_field(1)
     """tag_matcher_mode (required) is the tag mode of the matcher."""
 
-    tag_matcher_label: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    tag_matcher_label: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """
     tag_matcher_label can be used when `tag_matcher_mode` is one of
     `TAG_MATCHER_FIELD_MODE_SINGLE_*_TAG` and it specifies
     the tag label which must be used in the match query.
     """
 
-    tag_filter_query: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    tag_filter_query: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     tag_filter_query limits the set of devices that the
     match query can return. E.g., `\"device:D1,D2\"` will
@@ -1228,9 +1160,7 @@ class InputField(aristaproto.Message):
     label: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """label (required) is the label of the field as displayed on the UI."""
 
-    description: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """description is a short description of the field."""
 
     required: Optional[bool] = aristaproto.message_field(6, wraps=aristaproto.TYPE_BOOL)
@@ -1342,9 +1272,7 @@ class SecretInput(aristaproto.Message):
     key: "InputsKey" = aristaproto.message_field(1)
     """key identifies the secret in the studio inputs."""
 
-    plain_text: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    plain_text: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """plain_text is the unmasked value of the secret."""
 
 
@@ -1352,24 +1280,18 @@ class SecretInput(aristaproto.Message):
 class AutofillActionKey(aristaproto.Message):
     """AutofillActionKey identifies an autofill action."""
 
-    studio_id: Optional[str] = aristaproto.message_field(
-        1, wraps=aristaproto.TYPE_STRING
-    )
+    studio_id: Optional[str] = aristaproto.message_field(1, wraps=aristaproto.TYPE_STRING)
     """
     studio_id uniquely identifies the studio in the workspace indicated
     by `workspace_id`.
     """
 
-    workspace_id: Optional[str] = aristaproto.message_field(
-        2, wraps=aristaproto.TYPE_STRING
-    )
+    workspace_id: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
     """
     workspace_id uniquely identifies the workspace in which the studio resides.
     """
 
-    input_field_id: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    input_field_id: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     input_field_id uniquely identifies the input field within the schema associated
     with the action indicated by `action_id`.
@@ -1392,16 +1314,12 @@ class AutofillActionConfig(aristaproto.Message):
     workspace merges. Other data fields are not allowed if this field is set to true.
     """
 
-    action_id: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    action_id: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """
     action_id uniquely identifies the autofill action associated with the input field.
     """
 
-    description: Optional[str] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
     """
     description is an optional field to describe the autofill action that will be
     displayed in a tooltip in the UI when the user hovers over the button to run
@@ -1432,31 +1350,23 @@ class AutofillAction(aristaproto.Message):
     created_at: datetime = aristaproto.message_field(2)
     """created_at is the time at which the inputs were first set."""
 
-    created_by: Optional[str] = aristaproto.message_field(
-        3, wraps=aristaproto.TYPE_STRING
-    )
+    created_by: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
     """created_by is the name of the user that first set the inputs."""
 
     last_modified_at: datetime = aristaproto.message_field(4)
     """last_modified_at is the time at which the inputs were last modified."""
 
-    last_modified_by: Optional[str] = aristaproto.message_field(
-        5, wraps=aristaproto.TYPE_STRING
-    )
+    last_modified_by: Optional[str] = aristaproto.message_field(5, wraps=aristaproto.TYPE_STRING)
     """
     last_modified_by is the name of the user that last modified the inputs.
     """
 
-    action_id: Optional[str] = aristaproto.message_field(
-        6, wraps=aristaproto.TYPE_STRING
-    )
+    action_id: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
     """
     action_id uniquely identifies the autofill action associated with the input field.
     """
 
-    description: Optional[str] = aristaproto.message_field(
-        7, wraps=aristaproto.TYPE_STRING
-    )
+    description: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
     """
     description is an optional field to describe the autofill action that will be
     displayed in a tooltip in the UI when the user hovers over the button to run
@@ -1678,9 +1588,7 @@ class AssignedTagsBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -1844,9 +1752,7 @@ class AssignedTagsConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2124,9 +2030,7 @@ class AutofillActionBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2290,9 +2194,7 @@ class AutofillActionConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2572,9 +2474,7 @@ class InputsBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -2736,9 +2636,7 @@ class InputsConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -3014,9 +2912,7 @@ class SecretInputBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -3178,9 +3074,7 @@ class StudioBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -3342,9 +3236,7 @@ class StudioConfigBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -3620,9 +3512,7 @@ class StudioSummaryBatchedStreamRequest(aristaproto.Message):
           be partial.
     """
 
-    max_messages: Optional[int] = aristaproto.message_field(
-        4, wraps=aristaproto.TYPE_UINT32
-    )
+    max_messages: Optional[int] = aristaproto.message_field(4, wraps=aristaproto.TYPE_UINT32)
     """
     MaxMessages limits the maximum number of messages that can be contained in one batch.
     MaxMessages is required to be at least 1.
@@ -5439,9 +5329,7 @@ from ... import time as __time__
 
 
 class AssignedTagsServiceBase(ServiceBase):
-    async def get_one(
-        self, assigned_tags_request: "AssignedTagsRequest"
-    ) -> "AssignedTagsResponse":
+    async def get_one(self, assigned_tags_request: "AssignedTagsRequest") -> "AssignedTagsResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -5487,8 +5375,7 @@ class AssignedTagsServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[AssignedTagsSomeRequest, AssignedTagsSomeResponse]",
+        self, stream: "grpclib.server.Stream[AssignedTagsSomeRequest, AssignedTagsSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -5498,8 +5385,7 @@ class AssignedTagsServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[AssignedTagsStreamRequest, AssignedTagsStreamResponse]",
+        self, stream: "grpclib.server.Stream[AssignedTagsStreamRequest, AssignedTagsStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -5509,8 +5395,7 @@ class AssignedTagsServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[AssignedTagsStreamRequest, AssignedTagsStreamResponse]",
+        self, stream: "grpclib.server.Stream[AssignedTagsStreamRequest, AssignedTagsStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -5658,32 +5543,27 @@ class AssignedTagsConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_some(
-        self,
-        assigned_tags_config_delete_some_request: "AssignedTagsConfigDeleteSomeRequest",
+        self, assigned_tags_config_delete_some_request: "AssignedTagsConfigDeleteSomeRequest"
     ) -> AsyncIterator[AssignedTagsConfigDeleteSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_all(
-        self,
-        assigned_tags_config_delete_all_request: "AssignedTagsConfigDeleteAllRequest",
+        self, assigned_tags_config_delete_all_request: "AssignedTagsConfigDeleteAllRequest"
     ) -> AsyncIterator[AssignedTagsConfigDeleteAllResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self,
-        assigned_tags_config_batched_stream_request: "AssignedTagsConfigBatchedStreamRequest",
+        self, assigned_tags_config_batched_stream_request: "AssignedTagsConfigBatchedStreamRequest"
     ) -> AsyncIterator[AssignedTagsConfigBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self,
-        assigned_tags_config_batched_stream_request: "AssignedTagsConfigBatchedStreamRequest",
+        self, assigned_tags_config_batched_stream_request: "AssignedTagsConfigBatchedStreamRequest"
     ) -> AsyncIterator[AssignedTagsConfigBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[AssignedTagsConfigRequest, AssignedTagsConfigResponse]",
+        self, stream: "grpclib.server.Stream[AssignedTagsConfigRequest, AssignedTagsConfigResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
@@ -5723,16 +5603,14 @@ class AssignedTagsConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[AssignedTagsConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[AssignedTagsConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[AssignedTagsConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[AssignedTagsConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -5927,28 +5805,24 @@ class AutofillActionServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_all_batched(
-        self,
-        autofill_action_batched_stream_request: "AutofillActionBatchedStreamRequest",
+        self, autofill_action_batched_stream_request: "AutofillActionBatchedStreamRequest"
     ) -> AsyncIterator[AutofillActionBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_batched(
-        self,
-        autofill_action_batched_stream_request: "AutofillActionBatchedStreamRequest",
+        self, autofill_action_batched_stream_request: "AutofillActionBatchedStreamRequest"
     ) -> AsyncIterator[AutofillActionBatchedStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[AutofillActionRequest, AutofillActionResponse]",
+        self, stream: "grpclib.server.Stream[AutofillActionRequest, AutofillActionResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[AutofillActionSomeRequest, AutofillActionSomeResponse]",
+        self, stream: "grpclib.server.Stream[AutofillActionSomeRequest, AutofillActionSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6108,8 +5982,7 @@ class AutofillActionConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def set_some(
-        self,
-        autofill_action_config_set_some_request: "AutofillActionConfigSetSomeRequest",
+        self, autofill_action_config_set_some_request: "AutofillActionConfigSetSomeRequest"
     ) -> AsyncIterator[AutofillActionConfigSetSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -6119,14 +5992,12 @@ class AutofillActionConfigServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_some(
-        self,
-        autofill_action_config_delete_some_request: "AutofillActionConfigDeleteSomeRequest",
+        self, autofill_action_config_delete_some_request: "AutofillActionConfigDeleteSomeRequest"
     ) -> AsyncIterator[AutofillActionConfigDeleteSomeResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def delete_all(
-        self,
-        autofill_action_config_delete_all_request: "AutofillActionConfigDeleteAllRequest",
+        self, autofill_action_config_delete_all_request: "AutofillActionConfigDeleteAllRequest"
     ) -> AsyncIterator[AutofillActionConfigDeleteAllResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
@@ -6184,16 +6055,14 @@ class AutofillActionConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_meta(
-        self,
-        stream: "grpclib.server.Stream[AutofillActionConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[AutofillActionConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_meta(request)
         await stream.send_message(response)
 
     async def __rpc_subscribe_meta(
-        self,
-        stream: "grpclib.server.Stream[AutofillActionConfigStreamRequest, MetaResponse]",
+        self, stream: "grpclib.server.Stream[AutofillActionConfigStreamRequest, MetaResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6375,9 +6244,7 @@ class InputsServiceBase(ServiceBase):
     ) -> AsyncIterator[InputsStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(
-        self, inputs_stream_request: "InputsStreamRequest"
-    ) -> "MetaResponse":
+    async def get_meta(self, inputs_stream_request: "InputsStreamRequest") -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -6525,9 +6392,7 @@ class InputsServiceBase(ServiceBase):
 
 
 class InputsConfigServiceBase(ServiceBase):
-    async def get_one(
-        self, inputs_config_request: "InputsConfigRequest"
-    ) -> "InputsConfigResponse":
+    async def get_one(self, inputs_config_request: "InputsConfigRequest") -> "InputsConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -6598,8 +6463,7 @@ class InputsConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[InputsConfigSomeRequest, InputsConfigSomeResponse]",
+        self, stream: "grpclib.server.Stream[InputsConfigSomeRequest, InputsConfigSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6609,8 +6473,7 @@ class InputsConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[InputsConfigStreamRequest, InputsConfigStreamResponse]",
+        self, stream: "grpclib.server.Stream[InputsConfigStreamRequest, InputsConfigStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6620,8 +6483,7 @@ class InputsConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[InputsConfigStreamRequest, InputsConfigStreamResponse]",
+        self, stream: "grpclib.server.Stream[InputsConfigStreamRequest, InputsConfigStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6648,8 +6510,7 @@ class InputsConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self,
-        stream: "grpclib.server.Stream[InputsConfigSetRequest, InputsConfigSetResponse]",
+        self, stream: "grpclib.server.Stream[InputsConfigSetRequest, InputsConfigSetResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -6667,8 +6528,7 @@ class InputsConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete(
-        self,
-        stream: "grpclib.server.Stream[InputsConfigDeleteRequest, InputsConfigDeleteResponse]",
+        self, stream: "grpclib.server.Stream[InputsConfigDeleteRequest, InputsConfigDeleteResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.delete(request)
@@ -6802,9 +6662,7 @@ class InputsConfigServiceBase(ServiceBase):
 
 
 class SecretInputServiceBase(ServiceBase):
-    async def get_one(
-        self, secret_input_request: "SecretInputRequest"
-    ) -> "SecretInputResponse":
+    async def get_one(self, secret_input_request: "SecretInputRequest") -> "SecretInputResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -6850,8 +6708,7 @@ class SecretInputServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[SecretInputSomeRequest, SecretInputSomeResponse]",
+        self, stream: "grpclib.server.Stream[SecretInputSomeRequest, SecretInputSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6861,8 +6718,7 @@ class SecretInputServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[SecretInputStreamRequest, SecretInputStreamResponse]",
+        self, stream: "grpclib.server.Stream[SecretInputStreamRequest, SecretInputStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6872,8 +6728,7 @@ class SecretInputServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[SecretInputStreamRequest, SecretInputStreamResponse]",
+        self, stream: "grpclib.server.Stream[SecretInputStreamRequest, SecretInputStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -6993,9 +6848,7 @@ class StudioServiceBase(ServiceBase):
     ) -> AsyncIterator[StudioStreamResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def get_meta(
-        self, studio_stream_request: "StudioStreamRequest"
-    ) -> "MetaResponse":
+    async def get_meta(self, studio_stream_request: "StudioStreamRequest") -> "MetaResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def subscribe_meta(
@@ -7143,9 +6996,7 @@ class StudioServiceBase(ServiceBase):
 
 
 class StudioConfigServiceBase(ServiceBase):
-    async def get_one(
-        self, studio_config_request: "StudioConfigRequest"
-    ) -> "StudioConfigResponse":
+    async def get_one(self, studio_config_request: "StudioConfigRequest") -> "StudioConfigResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def get_some(
@@ -7216,8 +7067,7 @@ class StudioConfigServiceBase(ServiceBase):
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[StudioConfigSomeRequest, StudioConfigSomeResponse]",
+        self, stream: "grpclib.server.Stream[StudioConfigSomeRequest, StudioConfigSomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -7227,8 +7077,7 @@ class StudioConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_get_all(
-        self,
-        stream: "grpclib.server.Stream[StudioConfigStreamRequest, StudioConfigStreamResponse]",
+        self, stream: "grpclib.server.Stream[StudioConfigStreamRequest, StudioConfigStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -7238,8 +7087,7 @@ class StudioConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_subscribe(
-        self,
-        stream: "grpclib.server.Stream[StudioConfigStreamRequest, StudioConfigStreamResponse]",
+        self, stream: "grpclib.server.Stream[StudioConfigStreamRequest, StudioConfigStreamResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
@@ -7266,8 +7114,7 @@ class StudioConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_set(
-        self,
-        stream: "grpclib.server.Stream[StudioConfigSetRequest, StudioConfigSetResponse]",
+        self, stream: "grpclib.server.Stream[StudioConfigSetRequest, StudioConfigSetResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.set(request)
@@ -7285,8 +7132,7 @@ class StudioConfigServiceBase(ServiceBase):
         )
 
     async def __rpc_delete(
-        self,
-        stream: "grpclib.server.Stream[StudioConfigDeleteRequest, StudioConfigDeleteResponse]",
+        self, stream: "grpclib.server.Stream[StudioConfigDeleteRequest, StudioConfigDeleteResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.delete(request)
@@ -7461,16 +7307,14 @@ class StudioSummaryServiceBase(ServiceBase):
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
     async def __rpc_get_one(
-        self,
-        stream: "grpclib.server.Stream[StudioSummaryRequest, StudioSummaryResponse]",
+        self, stream: "grpclib.server.Stream[StudioSummaryRequest, StudioSummaryResponse]"
     ) -> None:
         request = await stream.recv_message()
         response = await self.get_one(request)
         await stream.send_message(response)
 
     async def __rpc_get_some(
-        self,
-        stream: "grpclib.server.Stream[StudioSummarySomeRequest, StudioSummarySomeResponse]",
+        self, stream: "grpclib.server.Stream[StudioSummarySomeRequest, StudioSummarySomeResponse]"
     ) -> None:
         request = await stream.recv_message()
         await self._call_rpc_handler_server_stream(
