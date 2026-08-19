@@ -3,16 +3,18 @@
 # that can be found in the COPYING file.
 
 PCOMP = python3 -m grpc_tools.protoc # ensure we're using python's version and not some sys
-PB_DIR = cloudvision/Connector/protobuf
-GEN_DIR = cloudvision/Connector/gen
-PCOMP_FLAGS = -I=$(PB_DIR) --python_out=$(GEN_DIR) --mypy_out=$(GEN_DIR) --grpc_python_out=$(GEN_DIR)
+PROTO_DIRS = cloudvision/compliance cloudvision/Connector
 BUILD_ARTIFACTS := cloudvision.egg-info build dist _build docsrc/arista*.rst \
 	docsrc/cloudvision*.rst docsrc/fmp*.rst .pytest_cache
 
 .PHONY: clean lint dist dev-setup docs
 # re-generate python protobuf files
 proto:
-	$(PCOMP) $(PCOMP_FLAGS) $(PB_DIR)/*.proto
+	@for dir in $(PROTO_DIRS); do \
+		$(PCOMP) -I=$$dir/protobuf --python_out=$$dir/gen \
+			--mypy_out=$$dir/gen --grpc_python_out=$$dir/gen \
+			$$dir/protobuf/*.proto || exit; \
+	done
 
 # clean all stuff related to dist-ing these packages
 clean:

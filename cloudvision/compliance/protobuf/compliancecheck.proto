@@ -1,0 +1,623 @@
+// Copyright (c) 2019 Arista Networks, Inc.  All rights reserved.
+// Use of this source code is governed by the Apache License 2.0
+// that can be found in the COPYING file.
+
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+// ConfigType identifies a running or designed configuration.
+enum ConfigType {
+  // CONFIGTYPE_UNSPECIFIED indicates an unknown configuration type.
+  CONFIGTYPE_UNSPECIFIED = 0;
+  // RUNNING_CONFIG indicates a running configuration.
+  RUNNING_CONFIG = 1;
+  // DESIGNED_CONFIG indicates a designed configuration.
+  DESIGNED_CONFIG = 2;
+}
+
+// ImageType identifies a running or designed image.
+enum ImageType {
+  // IMAGETYPE_UNSPECIFIED indicates an unknown image type.
+  IMAGETYPE_UNSPECIFIED = 0;
+  // RUNNING_IMAGE indicates a running image.
+  RUNNING_IMAGE = 1;
+  // DESIGNED_IMAGE indicates a designed image.
+  DESIGNED_IMAGE = 2;
+}
+
+// DiffOp represents the operation performed to get from one side of the diff
+// to the other.
+enum DiffOp {
+  // DIFFOP_UNSPECIFIED indicates an unknown diff operation.
+  DIFFOP_UNSPECIFIED = 0;
+  // NOP indicates that sides A and B are identical at this line.
+  NOP = 1;
+  // IGNORE indicates a line ignored on either side A or B. One line number is -1.
+  IGNORE = 2;
+  // ADD indicates that a line was added to side A.
+  ADD = 3;
+  // DELETE indicates that a line was deleted from side B.
+  DELETE = 4;
+  // CHANGE indicates that a line on side A was modified.
+  CHANGE = 5;
+}
+
+// ErrorCode indicates how an error should be handled.
+enum ErrorCode {
+  // ERRORCODE_UNSPECIFIED indicates an unknown error code.
+  ERRORCODE_UNSPECIFIED = 0;
+  // DEVICEWARNING indicates a device warning.
+  DEVICEWARNING = 1;
+  // DEVICEERROR indicates a device error.
+  DEVICEERROR = 2;
+  // UNREACHABLEDEVICE indicates that the device cannot be reached.
+  UNREACHABLEDEVICE = 3;
+  // DAOERROR indicates a data access object error while manipulating the database.
+  DAOERROR = 4;
+  // FILTERERROR indicates an error from the proposed configuration management filters.
+  FILTERERROR = 5;
+  // OTHER indicates an error that should be retained in the log.
+  OTHER = 6;
+  // INACTIVEDEVICE indicates that the device was not streaming.
+  INACTIVEDEVICE = 7;
+  // PROPOSED_CONFIG_CHECK indicates an issue with the content of proposed configuration.
+  PROPOSED_CONFIG_CHECK = 8;
+}
+
+// TaskType identifies the type of task.
+enum TaskType {
+  // TASKTYPE_UNSPECIFIED indicates an unknown task type.
+  TASKTYPE_UNSPECIFIED = 0;
+  // CONFIG indicates a configuration push task.
+  CONFIG = 1;
+  // IMAGE indicates an image push task.
+  IMAGE = 2;
+}
+
+// FilterCode identifies the proposed configuration management filter that a
+// configuration line matches.
+enum FilterCode {
+  // UNSPECIFIED indicates that the configuration line did not match a filter.
+  UNSPECIFIED = 0;
+  // MANAGED_LINE indicates that the configuration line matches a managed filter.
+  MANAGED_LINE = 1;
+  // UNMANAGED_LINE indicates that the configuration line matches an unmanaged filter.
+  UNMANAGED_LINE = 2;
+}
+
+// DiffEntry represents one entry in a configuration diff.
+message DiffEntry {
+  DiffOp op = 1;
+  // a_lineno is the line number on side A to which this diff applies.
+  int32 a_lineno = 2;
+  // b_lineno is the line number on side B to which this diff applies.
+  int32 b_lineno = 3;
+  // a_parent_lineno is the line number of the containing block's leading
+  // command on side A.
+  int32 a_parent_lineno = 9;
+  // b_parent_lineno is the line number of the containing block's leading
+  // command on side B.
+  int32 b_parent_lineno = 4;
+  // a_line is the configuration line content on side A.
+  string a_line = 5;
+  // b_line is the configuration line content on side B.
+  string b_line = 6;
+  // a_filter_code is the filter code for the line on side A.
+  FilterCode a_filter_code = 7;
+  // b_filter_code is the filter code for the line on side B.
+  FilterCode b_filter_code = 8;
+}
+
+message ConfigDiff {
+  repeated DiffEntry entries = 1;
+}
+
+// ConfigSourceType identifies where a source configuration was created.
+enum ConfigSourceType {
+  // CONFIG_TYPE_UNSPECIFIED indicates an unknown configuration source type.
+  CONFIG_TYPE_UNSPECIFIED = 0;
+  // CONFIG_TYPE_TOMCAT_CONFIGLET indicates a configuration created by the Java
+  // backend. ConfigSource.key contains the configlet name for this type.
+  CONFIG_TYPE_TOMCAT_CONFIGLET = 1;
+  // CONFIG_TYPE_STUDIO indicates a configuration created through a Studio.
+  // ConfigSource.key is the Studio ID passed to the workspace API.
+  CONFIG_TYPE_STUDIO = 2;
+  // CONFIG_TYPE_STUDIO_STATIC indicates a configlet created through a static
+  // configlet Studio. ConfigSource.key is the Studio configlet ID passed to the
+  // corresponding API.
+  CONFIG_TYPE_STUDIO_STATIC = 3;
+  // Field number 4 is reserved because its former type is obsolete.
+  reserved 4;
+  // CONFIG_TYPE_HIERARCHY indicates a configuration generated by the Hierarchies workflow.
+  CONFIG_TYPE_HIERARCHY = 5;
+}
+
+// ImageSource identifies the origin of an image change.
+enum ImageSource {
+  // IMAGE_SOURCE_UNSPECIFIED indicates an unknown image source.
+  IMAGE_SOURCE_UNSPECIFIED = 0;
+  // IMAGE_SOURCE_STUDIO indicates an image assigned through a Studio.
+  IMAGE_SOURCE_STUDIO = 1;
+  // IMAGE_SOURCE_NETWORK_PROVISIONING indicates an image assigned through network provisioning.
+  IMAGE_SOURCE_NETWORK_PROVISIONING = 2;
+  // IMAGE_SOURCE_HIERARCHY indicates an image assigned through the hierarchies workflow.
+  IMAGE_SOURCE_HIERARCHY = 3;
+}
+
+message ConfigSource {
+  ConfigSourceType source_type = 1;
+  string key = 2;
+}
+
+message ConfigSources {
+  repeated ConfigSource source = 1;
+}
+
+// CvpConfigError describes an error reported by CloudVision Portal or a device
+// during configuration validation.
+message CvpConfigError {
+  ErrorCode error_code = 1;
+  string error_msg = 2;
+  int32 line_num = 3;
+  string configlet_name = 4;
+  int32 config_line_num = 5;
+}
+
+message ConfigDiffSummary {
+  bool config_compliance = 1;
+  uint32 nop = 2;
+  uint32 ignore = 3;
+  uint32 add = 4;
+  uint32 delete = 5;
+  uint32 change = 6;
+  string digest = 7;
+  string error = 8;
+}
+
+message InLineFilterCode {
+  int32 lineNo = 1;
+  FilterCode filterCode = 2;
+}
+
+message ConfigFilterCodes {
+  repeated InLineFilterCode inLineFilterCode = 1;
+}
+
+message ExtensionInfo {
+  string name = 1;
+  string version = 2;
+  bool present_in_cvp = 3;
+  bool present_in_device = 4;
+  bool installed = 5;
+  bool reboot_required = 6;
+  string install_details = 8;
+  string status_detail = 9;
+  bool is_embedded = 10;
+  string arch = 11;
+}
+
+message ConfigRequest {
+  ConfigType type = 1;
+  google.protobuf.Timestamp timestamp = 2;
+  string device_id = 3;
+}
+
+message GetConfigRequest {
+  ConfigRequest request = 1;
+}
+
+message GetConfigResponse {
+  // Field numbers 4 and 5 are reserved because their former types are obsolete.
+  reserved 4, 5;
+  oneof response {
+    string config = 1;
+    CvpConfigError error = 2;
+    ConfigFilterCodes configFilterCodes = 3;
+    ConfigSources sources = 6;
+  }
+}
+
+message GetProposedConfigRequest {
+  repeated string configlet_ids = 1;
+  string device_id = 2;
+}
+
+message GetProposedConfigResponse {
+  oneof response {
+    string config = 1;
+    CvpConfigError error = 2;
+    string partial_config = 3;
+  }
+}
+
+message GetConfigDiffRequest {
+  ConfigRequest lhs = 1;
+  ConfigRequest rhs = 2;
+}
+
+message GetConfigDiffResponse {
+  oneof response {
+    ConfigDiff diff = 1;
+    ConfigDiffSummary summary = 2;
+    CvpConfigError lhs = 3;
+    CvpConfigError rhs = 4;
+    // sources contains the left-hand-side configuration sources.
+    ConfigSources sources = 5;
+  }
+}
+
+message ConfigDiffRawRequest {
+  oneof request {
+    string lhs = 1;
+    string rhs = 2;
+    string device_id = 3;
+    // reconcile_all resolves conflicts in favor of the right-hand side when
+    // true and the left-hand side when false.
+    bool reconcile_all = 4;
+    bool exclude_reconciled_managed_config = 5;
+  }
+}
+
+message ConfigDiffRawResponse {
+  oneof response {
+    ConfigDiff diff_entries = 1;
+    string reconciled_config = 2;
+    CvpConfigError error = 3;
+  }
+}
+
+message GetConfigDiffForTaskRequest {
+  string task_id = 1;
+}
+
+message GetConfigDiffForTaskResponse {
+  oneof response {
+    ConfigDiff diff = 1;
+    CvpConfigError error = 2;
+    ConfigSources sources = 3;
+  }
+}
+
+message GetConfigDiffSummaryForTaskRequest {
+  string task_id = 1;
+}
+
+message GetConfigDiffSummaryForTaskResponse {
+  ConfigDiffSummary summary = 1;
+}
+
+message ImageDiff {
+  string running_image = 1;
+  string running_image_for_peer_sup = 2;
+  repeated ExtensionInfo running_extensions = 3;
+  repeated ExtensionInfo running_extensions_for_peer_sup = 4;
+  string designed_image = 5;
+  repeated ExtensionInfo designed_extensions = 6;
+  bool image_reboot_required = 7;
+  bool image_reboot_required_for_peer_sup = 8;
+  bool extension_reboot_required = 9;
+  bool extension_reboot_required_for_peer_sup = 10;
+  bool dual_sup = 11;
+  string target_image_bundle = 12;
+  string digest = 13;
+  string running_image_version = 14;
+  string running_image_version_for_peer_sup = 15;
+  string designed_image_version = 16;
+  ImageMetadata running_image_metadata = 17;
+  ImageMetadata running_image_metadata_for_peer_sup = 18;
+  ImageMetadata designed_image_metadata = 19;
+  ImageSource source = 20;
+}
+
+message ImageInfo {
+  string image = 1;
+  string image_for_peer_sup = 2;
+  repeated ExtensionInfo extensions = 3;
+  repeated ExtensionInfo extensions_for_peer_sup = 4;
+  bool dual_sup = 5;
+  // target_image_bundle is set only for a designed image.
+  string target_image_bundle = 6;
+  string image_version = 7;
+  string image_version_for_peer_sup = 8;
+  ImageMetadata image_metadata = 9;
+  ImageMetadata image_metadata_for_peer_sup = 10;
+}
+
+message GetImageDiffForTaskRequest {
+  string task_id = 1;
+}
+
+message GetImageDiffForTaskResponse {
+  ImageDiff diff = 1;
+}
+
+message ImageStatus {
+  bool dual_sup = 1;
+  bool image_compliance = 2;
+  bool extension_compliance = 3;
+  bool extension_compliance_for_peer_sup = 4;
+  string error = 5;
+  bool image_compliance_for_peer_sup = 6;
+}
+
+message GetDeviceStatusRequest {
+  google.protobuf.Timestamp timestamp = 1;
+  string device_id = 2;
+  TaskType task_type = 3;
+}
+
+message GetDeviceStatusResponse {
+  ConfigDiffSummary config_summary = 1;
+  ImageStatus image_status = 2;
+}
+
+message GetImageDiffRequest {
+  google.protobuf.Timestamp timestamp = 1;
+  string device_id = 2;
+}
+
+message GetImageDiffResponse {
+  ImageDiff diff = 1;
+}
+
+message ImageRequest {
+  ImageType type = 1;
+  google.protobuf.Timestamp timestamp = 2;
+  string device_id = 3;
+}
+
+// SoftwareComplianceCode indicates possible compliance status.
+enum SoftwareComplianceCode {
+  // SOFTWARE_COMPLIANCE_CODE_UNSPECIFIED indicates compliance code is unspecified.
+  SOFTWARE_COMPLIANCE_CODE_UNSPECIFIED = 0;
+  // SOFTWARE_COMPLIANCE_CODE_IN_SYNC indicates that designed and running images
+  // and extensions are identical.
+  SOFTWARE_COMPLIANCE_CODE_IN_SYNC = 1;
+  // SOFTWARE_COMPLIANCE_CODE_OUT_OF_SYNC indicates that designed and running
+  // images and extensions differ.
+  SOFTWARE_COMPLIANCE_CODE_OUT_OF_SYNC = 2;
+}
+
+// ComplianceStatus indicates the compliance status for a software image,
+// TerminAttr, and extensions.
+message ComplianceStatus {
+  // software_image_compliance_code is the compliance code for software images.
+  SoftwareComplianceCode software_image_compliance_code = 1;
+  // terminattr_compliance_code is the compliance code for TerminAttr.
+  SoftwareComplianceCode terminattr_compliance_code = 2;
+  // extensions_compliance_code is the compliance code for extensions.
+  SoftwareComplianceCode extensions_compliance_code = 3;
+}
+
+// ComplianceStatusBySup is a map that indicates the compliance code for each
+// supervisor.
+message ComplianceStatusBySup {
+  // values is the mapping of supervisor type to compliance code.
+  map<string, ComplianceStatus> values = 1;
+}
+
+message GetImageDiffRequestV2 {
+  ImageRequest lhs = 1;
+  ImageRequest rhs = 2;
+}
+
+message GetImageDiffResponseV2 {
+  ImageInfo lhs = 1;
+  ImageInfo rhs = 2;
+  bool image_reboot_required = 3;
+  bool image_reboot_required_for_peer_sup = 4;
+  bool extension_reboot_required = 5;
+  bool extension_reboot_required_for_peer_sup = 6;
+  string digest = 7;
+}
+
+message GetConfigDiffSummaryRequest {
+  ConfigRequest lhs = 1;
+  ConfigRequest rhs = 2;
+}
+
+message GetConfigDiffSummaryResponse {
+  ConfigDiffSummary summary = 1;
+}
+
+// SoftwareImage describes a running or designed EOS image.
+message SoftwareImage {
+  // name is the name of the EOS image.
+  string name = 1;
+  // version is the version of the EOS image.
+  string version = 2;
+  // metadata is the metadata for the EOS image.
+  ImageMetadata metadata = 3;
+}
+
+// ImageMetadata provides EOS image metadata.
+message ImageMetadata {
+  // version is the version of the EOS image.
+  string version = 1;
+  // release is the release name of the EOS image.
+  string release = 2;
+  // flavor is the EOS image flavor. The default is "DEFAULT"; other values
+  // include DPE and 2GB.
+  string flavor = 3;
+  // variant is the EOS image variant, such as INT or US.
+  string variant = 4;
+  // arch is the architecture of the EOS image.
+  string arch = 5;
+}
+
+// ExtensionInstallStatus indicates whether an extension is installed, not
+// installed, or force-installed.
+enum ExtensionInstallStatus {
+  // EXTENSION_INSTALL_STATUS_UNSPECIFIED indicates an unknown extension
+  // installation status.
+  EXTENSION_INSTALL_STATUS_UNSPECIFIED = 0;
+  // EXTENSION_INSTALL_STATUS_NOT_INSTALLED indicates that the extension is not
+  // installed on the device.
+  EXTENSION_INSTALL_STATUS_NOT_INSTALLED = 1;
+  // EXTENSION_INSTALL_STATUS_INSTALLED indicates that the extension is
+  // installed on the device.
+  EXTENSION_INSTALL_STATUS_INSTALLED = 2;
+  // EXTENSION_INSTALL_STATUS_FORCE_INSTALLED indicates that the extension is
+  // force-installed on the device.
+  EXTENSION_INSTALL_STATUS_FORCE_INSTALLED = 3;
+}
+
+// Extension provides information about a running or designed extension.
+message Extension {
+  // name is the name of the extension.
+  string name = 1;
+  // version is the version of the extension.
+  string version = 2;
+  // reboot_required indicates whether applying or deleting this extension would
+  // require a reboot.
+  bool reboot_required = 3;
+  // present indicates whether the extension is present on the device.
+  bool present = 4;
+  // installed indicates whether the extension is installed, not installed, or
+  // force-installed.
+  ExtensionInstallStatus installed = 5;
+  // status_detail describes the extension status.
+  string status_detail = 6;
+  // is_embedded indicates whether the extension is embedded in the EOS software
+  // image.
+  bool is_embedded = 7;
+  // arch is the extension architecture.
+  string arch = 8;
+}
+
+// RebootRequired indicates switch-wide reboot requirements for software images,
+// TerminAttr, and extensions.
+message RebootRequired {
+  // software_image_reboot_required indicates whether applying the software
+  // image requires a reboot.
+  bool software_image_reboot_required = 1;
+  // terminattr_reboot_required indicates whether applying or deleting
+  // TerminAttr requires a reboot.
+  bool terminattr_reboot_required = 2;
+  // extension_reboot_required indicates whether applying or deleting extensions
+  // requires a reboot.
+  bool extension_reboot_required = 3;
+}
+
+// ImageDiffOp represents the operation performed to get from one side of the
+// diff to the other.
+enum ImageDiffOp {
+  // DIFF_OP_UNSPECIFIED indicates an unknown image diff operation.
+  DIFF_OP_UNSPECIFIED = 0;
+  // DIFF_OP_NOP indicates no change.
+  DIFF_OP_NOP = 1;
+  // DIFF_OP_ADD indicates that software was added.
+  DIFF_OP_ADD = 2;
+  // DIFF_OP_DELETE indicates that software was deleted.
+  DIFF_OP_DELETE = 3;
+  // DIFF_OP_CHANGE indicates that software was updated.
+  DIFF_OP_CHANGE = 4;
+}
+
+// SoftwareImageDiff is the diff between running and designed images.
+message SoftwareImageDiff {
+  // code is the operation performed to get from one side of the diff to the other.
+  ImageDiffOp code = 1;
+  // a is the software image on side A (the left-hand side).
+  SoftwareImage a = 2;
+  // b is the software image on side B (the right-hand side).
+  SoftwareImage b = 3;
+  // text_code is the color in the diff view page.
+  ImageDiffOp text_code = 4;
+}
+
+// SoftwareImageDiffsBySup is software image diff information for each
+// supervisor.
+message SoftwareImageDiffsBySup {
+  // values maps each supervisor type to its image diff.
+  map<string, SoftwareImageDiff> values = 1;
+}
+
+// ExtensionDiff is the diff between running and designed extensions.
+message ExtensionDiff {
+  // code is the operation performed to get from one side of the diff to the other.
+  ImageDiffOp code = 1;
+  // a is the extension on side A (the left-hand side).
+  Extension a = 2;
+  // b is the extension on side B (the right-hand side).
+  Extension b = 3;
+  // text_code is the color in the diff view page.
+  ImageDiffOp text_code = 4;
+}
+
+// TerminAttrDiffsBySup contains TerminAttr diff information for each supervisor.
+message TerminAttrDiffsBySup {
+  // values maps each supervisor type to its TerminAttr diff.
+  map<string, ExtensionDiff> values = 1;
+}
+
+// ExtensionDiffs is a list of extension diff information in the order they
+// will be applied.
+message ExtensionDiffs {
+  // values is an ordered list of extension diffs applied to the device.
+  repeated ExtensionDiff values = 1;
+}
+
+// ExtensionDiffsBySup is the extension diff information for each supervisor.
+message ExtensionDiffsBySup {
+  // values maps each supervisor type to its extension diffs.
+  map<string, ExtensionDiffs> values = 1;
+}
+
+message ImageInfoV3 {
+  // software_image_diff contains the image diff for each supervisor.
+  SoftwareImageDiffsBySup software_image_diff = 1;
+  // terminattr_diff contains the TerminAttr diff for each supervisor.
+  TerminAttrDiffsBySup terminattr_diff = 2;
+  // extensions_diff contains the extension diffs for each supervisor.
+  ExtensionDiffsBySup extensions_diff = 3;
+  // compliance provides compliance information for each supervisor.
+  ComplianceStatusBySup compliance = 4;
+  // compliance_status is the aggregate status for active and standby
+  // supervisors, images, TerminAttr, and extensions.
+  SoftwareComplianceCode compliance_status = 5;
+}
+
+message GetImageDiffRequestV3 {
+  ImageRequest a = 1;
+  ImageRequest b = 2;
+}
+
+message GetImageDiffResponseV3 {
+  ImageInfoV3 image_info = 1;
+  bool dual_sup_a = 2;
+  bool dual_sup_b = 3;
+  RebootRequired reboot_required = 4;
+  string digest = 5;
+  ImageSource source_a = 6;
+  ImageSource source_b = 7;
+}
+
+// Compliance provides configuration and image compliance information.
+// To get the current view of an entity, leave the timestamp field unset in the
+// corresponding request.
+service Compliance {
+  rpc GetConfigDiff(GetConfigDiffRequest)
+      returns (stream GetConfigDiffResponse);
+  rpc GetConfig(GetConfigRequest) returns (stream GetConfigResponse);
+  rpc GetDeviceStatus(GetDeviceStatusRequest)
+      returns (stream GetDeviceStatusResponse);
+  rpc GetImageDiff(GetImageDiffRequest) returns (stream GetImageDiffResponse);
+  rpc GetConfigDiffForTask(GetConfigDiffForTaskRequest)
+      returns (stream GetConfigDiffForTaskResponse);
+  rpc GetConfigDiffSummaryForTask(GetConfigDiffSummaryForTaskRequest)
+      returns (stream GetConfigDiffSummaryForTaskResponse);
+  rpc GetImageDiffForTask(GetImageDiffForTaskRequest)
+      returns (stream GetImageDiffForTaskResponse);
+  rpc GetProposedConfig(GetProposedConfigRequest)
+      returns (stream GetProposedConfigResponse);
+  rpc ConfigDiffRaw(stream ConfigDiffRawRequest)
+      returns (stream ConfigDiffRawResponse);
+  rpc GetConfigDiffSummary(GetConfigDiffSummaryRequest)
+      returns (stream GetConfigDiffSummaryResponse);
+  rpc GetImageDiffV2(GetImageDiffRequestV2)
+      returns (stream GetImageDiffResponseV2);
+  rpc GetImageDiffV3(GetImageDiffRequestV3)
+      returns (stream GetImageDiffResponseV3);
+}
