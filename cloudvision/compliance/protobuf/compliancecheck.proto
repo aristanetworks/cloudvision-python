@@ -4,6 +4,8 @@
 
 syntax = "proto3";
 
+package compliancecheck;
+
 import "google/protobuf/timestamp.proto";
 
 // ConfigType identifies a running or designed configuration.

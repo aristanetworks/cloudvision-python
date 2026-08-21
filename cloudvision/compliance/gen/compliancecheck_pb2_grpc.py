@@ -38,62 +38,62 @@ class ComplianceStub:
             channel: A grpc.Channel.
         """
         self.GetConfigDiff = channel.unary_stream(
-                '/Compliance/GetConfigDiff',
+                '/compliancecheck.Compliance/GetConfigDiff',
                 request_serializer=compliancecheck__pb2.GetConfigDiffRequest.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetConfigDiffResponse.FromString,
                 _registered_method=True)
         self.GetConfig = channel.unary_stream(
-                '/Compliance/GetConfig',
+                '/compliancecheck.Compliance/GetConfig',
                 request_serializer=compliancecheck__pb2.GetConfigRequest.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetConfigResponse.FromString,
                 _registered_method=True)
         self.GetDeviceStatus = channel.unary_stream(
-                '/Compliance/GetDeviceStatus',
+                '/compliancecheck.Compliance/GetDeviceStatus',
                 request_serializer=compliancecheck__pb2.GetDeviceStatusRequest.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetDeviceStatusResponse.FromString,
                 _registered_method=True)
         self.GetImageDiff = channel.unary_stream(
-                '/Compliance/GetImageDiff',
+                '/compliancecheck.Compliance/GetImageDiff',
                 request_serializer=compliancecheck__pb2.GetImageDiffRequest.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetImageDiffResponse.FromString,
                 _registered_method=True)
         self.GetConfigDiffForTask = channel.unary_stream(
-                '/Compliance/GetConfigDiffForTask',
+                '/compliancecheck.Compliance/GetConfigDiffForTask',
                 request_serializer=compliancecheck__pb2.GetConfigDiffForTaskRequest.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetConfigDiffForTaskResponse.FromString,
                 _registered_method=True)
         self.GetConfigDiffSummaryForTask = channel.unary_stream(
-                '/Compliance/GetConfigDiffSummaryForTask',
+                '/compliancecheck.Compliance/GetConfigDiffSummaryForTask',
                 request_serializer=compliancecheck__pb2.GetConfigDiffSummaryForTaskRequest.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetConfigDiffSummaryForTaskResponse.FromString,
                 _registered_method=True)
         self.GetImageDiffForTask = channel.unary_stream(
-                '/Compliance/GetImageDiffForTask',
+                '/compliancecheck.Compliance/GetImageDiffForTask',
                 request_serializer=compliancecheck__pb2.GetImageDiffForTaskRequest.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetImageDiffForTaskResponse.FromString,
                 _registered_method=True)
         self.GetProposedConfig = channel.unary_stream(
-                '/Compliance/GetProposedConfig',
+                '/compliancecheck.Compliance/GetProposedConfig',
                 request_serializer=compliancecheck__pb2.GetProposedConfigRequest.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetProposedConfigResponse.FromString,
                 _registered_method=True)
         self.ConfigDiffRaw = channel.stream_stream(
-                '/Compliance/ConfigDiffRaw',
+                '/compliancecheck.Compliance/ConfigDiffRaw',
                 request_serializer=compliancecheck__pb2.ConfigDiffRawRequest.SerializeToString,
                 response_deserializer=compliancecheck__pb2.ConfigDiffRawResponse.FromString,
                 _registered_method=True)
         self.GetConfigDiffSummary = channel.unary_stream(
-                '/Compliance/GetConfigDiffSummary',
+                '/compliancecheck.Compliance/GetConfigDiffSummary',
                 request_serializer=compliancecheck__pb2.GetConfigDiffSummaryRequest.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetConfigDiffSummaryResponse.FromString,
                 _registered_method=True)
         self.GetImageDiffV2 = channel.unary_stream(
-                '/Compliance/GetImageDiffV2',
+                '/compliancecheck.Compliance/GetImageDiffV2',
                 request_serializer=compliancecheck__pb2.GetImageDiffRequestV2.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetImageDiffResponseV2.FromString,
                 _registered_method=True)
         self.GetImageDiffV3 = channel.unary_stream(
-                '/Compliance/GetImageDiffV3',
+                '/compliancecheck.Compliance/GetImageDiffV3',
                 request_serializer=compliancecheck__pb2.GetImageDiffRequestV3.SerializeToString,
                 response_deserializer=compliancecheck__pb2.GetImageDiffResponseV3.FromString,
                 _registered_method=True)
@@ -242,9 +242,9 @@ def add_ComplianceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'Compliance', rpc_method_handlers)
+            'compliancecheck.Compliance', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('Compliance', rpc_method_handlers)
+    server.add_registered_method_handlers('compliancecheck.Compliance', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -268,7 +268,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetConfigDiff',
+            '/compliancecheck.Compliance/GetConfigDiff',
             compliancecheck__pb2.GetConfigDiffRequest.SerializeToString,
             compliancecheck__pb2.GetConfigDiffResponse.FromString,
             options,
@@ -295,7 +295,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetConfig',
+            '/compliancecheck.Compliance/GetConfig',
             compliancecheck__pb2.GetConfigRequest.SerializeToString,
             compliancecheck__pb2.GetConfigResponse.FromString,
             options,
@@ -322,7 +322,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetDeviceStatus',
+            '/compliancecheck.Compliance/GetDeviceStatus',
             compliancecheck__pb2.GetDeviceStatusRequest.SerializeToString,
             compliancecheck__pb2.GetDeviceStatusResponse.FromString,
             options,
@@ -349,7 +349,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetImageDiff',
+            '/compliancecheck.Compliance/GetImageDiff',
             compliancecheck__pb2.GetImageDiffRequest.SerializeToString,
             compliancecheck__pb2.GetImageDiffResponse.FromString,
             options,
@@ -376,7 +376,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetConfigDiffForTask',
+            '/compliancecheck.Compliance/GetConfigDiffForTask',
             compliancecheck__pb2.GetConfigDiffForTaskRequest.SerializeToString,
             compliancecheck__pb2.GetConfigDiffForTaskResponse.FromString,
             options,
@@ -403,7 +403,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetConfigDiffSummaryForTask',
+            '/compliancecheck.Compliance/GetConfigDiffSummaryForTask',
             compliancecheck__pb2.GetConfigDiffSummaryForTaskRequest.SerializeToString,
             compliancecheck__pb2.GetConfigDiffSummaryForTaskResponse.FromString,
             options,
@@ -430,7 +430,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetImageDiffForTask',
+            '/compliancecheck.Compliance/GetImageDiffForTask',
             compliancecheck__pb2.GetImageDiffForTaskRequest.SerializeToString,
             compliancecheck__pb2.GetImageDiffForTaskResponse.FromString,
             options,
@@ -457,7 +457,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetProposedConfig',
+            '/compliancecheck.Compliance/GetProposedConfig',
             compliancecheck__pb2.GetProposedConfigRequest.SerializeToString,
             compliancecheck__pb2.GetProposedConfigResponse.FromString,
             options,
@@ -484,7 +484,7 @@ class Compliance:
         return grpc.experimental.stream_stream(
             request_iterator,
             target,
-            '/Compliance/ConfigDiffRaw',
+            '/compliancecheck.Compliance/ConfigDiffRaw',
             compliancecheck__pb2.ConfigDiffRawRequest.SerializeToString,
             compliancecheck__pb2.ConfigDiffRawResponse.FromString,
             options,
@@ -511,7 +511,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetConfigDiffSummary',
+            '/compliancecheck.Compliance/GetConfigDiffSummary',
             compliancecheck__pb2.GetConfigDiffSummaryRequest.SerializeToString,
             compliancecheck__pb2.GetConfigDiffSummaryResponse.FromString,
             options,
@@ -538,7 +538,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetImageDiffV2',
+            '/compliancecheck.Compliance/GetImageDiffV2',
             compliancecheck__pb2.GetImageDiffRequestV2.SerializeToString,
             compliancecheck__pb2.GetImageDiffResponseV2.FromString,
             options,
@@ -565,7 +565,7 @@ class Compliance:
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/Compliance/GetImageDiffV3',
+            '/compliancecheck.Compliance/GetImageDiffV3',
             compliancecheck__pb2.GetImageDiffRequestV3.SerializeToString,
             compliancecheck__pb2.GetImageDiffResponseV3.FromString,
             options,
