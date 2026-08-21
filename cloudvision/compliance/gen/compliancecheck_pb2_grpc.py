@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import compliancecheck_pb2 as compliancecheck__pb2
+from . import compliancecheck_pb2 as compliancecheck__pb2
 
 GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__

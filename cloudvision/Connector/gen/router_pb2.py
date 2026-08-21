@@ -22,8 +22,8 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-import notification_pb2 as notification__pb2
-import sharding_pb2 as sharding__pb2
+from . import notification_pb2 as notification__pb2
+from . import sharding_pb2 as sharding__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 

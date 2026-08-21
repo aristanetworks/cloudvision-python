@@ -7,13 +7,14 @@ PROTO_DIRS = cloudvision/compliance cloudvision/Connector
 BUILD_ARTIFACTS := cloudvision.egg-info build dist _build docsrc/arista*.rst \
 	docsrc/cloudvision*.rst docsrc/fmp*.rst .pytest_cache
 
-.PHONY: clean lint dist dev-setup docs
+.PHONY: clean lint dist dev-setup docs proto
 # re-generate python protobuf files
 proto:
 	@for dir in $(PROTO_DIRS); do \
 		$(PCOMP) -I=$$dir/protobuf --python_out=$$dir/gen \
 			--mypy_out=$$dir/gen --grpc_python_out=$$dir/gen \
 			$$dir/protobuf/*.proto || exit; \
+		python3 scripts/fix_proto_imports.py $$dir/gen || exit; \
 	done
 
 # clean all stuff related to dist-ing these packages

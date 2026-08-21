@@ -4,8 +4,8 @@ import grpc
 import warnings
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-import notification_pb2 as notification__pb2
-import router_pb2 as router__pb2
+from . import notification_pb2 as notification__pb2
+from . import router_pb2 as router__pb2
 
 GRPC_GENERATED_VERSION = '1.81.1'
 GRPC_VERSION = grpc.__version__
