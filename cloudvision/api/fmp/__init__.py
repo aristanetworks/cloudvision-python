@@ -73,8 +73,6 @@ __all__ = (
     "MapStringBool",
     "MapStringString",
     "MapStringBytes",
-    "MacAddress",
-    "RepeatedMacAddress",
     "IpAddress",
     "RepeatedIpAddress",
     "IPv4Address",
@@ -85,6 +83,8 @@ __all__ = (
     "IPv4Prefix",
     "IPv6Prefix",
     "Port",
+    "MacAddress",
+    "RepeatedMacAddress",
 )
 
 
@@ -753,16 +753,6 @@ class MapStringBytes(aristaproto.Message):
 
 
 @dataclass(eq=False, repr=False)
-class MacAddress(aristaproto.Message):
-    value: str = aristaproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class RepeatedMacAddress(aristaproto.Message):
-    values: List["MacAddress"] = aristaproto.message_field(1)
-
-
-@dataclass(eq=False, repr=False)
 class IpAddress(aristaproto.Message):
     value: str = aristaproto.string_field(1)
 
@@ -810,3 +800,13 @@ class IPv6Prefix(aristaproto.Message):
 @dataclass(eq=False, repr=False)
 class Port(aristaproto.Message):
     value: int = aristaproto.uint32_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class MacAddress(aristaproto.Message):
+    value: str = aristaproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class RepeatedMacAddress(aristaproto.Message):
+    values: List["MacAddress"] = aristaproto.message_field(1)

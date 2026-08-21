@@ -759,6 +759,7 @@ class SenderStatus(google.protobuf.message.Message):
     ERROR_MESSAGE_FIELD_NUMBER: builtins.int
     EVENTS_FIELD_NUMBER: builtins.int
     PREVIOUS_ATTEMPTS_FIELD_NUMBER: builtins.int
+    CONFIG_TIMESTAMP_FIELD_NUMBER: builtins.int
     error_type: global___EndpointErrorType.ValueType
     """error_type is the type of error. This allows custom handling of different error types."""
     @property
@@ -795,6 +796,13 @@ class SenderStatus(google.protobuf.message.Message):
         retried.
         """
 
+    @property
+    def config_timestamp(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """config_timestamp is the AlertConfig update timestamp captured when the send attempt associated
+        with this sender status was made. It correlates the status with the configuration it used,
+        which is not always possible using just Sender Status last-modification timestamp.
+        """
+
     def __init__(
         self,
         *,
@@ -806,9 +814,10 @@ class SenderStatus(google.protobuf.message.Message):
         error_message: google.protobuf.wrappers_pb2.StringValue | None = ...,
         events: global___EventIdentifiers | None = ...,
         previous_attempts: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
+        config_timestamp: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "events", b"events", "key", b"key", "previous_attempts", b"previous_attempts", "remaining_retries", b"remaining_retries", "success", b"success"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["config_index", b"config_index", "error_message", b"error_message", "error_type", b"error_type", "events", b"events", "key", b"key", "previous_attempts", b"previous_attempts", "remaining_retries", b"remaining_retries", "success", b"success"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["config_index", b"config_index", "config_timestamp", b"config_timestamp", "error_message", b"error_message", "events", b"events", "key", b"key", "previous_attempts", b"previous_attempts", "remaining_retries", b"remaining_retries", "success", b"success"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["config_index", b"config_index", "config_timestamp", b"config_timestamp", "error_message", b"error_message", "error_type", b"error_type", "events", b"events", "key", b"key", "previous_attempts", b"previous_attempts", "remaining_retries", b"remaining_retries", "success", b"success"]) -> None: ...
 
 global___SenderStatus = SenderStatus
 
