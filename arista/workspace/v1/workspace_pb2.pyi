@@ -777,6 +777,10 @@ class _DiffTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumT
     relative to its original mainline, and another for what happened between original
     mainline and latest mainline.
     """
+    DIFF_TYPE_MODIFICATION: _DiffType.ValueType  # 2
+    """DIFF_TYPE_MODIFICATION represents live workspace modification diffs while the
+    workspace is pending.
+    """
 
 class DiffType(_DiffType, metaclass=_DiffTypeEnumTypeWrapper):
     """DiffType enumerates types of diff."""
@@ -788,6 +792,10 @@ DIFF_TYPE_REBASE: DiffType.ValueType  # 1
 it means that we return two sets of diffs - one for what happened in the workspace
 relative to its original mainline, and another for what happened between original
 mainline and latest mainline.
+"""
+DIFF_TYPE_MODIFICATION: DiffType.ValueType  # 2
+"""DIFF_TYPE_MODIFICATION represents live workspace modification diffs while the
+workspace is pending.
 """
 global___DiffType = DiffType
 

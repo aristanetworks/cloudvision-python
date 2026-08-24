@@ -696,6 +696,12 @@ class DiffType(aristaproto.Enum):
     mainline and latest mainline.
     """
 
+    MODIFICATION = 2
+    """
+    DIFF_TYPE_MODIFICATION represents live workspace modification diffs while the
+    workspace is pending.
+    """
+
 
 class DiffOp(aristaproto.Enum):
     """
