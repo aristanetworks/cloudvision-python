@@ -270,6 +270,8 @@ class _PreferredBundleReasonEnumTypeWrapper(google.protobuf.internal.enum_type_w
     """PREFERRED_BUNDLE_REASON_PERPETUAL_AND_SALES_ORDER_AGE indicates a perpetual license
     with the oldest sales order.
     """
+    PREFERRED_BUNDLE_REASON_SHIPSET_NUMBER: _PreferredBundleReason.ValueType  # 4
+    """PREFERRED_BUNDLE_REASON_SHIPSET_NUMBER indicates a device and license is within the same sales order and shipset."""
 
 class PreferredBundleReason(_PreferredBundleReason, metaclass=_PreferredBundleReasonEnumTypeWrapper):
     """PreferredBundleReason indicates the reason a license bundle is preferred."""
@@ -284,6 +286,8 @@ PREFERRED_BUNDLE_REASON_PERPETUAL_AND_SALES_ORDER_AGE: PreferredBundleReason.Val
 """PREFERRED_BUNDLE_REASON_PERPETUAL_AND_SALES_ORDER_AGE indicates a perpetual license
 with the oldest sales order.
 """
+PREFERRED_BUNDLE_REASON_SHIPSET_NUMBER: PreferredBundleReason.ValueType  # 4
+"""PREFERRED_BUNDLE_REASON_SHIPSET_NUMBER indicates a device and license is within the same sales order and shipset."""
 global___PreferredBundleReason = PreferredBundleReason
 
 @typing.final
@@ -1004,6 +1008,7 @@ class LicenseBundle(google.protobuf.message.Message):
     IS_PREFERRED_FIELD_NUMBER: builtins.int
     PREFERRED_BUNDLE_REASON_FIELD_NUMBER: builtins.int
     END_CUSTOMER_PURCHASE_ORDER_NUMBER_FIELD_NUMBER: builtins.int
+    SHIPSET_NUMBER_FIELD_NUMBER: builtins.int
     plan_name: global___PlanName.ValueType
     """plan_name indicates type of license (perpetual/subscription)."""
     preferred_bundle_reason: global___PreferredBundleReason.ValueType
@@ -1048,6 +1053,10 @@ class LicenseBundle(google.protobuf.message.Message):
     def end_customer_purchase_order_number(self) -> google.protobuf.wrappers_pb2.StringValue:
         """end_customer_purchase_order_number is the purchase order number associated with this bundle."""
 
+    @property
+    def shipset_number(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """shipset_number is the shipset number for the purchased license bundle."""
+
     def __init__(
         self,
         *,
@@ -1062,9 +1071,10 @@ class LicenseBundle(google.protobuf.message.Message):
         is_preferred: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         preferred_bundle_reason: global___PreferredBundleReason.ValueType = ...,
         end_customer_purchase_order_number: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        shipset_number: google.protobuf.wrappers_pb2.Int64Value | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "is_preferred", b"is_preferred", "license_bundle_uuid", b"license_bundle_uuid", "sales_order_number", b"sales_order_number", "sku", b"sku", "start_time", b"start_time", "total_license_count", b"total_license_count", "unassigned_license_count", b"unassigned_license_count"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "is_preferred", b"is_preferred", "license_bundle_uuid", b"license_bundle_uuid", "plan_name", b"plan_name", "preferred_bundle_reason", b"preferred_bundle_reason", "sales_order_number", b"sales_order_number", "sku", b"sku", "start_time", b"start_time", "total_license_count", b"total_license_count", "unassigned_license_count", b"unassigned_license_count"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "is_preferred", b"is_preferred", "license_bundle_uuid", b"license_bundle_uuid", "sales_order_number", b"sales_order_number", "shipset_number", b"shipset_number", "sku", b"sku", "start_time", b"start_time", "total_license_count", b"total_license_count", "unassigned_license_count", b"unassigned_license_count"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "is_preferred", b"is_preferred", "license_bundle_uuid", b"license_bundle_uuid", "plan_name", b"plan_name", "preferred_bundle_reason", b"preferred_bundle_reason", "sales_order_number", b"sales_order_number", "shipset_number", b"shipset_number", "sku", b"sku", "start_time", b"start_time", "total_license_count", b"total_license_count", "unassigned_license_count", b"unassigned_license_count"]) -> None: ...
 
 global___LicenseBundle = LicenseBundle
 
@@ -1092,7 +1102,13 @@ global___RepeatedLicenseBundle = RepeatedLicenseBundle
 class ApplicableLicenseBundles(google.protobuf.message.Message):
     """ApplicableLicenseBundles represents a list of license bundles that are compatible
     with a given device for a specific feature.
-    The list may contain a preferred bundle based on a defined priority order.
+    The list may contain multiple applicable bundles, but at most one bundle is
+    marked preferred. A bundle is marked preferred only when it matches the
+    preferred bundle criteria and is selected by the first applicable priority
+    rule high to low:
+     1. sales order number + shipset number match, (device and license are within same sales order and shipset)
+     2. sales order match (device and license are within same sales order)
+     3. perpetual plan (license is perpetual).
     Note: This resource is only available in CVaaS.
     """
 
