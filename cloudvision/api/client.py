@@ -89,11 +89,9 @@ class AsyncCVClient:
             context = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH,
                                                  cadata=cadata)
         else:
-            # Use system CA bundle; works for publicly-signed certs (CVaaS).
-            # For on-prem deployments with self-signed certificates,
-            # provide the CA cert via cacert or set insecure=True.
-            cadata = ssl.get_server_certificate((host, port))
-            context = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH, cadata=cadata)
+            # Use the system CA bundle for publicly-signed certificates.
+            # Private and self-signed CAs must be supplied explicitly.
+            context = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH)
         context.set_alpn_protocols(["h2"])
         return context
 
@@ -101,16 +99,15 @@ class AsyncCVClient:
     def from_token(cls, token, host, port=443, username=None, insecure=False, cacert=None):
         """
         If you would like to use service accounts, you can create them in CloudVision UI
-        https://my-cloudvision-instance.io/cv/setting/aaa-service-accounts
+        https://my-cloudvision-instance.io/cv/settings/aaa-service-accounts
 
         Generate a token for service account and pass it to this method to get an instance of
         the client.
 
         .. note::
-            With default parameters, it would assume that the host has a self-signed certificate and
-            it will fetch it and verify hostname and expiry. It is recommended that you use
-            CA signed certificate in your CloudVision deployment, so you'd either add this CA to
-            the list of trusted CAs, or provide it's certificate via `cacert` parameter
+            By default, certificates are verified using the system CA bundle.
+            For deployments using a private or self-signed CA, provide its
+            certificate using ``cacert``.
 
         .. DANGER::
             Avoid setting `insecure=True` as this would disable certificate check
@@ -139,10 +136,9 @@ class AsyncCVClient:
         Use usename and password to authenticate in CloudVision
 
         .. note::
-            With default parameters, it would assume that the host has a self-signed certificate and
-            it will fetch it and verify hostname and expiry. It is recommended that you use
-            CA signed certificate in your CloudVision deployment, so you'd either add this CA to
-            the list of trusted CAs, or provide it's certificate via `cacert` parameter
+            By default, certificates are verified using the system CA bundle.
+            For deployments using a private or self-signed CA, provide its
+            certificate using ``cacert``.
 
 
         .. DANGER::

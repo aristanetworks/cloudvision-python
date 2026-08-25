@@ -34,12 +34,14 @@ def tmp_dir_factory():
 
 
 @pytest.mark.asyncio
-async def test_self_signed(tmp_dir_factory, unused_tcp_port_factory):
+async def test_self_signed_requires_explicit_trust(tmp_dir_factory,
+                                                   unused_tcp_port_factory):
     certs = utils.create_self_signed_cert(tmp_dir_factory())
     async with utils.grpc_server(unused_tcp_port_factory(), certs) as (host, port):
         f = functools.partial(AsyncCVClient.from_token, utils.TEST_TOKEN, host=host,
                               port=port)
-        await utils.assert_grpc_response(f)
+        with pytest.raises(ssl.SSLCertVerificationError):
+            await utils.assert_grpc_response(f)
 
 
 @pytest.mark.asyncio
@@ -104,14 +106,15 @@ async def test_insecure(tmp_dir_factory, unused_tcp_port_factory):
 
 
 @pytest.mark.asyncio
-async def test_user_password_sefl_signed(tmp_dir_factory, unused_tcp_port_factory):
+async def test_user_password_self_signed_requires_explicit_trust(
+        tmp_dir_factory, unused_tcp_port_factory):
     certs = utils.create_self_signed_cert(tmp_dir_factory())
     port = unused_tcp_port_factory()
     async with utils.http_server(port=port, certs=certs):
-        client = AsyncCVClient.from_user_credentials(username=utils.USERNAME,
-                                                     password=utils.PASSWORD, host='localhost',
-                                                     port=port)
-        assert client.token == utils.TEST_TOKEN
+        with pytest.raises(UnableToAuthenticateException):
+            AsyncCVClient.from_user_credentials(username=utils.USERNAME,
+                                                password=utils.PASSWORD,
+                                                host='localhost', port=port)
 
 
 @pytest.mark.asyncio
