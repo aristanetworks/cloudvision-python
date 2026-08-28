@@ -4,7 +4,7 @@
 
 from argparse import ArgumentError
 from datetime import datetime
-from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
+from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple, Union
 
 import json
 import grpc
@@ -162,9 +162,11 @@ class GRPCClient(object):
         keyValue: Optional[str] = None,
         caValue: Optional[str] = None,
         channel_options: Dict[str, Any] = {},
+        metadata_provider: Optional[Callable[[], Iterable[Tuple[str, str]]]] = None,
     ) -> None:
         # used to store the auth token for per request auth
         self.metadata = None
+        self.metadata_provider = metadata_provider
         # create a channel option by merging the default channel options and the user provided one
         # NOTE: default options will be overriden if provided by the user
         channel_options = get_dict(channel_options)
@@ -250,6 +252,14 @@ class GRPCClient(object):
     def close(self):
         self.channel.close()
 
+    def _get_rpc_metadata(self):
+        metadata = self.metadata
+        if self.metadata_provider:
+            rpc_metadata = self.metadata_provider()
+            if rpc_metadata:
+                metadata = (*(metadata or ()), *rpc_metadata)
+        return metadata
+
     def get(
         self,
         queries: List[rtr.Query],
@@ -283,7 +293,7 @@ class GRPCClient(object):
             sharded_sub=sharding,
             exact_range=exact_range,
         )
-        stream = self.__client.Get(request, metadata=self.metadata, timeout=timeout)
+        stream = self.__client.Get(request, metadata=self._get_rpc_metadata(), timeout=timeout)
         return (self.decode_batch(nb) for nb in stream)
 
     def subscribe(self, queries, sharding=None, timeout: Optional[float] = None):
@@ -299,7 +309,7 @@ class GRPCClient(object):
             query=queries,
             sharded_sub=sharding,
         )
-        stream = self.__client.Subscribe(req, metadata=self.metadata, timeout=timeout)
+        stream = self.__client.Subscribe(req, metadata=self._get_rpc_metadata(), timeout=timeout)
         return (self.decode_batch(nb) for nb in stream)
 
     def getAndSubscribe(
@@ -370,7 +380,7 @@ class GRPCClient(object):
             sync=sync,
             compare=comp_pb,
         )
-        self.__client.Publish(req, metadata=self.metadata, timeout=timeout)
+        self.__client.Publish(req, metadata=self._get_rpc_metadata(), timeout=timeout)
 
     def get_datasets(self, types: Optional[List[str]] = None):
         """

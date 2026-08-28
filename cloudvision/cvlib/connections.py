@@ -137,3 +137,16 @@ def addHeaderInterceptor(header, value):
         return client_call_details, request_iterator, None
 
     return create(intercept_call)
+
+
+def addMetadataInterceptor(metadata_provider):
+    def intercept_call(client_call_details, request_iterator, request_streaming,
+                       response_streaming):
+        metadata = list(client_call_details.metadata or ())
+        metadata.extend(metadata_provider() or ())
+        client_call_details = _ClientCallDetails(
+            client_call_details.method, client_call_details.timeout, metadata,
+            client_call_details.credentials)
+        return client_call_details, request_iterator, None
+
+    return create(intercept_call)

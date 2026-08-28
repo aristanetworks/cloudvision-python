@@ -8,7 +8,7 @@ from collections.abc import Callable
 from enum import IntEnum
 from logging import getLogger
 from time import process_time_ns
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 import grpc
 import requests
@@ -24,7 +24,7 @@ from cloudvision.Connector.grpc_client import (
 
 from .action import Action
 from .changecontrol import ChangeControl
-from .connections import AuthAndEndpoints, addHeaderInterceptor
+from .connections import AuthAndEndpoints, addHeaderInterceptor, addMetadataInterceptor
 from .constants import (
     BUILD_ID_ARG,
     STUDIO_ID_ARG,
@@ -132,7 +132,8 @@ class Context:
                  execution: Optional[Execution] = None,
                  connections: Optional[AuthAndEndpoints] = None,
                  logger: Optional[Logger] = None,
-                 loggingLevel: Optional[LoggingLevel] = None):
+                 loggingLevel: Optional[LoggingLevel] = None,
+                 metadata_provider: Optional[Callable[[], Iterable[Tuple[str, str]]]] = None):
         self.user = user
         self.device = device
         self.action = action
@@ -142,6 +143,7 @@ class Context:
         # When connections is None, replace with an empty AuthAndEndpoints obj
         # so that further lookups succeed without throwing exceptions
         self.connections = connections if connections else AuthAndEndpoints()
+        self.metadata_provider = metadata_provider
         # In the case where the context is not passed a logger, create a backup one and use that
         self.logger = logger if logger else self.__getBackupLogger()
         self.__connector = None
@@ -227,7 +229,8 @@ class Context:
             return None
         connector = GRPCClient(self.connections.apiserverAddr,
                                ca=self.connections.aerisCACert,
-                               tokenValue=self.user.token)
+                               tokenValue=self.user.token,
+                               metadata_provider=self.metadata_provider)
         self.__connector = connector
         return connector
 
@@ -271,6 +274,9 @@ class Context:
             if self.user is not None:
                 username_interceptor = addHeaderInterceptor(USERNAME, self.user.username)
                 chann = grpc.intercept_channel(chann, username_interceptor)
+            if self.metadata_provider:
+                metadata_interceptor = addMetadataInterceptor(self.metadata_provider)
+                chann = grpc.intercept_channel(chann, metadata_interceptor)
             return chann
 
         if self.__serviceChann:

@@ -127,6 +127,35 @@ class TestGRPCClient:
         ):
             assert path_element == path.path_elements[idx]
 
+    def test_metadata_provider_is_evaluated_for_router_methods(self):
+        request_ids = iter(["request-1", "request-2", "request-3"])
+        client = GRPCClient(
+            "localhost:443",
+            tokenValue="token-value",
+            metadata_provider=lambda: (("x-request-id", next(request_ids)),),
+        )
+        client._GRPCClient__client = MagicMock()
+        client._GRPCClient__client.Get.return_value = []
+        client._GRPCClient__client.Subscribe.return_value = []
+
+        list(client.get([]))
+        list(client.subscribe([]))
+        client.publish("dataset", [])
+
+        assert client._GRPCClient__client.Get.call_args.kwargs["metadata"] == (
+            ("access_token", "token-value"),
+            ("x-request-id", "request-1"),
+        )
+        assert client._GRPCClient__client.Subscribe.call_args.kwargs["metadata"] == (
+            ("access_token", "token-value"),
+            ("x-request-id", "request-2"),
+        )
+        assert client._GRPCClient__client.Publish.call_args.kwargs["metadata"] == (
+            ("access_token", "token-value"),
+            ("x-request-id", "request-3"),
+        )
+        assert client.metadata == (("access_token", "token-value"),)
+
 
 # StubStreamAwareGRPCClient simulates real _StreamAwareGRPCClient behavior
 class StubStreamAwareGRPCClient:
