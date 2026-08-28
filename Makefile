@@ -11,8 +11,14 @@ BUILD_ARTIFACTS := cloudvision.egg-info build dist _build docsrc/arista*.rst \
 # re-generate python protobuf files
 proto:
 	@for dir in $(PROTO_DIRS); do \
+		aristaproto_out=""; \
+		if [ "$$dir" = "cloudvision/compliance" ]; then \
+			mkdir -p $$dir/async; \
+			aristaproto_out="--python_aristaproto_out=$$dir/async"; \
+		fi; \
 		$(PCOMP) -I=$$dir/protobuf --python_out=$$dir/gen \
 			--mypy_out=$$dir/gen --grpc_python_out=$$dir/gen \
+			$$aristaproto_out \
 			$$dir/protobuf/*.proto || exit; \
 		python3 scripts/fix_proto_imports.py $$dir/gen || exit; \
 	done
