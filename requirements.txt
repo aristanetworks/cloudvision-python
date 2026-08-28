@@ -1,5 +1,5 @@
 aristaproto==0.1.5
-cryptography==50.0.0
+cryptography>=50.0.0,<51.0.0
 grpcio>=1.81.1
 msgpack>=1.0.3
 protobuf>=6.33.6,<8.0dev
