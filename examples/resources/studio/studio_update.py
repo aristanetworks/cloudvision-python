@@ -49,6 +49,8 @@ import json
 import logging
 import sys
 import uuid
+from datetime import datetime, timedelta, timezone
+
 import yaml
 
 from grpclib import Status
@@ -1044,8 +1046,91 @@ async def run_change_control(channel, cc_id):
     return False
 
 
+async def delete_old_change_controls(channel, age_hours):
+    '''
+    Deletes change controls older than the specified age in hours,
+    skipping any that are currently running or already completed.
+    '''
+    skip_statuses = {
+        changecontrol.ChangeControlStatus.RUNNING,
+        changecontrol.ChangeControlStatus.COMPLETED,
+    }
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=age_hours)
+    logger.info('Deleting change controls created before %s (older than %s hours)',
+                cutoff.isoformat(), age_hours)
+
+    state_stub = changecontrol.ChangeControlServiceStub(channel)
+    req = changecontrol.ChangeControlStreamRequest()
+    candidates = []
+    skipped = 0
+    async for resp in state_stub.get_all(req, timeout=RPC_TIMEOUT):
+        cc = resp.value
+        if cc.creation.time < cutoff:
+            if cc.status in skip_statuses:
+                skipped += 1
+                continue
+            candidates.append(cc)
+
+    if not candidates:
+        logger.info('No eligible change controls older than %s hours found '
+                    '(%d skipped as running/completed)', age_hours, skipped)
+        return
+
+    logger.info('Found %d change control(s) to delete (%d skipped as running/completed)',
+                len(candidates), skipped)
+    config_stub = changecontrol.ChangeControlConfigServiceStub(channel)
+    deleted = 0
+    for cc in candidates:
+        try:
+            del_req = changecontrol.ChangeControlConfigDeleteRequest(key=cc.key)
+            await config_stub.delete(del_req, timeout=RPC_TIMEOUT)
+            logger.info('\tDeleted change control: %s', cc.key.id)
+            deleted += 1
+        except GRPCError as err:
+            logger.error('\tFailed to delete change control %s: %s', cc.key.id, err)
+
+    logger.info('Deleted %d of %d change control(s)', deleted, len(candidates))
+
+
+async def get_change_controls(channel, age_hours=None):
+    '''
+    Lists all change controls, optionally filtering to those
+    older than age_hours.
+    '''
+    cutoff = None
+    if age_hours is not None:
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=age_hours)
+        logger.info('Listing change controls older than %s hours '
+                    '(created before %s)', age_hours, cutoff.isoformat())
+    else:
+        logger.info('Listing all change controls')
+
+    stub = changecontrol.ChangeControlServiceStub(channel)
+    req = changecontrol.ChangeControlStreamRequest()
+    count = 0
+    async for resp in stub.get_all(req, timeout=RPC_TIMEOUT):
+        cc = resp.value
+        if cutoff is not None and cc.creation.time >= cutoff:
+            continue
+        name = cc.change.name if cc.change else 'unknown'
+        logger.info('\tCC %s: %s (created %s, status %s)',
+                    cc.key.id, name,
+                    cc.creation.time.isoformat(), cc.status.name)
+        count += 1
+
+    logger.info('Total: %d change control(s)', count)
+
+
 async def main(args, client):
     with client as channel:
+        # List change controls
+        if args.operation == 'getCC':
+            await get_change_controls(channel, args.age)
+            return
+        # Delete old change controls
+        if args.operation == 'deleteCC':
+            await delete_old_change_controls(channel, args.age)
+            return
         # Get Inputs
         if args.operation == 'get':
             filename = f'{args.studio_id}-inputs.yaml'
@@ -1196,8 +1281,10 @@ if __name__ == '__main__':
                         help="file with access token")
     parser.add_argument("--cert-file", type=str,
                         help="path to certificate file to use as root CA")
-    parser.add_argument("--operation", choices=['set', 'get'], default='get',
-                        help="whether to get or set inputs")
+    parser.add_argument("--operation",
+                        choices=['set', 'get', 'getCC', 'deleteCC'], default='get',
+                        help="get/set studio inputs, getCC to list change controls, "
+                             "or deleteCC to remove old CCs")
     parser.add_argument("--yaml-file", type=argparse.FileType('r'),
                         help=("YAML file containing studio inputs for set, "
                               "or input paths for get"))
@@ -1208,7 +1295,7 @@ if __name__ == '__main__':
     parser.add_argument("--submit-only", type=bool, default=False,
                         help="whether to stop after submitting the workspace "
                              "(no change control execution)")
-    parser.add_argument("--studio-id", type=str, required=True,
+    parser.add_argument("--studio-id", type=str,
                         help="ID of the Studio, e.g. studio-interface-v2-pkg")
     parser.add_argument("--action-id", type=str,
                         help="ID of the action, e.g. action-ports-table")
@@ -1216,9 +1303,13 @@ if __name__ == '__main__':
                         help="existing workspace ID, if not wanting to create a new one")
     parser.add_argument("--sync", type=bool, default=False,
                         help="synchronize workspace with mainline before building")
+    parser.add_argument("--age", type=float,
+                        help="age threshold in hours for deleteCC operation")
     parser.add_argument("--insecure", action="store_true", default=False,
                         help="skip TLS certificate verification")
     pargs = parser.parse_args()
+    if pargs.operation == 'deleteCC' and pargs.age is None:
+        parser.error("--age is required when --operation=deleteCC")
     conn = create_client(pargs)
     try:
         asyncio.run(main(pargs, conn))
