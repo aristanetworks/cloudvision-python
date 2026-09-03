@@ -1039,11 +1039,48 @@ async def run_change_control(channel, cc_id):
         if res.value.status == changecontrol.ChangeControlStatus.COMPLETED:
             if res.value.error and res.value.error != "":
                 logger.error('\tExecution failed: %s', res.value.error)
+                await log_cc_stage_failures(channel, cc_id)
                 return False
             logger.info('\tExecution succeeded')
             return True
     logger.error('\tExecution failed')
     return False
+
+
+async def log_cc_stage_failures(channel, cc_id):
+    '''
+    Fetches full change control details by ID and logs
+    per-device stage failure information.
+    '''
+    key = changecontrol.ChangeControlKey(id=cc_id)
+    req = changecontrol.ChangeControlRequest(key=key)
+    stub = changecontrol.ChangeControlServiceStub(channel)
+    try:
+        resp = await stub.get_one(req, timeout=RPC_TIMEOUT)
+    except GRPCError as err:
+        logger.error('\tFailed to fetch CC details for %s: %s', cc_id, err)
+        return
+
+    cc = resp.value
+    try:
+        stages = cc.change.stages.values
+    except (AttributeError, TypeError):
+        return
+
+    logger.info('\tCC %s stage failure details:', cc_id)
+    for stage_id, stage in stages.items():
+        if not stage.error:
+            continue
+        if stage.rows.values:
+            continue
+        device_id = 'unknown'
+        try:
+            device_id = stage.action.args.values.get('DeviceID', 'unknown')
+        except (AttributeError, TypeError):
+            pass
+        logger.info('\tStage: "%s" (%s) device:%s status:%s error: %s',
+                    stage.name, stage_id, device_id,
+                    stage.status, stage.error)
 
 
 async def delete_old_change_controls(channel, age_hours):
