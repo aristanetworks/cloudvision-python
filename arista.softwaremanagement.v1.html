@@ -1,0 +1,647 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.softwaremanagement.v1 package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.softwaremanagement.v1.services package" href="arista.softwaremanagement.v1.services.html" />
+    <link rel="prev" title="arista.softwaremanagement package" href="arista.softwaremanagement.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.action.html">arista.action package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.arista_portal.html">arista.arista_portal package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.html">arista.asset_manager package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.auditlog.html">arista.auditlog package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.html">arista.license package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.html">arista.logging package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.softwaremanagement.html">arista.softwaremanagement package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio_topology.html">arista.studio_topology package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.syslog.html">arista.syslog package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.softwaremanagement.html">arista.softwaremanagement package</a></li>
+      <li class="breadcrumb-item active">arista.softwaremanagement.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.softwaremanagement.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-softwaremanagement-v1-package">
+<h1>arista.softwaremanagement.v1 package<a class="headerlink" href="#arista-softwaremanagement-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.softwaremanagement.v1.services.html">arista.softwaremanagement.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#module-arista.softwaremanagement.v1.services.gen_pb2">arista.softwaremanagement.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">AssignmentsBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AssignmentsBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">AssignmentsBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AssignmentsBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsRequest"><code class="docutils literal notranslate"><span class="pre">AssignmentsRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AssignmentsRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsResponse"><code class="docutils literal notranslate"><span class="pre">AssignmentsResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AssignmentsResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsSomeRequest"><code class="docutils literal notranslate"><span class="pre">AssignmentsSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AssignmentsSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsSomeResponse"><code class="docutils literal notranslate"><span class="pre">AssignmentsSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AssignmentsSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsStreamRequest"><code class="docutils literal notranslate"><span class="pre">AssignmentsStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AssignmentsStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsStreamResponse"><code class="docutils literal notranslate"><span class="pre">AssignmentsStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.AssignmentsStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AssignmentsStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.ReleasesRequest"><code class="docutils literal notranslate"><span class="pre">ReleasesRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.ReleasesRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ReleasesRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.ReleasesResponse"><code class="docutils literal notranslate"><span class="pre">ReleasesResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.ReleasesResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ReleasesResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.ReleasesStreamRequest"><code class="docutils literal notranslate"><span class="pre">ReleasesStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.ReleasesStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ReleasesStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.ReleasesStreamResponse"><code class="docutils literal notranslate"><span class="pre">ReleasesStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.ReleasesStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ReleasesStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositorySomeRequest"><code class="docutils literal notranslate"><span class="pre">RepositorySomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositorySomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositorySomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositorySomeResponse"><code class="docutils literal notranslate"><span class="pre">RepositorySomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositorySomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositorySomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryStreamRequest"><code class="docutils literal notranslate"><span class="pre">RepositoryStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryStreamResponse"><code class="docutils literal notranslate"><span class="pre">RepositoryStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2.RepositoryStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">RepositoryStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#module-arista.softwaremanagement.v1.services.gen_pb2_grpc">arista.softwaremanagement.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsService"><code class="docutils literal notranslate"><span class="pre">AssignmentsService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsService.GetAll"><code class="docutils literal notranslate"><span class="pre">AssignmentsService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">AssignmentsService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsService.GetMeta"><code class="docutils literal notranslate"><span class="pre">AssignmentsService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsService.GetOne"><code class="docutils literal notranslate"><span class="pre">AssignmentsService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsService.GetSome"><code class="docutils literal notranslate"><span class="pre">AssignmentsService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsService.Subscribe"><code class="docutils literal notranslate"><span class="pre">AssignmentsService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">AssignmentsService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">AssignmentsService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsServiceServicer"><code class="docutils literal notranslate"><span class="pre">AssignmentsServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">AssignmentsServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">AssignmentsServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">AssignmentsServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">AssignmentsServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">AssignmentsServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">AssignmentsServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">AssignmentsServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">AssignmentsServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.AssignmentsServiceStub"><code class="docutils literal notranslate"><span class="pre">AssignmentsServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesService"><code class="docutils literal notranslate"><span class="pre">ReleasesService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesService.GetAll"><code class="docutils literal notranslate"><span class="pre">ReleasesService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesService.GetOne"><code class="docutils literal notranslate"><span class="pre">ReleasesService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ReleasesService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ReleasesService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesServiceServicer"><code class="docutils literal notranslate"><span class="pre">ReleasesServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ReleasesServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ReleasesServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ReleasesServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ReleasesServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.ReleasesServiceStub"><code class="docutils literal notranslate"><span class="pre">ReleasesServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.Set"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">RepositoryConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryService"><code class="docutils literal notranslate"><span class="pre">RepositoryService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryService.GetAll"><code class="docutils literal notranslate"><span class="pre">RepositoryService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">RepositoryService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryService.GetMeta"><code class="docutils literal notranslate"><span class="pre">RepositoryService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryService.GetOne"><code class="docutils literal notranslate"><span class="pre">RepositoryService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryService.GetSome"><code class="docutils literal notranslate"><span class="pre">RepositoryService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryService.Subscribe"><code class="docutils literal notranslate"><span class="pre">RepositoryService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">RepositoryService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">RepositoryService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryServiceServicer"><code class="docutils literal notranslate"><span class="pre">RepositoryServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">RepositoryServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">RepositoryServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">RepositoryServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">RepositoryServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">RepositoryServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">RepositoryServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">RepositoryServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">RepositoryServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.RepositoryServiceStub"><code class="docutils literal notranslate"><span class="pre">RepositoryServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.add_AssignmentsServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_AssignmentsServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.add_ReleasesServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ReleasesServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.add_RepositoryConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_RepositoryConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#arista.softwaremanagement.v1.services.gen_pb2_grpc.add_RepositoryServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_RepositoryServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.softwaremanagement.v1.services.html#module-arista.softwaremanagement.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.softwaremanagement.v1.softwaremanagement_pb2">
+<span id="arista-softwaremanagement-v1-softwaremanagement-pb2-module"></span><h2>arista.softwaremanagement.v1.softwaremanagement_pb2 module<a class="headerlink" href="#module-arista.softwaremanagement.v1.softwaremanagement_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">Assignments</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.Assignments.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteFile">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">ConcreteFile</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteFile" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteFile.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteFile.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteTypeToConcreteSwiMap">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">ConcreteTypeToConcreteSwiMap</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteTypeToConcreteSwiMap" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteTypeToConcreteSwiMap.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteTypeToConcreteSwiMap.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteTypeToConcreteSwiMap.ValuesEntry">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteTypeToConcreteSwiMap.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteTypeToConcreteSwiMap.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ConcreteTypeToConcreteSwiMap.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.Device">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">Device</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.Device" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.Device.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.Device.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.Devices">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">Devices</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.Devices" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.Devices.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.Devices.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ExtensionMetadata">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">ExtensionMetadata</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ExtensionMetadata" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ExtensionMetadata.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ExtensionMetadata.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.Releases">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">Releases</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.Releases" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.Releases.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.Releases.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ReleasesStatus">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">ReleasesStatus</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ReleasesStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ReleasesStatus.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ReleasesStatus.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.Repository">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">Repository</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.Repository" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.Repository.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.Repository.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">RepositoryConfig</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">RepositoryKey</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.RepositoryKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.SoftwareMetadata">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">SoftwareMetadata</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.SoftwareMetadata" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.SoftwareMetadata.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.SoftwareMetadata.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.SoftwareStatus">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">SoftwareStatus</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.SoftwareStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.SoftwareStatus.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.SoftwareStatus.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.StudioTagQueries">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">StudioTagQueries</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.StudioTagQueries" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.StudioTagQueries.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.StudioTagQueries.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.StudioTagQuery">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">StudioTagQuery</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.StudioTagQuery" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.StudioTagQuery.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.StudioTagQuery.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.SwiMetadata">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">SwiMetadata</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.SwiMetadata" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.SwiMetadata.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.SwiMetadata.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ZtpUpgradeRule">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">ZtpUpgradeRule</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ZtpUpgradeRule" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ZtpUpgradeRule.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ZtpUpgradeRule.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ZtpUpgradeRules">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.softwaremanagement.v1.softwaremanagement_pb2.</span></span><span class="sig-name descname"><span class="pre">ZtpUpgradeRules</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ZtpUpgradeRules" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.softwaremanagement.v1.softwaremanagement_pb2.ZtpUpgradeRules.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.softwaremanagement.v1.softwaremanagement_pb2.ZtpUpgradeRules.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.softwaremanagement.v1.softwaremanagement_pb2_grpc">
+<span id="arista-softwaremanagement-v1-softwaremanagement-pb2-grpc-module"></span><h2>arista.softwaremanagement.v1.softwaremanagement_pb2_grpc module<a class="headerlink" href="#module-arista.softwaremanagement.v1.softwaremanagement_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.softwaremanagement.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.softwaremanagement.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.softwaremanagement.html" class="btn btn-neutral float-left" title="arista.softwaremanagement package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.softwaremanagement.v1.services.html" class="btn btn-neutral float-right" title="arista.softwaremanagement.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

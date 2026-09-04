@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.api.arista.inventory package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cloudvision.api.arista.inventory.v1 package" href="cloudvision.api.arista.inventory.v1.html" />
+    <link rel="prev" title="cloudvision.api.arista.imagestatus.v1 package" href="cloudvision.api.arista.imagestatus.v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cloudvision.html">cloudvision package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cloudvision.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.Connector.html">cloudvision.Connector package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cloudvision.api.html">cloudvision.api package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.compliance.html">cloudvision.compliance package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.cvlib.html">cloudvision.cvlib package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.html#module-cloudvision">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.html">arista package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.html">cloudvision package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.html">cloudvision.api package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.html">cloudvision.api.arista package</a></li>
+      <li class="breadcrumb-item active">cloudvision.api.arista.inventory package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cloudvision.api.arista.inventory.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cloudvision-api-arista-inventory-package">
+<h1>cloudvision.api.arista.inventory package<a class="headerlink" href="#cloudvision-api-arista-inventory-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html">cloudvision.api.arista.inventory.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#module-cloudvision.api.arista.inventory.v1">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DecommissioningStatus"><code class="docutils literal notranslate"><span class="pre">DecommissioningStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DecommissioningStatus.FAILURE"><code class="docutils literal notranslate"><span class="pre">DecommissioningStatus.FAILURE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DecommissioningStatus.IN_PROGRESS"><code class="docutils literal notranslate"><span class="pre">DecommissioningStatus.IN_PROGRESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DecommissioningStatus.SUCCESS"><code class="docutils literal notranslate"><span class="pre">DecommissioningStatus.SUCCESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DecommissioningStatus.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">DecommissioningStatus.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DecommissioningStatus.name"><code class="docutils literal notranslate"><span class="pre">DecommissioningStatus.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DecommissioningStatus.value"><code class="docutils literal notranslate"><span class="pre">DecommissioningStatus.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device"><code class="docutils literal notranslate"><span class="pre">Device</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.boot_time"><code class="docutils literal notranslate"><span class="pre">Device.boot_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.domain_name"><code class="docutils literal notranslate"><span class="pre">Device.domain_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.extended_attributes"><code class="docutils literal notranslate"><span class="pre">Device.extended_attributes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.fqdn"><code class="docutils literal notranslate"><span class="pre">Device.fqdn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.hardware_revision"><code class="docutils literal notranslate"><span class="pre">Device.hardware_revision</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.hostname"><code class="docutils literal notranslate"><span class="pre">Device.hostname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.key"><code class="docutils literal notranslate"><span class="pre">Device.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.model_name"><code class="docutils literal notranslate"><span class="pre">Device.model_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.software_version"><code class="docutils literal notranslate"><span class="pre">Device.software_version</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.streaming_status"><code class="docutils literal notranslate"><span class="pre">Device.streaming_status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.Device.system_mac_address"><code class="docutils literal notranslate"><span class="pre">Device.system_mac_address</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">DeviceBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">DeviceBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceConfiguration"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceConfiguration.options"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.options</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioning"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioning.error"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioning.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioning.status"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioning.status_message"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioning.status_message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfig"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfig.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.device_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfig.force"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.force</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfig.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfig.user_name"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfig.user_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteAllRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllRequest.partial_eq_filter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteAllResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteAllResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteRequest.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteResponse.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteSomeRequest.keys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigDeleteSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigDeleteSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.delete"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.delete_all"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.delete_some"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.set"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.set_some"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.delete"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.delete_all"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.delete_some"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.set"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.set_some"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSetRequest.value"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetRequest.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSetResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSetResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSetSomeRequest.values"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetSomeRequest.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSetSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSetSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSetSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningConfigStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningConfigStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceBase"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceDecommissioningStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceDecommissioningStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceKey"><code class="docutils literal notranslate"><span class="pre">DeviceKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceKey.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceKey.device_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboarding"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboarding.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.device_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboarding.error"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboarding.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboarding.profile_name"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.profile_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboarding.status"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboarding.status_message"><code class="docutils literal notranslate"><span class="pre">DeviceOnboarding.status_message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfig"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfig.device_config"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.device_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfig.device_type"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.device_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfig.hostname_or_ip"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.hostname_or_ip</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfig.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfig.profile_name"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfig.profile_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteAllRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllRequest.partial_eq_filter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteAllResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteAllResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteRequest.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteResponse.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteSomeRequest.keys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigDeleteSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigDeleteSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.delete"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.delete_all"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.delete_some"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.set"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.set_some"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.delete"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.delete_all"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.delete_some"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.set"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.set_some"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSetRequest.value"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetRequest.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSetResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSetResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSetSomeRequest.values"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetSomeRequest.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSetSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSetSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSetSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingConfigStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingConfigStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceBase"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceOnboardingStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceOnboardingStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceRequest"><code class="docutils literal notranslate"><span class="pre">DeviceRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceResponse"><code class="docutils literal notranslate"><span class="pre">DeviceResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceBase"><code class="docutils literal notranslate"><span class="pre">DeviceServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">DeviceSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.DeviceStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ExtendedAttributes"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ExtendedAttributes.feature_enabled"><code class="docutils literal notranslate"><span class="pre">ExtendedAttributes.feature_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.MetaResponse.count"><code class="docutils literal notranslate"><span class="pre">MetaResponse.count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.MetaResponse.time"><code class="docutils literal notranslate"><span class="pre">MetaResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.MetaResponse.type"><code class="docutils literal notranslate"><span class="pre">MetaResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.OnboardingStatus"><code class="docutils literal notranslate"><span class="pre">OnboardingStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.OnboardingStatus.FAILURE"><code class="docutils literal notranslate"><span class="pre">OnboardingStatus.FAILURE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.OnboardingStatus.IN_PROGRESS"><code class="docutils literal notranslate"><span class="pre">OnboardingStatus.IN_PROGRESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.OnboardingStatus.SUCCESS"><code class="docutils literal notranslate"><span class="pre">OnboardingStatus.SUCCESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.OnboardingStatus.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">OnboardingStatus.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.OnboardingStatus.name"><code class="docutils literal notranslate"><span class="pre">OnboardingStatus.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.OnboardingStatus.value"><code class="docutils literal notranslate"><span class="pre">OnboardingStatus.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDevice"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDevice.error"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDevice.ip_address"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.ip_address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDevice.ipv6_address"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.ipv6_address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDevice.key"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDevice.provisioning_group_name"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.provisioning_group_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDevice.status"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDevice.ztp_mode"><code class="docutils literal notranslate"><span class="pre">ProvisionedDevice.ztp_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceRequest"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceRequest.key"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceRequest.time"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceResponse"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceResponse.time"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceResponse.value"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceBase"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceStub"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceSomeRequest"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceSomeResponse"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceStreamRequest"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceStreamResponse"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisionedDeviceStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">ProvisionedDeviceStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisioningStatus"><code class="docutils literal notranslate"><span class="pre">ProvisioningStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisioningStatus.FAILURE"><code class="docutils literal notranslate"><span class="pre">ProvisioningStatus.FAILURE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisioningStatus.IN_PROGRESS"><code class="docutils literal notranslate"><span class="pre">ProvisioningStatus.IN_PROGRESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisioningStatus.SUCCESS"><code class="docutils literal notranslate"><span class="pre">ProvisioningStatus.SUCCESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisioningStatus.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">ProvisioningStatus.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisioningStatus.name"><code class="docutils literal notranslate"><span class="pre">ProvisioningStatus.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.ProvisioningStatus.value"><code class="docutils literal notranslate"><span class="pre">ProvisioningStatus.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.StreamingStatus"><code class="docutils literal notranslate"><span class="pre">StreamingStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.StreamingStatus.ACTIVE"><code class="docutils literal notranslate"><span class="pre">StreamingStatus.ACTIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.StreamingStatus.INACTIVE"><code class="docutils literal notranslate"><span class="pre">StreamingStatus.INACTIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.StreamingStatus.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">StreamingStatus.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.StreamingStatus.name"><code class="docutils literal notranslate"><span class="pre">StreamingStatus.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.StreamingStatus.value"><code class="docutils literal notranslate"><span class="pre">StreamingStatus.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.UuidKey"><code class="docutils literal notranslate"><span class="pre">UuidKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.inventory.v1.html#cloudvision.api.arista.inventory.v1.UuidKey.request_id"><code class="docutils literal notranslate"><span class="pre">UuidKey.request_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-cloudvision.api.arista.inventory">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudvision.api.arista.inventory" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cloudvision.api.arista.imagestatus.v1.html" class="btn btn-neutral float-left" title="cloudvision.api.arista.imagestatus.v1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cloudvision.api.arista.inventory.v1.html" class="btn btn-neutral float-right" title="cloudvision.api.arista.inventory.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

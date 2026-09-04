@@ -1,0 +1,18 @@
+cloudvision.api.arista.tag package
+==================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   cloudvision.api.arista.tag.v2
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.api.arista.tag
+   :members:
+   :show-inheritance:
+   :undoc-members:

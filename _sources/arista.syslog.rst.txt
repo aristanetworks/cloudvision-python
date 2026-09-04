@@ -1,0 +1,18 @@
+arista.syslog package
+=====================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.syslog.v1
+
+Module contents
+---------------
+
+.. automodule:: arista.syslog
+   :members:
+   :show-inheritance:
+   :undoc-members:

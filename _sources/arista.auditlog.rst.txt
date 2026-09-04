@@ -1,0 +1,18 @@
+arista.auditlog package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.auditlog.v1
+
+Module contents
+---------------
+
+.. automodule:: arista.auditlog
+   :members:
+   :show-inheritance:
+   :undoc-members:

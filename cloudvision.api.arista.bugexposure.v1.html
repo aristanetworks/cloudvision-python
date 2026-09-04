@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.api.arista.bugexposure.v1 package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cloudvision.api.arista.changecontrol package" href="cloudvision.api.arista.changecontrol.html" />
+    <link rel="prev" title="cloudvision.api.arista.bugexposure package" href="cloudvision.api.arista.bugexposure.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cloudvision.html">cloudvision package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cloudvision.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.Connector.html">cloudvision.Connector package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cloudvision.api.html">cloudvision.api package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.compliance.html">cloudvision.compliance package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.cvlib.html">cloudvision.cvlib package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.html#module-cloudvision">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.html">arista package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.html">cloudvision package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.html">cloudvision.api package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.html">cloudvision.api.arista package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.bugexposure.html">cloudvision.api.arista.bugexposure package</a></li>
+      <li class="breadcrumb-item active">cloudvision.api.arista.bugexposure.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cloudvision.api.arista.bugexposure.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cloudvision-api-arista-bugexposure-v1-package">
+<h1>cloudvision.api.arista.bugexposure.v1 package<a class="headerlink" href="#cloudvision-api-arista-bugexposure-v1-package" title="Link to this heading"></a></h1>
+<section id="module-cloudvision.api.arista.bugexposure.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudvision.api.arista.bugexposure.v1" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.Acknowledgement">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">Acknowledgement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#Acknowledgement"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.Acknowledgement" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Acknowledgement is an enumeration key
+for a BugExposure model that defines
+the acknowledgement state for the
+computed bugs</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.Acknowledgement.ACKNOWLEDGED">
+<span class="sig-name descname"><span class="pre">ACKNOWLEDGED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Acknowledgement.ACKNOWLEDGED</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.Acknowledgement.ACKNOWLEDGED" title="Link to this definition"></a></dt>
+<dd><p>Only acknowledged bugs will be computed</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.Acknowledgement.UNACKNOWLEDGED">
+<span class="sig-name descname"><span class="pre">UNACKNOWLEDGED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Acknowledgement.UNACKNOWLEDGED</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.Acknowledgement.UNACKNOWLEDGED" title="Link to this definition"></a></dt>
+<dd><p>Only unacknowledged bugs will be computed</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.Acknowledgement.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Acknowledgement.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.Acknowledgement.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>Unacknowledged and acknowledged bugs will be computed</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.Acknowledgement.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.Acknowledgement.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.Acknowledgement.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.Acknowledgement.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposure">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">BugExposure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureKey" title="cloudvision.api.arista.bugexposure.v1.BugExposureKey"><span class="pre">BugExposureKey</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bug_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="cloudvision.api.fmp.html#cloudvision.api.fmp.RepeatedInt32" title="cloudvision.api.fmp.RepeatedInt32"><span class="pre">RepeatedInt32</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cve_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="cloudvision.api.fmp.html#cloudvision.api.fmp.RepeatedInt32" title="cloudvision.api.fmp.RepeatedInt32"><span class="pre">RepeatedInt32</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bug_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cve_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highest_bug_exposure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure" title="cloudvision.api.arista.bugexposure.v1.HighestExposure"><span class="pre">HighestExposure</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highest_cve_exposure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure" title="cloudvision.api.arista.bugexposure.v1.HighestExposure"><span class="pre">HighestExposure</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposure" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>BugExposure is the state model that represents
+the exposure a device has to bugs</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposure.bug_count">
+<span class="sig-name descname"><span class="pre">bug_count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposure.bug_count" title="Link to this definition"></a></dt>
+<dd><p>bug_count is the number of bug alerts
+with type Bug</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposure.bug_ids">
+<span class="sig-name descname"><span class="pre">bug_ids</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="cloudvision.api.fmp.html#cloudvision.api.fmp.RepeatedInt32" title="cloudvision.api.fmp.RepeatedInt32"><span class="pre">RepeatedInt32</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposure.bug_ids" title="Link to this definition"></a></dt>
+<dd><p>bug_ids is a list of bug alerts affecting the device
+with type Bug</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposure.cve_count">
+<span class="sig-name descname"><span class="pre">cve_count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposure.cve_count" title="Link to this definition"></a></dt>
+<dd><p>cve_count is the number of bug alerts
+with type CVE</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposure.cve_ids">
+<span class="sig-name descname"><span class="pre">cve_ids</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="cloudvision.api.fmp.html#cloudvision.api.fmp.RepeatedInt32" title="cloudvision.api.fmp.RepeatedInt32"><span class="pre">RepeatedInt32</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposure.cve_ids" title="Link to this definition"></a></dt>
+<dd><p>cve_ids is a list of bug alerts affecting the device
+with type CVE</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposure.highest_bug_exposure">
+<span class="sig-name descname"><span class="pre">highest_bug_exposure</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure" title="cloudvision.api.arista.bugexposure.v1.HighestExposure"><span class="pre">HighestExposure</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposure.highest_bug_exposure" title="Link to this definition"></a></dt>
+<dd><p>highest_bug_exposure is the highest exposure
+with type Bug</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposure.highest_cve_exposure">
+<span class="sig-name descname"><span class="pre">highest_cve_exposure</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure" title="cloudvision.api.arista.bugexposure.v1.HighestExposure"><span class="pre">HighestExposure</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposure.highest_cve_exposure" title="Link to this definition"></a></dt>
+<dd><p>highest_cve_exposure is the highest exposure
+with type CVE</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposure.key">
+<span class="sig-name descname"><span class="pre">key</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureKey" title="cloudvision.api.arista.bugexposure.v1.BugExposureKey"><span class="pre">BugExposureKey</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposure.key" title="Link to this definition"></a></dt>
+<dd><p>BugExposureKey is the key of
+BugExposure</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">BugExposureKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acknowledgement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.Acknowledgement" title="cloudvision.api.arista.bugexposure.v1.Acknowledgement"><span class="pre">Acknowledgement</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureKey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>BugExposureKey is the key type for
+BugExposure model</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureKey.acknowledgement">
+<span class="sig-name descname"><span class="pre">acknowledgement</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.Acknowledgement" title="cloudvision.api.arista.bugexposure.v1.Acknowledgement"><span class="pre">Acknowledgement</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureKey.acknowledgement" title="Link to this definition"></a></dt>
+<dd><p>acknowledgement is one of the options for
+Acknowledgement enum</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureKey.device_id">
+<span class="sig-name descname"><span class="pre">device_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureKey.device_id" title="Link to this definition"></a></dt>
+<dd><p>device_id is the device ID</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureRequest">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">BugExposureRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'BugExposureKey'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureRequest.key">
+<span class="sig-name descname"><span class="pre">key</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureKey" title="cloudvision.api.arista.bugexposure.v1.BugExposureKey"><span class="pre">BugExposureKey</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureRequest.key" title="Link to this definition"></a></dt>
+<dd><p>Key uniquely identifies a BugExposure instance to retrieve.
+This value must be populated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureRequest.time" title="Link to this definition"></a></dt>
+<dd><p>Time indicates the time for which you are interested in the data.
+If no time is given, the server will use the time at which it makes the request.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureResponse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">BugExposureResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'BugExposure'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureResponse.time" title="Link to this definition"></a></dt>
+<dd><p>Time carries the (UTC) timestamp of the last-modification of the
+BugExposure instance in this response.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposure" title="cloudvision.api.arista.bugexposure.v1.BugExposure"><span class="pre">BugExposure</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureResponse.value" title="Link to this definition"></a></dt>
+<dd><p>Value is the value requested.
+This structure will be fully-populated as it exists in the datastore. If
+optional fields were not given at creation, these fields will be empty or
+set to default values.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">BugExposureServiceBase</span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceBase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase.get_all">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bug_exposure_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest"><span class="pre">BugExposureStreamRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse"><span class="pre">BugExposureStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceBase.get_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase.get_all" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase.get_meta">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bug_exposure_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest"><span class="pre">BugExposureStreamRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.MetaResponse" title="cloudvision.api.arista.bugexposure.v1.MetaResponse"><span class="pre">MetaResponse</span></a></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceBase.get_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase.get_meta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase.get_one">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_one</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bug_exposure_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureRequest" title="cloudvision.api.arista.bugexposure.v1.BugExposureRequest"><span class="pre">BugExposureRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureResponse" title="cloudvision.api.arista.bugexposure.v1.BugExposureResponse"><span class="pre">BugExposureResponse</span></a></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceBase.get_one"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase.get_one" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase.subscribe">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bug_exposure_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest"><span class="pre">BugExposureStreamRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse"><span class="pre">BugExposureStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceBase.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase.subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase.subscribe_meta">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bug_exposure_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest"><span class="pre">BugExposureStreamRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.MetaResponse" title="cloudvision.api.arista.bugexposure.v1.MetaResponse"><span class="pre">MetaResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceBase.subscribe_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceBase.subscribe_meta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">BugExposureServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Channel</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceStub</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub.get_all">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bug_exposure_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest"><span class="pre">BugExposureStreamRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse"><span class="pre">BugExposureStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceStub.get_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub.get_all" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub.get_meta">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bug_exposure_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest"><span class="pre">BugExposureStreamRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.MetaResponse" title="cloudvision.api.arista.bugexposure.v1.MetaResponse"><span class="pre">MetaResponse</span></a></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceStub.get_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub.get_meta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub.get_one">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_one</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bug_exposure_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureRequest" title="cloudvision.api.arista.bugexposure.v1.BugExposureRequest"><span class="pre">BugExposureRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureResponse" title="cloudvision.api.arista.bugexposure.v1.BugExposureResponse"><span class="pre">BugExposureResponse</span></a></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceStub.get_one"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub.get_one" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub.subscribe">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bug_exposure_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest"><span class="pre">BugExposureStreamRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse"><span class="pre">BugExposureStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceStub.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub.subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub.subscribe_meta">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bug_exposure_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest" title="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest"><span class="pre">BugExposureStreamRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.MetaResponse" title="cloudvision.api.arista.bugexposure.v1.MetaResponse"><span class="pre">MetaResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureServiceStub.subscribe_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureServiceStub.subscribe_meta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">BugExposureStreamRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">partial_eq_filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ForwardRef</span><span class="p"><span class="pre">(</span></span><span class="s"><span class="pre">'BugExposure'</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'__time__.TimeBounds'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureStreamRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest.partial_eq_filter">
+<span class="sig-name descname"><span class="pre">partial_eq_filter</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposure" title="cloudvision.api.arista.bugexposure.v1.BugExposure"><span class="pre">BugExposure</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest.partial_eq_filter" title="Link to this definition"></a></dt>
+<dd><p>PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+This requires all provided fields to be equal to the response.</p>
+<p>While transparent to users, this field also allows services to optimize internal
+subscriptions if filter(s) are sufficiently specific.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="cloudvision.api.arista.time.html#cloudvision.api.arista.time.TimeBounds" title="cloudvision.api.arista.time.TimeBounds"><span class="pre">TimeBounds</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamRequest.time" title="Link to this definition"></a></dt>
+<dd><p>TimeRange allows limiting response data to within a specified time window.
+If this field is populated, at least one of the two time fields are required.</p>
+<p>For GetAll, the fields start and end can be used as follows:</p>
+<blockquote>
+<div><ul>
+<li><p>end: Returns the state of each BugExposure at end.
+* Each BugExposure response is fully-specified (all fields set).</p></li>
+<li><p>start: Returns the state of each BugExposure at start, followed by updates until now.
+* Each BugExposure response at start is fully-specified, but updates may be partial.</p></li>
+<li><p>start and end: Returns the state of each BugExposure at start, followed by updates
+until end.
+* Each BugExposure response at start is fully-specified, but updates until end may</p>
+<blockquote>
+<div><p>be partial.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>This field is not allowed in the Subscribe RPC.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">BugExposureStreamResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'BugExposure'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'__subscriptions__.Operation'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#BugExposureStreamResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse.time" title="Link to this definition"></a></dt>
+<dd><p>Time holds the timestamp of this BugExposure’s last modification.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse.type">
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="cloudvision.api.arista.subscriptions.html#cloudvision.api.arista.subscriptions.Operation" title="cloudvision.api.arista.subscriptions.Operation"><span class="pre">Operation</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse.type" title="Link to this definition"></a></dt>
+<dd><p>Operation indicates how the BugExposure value in this response should be considered.
+Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+once all initial data is streamed and the client begins to receive modification updates,
+you should not see INITIAL again.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.bugexposure.v1.BugExposure" title="cloudvision.api.arista.bugexposure.v1.BugExposure"><span class="pre">BugExposure</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.BugExposureStreamResponse.value" title="Link to this definition"></a></dt>
+<dd><p>Value is a value deemed relevant to the initiating request.
+This structure will always have its key-field populated. Which other fields are
+populated, and why, depends on the value of Operation and what triggered this notification.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.HighestExposure">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">HighestExposure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#HighestExposure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>HighestExposure is an enumeration
+that defines the options for
+highest exposure</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.HighestExposure.HIGH">
+<span class="sig-name descname"><span class="pre">HIGH</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">HighestExposure.HIGH</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure.HIGH" title="Link to this definition"></a></dt>
+<dd><p>Highest exposure is to a high priority bug</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.HighestExposure.LOW">
+<span class="sig-name descname"><span class="pre">LOW</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">HighestExposure.LOW</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure.LOW" title="Link to this definition"></a></dt>
+<dd><p>Highest exposure is to a low priority bug</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.HighestExposure.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">HighestExposure.NONE</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure.NONE" title="Link to this definition"></a></dt>
+<dd><p>Not exposed to bugs</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.HighestExposure.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">HighestExposure.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>If not given this will be the default value
+and it will compute devices with
+any highest exposure</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.HighestExposure.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.HighestExposure.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.HighestExposure.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.MetaResponse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.bugexposure.v1.</span></span><span class="sig-name descname"><span class="pre">MetaResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'__subscriptions__.Operation'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/bugexposure/v1.html#MetaResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.MetaResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.MetaResponse.count">
+<span class="sig-name descname"><span class="pre">count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.MetaResponse.count" title="Link to this definition"></a></dt>
+<dd><p>Count is the number of items present under the conditions of the request.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.MetaResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.MetaResponse.time" title="Link to this definition"></a></dt>
+<dd><p>Time holds the timestamp of the last item included in the metadata calculation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.bugexposure.v1.MetaResponse.type">
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="cloudvision.api.arista.subscriptions.html#cloudvision.api.arista.subscriptions.Operation" title="cloudvision.api.arista.subscriptions.Operation"><span class="pre">Operation</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.bugexposure.v1.MetaResponse.type" title="Link to this definition"></a></dt>
+<dd><p>Operation indicates how the value in this response should be considered.
+Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+once all initial data is streamed and the client begins to receive modification updates,
+you should not see INITIAL again.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cloudvision.api.arista.bugexposure.html" class="btn btn-neutral float-left" title="cloudvision.api.arista.bugexposure package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cloudvision.api.arista.changecontrol.html" class="btn btn-neutral float-right" title="cloudvision.api.arista.changecontrol package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

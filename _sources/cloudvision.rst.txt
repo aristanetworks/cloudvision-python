@@ -1,0 +1,21 @@
+cloudvision package
+===================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   cloudvision.Connector
+   cloudvision.api
+   cloudvision.compliance
+   cloudvision.cvlib
+
+Module contents
+---------------
+
+.. automodule:: cloudvision
+   :members:
+   :show-inheritance:
+   :undoc-members:

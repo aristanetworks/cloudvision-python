@@ -1,0 +1,29 @@
+arista.time package
+===================
+
+Submodules
+----------
+
+arista.time.time\_pb2 module
+----------------------------
+
+.. automodule:: arista.time.time_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.time.time\_pb2\_grpc module
+----------------------------------
+
+.. automodule:: arista.time.time_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.time
+   :members:
+   :show-inheritance:
+   :undoc-members:

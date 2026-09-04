@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.api.arista.changecontrol package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cloudvision.api.arista.changecontrol.v1 package" href="cloudvision.api.arista.changecontrol.v1.html" />
+    <link rel="prev" title="cloudvision.api.arista.bugexposure.v1 package" href="cloudvision.api.arista.bugexposure.v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cloudvision.html">cloudvision package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cloudvision.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.Connector.html">cloudvision.Connector package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cloudvision.api.html">cloudvision.api package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.compliance.html">cloudvision.compliance package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.cvlib.html">cloudvision.cvlib package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.html#module-cloudvision">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.html">arista package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.html">cloudvision package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.html">cloudvision.api package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.html">cloudvision.api.arista package</a></li>
+      <li class="breadcrumb-item active">cloudvision.api.arista.changecontrol package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cloudvision.api.arista.changecontrol.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cloudvision-api-arista-changecontrol-package">
+<h1>cloudvision.api.arista.changecontrol package<a class="headerlink" href="#cloudvision-api-arista-changecontrol-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html">cloudvision.api.arista.changecontrol.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#module-cloudvision.api.arista.changecontrol.v1">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Action"><code class="docutils literal notranslate"><span class="pre">Action</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Action.args"><code class="docutils literal notranslate"><span class="pre">Action.args</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Action.name"><code class="docutils literal notranslate"><span class="pre">Action.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Action.timeout"><code class="docutils literal notranslate"><span class="pre">Action.timeout</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ActionSteps"><code class="docutils literal notranslate"><span class="pre">ActionSteps</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ActionSteps.values"><code class="docutils literal notranslate"><span class="pre">ActionSteps.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ActionSummaries"><code class="docutils literal notranslate"><span class="pre">ActionSummaries</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ActionSummaries.values"><code class="docutils literal notranslate"><span class="pre">ActionSummaries.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ActionSummary"><code class="docutils literal notranslate"><span class="pre">ActionSummary</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ActionSummary.count"><code class="docutils literal notranslate"><span class="pre">ActionSummary.count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ActionSummary.id"><code class="docutils literal notranslate"><span class="pre">ActionSummary.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ActionSummary.name"><code class="docutils literal notranslate"><span class="pre">ActionSummary.name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfig"><code class="docutils literal notranslate"><span class="pre">ApproveConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfig.approve"><code class="docutils literal notranslate"><span class="pre">ApproveConfig.approve</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfig.key"><code class="docutils literal notranslate"><span class="pre">ApproveConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfig.override_reason"><code class="docutils literal notranslate"><span class="pre">ApproveConfig.override_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfig.version"><code class="docutils literal notranslate"><span class="pre">ApproveConfig.version</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">ApproveConfigBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ApproveConfigBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ApproveConfigBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">ApproveConfigBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteAllRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllRequest.partial_eq_filter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteAllResponse.error"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteAllResponse.key"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteAllResponse.time"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteAllResponse.type"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteAllResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteRequest.key"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteRequest.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteResponse.key"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteResponse.time"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteResponse.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteSomeRequest.keys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigDeleteSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">ApproveConfigDeleteSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigRequest.key"><code class="docutils literal notranslate"><span class="pre">ApproveConfigRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigRequest.time"><code class="docutils literal notranslate"><span class="pre">ApproveConfigRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigResponse.time"><code class="docutils literal notranslate"><span class="pre">ApproveConfigResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigResponse.value"><code class="docutils literal notranslate"><span class="pre">ApproveConfigResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.delete"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.delete_all"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.delete_some"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.set"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.set_some"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.delete"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.delete_all"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.delete_some"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.set"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.set_some"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ApproveConfigServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSetRequest.value"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetRequest.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSetResponse.time"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSetResponse.value"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSetSomeRequest.values"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetSomeRequest.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSetSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSetSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSetSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">ApproveConfigSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ApproveConfigStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">ApproveConfigStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Change"><code class="docutils literal notranslate"><span class="pre">Change</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Change.name"><code class="docutils literal notranslate"><span class="pre">Change.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Change.notes"><code class="docutils literal notranslate"><span class="pre">Change.notes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Change.root_stage_id"><code class="docutils literal notranslate"><span class="pre">Change.root_stage_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Change.stages"><code class="docutils literal notranslate"><span class="pre">Change.stages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Change.time"><code class="docutils literal notranslate"><span class="pre">Change.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Change.user"><code class="docutils literal notranslate"><span class="pre">Change.user</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeConfig"><code class="docutils literal notranslate"><span class="pre">ChangeConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeConfig.name"><code class="docutils literal notranslate"><span class="pre">ChangeConfig.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeConfig.notes"><code class="docutils literal notranslate"><span class="pre">ChangeConfig.notes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeConfig.root_stage_id"><code class="docutils literal notranslate"><span class="pre">ChangeConfig.root_stage_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeConfig.stages"><code class="docutils literal notranslate"><span class="pre">ChangeConfig.stages</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl"><code class="docutils literal notranslate"><span class="pre">ChangeControl</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.approve"><code class="docutils literal notranslate"><span class="pre">ChangeControl.approve</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.change"><code class="docutils literal notranslate"><span class="pre">ChangeControl.change</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.completion_reason"><code class="docutils literal notranslate"><span class="pre">ChangeControl.completion_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.creation"><code class="docutils literal notranslate"><span class="pre">ChangeControl.creation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.device_id_to_stage_ids"><code class="docutils literal notranslate"><span class="pre">ChangeControl.device_id_to_stage_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.device_ids"><code class="docutils literal notranslate"><span class="pre">ChangeControl.device_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.error"><code class="docutils literal notranslate"><span class="pre">ChangeControl.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.key"><code class="docutils literal notranslate"><span class="pre">ChangeControl.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.override_reason"><code class="docutils literal notranslate"><span class="pre">ChangeControl.override_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.schedule"><code class="docutils literal notranslate"><span class="pre">ChangeControl.schedule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.start"><code class="docutils literal notranslate"><span class="pre">ChangeControl.start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.status"><code class="docutils literal notranslate"><span class="pre">ChangeControl.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.validation_detail"><code class="docutils literal notranslate"><span class="pre">ChangeControl.validation_detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControl.validation_statuses"><code class="docutils literal notranslate"><span class="pre">ChangeControl.validation_statuses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlBatchedStreamRequest.filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamRequest.filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">ChangeControlBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfig"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfig.change"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfig.change</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfig.key"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfig.schedule"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfig.schedule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfig.start"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfig.start</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteAllRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllRequest.partial_eq_filter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse.error"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse.key"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteAllResponse.type"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteAllResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteRequest.key"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteRequest.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteResponse.key"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteResponse.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteSomeRequest.keys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigDeleteSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigDeleteSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigRequest.key"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigResponse.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.delete"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.delete_all"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.delete_some"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.set"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.set_some"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.delete"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.delete_all"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.delete_some"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.set"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.set_some"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSetRequest.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetRequest.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSetResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSetResponse.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSetSomeRequest.values"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetSomeRequest.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSetSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSetSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSetSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlConfigStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlConfigStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlKey"><code class="docutils literal notranslate"><span class="pre">ChangeControlKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlKey.id"><code class="docutils literal notranslate"><span class="pre">ChangeControlKey.id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlRequest.key"><code class="docutils literal notranslate"><span class="pre">ChangeControlRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlResponse.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceBase"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceStub"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSomeRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSomeResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStatus"><code class="docutils literal notranslate"><span class="pre">ChangeControlStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStatus.COMPLETED"><code class="docutils literal notranslate"><span class="pre">ChangeControlStatus.COMPLETED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStatus.NOT_STARTED"><code class="docutils literal notranslate"><span class="pre">ChangeControlStatus.NOT_STARTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStatus.RUNNING"><code class="docutils literal notranslate"><span class="pre">ChangeControlStatus.RUNNING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStatus.SCHEDULED"><code class="docutils literal notranslate"><span class="pre">ChangeControlStatus.SCHEDULED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStatus.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">ChangeControlStatus.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStatus.name"><code class="docutils literal notranslate"><span class="pre">ChangeControlStatus.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStatus.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlStatus.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStreamRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStreamRequest.filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamRequest.filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStreamResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.action_summaries"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.action_summaries</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.approved"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.approved</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.completion_reason"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.completion_reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.created_time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.created_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.created_user"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.created_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.device_count"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.device_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.end_time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.end_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.error"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.key"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.last_approved_time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.last_approved_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.last_approved_user"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.last_approved_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.last_edited_time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.last_edited_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.last_edited_user"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.last_edited_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.last_scheduled_time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.last_scheduled_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.last_scheduled_user"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.last_scheduled_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.name"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.start_time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.start_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.start_user"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.start_user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.status"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummary.validation_statuses"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummary.validation_statuses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryBatchedStreamRequest.filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryBatchedStreamRequest.filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryRequest.key"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryResponse.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceBase"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceStub"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummarySomeRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummarySomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummarySomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummarySomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummarySomeRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummarySomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummarySomeResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummarySomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummarySomeResponse.error"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummarySomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummarySomeResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummarySomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummarySomeResponse.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummarySomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryStreamRequest"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryStreamRequest.filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryStreamRequest.filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryStreamResponse"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlSummaryStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlSummaryStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationDetail"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationDetail</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationDetail.devices"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationDetail.devices</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationStatus"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationStatus.CONCURRENT_EXECUTION"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationStatus.CONCURRENT_EXECUTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationStatus.OBSOLETED"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationStatus.OBSOLETED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationStatus.SUCCESS"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationStatus.SUCCESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationStatus.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationStatus.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationStatus.name"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationStatus.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationStatus.value"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationStatus.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationStatuses"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationStatuses</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.ChangeControlValidationStatuses.values"><code class="docutils literal notranslate"><span class="pre">ChangeControlValidationStatuses.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.CompletionReason"><code class="docutils literal notranslate"><span class="pre">CompletionReason</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.CompletionReason.FAILED"><code class="docutils literal notranslate"><span class="pre">CompletionReason.FAILED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.CompletionReason.STOPPED"><code class="docutils literal notranslate"><span class="pre">CompletionReason.STOPPED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.CompletionReason.SUCCESS"><code class="docutils literal notranslate"><span class="pre">CompletionReason.SUCCESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.CompletionReason.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">CompletionReason.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.CompletionReason.name"><code class="docutils literal notranslate"><span class="pre">CompletionReason.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.CompletionReason.value"><code class="docutils literal notranslate"><span class="pre">CompletionReason.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Creation"><code class="docutils literal notranslate"><span class="pre">Creation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Creation.time"><code class="docutils literal notranslate"><span class="pre">Creation.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Creation.user"><code class="docutils literal notranslate"><span class="pre">Creation.user</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceToStageMap"><code class="docutils literal notranslate"><span class="pre">DeviceToStageMap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceToStageMap.values"><code class="docutils literal notranslate"><span class="pre">DeviceToStageMap.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationDetail"><code class="docutils literal notranslate"><span class="pre">DeviceValidationDetail</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationDetail.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceValidationDetail.device_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationDetail.failure_type"><code class="docutils literal notranslate"><span class="pre">DeviceValidationDetail.failure_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationDetail.metadata"><code class="docutils literal notranslate"><span class="pre">DeviceValidationDetail.metadata</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationDetails"><code class="docutils literal notranslate"><span class="pre">DeviceValidationDetails</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationDetails.values"><code class="docutils literal notranslate"><span class="pre">DeviceValidationDetails.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationFailure"><code class="docutils literal notranslate"><span class="pre">DeviceValidationFailure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationFailure.CONCURRENT_EXECUTION"><code class="docutils literal notranslate"><span class="pre">DeviceValidationFailure.CONCURRENT_EXECUTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationFailure.CONFIG_OUT_OF_ORDER"><code class="docutils literal notranslate"><span class="pre">DeviceValidationFailure.CONFIG_OUT_OF_ORDER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationFailure.IMAGE_OUT_OF_ORDER"><code class="docutils literal notranslate"><span class="pre">DeviceValidationFailure.IMAGE_OUT_OF_ORDER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationFailure.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">DeviceValidationFailure.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationFailure.name"><code class="docutils literal notranslate"><span class="pre">DeviceValidationFailure.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.DeviceValidationFailure.value"><code class="docutils literal notranslate"><span class="pre">DeviceValidationFailure.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Filter"><code class="docutils literal notranslate"><span class="pre">Filter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Filter.device_ids"><code class="docutils literal notranslate"><span class="pre">Filter.device_ids</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Flag"><code class="docutils literal notranslate"><span class="pre">Flag</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Flag.notes"><code class="docutils literal notranslate"><span class="pre">Flag.notes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Flag.time"><code class="docutils literal notranslate"><span class="pre">Flag.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Flag.user"><code class="docutils literal notranslate"><span class="pre">Flag.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Flag.value"><code class="docutils literal notranslate"><span class="pre">Flag.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.FlagConfig"><code class="docutils literal notranslate"><span class="pre">FlagConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.FlagConfig.notes"><code class="docutils literal notranslate"><span class="pre">FlagConfig.notes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.FlagConfig.value"><code class="docutils literal notranslate"><span class="pre">FlagConfig.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.MetaResponse.count"><code class="docutils literal notranslate"><span class="pre">MetaResponse.count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.MetaResponse.time"><code class="docutils literal notranslate"><span class="pre">MetaResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.MetaResponse.type"><code class="docutils literal notranslate"><span class="pre">MetaResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.OverrideReason"><code class="docutils literal notranslate"><span class="pre">OverrideReason</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.OverrideReason.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">OverrideReason.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.OverrideReason.USER_FORCED"><code class="docutils literal notranslate"><span class="pre">OverrideReason.USER_FORCED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.OverrideReason.name"><code class="docutils literal notranslate"><span class="pre">OverrideReason.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.OverrideReason.value"><code class="docutils literal notranslate"><span class="pre">OverrideReason.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.RepeatedRepeatedString"><code class="docutils literal notranslate"><span class="pre">RepeatedRepeatedString</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.RepeatedRepeatedString.values"><code class="docutils literal notranslate"><span class="pre">RepeatedRepeatedString.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Stage"><code class="docutils literal notranslate"><span class="pre">Stage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Stage.action"><code class="docutils literal notranslate"><span class="pre">Stage.action</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Stage.end_time"><code class="docutils literal notranslate"><span class="pre">Stage.end_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Stage.error"><code class="docutils literal notranslate"><span class="pre">Stage.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Stage.name"><code class="docutils literal notranslate"><span class="pre">Stage.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Stage.rows"><code class="docutils literal notranslate"><span class="pre">Stage.rows</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Stage.start_time"><code class="docutils literal notranslate"><span class="pre">Stage.start_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Stage.status"><code class="docutils literal notranslate"><span class="pre">Stage.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.Stage.steps"><code class="docutils literal notranslate"><span class="pre">Stage.steps</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageConfig"><code class="docutils literal notranslate"><span class="pre">StageConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageConfig.action"><code class="docutils literal notranslate"><span class="pre">StageConfig.action</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageConfig.name"><code class="docutils literal notranslate"><span class="pre">StageConfig.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageConfig.rows"><code class="docutils literal notranslate"><span class="pre">StageConfig.rows</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageConfigMap"><code class="docutils literal notranslate"><span class="pre">StageConfigMap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageConfigMap.values"><code class="docutils literal notranslate"><span class="pre">StageConfigMap.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageMap"><code class="docutils literal notranslate"><span class="pre">StageMap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageMap.values"><code class="docutils literal notranslate"><span class="pre">StageMap.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageStatus"><code class="docutils literal notranslate"><span class="pre">StageStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageStatus.COMPLETED"><code class="docutils literal notranslate"><span class="pre">StageStatus.COMPLETED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageStatus.NOT_STARTED"><code class="docutils literal notranslate"><span class="pre">StageStatus.NOT_STARTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageStatus.RUNNING"><code class="docutils literal notranslate"><span class="pre">StageStatus.RUNNING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageStatus.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">StageStatus.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageStatus.name"><code class="docutils literal notranslate"><span class="pre">StageStatus.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StageStatus.value"><code class="docutils literal notranslate"><span class="pre">StageStatus.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepInfo"><code class="docutils literal notranslate"><span class="pre">StepInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepInfo.error"><code class="docutils literal notranslate"><span class="pre">StepInfo.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepInfo.message"><code class="docutils literal notranslate"><span class="pre">StepInfo.message</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepInfo.name"><code class="docutils literal notranslate"><span class="pre">StepInfo.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepInfo.status"><code class="docutils literal notranslate"><span class="pre">StepInfo.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepStatus"><code class="docutils literal notranslate"><span class="pre">StepStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepStatus.FAILED"><code class="docutils literal notranslate"><span class="pre">StepStatus.FAILED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepStatus.FINISHED"><code class="docutils literal notranslate"><span class="pre">StepStatus.FINISHED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepStatus.NOT_STARTED"><code class="docutils literal notranslate"><span class="pre">StepStatus.NOT_STARTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepStatus.RUNNING"><code class="docutils literal notranslate"><span class="pre">StepStatus.RUNNING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepStatus.SKIPPED"><code class="docutils literal notranslate"><span class="pre">StepStatus.SKIPPED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepStatus.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">StepStatus.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepStatus.name"><code class="docutils literal notranslate"><span class="pre">StepStatus.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.StepStatus.value"><code class="docutils literal notranslate"><span class="pre">StepStatus.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.TimestampFlag"><code class="docutils literal notranslate"><span class="pre">TimestampFlag</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.TimestampFlag.notes"><code class="docutils literal notranslate"><span class="pre">TimestampFlag.notes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.TimestampFlag.time"><code class="docutils literal notranslate"><span class="pre">TimestampFlag.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.TimestampFlag.user"><code class="docutils literal notranslate"><span class="pre">TimestampFlag.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.TimestampFlag.value"><code class="docutils literal notranslate"><span class="pre">TimestampFlag.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.TimestampFlagConfig"><code class="docutils literal notranslate"><span class="pre">TimestampFlagConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.TimestampFlagConfig.notes"><code class="docutils literal notranslate"><span class="pre">TimestampFlagConfig.notes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.changecontrol.v1.html#cloudvision.api.arista.changecontrol.v1.TimestampFlagConfig.value"><code class="docutils literal notranslate"><span class="pre">TimestampFlagConfig.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-cloudvision.api.arista.changecontrol">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudvision.api.arista.changecontrol" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cloudvision.api.arista.bugexposure.v1.html" class="btn btn-neutral float-left" title="cloudvision.api.arista.bugexposure.v1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cloudvision.api.arista.changecontrol.v1.html" class="btn btn-neutral float-right" title="cloudvision.api.arista.changecontrol.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

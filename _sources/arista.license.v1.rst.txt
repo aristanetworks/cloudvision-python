@@ -1,0 +1,37 @@
+arista.license.v1 package
+=========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.license.v1.services
+
+Submodules
+----------
+
+arista.license.v1.license\_pb2 module
+-------------------------------------
+
+.. automodule:: arista.license.v1.license_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.license.v1.license\_pb2\_grpc module
+-------------------------------------------
+
+.. automodule:: arista.license.v1.license_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.license.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.api.arista.redirector.v1 package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cloudvision.api.arista.serviceaccount package" href="cloudvision.api.arista.serviceaccount.html" />
+    <link rel="prev" title="cloudvision.api.arista.redirector package" href="cloudvision.api.arista.redirector.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cloudvision.html">cloudvision package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cloudvision.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.Connector.html">cloudvision.Connector package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cloudvision.api.html">cloudvision.api package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.compliance.html">cloudvision.compliance package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.cvlib.html">cloudvision.cvlib package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.html#module-cloudvision">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.html">arista package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.html">cloudvision package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.html">cloudvision.api package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.html">cloudvision.api.arista package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.redirector.html">cloudvision.api.arista.redirector package</a></li>
+      <li class="breadcrumb-item active">cloudvision.api.arista.redirector.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cloudvision.api.arista.redirector.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cloudvision-api-arista-redirector-v1-package">
+<h1>cloudvision.api.arista.redirector.v1 package<a class="headerlink" href="#cloudvision-api-arista-redirector-v1-package" title="Link to this heading"></a></h1>
+<section id="module-cloudvision.api.arista.redirector.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudvision.api.arista.redirector.v1" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.Assignment">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">Assignment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentKey" title="cloudvision.api.arista.redirector.v1.AssignmentKey"><span class="pre">AssignmentKey</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.Clusters" title="cloudvision.api.arista.redirector.v1.Clusters"><span class="pre">Clusters</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#Assignment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.Assignment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>Assignment returns the information about the regional clusters that the
+system is assigned to. Each cluster consists of a series of hosts, each of
+which the client can use to connect.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.Assignment.clusters">
+<span class="sig-name descname"><span class="pre">clusters</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.Clusters" title="cloudvision.api.arista.redirector.v1.Clusters"><span class="pre">Clusters</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.Assignment.clusters" title="Link to this definition"></a></dt>
+<dd><p>clusters that the system is assigned to.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.Assignment.key">
+<span class="sig-name descname"><span class="pre">key</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentKey" title="cloudvision.api.arista.redirector.v1.AssignmentKey"><span class="pre">AssignmentKey</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.Assignment.key" title="Link to this definition"></a></dt>
+<dd><p>key uniquely identifies the assignment of system_id to the cluster.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentBatchedStreamRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">partial_eq_filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ForwardRef</span><span class="p"><span class="pre">(</span></span><span class="s"><span class="pre">'Assignment'</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'__time__.TimeBounds'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_messages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentBatchedStreamRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest.max_messages">
+<span class="sig-name descname"><span class="pre">max_messages</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest.max_messages" title="Link to this definition"></a></dt>
+<dd><p>MaxMessages limits the maximum number of messages that can be contained in one batch.
+MaxMessages is required to be at least 1.
+The maximum number of messages in a batch is min(max_messages, INTERNAL_BATCH_LIMIT)
+INTERNAL_BATCH_LIMIT is set based on the maximum message size.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest.partial_eq_filter">
+<span class="sig-name descname"><span class="pre">partial_eq_filter</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.Assignment" title="cloudvision.api.arista.redirector.v1.Assignment"><span class="pre">Assignment</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest.partial_eq_filter" title="Link to this definition"></a></dt>
+<dd><p>PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+This requires all provided fields to be equal to the response.</p>
+<p>While transparent to users, this field also allows services to optimize internal
+subscriptions if filter(s) are sufficiently specific.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="cloudvision.api.arista.time.html#cloudvision.api.arista.time.TimeBounds" title="cloudvision.api.arista.time.TimeBounds"><span class="pre">TimeBounds</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest.time" title="Link to this definition"></a></dt>
+<dd><p>TimeRange allows limiting response data to within a specified time window.
+If this field is populated, at least one of the two time fields are required.</p>
+<p>For GetAll, the fields start and end can be used as follows:</p>
+<blockquote>
+<div><ul>
+<li><p>end: Returns the state of each Assignment at end.
+* Each Assignment response is fully-specified (all fields set).</p></li>
+<li><p>start: Returns the state of each Assignment at start, followed by updates until now.
+* Each Assignment response at start is fully-specified, but updates may be partial.</p></li>
+<li><p>start and end: Returns the state of each Assignment at start, followed by updates
+until end.
+* Each Assignment response at start is fully-specified, but updates until end may</p>
+<blockquote>
+<div><p>be partial.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>This field is not allowed in the Subscribe RPC.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentBatchedStreamResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">responses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ForwardRef</span><span class="p"><span class="pre">(</span></span><span class="s"><span class="pre">'AssignmentStreamResponse'</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentBatchedStreamResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse.responses">
+<span class="sig-name descname"><span class="pre">responses</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamResponse" title="cloudvision.api.arista.redirector.v1.AssignmentStreamResponse"><span class="pre">AssignmentStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse.responses" title="Link to this definition"></a></dt>
+<dd><p>Values are the values deemed relevant to the initiating request.
+The length of this structure is guaranteed to be between (inclusive) 1 and
+min(req.max_messages, INTERNAL_BATCH_LIMIT).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentKey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>AssignmentKey allows to uniquely identify an assignment.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentKey.system_id">
+<span class="sig-name descname"><span class="pre">system_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentKey.system_id" title="Link to this definition"></a></dt>
+<dd><p>system_id is the unique identifier of a device.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentRequest">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'AssignmentKey'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentRequest.key">
+<span class="sig-name descname"><span class="pre">key</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentKey" title="cloudvision.api.arista.redirector.v1.AssignmentKey"><span class="pre">AssignmentKey</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentRequest.key" title="Link to this definition"></a></dt>
+<dd><p>Key uniquely identifies a Assignment instance to retrieve.
+This value must be populated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentRequest.time" title="Link to this definition"></a></dt>
+<dd><p>Time indicates the time for which you are interested in the data.
+If no time is given, the server will use the time at which it makes the request.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentResponse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'Assignment'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentResponse.time" title="Link to this definition"></a></dt>
+<dd><p>Time carries the (UTC) timestamp of the last-modification of the
+Assignment instance in this response.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.Assignment" title="cloudvision.api.arista.redirector.v1.Assignment"><span class="pre">Assignment</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentResponse.value" title="Link to this definition"></a></dt>
+<dd><p>Value is the value requested.
+This structure will be fully-populated as it exists in the datastore. If
+optional fields were not given at creation, these fields will be empty or
+set to default values.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceBase">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentServiceBase</span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceBase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceBase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceBase.get_all">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest"><span class="pre">AssignmentStreamRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamResponse" title="cloudvision.api.arista.redirector.v1.AssignmentStreamResponse"><span class="pre">AssignmentStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceBase.get_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceBase.get_all" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceBase.get_all_batched">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_all_batched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_batched_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest"><span class="pre">AssignmentBatchedStreamRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse" title="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse"><span class="pre">AssignmentBatchedStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceBase.get_all_batched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceBase.get_all_batched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceBase.get_meta">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest"><span class="pre">AssignmentStreamRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.MetaResponse" title="cloudvision.api.arista.redirector.v1.MetaResponse"><span class="pre">MetaResponse</span></a></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceBase.get_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceBase.get_meta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceBase.get_one">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_one</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentRequest" title="cloudvision.api.arista.redirector.v1.AssignmentRequest"><span class="pre">AssignmentRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentResponse" title="cloudvision.api.arista.redirector.v1.AssignmentResponse"><span class="pre">AssignmentResponse</span></a></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceBase.get_one"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceBase.get_one" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceBase.get_some">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_some</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_some_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeRequest" title="cloudvision.api.arista.redirector.v1.AssignmentSomeRequest"><span class="pre">AssignmentSomeRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeResponse" title="cloudvision.api.arista.redirector.v1.AssignmentSomeResponse"><span class="pre">AssignmentSomeResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceBase.get_some"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceBase.get_some" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceBase.subscribe">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest"><span class="pre">AssignmentStreamRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamResponse" title="cloudvision.api.arista.redirector.v1.AssignmentStreamResponse"><span class="pre">AssignmentStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceBase.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceBase.subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceBase.subscribe_batched">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe_batched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_batched_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest"><span class="pre">AssignmentBatchedStreamRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse" title="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse"><span class="pre">AssignmentBatchedStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceBase.subscribe_batched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceBase.subscribe_batched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceBase.subscribe_meta">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest"><span class="pre">AssignmentStreamRequest</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.MetaResponse" title="cloudvision.api.arista.redirector.v1.MetaResponse"><span class="pre">MetaResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceBase.subscribe_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceBase.subscribe_meta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceStub">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentServiceStub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Channel</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceStub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceStub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceStub</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceStub.get_all">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest"><span class="pre">AssignmentStreamRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamResponse" title="cloudvision.api.arista.redirector.v1.AssignmentStreamResponse"><span class="pre">AssignmentStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceStub.get_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceStub.get_all" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceStub.get_all_batched">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_all_batched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_batched_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest"><span class="pre">AssignmentBatchedStreamRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse" title="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse"><span class="pre">AssignmentBatchedStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceStub.get_all_batched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceStub.get_all_batched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceStub.get_meta">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest"><span class="pre">AssignmentStreamRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.MetaResponse" title="cloudvision.api.arista.redirector.v1.MetaResponse"><span class="pre">MetaResponse</span></a></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceStub.get_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceStub.get_meta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceStub.get_one">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_one</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentRequest" title="cloudvision.api.arista.redirector.v1.AssignmentRequest"><span class="pre">AssignmentRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentResponse" title="cloudvision.api.arista.redirector.v1.AssignmentResponse"><span class="pre">AssignmentResponse</span></a></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceStub.get_one"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceStub.get_one" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceStub.get_some">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_some</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_some_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeRequest" title="cloudvision.api.arista.redirector.v1.AssignmentSomeRequest"><span class="pre">AssignmentSomeRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeResponse" title="cloudvision.api.arista.redirector.v1.AssignmentSomeResponse"><span class="pre">AssignmentSomeResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceStub.get_some"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceStub.get_some" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceStub.subscribe">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest"><span class="pre">AssignmentStreamRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamResponse" title="cloudvision.api.arista.redirector.v1.AssignmentStreamResponse"><span class="pre">AssignmentStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceStub.subscribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceStub.subscribe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceStub.subscribe_batched">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe_batched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_batched_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamRequest"><span class="pre">AssignmentBatchedStreamRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse" title="cloudvision.api.arista.redirector.v1.AssignmentBatchedStreamResponse"><span class="pre">AssignmentBatchedStreamResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceStub.subscribe_batched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceStub.subscribe_batched" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentServiceStub.subscribe_meta">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assignment_stream_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest" title="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest"><span class="pre">AssignmentStreamRequest</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deadline</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MetadataLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.MetaResponse" title="cloudvision.api.arista.redirector.v1.MetaResponse"><span class="pre">MetaResponse</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentServiceStub.subscribe_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentServiceStub.subscribe_meta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentSomeRequest">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentSomeRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ForwardRef</span><span class="p"><span class="pre">(</span></span><span class="s"><span class="pre">'AssignmentKey'</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentSomeRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentSomeRequest.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.AssignmentKey" title="cloudvision.api.arista.redirector.v1.AssignmentKey"><span class="pre">AssignmentKey</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeRequest.keys" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentSomeRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeRequest.time" title="Link to this definition"></a></dt>
+<dd><p>Time indicates the time for which you are interested in the data.
+If no time is given, the server will use the time at which it makes the request.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentSomeResponse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentSomeResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'Assignment'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentSomeResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentSomeResponse.error">
+<span class="sig-name descname"><span class="pre">error</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeResponse.error" title="Link to this definition"></a></dt>
+<dd><p>Error is an optional field.
+It should be filled when there is an error in the GetSome process.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentSomeResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeResponse.time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentSomeResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.Assignment" title="cloudvision.api.arista.redirector.v1.Assignment"><span class="pre">Assignment</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentSomeResponse.value" title="Link to this definition"></a></dt>
+<dd><p>Value is the value requested.
+This structure will be fully-populated as it exists in the datastore. If
+optional fields were not given at creation, these fields will be empty or
+set to default values.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentStreamRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">partial_eq_filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ForwardRef</span><span class="p"><span class="pre">(</span></span><span class="s"><span class="pre">'Assignment'</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'__time__.TimeBounds'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentStreamRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest.partial_eq_filter">
+<span class="sig-name descname"><span class="pre">partial_eq_filter</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.Assignment" title="cloudvision.api.arista.redirector.v1.Assignment"><span class="pre">Assignment</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest.partial_eq_filter" title="Link to this definition"></a></dt>
+<dd><p>PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+This requires all provided fields to be equal to the response.</p>
+<p>While transparent to users, this field also allows services to optimize internal
+subscriptions if filter(s) are sufficiently specific.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentStreamRequest.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="cloudvision.api.arista.time.html#cloudvision.api.arista.time.TimeBounds" title="cloudvision.api.arista.time.TimeBounds"><span class="pre">TimeBounds</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamRequest.time" title="Link to this definition"></a></dt>
+<dd><p>TimeRange allows limiting response data to within a specified time window.
+If this field is populated, at least one of the two time fields are required.</p>
+<p>For GetAll, the fields start and end can be used as follows:</p>
+<blockquote>
+<div><ul>
+<li><p>end: Returns the state of each Assignment at end.
+* Each Assignment response is fully-specified (all fields set).</p></li>
+<li><p>start: Returns the state of each Assignment at start, followed by updates until now.
+* Each Assignment response at start is fully-specified, but updates may be partial.</p></li>
+<li><p>start and end: Returns the state of each Assignment at start, followed by updates
+until end.
+* Each Assignment response at start is fully-specified, but updates until end may</p>
+<blockquote>
+<div><p>be partial.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>This field is not allowed in the Subscribe RPC.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentStreamResponse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">AssignmentStreamResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'Assignment'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'__subscriptions__.Operation'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#AssignmentStreamResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentStreamResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamResponse.time" title="Link to this definition"></a></dt>
+<dd><p>Time holds the timestamp of this Assignment’s last modification.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentStreamResponse.type">
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="cloudvision.api.arista.subscriptions.html#cloudvision.api.arista.subscriptions.Operation" title="cloudvision.api.arista.subscriptions.Operation"><span class="pre">Operation</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamResponse.type" title="Link to this definition"></a></dt>
+<dd><p>Operation indicates how the Assignment value in this response should be considered.
+Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+once all initial data is streamed and the client begins to receive modification updates,
+you should not see INITIAL again.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.AssignmentStreamResponse.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.Assignment" title="cloudvision.api.arista.redirector.v1.Assignment"><span class="pre">Assignment</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.AssignmentStreamResponse.value" title="Link to this definition"></a></dt>
+<dd><p>Value is a value deemed relevant to the initiating request.
+This structure will always have its key-field populated. Which other fields are
+populated, and why, depends on the value of Operation and what triggered this notification.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.Cluster">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">Cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hosts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'___fmp__.RepeatedString'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#Cluster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.Cluster" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.Cluster.hosts">
+<span class="sig-name descname"><span class="pre">hosts</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="cloudvision.api.fmp.html#cloudvision.api.fmp.RepeatedString" title="cloudvision.api.fmp.RepeatedString"><span class="pre">RepeatedString</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.Cluster.hosts" title="Link to this definition"></a></dt>
+<dd><p>hosts in the cluster that the devices can connect to.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.Cluster.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.Cluster.name" title="Link to this definition"></a></dt>
+<dd><p>name of the cluster. The name can change over time as new clusters
+are added or removed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.Clusters">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">Clusters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.Cluster" title="cloudvision.api.arista.redirector.v1.Cluster"><span class="pre">Cluster</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#Clusters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.Clusters" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>Clusters wraps a cluster list which contain the information about the hosts.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.Clusters.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.redirector.v1.Cluster" title="cloudvision.api.arista.redirector.v1.Cluster"><span class="pre">Cluster</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.Clusters.values" title="Link to this definition"></a></dt>
+<dd><p>values contains the list of clusters associated with the region</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.MetaResponse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.redirector.v1.</span></span><span class="sig-name descname"><span class="pre">MetaResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'__subscriptions__.Operation'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/redirector/v1.html#MetaResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.MetaResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.MetaResponse.count">
+<span class="sig-name descname"><span class="pre">count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.MetaResponse.count" title="Link to this definition"></a></dt>
+<dd><p>Count is the number of items present under the conditions of the request.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.MetaResponse.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.MetaResponse.time" title="Link to this definition"></a></dt>
+<dd><p>Time holds the timestamp of the last item included in the metadata calculation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.redirector.v1.MetaResponse.type">
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="cloudvision.api.arista.subscriptions.html#cloudvision.api.arista.subscriptions.Operation" title="cloudvision.api.arista.subscriptions.Operation"><span class="pre">Operation</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.redirector.v1.MetaResponse.type" title="Link to this definition"></a></dt>
+<dd><p>Operation indicates how the value in this response should be considered.
+Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+once all initial data is streamed and the client begins to receive modification updates,
+you should not see INITIAL again.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cloudvision.api.arista.redirector.html" class="btn btn-neutral float-left" title="cloudvision.api.arista.redirector package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cloudvision.api.arista.serviceaccount.html" class="btn btn-neutral float-right" title="cloudvision.api.arista.serviceaccount package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
