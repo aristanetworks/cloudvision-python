@@ -10,6 +10,7 @@ import json
 import logging
 import sys
 import uuid
+from datetime import datetime
 from uuid import uuid5, NAMESPACE_URL
 from cloudvision.api import client as cv_client
 from cloudvision.api import fmp
@@ -46,8 +47,8 @@ from cloudvision.cvlib.constants import MAINLINE_WS_ID
 # "containers" can carry their own configlets that apply to all
 # devices matched by the container query # (default
 # "location: <name-of-the-container>").
-# "devices" carry per-device configlets and are placed under a
-# container when "container" is specified.
+# "devices" carry per-device configlets and tags, and are placed under
+# a container when "container" is specified.
 #
 # Each configlet entry supports three modes:
 #   {"name": "x", "configlet_file": "path"}  → create from file
@@ -72,20 +73,28 @@ INVENTORY = {
     ],
     "devices": [
         {
-            "device_id": "JPE21231033",
+            "device_id": "JPE123456",
             "container": "US/DC1",
             "configlets": [
                 {"name": "leaf1", "configlet_file": "configlets/leaf1.cfg"},
                 # {"name": "leaf1_exception", }
             ],
+            "tags": {
+                "platform": "DCS-7050SX3-48YC12",
+                "role": "leaf"
+            }
         },
         {
-            "device_id": "JPE21231032",
+            "device_id": "JPE1234567",
             "container": "US/DC2",
             "configlets": [
                 {"name": "leaf2", "configlet_file": "configlets/leaf2.cfg"},
                 # {"name": "leaf2_exception"},
             ],
+            "tags": {
+                "platform": "DCS-7050SX3-48YC12",
+                "role": "leaf"
+            }
         },
     ],
 }
@@ -180,8 +189,18 @@ async def get_studio_inputs(channel):
 # ── Workspace lifecycle ──────────────────────────────────────────────
 
 
-async def create_workspace(channel, name):
+def workspace_name(created_at, created_by=None):
+    parts = [created_at.strftime('%Y-%m-%d'), created_at.strftime('%H:%M:%S')]
+    if created_by:
+        parts.append(created_by)
+    parts.append('API update')
+    return ' - '.join(parts)
+
+
+async def create_workspace(channel):
     ws_id = str(uuid.uuid4())
+    created_at = datetime.now().astimezone()
+    name = workspace_name(created_at)
     req = workspace.WorkspaceConfigSetRequest(
         value=workspace.WorkspaceConfig(
             key=workspace.WorkspaceKey(workspace_id=ws_id),
@@ -190,7 +209,8 @@ async def create_workspace(channel, name):
     )
     stub = workspace.WorkspaceConfigServiceStub(channel)
     await stub.set(req, timeout=RPC_TIMEOUT)
-    logger.info('Workspace created: %s', ws_id)
+
+    logger.info('Workspace created: %s (%s)', ws_id, name)
     return ws_id
 
 
@@ -490,13 +510,7 @@ async def main(args, client):
             logger.error('INVENTORY is empty, nothing to do')
             sys.exit(1)
 
-        ws_parts = []
-        if devices:
-            ws_parts.append(', '.join(d["device_id"] for d in devices))
-        if containers:
-            ws_parts.append(', '.join(c["name"] for c in containers))
-        ws_name = f'Assign configlets to {"; ".join(ws_parts)}'
-        ws_id = await create_workspace(channel, ws_name)
+        ws_id = await create_workspace(channel)
 
         # Fetch existing configlets once so name-only entries can be resolved.
         existing_configlets = await get_configlet_name_to_id(channel)
@@ -568,22 +582,32 @@ async def main(args, client):
             else:
                 root_assignment_ids.append(assignment_id)
 
-        # ── Assign container location tags to devices ──
-        # Each segment of a device's container path becomes a
-        # location:<segment> tag on that device, so the container
-        # queries (location:<name>) match correctly.
+        # ── Assign inventory and container location tags to devices ──
+        # Tags declared in each device's "tags" dictionary are assigned
+        # directly. Each segment of the container path also becomes a
+        # location:<segment> tag so container queries match correctly.
         created_tags = set()
+        assigned_tags = set()
         for device in devices:
-            if "container" not in device:
-                continue
-            parts = device["container"].split("/")
-            for part in parts:
+            device_id = device["device_id"]
+            device_tags = list(device.get("tags", {}).items())
+            device_tags.extend(
+                ("location", part)
+                for part in device.get("container", "").split("/")
+                if part
+            )
+
+            for label, value in device_tags:
+                assignment = (device_id, label, value)
+                if assignment in assigned_tags:
+                    continue
                 await create_tag_if_needed(
-                    channel, ws_id, "location", part, created_tags
+                    channel, ws_id, label, value, created_tags
                 )
                 await assign_tag_to_device(
-                    channel, ws_id, device["device_id"], "location", part
+                    channel, ws_id, device_id, label, value
                 )
+                assigned_tags.add(assignment)
 
         # Walk every path bottom-up (longest paths first) so children
         # are created before their parents.
