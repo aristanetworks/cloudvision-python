@@ -1,0 +1,37 @@
+arista.tag.v2 package
+=====================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.tag.v2.services
+
+Submodules
+----------
+
+arista.tag.v2.tag\_pb2 module
+-----------------------------
+
+.. automodule:: arista.tag.v2.tag_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.tag.v2.tag\_pb2\_grpc module
+-----------------------------------
+
+.. automodule:: arista.tag.v2.tag_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.tag.v2
+   :members:
+   :show-inheritance:
+   :undoc-members:

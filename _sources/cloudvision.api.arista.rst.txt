@@ -1,0 +1,46 @@
+cloudvision.api.arista package
+==============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   cloudvision.api.arista.action
+   cloudvision.api.arista.alert
+   cloudvision.api.arista.arista_portal
+   cloudvision.api.arista.asset_manager
+   cloudvision.api.arista.auditlog
+   cloudvision.api.arista.bugexposure
+   cloudvision.api.arista.changecontrol
+   cloudvision.api.arista.configlet
+   cloudvision.api.arista.configstatus
+   cloudvision.api.arista.connectivitymonitor
+   cloudvision.api.arista.dashboard
+   cloudvision.api.arista.endpointlocation
+   cloudvision.api.arista.event
+   cloudvision.api.arista.identityprovider
+   cloudvision.api.arista.imagestatus
+   cloudvision.api.arista.inventory
+   cloudvision.api.arista.license
+   cloudvision.api.arista.lifecycle
+   cloudvision.api.arista.logging
+   cloudvision.api.arista.redirector
+   cloudvision.api.arista.serviceaccount
+   cloudvision.api.arista.softwaremanagement
+   cloudvision.api.arista.studio
+   cloudvision.api.arista.studio_topology
+   cloudvision.api.arista.subscriptions
+   cloudvision.api.arista.syslog
+   cloudvision.api.arista.tag
+   cloudvision.api.arista.time
+   cloudvision.api.arista.workspace
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.api.arista
+   :members:
+   :show-inheritance:
+   :undoc-members:

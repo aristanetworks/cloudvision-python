@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.compliance.client &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=aad71706"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cloudvision</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cloudvision.compliance.client</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cloudvision.compliance.client</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2026 Arista Networks, Inc.</span>
+<span class="c1"># Use of this source code is governed by the Apache License 2.0</span>
+<span class="c1"># that can be found in the COPYING file.</span>
+
+<span class="sd">"""Synchronous client wrapper for the CloudVision Compliance service."""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">grpc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.protobuf.timestamp_pb2</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timestamp</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cloudvision.compliance.gen</span><span class="w"> </span><span class="kn">import</span> <span class="n">compliancecheck_pb2</span> <span class="k">as</span> <span class="n">pb2</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cloudvision.compliance.gen</span><span class="w"> </span><span class="kn">import</span> <span class="n">compliancecheck_pb2_grpc</span> <span class="k">as</span> <span class="n">pb2_grpc</span>
+
+<span class="n">RPC_TIMEOUT</span> <span class="o">=</span> <span class="mi">120</span>
+
+<span class="n">DIFF_OP_NAMES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">pb2</span><span class="o">.</span><span class="n">DIFFOP_UNSPECIFIED</span><span class="p">:</span> <span class="s2">"UNSPECIFIED"</span><span class="p">,</span>
+    <span class="n">pb2</span><span class="o">.</span><span class="n">NOP</span><span class="p">:</span> <span class="s2">"NOP"</span><span class="p">,</span>
+    <span class="n">pb2</span><span class="o">.</span><span class="n">IGNORE</span><span class="p">:</span> <span class="s2">"IGNORE"</span><span class="p">,</span>
+    <span class="n">pb2</span><span class="o">.</span><span class="n">ADD</span><span class="p">:</span> <span class="s2">"ADD"</span><span class="p">,</span>
+    <span class="n">pb2</span><span class="o">.</span><span class="n">DELETE</span><span class="p">:</span> <span class="s2">"DELETE"</span><span class="p">,</span>
+    <span class="n">pb2</span><span class="o">.</span><span class="n">CHANGE</span><span class="p">:</span> <span class="s2">"CHANGE"</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_parse_timestamp</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Convert an ISO-8601 string to a protobuf timestamp."""</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Timestamp</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="n">parsed</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">parsed</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">parsed</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">Timestamp</span><span class="p">()</span>
+    <span class="n">timestamp</span><span class="o">.</span><span class="n">FromDatetime</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">timestamp</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_create_channel</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">cert</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Create an authenticated, TLS-protected gRPC channel."""</span>
+    <span class="c1"># Prefer the native resolver when a connection is created. This avoids</span>
+    <span class="c1"># c-ares resolver issues seen on macOS without mutating the environment</span>
+    <span class="c1"># merely by importing the library.</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">"GRPC_DNS_RESOLVER"</span><span class="p">,</span> <span class="s2">"native"</span><span class="p">)</span>
+    <span class="n">call_creds</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">access_token_call_credentials</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cert</span><span class="p">:</span>
+        <span class="n">channel_creds</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">ssl_channel_credentials</span><span class="p">(</span><span class="n">root_certificates</span><span class="o">=</span><span class="n">cert</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">channel_creds</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">ssl_channel_credentials</span><span class="p">()</span>
+    <span class="n">conn_creds</span> <span class="o">=</span> <span class="n">grpc</span><span class="o">.</span><span class="n">composite_channel_credentials</span><span class="p">(</span><span class="n">channel_creds</span><span class="p">,</span> <span class="n">call_creds</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">grpc</span><span class="o">.</span><span class="n">secure_channel</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">conn_creds</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ComplianceClient">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ComplianceClient</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Wrapper around the synchronous Compliance gRPC service."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">cert</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">RPC_TIMEOUT</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">_create_channel</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">cert</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stub</span> <span class="o">=</span> <span class="n">pb2_grpc</span><span class="o">.</span><span class="n">ComplianceStub</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+
+<div class="viewcode-block" id="ComplianceClient.close">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Close the underlying gRPC channel."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">exc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ComplianceClient.get_config">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_config">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">config_type</span><span class="o">=</span><span class="n">pb2</span><span class="o">.</span><span class="n">RUNNING_CONFIG</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Retrieve the running configuration for a device."""</span>
+        <span class="n">config_request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ConfigRequest</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">config_type</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="n">parsed_timestamp</span> <span class="o">=</span> <span class="n">_parse_timestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parsed_timestamp</span><span class="p">:</span>
+            <span class="n">config_request</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetConfigRequest</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">config_request</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"config"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"errors"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">"filter_codes"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">"sources"</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetConfig</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">):</span>
+                <span class="n">response_type</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">WhichOneof</span><span class="p">(</span><span class="s2">"response"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"config"</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"config"</span><span class="p">]</span> <span class="o">+=</span> <span class="n">response</span><span class="o">.</span><span class="n">config</span>
+                <span class="k">elif</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"error"</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"errors"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">error_msg</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"configFilterCodes"</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">filter_code</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">configFilterCodes</span><span class="o">.</span><span class="n">inLineFilterCode</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">"filter_codes"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="p">{</span>
+                                <span class="s2">"line_no"</span><span class="p">:</span> <span class="n">filter_code</span><span class="o">.</span><span class="n">lineNo</span><span class="p">,</span>
+                                <span class="s2">"filter_code"</span><span class="p">:</span> <span class="n">filter_code</span><span class="o">.</span><span class="n">filterCode</span><span class="p">,</span>
+                            <span class="p">}</span>
+                        <span class="p">)</span>
+                <span class="k">elif</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"sources"</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">sources</span><span class="o">.</span><span class="n">source</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">"sources"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="p">{</span>
+                                <span class="s2">"source_type"</span><span class="p">:</span> <span class="n">source</span><span class="o">.</span><span class="n">source_type</span><span class="p">,</span>
+                                <span class="s2">"key"</span><span class="p">:</span> <span class="n">source</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                            <span class="p">}</span>
+                        <span class="p">)</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">"errors"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.get_config_diff">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_config_diff">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_config_diff</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">device_id</span><span class="p">,</span>
+        <span class="n">timestamp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">lhs_type</span><span class="o">=</span><span class="n">pb2</span><span class="o">.</span><span class="n">DESIGNED_CONFIG</span><span class="p">,</span>
+        <span class="n">rhs_type</span><span class="o">=</span><span class="n">pb2</span><span class="o">.</span><span class="n">RUNNING_CONFIG</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Compare two configurations for a device."""</span>
+        <span class="n">lhs</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ConfigRequest</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">lhs_type</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="n">rhs</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ConfigRequest</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">rhs_type</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="n">parsed_timestamp</span> <span class="o">=</span> <span class="n">_parse_timestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parsed_timestamp</span><span class="p">:</span>
+            <span class="n">lhs</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+            <span class="n">rhs</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetConfigDiffRequest</span><span class="p">(</span><span class="n">lhs</span><span class="o">=</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="o">=</span><span class="n">rhs</span><span class="p">)</span>
+
+        <span class="n">diff_entries</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetConfigDiff</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">):</span>
+                <span class="n">response_type</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">WhichOneof</span><span class="p">(</span><span class="s2">"response"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"diff"</span><span class="p">:</span>
+                    <span class="n">diff_entries</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">diff</span><span class="o">.</span><span class="n">entries</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"lhs"</span><span class="p">:</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">lhs</span><span class="o">.</span><span class="n">error_msg</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"rhs"</span><span class="p">:</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">error_msg</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="n">adds</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">op</span> <span class="o">==</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ADD</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">diff_entries</span><span class="p">)</span>
+        <span class="n">deletes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">op</span> <span class="o">==</span> <span class="n">pb2</span><span class="o">.</span><span class="n">DELETE</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">diff_entries</span><span class="p">)</span>
+        <span class="n">changes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">op</span> <span class="o">==</span> <span class="n">pb2</span><span class="o">.</span><span class="n">CHANGE</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">diff_entries</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"adds"</span><span class="p">:</span> <span class="n">adds</span><span class="p">,</span>
+            <span class="s2">"deletes"</span><span class="p">:</span> <span class="n">deletes</span><span class="p">,</span>
+            <span class="s2">"changes"</span><span class="p">:</span> <span class="n">changes</span><span class="p">,</span>
+            <span class="s2">"in_compliance"</span><span class="p">:</span> <span class="n">adds</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">deletes</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">changes</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">"diff_entries"</span><span class="p">:</span> <span class="n">diff_entries</span><span class="p">,</span>
+            <span class="s2">"errors"</span><span class="p">:</span> <span class="n">errors</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.get_config_diff_for_task">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_config_diff_for_task">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_config_diff_for_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get the configuration diff for a CloudVision task."""</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetConfigDiffForTaskRequest</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="n">task_id</span><span class="p">)</span>
+        <span class="n">diff_entries</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetConfigDiffForTask</span><span class="p">(</span>
+                <span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
+            <span class="p">):</span>
+                <span class="n">response_type</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">WhichOneof</span><span class="p">(</span><span class="s2">"response"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"diff"</span><span class="p">:</span>
+                    <span class="n">diff_entries</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">diff</span><span class="o">.</span><span class="n">entries</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"error"</span><span class="p">:</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">error_msg</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="n">adds</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">op</span> <span class="o">==</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ADD</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">diff_entries</span><span class="p">)</span>
+        <span class="n">deletes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">op</span> <span class="o">==</span> <span class="n">pb2</span><span class="o">.</span><span class="n">DELETE</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">diff_entries</span><span class="p">)</span>
+        <span class="n">changes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">op</span> <span class="o">==</span> <span class="n">pb2</span><span class="o">.</span><span class="n">CHANGE</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">diff_entries</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"adds"</span><span class="p">:</span> <span class="n">adds</span><span class="p">,</span>
+            <span class="s2">"deletes"</span><span class="p">:</span> <span class="n">deletes</span><span class="p">,</span>
+            <span class="s2">"changes"</span><span class="p">:</span> <span class="n">changes</span><span class="p">,</span>
+            <span class="s2">"in_compliance"</span><span class="p">:</span> <span class="n">adds</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">deletes</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">changes</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">"diff_entries"</span><span class="p">:</span> <span class="n">diff_entries</span><span class="p">,</span>
+            <span class="s2">"errors"</span><span class="p">:</span> <span class="n">errors</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.get_config_diff_summary">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_config_diff_summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_config_diff_summary</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">device_id</span><span class="p">,</span>
+        <span class="n">timestamp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">lhs_type</span><span class="o">=</span><span class="n">pb2</span><span class="o">.</span><span class="n">DESIGNED_CONFIG</span><span class="p">,</span>
+        <span class="n">rhs_type</span><span class="o">=</span><span class="n">pb2</span><span class="o">.</span><span class="n">RUNNING_CONFIG</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get summary counts for a configuration comparison."""</span>
+        <span class="n">lhs</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ConfigRequest</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">lhs_type</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="n">rhs</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ConfigRequest</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">rhs_type</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="n">parsed_timestamp</span> <span class="o">=</span> <span class="n">_parse_timestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parsed_timestamp</span><span class="p">:</span>
+            <span class="n">lhs</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+            <span class="n">rhs</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetConfigDiffSummaryRequest</span><span class="p">(</span><span class="n">lhs</span><span class="o">=</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="o">=</span><span class="n">rhs</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetConfigDiffSummary</span><span class="p">(</span>
+                <span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
+            <span class="p">):</span>
+                <span class="n">summary</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">summary</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">"config_compliance"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">config_compliance</span><span class="p">,</span>
+                    <span class="s2">"nop"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">nop</span><span class="p">,</span>
+                    <span class="s2">"ignore"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">ignore</span><span class="p">,</span>
+                    <span class="s2">"add"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">add</span><span class="p">,</span>
+                    <span class="s2">"delete"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">delete</span><span class="p">,</span>
+                    <span class="s2">"change"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">change</span><span class="p">,</span>
+                    <span class="s2">"digest"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">digest</span><span class="p">,</span>
+                    <span class="s2">"error"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">error</span><span class="p">,</span>
+                <span class="p">}</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">"error"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.get_config_diff_summary_for_task">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_config_diff_summary_for_task">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_config_diff_summary_for_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get configuration diff summary counts for a task."""</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetConfigDiffSummaryForTaskRequest</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="n">task_id</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetConfigDiffSummaryForTask</span><span class="p">(</span>
+                <span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
+            <span class="p">):</span>
+                <span class="n">summary</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">summary</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">"config_compliance"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">config_compliance</span><span class="p">,</span>
+                    <span class="s2">"nop"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">nop</span><span class="p">,</span>
+                    <span class="s2">"ignore"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">ignore</span><span class="p">,</span>
+                    <span class="s2">"add"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">add</span><span class="p">,</span>
+                    <span class="s2">"delete"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">delete</span><span class="p">,</span>
+                    <span class="s2">"change"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">change</span><span class="p">,</span>
+                    <span class="s2">"digest"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">digest</span><span class="p">,</span>
+                    <span class="s2">"error"</span><span class="p">:</span> <span class="n">summary</span><span class="o">.</span><span class="n">error</span><span class="p">,</span>
+                <span class="p">}</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">"error"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.config_diff_raw">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.config_diff_raw">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">config_diff_raw</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">lhs_config</span><span class="p">,</span>
+        <span class="n">rhs_config</span><span class="p">,</span>
+        <span class="n">device_id</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+        <span class="n">reconcile_all</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">exclude_reconciled_managed_config</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Diff two raw configuration strings directly."""</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">request_iterator</span><span class="p">():</span>
+            <span class="k">yield</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ConfigDiffRawRequest</span><span class="p">(</span><span class="n">lhs</span><span class="o">=</span><span class="n">lhs_config</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ConfigDiffRawRequest</span><span class="p">(</span><span class="n">rhs</span><span class="o">=</span><span class="n">rhs_config</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">device_id</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ConfigDiffRawRequest</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">reconcile_all</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ConfigDiffRawRequest</span><span class="p">(</span><span class="n">reconcile_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">exclude_reconciled_managed_config</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ConfigDiffRawRequest</span><span class="p">(</span><span class="n">exclude_reconciled_managed_config</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"diff_entries"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">"reconciled_config"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"errors"</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">ConfigDiffRaw</span><span class="p">(</span>
+                <span class="n">request_iterator</span><span class="p">(),</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
+            <span class="p">):</span>
+                <span class="n">response_type</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">WhichOneof</span><span class="p">(</span><span class="s2">"response"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"diff_entries"</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"diff_entries"</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">diff_entries</span><span class="o">.</span><span class="n">entries</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"reconciled_config"</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"reconciled_config"</span><span class="p">]</span> <span class="o">+=</span> <span class="n">response</span><span class="o">.</span><span class="n">reconciled_config</span>
+                <span class="k">elif</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"error"</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"errors"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">error_msg</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">"errors"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.get_proposed_config">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_proposed_config">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_proposed_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">configlet_ids</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Generate a proposed configuration from a set of configlets."""</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetProposedConfigRequest</span><span class="p">(</span>
+            <span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">,</span> <span class="n">configlet_ids</span><span class="o">=</span><span class="n">configlet_ids</span>
+        <span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"config"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"partial_config"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"errors"</span><span class="p">:</span> <span class="p">[]}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetProposedConfig</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">):</span>
+                <span class="n">response_type</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">WhichOneof</span><span class="p">(</span><span class="s2">"response"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"config"</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"config"</span><span class="p">]</span> <span class="o">+=</span> <span class="n">response</span><span class="o">.</span><span class="n">config</span>
+                <span class="k">elif</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"partial_config"</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"partial_config"</span><span class="p">]</span> <span class="o">+=</span> <span class="n">response</span><span class="o">.</span><span class="n">partial_config</span>
+                <span class="k">elif</span> <span class="n">response_type</span> <span class="o">==</span> <span class="s2">"error"</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"errors"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">error_msg</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">"errors"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.get_device_status">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_device_status">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_device_status</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">device_id</span><span class="p">,</span>
+        <span class="n">timestamp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">task_type</span><span class="o">=</span><span class="n">pb2</span><span class="o">.</span><span class="n">TASKTYPE_UNSPECIFIED</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get combined configuration and image compliance status."""</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetDeviceStatusRequest</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="n">task_type</span><span class="p">)</span>
+        <span class="n">parsed_timestamp</span> <span class="o">=</span> <span class="n">_parse_timestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parsed_timestamp</span><span class="p">:</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"config_summary"</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">"image_status"</span><span class="p">:</span> <span class="p">{}}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetDeviceStatus</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">):</span>
+                <span class="n">config_summary</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">config_summary</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"config_summary"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">"config_compliance"</span><span class="p">:</span> <span class="n">config_summary</span><span class="o">.</span><span class="n">config_compliance</span><span class="p">,</span>
+                    <span class="s2">"nop"</span><span class="p">:</span> <span class="n">config_summary</span><span class="o">.</span><span class="n">nop</span><span class="p">,</span>
+                    <span class="s2">"ignore"</span><span class="p">:</span> <span class="n">config_summary</span><span class="o">.</span><span class="n">ignore</span><span class="p">,</span>
+                    <span class="s2">"add"</span><span class="p">:</span> <span class="n">config_summary</span><span class="o">.</span><span class="n">add</span><span class="p">,</span>
+                    <span class="s2">"delete"</span><span class="p">:</span> <span class="n">config_summary</span><span class="o">.</span><span class="n">delete</span><span class="p">,</span>
+                    <span class="s2">"change"</span><span class="p">:</span> <span class="n">config_summary</span><span class="o">.</span><span class="n">change</span><span class="p">,</span>
+                    <span class="s2">"digest"</span><span class="p">:</span> <span class="n">config_summary</span><span class="o">.</span><span class="n">digest</span><span class="p">,</span>
+                    <span class="s2">"error"</span><span class="p">:</span> <span class="n">config_summary</span><span class="o">.</span><span class="n">error</span><span class="p">,</span>
+                <span class="p">}</span>
+                <span class="n">image_status</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">image_status</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"image_status"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">"dual_sup"</span><span class="p">:</span> <span class="n">image_status</span><span class="o">.</span><span class="n">dual_sup</span><span class="p">,</span>
+                    <span class="s2">"image_compliance"</span><span class="p">:</span> <span class="n">image_status</span><span class="o">.</span><span class="n">image_compliance</span><span class="p">,</span>
+                    <span class="s2">"extension_compliance"</span><span class="p">:</span> <span class="n">image_status</span><span class="o">.</span><span class="n">extension_compliance</span><span class="p">,</span>
+                    <span class="s2">"extension_compliance_for_peer_sup"</span><span class="p">:</span> <span class="p">(</span>
+                        <span class="n">image_status</span><span class="o">.</span><span class="n">extension_compliance_for_peer_sup</span>
+                    <span class="p">),</span>
+                    <span class="s2">"image_compliance_for_peer_sup"</span><span class="p">:</span> <span class="p">(</span>
+                        <span class="n">image_status</span><span class="o">.</span><span class="n">image_compliance_for_peer_sup</span>
+                    <span class="p">),</span>
+                    <span class="s2">"error"</span><span class="p">:</span> <span class="n">image_status</span><span class="o">.</span><span class="n">error</span><span class="p">,</span>
+                <span class="p">}</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">"error"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.get_image_diff">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_image_diff">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_image_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get the legacy, single-supervisor image diff for a device."""</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetImageDiffRequest</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="n">parsed_timestamp</span> <span class="o">=</span> <span class="n">_parse_timestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parsed_timestamp</span><span class="p">:</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"running_image"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"designed_image"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"running_image_version"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"designed_image_version"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"image_in_compliance"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">"image_reboot_required"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">"extension_reboot_required"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">"dual_sup"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">"running_extensions"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">"designed_extensions"</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetImageDiff</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">):</span>
+                <span class="n">diff</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">diff</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"running_image"</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">running_image</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"designed_image"</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">designed_image</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"running_image_version"</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">running_image_version</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"designed_image_version"</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">designed_image_version</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"image_in_compliance"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">diff</span><span class="o">.</span><span class="n">running_image</span> <span class="o">==</span> <span class="n">diff</span><span class="o">.</span><span class="n">designed_image</span>
+                <span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"image_reboot_required"</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">image_reboot_required</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"extension_reboot_required"</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">extension_reboot_required</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"dual_sup"</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">dual_sup</span>
+                <span class="k">for</span> <span class="n">extension</span> <span class="ow">in</span> <span class="n">diff</span><span class="o">.</span><span class="n">running_extensions</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"running_extensions"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="p">{</span>
+                            <span class="s2">"name"</span><span class="p">:</span> <span class="n">extension</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                            <span class="s2">"version"</span><span class="p">:</span> <span class="n">extension</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
+                            <span class="s2">"reboot_required"</span><span class="p">:</span> <span class="n">extension</span><span class="o">.</span><span class="n">reboot_required</span><span class="p">,</span>
+                        <span class="p">}</span>
+                    <span class="p">)</span>
+                <span class="k">for</span> <span class="n">extension</span> <span class="ow">in</span> <span class="n">diff</span><span class="o">.</span><span class="n">designed_extensions</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"designed_extensions"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="p">{</span>
+                            <span class="s2">"name"</span><span class="p">:</span> <span class="n">extension</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                            <span class="s2">"version"</span><span class="p">:</span> <span class="n">extension</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
+                        <span class="p">}</span>
+                    <span class="p">)</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">"error"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.get_image_diff_for_task">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_image_diff_for_task">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_image_diff_for_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get the image diff for a CloudVision task."""</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetImageDiffForTaskRequest</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="n">task_id</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"running_image"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"designed_image"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"image_in_compliance"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">"image_reboot_required"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">"running_extensions"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">"designed_extensions"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">"extensions_in_compliance"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetImageDiffForTask</span><span class="p">(</span>
+                <span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
+            <span class="p">):</span>
+                <span class="n">diff</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">diff</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"running_image"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">diff</span><span class="o">.</span><span class="n">running_image_version</span> <span class="ow">or</span> <span class="n">diff</span><span class="o">.</span><span class="n">running_image</span>
+                <span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"designed_image"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">diff</span><span class="o">.</span><span class="n">designed_image_version</span> <span class="ow">or</span> <span class="n">diff</span><span class="o">.</span><span class="n">designed_image</span>
+                <span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"image_in_compliance"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">diff</span><span class="o">.</span><span class="n">running_image</span> <span class="o">==</span> <span class="n">diff</span><span class="o">.</span><span class="n">designed_image</span>
+                <span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"image_reboot_required"</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">image_reboot_required</span>
+                <span class="k">for</span> <span class="n">extension</span> <span class="ow">in</span> <span class="n">diff</span><span class="o">.</span><span class="n">running_extensions</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"running_extensions"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">extension</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">extension</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span>
+                    <span class="p">)</span>
+                <span class="k">for</span> <span class="n">extension</span> <span class="ow">in</span> <span class="n">diff</span><span class="o">.</span><span class="n">designed_extensions</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"designed_extensions"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">extension</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">extension</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span>
+                    <span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"extensions_in_compliance"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"running_extensions"</span><span class="p">]</span>
+                <span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"designed_extensions"</span><span class="p">])</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">"error"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.get_image_diff_v2">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_image_diff_v2">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_image_diff_v2</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">device_id</span><span class="p">,</span>
+        <span class="n">timestamp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">lhs_type</span><span class="o">=</span><span class="n">pb2</span><span class="o">.</span><span class="n">DESIGNED_IMAGE</span><span class="p">,</span>
+        <span class="n">rhs_type</span><span class="o">=</span><span class="n">pb2</span><span class="o">.</span><span class="n">RUNNING_IMAGE</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Compare two image states using structured image information."""</span>
+        <span class="n">lhs</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ImageRequest</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">lhs_type</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="n">rhs</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ImageRequest</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">rhs_type</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="n">parsed_timestamp</span> <span class="o">=</span> <span class="n">_parse_timestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parsed_timestamp</span><span class="p">:</span>
+            <span class="n">lhs</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+            <span class="n">rhs</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetImageDiffRequestV2</span><span class="p">(</span><span class="n">lhs</span><span class="o">=</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="o">=</span><span class="n">rhs</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"lhs_image"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"rhs_image"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"lhs_image_version"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"rhs_image_version"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"image_reboot_required"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">"extension_reboot_required"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">"digest"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetImageDiffV2</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">):</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"lhs_image"</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">lhs</span><span class="o">.</span><span class="n">image</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"lhs_image_version"</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">lhs</span><span class="o">.</span><span class="n">image_version</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"rhs_image"</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">image</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"rhs_image_version"</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">image_version</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"image_reboot_required"</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">image_reboot_required</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"extension_reboot_required"</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">extension_reboot_required</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"digest"</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">digest</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">"error"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ComplianceClient.get_image_diff_v3">
+<a class="viewcode-back" href="../../../cloudvision.compliance.html#cloudvision.compliance.client.ComplianceClient.get_image_diff_v3">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_image_diff_v3</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">device_id</span><span class="p">,</span>
+        <span class="n">timestamp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">a_type</span><span class="o">=</span><span class="n">pb2</span><span class="o">.</span><span class="n">DESIGNED_IMAGE</span><span class="p">,</span>
+        <span class="n">b_type</span><span class="o">=</span><span class="n">pb2</span><span class="o">.</span><span class="n">RUNNING_IMAGE</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get the latest image diff with per-supervisor granularity."""</span>
+        <span class="n">side_a</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ImageRequest</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">a_type</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="n">side_b</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">ImageRequest</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">b_type</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="n">parsed_timestamp</span> <span class="o">=</span> <span class="n">_parse_timestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parsed_timestamp</span><span class="p">:</span>
+            <span class="n">side_a</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+            <span class="n">side_b</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">parsed_timestamp</span><span class="p">)</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">pb2</span><span class="o">.</span><span class="n">GetImageDiffRequestV3</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">side_a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">side_b</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"running_image"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"designed_image"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"image_in_compliance"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">"image_reboot_required"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">"running_extensions"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">"designed_extensions"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">"extensions_in_compliance"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">GetImageDiffV3</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">):</span>
+                <span class="n">image_info</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">image_info</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">"image_in_compliance"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">image_info</span><span class="o">.</span><span class="n">compliance_status</span> <span class="o">==</span> <span class="n">pb2</span><span class="o">.</span><span class="n">SOFTWARE_COMPLIANCE_CODE_IN_SYNC</span>
+                <span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">image_diff</span> <span class="ow">in</span> <span class="n">image_info</span><span class="o">.</span><span class="n">software_image_diff</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">image_diff</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">version</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">"designed_image"</span><span class="p">]</span> <span class="o">=</span> <span class="n">image_diff</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">version</span>
+                    <span class="k">elif</span> <span class="n">image_diff</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">"designed_image"</span><span class="p">]</span> <span class="o">=</span> <span class="n">image_diff</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">name</span>
+                    <span class="k">if</span> <span class="n">image_diff</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">version</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">"running_image"</span><span class="p">]</span> <span class="o">=</span> <span class="n">image_diff</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">version</span>
+                    <span class="k">elif</span> <span class="n">image_diff</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">"running_image"</span><span class="p">]</span> <span class="o">=</span> <span class="n">image_diff</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">name</span>
+
+                <span class="k">for</span> <span class="n">extension_diffs</span> <span class="ow">in</span> <span class="n">image_info</span><span class="o">.</span><span class="n">extensions_diff</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                    <span class="k">for</span> <span class="n">extension_diff</span> <span class="ow">in</span> <span class="n">extension_diffs</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">extension_diff</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                            <span class="n">result</span><span class="p">[</span><span class="s2">"designed_extensions"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">extension_diff</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">:"</span>
+                                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">extension_diff</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span>
+                            <span class="p">)</span>
+                        <span class="k">if</span> <span class="n">extension_diff</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                            <span class="n">result</span><span class="p">[</span><span class="s2">"running_extensions"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">extension_diff</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">:"</span>
+                                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">extension_diff</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span>
+                            <span class="p">)</span>
+
+                <span class="n">result</span><span class="p">[</span><span class="s2">"extensions_in_compliance"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"running_extensions"</span><span class="p">]</span>
+                <span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"designed_extensions"</span><span class="p">])</span>
+
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">HasField</span><span class="p">(</span><span class="s2">"reboot_required"</span><span class="p">):</span>
+                    <span class="n">reboot_required</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">reboot_required</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">"image_reboot_required"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">reboot_required</span><span class="o">.</span><span class="n">software_image_reboot_required</span>
+                        <span class="ow">or</span> <span class="n">reboot_required</span><span class="o">.</span><span class="n">extension_reboot_required</span>
+                    <span class="p">)</span>
+        <span class="k">except</span> <span class="n">grpc</span><span class="o">.</span><span class="n">RpcError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">"error"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"gRPC error: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">details</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

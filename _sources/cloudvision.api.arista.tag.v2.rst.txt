@@ -1,0 +1,10 @@
+cloudvision.api.arista.tag.v2 package
+=====================================
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.api.arista.tag.v2
+   :members:
+   :show-inheritance:
+   :undoc-members:

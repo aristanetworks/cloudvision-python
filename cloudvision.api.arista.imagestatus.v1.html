@@ -1,0 +1,1159 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.api.arista.imagestatus.v1 package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cloudvision.api.arista.inventory package" href="cloudvision.api.arista.inventory.html" />
+    <link rel="prev" title="cloudvision.api.arista.imagestatus package" href="cloudvision.api.arista.imagestatus.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cloudvision.html">cloudvision package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cloudvision.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.Connector.html">cloudvision.Connector package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cloudvision.api.html">cloudvision.api package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.compliance.html">cloudvision.compliance package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.cvlib.html">cloudvision.cvlib package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.html#module-cloudvision">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.html">arista package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.html">cloudvision package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.html">cloudvision.api package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.html">cloudvision.api.arista package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.imagestatus.html">cloudvision.api.arista.imagestatus package</a></li>
+      <li class="breadcrumb-item active">cloudvision.api.arista.imagestatus.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cloudvision.api.arista.imagestatus.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cloudvision-api-arista-imagestatus-v1-package">
+<h1>cloudvision.api.arista.imagestatus.v1 package<a class="headerlink" href="#cloudvision-api-arista-imagestatus-v1-package" title="Link to this heading"></a></h1>
+<section id="module-cloudvision.api.arista.imagestatus.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudvision.api.arista.imagestatus.v1" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ComplianceStatus">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ComplianceStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">software_image_compliance_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode" title="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode"><span class="pre">SoftwareComplianceCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terminattr_compliance_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode" title="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode"><span class="pre">SoftwareComplianceCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions_compliance_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode" title="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode"><span class="pre">SoftwareComplianceCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ComplianceStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ComplianceStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ComplianceStatus indicates compliance status for software image, terminattr
+and extensions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ComplianceStatus.extensions_compliance_code">
+<span class="sig-name descname"><span class="pre">extensions_compliance_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode" title="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode"><span class="pre">SoftwareComplianceCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ComplianceStatus.extensions_compliance_code" title="Link to this definition"></a></dt>
+<dd><p>extensions_compliance_code is the compliance code for extensions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ComplianceStatus.software_image_compliance_code">
+<span class="sig-name descname"><span class="pre">software_image_compliance_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode" title="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode"><span class="pre">SoftwareComplianceCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ComplianceStatus.software_image_compliance_code" title="Link to this definition"></a></dt>
+<dd><p>software_image_compliance_code is the compliance code for images.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ComplianceStatus.terminattr_compliance_code">
+<span class="sig-name descname"><span class="pre">terminattr_compliance_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode" title="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode"><span class="pre">SoftwareComplianceCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ComplianceStatus.terminattr_compliance_code" title="Link to this definition"></a></dt>
+<dd><p>terminattr_compliance_code is the compliance code for TerminAttr.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ComplianceStatusBySup">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ComplianceStatusBySup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~cloudvision.api.arista.imagestatus.v1.ComplianceStatus]</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ComplianceStatusBySup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ComplianceStatusBySup" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ComplianceStatusBySup is a map that indicates the compliance code for each
+supervisor.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ComplianceStatusBySup.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ComplianceStatus" title="cloudvision.api.arista.imagestatus.v1.ComplianceStatus"><span class="pre">ComplianceStatus</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ComplianceStatusBySup.values" title="Link to this definition"></a></dt>
+<dd><p>values is the mapping of supervisor type to compliance code.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.DiffOp">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">DiffOp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#DiffOp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.DiffOp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>DiffOp represents the operation performed to get from one side of the diff
+to the other.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.DiffOp.ADD">
+<span class="sig-name descname"><span class="pre">ADD</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.ADD</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.DiffOp.ADD" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_ADD is an addition of a software.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.DiffOp.CHANGE">
+<span class="sig-name descname"><span class="pre">CHANGE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.CHANGE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.DiffOp.CHANGE" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_CHANGE is an update to the software.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.DiffOp.DELETE">
+<span class="sig-name descname"><span class="pre">DELETE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.DELETE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.DiffOp.DELETE" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_DELETE is deletion of a software.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.DiffOp.NOP">
+<span class="sig-name descname"><span class="pre">NOP</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.NOP</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.DiffOp.NOP" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_NOP indicates no change.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.DiffOp.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.DiffOp.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_UNSPECIFIED indicates op code is unspecified.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.DiffOp.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.DiffOp.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.DiffOp.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.DiffOp.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ErrorCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ErrorCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>ErrorCode indicates errors produced during image validations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.ARCH_UNSUPPORTED">
+<span class="sig-name descname"><span class="pre">ARCH_UNSUPPORTED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.ARCH_UNSUPPORTED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.ARCH_UNSUPPORTED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_ARCH_UNSUPPORTED represents the case where the given image architecture is not
+supported by CloudVision.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.DEVICE_EOS_2GB_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">DEVICE_EOS_2GB_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.DEVICE_EOS_2GB_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.DEVICE_EOS_2GB_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_DEVICE_EOS_2GB_INCOMPATIBLE represents the case where a 2GB-device is incompatible
+with a non-2GB EOS or a non-2GB device is incompatible with a 2GB-EOS.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.DEVICE_UNREACHABLE">
+<span class="sig-name descname"><span class="pre">DEVICE_UNREACHABLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.DEVICE_UNREACHABLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.DEVICE_UNREACHABLE" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_DEVICE_UNREACHABLE represents the case where the device
+is unreachable during a compliance computation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_CV_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">EOS_CV_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.EOS_CV_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_CV_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is too low for CV to support
+or manage the device.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_EOS_EXTENSION_ARCHITECTURE_INCOMPATIBLE represents the case where EOS architecture
+and Extension architecture are incompatible.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_EXTENSION_VERSION_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">EOS_EXTENSION_VERSION_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.EOS_EXTENSION_VERSION_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_EXTENSION_VERSION_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_EOS_EXTENSION_VERSION_INCOMPATIBLE represents the case where the given extension
+version doesn’t support the given EOS version.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_SUPPORT_NOT_INTRODUCED">
+<span class="sig-name descname"><span class="pre">EOS_SUPPORT_NOT_INTRODUCED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.EOS_SUPPORT_NOT_INTRODUCED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_SUPPORT_NOT_INTRODUCED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_EOS_SUPPORT_NOT_INTRODUCED represents the case where the given EOS version does
+not support the SKU.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_SUPPORT_REMOVED">
+<span class="sig-name descname"><span class="pre">EOS_SUPPORT_REMOVED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.EOS_SUPPORT_REMOVED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_SUPPORT_REMOVED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_EOS_SUPPORT_REMOVED represents the case where the given EOS version no longer
+supports the SKU.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_TA_ARCHITECTURE_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">EOS_TA_ARCHITECTURE_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.EOS_TA_ARCHITECTURE_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.EOS_TA_ARCHITECTURE_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_EOS_TA_ARCHITECTURE_INCOMPATIBLE represents the case where EOS architecture and
+TerminAttr architecture are incompatible.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.GET_PROPOSED_IMAGE_INFO_FAILED">
+<span class="sig-name descname"><span class="pre">GET_PROPOSED_IMAGE_INFO_FAILED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.GET_PROPOSED_IMAGE_INFO_FAILED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.GET_PROPOSED_IMAGE_INFO_FAILED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_GET_PROPOSED_IMAGE_INFO_FAILED represents case where we are
+unable to get proposed image information for a device.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.GET_RUNNING_IMAGE_INFO_FROM_ACTIVE_SUPERVISOR_FAILED">
+<span class="sig-name descname"><span class="pre">GET_RUNNING_IMAGE_INFO_FROM_ACTIVE_SUPERVISOR_FAILED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.GET_RUNNING_IMAGE_INFO_FROM_ACTIVE_SUPERVISOR_FAILED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.GET_RUNNING_IMAGE_INFO_FROM_ACTIVE_SUPERVISOR_FAILED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_GET_RUNNING_IMAGE_INFO_FROM_ACTIVE_SUPERVISOR_FAILED represents case where we
+fail to get running image information from an active supervisor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.GET_RUNNING_IMAGE_INFO_FROM_PEER_SUPERVISOR_FAILED">
+<span class="sig-name descname"><span class="pre">GET_RUNNING_IMAGE_INFO_FROM_PEER_SUPERVISOR_FAILED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.GET_RUNNING_IMAGE_INFO_FROM_PEER_SUPERVISOR_FAILED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.GET_RUNNING_IMAGE_INFO_FROM_PEER_SUPERVISOR_FAILED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_GET_RUNNING_IMAGE_INFO_FROM_PEER_SUPERVISOR_FAILED represents case when we
+fail to get information from peer supervisor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.PHYSICAL_DEVICE_EOS_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">PHYSICAL_DEVICE_EOS_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.PHYSICAL_DEVICE_EOS_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.PHYSICAL_DEVICE_EOS_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_PHYSICAL_DEVICE_EOS_INCOMPATIBLE represents the case where the physical device
+does not support the given EOS type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.SUPPORT_NOT_INTRODUCED">
+<span class="sig-name descname"><span class="pre">SUPPORT_NOT_INTRODUCED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.SUPPORT_NOT_INTRODUCED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.SUPPORT_NOT_INTRODUCED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_SUPPORT_NOT_INTRODUCED represents case where the given EOS version does
+not support the SKU.
+Deprecated - use ERROR_CODE_EOS_SUPPORT_NOT_INTRODUCED</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.SUPPORT_REMOVED">
+<span class="sig-name descname"><span class="pre">SUPPORT_REMOVED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.SUPPORT_REMOVED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.SUPPORT_REMOVED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_SUPPORT_REMOVED represents case where the given EOS version no longer
+supports the SKU.
+Deprecated - use ERROR_CODE_EOS_SUPPORT_REMOVED</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.TA_CV_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">TA_CV_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.TA_CV_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.TA_CV_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_TA_CV_INCOMPATIBLE represents the case where TerminAttr is too low for CV to
+support or manage the device.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.TA_EMBEDDEDEXT_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">TA_EMBEDDEDEXT_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.TA_EMBEDDEDEXT_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.TA_EMBEDDEDEXT_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_TA_EMBEDDEDEXT_INCOMPATIBLE represents the case where the extension TerminAttr
+version is lower than the embedded TerminAttr version in SWI.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_UNSPECIFIED indicates error code is unspecified.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.VALIDATION_FAILED">
+<span class="sig-name descname"><span class="pre">VALIDATION_FAILED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.VALIDATION_FAILED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.VALIDATION_FAILED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_VALIDATION_FAILED represents case where the validations checks
+failed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ErrorCode.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extension">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">Extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reboot_required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">present</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">installed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus" title="cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus"><span class="pre">ExtensionInstallStatus</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status_detail</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_embedded</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#Extension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extension" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>Extension provides information of the running/designed extensions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extension.arch">
+<span class="sig-name descname"><span class="pre">arch</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extension.arch" title="Link to this definition"></a></dt>
+<dd><p>arch is architecture type of the extension.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extension.installed">
+<span class="sig-name descname"><span class="pre">installed</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus" title="cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus"><span class="pre">ExtensionInstallStatus</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extension.installed" title="Link to this definition"></a></dt>
+<dd><p>installed indicates whether the extension is installed, not
+installed or force installed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extension.is_embedded">
+<span class="sig-name descname"><span class="pre">is_embedded</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extension.is_embedded" title="Link to this definition"></a></dt>
+<dd><p>is_embedded indicates whether the extension is embedded in the EOS swi
+or not.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extension.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extension.name" title="Link to this definition"></a></dt>
+<dd><p>name is the name of the extension.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extension.present">
+<span class="sig-name descname"><span class="pre">present</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extension.present" title="Link to this definition"></a></dt>
+<dd><p>present indicates whether the extension is present in the device
+or not.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extension.reboot_required">
+<span class="sig-name descname"><span class="pre">reboot_required</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extension.reboot_required" title="Link to this definition"></a></dt>
+<dd><p>reboot_required indicates whether applying/deleting this extension
+would result in a reboot.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extension.status_detail">
+<span class="sig-name descname"><span class="pre">status_detail</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extension.status_detail" title="Link to this definition"></a></dt>
+<dd><p>status_detail gives the details behind installation of the extension.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extension.version">
+<span class="sig-name descname"><span class="pre">version</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extension.version" title="Link to this definition"></a></dt>
+<dd><p>version is the version of the extension.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionDiff">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ExtensionDiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.DiffOp" title="cloudvision.api.arista.imagestatus.v1.DiffOp"><span class="pre">DiffOp</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.Extension" title="cloudvision.api.arista.imagestatus.v1.Extension"><span class="pre">Extension</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.Extension" title="cloudvision.api.arista.imagestatus.v1.Extension"><span class="pre">Extension</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.DiffOp" title="cloudvision.api.arista.imagestatus.v1.DiffOp"><span class="pre">DiffOp</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ExtensionDiff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiff" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ExtensionDiff is the diff for the running/designed extensions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionDiff.a">
+<span class="sig-name descname"><span class="pre">a</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.Extension" title="cloudvision.api.arista.imagestatus.v1.Extension"><span class="pre">Extension</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiff.a" title="Link to this definition"></a></dt>
+<dd><p>a is the extension on the a side (left hand side).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionDiff.b">
+<span class="sig-name descname"><span class="pre">b</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.Extension" title="cloudvision.api.arista.imagestatus.v1.Extension"><span class="pre">Extension</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiff.b" title="Link to this definition"></a></dt>
+<dd><p>b is the extension on the b side (right hand side).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionDiff.code">
+<span class="sig-name descname"><span class="pre">code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.DiffOp" title="cloudvision.api.arista.imagestatus.v1.DiffOp"><span class="pre">DiffOp</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiff.code" title="Link to this definition"></a></dt>
+<dd><p>code indicates the operation performed to get from one side of the diff
+to the other.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionDiff.text_code">
+<span class="sig-name descname"><span class="pre">text_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.DiffOp" title="cloudvision.api.arista.imagestatus.v1.DiffOp"><span class="pre">DiffOp</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiff.text_code" title="Link to this definition"></a></dt>
+<dd><p>text_code is the color in the diff view page.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionDiffs">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ExtensionDiffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiff" title="cloudvision.api.arista.imagestatus.v1.ExtensionDiff"><span class="pre">ExtensionDiff</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ExtensionDiffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiffs" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ExtensionDiffs is a list of extension diff information in the order they
+will be applied.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionDiffs.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiff" title="cloudvision.api.arista.imagestatus.v1.ExtensionDiff"><span class="pre">ExtensionDiff</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiffs.values" title="Link to this definition"></a></dt>
+<dd><p>values is an ordered list of extension diffs applied to the device.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionDiffsBySup">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ExtensionDiffsBySup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~cloudvision.api.arista.imagestatus.v1.ExtensionDiffs]</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ExtensionDiffsBySup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiffsBySup" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ExtensionDiffsBySup is the extension diff information for each supervisor.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionDiffsBySup.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiffs" title="cloudvision.api.arista.imagestatus.v1.ExtensionDiffs"><span class="pre">ExtensionDiffs</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiffsBySup.values" title="Link to this definition"></a></dt>
+<dd><p>values is the mapping of supervisor type to extension diff.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ExtensionInstallStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ExtensionInstallStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>ExtensionInstallStatus indicates whether an extension is installed, not installed
+or force installed.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.FORCE_INSTALLED">
+<span class="sig-name descname"><span class="pre">FORCE_INSTALLED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ExtensionInstallStatus.FORCE_INSTALLED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.FORCE_INSTALLED" title="Link to this definition"></a></dt>
+<dd><p>EXTENSION_INSTALL_STATUS_FORCE_INSTALLED indicates extension is force installed on
+device.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.INSTALLED">
+<span class="sig-name descname"><span class="pre">INSTALLED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ExtensionInstallStatus.INSTALLED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.INSTALLED" title="Link to this definition"></a></dt>
+<dd><p>EXTENSION_INSTALL_STATUS_INSTALLED indicates extension is installed on the device.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.NOT_INSTALLED">
+<span class="sig-name descname"><span class="pre">NOT_INSTALLED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ExtensionInstallStatus.NOT_INSTALLED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.NOT_INSTALLED" title="Link to this definition"></a></dt>
+<dd><p>EXTENSION_INSTALL_STATUS_NOT_INSTALLED indicates extension is not installed on the device.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ExtensionInstallStatus.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>EXTENSION_INSTALL_STATUS_UNSPECIFIED indicates extensions install status is unspecified.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ExtensionInstallStatus.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extensions">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">Extensions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.Extension" title="cloudvision.api.arista.imagestatus.v1.Extension"><span class="pre">Extension</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#Extensions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extensions" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>Extensions provides an ordered list of running/designed extensions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.Extensions.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.Extension" title="cloudvision.api.arista.imagestatus.v1.Extension"><span class="pre">Extension</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.Extensions.values" title="Link to this definition"></a></dt>
+<dd><p>values represents extension information.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageError">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ImageError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sku</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode" title="cloudvision.api.arista.imagestatus.v1.ErrorCode"><span class="pre">ErrorCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ImageError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ImageError wraps <cite>ErrorCode</cite> enum with a reason string.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageError.error_code">
+<span class="sig-name descname"><span class="pre">error_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ErrorCode" title="cloudvision.api.arista.imagestatus.v1.ErrorCode"><span class="pre">ErrorCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageError.error_code" title="Link to this definition"></a></dt>
+<dd><p>error_code is the error code.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageError.error_msg">
+<span class="sig-name descname"><span class="pre">error_msg</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageError.error_msg" title="Link to this definition"></a></dt>
+<dd><p>error_msg provides a description of the error.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageError.sku">
+<span class="sig-name descname"><span class="pre">sku</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageError.sku" title="Link to this definition"></a></dt>
+<dd><p>sku represents the name of the sku.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageErrors">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ImageErrors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ImageError" title="cloudvision.api.arista.imagestatus.v1.ImageError"><span class="pre">ImageError</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ImageErrors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageErrors" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ImageErrors is the list of errors reported by CVP when handling image
+validations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageErrors.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ImageError" title="cloudvision.api.arista.imagestatus.v1.ImageError"><span class="pre">ImageError</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageErrors.values" title="Link to this definition"></a></dt>
+<dd><p>values is a list of image errors.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageInfo">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ImageInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sku</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.InfoCode" title="cloudvision.api.arista.imagestatus.v1.InfoCode"><span class="pre">InfoCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ImageInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ImageInfo wraps <cite>InfoCode</cite> enum with a reason string.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageInfo.info_code">
+<span class="sig-name descname"><span class="pre">info_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.InfoCode" title="cloudvision.api.arista.imagestatus.v1.InfoCode"><span class="pre">InfoCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageInfo.info_code" title="Link to this definition"></a></dt>
+<dd><p>info_code is the info code.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageInfo.info_msg">
+<span class="sig-name descname"><span class="pre">info_msg</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageInfo.info_msg" title="Link to this definition"></a></dt>
+<dd><p>info_msg provides a description of the info.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageInfo.sku">
+<span class="sig-name descname"><span class="pre">sku</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageInfo.sku" title="Link to this definition"></a></dt>
+<dd><p>sku represents the name of the sku.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageInfos">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ImageInfos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ImageInfo" title="cloudvision.api.arista.imagestatus.v1.ImageInfo"><span class="pre">ImageInfo</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ImageInfos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageInfos" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ImageInfos is the list of info messages reported by CVP when handling image validations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageInfos.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ImageInfo" title="cloudvision.api.arista.imagestatus.v1.ImageInfo"><span class="pre">ImageInfo</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageInfos.values" title="Link to this definition"></a></dt>
+<dd><p>values is a list of image infos.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageMetadata">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ImageMetadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">release</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flavor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ImageMetadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageMetadata" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ImageMetadata provides information regarding the software image.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageMetadata.arch">
+<span class="sig-name descname"><span class="pre">arch</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageMetadata.arch" title="Link to this definition"></a></dt>
+<dd><p>arch is the architecture of the EOS image.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageMetadata.flavor">
+<span class="sig-name descname"><span class="pre">flavor</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageMetadata.flavor" title="Link to this definition"></a></dt>
+<dd><p>flavor is the flavor information of the EOS image.
+default flavor is DEFAULT. Other flavors can be DPE, 2GB, etc.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageMetadata.release">
+<span class="sig-name descname"><span class="pre">release</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageMetadata.release" title="Link to this definition"></a></dt>
+<dd><p>release is the release name of the EOS image.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageMetadata.variant">
+<span class="sig-name descname"><span class="pre">variant</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageMetadata.variant" title="Link to this definition"></a></dt>
+<dd><p>variant is the variant information of the EOS image.
+possible values: INT or US.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageMetadata.version">
+<span class="sig-name descname"><span class="pre">version</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageMetadata.version" title="Link to this definition"></a></dt>
+<dd><p>version is the version of the EOS image.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSource">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ImageSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ImageSource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSource" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>ImageSource indicates the source type for the image configuration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSource.HIERARCHY">
+<span class="sig-name descname"><span class="pre">HIERARCHY</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ImageSource.HIERARCHY</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSource.HIERARCHY" title="Link to this definition"></a></dt>
+<dd><p>IMAGE_SOURCE_HIERARCHY - image configured from hierarchy workflow</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSource.NETWORK_PROVISIONING">
+<span class="sig-name descname"><span class="pre">NETWORK_PROVISIONING</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ImageSource.NETWORK_PROVISIONING</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSource.NETWORK_PROVISIONING" title="Link to this definition"></a></dt>
+<dd><p>IMAGE_SOURCE_NETWORK_PROVISIONING - image configured from
+network provisioning workflow</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSource.STUDIO">
+<span class="sig-name descname"><span class="pre">STUDIO</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ImageSource.STUDIO</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSource.STUDIO" title="Link to this definition"></a></dt>
+<dd><p>IMAGE_SOURCE_STUDIO - image configured from studio</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSource.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ImageSource.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSource.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>IMAGE_SOURCE_UNSPECIFIED uninitialized value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSource.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSource.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSource.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSource.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ImageSummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sku</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">running_image_update_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">designed_image_update_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dual_sup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standby_slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">software_image_diff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImageDiffsBySup" title="cloudvision.api.arista.imagestatus.v1.SoftwareImageDiffsBySup"><span class="pre">SoftwareImageDiffsBySup</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terminattr_diff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.TerminAttrDiffsBySup" title="cloudvision.api.arista.imagestatus.v1.TerminAttrDiffsBySup"><span class="pre">TerminAttrDiffsBySup</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions_diff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiffsBySup" title="cloudvision.api.arista.imagestatus.v1.ExtensionDiffsBySup"><span class="pre">ExtensionDiffsBySup</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compliance_status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode" title="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode"><span class="pre">SoftwareComplianceCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compliance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ComplianceStatusBySup" title="cloudvision.api.arista.imagestatus.v1.ComplianceStatusBySup"><span class="pre">ComplianceStatusBySup</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reboot_required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.RebootRequired" title="cloudvision.api.arista.imagestatus.v1.RebootRequired"><span class="pre">RebootRequired</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ImageSummary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ImageSummary represents device image summary.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.active_slot">
+<span class="sig-name descname"><span class="pre">active_slot</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.active_slot" title="Link to this definition"></a></dt>
+<dd><p>active_slot indicates the physical slot number for the the active
+supervisor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.compliance">
+<span class="sig-name descname"><span class="pre">compliance</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ComplianceStatusBySup" title="cloudvision.api.arista.imagestatus.v1.ComplianceStatusBySup"><span class="pre">ComplianceStatusBySup</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.compliance" title="Link to this definition"></a></dt>
+<dd><p>compliance provides compliance information for each supervisor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.compliance_status">
+<span class="sig-name descname"><span class="pre">compliance_status</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode" title="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode"><span class="pre">SoftwareComplianceCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.compliance_status" title="Link to this definition"></a></dt>
+<dd><p>compliance_status is the aggregated compliance status (including both
+active/standby and image/TA/extension compliance).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.designed_image_update_time">
+<span class="sig-name descname"><span class="pre">designed_image_update_time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.designed_image_update_time" title="Link to this definition"></a></dt>
+<dd><p>designed_image_update_time is the most recent timestamp at which one of
+designed image side properties is updated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.digest">
+<span class="sig-name descname"><span class="pre">digest</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.digest" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>digest is the digest of the image summary. It can use SHA-256 hash</dt><dd><p>algorithm for example. It is computed by stringifying the</p>
+</dd>
+<dt>software_image_diff, terminattr_diff and extensions_diff and computing the</dt><dd><p>hash.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.dual_sup">
+<span class="sig-name descname"><span class="pre">dual_sup</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.dual_sup" title="Link to this definition"></a></dt>
+<dd><p>dual_sup indicates if a device is a dual supervisor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.extensions_diff">
+<span class="sig-name descname"><span class="pre">extensions_diff</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiffsBySup" title="cloudvision.api.arista.imagestatus.v1.ExtensionDiffsBySup"><span class="pre">ExtensionDiffsBySup</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.extensions_diff" title="Link to this definition"></a></dt>
+<dd><p>extensions_diff indicates the extension diff for each supervisor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.reboot_required">
+<span class="sig-name descname"><span class="pre">reboot_required</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.RebootRequired" title="cloudvision.api.arista.imagestatus.v1.RebootRequired"><span class="pre">RebootRequired</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.reboot_required" title="Link to this definition"></a></dt>
+<dd><p>reboot_required indicates whether a reboot is required if the designed
+image is pushed to the device.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.running_image_update_time">
+<span class="sig-name descname"><span class="pre">running_image_update_time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.running_image_update_time" title="Link to this definition"></a></dt>
+<dd><p>running_image_update_time is the most recent timestamp at which one of
+running image side properties is updated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.sku">
+<span class="sig-name descname"><span class="pre">sku</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.sku" title="Link to this definition"></a></dt>
+<dd><p>sku indicates the top-level sku or model number.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.software_image_diff">
+<span class="sig-name descname"><span class="pre">software_image_diff</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImageDiffsBySup" title="cloudvision.api.arista.imagestatus.v1.SoftwareImageDiffsBySup"><span class="pre">SoftwareImageDiffsBySup</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.software_image_diff" title="Link to this definition"></a></dt>
+<dd><p>software_image_diff indicates the image diff for each supervisor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.standby_slot">
+<span class="sig-name descname"><span class="pre">standby_slot</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.standby_slot" title="Link to this definition"></a></dt>
+<dd><p>standby_slot indicates the physical slot number for the standby
+supervisor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageSummary.terminattr_diff">
+<span class="sig-name descname"><span class="pre">terminattr_diff</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.TerminAttrDiffsBySup" title="cloudvision.api.arista.imagestatus.v1.TerminAttrDiffsBySup"><span class="pre">TerminAttrDiffsBySup</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageSummary.terminattr_diff" title="Link to this definition"></a></dt>
+<dd><p>terminattr_diff indicates the terminattr diff for each supervisor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageWarning">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ImageWarning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sku</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.WarningCode" title="cloudvision.api.arista.imagestatus.v1.WarningCode"><span class="pre">WarningCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ImageWarning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageWarning" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ImageWarning wraps <cite>WarningCode</cite> enum with a reason string.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageWarning.sku">
+<span class="sig-name descname"><span class="pre">sku</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageWarning.sku" title="Link to this definition"></a></dt>
+<dd><p>sku represents the name of the sku.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageWarning.warning_code">
+<span class="sig-name descname"><span class="pre">warning_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.WarningCode" title="cloudvision.api.arista.imagestatus.v1.WarningCode"><span class="pre">WarningCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageWarning.warning_code" title="Link to this definition"></a></dt>
+<dd><p>warning_code is the warning code.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageWarning.warning_msg">
+<span class="sig-name descname"><span class="pre">warning_msg</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageWarning.warning_msg" title="Link to this definition"></a></dt>
+<dd><p>warning_msg provides a description of the warning.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageWarnings">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">ImageWarnings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ImageWarning" title="cloudvision.api.arista.imagestatus.v1.ImageWarning"><span class="pre">ImageWarning</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#ImageWarnings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageWarnings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ImageWarnings is the list of warnings reported by CVP when handling image
+validations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.ImageWarnings.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ImageWarning" title="cloudvision.api.arista.imagestatus.v1.ImageWarning"><span class="pre">ImageWarning</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.ImageWarnings.values" title="Link to this definition"></a></dt>
+<dd><p>values is a list of image warnings.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.InfoCode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">InfoCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#InfoCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.InfoCode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>InfoCode indicates info messages produced during image validations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.InfoCode.NEWER_VERSION_AVAILABLE">
+<span class="sig-name descname"><span class="pre">NEWER_VERSION_AVAILABLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">InfoCode.NEWER_VERSION_AVAILABLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.InfoCode.NEWER_VERSION_AVAILABLE" title="Link to this definition"></a></dt>
+<dd><p>INFO_CODE_NEWER_VERSION_AVAILABLE represents cases where a newer EOS maintainance
+release is available for download.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.InfoCode.UNIVERSAL_IMAGE_ARCH_APPLIED">
+<span class="sig-name descname"><span class="pre">UNIVERSAL_IMAGE_ARCH_APPLIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">InfoCode.UNIVERSAL_IMAGE_ARCH_APPLIED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.InfoCode.UNIVERSAL_IMAGE_ARCH_APPLIED" title="Link to this definition"></a></dt>
+<dd><p>INFO_CODE_UNIVERSAL_IMAGE_ARCH_APPLIED represents cases where a specific architecture is
+picked for a Universal (multiarch) EOS image.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.InfoCode.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">InfoCode.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.InfoCode.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>INFO_CODE_UNSPECIFIED indicates info code is unspecified.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.InfoCode.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.InfoCode.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.InfoCode.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.InfoCode.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.RebootRequired">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">RebootRequired</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">software_image_reboot_required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terminattr_reboot_required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension_reboot_required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#RebootRequired"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.RebootRequired" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>RebootRequired indicates the reboot information per software image,
+terminattr and extension for the switch as a whole.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.RebootRequired.extension_reboot_required">
+<span class="sig-name descname"><span class="pre">extension_reboot_required</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.RebootRequired.extension_reboot_required" title="Link to this definition"></a></dt>
+<dd><p>extension_reboot_required indicates whether reboot is required
+for the extensions being applied/deleted.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.RebootRequired.software_image_reboot_required">
+<span class="sig-name descname"><span class="pre">software_image_reboot_required</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.RebootRequired.software_image_reboot_required" title="Link to this definition"></a></dt>
+<dd><p>software_image_reboot_required indicates whether reboot is required
+for the software image being applied.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.RebootRequired.terminattr_reboot_required">
+<span class="sig-name descname"><span class="pre">terminattr_reboot_required</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.RebootRequired.terminattr_reboot_required" title="Link to this definition"></a></dt>
+<dd><p>terminattr_reboot_required indicates whether reboot is required
+for the terminattr being applied/deleted.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">SoftwareComplianceCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#SoftwareComplianceCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>SoftwareComplianceCode indicates possible compliance status.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode.IN_SYNC">
+<span class="sig-name descname"><span class="pre">IN_SYNC</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">SoftwareComplianceCode.IN_SYNC</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode.IN_SYNC" title="Link to this definition"></a></dt>
+<dd><p>SOFTWARE_COMPLIANCE_CODE_IN_SYNC indicates designed and running images/extensions
+are identical.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode.OUT_OF_SYNC">
+<span class="sig-name descname"><span class="pre">OUT_OF_SYNC</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">SoftwareComplianceCode.OUT_OF_SYNC</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode.OUT_OF_SYNC" title="Link to this definition"></a></dt>
+<dd><p>SOFTWARE_COMPLIANCE_CODE_OUT_OF_SYNC indicates designed and running images/extensions
+are not identical.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">SoftwareComplianceCode.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>SOFTWARE_COMPLIANCE_CODE_UNSPECIFIED indicates compliance code is unspecified.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareComplianceCode.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImage">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">SoftwareImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ImageMetadata" title="cloudvision.api.arista.imagestatus.v1.ImageMetadata"><span class="pre">ImageMetadata</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#SoftwareImage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImage" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>SoftwareImage provides information of the running/designed EOS image.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImage.metadata">
+<span class="sig-name descname"><span class="pre">metadata</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ImageMetadata" title="cloudvision.api.arista.imagestatus.v1.ImageMetadata"><span class="pre">ImageMetadata</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImage.metadata" title="Link to this definition"></a></dt>
+<dd><p>metadata  is the metadata of EOS image.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImage.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImage.name" title="Link to this definition"></a></dt>
+<dd><p>name is the name of the EOS image.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImage.version">
+<span class="sig-name descname"><span class="pre">version</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImage.version" title="Link to this definition"></a></dt>
+<dd><p>version is the version of the EOS image.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">SoftwareImageDiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.DiffOp" title="cloudvision.api.arista.imagestatus.v1.DiffOp"><span class="pre">DiffOp</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImage" title="cloudvision.api.arista.imagestatus.v1.SoftwareImage"><span class="pre">SoftwareImage</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImage" title="cloudvision.api.arista.imagestatus.v1.SoftwareImage"><span class="pre">SoftwareImage</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.DiffOp" title="cloudvision.api.arista.imagestatus.v1.DiffOp"><span class="pre">DiffOp</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#SoftwareImageDiff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>SoftwareImageDiff is the diff for the running/designed images.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff.a">
+<span class="sig-name descname"><span class="pre">a</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImage" title="cloudvision.api.arista.imagestatus.v1.SoftwareImage"><span class="pre">SoftwareImage</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff.a" title="Link to this definition"></a></dt>
+<dd><p>a is the software image on the a side (left hand side).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff.b">
+<span class="sig-name descname"><span class="pre">b</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImage" title="cloudvision.api.arista.imagestatus.v1.SoftwareImage"><span class="pre">SoftwareImage</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff.b" title="Link to this definition"></a></dt>
+<dd><p>b is the software image on the b side (right hand side).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff.code">
+<span class="sig-name descname"><span class="pre">code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.DiffOp" title="cloudvision.api.arista.imagestatus.v1.DiffOp"><span class="pre">DiffOp</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff.code" title="Link to this definition"></a></dt>
+<dd><p>code indicates the operation performed to get from one side of the diff
+to the other.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff.text_code">
+<span class="sig-name descname"><span class="pre">text_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.DiffOp" title="cloudvision.api.arista.imagestatus.v1.DiffOp"><span class="pre">DiffOp</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff.text_code" title="Link to this definition"></a></dt>
+<dd><p>text_code is the color in the diff view page.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImageDiffsBySup">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">SoftwareImageDiffsBySup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff]</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#SoftwareImageDiffsBySup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImageDiffsBySup" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>SoftwareImageDiffsBySup is software image diff information for each
+supervisor.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.SoftwareImageDiffsBySup.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff" title="cloudvision.api.arista.imagestatus.v1.SoftwareImageDiff"><span class="pre">SoftwareImageDiff</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.SoftwareImageDiffsBySup.values" title="Link to this definition"></a></dt>
+<dd><p>values is the mapping of supervisor type to image diff.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.TerminAttrDiffsBySup">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">TerminAttrDiffsBySup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~cloudvision.api.arista.imagestatus.v1.ExtensionDiff]</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#TerminAttrDiffsBySup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.TerminAttrDiffsBySup" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>TerminAttrDiffsBySup is the terminattr diff information for each supervisor.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.TerminAttrDiffsBySup.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.imagestatus.v1.ExtensionDiff" title="cloudvision.api.arista.imagestatus.v1.ExtensionDiff"><span class="pre">ExtensionDiff</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.TerminAttrDiffsBySup.values" title="Link to this definition"></a></dt>
+<dd><p>values is the mapping of supervisor type to terminattr diff.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.imagestatus.v1.</span></span><span class="sig-name descname"><span class="pre">WarningCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/imagestatus/v1.html#WarningCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>WarningCode indicates warnings produced during image validations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.ARCH_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">ARCH_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.ARCH_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.ARCH_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_ARCH_INCOMPATIBLE represents cases where EOS arch and TA arch are
+different. Deprecated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.BUGALERTS_DATA_MISSING">
+<span class="sig-name descname"><span class="pre">BUGALERTS_DATA_MISSING</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.BUGALERTS_DATA_MISSING</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.BUGALERTS_DATA_MISSING" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_BUGALERTS_DATA_MISSING represents cases where some of the BugAlerts data
+under Aeris analytics dataset is missing.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.DEVICE_SKU_UNAVAILABLE">
+<span class="sig-name descname"><span class="pre">DEVICE_SKU_UNAVAILABLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.DEVICE_SKU_UNAVAILABLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.DEVICE_SKU_UNAVAILABLE" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_DEVICE_SKU_UNAVAILABLE represents unavailability of skus for an EOS Device.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.EOS_ARCH_UNKNOWN">
+<span class="sig-name descname"><span class="pre">EOS_ARCH_UNKNOWN</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.EOS_ARCH_UNKNOWN</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.EOS_ARCH_UNKNOWN" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_EOS_ARCH_UNKNOWN represents cases where the specified architecture is
+not valid for EOS.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.EOS_CV_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">EOS_CV_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.EOS_CV_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.EOS_CV_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_EOS_CV_INCOMPATIBLE represents the case where EOS is not supported by CV.
+The given EOS exceeds CV’s maximum supported EOS version or for SMS assignments, the given
+EOS is below CV’s minimum supported EOS version.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.EOS_END_OF_LIFE_DATE_PASSED">
+<span class="sig-name descname"><span class="pre">EOS_END_OF_LIFE_DATE_PASSED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.EOS_END_OF_LIFE_DATE_PASSED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.EOS_END_OF_LIFE_DATE_PASSED" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_EOS_END_OF_LIFE_DATE_PASSED represents cases where the given EOS has passed
+its end of life date.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.NOT_APPLICABLE">
+<span class="sig-name descname"><span class="pre">NOT_APPLICABLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.NOT_APPLICABLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.NOT_APPLICABLE" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_NOT_APPLICABLE represents cases where EOS &lt; - &gt; SKU/TA compatibility
+is not applicable for non physical switches like vEos.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.RUNNING_TA_BELOW_MIN_SUPPORTED_VERSION">
+<span class="sig-name descname"><span class="pre">RUNNING_TA_BELOW_MIN_SUPPORTED_VERSION</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.RUNNING_TA_BELOW_MIN_SUPPORTED_VERSION</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.RUNNING_TA_BELOW_MIN_SUPPORTED_VERSION" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_RUNNING_TA_BELOW_MIN_SUPPORTED_VERSION represents cases where the running
+TerminAttr version is below CloudVision’s minimum supported version.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.SKUINFO_UNAVAILABLE">
+<span class="sig-name descname"><span class="pre">SKUINFO_UNAVAILABLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.SKUINFO_UNAVAILABLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.SKUINFO_UNAVAILABLE" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_SKUINFO_UNAVAILABLE represents case where
+information about certain skus is missing.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.SUPPORT_NOT_INTRODUCED">
+<span class="sig-name descname"><span class="pre">SUPPORT_NOT_INTRODUCED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.SUPPORT_NOT_INTRODUCED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.SUPPORT_NOT_INTRODUCED" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_SUPPORT_NOT_INTRODUCED represents cases where the given EOS version does
+not support the SKUs.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.SUPPORT_REMOVED">
+<span class="sig-name descname"><span class="pre">SUPPORT_REMOVED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.SUPPORT_REMOVED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.SUPPORT_REMOVED" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_SUPPORT_REMOVED represents cases where the given EOS version no longer
+supports the SKUs.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.SWI_UNKNOWN">
+<span class="sig-name descname"><span class="pre">SWI_UNKNOWN</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.SWI_UNKNOWN</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.SWI_UNKNOWN" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_SWI_UNKNOWN represents cases where EOS version is not found in release database.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.TA_CV_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">TA_CV_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.TA_CV_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.TA_CV_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_TA_CV_INCOMPATIBLE represents cases where TA is lower than CV’s minimum
+supported version for SMS assignments.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.TA_EMBEDDEDEXT_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">TA_EMBEDDEDEXT_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.TA_EMBEDDEDEXT_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.TA_EMBEDDEDEXT_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_TA_EMBEDDEDEXT_INCOMPATIBLE represents cases where TA extension is lower
+in version than embedded TA in SWI.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.TA_EOS_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">TA_EOS_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.TA_EOS_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.TA_EOS_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_TA_EOS_INCOMPATIBLE represents cases where TA and EOS are not compatible.
+TA is lower than embedded TA in swi or given TA is unsupported by the EOS.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.TA_STUDIO_INCOMPATIBLE">
+<span class="sig-name descname"><span class="pre">TA_STUDIO_INCOMPATIBLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.TA_STUDIO_INCOMPATIBLE</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.TA_STUDIO_INCOMPATIBLE" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_TA_STUDIO_INCOMPATIBLE represents cases where the TerminAttr is incompatible
+with Software Management Studio.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">WarningCode.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>WARNING_CODE_UNSPECIFIED indicates warning code is unspecified.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.imagestatus.v1.WarningCode.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.imagestatus.v1.WarningCode.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cloudvision.api.arista.imagestatus.html" class="btn btn-neutral float-left" title="cloudvision.api.arista.imagestatus package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cloudvision.api.arista.inventory.html" class="btn btn-neutral float-right" title="cloudvision.api.arista.inventory package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

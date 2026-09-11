@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.api.arista.configstatus.v1 package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cloudvision.api.arista.connectivitymonitor package" href="cloudvision.api.arista.connectivitymonitor.html" />
+    <link rel="prev" title="cloudvision.api.arista.configstatus package" href="cloudvision.api.arista.configstatus.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cloudvision.html">cloudvision package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cloudvision.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.Connector.html">cloudvision.Connector package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cloudvision.api.html">cloudvision.api package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.compliance.html">cloudvision.compliance package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.cvlib.html">cloudvision.cvlib package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.html#module-cloudvision">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.html">arista package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.html">cloudvision package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.html">cloudvision.api package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.html">cloudvision.api.arista package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.configstatus.html">cloudvision.api.arista.configstatus package</a></li>
+      <li class="breadcrumb-item active">cloudvision.api.arista.configstatus.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cloudvision.api.arista.configstatus.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cloudvision-api-arista-configstatus-v1-package">
+<h1>cloudvision.api.arista.configstatus.v1 package<a class="headerlink" href="#cloudvision-api-arista-configstatus-v1-package" title="Link to this heading"></a></h1>
+<section id="module-cloudvision.api.arista.configstatus.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudvision.api.arista.configstatus.v1" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigError">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">ConfigError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ErrorCode" title="cloudvision.api.arista.configstatus.v1.ErrorCode"><span class="pre">ErrorCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configlet_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#ConfigError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ConfigError represents errors reported by CVP/EOS when handling device configuration</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigError.configlet_name">
+<span class="sig-name descname"><span class="pre">configlet_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigError.configlet_name" title="Link to this definition"></a></dt>
+<dd><p>configlet_name represents the originating configlet name. Configlet_name
+and line_num point to the line where config warning or config error originate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigError.error_code">
+<span class="sig-name descname"><span class="pre">error_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ErrorCode" title="cloudvision.api.arista.configstatus.v1.ErrorCode"><span class="pre">ErrorCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigError.error_code" title="Link to this definition"></a></dt>
+<dd><p>error_code - type of error.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigError.error_msg">
+<span class="sig-name descname"><span class="pre">error_msg</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigError.error_msg" title="Link to this definition"></a></dt>
+<dd><p>error_msg - details of error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigError.line_num">
+<span class="sig-name descname"><span class="pre">line_num</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigError.line_num" title="Link to this definition"></a></dt>
+<dd><p>line_num represents line number, if any</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigErrors">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">ConfigErrors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigError" title="cloudvision.api.arista.configstatus.v1.ConfigError"><span class="pre">ConfigError</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#ConfigErrors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigErrors" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ConfigErrors list of errors</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigErrors.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigError" title="cloudvision.api.arista.configstatus.v1.ConfigError"><span class="pre">ConfigError</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigErrors.values" title="Link to this definition"></a></dt>
+<dd><p>values - list of errors</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigFilterCode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">ConfigFilterCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#ConfigFilterCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigFilterCode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>ConfigFilterCode indicates if a config line matches PCM filter(s)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigFilterCode.MANAGED_LINE">
+<span class="sig-name descname"><span class="pre">MANAGED_LINE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigFilterCode.MANAGED_LINE</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigFilterCode.MANAGED_LINE" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_FILTER_CODE_MANAGED_LINE indicates config line matches managed PCM filter hence is managed</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigFilterCode.UNMANAGED_LINE">
+<span class="sig-name descname"><span class="pre">UNMANAGED_LINE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigFilterCode.UNMANAGED_LINE</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigFilterCode.UNMANAGED_LINE" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_FILTER_CODE_UNMANAGED_LINE indicates config line matches unmanaged PCM filter hence is not managed</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigFilterCode.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigFilterCode.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigFilterCode.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_FILTER_CODE_UNSPECIFIED uninitialized</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigFilterCode.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigFilterCode.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigFilterCode.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigFilterCode.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSource">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">ConfigSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigSourceType" title="cloudvision.api.arista.configstatus.v1.ConfigSourceType"><span class="pre">ConfigSourceType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#ConfigSource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSource" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ConfigSource describes an individual source of the proposed/designed config</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSource.source_id">
+<span class="sig-name descname"><span class="pre">source_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSource.source_id" title="Link to this definition"></a></dt>
+<dd><p>source_id identifier to distinguish between multiple instances of the source type
+source_id is :</p>
+<blockquote>
+<div><p>configlet name for CONFIG_SOURCE_TYPE_NETWORK_PROVISIONING_CONFIGLET
+studio id for CONFIG_SOURCE_TYPE_STUDIO
+configlet id for CONFIG_SOURCE_TYPE_STUDIO_STATIC
+FixtureInstance id for CONFIG_SOURCE_TYPE_HIERARCHY</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSource.source_type">
+<span class="sig-name descname"><span class="pre">source_type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigSourceType" title="cloudvision.api.arista.configstatus.v1.ConfigSourceType"><span class="pre">ConfigSourceType</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSource.source_type" title="Link to this definition"></a></dt>
+<dd><p>source_type - app type of the config snippet</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSourceType">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">ConfigSourceType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#ConfigSourceType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSourceType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>ConfigSourceType indicates the type of source for the proposed/designed configuration
+for the device</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSourceType.HIERARCHY">
+<span class="sig-name descname"><span class="pre">HIERARCHY</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigSourceType.HIERARCHY</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSourceType.HIERARCHY" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_SOURCE_TYPE_HIERARCHY - config from the hierarchy frameork</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSourceType.NETWORK_PROVISIONING_CONFIGLET">
+<span class="sig-name descname"><span class="pre">NETWORK_PROVISIONING_CONFIGLET</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigSourceType.NETWORK_PROVISIONING_CONFIGLET</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSourceType.NETWORK_PROVISIONING_CONFIGLET" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_SOURCE_TYPE_NETWORK_PROVISIONING_CONFIGLET - configlet created from
+the network provisioning workflow.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSourceType.STUDIO">
+<span class="sig-name descname"><span class="pre">STUDIO</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigSourceType.STUDIO</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSourceType.STUDIO" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_SOURCE_TYPE_STUDIO - config generated from a regular studio</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSourceType.STUDIO_STATIC">
+<span class="sig-name descname"><span class="pre">STUDIO_STATIC</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigSourceType.STUDIO_STATIC</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSourceType.STUDIO_STATIC" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_SOURCE_TYPE_STUDIO_STATIC - static config from studios framework</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSourceType.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigSourceType.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSourceType.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_SOURCE_TYPE_UNSPECIFIED uninitialized value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSourceType.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSourceType.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSourceType.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSourceType.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSources">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">ConfigSources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigSource" title="cloudvision.api.arista.configstatus.v1.ConfigSource"><span class="pre">ConfigSource</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#ConfigSources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSources" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ConfigSources is the list of sources of the proposed/designed config</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSources.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigSource" title="cloudvision.api.arista.configstatus.v1.ConfigSource"><span class="pre">ConfigSource</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSources.values" title="Link to this definition"></a></dt>
+<dd><p>values - ordered list of all the config snippets present in DC</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">ConfigSummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sync</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigSyncCode" title="cloudvision.api.arista.configstatus.v1.ConfigSyncCode"><span class="pre">ConfigSyncCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nop_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignored_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">added_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deleted_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">changed_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">designed_config_errors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">designed_config_warnings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">running_config_update_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">designed_config_update_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">running_config_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">designed_config_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diff_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#ConfigSummary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>ConfigSummary represents device configuration summary.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.added_lines">
+<span class="sig-name descname"><span class="pre">added_lines</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.added_lines" title="Link to this definition"></a></dt>
+<dd><p>added_lines - Number of lines with code ADD</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.changed_lines">
+<span class="sig-name descname"><span class="pre">changed_lines</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.changed_lines" title="Link to this definition"></a></dt>
+<dd><p>changed_lines - Number of lines with code CHANGE</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.deleted_lines">
+<span class="sig-name descname"><span class="pre">deleted_lines</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.deleted_lines" title="Link to this definition"></a></dt>
+<dd><p>deleted_lines - Number of lines with code DELETE</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.designed_config_errors">
+<span class="sig-name descname"><span class="pre">designed_config_errors</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.designed_config_errors" title="Link to this definition"></a></dt>
+<dd><p>designed_config_errors - Number of designed config errors</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.designed_config_update_time">
+<span class="sig-name descname"><span class="pre">designed_config_update_time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.designed_config_update_time" title="Link to this definition"></a></dt>
+<dd><p>designed_config_update_time - Timestamp at which designed config is updated</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.designed_config_uri">
+<span class="sig-name descname"><span class="pre">designed_config_uri</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.designed_config_uri" title="Link to this definition"></a></dt>
+<dd><p>designed_config_uri - The HTTP URI client can use to GET designed config and associated errors</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.designed_config_warnings">
+<span class="sig-name descname"><span class="pre">designed_config_warnings</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.designed_config_warnings" title="Link to this definition"></a></dt>
+<dd><p>designed_config_warnings - Number of designed config warnings</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.diff_uri">
+<span class="sig-name descname"><span class="pre">diff_uri</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.diff_uri" title="Link to this definition"></a></dt>
+<dd><p>diff_uri - The HTTP URI client can use to GET config diff and associated errors</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.digest">
+<span class="sig-name descname"><span class="pre">digest</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.digest" title="Link to this definition"></a></dt>
+<dd><p>digest (SHA-256) of the config diff.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.ignored_lines">
+<span class="sig-name descname"><span class="pre">ignored_lines</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.ignored_lines" title="Link to this definition"></a></dt>
+<dd><p>ignored_lines - Number of lines with code IGNORE</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.nop_lines">
+<span class="sig-name descname"><span class="pre">nop_lines</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.nop_lines" title="Link to this definition"></a></dt>
+<dd><p>nop_lines - Number of lines with code no-operation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.running_config_update_time">
+<span class="sig-name descname"><span class="pre">running_config_update_time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.running_config_update_time" title="Link to this definition"></a></dt>
+<dd><p>running_config_update_time - Timestamp at which running config is updated</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.running_config_uri">
+<span class="sig-name descname"><span class="pre">running_config_uri</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.running_config_uri" title="Link to this definition"></a></dt>
+<dd><p>running_config_uri - The HTTP URI client can use to GET running config and associated errors</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSummary.sync">
+<span class="sig-name descname"><span class="pre">sync</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigSyncCode" title="cloudvision.api.arista.configstatus.v1.ConfigSyncCode"><span class="pre">ConfigSyncCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSummary.sync" title="Link to this definition"></a></dt>
+<dd><p>sync - state of DC vs RC</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSyncCode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">ConfigSyncCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#ConfigSyncCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSyncCode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>ConfigSyncCode indicates config synchronization status</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSyncCode.IN_SYNC">
+<span class="sig-name descname"><span class="pre">IN_SYNC</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigSyncCode.IN_SYNC</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSyncCode.IN_SYNC" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_SYNC_CODE_IN_SYNC indicates designed config and running config are identical</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSyncCode.OUT_OF_SYNC">
+<span class="sig-name descname"><span class="pre">OUT_OF_SYNC</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigSyncCode.OUT_OF_SYNC</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSyncCode.OUT_OF_SYNC" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_SYNC_CODE_OUT_OF_SYNC indicates designed config and running config are not identical</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSyncCode.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigSyncCode.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSyncCode.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_SYNC_CODE_UNSPECIFIED uninitialized</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSyncCode.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSyncCode.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigSyncCode.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigSyncCode.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigType">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">ConfigType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#ConfigType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>ConfigType - specifies type of config</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigType.DESIGNED_CONFIG">
+<span class="sig-name descname"><span class="pre">DESIGNED_CONFIG</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigType.DESIGNED_CONFIG</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigType.DESIGNED_CONFIG" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_TYPE_DESIGNED_CONFIG uninitialized value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigType.RUNNING_CONFIG">
+<span class="sig-name descname"><span class="pre">RUNNING_CONFIG</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigType.RUNNING_CONFIG</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigType.RUNNING_CONFIG" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_TYPE_RUNNING_CONFIG uninitialized value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigType.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ConfigType.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigType.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>CONFIG_TYPE_UNSPECIFIED uninitialized value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigType.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigType.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ConfigType.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ConfigType.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntries">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">DiffEntries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.DiffEntry" title="cloudvision.api.arista.configstatus.v1.DiffEntry"><span class="pre">DiffEntry</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#DiffEntries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntries" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>DiffEntries indicates potential multiple lines of config diff</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntries.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.DiffEntry" title="cloudvision.api.arista.configstatus.v1.DiffEntry"><span class="pre">DiffEntry</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntries.values" title="Link to this definition"></a></dt>
+<dd><p>values - list of diff entries</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">DiffEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.DiffOp" title="cloudvision.api.arista.configstatus.v1.DiffOp"><span class="pre">DiffOp</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_line_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_line_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_parent_line_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_filter_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigFilterCode" title="cloudvision.api.arista.configstatus.v1.ConfigFilterCode"><span class="pre">ConfigFilterCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_filter_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigFilterCode" title="cloudvision.api.arista.configstatus.v1.ConfigFilterCode"><span class="pre">ConfigFilterCode</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_parent_line_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_a_default_command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;PLACEHOLDER&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#DiffEntry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<p>DiffEntry represents one entry in a Diff</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry.a_filter_code">
+<span class="sig-name descname"><span class="pre">a_filter_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigFilterCode" title="cloudvision.api.arista.configstatus.v1.ConfigFilterCode"><span class="pre">ConfigFilterCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry.a_filter_code" title="Link to this definition"></a></dt>
+<dd><p>a_filter_code represents the config filter code for the line in A</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry.a_line">
+<span class="sig-name descname"><span class="pre">a_line</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry.a_line" title="Link to this definition"></a></dt>
+<dd><p>a_line is the content of config line in A</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry.a_line_num">
+<span class="sig-name descname"><span class="pre">a_line_num</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry.a_line_num" title="Link to this definition"></a></dt>
+<dd><p>a_line_num indicates the line number in A where the diff is applied</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry.a_parent_line_num">
+<span class="sig-name descname"><span class="pre">a_parent_line_num</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry.a_parent_line_num" title="Link to this definition"></a></dt>
+<dd><p>a_parent_line_num represents the line number of the parent command in A</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry.b_filter_code">
+<span class="sig-name descname"><span class="pre">b_filter_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.ConfigFilterCode" title="cloudvision.api.arista.configstatus.v1.ConfigFilterCode"><span class="pre">ConfigFilterCode</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry.b_filter_code" title="Link to this definition"></a></dt>
+<dd><p>b_filter_code represents the config filter code for the line in B</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry.b_line">
+<span class="sig-name descname"><span class="pre">b_line</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry.b_line" title="Link to this definition"></a></dt>
+<dd><p>b_line is the content of config line in B</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry.b_line_num">
+<span class="sig-name descname"><span class="pre">b_line_num</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry.b_line_num" title="Link to this definition"></a></dt>
+<dd><p>b_line_num indicates the line number in B where this diff is applied</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry.b_parent_line_num">
+<span class="sig-name descname"><span class="pre">b_parent_line_num</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry.b_parent_line_num" title="Link to this definition"></a></dt>
+<dd><p>b_parent_line_num represents the line number of the parent command in B</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry.is_a_default_command">
+<span class="sig-name descname"><span class="pre">is_a_default_command</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry.is_a_default_command" title="Link to this definition"></a></dt>
+<dd><p>is_a_default_command indicates that config line in A is a default
+command that is generated by EOS.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffEntry.op">
+<span class="sig-name descname"><span class="pre">op</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cloudvision.api.arista.configstatus.v1.DiffOp" title="cloudvision.api.arista.configstatus.v1.DiffOp"><span class="pre">DiffOp</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PLACEHOLDER&gt;</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffEntry.op" title="Link to this definition"></a></dt>
+<dd><p>op specifies type of diff operation</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffOp">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">DiffOp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#DiffOp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffOp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>DiffOp is the operation to a line from one side of diff to get to another</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffOp.ADD">
+<span class="sig-name descname"><span class="pre">ADD</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.ADD</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffOp.ADD" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_ADD is an addition of a line from A</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffOp.CHANGE">
+<span class="sig-name descname"><span class="pre">CHANGE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.CHANGE</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffOp.CHANGE" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_CHANGE is a modification to a line in A</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffOp.DELETE">
+<span class="sig-name descname"><span class="pre">DELETE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.DELETE</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffOp.DELETE" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_DELETE is deletion of a line from B</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffOp.IGNORE">
+<span class="sig-name descname"><span class="pre">IGNORE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.IGNORE</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffOp.IGNORE" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_IGNORE indicates a line that’s ignored in either A or B.
+One of a_line_num or b_line_num will be -1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffOp.NOP">
+<span class="sig-name descname"><span class="pre">NOP</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.NOP</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffOp.NOP" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_NOP indicates no change. A and B are identical at this line</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffOp.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">DiffOp.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffOp.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>DIFF_OP_UNSPECIFIED uninitialized</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffOp.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffOp.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.DiffOp.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.DiffOp.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ErrorCode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cloudvision.api.arista.configstatus.v1.</span></span><span class="sig-name descname"><span class="pre">ErrorCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloudvision/api/arista/configstatus/v1.html#ErrorCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ErrorCode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>ErrorCode indicates warnings and errors produced during computing config</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ErrorCode.CONFIG_FILTER_ERROR">
+<span class="sig-name descname"><span class="pre">CONFIG_FILTER_ERROR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.CONFIG_FILTER_ERROR</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ErrorCode.CONFIG_FILTER_ERROR" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_CONFIG_FILTER_ERROR indicates error from partial config management filters</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ErrorCode.DEVICE_ERROR">
+<span class="sig-name descname"><span class="pre">DEVICE_ERROR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.DEVICE_ERROR</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ErrorCode.DEVICE_ERROR" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_DEVICE_ERROR indicates device error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ErrorCode.DEVICE_WARNING">
+<span class="sig-name descname"><span class="pre">DEVICE_WARNING</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.DEVICE_WARNING</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ErrorCode.DEVICE_WARNING" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_DEVICE_WARNING indicates device warning</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ErrorCode.INTERNAL">
+<span class="sig-name descname"><span class="pre">INTERNAL</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.INTERNAL</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ErrorCode.INTERNAL" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_INTERNAL indicates internal errors</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ErrorCode.PROPOSED_CONFIG_CHECK">
+<span class="sig-name descname"><span class="pre">PROPOSED_CONFIG_CHECK</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.PROPOSED_CONFIG_CHECK</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ErrorCode.PROPOSED_CONFIG_CHECK" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_PROPOSED_CONFIG_CHECK indicates an issue with the content of proposed configuration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ErrorCode.UNREACHABLE_DEVICE">
+<span class="sig-name descname"><span class="pre">UNREACHABLE_DEVICE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.UNREACHABLE_DEVICE</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ErrorCode.UNREACHABLE_DEVICE" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_UNREACHABLE_DEVICE indicates the device cannot be reached</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ErrorCode.UNSPECIFIED">
+<span class="sig-name descname"><span class="pre">UNSPECIFIED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ErrorCode.UNSPECIFIED</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ErrorCode.UNSPECIFIED" title="Link to this definition"></a></dt>
+<dd><p>ERROR_CODE_UNSPECIFIED uninitialized value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ErrorCode.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ErrorCode.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cloudvision.api.arista.configstatus.v1.ErrorCode.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#cloudvision.api.arista.configstatus.v1.ErrorCode.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cloudvision.api.arista.configstatus.html" class="btn btn-neutral float-left" title="cloudvision.api.arista.configstatus package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cloudvision.api.arista.connectivitymonitor.html" class="btn btn-neutral float-right" title="cloudvision.api.arista.connectivitymonitor package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

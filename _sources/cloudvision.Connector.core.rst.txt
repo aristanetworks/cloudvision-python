@@ -1,0 +1,21 @@
+cloudvision.Connector.core package
+==================================
+
+Submodules
+----------
+
+cloudvision.Connector.core.utils module
+---------------------------------------
+
+.. automodule:: cloudvision.Connector.core.utils
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.Connector.core
+   :members:
+   :show-inheritance:
+   :undoc-members:

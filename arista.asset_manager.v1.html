@@ -1,0 +1,779 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.asset_manager.v1 package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.asset_manager.v1.services package" href="arista.asset_manager.v1.services.html" />
+    <link rel="prev" title="arista.asset_manager package" href="arista.asset_manager.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.action.html">arista.action package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.arista_portal.html">arista.arista_portal package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.asset_manager.html">arista.asset_manager package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.auditlog.html">arista.auditlog package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.html">arista.license package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.html">arista.logging package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.html">arista.softwaremanagement package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio_topology.html">arista.studio_topology package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.syslog.html">arista.syslog package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.asset_manager.html">arista.asset_manager package</a></li>
+      <li class="breadcrumb-item active">arista.asset_manager.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.asset_manager.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-asset-manager-v1-package">
+<h1>arista.asset_manager.v1 package<a class="headerlink" href="#arista-asset-manager-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.asset_manager.v1.services.html">arista.asset_manager.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.asset_manager.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.asset_manager.v1.services.html#module-arista.asset_manager.v1.services.gen_pb2">arista.asset_manager.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsRequest"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsResponse"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsSomeRequest"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsSomeResponse"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsStreamRequest"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsStreamResponse"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.AllowedTenantsStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentPageRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentPageRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentPageRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentPageRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.DeviceTenantAssignmentStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentPageRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentPageRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentPageRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentPageRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.LicenseTenantAssignmentStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderRequest"><code class="docutils literal notranslate"><span class="pre">SalesOrderRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SalesOrderRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderResponse"><code class="docutils literal notranslate"><span class="pre">SalesOrderResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SalesOrderResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderSomeRequest"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderSomeResponse"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderStreamRequest"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderStreamResponse"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2.SalesOrderStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.asset_manager.v1.services.html#module-arista.asset_manager.v1.services.gen_pb2_grpc">arista.asset_manager.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsService"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsService.GetAll"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsService.GetMeta"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsService.GetOne"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsService.GetSome"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsService.Subscribe"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsServiceServicer"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.AllowedTenantsServiceStub"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.Set"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentService"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentService.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentService.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentService.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentService.GetPage"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentService.GetPage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentService.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentService.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceServicer"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceServicer.GetPage"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceServicer.GetPage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.DeviceTenantAssignmentServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.Set"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentService"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentService.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentService.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentService.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentService.GetPage"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentService.GetPage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentService.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentService.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceServicer"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceServicer.GetPage"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceServicer.GetPage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.LicenseTenantAssignmentServiceStub"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderService"><code class="docutils literal notranslate"><span class="pre">SalesOrderService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderService.GetAll"><code class="docutils literal notranslate"><span class="pre">SalesOrderService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">SalesOrderService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderService.GetMeta"><code class="docutils literal notranslate"><span class="pre">SalesOrderService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderService.GetOne"><code class="docutils literal notranslate"><span class="pre">SalesOrderService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderService.GetSome"><code class="docutils literal notranslate"><span class="pre">SalesOrderService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderService.Subscribe"><code class="docutils literal notranslate"><span class="pre">SalesOrderService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">SalesOrderService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">SalesOrderService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderServiceServicer"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.SalesOrderServiceStub"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.add_AllowedTenantsServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_AllowedTenantsServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.add_DeviceTenantAssignConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DeviceTenantAssignConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.add_DeviceTenantAssignmentServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_DeviceTenantAssignmentServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.add_LicenseTenantAssignConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_LicenseTenantAssignConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.add_LicenseTenantAssignmentServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_LicenseTenantAssignmentServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.asset_manager.v1.services.html#arista.asset_manager.v1.services.gen_pb2_grpc.add_SalesOrderServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_SalesOrderServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.asset_manager.v1.services.html#module-arista.asset_manager.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.asset_manager.v1.asset_manager_pb2">
+<span id="arista-asset-manager-v1-asset-manager-pb2-module"></span><h2>arista.asset_manager.v1.asset_manager_pb2 module<a class="headerlink" href="#module-arista.asset_manager.v1.asset_manager_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.AllowedTenants">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">AllowedTenants</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.AllowedTenants" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.AllowedTenants.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.AllowedTenants.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.CustomerInfo">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">CustomerInfo</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.CustomerInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.CustomerInfo.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.CustomerInfo.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.DeviceKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceKey</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.DeviceKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.DeviceKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.DeviceKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.DeviceTenantAssignConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceTenantAssignConfig</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.DeviceTenantAssignConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.DeviceTenantAssignConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.DeviceTenantAssignConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.DeviceTenantAssignment">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceTenantAssignment</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.DeviceTenantAssignment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.DeviceTenantAssignment.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.DeviceTenantAssignment.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.LicenseTenantAssignConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseTenantAssignConfig</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.LicenseTenantAssignConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.LicenseTenantAssignConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.LicenseTenantAssignConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.LicenseTenantAssignment">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseTenantAssignment</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.LicenseTenantAssignment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.LicenseTenantAssignment.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.LicenseTenantAssignment.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.PurchaseOrder">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">PurchaseOrder</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.PurchaseOrder" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.PurchaseOrder.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.PurchaseOrder.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.SalesOrder">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">SalesOrder</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.SalesOrder" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.SalesOrder.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.SalesOrder.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.SalesOrderFilter">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">SalesOrderFilter</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.SalesOrderFilter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.SalesOrderFilter.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.SalesOrderFilter.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.SalesOrderKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">SalesOrderKey</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.SalesOrderKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.SalesOrderKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.SalesOrderKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.TenantKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">TenantKey</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.TenantKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.TenantKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.TenantKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.UserInfo">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.asset_manager.v1.asset_manager_pb2.</span></span><span class="sig-name descname"><span class="pre">UserInfo</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.UserInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.asset_manager.v1.asset_manager_pb2.UserInfo.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.asset_manager.v1.asset_manager_pb2.UserInfo.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.asset_manager.v1.asset_manager_pb2_grpc">
+<span id="arista-asset-manager-v1-asset-manager-pb2-grpc-module"></span><h2>arista.asset_manager.v1.asset_manager_pb2_grpc module<a class="headerlink" href="#module-arista.asset_manager.v1.asset_manager_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.asset_manager.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.asset_manager.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.asset_manager.html" class="btn btn-neutral float-left" title="arista.asset_manager package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.asset_manager.v1.services.html" class="btn btn-neutral float-right" title="arista.asset_manager.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

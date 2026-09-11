@@ -1,0 +1,680 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.api.arista.tag package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cloudvision.api.arista.tag.v2 package" href="cloudvision.api.arista.tag.v2.html" />
+    <link rel="prev" title="cloudvision.api.arista.syslog.v1 package" href="cloudvision.api.arista.syslog.v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cloudvision.html">cloudvision package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cloudvision.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.Connector.html">cloudvision.Connector package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cloudvision.api.html">cloudvision.api package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.compliance.html">cloudvision.compliance package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.cvlib.html">cloudvision.cvlib package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.html#module-cloudvision">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.html">arista package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.html">cloudvision package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.html">cloudvision.api package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.html">cloudvision.api.arista package</a></li>
+      <li class="breadcrumb-item active">cloudvision.api.arista.tag package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cloudvision.api.arista.tag.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cloudvision-api-arista-tag-package">
+<h1>cloudvision.api.arista.tag package<a class="headerlink" href="#cloudvision-api-arista-tag-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html">cloudvision.api.arista.tag.v2 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#module-cloudvision.api.arista.tag.v2">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.CreatorType"><code class="docutils literal notranslate"><span class="pre">CreatorType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.CreatorType.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">CreatorType.EXTERNAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.CreatorType.SYSTEM"><code class="docutils literal notranslate"><span class="pre">CreatorType.SYSTEM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.CreatorType.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">CreatorType.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.CreatorType.USER"><code class="docutils literal notranslate"><span class="pre">CreatorType.USER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.CreatorType.name"><code class="docutils literal notranslate"><span class="pre">CreatorType.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.CreatorType.value"><code class="docutils literal notranslate"><span class="pre">CreatorType.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.Element.key"><code class="docutils literal notranslate"><span class="pre">Element.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ElementBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementBatchedStreamRequest.filter"><code class="docutils literal notranslate"><span class="pre">ElementBatchedStreamRequest.filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">ElementBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ElementBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ElementBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ElementBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">ElementBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementFilter"><code class="docutils literal notranslate"><span class="pre">ElementFilter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementFilter.search"><code class="docutils literal notranslate"><span class="pre">ElementFilter.search</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementKey"><code class="docutils literal notranslate"><span class="pre">ElementKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementKey.primary_id"><code class="docutils literal notranslate"><span class="pre">ElementKey.primary_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementKey.secondary_id"><code class="docutils literal notranslate"><span class="pre">ElementKey.secondary_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementKey.sub_type"><code class="docutils literal notranslate"><span class="pre">ElementKey.sub_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementKey.type"><code class="docutils literal notranslate"><span class="pre">ElementKey.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementRequest"><code class="docutils literal notranslate"><span class="pre">ElementRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementRequest.key"><code class="docutils literal notranslate"><span class="pre">ElementRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementRequest.time"><code class="docutils literal notranslate"><span class="pre">ElementRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementResponse"><code class="docutils literal notranslate"><span class="pre">ElementResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementResponse.time"><code class="docutils literal notranslate"><span class="pre">ElementResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementResponse.value"><code class="docutils literal notranslate"><span class="pre">ElementResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSearchFilter"><code class="docutils literal notranslate"><span class="pre">ElementSearchFilter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSearchFilter.exclude_unregistered_elements"><code class="docutils literal notranslate"><span class="pre">ElementSearchFilter.exclude_unregistered_elements</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSearchFilter.ignore_topology_tags"><code class="docutils literal notranslate"><span class="pre">ElementSearchFilter.ignore_topology_tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSearchFilter.query"><code class="docutils literal notranslate"><span class="pre">ElementSearchFilter.query</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSearchFilter.query_element_type"><code class="docutils literal notranslate"><span class="pre">ElementSearchFilter.query_element_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSearchFilter.workspace_id"><code class="docutils literal notranslate"><span class="pre">ElementSearchFilter.workspace_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceBase"><code class="docutils literal notranslate"><span class="pre">ElementServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">ElementServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ElementServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">ElementServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">ElementServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">ElementServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">ElementServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ElementServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ElementServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceStub"><code class="docutils literal notranslate"><span class="pre">ElementServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">ElementServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">ElementServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">ElementServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">ElementServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">ElementServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">ElementServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">ElementServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">ElementServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSomeRequest"><code class="docutils literal notranslate"><span class="pre">ElementSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">ElementSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">ElementSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSomeResponse"><code class="docutils literal notranslate"><span class="pre">ElementSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">ElementSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">ElementSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">ElementSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementStreamRequest"><code class="docutils literal notranslate"><span class="pre">ElementStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementStreamRequest.filter"><code class="docutils literal notranslate"><span class="pre">ElementStreamRequest.filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">ElementStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">ElementStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementStreamResponse"><code class="docutils literal notranslate"><span class="pre">ElementStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">ElementStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">ElementStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">ElementStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSubType"><code class="docutils literal notranslate"><span class="pre">ElementSubType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSubType.APPLICATION"><code class="docutils literal notranslate"><span class="pre">ElementSubType.APPLICATION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSubType.CONNECTIVITY_MONITOR_PROBE"><code class="docutils literal notranslate"><span class="pre">ElementSubType.CONNECTIVITY_MONITOR_PROBE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSubType.DEVICE"><code class="docutils literal notranslate"><span class="pre">ElementSubType.DEVICE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSubType.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">ElementSubType.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSubType.VDS"><code class="docutils literal notranslate"><span class="pre">ElementSubType.VDS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSubType.VM"><code class="docutils literal notranslate"><span class="pre">ElementSubType.VM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSubType.WORKLOAD_SERVER"><code class="docutils literal notranslate"><span class="pre">ElementSubType.WORKLOAD_SERVER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSubType.name"><code class="docutils literal notranslate"><span class="pre">ElementSubType.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementSubType.value"><code class="docutils literal notranslate"><span class="pre">ElementSubType.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementType"><code class="docutils literal notranslate"><span class="pre">ElementType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementType.DEVICE"><code class="docutils literal notranslate"><span class="pre">ElementType.DEVICE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementType.INTERFACE"><code class="docutils literal notranslate"><span class="pre">ElementType.INTERFACE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementType.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">ElementType.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementType.VIRTUAL"><code class="docutils literal notranslate"><span class="pre">ElementType.VIRTUAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementType.name"><code class="docutils literal notranslate"><span class="pre">ElementType.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.ElementType.value"><code class="docutils literal notranslate"><span class="pre">ElementType.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.MetaResponse.count"><code class="docutils literal notranslate"><span class="pre">MetaResponse.count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.MetaResponse.time"><code class="docutils literal notranslate"><span class="pre">MetaResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.MetaResponse.type"><code class="docutils literal notranslate"><span class="pre">MetaResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.Tag"><code class="docutils literal notranslate"><span class="pre">Tag</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.Tag.assigned"><code class="docutils literal notranslate"><span class="pre">Tag.assigned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.Tag.creator_type"><code class="docutils literal notranslate"><span class="pre">Tag.creator_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.Tag.key"><code class="docutils literal notranslate"><span class="pre">Tag.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignment"><code class="docutils literal notranslate"><span class="pre">TagAssignment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignment.key"><code class="docutils literal notranslate"><span class="pre">TagAssignment.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignment.tag_creator_type"><code class="docutils literal notranslate"><span class="pre">TagAssignment.tag_creator_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">TagAssignmentBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">TagAssignmentBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">TagAssignmentBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfig"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfig.key"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfig.remove"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfig.remove</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteAllRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllRequest.partial_eq_filter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteAllResponse.error"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteAllResponse.key"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteAllResponse.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteAllResponse.type"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteAllResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteRequest.key"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteRequest.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteResponse.key"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteResponse.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteResponse.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteSomeRequest.keys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigDeleteSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigDeleteSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigRequest.key"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigRequest.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigResponse.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigResponse.value"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.delete"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.delete_all"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.delete_some"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.set"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.set_some"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.delete"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.delete_all"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.delete_some"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.set"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.set_some"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSetRequest.value"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetRequest.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSetResponse.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSetResponse.value"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSetSomeRequest.values"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetSomeRequest.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSetSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSetSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSetSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentConfigStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">TagAssignmentConfigStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentKey"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentKey.device_id"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.device_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentKey.element_sub_type"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.element_sub_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentKey.element_type"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.element_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentKey.interface_id"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.interface_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentKey.label"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentKey.primary_entity_id"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.primary_entity_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentKey.secondary_entity_id"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.secondary_entity_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentKey.value"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentKey.workspace_id"><code class="docutils literal notranslate"><span class="pre">TagAssignmentKey.workspace_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentRequest.key"><code class="docutils literal notranslate"><span class="pre">TagAssignmentRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentRequest.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentResponse.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentResponse.value"><code class="docutils literal notranslate"><span class="pre">TagAssignmentResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceBase"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceStub"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">TagAssignmentServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">TagAssignmentSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagAssignmentStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">TagAssignmentStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">TagBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">TagBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">TagBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">TagBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfig"><code class="docutils literal notranslate"><span class="pre">TagConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfig.key"><code class="docutils literal notranslate"><span class="pre">TagConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfig.remove"><code class="docutils literal notranslate"><span class="pre">TagConfig.remove</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">TagConfigBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">TagConfigBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">TagConfigBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">TagConfigBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteAllRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllRequest.partial_eq_filter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteAllResponse.error"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteAllResponse.key"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteAllResponse.time"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteAllResponse.type"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteAllResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteRequest.key"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteRequest.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteResponse.key"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteResponse.time"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteResponse.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteSomeRequest.keys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigDeleteSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">TagConfigDeleteSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigRequest.key"><code class="docutils literal notranslate"><span class="pre">TagConfigRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigRequest.time"><code class="docutils literal notranslate"><span class="pre">TagConfigRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigResponse.time"><code class="docutils literal notranslate"><span class="pre">TagConfigResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigResponse.value"><code class="docutils literal notranslate"><span class="pre">TagConfigResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.delete"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.delete_all"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.delete_some"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.set"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.set_some"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.delete"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.delete_all"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.delete_some"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.set"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.set_some"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">TagConfigServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSetRequest.value"><code class="docutils literal notranslate"><span class="pre">TagConfigSetRequest.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSetResponse.time"><code class="docutils literal notranslate"><span class="pre">TagConfigSetResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSetResponse.value"><code class="docutils literal notranslate"><span class="pre">TagConfigSetResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSetSomeRequest.values"><code class="docutils literal notranslate"><span class="pre">TagConfigSetSomeRequest.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSetSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">TagConfigSetSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSetSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">TagConfigSetSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">TagConfigSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagConfigStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">TagConfigStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagKey"><code class="docutils literal notranslate"><span class="pre">TagKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagKey.element_sub_type"><code class="docutils literal notranslate"><span class="pre">TagKey.element_sub_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagKey.element_type"><code class="docutils literal notranslate"><span class="pre">TagKey.element_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagKey.label"><code class="docutils literal notranslate"><span class="pre">TagKey.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagKey.value"><code class="docutils literal notranslate"><span class="pre">TagKey.value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagKey.workspace_id"><code class="docutils literal notranslate"><span class="pre">TagKey.workspace_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagRequest"><code class="docutils literal notranslate"><span class="pre">TagRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagRequest.key"><code class="docutils literal notranslate"><span class="pre">TagRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagRequest.time"><code class="docutils literal notranslate"><span class="pre">TagRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagResponse"><code class="docutils literal notranslate"><span class="pre">TagResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagResponse.time"><code class="docutils literal notranslate"><span class="pre">TagResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagResponse.value"><code class="docutils literal notranslate"><span class="pre">TagResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceBase"><code class="docutils literal notranslate"><span class="pre">TagServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">TagServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">TagServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">TagServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">TagServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">TagServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">TagServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">TagServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">TagServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceStub"><code class="docutils literal notranslate"><span class="pre">TagServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">TagServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">TagServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">TagServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">TagServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">TagServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">TagServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">TagServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">TagServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagSomeRequest"><code class="docutils literal notranslate"><span class="pre">TagSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">TagSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">TagSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagSomeResponse"><code class="docutils literal notranslate"><span class="pre">TagSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">TagSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">TagSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">TagSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagStreamRequest"><code class="docutils literal notranslate"><span class="pre">TagStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">TagStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">TagStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagStreamResponse"><code class="docutils literal notranslate"><span class="pre">TagStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">TagStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">TagStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.tag.v2.html#cloudvision.api.arista.tag.v2.TagStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">TagStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-cloudvision.api.arista.tag">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudvision.api.arista.tag" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cloudvision.api.arista.syslog.v1.html" class="btn btn-neutral float-left" title="cloudvision.api.arista.syslog.v1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cloudvision.api.arista.tag.v2.html" class="btn btn-neutral float-right" title="cloudvision.api.arista.tag.v2 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
