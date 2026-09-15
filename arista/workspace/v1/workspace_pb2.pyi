@@ -199,6 +199,10 @@ class _ResponseStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper.
     """RESPONSE_STATUS_FAIL indicates that the original Request was unsuccessful
     in its execution.
     """
+    RESPONSE_STATUS_IN_PROGRESS: _ResponseStatus.ValueType  # 3
+    """RESPONSE_STATUS_IN_PROGRESS indicates that the original Request is
+    currently being processed.
+    """
 
 class ResponseStatus(_ResponseStatus, metaclass=_ResponseStatusEnumTypeWrapper):
     """ResponseStatus enumerates the set of execution statuses of a Response."""
@@ -212,6 +216,10 @@ in its execution.
 RESPONSE_STATUS_FAIL: ResponseStatus.ValueType  # 2
 """RESPONSE_STATUS_FAIL indicates that the original Request was unsuccessful
 in its execution.
+"""
+RESPONSE_STATUS_IN_PROGRESS: ResponseStatus.ValueType  # 3
+"""RESPONSE_STATUS_IN_PROGRESS indicates that the original Request is
+currently being processed.
 """
 global___ResponseStatus = ResponseStatus
 
@@ -1071,6 +1079,7 @@ class Workspace(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     EXCLUDE_NETWORK_PROVISIONING_FIELD_NUMBER: builtins.int
     DECOMMISSION_REQUEST_IDS_FIELD_NUMBER: builtins.int
+    LAST_REBASE_ID_FIELD_NUMBER: builtins.int
     state: global___WorkspaceState.ValueType
     """state describes the status of the workspace."""
     @property
@@ -1150,6 +1159,10 @@ class Workspace(google.protobuf.message.Message):
         resource.
         """
 
+    @property
+    def last_rebase_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """last_rebase_id is the last rebase ID that was set for this workspace."""
+
     def __init__(
         self,
         *,
@@ -1169,9 +1182,10 @@ class Workspace(google.protobuf.message.Message):
         description: google.protobuf.wrappers_pb2.StringValue | None = ...,
         exclude_network_provisioning: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         decommission_request_ids: fmp.wrappers_pb2.MapStringString | None = ...,
+        last_rebase_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "decommission_request_ids", b"decommission_request_ids", "description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "decommission_request_ids", b"decommission_request_ids", "description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses", "state", b"state"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "decommission_request_ids", b"decommission_request_ids", "description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebase_id", b"last_rebase_id", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["cc_ids", b"cc_ids", "created_at", b"created_at", "created_by", b"created_by", "decommission_request_ids", b"decommission_request_ids", "description", b"description", "display_name", b"display_name", "exclude_network_provisioning", b"exclude_network_provisioning", "key", b"key", "last_build_id", b"last_build_id", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "last_rebase_id", b"last_rebase_id", "last_rebased_at", b"last_rebased_at", "needs_build", b"needs_build", "needs_rebase", b"needs_rebase", "responses", b"responses", "state", b"state"]) -> None: ...
 
 global___Workspace = Workspace
 

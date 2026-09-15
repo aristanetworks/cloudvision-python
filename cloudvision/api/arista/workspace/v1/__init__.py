@@ -296,6 +296,12 @@ class ResponseStatus(aristaproto.Enum):
     in its execution.
     """
 
+    IN_PROGRESS = 3
+    """
+    RESPONSE_STATUS_IN_PROGRESS indicates that the original Request is
+    currently being processed.
+    """
+
 
 class ResponseCode(aristaproto.Enum):
     """
@@ -908,6 +914,11 @@ class Workspace(aristaproto.Message):
     to inventory.v1.DeviceDecommissioningConfig. These request UUIDs can
     be used to track the status using the inventory.v1.DeviceDecommissioning
     resource.
+    """
+
+    last_rebase_id: Optional[str] = aristaproto.message_field(17, wraps=aristaproto.TYPE_STRING)
+    """
+    last_rebase_id is the last rebase ID that was set for this workspace.
     """
 
 
