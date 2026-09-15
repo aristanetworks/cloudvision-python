@@ -191,6 +191,8 @@ class ExportError(google.protobuf.message.Message):
     ERROR_FIELD_NUMBER: builtins.int
     DETAIL_FIELD_NUMBER: builtins.int
     LOG_TIMESTAMP_FIELD_NUMBER: builtins.int
+    IS_TRANSIENT_FIELD_NUMBER: builtins.int
+    RECOMMENDED_ACTION_FIELD_NUMBER: builtins.int
     @property
     def timestamp(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """timestamp provides the timestamp of the export error."""
@@ -209,6 +211,16 @@ class ExportError(google.protobuf.message.Message):
         that was not exported due to error.
         """
 
+    @property
+    def is_transient(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """is_transient indicates whether the export failure is transient."""
+
+    @property
+    def recommended_action(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """recommended_action indicates the user action required to fix a non-transient error.
+        It does not apply to transient errors.
+        """
+
     def __init__(
         self,
         *,
@@ -216,9 +228,11 @@ class ExportError(google.protobuf.message.Message):
         error: google.protobuf.wrappers_pb2.StringValue | None = ...,
         detail: google.protobuf.wrappers_pb2.StringValue | None = ...,
         log_timestamp: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        is_transient: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        recommended_action: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["detail", b"detail", "error", b"error", "log_timestamp", b"log_timestamp", "timestamp", b"timestamp"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["detail", b"detail", "error", b"error", "log_timestamp", b"log_timestamp", "timestamp", b"timestamp"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["detail", b"detail", "error", b"error", "is_transient", b"is_transient", "log_timestamp", b"log_timestamp", "recommended_action", b"recommended_action", "timestamp", b"timestamp"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["detail", b"detail", "error", b"error", "is_transient", b"is_transient", "log_timestamp", b"log_timestamp", "recommended_action", b"recommended_action", "timestamp", b"timestamp"]) -> None: ...
 
 global___ExportError = ExportError
 

@@ -194,6 +194,15 @@ class ExportError(aristaproto.Message):
     that was not exported due to error.
     """
 
+    is_transient: Optional[bool] = aristaproto.message_field(5, wraps=aristaproto.TYPE_BOOL)
+    """is_transient indicates whether the export failure is transient."""
+
+    recommended_action: Optional[str] = aristaproto.message_field(6, wraps=aristaproto.TYPE_STRING)
+    """
+    recommended_action indicates the user action required to fix a non-transient error.
+    It does not apply to transient errors.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class ExportStats(aristaproto.Message):
