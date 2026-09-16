@@ -1,0 +1,18 @@
+arista.action package
+=====================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.action.v1
+
+Module contents
+---------------
+
+.. automodule:: arista.action
+   :members:
+   :show-inheritance:
+   :undoc-members:

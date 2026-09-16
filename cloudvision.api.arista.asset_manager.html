@@ -1,0 +1,803 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.api.arista.asset_manager package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cloudvision.api.arista.asset_manager.v1 package" href="cloudvision.api.arista.asset_manager.v1.html" />
+    <link rel="prev" title="cloudvision.api.arista.arista_portal.v1 package" href="cloudvision.api.arista.arista_portal.v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cloudvision.html">cloudvision package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cloudvision.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.Connector.html">cloudvision.Connector package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cloudvision.api.html">cloudvision.api package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.compliance.html">cloudvision.compliance package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.cvlib.html">cloudvision.cvlib package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.html#module-cloudvision">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.html">arista package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.html">cloudvision package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.html">cloudvision.api package</a></li>
+          <li class="breadcrumb-item"><a href="cloudvision.api.arista.html">cloudvision.api.arista package</a></li>
+      <li class="breadcrumb-item active">cloudvision.api.arista.asset_manager package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cloudvision.api.arista.asset_manager.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cloudvision-api-arista-asset-manager-package">
+<h1>cloudvision.api.arista.asset_manager package<a class="headerlink" href="#cloudvision-api-arista-asset-manager-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html">cloudvision.api.arista.asset_manager.v1 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#module-cloudvision.api.arista.asset_manager.v1">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AccessType"><code class="docutils literal notranslate"><span class="pre">AccessType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AccessType.READ"><code class="docutils literal notranslate"><span class="pre">AccessType.READ</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AccessType.READ_WRITE"><code class="docutils literal notranslate"><span class="pre">AccessType.READ_WRITE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AccessType.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">AccessType.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AccessType.name"><code class="docutils literal notranslate"><span class="pre">AccessType.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AccessType.value"><code class="docutils literal notranslate"><span class="pre">AccessType.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenants"><code class="docutils literal notranslate"><span class="pre">AllowedTenants</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenants.access_type"><code class="docutils literal notranslate"><span class="pre">AllowedTenants.access_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenants.customer_info"><code class="docutils literal notranslate"><span class="pre">AllowedTenants.customer_info</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenants.key"><code class="docutils literal notranslate"><span class="pre">AllowedTenants.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsRequest"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsRequest.key"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsRequest.time"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsResponse"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsResponse.time"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsResponse.value"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceBase"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceStub"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsSomeRequest"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsSomeResponse"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsStreamRequest"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsStreamResponse"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AllowedTenantsStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">AllowedTenantsStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AssetType"><code class="docutils literal notranslate"><span class="pre">AssetType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AssetType.DEVICES"><code class="docutils literal notranslate"><span class="pre">AssetType.DEVICES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AssetType.DEVICES_AND_LICENSES"><code class="docutils literal notranslate"><span class="pre">AssetType.DEVICES_AND_LICENSES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AssetType.LICENSES"><code class="docutils literal notranslate"><span class="pre">AssetType.LICENSES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AssetType.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">AssetType.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AssetType.name"><code class="docutils literal notranslate"><span class="pre">AssetType.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.AssetType.value"><code class="docutils literal notranslate"><span class="pre">AssetType.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.CustomerInfo"><code class="docutils literal notranslate"><span class="pre">CustomerInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.CustomerInfo.allowed_tenant_ids"><code class="docutils literal notranslate"><span class="pre">CustomerInfo.allowed_tenant_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.CustomerInfo.customer_id"><code class="docutils literal notranslate"><span class="pre">CustomerInfo.customer_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.CustomerInfo.customer_name"><code class="docutils literal notranslate"><span class="pre">CustomerInfo.customer_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceKey"><code class="docutils literal notranslate"><span class="pre">DeviceKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceKey.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceKey.device_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfig"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfig.destination_tenant_id"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfig.destination_tenant_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfig.key"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfig.metadata"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfig.metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfig.source_tenant_id"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfig.source_tenant_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteAllRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllRequest.partial_eq_filter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteAllResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteAllResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteAllResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteAllResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteAllResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteRequest.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteResponse.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteSomeRequest.keys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigDeleteSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigDeleteSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.delete"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.delete_all"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.delete_some"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.set"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.set_some"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.delete"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.delete_all"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.delete_some"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.set"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.set_some"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSetRequest.value"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetRequest.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSetResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSetResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSetSomeRequest.values"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetSomeRequest.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSetSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSetSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSetSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignConfigStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignConfigStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment.customer_id"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment.customer_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment.end_customer_purchase_order_number"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment.end_customer_purchase_order_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment.key"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment.model_name"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment.model_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment.preferred_customer_name"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment.preferred_customer_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment.sales_order_number"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment.sales_order_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment.shipping_date"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment.shipping_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment.source"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment.source</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment.tenant_id"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment.tenant_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignment.updated_by_user"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignment.updated_by_user</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentPageRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentPageRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentPageRequest.page"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentPageRequest.page</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentPageRequest.page_length"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentPageRequest.page_length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentPageRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentPageRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentPageRequest.sort_dir"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentPageRequest.sort_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentPageRequest.sort_field"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentPageRequest.sort_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentPageRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentPageRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentRequest.key"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceBase"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceBase.get_page"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceBase.get_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceStub"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceStub.get_page"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub.get_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentSomeRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentSomeResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentSortableField"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSortableField</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentSortableField.name"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSortableField.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentSortableField.value"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentSortableField.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentStreamRequest"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentStreamResponse"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.DeviceTenantAssignmentStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">DeviceTenantAssignmentStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfig"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfig.destination_tenant_id"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfig.destination_tenant_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfig.key"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfig.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfig.metadata"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfig.metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfig.source_tenant_id"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfig.source_tenant_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteAllRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllRequest.partial_eq_filter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteAllResponse.error"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteAllResponse.key"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteAllResponse.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteAllResponse.type"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteAllResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteRequest.key"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteRequest.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteResponse.key"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteResponse.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteResponse.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteResponse.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteSomeRequest.keys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigDeleteSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigDeleteSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigRequest.key"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigRequest.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigResponse.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigResponse.value"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.delete"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.delete_all"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.delete_some"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.set"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.set_some"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.delete"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.delete_all"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.delete_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.delete_some"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.delete_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.set"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.set_some"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.set_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSetRequest.value"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetRequest.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSetResponse.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSetResponse.value"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSetSomeRequest.values"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetSomeRequest.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSetSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSetSomeResponse.key"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSetSomeResponse.key</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignConfigStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignConfigStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.assigned_device"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.assigned_device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.customer_id"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.customer_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.end_customer_purchase_order_number"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.end_customer_purchase_order_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.end_date"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.end_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.feature"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.feature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.invoice_line_number"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.invoice_line_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.invoice_number"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.invoice_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.key"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.license_bundle_uuid"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.license_bundle_uuid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.platform_class"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.platform_class</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.preferred_customer_name"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.preferred_customer_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.sales_order_number"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.sales_order_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.sku"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.sku</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.start_date"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.start_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.tenant_id"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.tenant_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignment.updated_by_user"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignment.updated_by_user</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentPageRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentPageRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentPageRequest.page"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentPageRequest.page</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentPageRequest.page_length"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentPageRequest.page_length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentPageRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentPageRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentPageRequest.sort_dir"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentPageRequest.sort_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentPageRequest.sort_field"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentPageRequest.sort_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentPageRequest.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentPageRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentRequest.key"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentRequest.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentResponse.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentResponse.value"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceBase"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceBase.get_page"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceBase.get_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceStub"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceStub.get_page"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub.get_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentSortableField"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSortableField</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentSortableField.name"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSortableField.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentSortableField.value"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentSortableField.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.LicenseTenantAssignmentStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">LicenseTenantAssignmentStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.MetaResponse.count"><code class="docutils literal notranslate"><span class="pre">MetaResponse.count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.MetaResponse.time"><code class="docutils literal notranslate"><span class="pre">MetaResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.MetaResponse.type"><code class="docutils literal notranslate"><span class="pre">MetaResponse.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.PurchaseOrder"><code class="docutils literal notranslate"><span class="pre">PurchaseOrder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.PurchaseOrder.customer_purchase_order"><code class="docutils literal notranslate"><span class="pre">PurchaseOrder.customer_purchase_order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.PurchaseOrder.partner_purchase_order"><code class="docutils literal notranslate"><span class="pre">PurchaseOrder.partner_purchase_order</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrder"><code class="docutils literal notranslate"><span class="pre">SalesOrder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrder.customer_names"><code class="docutils literal notranslate"><span class="pre">SalesOrder.customer_names</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrder.key"><code class="docutils literal notranslate"><span class="pre">SalesOrder.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrder.last_invoiced_at"><code class="docutils literal notranslate"><span class="pre">SalesOrder.last_invoiced_at</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderBatchedStreamRequest.filter"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamRequest.filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderBatchedStreamRequest.max_messages"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamRequest.max_messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderBatchedStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderBatchedStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderBatchedStreamResponse.responses"><code class="docutils literal notranslate"><span class="pre">SalesOrderBatchedStreamResponse.responses</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderFilter"><code class="docutils literal notranslate"><span class="pre">SalesOrderFilter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderFilter.asset_type"><code class="docutils literal notranslate"><span class="pre">SalesOrderFilter.asset_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderFilter.customer_ids"><code class="docutils literal notranslate"><span class="pre">SalesOrderFilter.customer_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderFilter.device_model"><code class="docutils literal notranslate"><span class="pre">SalesOrderFilter.device_model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderFilter.device_serial"><code class="docutils literal notranslate"><span class="pre">SalesOrderFilter.device_serial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderFilter.feature"><code class="docutils literal notranslate"><span class="pre">SalesOrderFilter.feature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderFilter.tenant_ids"><code class="docutils literal notranslate"><span class="pre">SalesOrderFilter.tenant_ids</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderKey"><code class="docutils literal notranslate"><span class="pre">SalesOrderKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderKey.sales_order_number"><code class="docutils literal notranslate"><span class="pre">SalesOrderKey.sales_order_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderRequest"><code class="docutils literal notranslate"><span class="pre">SalesOrderRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderRequest.key"><code class="docutils literal notranslate"><span class="pre">SalesOrderRequest.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderRequest.time"><code class="docutils literal notranslate"><span class="pre">SalesOrderRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderResponse"><code class="docutils literal notranslate"><span class="pre">SalesOrderResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderResponse.time"><code class="docutils literal notranslate"><span class="pre">SalesOrderResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderResponse.value"><code class="docutils literal notranslate"><span class="pre">SalesOrderResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceBase"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceBase.get_all"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceBase.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceBase.get_all_batched"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceBase.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceBase.get_meta"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceBase.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceBase.get_one"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceBase.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceBase.get_some"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceBase.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceBase.subscribe"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceBase.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceBase.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceBase.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceBase.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceBase.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceStub"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceStub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceStub.get_all"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceStub.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceStub.get_all_batched"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceStub.get_all_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceStub.get_meta"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceStub.get_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceStub.get_one"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceStub.get_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceStub.get_some"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceStub.get_some()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceStub.subscribe"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceStub.subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceStub.subscribe_batched"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceStub.subscribe_batched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderServiceStub.subscribe_meta"><code class="docutils literal notranslate"><span class="pre">SalesOrderServiceStub.subscribe_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderSomeRequest"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderSomeRequest.keys"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeRequest.keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderSomeRequest.time"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderSomeResponse"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderSomeResponse.error"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeResponse.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderSomeResponse.time"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderSomeResponse.value"><code class="docutils literal notranslate"><span class="pre">SalesOrderSomeResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderStreamRequest"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderStreamRequest.filter"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamRequest.filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderStreamRequest.partial_eq_filter"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamRequest.partial_eq_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderStreamRequest.time"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamRequest.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderStreamResponse"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderStreamResponse.time"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamResponse.time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderStreamResponse.type"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamResponse.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.SalesOrderStreamResponse.value"><code class="docutils literal notranslate"><span class="pre">SalesOrderStreamResponse.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.Source"><code class="docutils literal notranslate"><span class="pre">Source</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.Source.CUSTOMER"><code class="docutils literal notranslate"><span class="pre">Source.CUSTOMER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.Source.TAC"><code class="docutils literal notranslate"><span class="pre">Source.TAC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.Source.UNSPECIFIED"><code class="docutils literal notranslate"><span class="pre">Source.UNSPECIFIED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.Source.VENDOR"><code class="docutils literal notranslate"><span class="pre">Source.VENDOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.Source.name"><code class="docutils literal notranslate"><span class="pre">Source.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.Source.value"><code class="docutils literal notranslate"><span class="pre">Source.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.TenantKey"><code class="docutils literal notranslate"><span class="pre">TenantKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.TenantKey.tenant_id"><code class="docutils literal notranslate"><span class="pre">TenantKey.tenant_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.UserInfo"><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.UserInfo.user_name"><code class="docutils literal notranslate"><span class="pre">UserInfo.user_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudvision.api.arista.asset_manager.v1.html#cloudvision.api.arista.asset_manager.v1.UserInfo.user_tenant"><code class="docutils literal notranslate"><span class="pre">UserInfo.user_tenant</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-cloudvision.api.arista.asset_manager">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudvision.api.arista.asset_manager" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cloudvision.api.arista.arista_portal.v1.html" class="btn btn-neutral float-left" title="cloudvision.api.arista.arista_portal.v1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cloudvision.api.arista.asset_manager.v1.html" class="btn btn-neutral float-right" title="cloudvision.api.arista.asset_manager.v1 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

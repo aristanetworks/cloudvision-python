@@ -1,0 +1,18 @@
+arista.license package
+======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.license.v1
+
+Module contents
+---------------
+
+.. automodule:: arista.license
+   :members:
+   :show-inheritance:
+   :undoc-members:

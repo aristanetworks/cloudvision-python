@@ -1,0 +1,37 @@
+arista.action.v1 package
+========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.action.v1.services
+
+Submodules
+----------
+
+arista.action.v1.action\_pb2 module
+-----------------------------------
+
+.. automodule:: arista.action.v1.action_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.action.v1.action\_pb2\_grpc module
+-----------------------------------------
+
+.. automodule:: arista.action.v1.action_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.action.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:

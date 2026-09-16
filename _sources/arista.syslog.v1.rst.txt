@@ -1,0 +1,37 @@
+arista.syslog.v1 package
+========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.syslog.v1.services
+
+Submodules
+----------
+
+arista.syslog.v1.syslog\_pb2 module
+-----------------------------------
+
+.. automodule:: arista.syslog.v1.syslog_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.syslog.v1.syslog\_pb2\_grpc module
+-----------------------------------------
+
+.. automodule:: arista.syslog.v1.syslog_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.syslog.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:

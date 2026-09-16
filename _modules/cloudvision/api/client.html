@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.api.client &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=aad71706"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cloudvision</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cloudvision.api.client</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cloudvision.api.client</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2025 Arista Networks, Inc.</span>
+<span class="c1"># Use of this source code is governed by the Apache License 2.0</span>
+<span class="c1"># that can be found in the COPYING file.</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ssl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">grpclib</span><span class="w"> </span><span class="kn">import</span> <span class="n">client</span><span class="p">,</span> <span class="n">events</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">base64</span><span class="w"> </span><span class="kn">import</span> <span class="n">b64encode</span>
+
+
+<div class="viewcode-block" id="UnableToAuthenticateException">
+<a class="viewcode-back" href="../../../cloudvision.api.html#cloudvision.api.client.UnableToAuthenticateException">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">UnableToAuthenticateException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Is thrown when unable to authenticate using username and password</span>
+<span class="sd">    """</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="AsyncCVClient">
+<a class="viewcode-back" href="../../../cloudvision.api.html#cloudvision.api.client.AsyncCVClient">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AsyncCVClient</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    This class enables access to CloudVision GRPC API using grpclib stubs.</span>
+
+<span class="sd">    Use one of classmethods :py:func:`from_token` :py:func:`from_user_credentials`</span>
+<span class="sd">    to intantialize the client, and use it with stubs from</span>
+<span class="sd">    :py:mod:`cloudvision.api.arista`</span>
+
+<span class="sd">    It is implemented as contextmanager, that provides instance of grpclib.client.Channel_.</span>
+<span class="sd">    See example below</span>
+
+<span class="sd">    .. _grpclib.client.Channel: https://grpclib.readthedocs.io/en/latest/client.html</span>
+
+<span class="sd">    .. versionadded:: 1.26.1</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        import asyncio</span>
+<span class="sd">        from cloudvision.api.client import AsyncCVClient</span>
+<span class="sd">        from cloudvision.api.arista.inventory.v1 import DeviceServiceStub, DeviceStreamRequest</span>
+
+<span class="sd">        async def get_devices():</span>
+<span class="sd">            client = AsyncCVClient.from_token('&lt;your service account token&gt;', 'your-cvp.io')</span>
+
+<span class="sd">            # get channel</span>
+<span class="sd">            with client as channel:</span>
+
+<span class="sd">                # pass it to the stub</span>
+<span class="sd">                service = DeviceServiceStub(channel)</span>
+
+<span class="sd">                # execute one of stub's methods</span>
+<span class="sd">                async for item in service.get_all(DeviceStreamRequest()):</span>
+<span class="sd">                    print(item)</span>
+
+<span class="sd">        asyncio.run(get_devices())</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        If for some reason multiple context managers with the same client are</span>
+<span class="sd">        used, each will produce a new channel that would be closed accordingly (see below)</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            client = AsyncCVCClient(...)</span>
+
+<span class="sd">            with client as channel1:</span>
+<span class="sd">                # channel1 is open</span>
+<span class="sd">                with client as channel2:</span>
+<span class="sd">                    ... # both channel1 and channel2 are open</span>
+<span class="sd">                # channel2 is closed while channel 1 is still open</span>
+<span class="sd">            # channel1 is closed</span>
+<span class="sd">    """</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">ssl_context</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="n">token</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ssl_context</span> <span class="o">=</span> <span class="n">ssl_context</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_channel</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_channel_stack</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_ssl_context</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span> <span class="n">cacert</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">insecure</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">insecure</span><span class="p">:</span>
+            <span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">()</span>
+            <span class="n">context</span><span class="o">.</span><span class="n">check_hostname</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">context</span><span class="o">.</span><span class="n">verify_mode</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">CERT_NONE</span>
+        <span class="k">elif</span> <span class="n">cacert</span><span class="p">:</span>
+            <span class="n">cacert</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">cacert</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">cacert</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">cadata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">(</span><span class="n">purpose</span><span class="o">=</span><span class="n">ssl</span><span class="o">.</span><span class="n">Purpose</span><span class="o">.</span><span class="n">SERVER_AUTH</span><span class="p">,</span>
+                                                 <span class="n">cadata</span><span class="o">=</span><span class="n">cadata</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Use the system CA bundle for publicly-signed certificates.</span>
+            <span class="c1"># Private and self-signed CAs must be supplied explicitly.</span>
+            <span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">(</span><span class="n">purpose</span><span class="o">=</span><span class="n">ssl</span><span class="o">.</span><span class="n">Purpose</span><span class="o">.</span><span class="n">SERVER_AUTH</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">set_alpn_protocols</span><span class="p">([</span><span class="s2">"h2"</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">context</span>
+
+<div class="viewcode-block" id="AsyncCVClient.from_token">
+<a class="viewcode-back" href="../../../cloudvision.api.html#cloudvision.api.client.AsyncCVClient.from_token">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_token</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">insecure</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cacert</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        If you would like to use service accounts, you can create them in CloudVision UI</span>
+<span class="sd">        https://my-cloudvision-instance.io/cv/settings/aaa-service-accounts</span>
+
+<span class="sd">        Generate a token for service account and pass it to this method to get an instance of</span>
+<span class="sd">        the client.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            By default, certificates are verified using the system CA bundle.</span>
+<span class="sd">            For deployments using a private or self-signed CA, provide its</span>
+<span class="sd">            certificate using ``cacert``.</span>
+
+<span class="sd">        .. DANGER::</span>
+<span class="sd">            Avoid setting `insecure=True` as this would disable certificate check</span>
+
+<span class="sd">        .. versionchanged:: 1.27.2</span>
+<span class="sd">            Added `insecure` and `cacert` parameters</span>
+
+<span class="sd">        :param host: CloudVision hostname</span>
+
+<span class="sd">        :param insecure:</span>
+<span class="sd">            skip certificate verification</span>
+
+<span class="sd">        :param cacert:</span>
+<span class="sd">            path to CA certificate to use for verifying the host's certificate</span>
+<span class="sd">        :type cacert: :class:`pathlib.Path` or str</span>
+
+<span class="sd">        :rtype: AsyncCVClient</span>
+<span class="sd">        """</span>
+        <span class="n">ssl_context</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_ssl_context</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">cacert</span><span class="o">=</span><span class="n">cacert</span><span class="p">,</span> <span class="n">insecure</span><span class="o">=</span><span class="n">insecure</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">,</span> <span class="n">ssl_context</span><span class="o">=</span><span class="n">ssl_context</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AsyncCVClient.from_user_credentials">
+<a class="viewcode-back" href="../../../cloudvision.api.html#cloudvision.api.client.AsyncCVClient.from_user_credentials">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_user_credentials</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span>
+                              <span class="n">insecure</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cacert</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Use usename and password to authenticate in CloudVision</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            By default, certificates are verified using the system CA bundle.</span>
+<span class="sd">            For deployments using a private or self-signed CA, provide its</span>
+<span class="sd">            certificate using ``cacert``.</span>
+
+
+<span class="sd">        .. DANGER::</span>
+<span class="sd">            Avoid setting `insecure=True` as this would disable certificate check</span>
+
+<span class="sd">        .. versionchanged:: 1.27.2</span>
+<span class="sd">            Added `insecure` and `cacert` parameters</span>
+
+<span class="sd">        :param host: CloudVision hostname</span>
+
+<span class="sd">        :param insecure:</span>
+<span class="sd">            skip certificate verification</span>
+
+<span class="sd">        :param cacert:</span>
+<span class="sd">            path to CA certificate to use for verifying the host's certificate</span>
+<span class="sd">        :type cacert: :class:`pathlib.Path` or str</span>
+
+<span class="sd">        :rtype: AsyncCVClient</span>
+<span class="sd">        :raises UnableToAuthenticateException:</span>
+<span class="sd">        """</span>
+
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Basic </span><span class="si">{</span><span class="n">b64encode</span><span class="p">(</span><span class="s2">":"</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">context</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_ssl_context</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">cacert</span><span class="o">=</span><span class="n">cacert</span><span class="p">,</span> <span class="n">insecure</span><span class="o">=</span><span class="n">insecure</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">urllib3</span><span class="o">.</span><span class="n">PoolManager</span><span class="p">(</span><span class="n">ssl_context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+                <span class="n">resp</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span>
+                                    <span class="sa">f</span><span class="s1">'https://</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/cvpservice/login/authenticate.do'</span><span class="p">,</span>
+                                    <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Status code </span><span class="si">{</span><span class="n">resp</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">resp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">UnableToAuthenticateException</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Unable to authenticate using user and password. Cause: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+        <span class="c1"># Apparently we can't reuse ssl context, so creating a new one</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_ssl_context</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">cacert</span><span class="o">=</span><span class="n">cacert</span><span class="p">,</span> <span class="n">insecure</span><span class="o">=</span><span class="n">insecure</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">'sessionId'</span><span class="p">],</span> <span class="n">ssl_context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span>
+                   <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_init_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Initializes an authenticated Channel for sending GRPC requests. When using this method,</span>
+<span class="sd">        ensure that Channel is duly closed (`channel.close()`) after it's being used. Using context</span>
+<span class="sd">        manager `with client as channel: ...` is more recommended for this reason.</span>
+
+<span class="sd">        :rtype: grpclib.client.Channel</span>
+<span class="sd">        """</span>
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_auth_middleware</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">events</span><span class="o">.</span><span class="n">SendRequest</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">:</span>
+                <span class="n">event</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">'authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'Bearer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span>
+
+        <span class="n">channel</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">Channel</span><span class="p">(</span>
+            <span class="n">host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span>
+            <span class="n">port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span>
+            <span class="n">ssl</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ssl_context</span>
+        <span class="p">)</span>
+        <span class="n">events</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">events</span><span class="o">.</span><span class="n">SendRequest</span><span class="p">,</span> <span class="n">_auth_middleware</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">channel</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Returns an authenticated GRPC channel, that would be closed upon exitting</span>
+<span class="sd">        the context manager.</span>
+
+<span class="sd">        :rtype: grpclib.client.Channel</span>
+<span class="sd">        """</span>
+        <span class="n">channel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_channel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_channel_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">channel</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">channel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_channel_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">channel</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

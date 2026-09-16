@@ -1,0 +1,10 @@
+cloudvision.api.arista.asset\_manager.v1 package
+================================================
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.api.arista.asset_manager.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:

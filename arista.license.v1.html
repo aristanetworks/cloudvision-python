@@ -1,0 +1,911 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.license.v1 package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.license.v1.services package" href="arista.license.v1.services.html" />
+    <link rel="prev" title="arista.license package" href="arista.license.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.action.html">arista.action package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.arista_portal.html">arista.arista_portal package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.html">arista.asset_manager package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.auditlog.html">arista.auditlog package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.license.html">arista.license package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.html">arista.logging package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.html">arista.softwaremanagement package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio_topology.html">arista.studio_topology package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.syslog.html">arista.syslog package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.license.html">arista.license package</a></li>
+      <li class="breadcrumb-item active">arista.license.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.license.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-license-v1-package">
+<h1>arista.license.v1 package<a class="headerlink" href="#arista-license-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.license.v1.services.html">arista.license.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.license.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.license.v1.services.html#module-arista.license.v1.services.gen_pb2">arista.license.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesRequest"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesResponse"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesSomeRequest"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesSomeResponse"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesStreamRequest"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesStreamResponse"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableDevicesStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesRequest"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesResponse"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesSomeRequest"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesSomeResponse"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesStreamRequest"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesStreamResponse"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.ApplicableLicenseBundlesStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseAssignmentStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileSomeRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileSomeResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileStreamRequest"><code class="docutils literal notranslate"><span class="pre">LicenseFileStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileStreamResponse"><code class="docutils literal notranslate"><span class="pre">LicenseFileStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.LicenseFileStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LicenseFileStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseBatchedStreamRequest"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseBatchedStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseBatchedStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseBatchedStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseBatchedStreamResponse"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseBatchedStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseBatchedStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseBatchedStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseRequest"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseResponse"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseSomeRequest"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseSomeResponse"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseStreamRequest"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseStreamResponse"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2.PurchasedLicenseStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.license.v1.services.html#module-arista.license.v1.services.gen_pb2_grpc">arista.license.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesService"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesService.GetAll"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesService.GetMeta"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesService.GetOne"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesService.GetSome"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesServiceServicer"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableDevicesServiceStub"><code class="docutils literal notranslate"><span class="pre">ApplicableDevicesServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesService"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesService.GetAll"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesService.GetMeta"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesService.GetOne"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesService.GetSome"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesService.Subscribe"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesServiceServicer"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.ApplicableLicenseBundlesServiceStub"><code class="docutils literal notranslate"><span class="pre">ApplicableLicenseBundlesServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.Set"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentService"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentService.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentService.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentService.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentService.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentService.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentServiceServicer"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseAssignmentServiceStub"><code class="docutils literal notranslate"><span class="pre">LicenseAssignmentServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.Set"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">LicenseFileConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileService"><code class="docutils literal notranslate"><span class="pre">LicenseFileService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileService.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseFileService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseFileService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileService.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseFileService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileService.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseFileService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileService.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseFileService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileService.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseFileService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseFileService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseFileService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileServiceServicer"><code class="docutils literal notranslate"><span class="pre">LicenseFileServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">LicenseFileServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">LicenseFileServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">LicenseFileServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">LicenseFileServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">LicenseFileServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">LicenseFileServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">LicenseFileServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LicenseFileServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.LicenseFileServiceStub"><code class="docutils literal notranslate"><span class="pre">LicenseFileServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseService"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseService.GetAll"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseService.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseService.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseService.GetMeta"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseService.GetOne"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseService.GetSome"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseService.Subscribe"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseService.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseService.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseServiceServicer"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseServiceServicer.GetAllBatched"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseServiceServicer.GetAllBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseServiceServicer.SubscribeBatched"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseServiceServicer.SubscribeBatched()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.PurchasedLicenseServiceStub"><code class="docutils literal notranslate"><span class="pre">PurchasedLicenseServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.add_ApplicableDevicesServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ApplicableDevicesServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.add_ApplicableLicenseBundlesServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_ApplicableLicenseBundlesServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.add_LicenseAssignmentConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_LicenseAssignmentConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.add_LicenseAssignmentServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_LicenseAssignmentServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.add_LicenseFileConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_LicenseFileConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.add_LicenseFileServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_LicenseFileServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.license.v1.services.html#arista.license.v1.services.gen_pb2_grpc.add_PurchasedLicenseServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_PurchasedLicenseServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.license.v1.services.html#module-arista.license.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.license.v1.license_pb2">
+<span id="arista-license-v1-license-pb2-module"></span><h2>arista.license.v1.license_pb2 module<a class="headerlink" href="#module-arista.license.v1.license_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.ApplicableDevices">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">ApplicableDevices</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.ApplicableDevices" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.ApplicableDevices.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.ApplicableDevices.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.ApplicableDevicesKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">ApplicableDevicesKey</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.ApplicableDevicesKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.ApplicableDevicesKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.ApplicableDevicesKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.ApplicableLicenseBundles">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">ApplicableLicenseBundles</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.ApplicableLicenseBundles" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.ApplicableLicenseBundles.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.ApplicableLicenseBundles.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.ApplicableLicenseBundlesKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">ApplicableLicenseBundlesKey</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.ApplicableLicenseBundlesKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.ApplicableLicenseBundlesKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.ApplicableLicenseBundlesKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.DeviceData">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceData</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.DeviceData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.DeviceData.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.DeviceData.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.DeviceLicenseStatus">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">DeviceLicenseStatus</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.DeviceLicenseStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.DeviceLicenseStatus.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.DeviceLicenseStatus.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.DeviceLicenseStatus.ValuesEntry">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ValuesEntry</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.DeviceLicenseStatus.ValuesEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.DeviceLicenseStatus.ValuesEntry.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.DeviceLicenseStatus.ValuesEntry.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.Filter">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">Filter</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.Filter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.Filter.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.Filter.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseAssignment">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseAssignment</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseAssignment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseAssignment.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseAssignment.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseAssignmentConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseAssignmentConfig</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseAssignmentConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseAssignmentConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseAssignmentConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseAssignmentKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseAssignmentKey</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseAssignmentKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseAssignmentKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseAssignmentKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseBundle">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseBundle</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseBundle" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseBundle.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseBundle.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseFile">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseFile</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseFile" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseFile.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseFile.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseFileConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseFileConfig</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseFileConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseFileConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseFileConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseFileKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseFileKey</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseFileKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseFileKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseFileKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseInfo">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseInfo</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseInfo.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseInfo.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseStatus">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">LicenseStatus</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.LicenseStatus.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.LicenseStatus.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.PurchasedLicense">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">PurchasedLicense</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.PurchasedLicense" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.PurchasedLicense.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.PurchasedLicense.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.PurchasedLicenseKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">PurchasedLicenseKey</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.PurchasedLicenseKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.PurchasedLicenseKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.PurchasedLicenseKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.RepeatedLicenseBundle">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">RepeatedLicenseBundle</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.RepeatedLicenseBundle" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.RepeatedLicenseBundle.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.RepeatedLicenseBundle.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.RepeatedLicenseInfo">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.license.v1.license_pb2.</span></span><span class="sig-name descname"><span class="pre">RepeatedLicenseInfo</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.RepeatedLicenseInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.license.v1.license_pb2.RepeatedLicenseInfo.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.license.v1.license_pb2.RepeatedLicenseInfo.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.license.v1.license_pb2_grpc">
+<span id="arista-license-v1-license-pb2-grpc-module"></span><h2>arista.license.v1.license_pb2_grpc module<a class="headerlink" href="#module-arista.license.v1.license_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.license.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.license.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.license.html" class="btn btn-neutral float-left" title="arista.license package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.license.v1.services.html" class="btn btn-neutral float-right" title="arista.license.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

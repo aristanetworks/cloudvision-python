@@ -1,0 +1,29 @@
+cloudvision.compliance.gen package
+==================================
+
+Submodules
+----------
+
+cloudvision.compliance.gen.compliancecheck\_pb2 module
+------------------------------------------------------
+
+.. automodule:: cloudvision.compliance.gen.compliancecheck_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cloudvision.compliance.gen.compliancecheck\_pb2\_grpc module
+------------------------------------------------------------
+
+.. automodule:: cloudvision.compliance.gen.compliancecheck_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.compliance.gen
+   :members:
+   :show-inheritance:
+   :undoc-members:

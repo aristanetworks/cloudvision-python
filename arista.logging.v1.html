@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>arista.logging.v1 package &mdash; CloudVision Python 1.33.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=aad71706"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="arista.logging.v1.services package" href="arista.logging.v1.services.html" />
+    <link rel="prev" title="arista.logging package" href="arista.logging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cloudvision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudvision.html">cloudvision package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="arista.html">arista package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="arista.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="arista.action.html">arista.action package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.alert.html">arista.alert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.arista_portal.html">arista.arista_portal package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.asset_manager.html">arista.asset_manager package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.auditlog.html">arista.auditlog package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.bugexposure.html">arista.bugexposure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.changecontrol.html">arista.changecontrol package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configlet.html">arista.configlet package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.configstatus.html">arista.configstatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.connectivitymonitor.html">arista.connectivitymonitor package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.dashboard.html">arista.dashboard package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.endpointlocation.html">arista.endpointlocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.event.html">arista.event package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.identityprovider.html">arista.identityprovider package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.imagestatus.html">arista.imagestatus package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.inventory.html">arista.inventory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.license.html">arista.license package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.lifecycle.html">arista.lifecycle package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="arista.logging.html">arista.logging package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.redirector.html">arista.redirector package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.serviceaccount.html">arista.serviceaccount package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.softwaremanagement.html">arista.softwaremanagement package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio.html">arista.studio package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.studio_topology.html">arista.studio_topology package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.subscriptions.html">arista.subscriptions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.syslog.html">arista.syslog package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.tag.html">arista.tag package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.time.html">arista.time package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.workspace.html">arista.workspace package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.html#module-arista">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fmp.html">fmp package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cloudvision</a></li>
+          <li class="breadcrumb-item"><a href="arista.html">arista package</a></li>
+          <li class="breadcrumb-item"><a href="arista.logging.html">arista.logging package</a></li>
+      <li class="breadcrumb-item active">arista.logging.v1 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/arista.logging.v1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="arista-logging-v1-package">
+<h1>arista.logging.v1 package<a class="headerlink" href="#arista-logging-v1-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arista.logging.v1.services.html">arista.logging.v1.services package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arista.logging.v1.services.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arista.logging.v1.services.html#module-arista.logging.v1.services.gen_pb2">arista.logging.v1.services.gen_pb2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteAllRequest"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteAllRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteAllRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteAllRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteAllResponse"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteAllResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteAllResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteAllResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteRequest"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteResponse"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteSomeRequest"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteSomeResponse"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigDeleteSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigDeleteSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigRequest"><code class="docutils literal notranslate"><span class="pre">LoggingConfigRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigResponse"><code class="docutils literal notranslate"><span class="pre">LoggingConfigResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSetRequest"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSetRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSetRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSetRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSetResponse"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSetResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSetResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSetResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSetSomeRequest"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSetSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSetSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSetSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSetSomeResponse"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSetSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSetSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSetSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSomeRequest"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSomeResponse"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigStreamRequest"><code class="docutils literal notranslate"><span class="pre">LoggingConfigStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigStreamResponse"><code class="docutils literal notranslate"><span class="pre">LoggingConfigStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingConfigStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingConfigStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingRequest"><code class="docutils literal notranslate"><span class="pre">LoggingRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingResponse"><code class="docutils literal notranslate"><span class="pre">LoggingResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingSomeRequest"><code class="docutils literal notranslate"><span class="pre">LoggingSomeRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingSomeRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingSomeRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingSomeResponse"><code class="docutils literal notranslate"><span class="pre">LoggingSomeResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingSomeResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingSomeResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingStreamRequest"><code class="docutils literal notranslate"><span class="pre">LoggingStreamRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingStreamRequest.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingStreamRequest.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingStreamResponse"><code class="docutils literal notranslate"><span class="pre">LoggingStreamResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.LoggingStreamResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">LoggingStreamResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.MetaResponse"><code class="docutils literal notranslate"><span class="pre">MetaResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2.MetaResponse.DESCRIPTOR"><code class="docutils literal notranslate"><span class="pre">MetaResponse.DESCRIPTOR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.logging.v1.services.html#module-arista.logging.v1.services.gen_pb2_grpc">arista.logging.v1.services.gen_pb2_grpc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.Delete"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.DeleteAll"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.DeleteSome"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.GetAll"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.GetMeta"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.GetOne"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.GetSome"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.Set"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.SetSome"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.Subscribe"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LoggingConfigService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.Delete"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.Delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.DeleteAll"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.DeleteAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.DeleteSome"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.DeleteSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.Set"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.Set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.SetSome"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.SetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingConfigServiceStub"><code class="docutils literal notranslate"><span class="pre">LoggingConfigServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingService"><code class="docutils literal notranslate"><span class="pre">LoggingService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingService.GetAll"><code class="docutils literal notranslate"><span class="pre">LoggingService.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingService.GetMeta"><code class="docutils literal notranslate"><span class="pre">LoggingService.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingService.GetOne"><code class="docutils literal notranslate"><span class="pre">LoggingService.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingService.GetSome"><code class="docutils literal notranslate"><span class="pre">LoggingService.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingService.Subscribe"><code class="docutils literal notranslate"><span class="pre">LoggingService.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingService.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LoggingService.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingServiceServicer"><code class="docutils literal notranslate"><span class="pre">LoggingServiceServicer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingServiceServicer.GetAll"><code class="docutils literal notranslate"><span class="pre">LoggingServiceServicer.GetAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingServiceServicer.GetMeta"><code class="docutils literal notranslate"><span class="pre">LoggingServiceServicer.GetMeta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingServiceServicer.GetOne"><code class="docutils literal notranslate"><span class="pre">LoggingServiceServicer.GetOne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingServiceServicer.GetSome"><code class="docutils literal notranslate"><span class="pre">LoggingServiceServicer.GetSome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingServiceServicer.Subscribe"><code class="docutils literal notranslate"><span class="pre">LoggingServiceServicer.Subscribe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingServiceServicer.SubscribeMeta"><code class="docutils literal notranslate"><span class="pre">LoggingServiceServicer.SubscribeMeta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.LoggingServiceStub"><code class="docutils literal notranslate"><span class="pre">LoggingServiceStub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.add_LoggingConfigServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_LoggingConfigServiceServicer_to_server()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="arista.logging.v1.services.html#arista.logging.v1.services.gen_pb2_grpc.add_LoggingServiceServicer_to_server"><code class="docutils literal notranslate"><span class="pre">add_LoggingServiceServicer_to_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arista.logging.v1.services.html#module-arista.logging.v1.services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-arista.logging.v1.logging_pb2">
+<span id="arista-logging-v1-logging-pb2-module"></span><h2>arista.logging.v1.logging_pb2 module<a class="headerlink" href="#module-arista.logging.v1.logging_pb2" title="Link to this heading"></a></h2>
+<p>Generated protocol buffer code.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.logging.v1.logging_pb2.Logging">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.logging.v1.logging_pb2.</span></span><span class="sig-name descname"><span class="pre">Logging</span></span><a class="headerlink" href="#arista.logging.v1.logging_pb2.Logging" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.logging.v1.logging_pb2.Logging.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.logging.v1.logging_pb2.Logging.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.logging.v1.logging_pb2.LoggingAudit">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.logging.v1.logging_pb2.</span></span><span class="sig-name descname"><span class="pre">LoggingAudit</span></span><a class="headerlink" href="#arista.logging.v1.logging_pb2.LoggingAudit" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.logging.v1.logging_pb2.LoggingAudit.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.logging.v1.logging_pb2.LoggingAudit.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.logging.v1.logging_pb2.LoggingConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.logging.v1.logging_pb2.</span></span><span class="sig-name descname"><span class="pre">LoggingConfig</span></span><a class="headerlink" href="#arista.logging.v1.logging_pb2.LoggingConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.logging.v1.logging_pb2.LoggingConfig.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.logging.v1.logging_pb2.LoggingConfig.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="arista.logging.v1.logging_pb2.LoggingKey">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">arista.logging.v1.logging_pb2.</span></span><span class="sig-name descname"><span class="pre">LoggingKey</span></span><a class="headerlink" href="#arista.logging.v1.logging_pb2.LoggingKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="arista.logging.v1.logging_pb2.LoggingKey.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;google._upb._message.Descriptor</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#arista.logging.v1.logging_pb2.LoggingKey.DESCRIPTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-arista.logging.v1.logging_pb2_grpc">
+<span id="arista-logging-v1-logging-pb2-grpc-module"></span><h2>arista.logging.v1.logging_pb2_grpc module<a class="headerlink" href="#module-arista.logging.v1.logging_pb2_grpc" title="Link to this heading"></a></h2>
+<p>Client and server classes corresponding to protobuf-defined services.</p>
+</section>
+<section id="module-arista.logging.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-arista.logging.v1" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arista.logging.html" class="btn btn-neutral float-left" title="arista.logging package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arista.logging.v1.services.html" class="btn btn-neutral float-right" title="arista.logging.v1.services package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
