@@ -36,11 +36,12 @@
 #        --token-file token.tok
 #        --insecure
 #        --operation=get
-#        --studio-id=studio-interface-v2-pkg
+#        --studio-id=studio-evpn-services
 #
 # This script can be invoked from a multi-threaded program.  It has the
-# ability to rebase and order CCs appropriately to correctly process
+# ability to sync/rebase and order CCs appropriately to correctly process
 # parallel executions.
+# Note: Parallelization will add sync and rebuild overheads.
 #
 
 import argparse
@@ -54,7 +55,7 @@ from datetime import datetime, timedelta, timezone
 import yaml
 
 from grpclib import Status
-from grpclib.exceptions import GRPCError
+from grpclib.exceptions import GRPCError, StreamTerminatedError
 
 from cloudvision.api import client as cv_client
 from cloudvision.api import fmp
@@ -65,6 +66,89 @@ from cloudvision.api.arista.action import v1 as action
 from cloudvision.cvlib.constants import MAINLINE_WS_ID
 
 logger = logging.getLogger(__name__)
+
+
+# -------------------------
+# INDIVIDUAL API TIMEOUTS
+# -------------------------
+#     - all timeouts specified in seconds
+# RPC_TIMEOUT
+#     - used for sending the requests
+RPC_TIMEOUT = 60
+# WORKSPACE_READY_TIMEOUT
+#     - set to max expected workspace creation time
+WORKSPACE_READY_TIMEOUT = 60
+# BUILD_TIMEOUT
+#     - set to max expected workspace build time
+#     - set higher proportional to supported device count
+BUILD_TIMEOUT = 300
+# SYNC_TIMEOUT
+#     - set to max expected workspace synchronization time
+SYNC_TIMEOUT = 300
+# SUBMIT_TIMEOUT
+#     - set to max expected workspace submit time
+SUBMIT_TIMEOUT = 300
+# CC_QUERY_TIMEOUT
+#     - set to max expected cc getAll time
+CC_QUERY_TIMEOUT = 300
+# CC_EXECUTION_TIMEOUT
+#     - set to max expected CC time
+#     - set higher proportional to supported device count and config size
+CC_EXECUTION_TIMEOUT = 900
+# WS_QUERY_TIMEOUT
+#     - set to max expected workspace getAll time
+WS_QUERY_TIMEOUT = 300
+
+# -------------------------
+# SPECIFIC API CONTROLS
+# -------------------------
+# MAX_SYNC_RETRIES
+#     - set at minimum to max number parallel workspace requests
+#     - since submits are serial, Nth workspace will need N-1 syncs
+MAX_SYNC_RETRIES = 10
+# MAX_WS_REQUEST_RETRIES
+#     - retries for bulk workspace requests after a terminated gRPC stream
+MAX_WS_REQUEST_RETRIES = 3
+# WS_PROGRESS_INTERVAL
+#     - number of bulk workspace requests between progress messages
+WS_PROGRESS_INTERVAL = 100
+# WS_VERIFICATION_BATCH_SIZE
+#     - maximum workspace key filters in each verification request
+WS_VERIFICATION_BATCH_SIZE = 100
+# CC_ORDERING_ENABLED
+#     - when True, CCs will execute in creation order (waits for earlier CCs)
+#     - when False, CCs execute immediately after submission
+CC_ORDERING_ENABLED = True
+# MAX_CC_WAIT_ITERATIONS
+#     - maximum iterations to wait for earlier CCs to complete
+MAX_CC_WAIT_ITERATIONS = 120
+# CC_POLL_INTERVAL
+#     - seconds to wait between polling for earlier CCs
+CC_POLL_INTERVAL = 5
+# CHANGE_SIGNATURE
+#     - substring used in workspace and change control names,
+#       used to identify changes automated by this script
+CHANGE_SIGNATURE = "studio_update.py config push"
+
+# -------------------------
+# INTERNAL FLAGS
+# -------------------------
+# assign_studio
+#     - whether to modify studio device selection
+assign_studio = False
+# get_sync_diffs
+#     - whether to get and output sync diffs into a file
+get_sync_diffs = False
+
+
+class PreserveNewlinesHelpFormatter(argparse.RawDescriptionHelpFormatter):
+    '''Preserves explicit newlines while wrapping argparse option help.'''
+
+    def _split_lines(self, text, width):
+        lines = []
+        for line in text.splitlines():
+            lines.extend(super()._split_lines(line, width))
+        return lines
 
 
 class InputPathNotFoundError(Exception):
@@ -90,44 +174,36 @@ def load_yaml_file(filename):
             f"Invalid YAML in {filename}{location}: {problem}") from None
 
 
-# CHANGE_SIGNATURE
-#     - substring used in workspace and change control names,
-#       used to identify changes automated by this script
-CHANGE_SIGNATURE = "studio_update.py config push"
-# RPC_TIMEOUT
-#     - used for quick requests (in seconds)
-RPC_TIMEOUT = 30
-# BUILD_TIMEOUT
-#     - set to max expected build time (in seconds)
-#     - set higher proportional to supported device count
-BUILD_TIMEOUT = 300
-# SYNC_TIMEOUT
-#     - set to max expected synchronization time (in seconds)
-SYNC_TIMEOUT = 300
-# CC_EXECUTION_TIMEOUT
-#     - set to max expected CC time (in seconds)
-#     - set higher proportional to supported device count and config size
-CC_EXECUTION_TIMEOUT = 600
-# MAX_SYNC_RETRIES
-#     - set at minimum to max number parallel workspace requests
-#     - since submits are serial, Nth workspace will need N-1 syncs
-MAX_SYNC_RETRIES = 10
-# CC_ORDERING_ENABLED
-#     - when True, CCs will execute in creation order (waits for earlier CCs)
-#     - when False, CCs execute immediately after submission
-CC_ORDERING_ENABLED = True
-# MAX_CC_WAIT_ITERATIONS
-#     - maximum iterations to wait for earlier CCs to complete
-MAX_CC_WAIT_ITERATIONS = 120
-# CC_POLL_INTERVAL
-#     - seconds to wait between polling for earlier CCs
-CC_POLL_INTERVAL = 5
-# assign_studio
-#     - whether to modify studio device selection
-assign_studio = False
-# get_sync_diffs
-#     - whether to get and output sync diffs into a file
-get_sync_diffs = False
+def parse_workspace_state(value):
+    '''Converts a CLI workspace state name to a WorkspaceState enum value.'''
+    state_name = value.upper().replace('-', '_')
+    if state_name.startswith('WORKSPACE_STATE_'):
+        state_name = state_name.removeprefix('WORKSPACE_STATE_')
+    states = {
+        'UNSPECIFIED': workspace.WorkspaceState.UNSPECIFIED,
+        'PENDING': workspace.WorkspaceState.PENDING,
+        'SUBMITTED': workspace.WorkspaceState.SUBMITTED,
+        'ABANDONED': workspace.WorkspaceState.ABANDONED,
+        'CONFLICTS': workspace.WorkspaceState.CONFLICTS,
+        'ROLLED_BACK': workspace.WorkspaceState.ROLLED_BACK,
+    }
+    try:
+        return states[state_name]
+    except KeyError:
+        valid_states = ', '.join(name.lower() for name in states)
+        raise argparse.ArgumentTypeError(
+            f'invalid workspace state: {value!r}; choose from {valid_states}'
+        ) from None
+
+
+def parse_date(value):
+    '''Converts a YYYY-MM-DD CLI value to a date.'''
+    try:
+        return datetime.strptime(value, '%Y-%m-%d').date()
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            f'invalid date: {value!r}; expected YYYY-MM-DD'
+        ) from None
 
 
 def create_client(args):
@@ -336,7 +412,7 @@ async def create_workspace(channel, workspace_name):
     )
     stub = workspace.WorkspaceServiceStub(channel)
     logger.info('\tWaiting for workspace to become ready')
-    async for res in stub.subscribe(req, timeout=RPC_TIMEOUT):
+    async for res in stub.subscribe(req, timeout=WORKSPACE_READY_TIMEOUT):
         if res.value.state == workspace.WorkspaceState.PENDING:
             logger.info('\tWorkspaceID created: %s', ws_id)
             return ws_id
@@ -853,7 +929,7 @@ async def submit_workspace(channel, ws_id):
     )
     stub = workspace.WorkspaceServiceStub(channel)
     logger.info('\tWaiting for submission to complete')
-    async for res in stub.subscribe(req, timeout=RPC_TIMEOUT):
+    async for res in stub.subscribe(req, timeout=SUBMIT_TIMEOUT):
         if submit_id in res.value.responses.values:
             submit_res = res.value.responses.values[submit_id]
             if submit_res.status == workspace.ResponseStatus.FAIL:
@@ -904,7 +980,7 @@ async def get_earlier_change_controls(channel, my_timestamp):
     earlier_ccs = []
 
     try:
-        async for resp in stub.get_all(req, timeout=RPC_TIMEOUT):
+        async for resp in stub.get_all(req, timeout=CC_QUERY_TIMEOUT):
             cc_data = resp.value
             cc_timestamp = cc_data.creation.time
 
@@ -1100,7 +1176,7 @@ async def delete_old_change_controls(channel, age_hours):
     req = changecontrol.ChangeControlStreamRequest()
     candidates = []
     skipped = 0
-    async for resp in state_stub.get_all(req, timeout=RPC_TIMEOUT):
+    async for resp in state_stub.get_all(req, timeout=CC_QUERY_TIMEOUT):
         cc = resp.value
         if cc.creation.time < cutoff:
             if cc.status in skip_statuses:
@@ -1145,7 +1221,7 @@ async def get_change_controls(channel, age_hours=None):
     stub = changecontrol.ChangeControlServiceStub(channel)
     req = changecontrol.ChangeControlStreamRequest()
     count = 0
-    async for resp in stub.get_all(req, timeout=RPC_TIMEOUT):
+    async for resp in stub.get_all(req, timeout=CC_QUERY_TIMEOUT):
         cc = resp.value
         if cutoff is not None and cc.creation.time >= cutoff:
             continue
@@ -1158,8 +1234,190 @@ async def get_change_controls(channel, age_hours=None):
     logger.info('Total: %d change control(s)', count)
 
 
+def workspace_is_before_date(ws, before_date):
+    '''Checks the optional exclusive last-modified date cutoff.'''
+    if before_date is None:
+        return True
+    return (ws.last_modified_at is not None
+            and ws.last_modified_at.date() < before_date)
+
+
+async def get_workspaces(channel, state=None, before_date=None,
+                         include_builtins=False):
+    '''Lists workspaces, optionally filtering by state and modified date.'''
+    if state is None:
+        req = workspace.WorkspaceStreamRequest()
+        logger.info('Listing all workspaces')
+    else:
+        req = workspace.WorkspaceStreamRequest(
+            partial_eq_filter=[workspace.Workspace(state=state)]
+        )
+        logger.info('Listing workspaces with state %s', state.name)
+    if before_date is not None:
+        logger.info('Selecting workspaces last modified before %s',
+                    before_date.isoformat())
+
+    stub = workspace.WorkspaceServiceStub(channel)
+    rows = []
+    skipped_builtins = 0
+    async for resp in stub.get_all(req, timeout=WS_QUERY_TIMEOUT):
+        ws = resp.value
+        if not workspace_is_before_date(ws, before_date):
+            continue
+        if (not include_builtins
+                and ws.key.workspace_id.startswith('builtin-studios')):
+            skipped_builtins += 1
+            continue
+        workspace_name = ws.display_name or ws.key.workspace_id
+        rows.append((workspace_name, ws.state.name,
+                     ws.last_modified_at))
+
+    rows.sort(key=lambda row: row[2].timestamp() if row[2] else float('-inf'),
+              reverse=True)
+
+    workspace_width = max((len(row[0]) for row in rows),
+                          default=len('Workspace name'))
+    state_width = max((len(row[1]) for row in rows),
+                      default=len('State'))
+    header = (f'{"Workspace name":<{workspace_width}}  '
+              f'{"State":<{state_width}}  Last modified')
+    print(f'{len(rows)} workspace(s) found '
+          f'({skipped_builtins} built-in workspace(s) skipped)')
+    print(header)
+    print('-' * len(header))
+    for workspace_name, workspace_state, last_modified_at in rows:
+        last_modified = (last_modified_at.date().isoformat()
+                         if last_modified_at else 'unknown')
+        print(f'{workspace_name:<{workspace_width}}  '
+              f'{workspace_state:<{state_width}}  {last_modified}')
+
+
+async def delete_workspace(config_stub, ws):
+    '''Deletes one workspace, retrying a terminated gRPC stream.'''
+    workspace_name = ws.display_name or ws.key.workspace_id
+    req = workspace.WorkspaceConfigDeleteRequest(key=ws.key)
+    for attempt in range(1, MAX_WS_REQUEST_RETRIES + 1):
+        try:
+            await config_stub.delete(req, timeout=RPC_TIMEOUT)
+            return
+        except StreamTerminatedError:
+            if attempt == MAX_WS_REQUEST_RETRIES:
+                raise
+            logger.warning('Deleting workspace "%s": connection terminated; '
+                           'retrying (%d/%d)', workspace_name, attempt,
+                           MAX_WS_REQUEST_RETRIES)
+            await asyncio.sleep(attempt)
+        except GRPCError as err:
+            if err.args and err.args[0] == Status.NOT_FOUND:
+                return
+            raise
+
+
+async def get_existing_workspace_ids(channel, workspaces):
+    '''Returns candidate workspace IDs that still exist after deletion.'''
+    stub = workspace.WorkspaceServiceStub(channel)
+    existing = set()
+    for start in range(0, len(workspaces), WS_VERIFICATION_BATCH_SIZE):
+        batch = workspaces[start:start + WS_VERIFICATION_BATCH_SIZE]
+        req = workspace.WorkspaceStreamRequest(
+            partial_eq_filter=[
+                workspace.Workspace(key=ws.key) for ws in batch
+            ]
+        )
+        for attempt in range(1, MAX_WS_REQUEST_RETRIES + 1):
+            batch_existing = set()
+            try:
+                async for resp in stub.get_all(req, timeout=WS_QUERY_TIMEOUT):
+                    batch_existing.add(resp.value.key.workspace_id)
+                existing.update(batch_existing)
+                break
+            except StreamTerminatedError:
+                if attempt == MAX_WS_REQUEST_RETRIES:
+                    raise
+                logger.warning(
+                    'Workspace verification connection terminated for batch '
+                    '%d; retrying (%d/%d)',
+                    start // WS_VERIFICATION_BATCH_SIZE + 1,
+                    attempt, MAX_WS_REQUEST_RETRIES)
+                await asyncio.sleep(attempt)
+
+    return existing
+
+
+async def delete_workspaces(channel, state, before_date=None,
+                            include_builtins=False, workspace_name=None):
+    '''Deletes workspaces selected by state, date, and display-name prefix.'''
+    req = workspace.WorkspaceStreamRequest(
+        partial_eq_filter=[workspace.Workspace(state=state)]
+    )
+    if before_date is None:
+        logger.info('Deleting all workspaces with state %s', state.name)
+    else:
+        logger.info('Deleting workspaces with state %s last modified before %s',
+                    state.name, before_date.isoformat())
+    if workspace_name:
+        logger.info('Selecting workspaces whose names start with "%s"',
+                    workspace_name)
+
+    state_stub = workspace.WorkspaceServiceStub(channel)
+    candidates = []
+    skipped_builtins = 0
+    async for resp in state_stub.get_all(req, timeout=WS_QUERY_TIMEOUT):
+        ws = resp.value
+        if not workspace_is_before_date(ws, before_date):
+            continue
+        if (workspace_name
+                and not (ws.display_name or '').startswith(workspace_name)):
+            continue
+        if (not include_builtins
+                and ws.key.workspace_id.startswith('builtin-studios')):
+            skipped_builtins += 1
+            continue
+        candidates.append(ws)
+
+    if not candidates:
+        logger.info('No matching workspaces found '
+                    '(%d built-in workspace(s) skipped)', skipped_builtins)
+        return
+
+    logger.info('Found %d workspace(s) to delete '
+                '(%d built-in workspace(s) skipped)',
+                len(candidates), skipped_builtins)
+    config_stub = workspace.WorkspaceConfigServiceStub(channel)
+    request_errors = 0
+    for index, ws in enumerate(candidates, start=1):
+        try:
+            await delete_workspace(config_stub, ws)
+        except (GRPCError, StreamTerminatedError) as err:
+            request_errors += 1
+            logger.error('Failed to delete workspace "%s": %s',
+                         ws.display_name or ws.key.workspace_id, err)
+        if (index % WS_PROGRESS_INTERVAL == 0
+                or index == len(candidates)):
+            logger.info('Delete: %d/%d workspace request(s)',
+                        index, len(candidates))
+
+    logger.info('Verifying deletion of %d workspace(s)', len(candidates))
+    existing = await get_existing_workspace_ids(channel, candidates)
+    deleted = len(candidates) - len(existing)
+    logger.info('Deleted %d of %d workspace(s) '
+                '(%d request error(s), %d still present)',
+                deleted, len(candidates), request_errors, len(existing))
+
+
 async def main(args, client):
     with client as channel:
+        # Delete workspaces
+        if args.operation == 'deleteWS':
+            await delete_workspaces(channel, args.state, args.date,
+                                    args.include_builtins,
+                                    args.workspace_name)
+            return
+        # List workspaces
+        if args.operation == 'getWS':
+            await get_workspaces(channel, args.state, args.date,
+                                 args.include_builtins)
+            return
         # List change controls
         if args.operation == 'getCC':
             await get_change_controls(channel, args.age)
@@ -1306,9 +1564,32 @@ if __name__ == '__main__':
         "     inputs:\n"
         "       name: vlan101\n"
         "       vlanId: 101\n"
+        "4. List workspaces, optionally filtered by state.\n"
+        "   Example:\n"
+        "     python3 studio_update.py --server=192.0.2.10:443\n"
+        "            --token-file=token.tok --operation=getWS\n"
+        "   Optionally filter by workspace state:\n"
+        "            --state=pending\n"
+        "   Optionally show only workspaces last modified before a date:\n"
+        "            --date=2026-09-01\n"
+        "   Optionally include matching built-in studio workspaces:\n"
+        "            --include-builtins\n"
+        "5. Delete submitted or abandoned workspaces.\n"
+        "   Matching builtin-studios* workspaces are skipped by default.\n"
+        "   Example:\n"
+        "     python3 studio_update.py --server=192.0.2.10:443\n"
+        "            --token-file=token.tok --operation=deleteWS\n"
+        "            --state=abandoned\n"
+        "   Optionally delete only workspaces whose names start with a string:\n"
+        "            --workspace-name=test-set1\n"
+        "   Optionally delete only workspaces last modified before a date:\n"
+        "            --date=2026-09-01\n"
+        "   Optionally include matching built-in studio workspaces:\n"
+        "            --include-builtins\n"
     )
-    parser = argparse.ArgumentParser(description=desc,
-                                     formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(
+        description=desc,
+        formatter_class=PreserveNewlinesHelpFormatter)
     parser.add_argument("--server",
                         required=True,
                         metavar="www.arista.io|192.0.2.10:443",
@@ -1319,9 +1600,14 @@ if __name__ == '__main__':
     parser.add_argument("--cert-file", type=str,
                         help="path to certificate file to use as root CA")
     parser.add_argument("--operation",
-                        choices=['set', 'get', 'getCC', 'deleteCC'], default='get',
-                        help="get/set studio inputs, getCC to list change controls, "
-                             "or deleteCC to remove old CCs")
+                        choices=['set', 'get', 'getCC', 'deleteCC',
+                                 'getWS', 'deleteWS'],
+                        default='get',
+                        help=("get/set studio inputs,\n"
+                              "getCC to list change controls,\n"
+                              "deleteCC to remove old CCs,\n"
+                              "getWS to list workspaces,\n"
+                              "deleteWS to remove closed workspaces"))
     parser.add_argument("--yaml-file", type=argparse.FileType('r'),
                         help=("YAML file containing studio inputs for set, "
                               "or input paths for get"))
@@ -1342,11 +1628,28 @@ if __name__ == '__main__':
                         help="synchronize workspace with mainline before building")
     parser.add_argument("--age", type=float,
                         help="age threshold in hours for deleteCC operation")
+    parser.add_argument("--state", type=parse_workspace_state,
+                        help="workspace state for getWS or deleteWS")
+    parser.add_argument("--date", type=parse_date,
+                        help=("for getWS or deleteWS, select only workspaces last "
+                              "modified before this date (YYYY-MM-DD)"))
+    parser.add_argument("--include-builtins", action="store_true", default=False,
+                        help=("for getWS or deleteWS, include workspaces whose IDs "
+                              "start with builtin-studios"))
+    parser.add_argument("--workspace-name", type=str,
+                        help=("for deleteWS, select only workspaces whose display "
+                              "names start with this string"))
     parser.add_argument("--insecure", action="store_true", default=False,
                         help="skip TLS certificate verification")
     pargs = parser.parse_args()
     if pargs.operation == 'deleteCC' and pargs.age is None:
         parser.error("--age is required when --operation=deleteCC")
+    if pargs.operation == 'deleteWS':
+        allowed_states = (workspace.WorkspaceState.ABANDONED,
+                          workspace.WorkspaceState.SUBMITTED)
+        if pargs.state not in allowed_states:
+            parser.error("--state must be abandoned or submitted when "
+                         "--operation=deleteWS")
     conn = create_client(pargs)
     try:
         asyncio.run(main(pargs, conn))
@@ -1355,4 +1658,7 @@ if __name__ == '__main__':
         sys.exit(1)
     except ValueError as err:
         logger.error("%s", err)
+        sys.exit(1)
+    except (GRPCError, StreamTerminatedError) as err:
+        logger.error("CloudVision API request failed: %s", err)
         sys.exit(1)
