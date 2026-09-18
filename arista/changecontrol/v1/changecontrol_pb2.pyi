@@ -6,6 +6,7 @@ Use of this source code is governed by the Apache License 2.0
 that can be found in the COPYING file.
 """
 
+import arista.time.time_pb2
 import builtins
 import collections.abc
 import fmp.wrappers_pb2
@@ -1029,6 +1030,38 @@ class Filter(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["device_ids", b"device_ids"]) -> None: ...
 
 global___Filter = Filter
+
+@typing.final
+class ChangeControlSummaryFilter(google.protobuf.message.Message):
+    """ChangeControlSummaryFilter is used to filter change control summaries."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DEVICE_IDS_FIELD_NUMBER: builtins.int
+    END_TIME_RANGE_FIELD_NUMBER: builtins.int
+    @property
+    def device_ids(self) -> fmp.wrappers_pb2.RepeatedString:
+        """device_ids identifies devices associated with the change control.
+        A change control matches when it contains at least one of the provided device IDs.
+        """
+
+    @property
+    def end_time_range(self) -> arista.time.time_pb2.TimeBounds:
+        """end_time_range restricts results to change controls whose end_time falls
+        within [start, end]. Either bound may be nil for a one-sided range.
+        When unset, no end_time_range constraint is applied.
+        """
+
+    def __init__(
+        self,
+        *,
+        device_ids: fmp.wrappers_pb2.RepeatedString | None = ...,
+        end_time_range: arista.time.time_pb2.TimeBounds | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["device_ids", b"device_ids", "end_time_range", b"end_time_range"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_ids", b"device_ids", "end_time_range", b"end_time_range"]) -> None: ...
+
+global___ChangeControlSummaryFilter = ChangeControlSummaryFilter
 
 @typing.final
 class DeviceToStageMap(google.protobuf.message.Message):

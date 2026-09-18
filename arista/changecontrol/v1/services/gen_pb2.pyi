@@ -1535,7 +1535,7 @@ class ChangeControlSummaryStreamRequest(google.protobuf.message.Message):
         """
 
     @property
-    def filter(self) -> arista.changecontrol.v1.changecontrol_pb2.Filter:
+    def filter(self) -> arista.changecontrol.v1.changecontrol_pb2.ChangeControlSummaryFilter:
         """For each ChangeControlSummary in the list, all populated fields are considered ANDed together
         as a filtering operation. Similarly, the list itself is ORed such that any individual
         filter that matches a given ChangeControlSummary is streamed to the user.
@@ -1562,7 +1562,7 @@ class ChangeControlSummaryStreamRequest(google.protobuf.message.Message):
         self,
         *,
         partial_eq_filter: collections.abc.Iterable[arista.changecontrol.v1.changecontrol_pb2.ChangeControlSummary] | None = ...,
-        filter: arista.changecontrol.v1.changecontrol_pb2.Filter | None = ...,
+        filter: arista.changecontrol.v1.changecontrol_pb2.ChangeControlSummaryFilter | None = ...,
         time: arista.time.time_pb2.TimeBounds | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["filter", b"filter", "time", b"time"]) -> builtins.bool: ...
@@ -1624,7 +1624,7 @@ class ChangeControlSummaryBatchedStreamRequest(google.protobuf.message.Message):
         """
 
     @property
-    def filter(self) -> arista.changecontrol.v1.changecontrol_pb2.Filter:
+    def filter(self) -> arista.changecontrol.v1.changecontrol_pb2.ChangeControlSummaryFilter:
         """For each ChangeControlSummary in the list, all populated fields are considered ANDed together
         as a filtering operation. Similarly, the list itself is ORed such that any individual
         filter that matches a given ChangeControlSummary is streamed to the user.
@@ -1659,7 +1659,7 @@ class ChangeControlSummaryBatchedStreamRequest(google.protobuf.message.Message):
         self,
         *,
         partial_eq_filter: collections.abc.Iterable[arista.changecontrol.v1.changecontrol_pb2.ChangeControlSummary] | None = ...,
-        filter: arista.changecontrol.v1.changecontrol_pb2.Filter | None = ...,
+        filter: arista.changecontrol.v1.changecontrol_pb2.ChangeControlSummaryFilter | None = ...,
         time: arista.time.time_pb2.TimeBounds | None = ...,
         max_messages: google.protobuf.wrappers_pb2.UInt32Value | None = ...,
     ) -> None: ...

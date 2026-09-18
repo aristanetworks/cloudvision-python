@@ -33,6 +33,7 @@ __all__ = (
     "TimestampFlag",
     "Creation",
     "Filter",
+    "ChangeControlSummaryFilter",
     "DeviceToStageMap",
     "ChangeControl",
     "ApproveConfig",
@@ -700,6 +701,26 @@ class Filter(aristaproto.Message):
     device_ids includes the list of device ids to be matched with devices
     in the changecontrol state model.
     At least one of the provided device ids must be present in CC devices field.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class ChangeControlSummaryFilter(aristaproto.Message):
+    """
+    ChangeControlSummaryFilter is used to filter change control summaries.
+    """
+
+    device_ids: "___fmp__.RepeatedString" = aristaproto.message_field(1)
+    """
+    device_ids identifies devices associated with the change control.
+    A change control matches when it contains at least one of the provided device IDs.
+    """
+
+    end_time_range: "__time__.TimeBounds" = aristaproto.message_field(2)
+    """
+    end_time_range restricts results to change controls whose end_time falls
+    within [start, end]. Either bound may be nil for a one-sided range.
+    When unset, no end_time_range constraint is applied.
     """
 
 
@@ -1850,7 +1871,7 @@ class ChangeControlSummaryStreamRequest(aristaproto.Message):
     subscriptions if filter(s) are sufficiently specific.
     """
 
-    filter: "Filter" = aristaproto.message_field(2)
+    filter: "ChangeControlSummaryFilter" = aristaproto.message_field(2)
     """
     For each ChangeControlSummary in the list, all populated fields are considered ANDed together
     as a filtering operation. Similarly, the list itself is ORed such that any individual
@@ -1909,7 +1930,7 @@ class ChangeControlSummaryBatchedStreamRequest(aristaproto.Message):
     subscriptions if filter(s) are sufficiently specific.
     """
 
-    filter: "Filter" = aristaproto.message_field(2)
+    filter: "ChangeControlSummaryFilter" = aristaproto.message_field(2)
     """
     For each ChangeControlSummary in the list, all populated fields are considered ANDed together
     as a filtering operation. Similarly, the list itself is ORed such that any individual
