@@ -443,6 +443,9 @@ class PurchasedLicense(aristaproto.Message):
     end_customer_purchase_order_number is the purchase order number associated with this license.
     """
 
+    shipset_number: Optional[int] = aristaproto.message_field(18, wraps=aristaproto.TYPE_INT64)
+    """shipset_number is the shipset number associated with this license."""
+
 
 @dataclass(eq=False, repr=False)
 class LicenseAssignmentKey(aristaproto.Message):

@@ -338,6 +338,7 @@ class PurchasedLicense(google.protobuf.message.Message):
     END_CUSTOMER_PARENT_ACCOUNT_NAME_FIELD_NUMBER: builtins.int
     PLATFORM_CLASS_FIELD_NUMBER: builtins.int
     END_CUSTOMER_PURCHASE_ORDER_NUMBER_FIELD_NUMBER: builtins.int
+    SHIPSET_NUMBER_FIELD_NUMBER: builtins.int
     feature: global___Feature.ValueType
     """feature is the name of the feature for which the
     license was purchased.
@@ -409,6 +410,10 @@ class PurchasedLicense(google.protobuf.message.Message):
     def end_customer_purchase_order_number(self) -> google.protobuf.wrappers_pb2.StringValue:
         """end_customer_purchase_order_number is the purchase order number associated with this license."""
 
+    @property
+    def shipset_number(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """shipset_number is the shipset number associated with this license."""
+
     def __init__(
         self,
         *,
@@ -429,9 +434,10 @@ class PurchasedLicense(google.protobuf.message.Message):
         end_customer_parent_account_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
         platform_class: google.protobuf.wrappers_pb2.StringValue | None = ...,
         end_customer_purchase_order_number: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        shipset_number: google.protobuf.wrappers_pb2.Int64Value | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "end_customer_parent_account_id", b"end_customer_parent_account_id", "end_customer_parent_account_name", b"end_customer_parent_account_name", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "original_sales_order_number", b"original_sales_order_number", "original_subscription_record_number", b"original_subscription_record_number", "platform_class", b"platform_class", "renewal_status", b"renewal_status", "renewal_status_date", b"renewal_status_date", "sku", b"sku", "so_number", b"so_number", "start_time", b"start_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "end_customer_parent_account_id", b"end_customer_parent_account_id", "end_customer_parent_account_name", b"end_customer_parent_account_name", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "feature", b"feature", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "original_sales_order_number", b"original_sales_order_number", "original_subscription_record_number", b"original_subscription_record_number", "plan_name", b"plan_name", "platform_class", b"platform_class", "renewal_status", b"renewal_status", "renewal_status_date", b"renewal_status_date", "sku", b"sku", "so_number", b"so_number", "start_time", b"start_time"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "end_customer_parent_account_id", b"end_customer_parent_account_id", "end_customer_parent_account_name", b"end_customer_parent_account_name", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "original_sales_order_number", b"original_sales_order_number", "original_subscription_record_number", b"original_subscription_record_number", "platform_class", b"platform_class", "renewal_status", b"renewal_status", "renewal_status_date", b"renewal_status_date", "shipset_number", b"shipset_number", "sku", b"sku", "so_number", b"so_number", "start_time", b"start_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["assigned_device", b"assigned_device", "end_customer_parent_account_id", b"end_customer_parent_account_id", "end_customer_parent_account_name", b"end_customer_parent_account_name", "end_customer_purchase_order_number", b"end_customer_purchase_order_number", "end_time", b"end_time", "feature", b"feature", "key", b"key", "license_bundle_uuid", b"license_bundle_uuid", "original_sales_order_number", b"original_sales_order_number", "original_subscription_record_number", b"original_subscription_record_number", "plan_name", b"plan_name", "platform_class", b"platform_class", "renewal_status", b"renewal_status", "renewal_status_date", b"renewal_status_date", "shipset_number", b"shipset_number", "sku", b"sku", "so_number", b"so_number", "start_time", b"start_time"]) -> None: ...
 
 global___PurchasedLicense = PurchasedLicense
 
