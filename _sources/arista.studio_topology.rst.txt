@@ -1,0 +1,18 @@
+arista.studio\_topology package
+===============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.studio_topology.v1
+
+Module contents
+---------------
+
+.. automodule:: arista.studio_topology
+   :members:
+   :show-inheritance:
+   :undoc-members:

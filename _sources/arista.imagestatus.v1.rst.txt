@@ -1,0 +1,29 @@
+arista.imagestatus.v1 package
+=============================
+
+Submodules
+----------
+
+arista.imagestatus.v1.imagestatus\_pb2 module
+---------------------------------------------
+
+.. automodule:: arista.imagestatus.v1.imagestatus_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.imagestatus.v1.imagestatus\_pb2\_grpc module
+---------------------------------------------------
+
+.. automodule:: arista.imagestatus.v1.imagestatus_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.imagestatus.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:

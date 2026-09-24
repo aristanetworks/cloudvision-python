@@ -1,0 +1,18 @@
+cloudvision.api.arista.license package
+======================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   cloudvision.api.arista.license.v1
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.api.arista.license
+   :members:
+   :show-inheritance:
+   :undoc-members:
