@@ -43,6 +43,8 @@
 # parallel executions.
 # Note: Parallelization will add sync and rebuild overheads.
 #
+# pylint: skip-file
+# This file is linted with flake8.
 
 import argparse
 import asyncio
@@ -106,6 +108,9 @@ WS_QUERY_TIMEOUT = 300
 #     - set at minimum to max number parallel workspace requests
 #     - since submits are serial, Nth workspace will need N-1 syncs
 MAX_SYNC_RETRIES = 10
+# MAX_REBUILD_RETRIES
+#     - maximum rebuilds when a successful build changes workspace content
+MAX_REBUILD_RETRIES = 10
 # MAX_WS_REQUEST_RETRIES
 #     - retries for bulk workspace requests after a terminated gRPC stream
 MAX_WS_REQUEST_RETRIES = 3
@@ -675,48 +680,71 @@ async def build_workspace(channel, ws_id):
     to finish, and reports the result. Returns True if
     the build was successful and False otherwise.
     '''
-    logger.info('Building workspace')
-    # Send a request to build the workspace.
-    build_id = str(uuid.uuid4())
-    req = workspace.WorkspaceConfigSetRequest(
-        value=workspace.WorkspaceConfig(
-            key=workspace.WorkspaceKey(
-                workspace_id=ws_id
-            ),
-            request=workspace.Request.START_BUILD,
-            request_params=workspace.RequestParams(
-                request_id=build_id
-            )
-        )
-    )
-    stub = workspace.WorkspaceConfigServiceStub(channel)
-    await stub.set(req, timeout=RPC_TIMEOUT)
-    logger.info('\tBuild request %s sent', build_id)
-    # Wait until the workspace build request finishes.
-    req = workspace.WorkspaceStreamRequest(
-        partial_eq_filter=[
-            workspace.Workspace(
+    for rebuild_count in range(MAX_REBUILD_RETRIES + 1):
+        if rebuild_count == 0:
+            logger.info('Building workspace')
+        else:
+            logger.info('Rebuilding workspace (attempt %d of %d)',
+                        rebuild_count, MAX_REBUILD_RETRIES)
+        # Send a request to build the workspace.
+        build_id = str(uuid.uuid4())
+        req = workspace.WorkspaceConfigSetRequest(
+            value=workspace.WorkspaceConfig(
                 key=workspace.WorkspaceKey(
-                    workspace_id=ws_id,
+                    workspace_id=ws_id
+                ),
+                request=workspace.Request.START_BUILD,
+                request_params=workspace.RequestParams(
+                    request_id=build_id
                 )
             )
-        ]
-    )
-    stub = workspace.WorkspaceServiceStub(channel)
-    logger.info('\tWaiting for build to complete')
-    async for res in stub.subscribe(req, timeout=BUILD_TIMEOUT):
-        if build_id in res.value.responses.values:
-            build_res = res.value.responses.values[build_id]
-            break
-    if build_res.status == workspace.ResponseStatus.FAIL:
-        # Get the workspace build details.
-        fail_msg = await build_failure_message(channel, ws_id, build_id)
-        logger.error('\tBuild failed:\n%s', fail_msg)
-        return False
-    if build_res.status == workspace.ResponseStatus.SUCCESS:
+        )
+        stub = workspace.WorkspaceConfigServiceStub(channel)
+        await stub.set(req, timeout=RPC_TIMEOUT)
+        logger.info('\tBuild request %s sent', build_id)
+        # Wait until the workspace build request finishes.
+        req = workspace.WorkspaceStreamRequest(
+            partial_eq_filter=[
+                workspace.Workspace(
+                    key=workspace.WorkspaceKey(
+                        workspace_id=ws_id,
+                    )
+                )
+            ]
+        )
+        stub = workspace.WorkspaceServiceStub(channel)
+        logger.info('\tWaiting for build to complete')
+        build_res = None
+        workspace_res = None
+        async for res in stub.subscribe(req, timeout=BUILD_TIMEOUT):
+            build_res = res.value.responses.values.get(build_id)
+            if (build_res is not None
+                    and build_res.status in (
+                        workspace.ResponseStatus.SUCCESS,
+                        workspace.ResponseStatus.FAIL)):
+                workspace_res = res.value
+                break
+        if build_res is None:
+            logger.error('\tBuild completed without a response')
+            return False
+        if build_res.status == workspace.ResponseStatus.FAIL:
+            # Get the workspace build details.
+            fail_msg = await build_failure_message(channel, ws_id, build_id)
+            logger.error('\tBuild failed:\n%s', fail_msg)
+            return False
+        if build_res.status != workspace.ResponseStatus.SUCCESS:
+            logger.error('\tBuild failed')
+            return False
+
         logger.info('\tBuild succeeded')
-        return True
-    logger.error('\tBuild failed')
+        if not workspace_res.needs_build:
+            return True
+        if rebuild_count == MAX_REBUILD_RETRIES:
+            logger.error('Maximum rebuild retries (%d) exceeded',
+                         MAX_REBUILD_RETRIES)
+            return False
+        logger.info('\tWorkspace content changed during build; rebuild required')
+
     return False
 
 
