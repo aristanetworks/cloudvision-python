@@ -73,8 +73,6 @@ __all__ = (
     "MapStringBool",
     "MapStringString",
     "MapStringBytes",
-    "MacAddress",
-    "RepeatedMacAddress",
     "IpAddress",
     "RepeatedIpAddress",
     "IPv4Address",
@@ -752,16 +750,6 @@ class MapStringBytes(aristaproto.Message):
         1, aristaproto.TYPE_STRING, aristaproto.TYPE_BYTES
     )
     """The map<string, bytes> values."""
-
-
-@dataclass(eq=False, repr=False)
-class MacAddress(aristaproto.Message):
-    value: str = aristaproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class RepeatedMacAddress(aristaproto.Message):
-    values: List["MacAddress"] = aristaproto.message_field(1)
 
 
 @dataclass(eq=False, repr=False)

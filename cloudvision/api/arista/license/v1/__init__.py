@@ -281,6 +281,9 @@ class PlanName(aristaproto.Enum):
     PLAN_NAME_PERPETUAL refers to the licenses valid for lifetime of the device.
     """
 
+    TRIAL = 3
+    """PLAN_NAME_TRIAL refers to the trial licenses."""
+
 
 class AssignmentStatus(aristaproto.Enum):
     """

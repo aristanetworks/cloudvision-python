@@ -200,6 +200,8 @@ class _PlanNameEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumT
     """PLAN_NAME_SUBSCRIPTION refers to the subscription licenses."""
     PLAN_NAME_PERPETUAL: _PlanName.ValueType  # 2
     """PLAN_NAME_PERPETUAL refers to the licenses valid for lifetime of the device."""
+    PLAN_NAME_TRIAL: _PlanName.ValueType  # 3
+    """PLAN_NAME_TRIAL refers to the trial licenses."""
 
 class PlanName(_PlanName, metaclass=_PlanNameEnumTypeWrapper):
     """PlanName is the name of the plan for which the
@@ -212,6 +214,8 @@ PLAN_NAME_SUBSCRIPTION: PlanName.ValueType  # 1
 """PLAN_NAME_SUBSCRIPTION refers to the subscription licenses."""
 PLAN_NAME_PERPETUAL: PlanName.ValueType  # 2
 """PLAN_NAME_PERPETUAL refers to the licenses valid for lifetime of the device."""
+PLAN_NAME_TRIAL: PlanName.ValueType  # 3
+"""PLAN_NAME_TRIAL refers to the trial licenses."""
 global___PlanName = PlanName
 
 class _AssignmentStatus:
