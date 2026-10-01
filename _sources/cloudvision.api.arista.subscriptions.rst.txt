@@ -1,0 +1,10 @@
+cloudvision.api.arista.subscriptions package
+============================================
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.api.arista.subscriptions
+   :members:
+   :show-inheritance:
+   :undoc-members:
