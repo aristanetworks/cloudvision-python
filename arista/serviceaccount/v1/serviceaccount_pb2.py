@@ -29,7 +29,7 @@ from fmp import extensions_pb2 as fmp_dot_extensions__pb2
 from fmp import wrappers_pb2 as fmp_dot_wrappers__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-arista/serviceaccount.v1/serviceaccount.proto\x12\x18\x61rista.serviceaccount.v1\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\">\n\nAccountKey\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x94\x02\n\rAccountConfig\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.serviceaccount.v1.AccountKey\x12\x37\n\x06status\x18\x02 \x01(\x0e\x32\'.arista.serviceaccount.v1.AccountStatus\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12#\n\x06groups\x18\x04 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x37\n\x13\x61llow_token_refresh\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02rw\"\xf1\x02\n\x07\x41\x63\x63ount\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.serviceaccount.v1.AccountKey\x12\x37\n\x06status\x18\x02 \x01(\x0e\x32\'.arista.serviceaccount.v1.AccountStatus\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12#\n\x06groups\x18\x04 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x30\n\ncreated_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x0blast_access\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x37\n\x13\x61llow_token_refresh\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02ro\":\n\x08TokenKey\x12(\n\x02id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x84\x02\n\x0bTokenConfig\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.serviceaccount.v1.TokenKey\x12*\n\x04user\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\tvalid_for\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12+\n\x05token\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\n\xfa\x8d\x19\x02rw\x98\x8e\x19\x00\"\xe2\x02\n\x05Token\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.serviceaccount.v1.TokenKey\x12*\n\x04user\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x0bvalid_until\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\tlast_used\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0breplaced_at\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x06\xfa\x8d\x19\x02ro\"\x83\x01\n\x16TokenSelfRefreshConfig\x12,\n\tvalid_for\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12/\n\tnew_token\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\n\x98\x8e\x19\x00\xa2\x8e\x19\x02rw*h\n\rAccountStatus\x12\x1e\n\x1a\x41\x43\x43OUNT_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16\x41\x43\x43OUNT_STATUS_ENABLED\x10\x01\x12\x1b\n\x17\x41\x43\x43OUNT_STATUS_DISABLED\x10\x02\x42VZTgithub.com/aristanetworks/cloudvision-go/api/arista/serviceaccount.v1;serviceaccountb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-arista/serviceaccount.v1/serviceaccount.proto\x12\x18\x61rista.serviceaccount.v1\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14\x66mp/extensions.proto\x1a\x12\x66mp/wrappers.proto\">\n\nAccountKey\x12*\n\x04name\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\xe2\x02\n\rAccountConfig\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.serviceaccount.v1.AccountKey\x12\x37\n\x06status\x18\x02 \x01(\x0e\x32\'.arista.serviceaccount.v1.AccountStatus\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12#\n\x06groups\x18\x04 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x37\n\x13\x61llow_token_refresh\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12@\n\x1c\x61llow_impersonation_by_event\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02rwJ\x04\x08\x05\x10\x06J\x04\x08\x06\x10\x07\"\xb3\x03\n\x07\x41\x63\x63ount\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.serviceaccount.v1.AccountKey\x12\x37\n\x06status\x18\x02 \x01(\x0e\x32\'.arista.serviceaccount.v1.AccountStatus\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12#\n\x06groups\x18\x04 \x01(\x0b\x32\x13.fmp.RepeatedString\x12\x30\n\ncreated_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x0blast_access\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x37\n\x13\x61llow_token_refresh\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12@\n\x1c\x61llow_impersonation_by_event\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:\x06\xfa\x8d\x19\x02ro\"R\n\x15\x41\x63\x63ountForEventAction\x12\x31\n\x03key\x18\x01 \x01(\x0b\x32$.arista.serviceaccount.v1.AccountKey:\x06\xfa\x8d\x19\x02ro\":\n\x08TokenKey\x12(\n\x02id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\x04\x80\x8e\x19\x01\"\x84\x02\n\x0bTokenConfig\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.serviceaccount.v1.TokenKey\x12*\n\x04user\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\tvalid_for\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12+\n\x05token\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\n\xfa\x8d\x19\x02rw\x98\x8e\x19\x00\"\xe2\x02\n\x05Token\x12/\n\x03key\x18\x01 \x01(\x0b\x32\".arista.serviceaccount.v1.TokenKey\x12*\n\x04user\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x64\x65scription\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\x0bvalid_until\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\ncreated_by\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12-\n\tlast_used\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0breplaced_at\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x06\xfa\x8d\x19\x02ro\"\x83\x01\n\x16TokenSelfRefreshConfig\x12,\n\tvalid_for\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12/\n\tnew_token\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue:\n\x98\x8e\x19\x00\xa2\x8e\x19\x02rw*h\n\rAccountStatus\x12\x1e\n\x1a\x41\x43\x43OUNT_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16\x41\x43\x43OUNT_STATUS_ENABLED\x10\x01\x12\x1b\n\x17\x41\x43\x43OUNT_STATUS_DISABLED\x10\x02\x42VZTgithub.com/aristanetworks/cloudvision-go/api/arista/serviceaccount.v1;serviceaccountb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -43,6 +43,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_ACCOUNTCONFIG']._serialized_options = b'\372\215\031\002rw'
   _globals['_ACCOUNT']._loaded_options = None
   _globals['_ACCOUNT']._serialized_options = b'\372\215\031\002ro'
+  _globals['_ACCOUNTFOREVENTACTION']._loaded_options = None
+  _globals['_ACCOUNTFOREVENTACTION']._serialized_options = b'\372\215\031\002ro'
   _globals['_TOKENKEY']._loaded_options = None
   _globals['_TOKENKEY']._serialized_options = b'\200\216\031\001'
   _globals['_TOKENCONFIG']._loaded_options = None
@@ -51,20 +53,22 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_TOKEN']._serialized_options = b'\372\215\031\002ro'
   _globals['_TOKENSELFREFRESHCONFIG']._loaded_options = None
   _globals['_TOKENSELFREFRESHCONFIG']._serialized_options = b'\230\216\031\000\242\216\031\002rw'
-  _globals['_ACCOUNTSTATUS']._serialized_start=1743
-  _globals['_ACCOUNTSTATUS']._serialized_end=1847
+  _globals['_ACCOUNTSTATUS']._serialized_start=1971
+  _globals['_ACCOUNTSTATUS']._serialized_end=2075
   _globals['_ACCOUNTKEY']._serialized_start=214
   _globals['_ACCOUNTKEY']._serialized_end=276
   _globals['_ACCOUNTCONFIG']._serialized_start=279
-  _globals['_ACCOUNTCONFIG']._serialized_end=555
-  _globals['_ACCOUNT']._serialized_start=558
-  _globals['_ACCOUNT']._serialized_end=927
-  _globals['_TOKENKEY']._serialized_start=929
-  _globals['_TOKENKEY']._serialized_end=987
-  _globals['_TOKENCONFIG']._serialized_start=990
-  _globals['_TOKENCONFIG']._serialized_end=1250
-  _globals['_TOKEN']._serialized_start=1253
-  _globals['_TOKEN']._serialized_end=1607
-  _globals['_TOKENSELFREFRESHCONFIG']._serialized_start=1610
-  _globals['_TOKENSELFREFRESHCONFIG']._serialized_end=1741
+  _globals['_ACCOUNTCONFIG']._serialized_end=633
+  _globals['_ACCOUNT']._serialized_start=636
+  _globals['_ACCOUNT']._serialized_end=1071
+  _globals['_ACCOUNTFOREVENTACTION']._serialized_start=1073
+  _globals['_ACCOUNTFOREVENTACTION']._serialized_end=1155
+  _globals['_TOKENKEY']._serialized_start=1157
+  _globals['_TOKENKEY']._serialized_end=1215
+  _globals['_TOKENCONFIG']._serialized_start=1218
+  _globals['_TOKENCONFIG']._serialized_end=1478
+  _globals['_TOKEN']._serialized_start=1481
+  _globals['_TOKEN']._serialized_end=1835
+  _globals['_TOKENSELFREFRESHCONFIG']._serialized_start=1838
+  _globals['_TOKENSELFREFRESHCONFIG']._serialized_end=1969
 # @@protoc_insertion_point(module_scope)

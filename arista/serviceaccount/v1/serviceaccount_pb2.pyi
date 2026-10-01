@@ -80,6 +80,7 @@ class AccountConfig(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     GROUPS_FIELD_NUMBER: builtins.int
     ALLOW_TOKEN_REFRESH_FIELD_NUMBER: builtins.int
+    ALLOW_IMPERSONATION_BY_EVENT_FIELD_NUMBER: builtins.int
     status: global___AccountStatus.ValueType
     """status determines if the service account is enabled or disabled. New service accounts are
     enabled by default.
@@ -102,6 +103,14 @@ class AccountConfig(google.protobuf.message.Message):
         any of its own active tokens, including preexisting ones.
         """
 
+    @property
+    def allow_impersonation_by_event(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """allow_impersonation_by_event determines whether Event Notifications may run
+        CloudVision Actions as this service account.
+        Note: when true, any user with Event Notification Management write permission
+        can configure such impersonation. (See arista.alert.v1.CvActionEndpoint.run_as_login.)
+        """
+
     def __init__(
         self,
         *,
@@ -110,9 +119,10 @@ class AccountConfig(google.protobuf.message.Message):
         description: google.protobuf.wrappers_pb2.StringValue | None = ...,
         groups: fmp.wrappers_pb2.RepeatedString | None = ...,
         allow_token_refresh: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        allow_impersonation_by_event: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["allow_token_refresh", b"allow_token_refresh", "description", b"description", "groups", b"groups", "key", b"key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["allow_token_refresh", b"allow_token_refresh", "description", b"description", "groups", b"groups", "key", b"key", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["allow_impersonation_by_event", b"allow_impersonation_by_event", "allow_token_refresh", b"allow_token_refresh", "description", b"description", "groups", b"groups", "key", b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["allow_impersonation_by_event", b"allow_impersonation_by_event", "allow_token_refresh", b"allow_token_refresh", "description", b"description", "groups", b"groups", "key", b"key", "status", b"status"]) -> None: ...
 
 global___AccountConfig = AccountConfig
 
@@ -129,6 +139,7 @@ class Account(google.protobuf.message.Message):
     CREATED_BY_FIELD_NUMBER: builtins.int
     LAST_ACCESS_FIELD_NUMBER: builtins.int
     ALLOW_TOKEN_REFRESH_FIELD_NUMBER: builtins.int
+    ALLOW_IMPERSONATION_BY_EVENT_FIELD_NUMBER: builtins.int
     status: global___AccountStatus.ValueType
     """status determines whether the service account is enabled or disabled."""
     @property
@@ -157,6 +168,14 @@ class Account(google.protobuf.message.Message):
         any of its own active tokens, including preexisting ones.
         """
 
+    @property
+    def allow_impersonation_by_event(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """allow_impersonation_by_event determines whether Event Notifications may run
+        CloudVision Actions as this service account.
+        Note: when true, any user with Event Notification Management write permission
+        can configure such impersonation. (See arista.alert.v1.CvActionEndpoint.run_as_login.)
+        """
+
     def __init__(
         self,
         *,
@@ -167,11 +186,37 @@ class Account(google.protobuf.message.Message):
         created_by: google.protobuf.wrappers_pb2.StringValue | None = ...,
         last_access: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         allow_token_refresh: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        allow_impersonation_by_event: google.protobuf.wrappers_pb2.BoolValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["allow_token_refresh", b"allow_token_refresh", "created_by", b"created_by", "description", b"description", "groups", b"groups", "key", b"key", "last_access", b"last_access"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["allow_token_refresh", b"allow_token_refresh", "created_by", b"created_by", "description", b"description", "groups", b"groups", "key", b"key", "last_access", b"last_access", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["allow_impersonation_by_event", b"allow_impersonation_by_event", "allow_token_refresh", b"allow_token_refresh", "created_by", b"created_by", "description", b"description", "groups", b"groups", "key", b"key", "last_access", b"last_access"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["allow_impersonation_by_event", b"allow_impersonation_by_event", "allow_token_refresh", b"allow_token_refresh", "created_by", b"created_by", "description", b"description", "groups", b"groups", "key", b"key", "last_access", b"last_access", "status", b"status"]) -> None: ...
 
 global___Account = Account
+
+@typing.final
+class AccountForEventAction(google.protobuf.message.Message):
+    """AccountForEventAction contains the service accounts which can be impersonated
+    in Event Notifications. An instance exists exactly when
+    AccountConfig.allow_impersonation_by_event is true. It is a read-only view that lets
+    Event Notification users list such accounts without read access to AccountConfig.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    @property
+    def key(self) -> global___AccountKey:
+        """key uniquely identifies the service account."""
+
+    def __init__(
+        self,
+        *,
+        key: global___AccountKey | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["key", b"key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["key", b"key"]) -> None: ...
+
+global___AccountForEventAction = AccountForEventAction
 
 @typing.final
 class TokenKey(google.protobuf.message.Message):

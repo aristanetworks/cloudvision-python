@@ -12,6 +12,7 @@ __all__ = (
     "AccountKey",
     "AccountConfig",
     "Account",
+    "AccountForEventAction",
     "TokenKey",
     "TokenConfig",
     "Token",
@@ -39,6 +40,12 @@ __all__ = (
     "AccountConfigDeleteSomeResponse",
     "AccountConfigDeleteAllRequest",
     "AccountConfigDeleteAllResponse",
+    "AccountForEventActionRequest",
+    "AccountForEventActionResponse",
+    "AccountForEventActionSomeRequest",
+    "AccountForEventActionSomeResponse",
+    "AccountForEventActionStreamRequest",
+    "AccountForEventActionStreamResponse",
     "TokenRequest",
     "TokenResponse",
     "TokenSomeRequest",
@@ -71,6 +78,8 @@ __all__ = (
     "AccountServiceBase",
     "AccountConfigServiceStub",
     "AccountConfigServiceBase",
+    "AccountForEventActionServiceStub",
+    "AccountForEventActionServiceBase",
     "TokenServiceStub",
     "TokenServiceBase",
     "TokenConfigServiceStub",
@@ -152,6 +161,16 @@ class AccountConfig(aristaproto.Message):
     any of its own active tokens, including preexisting ones.
     """
 
+    allow_impersonation_by_event: Optional[bool] = aristaproto.message_field(
+        8, wraps=aristaproto.TYPE_BOOL
+    )
+    """
+    allow_impersonation_by_event determines whether Event Notifications may run
+    CloudVision Actions as this service account.
+    Note: when true, any user with Event Notification Management write permission
+    can configure such impersonation. (See arista.alert.v1.CvActionEndpoint.run_as_login.)
+    """
+
 
 @dataclass(eq=False, repr=False)
 class Account(aristaproto.Message):
@@ -186,6 +205,29 @@ class Account(aristaproto.Message):
     allow_token_refresh determines whether or not the service account can refresh
     any of its own active tokens, including preexisting ones.
     """
+
+    allow_impersonation_by_event: Optional[bool] = aristaproto.message_field(
+        8, wraps=aristaproto.TYPE_BOOL
+    )
+    """
+    allow_impersonation_by_event determines whether Event Notifications may run
+    CloudVision Actions as this service account.
+    Note: when true, any user with Event Notification Management write permission
+    can configure such impersonation. (See arista.alert.v1.CvActionEndpoint.run_as_login.)
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AccountForEventAction(aristaproto.Message):
+    """
+    AccountForEventAction contains the service accounts which can be impersonated
+    in Event Notifications. An instance exists exactly when
+    AccountConfig.allow_impersonation_by_event is true. It is a read-only view that lets
+    Event Notification users list such accounts without read access to AccountConfig.
+    """
+
+    key: "AccountKey" = aristaproto.message_field(1)
+    """key uniquely identifies the service account."""
 
 
 @dataclass(eq=False, repr=False)
@@ -649,6 +691,123 @@ class AccountConfigDeleteAllResponse(aristaproto.Message):
 
     time: datetime = aristaproto.message_field(4)
     """Time indicates the (UTC) timestamp when the key was being deleted."""
+
+
+@dataclass(eq=False, repr=False)
+class AccountForEventActionRequest(aristaproto.Message):
+    key: "AccountKey" = aristaproto.message_field(1)
+    """
+    Key uniquely identifies a AccountForEventAction instance to retrieve.
+    This value must be populated.
+    """
+
+    time: datetime = aristaproto.message_field(2)
+    """
+    Time indicates the time for which you are interested in the data.
+    If no time is given, the server will use the time at which it makes the request.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AccountForEventActionResponse(aristaproto.Message):
+    value: "AccountForEventAction" = aristaproto.message_field(1)
+    """
+    Value is the value requested.
+    This structure will be fully-populated as it exists in the datastore. If
+    optional fields were not given at creation, these fields will be empty or
+    set to default values.
+    """
+
+    time: datetime = aristaproto.message_field(2)
+    """
+    Time carries the (UTC) timestamp of the last-modification of the
+    AccountForEventAction instance in this response.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AccountForEventActionSomeRequest(aristaproto.Message):
+    keys: List["AccountKey"] = aristaproto.message_field(1)
+    time: datetime = aristaproto.message_field(2)
+    """
+    Time indicates the time for which you are interested in the data.
+    If no time is given, the server will use the time at which it makes the request.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AccountForEventActionSomeResponse(aristaproto.Message):
+    value: "AccountForEventAction" = aristaproto.message_field(1)
+    """
+    Value is the value requested.
+    This structure will be fully-populated as it exists in the datastore. If
+    optional fields were not given at creation, these fields will be empty or
+    set to default values.
+    """
+
+    error: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    """
+    Error is an optional field.
+    It should be filled when there is an error in the GetSome process.
+    """
+
+    time: datetime = aristaproto.message_field(3)
+    """
+    Time carries the (UTC) timestamp of the last-modification of the
+    AccountForEventAction instance in this response.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AccountForEventActionStreamRequest(aristaproto.Message):
+    partial_eq_filter: List["AccountForEventAction"] = aristaproto.message_field(1)
+    """
+    PartialEqFilter provides a way to server-side filter a GetAll/Subscribe.
+    This requires all provided fields to be equal to the response.
+
+    While transparent to users, this field also allows services to optimize internal
+    subscriptions if filter(s) are sufficiently specific.
+    """
+
+    time: "__time__.TimeBounds" = aristaproto.message_field(3)
+    """
+    TimeRange allows limiting response data to within a specified time window.
+    If this field is populated, at least one of the two time fields are required.
+
+    For GetAll, the fields start and end can be used as follows:
+
+      * end: Returns the state of each AccountForEventAction at end.
+        * Each AccountForEventAction response is fully-specified (all fields set).
+      * start: Returns the state of each AccountForEventAction at start, followed by updates until now.
+        * Each AccountForEventAction response at start is fully-specified, but updates may be partial.
+      * start and end: Returns the state of each AccountForEventAction at start, followed by updates
+        until end.
+        * Each AccountForEventAction response at start is fully-specified, but updates until end may
+          be partial.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class AccountForEventActionStreamResponse(aristaproto.Message):
+    value: "AccountForEventAction" = aristaproto.message_field(1)
+    """
+    Value is a value deemed relevant to the initiating request.
+    This structure will always have its key-field populated. Which other fields are
+    populated, and why, depends on the value of Operation and what triggered this notification.
+    """
+
+    time: datetime = aristaproto.message_field(2)
+    """
+    Time holds the timestamp of this AccountForEventAction's last modification.
+    """
+
+    type: "__subscriptions__.Operation" = aristaproto.enum_field(3)
+    """
+    Operation indicates how the AccountForEventAction value in this response should be considered.
+    Under non-subscribe requests, this value should always be INITIAL. In a subscription,
+    once all initial data is streamed and the client begins to receive modification updates,
+    you should not see INITIAL again.
+    """
 
 
 @dataclass(eq=False, repr=False)
@@ -1404,6 +1563,114 @@ class AccountConfigServiceStub(aristaproto.ServiceStub):
             yield response
 
 
+class AccountForEventActionServiceStub(aristaproto.ServiceStub):
+    async def get_one(
+        self,
+        account_for_event_action_request: "AccountForEventActionRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AccountForEventActionResponse":
+        return await self._unary_unary(
+            "/arista.serviceaccount.v1.AccountForEventActionService/GetOne",
+            account_for_event_action_request,
+            AccountForEventActionResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        )
+
+    async def get_some(
+        self,
+        account_for_event_action_some_request: "AccountForEventActionSomeRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AsyncIterator[AccountForEventActionSomeResponse]":
+        async for response in self._unary_stream(
+            "/arista.serviceaccount.v1.AccountForEventActionService/GetSome",
+            account_for_event_action_some_request,
+            AccountForEventActionSomeResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        ):
+            yield response
+
+    async def get_all(
+        self,
+        account_for_event_action_stream_request: "AccountForEventActionStreamRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AsyncIterator[AccountForEventActionStreamResponse]":
+        async for response in self._unary_stream(
+            "/arista.serviceaccount.v1.AccountForEventActionService/GetAll",
+            account_for_event_action_stream_request,
+            AccountForEventActionStreamResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        ):
+            yield response
+
+    async def subscribe(
+        self,
+        account_for_event_action_stream_request: "AccountForEventActionStreamRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AsyncIterator[AccountForEventActionStreamResponse]":
+        async for response in self._unary_stream(
+            "/arista.serviceaccount.v1.AccountForEventActionService/Subscribe",
+            account_for_event_action_stream_request,
+            AccountForEventActionStreamResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        ):
+            yield response
+
+    async def get_meta(
+        self,
+        account_for_event_action_stream_request: "AccountForEventActionStreamRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "MetaResponse":
+        return await self._unary_unary(
+            "/arista.serviceaccount.v1.AccountForEventActionService/GetMeta",
+            account_for_event_action_stream_request,
+            MetaResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        )
+
+    async def subscribe_meta(
+        self,
+        account_for_event_action_stream_request: "AccountForEventActionStreamRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None,
+    ) -> "AsyncIterator[MetaResponse]":
+        async for response in self._unary_stream(
+            "/arista.serviceaccount.v1.AccountForEventActionService/SubscribeMeta",
+            account_for_event_action_stream_request,
+            MetaResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        ):
+            yield response
+
+
 class TokenServiceStub(aristaproto.ServiceStub):
     async def get_one(
         self,
@@ -2152,6 +2419,136 @@ class AccountConfigServiceBase(ServiceBase):
                 grpclib.const.Cardinality.UNARY_STREAM,
                 AccountConfigDeleteAllRequest,
                 AccountConfigDeleteAllResponse,
+            ),
+        }
+
+
+class AccountForEventActionServiceBase(ServiceBase):
+    async def get_one(
+        self, account_for_event_action_request: "AccountForEventActionRequest"
+    ) -> "AccountForEventActionResponse":
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def get_some(
+        self, account_for_event_action_some_request: "AccountForEventActionSomeRequest"
+    ) -> AsyncIterator[AccountForEventActionSomeResponse]:
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def get_all(
+        self, account_for_event_action_stream_request: "AccountForEventActionStreamRequest"
+    ) -> AsyncIterator[AccountForEventActionStreamResponse]:
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def subscribe(
+        self, account_for_event_action_stream_request: "AccountForEventActionStreamRequest"
+    ) -> AsyncIterator[AccountForEventActionStreamResponse]:
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def get_meta(
+        self, account_for_event_action_stream_request: "AccountForEventActionStreamRequest"
+    ) -> "MetaResponse":
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def subscribe_meta(
+        self, account_for_event_action_stream_request: "AccountForEventActionStreamRequest"
+    ) -> AsyncIterator[MetaResponse]:
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
+    async def __rpc_get_one(
+        self,
+        stream: "grpclib.server.Stream[AccountForEventActionRequest, AccountForEventActionResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        response = await self.get_one(request)
+        await stream.send_message(response)
+
+    async def __rpc_get_some(
+        self,
+        stream: "grpclib.server.Stream[AccountForEventActionSomeRequest, AccountForEventActionSomeResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        await self._call_rpc_handler_server_stream(
+            self.get_some,
+            stream,
+            request,
+        )
+
+    async def __rpc_get_all(
+        self,
+        stream: "grpclib.server.Stream[AccountForEventActionStreamRequest, AccountForEventActionStreamResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        await self._call_rpc_handler_server_stream(
+            self.get_all,
+            stream,
+            request,
+        )
+
+    async def __rpc_subscribe(
+        self,
+        stream: "grpclib.server.Stream[AccountForEventActionStreamRequest, AccountForEventActionStreamResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        await self._call_rpc_handler_server_stream(
+            self.subscribe,
+            stream,
+            request,
+        )
+
+    async def __rpc_get_meta(
+        self, stream: "grpclib.server.Stream[AccountForEventActionStreamRequest, MetaResponse]"
+    ) -> None:
+        request = await stream.recv_message()
+        response = await self.get_meta(request)
+        await stream.send_message(response)
+
+    async def __rpc_subscribe_meta(
+        self, stream: "grpclib.server.Stream[AccountForEventActionStreamRequest, MetaResponse]"
+    ) -> None:
+        request = await stream.recv_message()
+        await self._call_rpc_handler_server_stream(
+            self.subscribe_meta,
+            stream,
+            request,
+        )
+
+    def __mapping__(self) -> Dict[str, grpclib.const.Handler]:
+        return {
+            "/arista.serviceaccount.v1.AccountForEventActionService/GetOne": grpclib.const.Handler(
+                self.__rpc_get_one,
+                grpclib.const.Cardinality.UNARY_UNARY,
+                AccountForEventActionRequest,
+                AccountForEventActionResponse,
+            ),
+            "/arista.serviceaccount.v1.AccountForEventActionService/GetSome": grpclib.const.Handler(
+                self.__rpc_get_some,
+                grpclib.const.Cardinality.UNARY_STREAM,
+                AccountForEventActionSomeRequest,
+                AccountForEventActionSomeResponse,
+            ),
+            "/arista.serviceaccount.v1.AccountForEventActionService/GetAll": grpclib.const.Handler(
+                self.__rpc_get_all,
+                grpclib.const.Cardinality.UNARY_STREAM,
+                AccountForEventActionStreamRequest,
+                AccountForEventActionStreamResponse,
+            ),
+            "/arista.serviceaccount.v1.AccountForEventActionService/Subscribe": grpclib.const.Handler(
+                self.__rpc_subscribe,
+                grpclib.const.Cardinality.UNARY_STREAM,
+                AccountForEventActionStreamRequest,
+                AccountForEventActionStreamResponse,
+            ),
+            "/arista.serviceaccount.v1.AccountForEventActionService/GetMeta": grpclib.const.Handler(
+                self.__rpc_get_meta,
+                grpclib.const.Cardinality.UNARY_UNARY,
+                AccountForEventActionStreamRequest,
+                MetaResponse,
+            ),
+            "/arista.serviceaccount.v1.AccountForEventActionService/SubscribeMeta": grpclib.const.Handler(
+                self.__rpc_subscribe_meta,
+                grpclib.const.Cardinality.UNARY_STREAM,
+                AccountForEventActionStreamRequest,
+                MetaResponse,
             ),
         }
 
