@@ -28,6 +28,18 @@ DEFAULT_DELETE_AFTER_DAYS = 34
 DATASET_TYPE_DEVICE = "device"
 # General timeout for Get requests
 TIMEOUT_REQUEST = 60
+SUBSCRIPTION_ACTIVE_HEADER = "subscription_active"
+
+
+class _SubscriptionActiveError(grpc.RpcError):
+    def code(self):
+        return grpc.StatusCode.UNAVAILABLE
+
+    def details(self):
+        return "received no subscription active header"
+
+    def __str__(self):
+        return self.details()
 
 
 def to_pbts(ts: TIME_TYPE) -> pbts.Timestamp:
@@ -346,6 +358,12 @@ class GRPCClient(object):
             exact_range=exact_range,
         )
         stream = self.__client.GetAndSubscribe(request, metadata=self.metadata, timeout=timeout)
+        initial_metadata = stream.initial_metadata()
+        if not initial_metadata or not any(
+            key == SUBSCRIPTION_ACTIVE_HEADER for key, _ in initial_metadata
+        ):
+            stream.cancel()
+            raise _SubscriptionActiveError()
         return (self.decode_batch(nb) for nb in stream)
 
     def publish(

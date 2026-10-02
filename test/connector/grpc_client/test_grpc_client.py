@@ -4,10 +4,12 @@
 
 """Test grpc_client module."""
 
+import grpc
 import pytest
 from unittest.mock import MagicMock, patch
 from cloudvision import __version__ as version
 from cloudvision.Connector.grpc_client import GRPCClient, PooledGRPCClient
+from cloudvision.Connector.gen import notification_pb2 as ntf
 from cloudvision.Connector.gen import router_pb2 as rtr
 
 
@@ -155,6 +157,53 @@ class TestGRPCClient:
             ("x-request-id", "request-3"),
         )
         assert client.metadata == (("access_token", "token-value"),)
+
+    def test_get_and_subscribe_waits_for_active_header(self):
+        client = GRPCClient("localhost:443")
+        stream = MagicMock()
+        stream.initial_metadata.return_value = (("subscription_active", ""),)
+        stream.__iter__.return_value = iter(
+            [ntf.NotificationBatch(dataset=ntf.Dataset(type="device", name="dataset"))]
+        )
+        client._GRPCClient__client = MagicMock()
+        client._GRPCClient__client.GetAndSubscribe.return_value = stream
+
+        result = client.getAndSubscribe([])
+
+        stream.initial_metadata.assert_called_once_with()
+        assert list(result) == [
+            {
+                "dataset": {"name": "dataset", "type": "device"},
+                "metadata": {},
+                "notifications": [],
+            }
+        ]
+
+    def test_get_and_subscribe_rejects_missing_active_header(self):
+        client = GRPCClient("localhost:443")
+        stream = MagicMock()
+        stream.initial_metadata.return_value = (("other-header", "value"),)
+        client._GRPCClient__client = MagicMock()
+        client._GRPCClient__client.GetAndSubscribe.return_value = stream
+
+        with pytest.raises(grpc.RpcError) as exc_info:
+            client.getAndSubscribe([])
+
+        assert exc_info.value.code() == grpc.StatusCode.UNAVAILABLE
+        stream.cancel.assert_called_once_with()
+
+    def test_get_and_subscribe_propagates_initial_metadata_error(self):
+        client = GRPCClient("localhost:443")
+        stream = MagicMock()
+        error = grpc.RpcError("metadata error")
+        stream.initial_metadata.side_effect = error
+        client._GRPCClient__client = MagicMock()
+        client._GRPCClient__client.GetAndSubscribe.return_value = stream
+
+        with pytest.raises(grpc.RpcError) as exc_info:
+            client.getAndSubscribe([])
+
+        assert exc_info.value is error
 
 
 # StubStreamAwareGRPCClient simulates real _StreamAwareGRPCClient behavior
