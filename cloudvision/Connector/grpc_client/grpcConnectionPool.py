@@ -8,7 +8,7 @@ from typing import Any, Dict, List, Optional
 from cloudvision.Connector.gen import notification_pb2 as ntf
 from cloudvision.Connector.gen import router_pb2 as rtr
 from cloudvision.Connector.grpc_client.grpcClient import GRPCClient, TIME_TYPE, UPDATE_TYPE, \
-    DATASET_TYPE_DEVICE
+    DATASET_TYPE_DEVICE, _CancellableStream, _once
 
 
 class _StreamAwareGRPCClient(GRPCClient):
@@ -59,6 +59,8 @@ class PooledGRPCClient:
     certsValue: if present, is the actual certs in string form. Cannot be set with certs
     keyValue: if present, is the actual key in string form. Cannot be set with key
     caValue: if present, is the actual ca in string form. Cannot be set with ca
+    max_streams_per_connection: must not exceed the server's HTTP/2 concurrent-stream limit.
+    Allow additional capacity for get/publish calls, which do not reserve stream slots.
     """
     def __init__(
         self,
@@ -109,10 +111,44 @@ class PooledGRPCClient:
             certsValue=self.certsValue,
             keyValue=self.keyValue,
             caValue=self.caValue,
-            channel_options=self.channel_options,
+            channel_options={**self.channel_options, "grpc.use_local_subchannel_pool": 1},
         )
         self._pool.append(client)
         return client
+
+    def _reserve_combined_clients(self):
+        """Atomically reserve Subscribe and Get on distinct transports."""
+        with self._lock:
+            reserved = []
+            try:
+                for _ in range(2):
+                    pool_size = len(self._pool)
+                    for offset in range(pool_size):
+                        index = (self._rr_index + offset) % pool_size
+                        candidate = self._pool[index]
+                        if any(candidate is client for client in reserved):
+                            continue
+                        if candidate.try_reserve_stream():
+                            reserved.append(candidate)
+                            self._rr_index = (index + 1) % pool_size
+                            break
+                    else:
+                        if len(self._pool) >= self._max_connections:
+                            raise RuntimeError(
+                                "GetAndSubscribe requires capacity on two distinct connections; "
+                                "maximum number of gRPC connections reached"
+                            )
+                        candidate = self._create_new_client()
+                        if not candidate.try_reserve_stream():
+                            raise RuntimeError("No gRPC stream capacity available")
+                        reserved.append(candidate)
+                # Advance by the subscription placement, not the temporary Get placement.
+                self._rr_index = (self._pool.index(reserved[0]) + 1) % len(self._pool)
+                return reserved
+            except Exception:
+                for client in reserved:
+                    client.release_stream()
+                raise
 
     def _get_or_create_client(self):
         """
@@ -197,36 +233,80 @@ class PooledGRPCClient:
         timeout: Optional[float] = None,
     ):
         """
-        GetAndSubscribe creates and executes a GetAndSubscribe protobuf message,
-        returning a stream of notificationBatch. This will initially consist of notifications
-        of the current state in CloudVision (i.e. a Get), after which it will transition to a
-        subscription method, where update notifications will be received for changes occurring to
-        the queried paths.
+        Reserve distinct pooled connections for Subscribe and Get.
+        Results for Get and Subscribe are relayed concurrently, with no ordering guarantees.
+        Clients must handle out-of-order notifications, including subscription updates
+        preceding Get results.
+        GetRequest:EOF marks only Get completion, on its final batch or an empty batch when Get
+        returns no results.
+
+        Each combined stream uses two daemon reader threads and a single-batch handoff with
+        backpressure when callers pause. Both RPCs and workers stop when the returned stream is
+        exhausted or closed. Account for these threads when hosting many concurrent subscriptions.
+        Use stream.cancel() to stop readers while another thread is blocked in next(stream).
+        Pending iteration ends with StopIteration and reserved slots are released.
+
         queries must be a list of query protobuf messages.
         start, if present, must be a google.protobuf.timestamp_pb2.Timestamp or a datetime object.
         versions, if present, specifies the maximum number of versions to retrieve.
         sharding, if present, must be a protobuf sharding message.
         exact_range, if present, specifies whether to return the initial state at time `start`.
         timeout: if present, sets the GRPC timeout in seconds. Default is None (no timeout).
+        Get and Subscribe reserve slots on distinct connections. If max_connections prevents
+        allocation, fail immediately before opening either RPC. Snapshot capacity is released
+        when Get ends. Pooled channels use independent transports regardless of channel_options.
         """
-        client = self._get_or_create_client()
-        stream = client.getAndSubscribe(
-            queries=queries,
-            start=start,
-            versions=versions,
-            sharding=sharding,
-            exact_range=exact_range,
-            timeout=timeout,
-        )
+        client, get_client = self._reserve_combined_clients()
+        # Return Get's reserved slot to the pool; retain the connection for reuse. Share this
+        # idempotent callback with the coordinator so fallback cleanup cannot release it twice.
+        release_get_resources = _once(get_client.release_stream)
+        try:
+            stream = client._get_and_subscribe(
+                queries=queries,
+                start=start,
+                versions=versions,
+                sharding=sharding,
+                exact_range=exact_range,
+                timeout=timeout,
+                get_stub=get_client._router_stub(),
+                release_get_resources=release_get_resources,
+            )
+        except Exception:
+            try:
+                release_get_resources()
+            finally:
+                client.release_stream()
+            raise
+
+        stream_ready = object()
+
+        def cancel():
+            try:
+                stop = getattr(stream, "cancel", stream.close)
+                stop()
+            finally:
+                try:
+                    release_get_resources()
+                finally:
+                    client.release_stream()
+
+        cancel = _once(cancel)
 
         def wrapped_stream():
             try:
+                # This private sentinel is consumed below so closing the returned generator before
+                # iteration still enters finally and releases the reserved pool stream.
+                yield stream_ready
                 for item in stream:
                     yield item
             finally:
-                client.release_stream()
+                cancel()
+                stream.close()
 
-        return wrapped_stream()
+        wrapped = wrapped_stream()
+        # Consume only the private readiness sentinel; no underlying stream item is discarded.
+        next(wrapped)
+        return _CancellableStream(wrapped, cancel)
 
     def get(
         self,

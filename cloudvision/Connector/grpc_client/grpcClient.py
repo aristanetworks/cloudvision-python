@@ -4,7 +4,10 @@
 
 from argparse import ArgumentError
 from datetime import datetime
+from queue import Full, Queue
+from threading import Event, Lock, Thread
 from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple, Union
+from uuid import uuid4
 
 import json
 import grpc
@@ -28,7 +31,52 @@ DEFAULT_DELETE_AFTER_DAYS = 34
 DATASET_TYPE_DEVICE = "device"
 # General timeout for Get requests
 TIMEOUT_REQUEST = 60
+# Flags/Headers used for indicating that subscriptions are active/get requests have finished
 SUBSCRIPTION_ACTIVE_HEADER = "subscription_active"
+GET_REQUEST_METADATA_KEY = "GetRequest"
+END_OF_GET_METADATA_VALUE = "EOF"
+# Markers for use in get and subscribe
+_STREAM_COMPLETE = object()
+_STREAM_READY = object()
+_STREAM_CANCELLED = object()
+
+
+def _once(callback):
+    """Make resource release safe across the reader and RPC workers."""
+    lock = Lock()
+    released = False
+
+    def release():
+        nonlocal released
+        with lock:
+            if not released:
+                released = True
+                callback()
+
+    return release
+
+
+class _CancellableStream:
+    """Iterator with cancellation that is safe while another thread calls next()."""
+
+    def __init__(self, stream, cancel):
+        self._stream = stream
+        self._cancel = cancel
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        return next(self._stream)
+
+    def cancel(self):
+        """Stop the RPCs and readers; pending iteration ends with StopIteration."""
+        self._cancel()
+
+    def close(self):
+        """Cancel and close the iterator when it is not being iterated elsewhere."""
+        self.cancel()
+        self._stream.close()
 
 
 class _SubscriptionActiveError(grpc.RpcError):
@@ -185,10 +233,11 @@ class GRPCClient(object):
         self.channel_options = [
             (k, v) for k, v in dict(GRPCClient.DEFAULT_CHANNEL_OPTIONS, **channel_options).items()
         ]
-        self.channel_options.append(("grpc.service_config", GRPCClient.GRPC_RETRY_POLICY_JSON))
-        if (certs is None or key is None) and (token is None and tokenValue is None):
-            self.channel = grpc.insecure_channel(grpcAddr, options=self.channel_options)
-        else:
+        self.channel_options.append(
+            ("grpc.service_config", GRPCClient.GRPC_RETRY_POLICY_JSON)
+        )
+        creds = None
+        if not ((certs is None or key is None) and (token is None and tokenValue is None)):
             tokCreds = None
             if token or tokenValue:
                 if token and tokenValue:
@@ -245,7 +294,13 @@ class GRPCClient(object):
             if tokCreds:
                 creds = grpc.composite_channel_credentials(creds, tokCreds)
 
-            self.channel = grpc.secure_channel(grpcAddr, creds, options=self.channel_options)
+        self._grpc_addr = grpcAddr
+        self._channel_credentials = creds
+        self._get_resources_lock = Lock()
+        self._get_resource_releases: set[Callable[[], None]] = set()
+        self._combined_cancellations: set[Callable[[], None]] = set()
+        self._closed = False
+        self.channel = self._create_channel()
         self.__client = rtr_client.RouterV1Stub(self.channel)
         self.__auth_client = rtr_client.AuthStub(self.channel)
         self.__search_client = rtr_client.SearchStub(self.channel)
@@ -254,15 +309,67 @@ class GRPCClient(object):
         self.encoder = codec.Encoder()
         self.decoder = codec.Decoder()
 
+    def _create_channel(self, independent=False):
+        options = dict(self.channel_options)
+        if independent:
+            # Otherwise gRPC can share a transport with the subscription channel.
+            options["grpc.use_local_subchannel_pool"] = 1
+        if self._channel_credentials is None:
+            return grpc.insecure_channel(self._grpc_addr, options=list(options.items()))
+        return grpc.secure_channel(
+            self._grpc_addr, self._channel_credentials, options=list(options.items())
+        )
+
+    def _create_get_rpc_resources(self):
+        """Create a temporary channel for Get and return its stub and cleanup callback.
+
+        This only allocates RPC resources; the coordinator starts Get after Subscribe returns
+        the subscription_active header. Cleanup closes this channel, leaving Subscribe's channel
+        open. Tracking the callback also lets client.close() release an outstanding Get channel.
+        """
+        channel = self._create_channel(independent=True)
+        try:
+            stub = rtr_client.RouterV1Stub(channel)
+
+            def close_get_connection():
+                with self._get_resources_lock:
+                    self._get_resource_releases.discard(release_get_resources)
+                channel.close()
+
+            release_get_resources = _once(close_get_connection)
+            with self._get_resources_lock:
+                if self._closed:
+                    raise ValueError("Cannot invoke RPC on closed client")
+                self._get_resource_releases.add(release_get_resources)
+            return stub, release_get_resources
+        except Exception:
+            channel.close()
+            raise
+
+    def _router_stub(self):
+        return self.__client
+
     # Make GRPCClient usable with `with` statement
     def __enter__(self):
         return self
 
     def __exit__(self, type, value, traceback):
-        return self.channel.__exit__(type, value, traceback)
+        self.close()
 
     def close(self):
-        self.channel.close()
+        with self._get_resources_lock:
+            self._closed = True
+            releases = tuple(self._get_resource_releases)
+            cancellations = tuple(self._combined_cancellations)
+        try:
+            try:
+                for cancel in cancellations:
+                    cancel()
+            finally:
+                for release in releases:
+                    release()
+        finally:
+            self.channel.close()
 
     def _get_rpc_metadata(self):
         metadata = self.metadata
@@ -316,19 +423,36 @@ class GRPCClient(object):
         sharding, if present must be a protobuf sharding message.
         timeout: if present, sets the GRPC timeout in seconds. Default is None (no timeout).
         """
+        stream = self._create_subscribe(
+            queries=queries,
+            sharding=sharding,
+            timeout=timeout,
+            metadata=self._get_rpc_metadata(),
+        )
+        return (self.decode_batch(nb) for nb in stream)
 
+    def _create_subscribe(
+        self,
+        queries,
+        sharding=None,
+        timeout: Optional[float] = None,
+        metadata: Any = None,
+    ):
         req = rtr.SubscribeRequest(
             query=queries,
             sharded_sub=sharding,
         )
-        stream = self.__client.Subscribe(req, metadata=self._get_rpc_metadata(), timeout=timeout)
-        initial_metadata = stream.initial_metadata()
-        if not initial_metadata or not any(
-            key == SUBSCRIPTION_ACTIVE_HEADER for key, _ in initial_metadata
-        ):
+        stream = self.__client.Subscribe(req, metadata=metadata, timeout=timeout)
+        try:
+            initial_metadata = stream.initial_metadata()
+            if not initial_metadata or not any(
+                key == SUBSCRIPTION_ACTIVE_HEADER for key, _ in initial_metadata
+            ):
+                raise _SubscriptionActiveError()
+        except Exception:
             stream.cancel()
-            raise _SubscriptionActiveError()
-        return (self.decode_batch(nb) for nb in stream)
+            raise
+        return stream
 
     def getAndSubscribe(
         self,
@@ -340,37 +464,193 @@ class GRPCClient(object):
         timeout: Optional[float] = None,
     ):
         """
-        GetAndSubscribe creates and executes a GetAndSubscribe protobuf message,
-        returning a stream of notificationBatch. This will initially consist of notifications
-        of the current state in CloudVision (i.e. a Get), after which it will transition to a
-        subscription method, where update notifications will be received for changes occurring to
-        the queried paths.
-        queries must be a list of query protobuf messages.
-        start, if present, must be a google.protobuf.timestamp_pb2.Timestamp or a datetime object.
-        versions, if present, specifies the maximum number of versions to retrieve.
-        sharding, if present must be a protobuf sharding message.
-        exact_range, if present, specifies whether to return the initial state at time `start`.
-        timeout: if present, sets the GRPC timeout in seconds. Default is None (no timeout).
-        """
-        start_ts = 0
-        if start:
-            start_ts = to_pbts(start).ToNanoseconds()
+        Fetches current state and relays updates to the client.
+        Results for Get and Subscribe are relayed concurrently, with no ordering guarantees.
+        Clients must handle out-of-order notifications, including subscription updates
+        preceding Get results.
+        GetRequest:EOF marks only Get completion, on its final batch or an empty batch when Get
+        returns no results.
 
-        request = rtr.GetAndSubscribeRequest(
-            query=queries,
-            start=start_ts,
-            versions=versions,
-            sharded_sub=sharding,
-            exact_range=exact_range,
+        queries must be a list of query protobuf messages.
+        start must be a protobuf Timestamp or datetime, if present.
+        versions specifies the maximum number of versions to retrieve.
+        sharding must be a protobuf sharding message, if present.
+        exact_range specifies whether to return the initial state at time `start`.
+        timeout sets the timeout of each RPC in seconds; None means no timeout.
+        Two daemon reader threads use a single-batch handoff with backpressure when callers pause.
+        Close the returned stream to cancel its RPCs and stop both reader threads.
+        Use stream.cancel() when another thread may be blocked in next(stream); pending
+        iteration ends with StopIteration. Closing the client also stops active readers.
+        """
+        # Create a temporary channel for Get and start Subscribe on the client's existing channel.
+        get_stub, release_get_resources = self._create_get_rpc_resources()
+        return self._get_and_subscribe(
+            queries,
+            start,
+            versions,
+            sharding,
+            exact_range,
+            timeout,
+            get_stub=get_stub,
+            release_get_resources=release_get_resources,
         )
-        stream = self.__client.GetAndSubscribe(request, metadata=self.metadata, timeout=timeout)
-        initial_metadata = stream.initial_metadata()
-        if not initial_metadata or not any(
-            key == SUBSCRIPTION_ACTIVE_HEADER for key, _ in initial_metadata
-        ):
-            stream.cancel()
-            raise _SubscriptionActiveError()
-        return (self.decode_batch(nb) for nb in stream)
+
+    def _get_and_subscribe(
+        self,
+        queries,
+        start=None,
+        versions=0,
+        sharding=None,
+        exact_range=False,
+        timeout=None,
+        *,
+        get_stub,
+        release_get_resources,
+    ):
+        """Coordinate both RPCs using the caller's Get resource ownership policy.
+
+        release_get_resources closes a direct client's temporary Get channel or releases a
+        pooled client's reserved Get slot. RPC cancellation is handled separately below.
+        """
+        release_get_resources = _once(release_get_resources)
+        subscribe_stream = None
+        get_stream = None
+        workers = []
+        stopped = Event()
+        results: Queue[Tuple[Any, Any]] = Queue(maxsize=1)
+
+        def put(source, result):
+            # A paused caller backpressures both RPCs. Timed puts let close() stop workers
+            # even when no reader remains to make room in the handoff.
+            while not stopped.is_set():
+                try:
+                    results.put((source, result), timeout=0.1)
+                    return True
+                except Full:
+                    pass
+            return False
+
+        def cancel_streams():
+            stopped.set()
+            # Wake a blocked consumer without polling. A full queue already provides a wakeup;
+            # the consumer checks stopped after taking that queued item and discards it.
+            try:
+                results.put_nowait((None, _STREAM_CANCELLED))
+            except Full:
+                pass
+            try:
+                if subscribe_stream is not None:
+                    subscribe_stream.cancel()
+            finally:
+                try:
+                    if get_stream is not None:
+                        get_stream.cancel()
+                finally:
+                    release_get_resources()
+
+        def cleanup():
+            try:
+                cancel_streams()
+            finally:
+                for worker in workers:
+                    worker.join(timeout=1)
+                with self._get_resources_lock:
+                    self._combined_cancellations.discard(cleanup)
+
+        cleanup = _once(cleanup)
+
+        def consume_subscribe():
+            try:
+                for batch in subscribe_stream:
+                    if not put("subscribe", batch):
+                        return
+                put("subscribe", _STREAM_COMPLETE)
+            except Exception as error:
+                put("subscribe", error)
+
+        def consume_get():
+            previous_batch = None
+            try:
+                for batch in get_stream:
+                    if previous_batch is not None and not put("get", previous_batch):
+                        return
+                    previous_batch = batch
+                # Release capacity before handing off EOF: callers may pause indefinitely.
+                release_get_resources()
+                eof_batch = ntf.NotificationBatch()
+                if previous_batch is not None:
+                    eof_batch.CopyFrom(previous_batch)
+                eof_batch.metadata[GET_REQUEST_METADATA_KEY] = END_OF_GET_METADATA_VALUE
+                if put("get", eof_batch):
+                    put("get", _STREAM_COMPLETE)
+            except Exception as error:
+                release_get_resources()
+                if previous_batch is not None and not put("get", previous_batch):
+                    return
+                put("get", error)
+            finally:
+                release_get_resources()
+
+        try:
+            start_ts = to_pbts(start).ToNanoseconds() if start else 0
+            get_request = rtr.GetRequest(
+                query=queries,
+                start=start_ts,
+                versions=versions,
+                sharded_sub=sharding,
+                exact_range=exact_range,
+            )
+            # Resolve dynamic metadata once for the logical operation.
+            # Both RPCs share the x-request-id from metadata, or a generated UUID if absent.
+            rpc_metadata = self._get_rpc_metadata()
+            if not any(key == "x-request-id" for key, _ in (rpc_metadata or ())):
+                rpc_metadata = (*(rpc_metadata or ()), ("x-request-id", str(uuid4())))
+            subscribe_stream = self._create_subscribe(
+                queries=queries,
+                sharding=sharding,
+                timeout=timeout,
+                metadata=rpc_metadata,
+            )
+            # Wait for the subscription to be active before issuing Get on the temporary channel.
+            get_stream = get_stub.Get(
+                get_request, metadata=rpc_metadata, timeout=timeout
+            )
+            for name, consume in (
+                ("grpc-subscribe", consume_subscribe),
+                ("grpc-get", consume_get),
+            ):
+                worker = Thread(target=consume, name=name, daemon=True)
+                worker.start()
+                workers.append(worker)
+            with self._get_resources_lock:
+                if self._closed:
+                    raise ValueError("Cannot invoke RPC on closed client")
+                self._combined_cancellations.add(cleanup)
+        except Exception:
+            cleanup()
+            raise
+
+        def combined_stream():
+            try:
+                # Priming allows close() to reach finally before the first public result.
+                yield _STREAM_READY
+                completed = set()
+                while len(completed) < 2 and not stopped.is_set():
+                    source, result = results.get()
+                    if result is _STREAM_CANCELLED or stopped.is_set():
+                        return
+                    if result is _STREAM_COMPLETE:
+                        completed.add(source)
+                    elif isinstance(result, Exception):
+                        raise result
+                    else:
+                        yield self.decode_batch(result)
+            finally:
+                cleanup()
+
+        stream = combined_stream()
+        next(stream)
+        return _CancellableStream(stream, cleanup)
 
     def publish(
         self,
