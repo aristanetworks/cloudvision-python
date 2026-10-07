@@ -138,7 +138,10 @@ class TestGRPCClient:
         )
         client._GRPCClient__client = MagicMock()
         client._GRPCClient__client.Get.return_value = []
-        client._GRPCClient__client.Subscribe.return_value = []
+        stream = MagicMock()
+        stream.initial_metadata.return_value = (("subscription_active", ""),)
+        stream.__iter__.return_value = iter([])
+        client._GRPCClient__client.Subscribe.return_value = stream
 
         list(client.get([]))
         list(client.subscribe([]))
@@ -202,6 +205,53 @@ class TestGRPCClient:
 
         with pytest.raises(grpc.RpcError) as exc_info:
             client.getAndSubscribe([])
+
+        assert exc_info.value is error
+
+    def test_subscribe_waits_for_active_header(self):
+        client = GRPCClient("localhost:443")
+        stream = MagicMock()
+        stream.initial_metadata.return_value = (("subscription_active", ""),)
+        stream.__iter__.return_value = iter(
+            [ntf.NotificationBatch(dataset=ntf.Dataset(type="device", name="dataset"))]
+        )
+        client._GRPCClient__client = MagicMock()
+        client._GRPCClient__client.Subscribe.return_value = stream
+
+        result = client.subscribe([])
+
+        stream.initial_metadata.assert_called_once_with()
+        assert list(result) == [
+            {
+                "dataset": {"name": "dataset", "type": "device"},
+                "metadata": {},
+                "notifications": [],
+            }
+        ]
+
+    def test_subscribe_rejects_missing_active_header(self):
+        client = GRPCClient("localhost:443")
+        stream = MagicMock()
+        stream.initial_metadata.return_value = (("other-header", "value"),)
+        client._GRPCClient__client = MagicMock()
+        client._GRPCClient__client.Subscribe.return_value = stream
+
+        with pytest.raises(grpc.RpcError) as exc_info:
+            client.subscribe([])
+
+        assert exc_info.value.code() == grpc.StatusCode.UNAVAILABLE
+        stream.cancel.assert_called_once_with()
+
+    def test_subscribe_propagates_initial_metadata_error(self):
+        client = GRPCClient("localhost:443")
+        stream = MagicMock()
+        error = grpc.RpcError("metadata error")
+        stream.initial_metadata.side_effect = error
+        client._GRPCClient__client = MagicMock()
+        client._GRPCClient__client.Subscribe.return_value = stream
+
+        with pytest.raises(grpc.RpcError) as exc_info:
+            client.subscribe([])
 
         assert exc_info.value is error
 

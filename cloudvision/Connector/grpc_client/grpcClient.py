@@ -322,6 +322,12 @@ class GRPCClient(object):
             sharded_sub=sharding,
         )
         stream = self.__client.Subscribe(req, metadata=self._get_rpc_metadata(), timeout=timeout)
+        initial_metadata = stream.initial_metadata()
+        if not initial_metadata or not any(
+            key == SUBSCRIPTION_ACTIVE_HEADER for key, _ in initial_metadata
+        ):
+            stream.cancel()
+            raise _SubscriptionActiveError()
         return (self.decode_batch(nb) for nb in stream)
 
     def getAndSubscribe(
