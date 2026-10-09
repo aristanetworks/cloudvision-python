@@ -1,0 +1,18 @@
+cloudvision.api.arista.syslog package
+=====================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   cloudvision.api.arista.syslog.v1
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.api.arista.syslog
+   :members:
+   :show-inheritance:
+   :undoc-members:

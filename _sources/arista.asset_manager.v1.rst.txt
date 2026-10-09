@@ -1,0 +1,37 @@
+arista.asset\_manager.v1 package
+================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.asset_manager.v1.services
+
+Submodules
+----------
+
+arista.asset\_manager.v1.asset\_manager\_pb2 module
+---------------------------------------------------
+
+.. automodule:: arista.asset_manager.v1.asset_manager_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.asset\_manager.v1.asset\_manager\_pb2\_grpc module
+---------------------------------------------------------
+
+.. automodule:: arista.asset_manager.v1.asset_manager_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.asset_manager.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:
