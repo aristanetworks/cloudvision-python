@@ -798,6 +798,15 @@ async def build_failure_message(channel, ws_id, build_id):
                 fail_msg += '\t\t\tConfiglet compilation:\n'
                 for sid, cbr in result.configlet_build_results.values.items():
                     fail_msg += f'\t\t\t\tStudio: {sid}\n'
+                    input_errs = cbr.input_errors.values
+                    if len(input_errs) > 0:
+                        fail_msg += '\t\t\t\tInput errors:\n'
+                    for i, err in enumerate(input_errs, start=1):
+                        fail_msg += f'\t\t\t\t\t--- # {i}\n'
+                        fail_msg += f'\t\t\t\t\tField ID: {err.field_id}\n'
+                        fail_msg += f'\t\t\t\t\tPath: {err.path.values}\n'
+                        fail_msg += f'\t\t\t\t\tMembers: {err.members.values}\n'
+                        fail_msg += f'\t\t\t\t\tDetails: {err.message}\n'
                     templ_errs = cbr.template_errors.values
                     if len(templ_errs) > 0:
                         fail_msg += '\t\t\t\tTemplate errors:\n'
