@@ -133,7 +133,7 @@ CC_POLL_INTERVAL = 5
 # CHANGE_SIGNATURE
 #     - substring used in workspace and change control names,
 #       used to identify changes automated by this script
-CHANGE_SIGNATURE = "studio_update.py config push"
+CHANGE_SIGNATURE = "studio_update config push"
 
 # -------------------------
 # INTERNAL FLAGS
@@ -814,7 +814,35 @@ async def build_failure_message(channel, ws_id, build_id):
                         fail_msg += f'\t\t\t\t\t--- # {i}\n'
                         fail_msg += f'\t\t\t\t\tLine number: {err.line_num}\n'
                         fail_msg += f'\t\t\t\t\tException: {err.exception}\n'
-                        fail_msg += f'\t\t\t\t\tDetails: {err.detail}\n'
+                        # In the details, avoid outputting a long traceback
+                        # since users would not know template code,
+                        # and avoid showing internal filenames.
+                        # This is similar to how the UI hides those details.
+                        detail_lines = [
+                            line.strip() for line in err.detail.splitlines()
+                            if line.strip()
+                        ]
+                        if detail_lines:
+                            template_frames = [
+                                index for index, line in enumerate(detail_lines)
+                                if (line.startswith('File ')
+                                    and 'studioTemplates' in line)
+                            ]
+                            if template_frames:
+                                detail_lines = detail_lines[template_frames[-1]:]
+                            else:
+                                detail_lines = detail_lines[-3:]
+                            for index, line in enumerate(detail_lines):
+                                if (line.startswith('File ')
+                                        and ', line ' in line):
+                                    detail_lines[index] = (
+                                        'line '
+                                        + line.rsplit(', line ', 1)[1]
+                                    )
+                            fail_msg += (f'\t\t\t\t\tDetails: '
+                                         f'{detail_lines[0]}\n')
+                            for line in detail_lines[1:]:
+                                fail_msg += f'\t\t\t\t\t         {line}\n'
                     if cbr.other_error:
                         fail_msg += f'\t\t\t\tOther error: {cbr.other_error}\n'
             if result.stage == workspace.BuildStage.CONFIG_VALIDATION:
