@@ -80,6 +80,63 @@ entity type for static config studio.
 """
 global___EntityType = EntityType
 
+class _OptimizationLevel:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _OptimizationLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_OptimizationLevel.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    OPTIMIZATION_LEVEL_UNSPECIFIED: _OptimizationLevel.ValueType  # 0
+    """OPTIMIZATION_LEVEL_UNSPECIFIED indicates that no optimization level is specified."""
+    OPTIMIZATION_LEVEL_DISABLED: _OptimizationLevel.ValueType  # 1
+    """OPTIMIZATION_LEVEL_DISABLED applies no optimization. When the studio
+    is included in a build, all assigned devices (including newly added
+    devices) are rebuilt. This is the conservative default for studios
+    with cross-device dependencies that cannot be safely narrowed.
+    """
+    OPTIMIZATION_LEVEL_INPUTS: _OptimizationLevel.ValueType  # 2
+    """OPTIMIZATION_LEVEL_INPUTS rebuilds only the devices whose validated
+    inputs differ from mainline, plus any devices whose I&T digest
+    (hostname, interface wiring) changed. Used by studios with no
+    cross-device dependencies.
+    """
+    OPTIMIZATION_LEVEL_TAG_BASED: _OptimizationLevel.ValueType  # 3
+    """OPTIMIZATION_LEVEL_TAG_BASED behaves like OPTIMIZATION_LEVEL_INPUTS
+    but expands the rebuild set to all assigned devices sharing the same
+    value for any of the tag labels listed in `BuildOptimization.level_params`.
+    Used by fabric studios whose cross-device dependencies are scoped to
+    a fabric boundary (e.g. Campus, DC).
+    """
+
+class OptimizationLevel(_OptimizationLevel, metaclass=_OptimizationLevelEnumTypeWrapper):
+    """OptimizationLevel controls how the build system narrows the set of
+    devices to rebuild for a given studio when changes are detected in a
+    workspace.
+    """
+
+OPTIMIZATION_LEVEL_UNSPECIFIED: OptimizationLevel.ValueType  # 0
+"""OPTIMIZATION_LEVEL_UNSPECIFIED indicates that no optimization level is specified."""
+OPTIMIZATION_LEVEL_DISABLED: OptimizationLevel.ValueType  # 1
+"""OPTIMIZATION_LEVEL_DISABLED applies no optimization. When the studio
+is included in a build, all assigned devices (including newly added
+devices) are rebuilt. This is the conservative default for studios
+with cross-device dependencies that cannot be safely narrowed.
+"""
+OPTIMIZATION_LEVEL_INPUTS: OptimizationLevel.ValueType  # 2
+"""OPTIMIZATION_LEVEL_INPUTS rebuilds only the devices whose validated
+inputs differ from mainline, plus any devices whose I&T digest
+(hostname, interface wiring) changed. Used by studios with no
+cross-device dependencies.
+"""
+OPTIMIZATION_LEVEL_TAG_BASED: OptimizationLevel.ValueType  # 3
+"""OPTIMIZATION_LEVEL_TAG_BASED behaves like OPTIMIZATION_LEVEL_INPUTS
+but expands the rebuild set to all assigned devices sharing the same
+value for any of the tag labels listed in `BuildOptimization.level_params`.
+Used by fabric studios whose cross-device dependencies are scoped to
+a fabric boundary (e.g. Campus, DC).
+"""
+global___OptimizationLevel = OptimizationLevel
+
 class _TemplateType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -425,6 +482,7 @@ class StudioConfig(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TEMPLATE_FIELD_NUMBER: builtins.int
     INPUT_SCHEMA_FIELD_NUMBER: builtins.int
+    BUILD_OPTIMIZATION_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___StudioKey:
         """key uniquely identifies the studio."""
@@ -461,6 +519,12 @@ class StudioConfig(google.protobuf.message.Message):
         by `template`.
         """
 
+    @property
+    def build_optimization(self) -> global___BuildOptimization:
+        """build_optimization controls how the build system narrows the set of
+        devices to rebuild when this studio is included in a workspace build.
+        """
+
     def __init__(
         self,
         *,
@@ -470,9 +534,10 @@ class StudioConfig(google.protobuf.message.Message):
         description: google.protobuf.wrappers_pb2.StringValue | None = ...,
         template: global___Template | None = ...,
         input_schema: global___InputSchema | None = ...,
+        build_optimization: global___BuildOptimization | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "input_schema", b"input_schema", "key", b"key", "remove", b"remove", "template", b"template"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["description", b"description", "display_name", b"display_name", "input_schema", b"input_schema", "key", b"key", "remove", b"remove", "template", b"template"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["build_optimization", b"build_optimization", "description", b"description", "display_name", b"display_name", "input_schema", b"input_schema", "key", b"key", "remove", b"remove", "template", b"template"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["build_optimization", b"build_optimization", "description", b"description", "display_name", b"display_name", "input_schema", b"input_schema", "key", b"key", "remove", b"remove", "template", b"template"]) -> None: ...
 
 global___StudioConfig = StudioConfig
 
@@ -628,6 +693,43 @@ class Entities(google.protobuf.message.Message):
 global___Entities = Entities
 
 @typing.final
+class BuildOptimization(google.protobuf.message.Message):
+    """BuildOptimization configures how the build system narrows the set of
+    devices to rebuild for a studio when changes are detected in a
+    workspace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPTIMIZATION_LEVEL_FIELD_NUMBER: builtins.int
+    LEVEL_PARAMS_FIELD_NUMBER: builtins.int
+    optimization_level: global___OptimizationLevel.ValueType
+    """optimization_level controls how aggressively the build system narrows
+    the set of devices to rebuild when this studio is included in a
+    workspace build. See `OptimizationLevel` for the available levels.
+    """
+    @property
+    def level_params(self) -> fmp.wrappers_pb2.RepeatedString:
+        """level_params holds parameters whose meaning depends on
+        `optimization_level`. For `OPTIMIZATION_LEVEL_TAG_BASED`, these are
+        the tag labels used to expand the rebuild set: for each device flagged
+        for rebuild, all assigned devices sharing the same value for any of
+        these tag labels are added to the rebuild set. Ignored for levels
+        that do not define a meaning for this field.
+        """
+
+    def __init__(
+        self,
+        *,
+        optimization_level: global___OptimizationLevel.ValueType = ...,
+        level_params: fmp.wrappers_pb2.RepeatedString | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["level_params", b"level_params"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["level_params", b"level_params", "optimization_level", b"optimization_level"]) -> None: ...
+
+global___BuildOptimization = BuildOptimization
+
+@typing.final
 class Studio(google.protobuf.message.Message):
     """Studio holds the active state for a studio."""
 
@@ -643,6 +745,7 @@ class Studio(google.protobuf.message.Message):
     TEMPLATE_FIELD_NUMBER: builtins.int
     INPUT_SCHEMA_FIELD_NUMBER: builtins.int
     FROM_PACKAGE_FIELD_NUMBER: builtins.int
+    BUILD_OPTIMIZATION_FIELD_NUMBER: builtins.int
     @property
     def key(self) -> global___StudioKey:
         """key uniquely identifies the studio."""
@@ -693,6 +796,12 @@ class Studio(google.protobuf.message.Message):
         by the packaging service.
         """
 
+    @property
+    def build_optimization(self) -> global___BuildOptimization:
+        """build_optimization controls how the build system narrows the set of
+        devices to rebuild when this studio is included in a workspace build.
+        """
+
     def __init__(
         self,
         *,
@@ -706,9 +815,10 @@ class Studio(google.protobuf.message.Message):
         template: global___Template | None = ...,
         input_schema: global___InputSchema | None = ...,
         from_package: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        build_optimization: global___BuildOptimization | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["created_at", b"created_at", "created_by", b"created_by", "description", b"description", "display_name", b"display_name", "from_package", b"from_package", "input_schema", b"input_schema", "key", b"key", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "template", b"template"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["created_at", b"created_at", "created_by", b"created_by", "description", b"description", "display_name", b"display_name", "from_package", b"from_package", "input_schema", b"input_schema", "key", b"key", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "template", b"template"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["build_optimization", b"build_optimization", "created_at", b"created_at", "created_by", b"created_by", "description", b"description", "display_name", b"display_name", "from_package", b"from_package", "input_schema", b"input_schema", "key", b"key", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "template", b"template"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["build_optimization", b"build_optimization", "created_at", b"created_at", "created_by", b"created_by", "description", b"description", "display_name", b"display_name", "from_package", b"from_package", "input_schema", b"input_schema", "key", b"key", "last_modified_at", b"last_modified_at", "last_modified_by", b"last_modified_by", "template", b"template"]) -> None: ...
 
 global___Studio = Studio
 

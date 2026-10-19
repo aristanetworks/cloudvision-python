@@ -9,6 +9,7 @@
 
 __all__ = (
     "EntityType",
+    "OptimizationLevel",
     "TemplateType",
     "InputFieldType",
     "ResolverFieldInputMode",
@@ -20,6 +21,7 @@ __all__ = (
     "StudioSummary",
     "Entity",
     "Entities",
+    "BuildOptimization",
     "Studio",
     "AssignedTagsConfig",
     "AssignedTags",
@@ -242,6 +244,44 @@ class EntityType(aristaproto.Enum):
     """
     ENTITY_TYPE_CONFIGLET_ASSIGNMENT indicates the ConfigletAssignment
     entity type for static config studio.
+    """
+
+
+class OptimizationLevel(aristaproto.Enum):
+    """
+    OptimizationLevel controls how the build system narrows the set of
+    devices to rebuild for a given studio when changes are detected in a
+    workspace.
+    """
+
+    UNSPECIFIED = 0
+    """
+    OPTIMIZATION_LEVEL_UNSPECIFIED indicates that no optimization level is specified.
+    """
+
+    DISABLED = 1
+    """
+    OPTIMIZATION_LEVEL_DISABLED applies no optimization. When the studio
+    is included in a build, all assigned devices (including newly added
+    devices) are rebuilt. This is the conservative default for studios
+    with cross-device dependencies that cannot be safely narrowed.
+    """
+
+    INPUTS = 2
+    """
+    OPTIMIZATION_LEVEL_INPUTS rebuilds only the devices whose validated
+    inputs differ from mainline, plus any devices whose I&T digest
+    (hostname, interface wiring) changed. Used by studios with no
+    cross-device dependencies.
+    """
+
+    TAG_BASED = 3
+    """
+    OPTIMIZATION_LEVEL_TAG_BASED behaves like OPTIMIZATION_LEVEL_INPUTS
+    but expands the rebuild set to all assigned devices sharing the same
+    value for any of the tag labels listed in `BuildOptimization.level_params`.
+    Used by fabric studios whose cross-device dependencies are scoped to
+    a fabric boundary (e.g. Campus, DC).
     """
 
 
@@ -516,6 +556,12 @@ class StudioConfig(aristaproto.Message):
     by `template`.
     """
 
+    build_optimization: "BuildOptimization" = aristaproto.message_field(7)
+    """
+    build_optimization controls how the build system narrows the set of
+    devices to rebuild when this studio is included in a workspace build.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class StudioSummary(aristaproto.Message):
@@ -596,6 +642,32 @@ class Entities(aristaproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class BuildOptimization(aristaproto.Message):
+    """
+    BuildOptimization configures how the build system narrows the set of
+    devices to rebuild for a studio when changes are detected in a
+    workspace.
+    """
+
+    optimization_level: "OptimizationLevel" = aristaproto.enum_field(1)
+    """
+    optimization_level controls how aggressively the build system narrows
+    the set of devices to rebuild when this studio is included in a
+    workspace build. See `OptimizationLevel` for the available levels.
+    """
+
+    level_params: "___fmp__.RepeatedString" = aristaproto.message_field(2)
+    """
+    level_params holds parameters whose meaning depends on
+    `optimization_level`. For `OPTIMIZATION_LEVEL_TAG_BASED`, these are
+    the tag labels used to expand the rebuild set: for each device flagged
+    for rebuild, all assigned devices sharing the same value for any of
+    these tag labels are added to the rebuild set. Ignored for levels
+    that do not define a meaning for this field.
+    """
+
+
+@dataclass(eq=False, repr=False)
 class Studio(aristaproto.Message):
     """Studio holds the active state for a studio."""
 
@@ -643,6 +715,12 @@ class Studio(aristaproto.Message):
     """
     from_package indicates that this studio was created by a package, and can only be modified
     by the packaging service.
+    """
+
+    build_optimization: "BuildOptimization" = aristaproto.message_field(12)
+    """
+    build_optimization controls how the build system narrows the set of
+    devices to rebuild when this studio is included in a workspace build.
     """
 
 
