@@ -1,0 +1,18 @@
+cloudvision.api.arista.event package
+====================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   cloudvision.api.arista.event.v1
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.api.arista.event
+   :members:
+   :show-inheritance:
+   :undoc-members:
