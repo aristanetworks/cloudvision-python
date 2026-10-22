@@ -134,6 +134,10 @@ CC_POLL_INTERVAL = 5
 #     - substring used in workspace and change control names,
 #       used to identify changes automated by this script
 CHANGE_SIGNATURE = "studio_update config push"
+SUMMARY_UNAVAILABLE_MESSAGES = (
+    "ChangeControlSummary API is not enabled",
+    "GetAll of ChangeControlSummary is not allowed",
+)
 
 # -------------------------
 # INTERNAL FLAGS
@@ -1071,6 +1075,55 @@ async def get_earlier_change_controls(channel, my_timestamp):
     return earlier_ccs
 
 
+async def get_earlier_change_control_summaries(channel, my_timestamp):
+    '''
+    Query open CC summaries created before my_timestamp by studio_update.py.
+
+    Timestamp and name filtering remain client-side so the request contains only
+    the three status filters required by the open CC cache.
+    Returns None when the summary API is unavailable so the caller can fall back.
+    '''
+    if not hasattr(changecontrol, 'ChangeControlSummaryServiceStub'):
+        return None
+
+    stub = changecontrol.ChangeControlSummaryServiceStub(channel)
+    req = changecontrol.ChangeControlSummaryStreamRequest(
+        partial_eq_filter=[
+            changecontrol.ChangeControlSummary(
+                status=changecontrol.ChangeControlStatus.NOT_STARTED
+            ),
+            changecontrol.ChangeControlSummary(
+                status=changecontrol.ChangeControlStatus.SCHEDULED
+            ),
+            changecontrol.ChangeControlSummary(
+                status=changecontrol.ChangeControlStatus.RUNNING
+            )
+        ]
+    )
+
+    try:
+        earlier_ccs = []
+        async for resp in stub.get_all(req, timeout=CC_QUERY_TIMEOUT):
+            cc_data = resp.value
+            if cc_data.created_time >= my_timestamp:
+                continue
+
+            if CHANGE_SIGNATURE not in (cc_data.name or ""):
+                continue
+
+            earlier_ccs.append(cc_data)
+    except GRPCError as err:
+        if err.status == Status.UNIMPLEMENTED:
+            return None
+        if (err.status == Status.PERMISSION_DENIED
+                and any(message in (err.message or '')
+                        for message in SUMMARY_UNAVAILABLE_MESSAGES)):
+            return None
+        raise
+
+    return earlier_ccs
+
+
 async def wait_for_earlier_change_controls(channel, my_timestamp):
     '''
     Wait until all CCs created before this one have completed.
@@ -1083,9 +1136,20 @@ async def wait_for_earlier_change_controls(channel, my_timestamp):
 
     logger.info('\tChecking for earlier change controls...')
 
+    use_summaries = True
     for iteration in range(MAX_CC_WAIT_ITERATIONS):
         # Get all pending and running CCs created before mine
-        earlier_ccs = await get_earlier_change_controls(channel, my_timestamp)
+        if use_summaries:
+            earlier_ccs = await get_earlier_change_control_summaries(
+                channel, my_timestamp)
+            if earlier_ccs is None:
+                use_summaries = False
+                logger.info('\tChange control ordering API: regular')
+            elif iteration == 0:
+                logger.info('\tChange control ordering API: summary')
+
+        if not use_summaries:
+            earlier_ccs = await get_earlier_change_controls(channel, my_timestamp)
 
         if not earlier_ccs:
             # No earlier CCs pending/running, safe to proceed
@@ -1096,8 +1160,12 @@ async def wait_for_earlier_change_controls(channel, my_timestamp):
             return
 
         # Log waiting status with CC names
-        earlier_cc_info = [(cc.key.id, cc.change.name if cc.change else 'unknown')
-                           for cc in earlier_ccs]
+        if use_summaries:
+            earlier_cc_info = [(cc.key.id, cc.name or 'unknown')
+                               for cc in earlier_ccs]
+        else:
+            earlier_cc_info = [(cc.key.id, cc.change.name if cc.change else 'unknown')
+                               for cc in earlier_ccs]
         if len(earlier_cc_info) <= 3:
             logger.info('\tWaiting for %d earlier CC(s): %s',
                         len(earlier_ccs), [name for _, name in earlier_cc_info])
