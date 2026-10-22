@@ -117,7 +117,7 @@ class mockClient:
 
     def SetSome(self, request, timeout):
         if self.stub == TagConfigServiceStub:
-            return [TagConfigSetSomeResponse]
+            return []
         if self.stub == TagAssignmentConfigServiceStub:
             return [TagAssignmentConfigSetSomeResponse]
 

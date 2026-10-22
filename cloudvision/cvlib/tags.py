@@ -3,7 +3,7 @@
 # that can be found in the COPYING file.
 
 from grpc import RpcError
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 
 from arista.tag.v2.services import (
     TagAssignmentServiceStub,
@@ -11,6 +11,9 @@ from arista.tag.v2.services import (
     TagConfigServiceStub,
     TagConfigSetRequest,
     TagConfigSetSomeRequest,
+    TagConfigStreamRequest,
+    TagServiceStub,
+    TagStreamRequest,
     TagAssignmentConfigStreamRequest,
     TagAssignmentConfigServiceStub,
     TagAssignmentConfigSetRequest,
@@ -20,6 +23,7 @@ from arista.tag.v2.tag_pb2 import (
     TagAssignment,
     TagAssignmentConfig,
     TagConfig,
+    Tag as TagDefinition,
     ElementType,
     ELEMENT_TYPE_DEVICE,
     ELEMENT_TYPE_INTERFACE,
@@ -91,6 +95,91 @@ class Tags:
         '''Dictionary of relevant interface tags, of the form
           ``{deviceId: {intfId: {label: [value1,value2,..]}}}``, works like a cache'''
 
+        self.deviceTagDefinitions: Optional[Dict[str, Set[str]]] = None
+        '''Device definitions, ``{label: {value1, value2, ...}}``, or None if not loaded.'''
+
+        self.interfaceTagDefinitions: Optional[Dict[str, Set[str]]] = None
+        '''Interface definitions, ``{label: {value1, value2, ...}}``, or None if not loaded.'''
+
+    def _getTagDefinitions(self, etype: ElementType.ValueType) -> Dict[str, Set[str]]:
+        '''Load user definitions at workspace sync time and apply workspace changes.
+
+        Build locally so a failed fetch cannot publish a partially loaded cache.
+        Definitions include tags without assignments.
+        '''
+        definitions = self._getTagDefinitionsFromMainline(etype)
+        for label, value, remove in self._getTagDefinitionUpdatesFromWorkspace(etype):
+            if remove:
+                if label in definitions:
+                    definitions[label].discard(value)
+                    if not definitions[label]:
+                        del definitions[label]
+            else:
+                definitions.setdefault(label, set()).add(value)
+        return definitions
+
+    def _getTagDefinitionsFromMainline(self, etype: ElementType.ValueType) -> Dict[str, Set[str]]:
+        '''Return user definitions from mainline at the workspace sync timestamp.'''
+        wsID = self.ctx.getWorkspaceId()
+        wsTs = getWorkspaceLastSynced(self.ctx.getApiClient, wsID)
+        tagFilter = TagDefinition(creator_type=CREATOR_TYPE_USER)
+        tagFilter.key.element_type = etype
+        tagFilter.key.workspace_id.value = MAINLINE_WS_ID
+        request = TagStreamRequest(time=TimeBounds(end=wsTs),
+                                   partial_eq_filter=[tagFilter])
+        definitions: Dict[str, Set[str]] = {}
+        client = self.ctx.getApiClient(TagServiceStub)
+        for resp in client.GetAll(request, timeout=TIMEOUT_REQUEST):
+            key = resp.value.key
+            definitions.setdefault(key.label.value, set()).add(key.value.value)
+        return definitions
+
+    def _getTagDefinitionUpdatesFromWorkspace(
+            self, etype: ElementType.ValueType) -> List[Tuple[str, str, bool]]:
+        '''Return workspace definition changes as (label, value, remove) tuples.'''
+        configFilter = TagConfig()
+        configFilter.key.element_type = etype
+        configFilter.key.workspace_id.value = self.ctx.getWorkspaceId()
+        configRequest = TagConfigStreamRequest(partial_eq_filter=[configFilter])
+        client = self.ctx.getApiClient(TagConfigServiceStub)
+        updates = []
+        for resp in client.GetAll(configRequest, timeout=TIMEOUT_REQUEST):
+            key = resp.value.key
+            updates.append((key.label.value, key.value.value, resp.value.remove.value))
+        return updates
+
+    def _getAllDeviceTagDefinitions(self) -> Dict[str, Set[str]]:
+        '''Return all device definitions, loading only on an explicit cache miss.'''
+        if self.deviceTagDefinitions is None:
+            self.deviceTagDefinitions = self._getTagDefinitions(ELEMENT_TYPE_DEVICE)
+        return self.deviceTagDefinitions
+
+    def _setDeviceTagDefinitions(self, definitions: Optional[Dict[str, Set[str]]]) -> None:
+        '''Install the shared definition cache by reference before device builds.'''
+        self.deviceTagDefinitions = definitions
+
+    def _getAllInterfaceTagDefinitions(self) -> Dict[str, Set[str]]:
+        '''Return all interface definitions, loading only on an explicit cache miss.'''
+        if self.interfaceTagDefinitions is None:
+            self.interfaceTagDefinitions = self._getTagDefinitions(ELEMENT_TYPE_INTERFACE)
+        return self.interfaceTagDefinitions
+
+    def _setInterfaceTagDefinitions(self, definitions: Optional[Dict[str, Set[str]]]) -> None:
+        '''Install the shared definition cache by reference before device builds.'''
+        self.interfaceTagDefinitions = definitions
+
+    def _addTagDefinitionInCache(self, etype: int, label: str, value: str) -> None:
+        '''Add a confirmed creation only if the complete cache has been loaded.'''
+        definitions = None
+        if etype == ELEMENT_TYPE_DEVICE:
+            definitions = self.deviceTagDefinitions
+        elif etype == ELEMENT_TYPE_INTERFACE:
+            definitions = self.interfaceTagDefinitions
+        if definitions is not None:
+            # Add-only during builds. CPython/GIL keeps each operation safe;
+            # setdefault avoids replacing a set installed by another build.
+            definitions.setdefault(label, set()).add(value)
+
     def _getTagUpdatesFromWorkspace(self, etype=ELEMENT_TYPE_DEVICE):
         '''
         _getTagUpdatesFromWorkspace returns a list of tags updates,
@@ -137,6 +226,7 @@ class Tags:
         setRequest.value.key.value.value = value
         tagClient = self.ctx.getApiClient(TagConfigServiceStub)
         tagClient.Set(setRequest, timeout=TIMEOUT_REQUEST)
+        self._addTagDefinitionInCache(etype, label, value)
 
     def _createTags(self, etype: int, tags: List[Tuple], configsPerReq=1000):
         '''
@@ -167,18 +257,25 @@ class Tags:
             tagConfig.key.label.value = label
             tagConfig.key.value.value = value
             tagConfigs.append(tagConfig)
-        res = []
         # chunk each SetSome request to a maximum of configsPerReq
         for start in range(0, len(tagConfigs), configsPerReq):
             setSomeRequest = TagConfigSetSomeRequest(
                 values=tagConfigs[start:start + configsPerReq]
             )
             tagClient = self.ctx.getApiClient(TagConfigServiceStub)
+            failed = set()
             try:
                 for res in tagClient.SetSome(setSomeRequest, timeout=TIMEOUT_REQUEST):
-                    pass
+                    if res.error:
+                        failed.add((res.key.label.value, res.key.value.value))
             except RpcError:
                 raise TagOperationException('', '', 'create')
+            # SetSome streams errors only. Successful completion confirms every
+            # submitted definition except those identified by an error response.
+            for config in setSomeRequest.values:
+                label, value = config.key.label.value, config.key.value.value
+                if (label, value) not in failed:
+                    self._addTagDefinitionInCache(etype, label, value)
 
     def _assignTagSet(self, etype: int, tagAssign: Tuple, remove: bool = False):
         '''
@@ -242,6 +339,8 @@ class Tags:
     # The following are methods for device Tags
 
     def _deviceTagExists(self, label: str, value: str):
+        if self.deviceTagDefinitions is not None:
+            return value in self.deviceTagDefinitions.get(label, ())
         # Note use list instead of .items()
         # parallel thread might add/delete tags
         for dev in list(allTags := self._getAllDeviceTags()):
@@ -481,6 +580,8 @@ class Tags:
     # The following are methods for interface Tags
 
     def _interfaceTagExists(self, label: str, value: str):
+        if self.interfaceTagDefinitions is not None:
+            return value in self.interfaceTagDefinitions.get(label, ())
         # Note use list instead of .items()
         # parallel thread might add/delete tags
         for dev in list(allTags := self._getAllInterfaceTags()):
