@@ -1,3 +1,4 @@
+anytree==2.13.0
 aristaproto==0.1.5
 cryptography>=50.0.0,<51.0.0
 grpcio>=1.81.1

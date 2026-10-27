@@ -299,6 +299,51 @@ class InputNotFoundException(InputException):
         super().__init__("Input path does not exist in inputs", inputPath, err)
 
 
+# --------------------------- Tree Exceptions ---------------------------
+
+
+class TreeCycleException(CVException):
+    """
+    Exception raised when a cycle is detected in a tree
+    """
+
+    def __init__(self, cycle: list[str], item_type: str = ""):
+        if item_type:
+            message = f"An invalid cycle detected in {item_type} tree: {' -> '.join(cycle)}"
+        else:
+            message = f"An invalid cycle detected in tree: {' -> '.join(cycle)}"
+        super().__init__(message)
+
+
+class TreeSelfLoopException(CVException):
+    """
+    Exception raised when a node is its own parent
+    """
+
+    def __init__(self, item_id: str, item_type: str = ""):
+        if item_type:
+            message = f"A self loop detected in {item_type} tree for: {item_id}"
+        else:
+            message = f"A self loop detected in tree for: {item_id}"
+        super().__init__(message)
+
+
+class TreeParentNotFoundException(CVException):
+    """
+    Exception raised when a referenced parent doesn't exist in the tree
+    """
+
+    def __init__(self, item_id: str, parent_id: str, item_type: str = ""):
+        if item_type:
+            message = (
+                f"Parent: {parent_id} referenced by: {item_id} does not exist in "
+                f"the {item_type} tree"
+            )
+        else:
+            message = f"Parent: {parent_id} referenced by: {item_id} does not exist in the tree"
+        super().__init__(message)
+
+
 # --------------------------- Topology Exceptions ---------------------------
 
 
