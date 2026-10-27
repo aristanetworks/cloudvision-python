@@ -12,6 +12,7 @@ __all__ = (
     "Operation",
     "UpdateStatus",
     "DeviceStatus",
+    "MatchDeviceAggregationMode",
     "DecommissionStatus",
     "ReplaceStatus",
     "DeviceInfo",
@@ -317,6 +318,30 @@ class DeviceStatus(aristaproto.Enum):
     """
 
 
+class MatchDeviceAggregationMode(aristaproto.Enum):
+    """
+    MatchDeviceAggregationMode specifies the aggregation modes applicable when
+    matching a streaming device to an expected SWAG device.
+    """
+
+    UNSPECIFIED = 0
+    """
+    MATCH_DEVICE_AGGREGATION_MODE_UNSPECIFIED indicates that no aggregation
+    mode has been specified.
+    """
+
+    STANDALONE = 10
+    """
+    MATCH_DEVICE_AGGREGATION_MODE_STANDALONE matches standalone devices.
+    Provisioning then converts it to SWAG.
+    """
+
+    SWAG = 20
+    """
+    MATCH_DEVICE_AGGREGATION_MODE_SWAG matches a streaming device that is already a SWAG.
+    """
+
+
 class DecommissionStatus(aristaproto.Enum):
     """
     DecommissionStatus enumerates the status of decommissioning a device.
@@ -394,6 +419,21 @@ class DeviceInfo(aristaproto.Message):
     be expected for this device. The expected device entry specified by the device_id
     field above will be matched with only one of the serial numbers in this list.
     Should be populated only for an expected device and when match_any_device is set to false.
+    """
+
+    supervisor_model: Optional[str] = aristaproto.message_field(7, wraps=aristaproto.TYPE_STRING)
+    """
+    supervisor_model specifies the model that a standalone streaming device must
+    have to match this expected device when model_name is \"Switch Aggregation Group\".
+    """
+
+    match_device_aggregation_mode: "MatchDeviceAggregationMode" = aristaproto.enum_field(8)
+    """
+    match_device_aggregation_mode specifies whether a streaming device must be
+    standalone or an existing SWAG to match this expected device. It applies only
+    when model_name is \"Switch Aggregation Group\" and must be unspecified otherwise.
+    When this field is set to MATCH_DEVICE_AGGEGATION_MODE_SWAG, supervisor_model must
+    be empty.
     """
 
 

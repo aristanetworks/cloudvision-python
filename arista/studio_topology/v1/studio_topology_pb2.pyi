@@ -158,6 +158,40 @@ DEVICE_STATUS_DECOMMISSIONED: DeviceStatus.ValueType  # 4
 """DEVICE_STATUS_DECOMMISSIONED indicates a device that has been previously decommissioned."""
 global___DeviceStatus = DeviceStatus
 
+class _MatchDeviceAggregationMode:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _MatchDeviceAggregationModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MatchDeviceAggregationMode.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    MATCH_DEVICE_AGGREGATION_MODE_UNSPECIFIED: _MatchDeviceAggregationMode.ValueType  # 0
+    """MATCH_DEVICE_AGGREGATION_MODE_UNSPECIFIED indicates that no aggregation
+    mode has been specified.
+    """
+    MATCH_DEVICE_AGGREGATION_MODE_STANDALONE: _MatchDeviceAggregationMode.ValueType  # 10
+    """MATCH_DEVICE_AGGREGATION_MODE_STANDALONE matches standalone devices.
+    Provisioning then converts it to SWAG.
+    """
+    MATCH_DEVICE_AGGREGATION_MODE_SWAG: _MatchDeviceAggregationMode.ValueType  # 20
+    """MATCH_DEVICE_AGGREGATION_MODE_SWAG matches a streaming device that is already a SWAG."""
+
+class MatchDeviceAggregationMode(_MatchDeviceAggregationMode, metaclass=_MatchDeviceAggregationModeEnumTypeWrapper):
+    """MatchDeviceAggregationMode specifies the aggregation modes applicable when
+    matching a streaming device to an expected SWAG device.
+    """
+
+MATCH_DEVICE_AGGREGATION_MODE_UNSPECIFIED: MatchDeviceAggregationMode.ValueType  # 0
+"""MATCH_DEVICE_AGGREGATION_MODE_UNSPECIFIED indicates that no aggregation
+mode has been specified.
+"""
+MATCH_DEVICE_AGGREGATION_MODE_STANDALONE: MatchDeviceAggregationMode.ValueType  # 10
+"""MATCH_DEVICE_AGGREGATION_MODE_STANDALONE matches standalone devices.
+Provisioning then converts it to SWAG.
+"""
+MATCH_DEVICE_AGGREGATION_MODE_SWAG: MatchDeviceAggregationMode.ValueType  # 20
+"""MATCH_DEVICE_AGGREGATION_MODE_SWAG matches a streaming device that is already a SWAG."""
+global___MatchDeviceAggregationMode = MatchDeviceAggregationMode
+
 class _DecommissionStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -226,6 +260,15 @@ class DeviceInfo(google.protobuf.message.Message):
     HOSTNAME_FIELD_NUMBER: builtins.int
     MATCH_ANY_DEVICE_FIELD_NUMBER: builtins.int
     EXPECTED_SERIAL_NUMBERS_FIELD_NUMBER: builtins.int
+    SUPERVISOR_MODEL_FIELD_NUMBER: builtins.int
+    MATCH_DEVICE_AGGREGATION_MODE_FIELD_NUMBER: builtins.int
+    match_device_aggregation_mode: global___MatchDeviceAggregationMode.ValueType
+    """match_device_aggregation_mode specifies whether a streaming device must be
+    standalone or an existing SWAG to match this expected device. It applies only
+    when model_name is "Switch Aggregation Group" and must be unspecified otherwise.
+    When this field is set to MATCH_DEVICE_AGGEGATION_MODE_SWAG, supervisor_model must
+    be empty.
+    """
     @property
     def device_id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """device_id identifies the device uniquely."""
@@ -265,6 +308,12 @@ class DeviceInfo(google.protobuf.message.Message):
         Should be populated only for an expected device and when match_any_device is set to false.
         """
 
+    @property
+    def supervisor_model(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """supervisor_model specifies the model that a standalone streaming device must
+        have to match this expected device when model_name is "Switch Aggregation Group".
+        """
+
     def __init__(
         self,
         *,
@@ -274,9 +323,11 @@ class DeviceInfo(google.protobuf.message.Message):
         hostname: google.protobuf.wrappers_pb2.StringValue | None = ...,
         match_any_device: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         expected_serial_numbers: fmp.wrappers_pb2.RepeatedString | None = ...,
+        supervisor_model: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        match_device_aggregation_mode: global___MatchDeviceAggregationMode.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["device_id", b"device_id", "expected_serial_numbers", b"expected_serial_numbers", "hostname", b"hostname", "mac_address", b"mac_address", "match_any_device", b"match_any_device", "model_name", b"model_name"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["device_id", b"device_id", "expected_serial_numbers", b"expected_serial_numbers", "hostname", b"hostname", "mac_address", b"mac_address", "match_any_device", b"match_any_device", "model_name", b"model_name"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["device_id", b"device_id", "expected_serial_numbers", b"expected_serial_numbers", "hostname", b"hostname", "mac_address", b"mac_address", "match_any_device", b"match_any_device", "model_name", b"model_name", "supervisor_model", b"supervisor_model"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["device_id", b"device_id", "expected_serial_numbers", b"expected_serial_numbers", "hostname", b"hostname", "mac_address", b"mac_address", "match_any_device", b"match_any_device", "match_device_aggregation_mode", b"match_device_aggregation_mode", "model_name", b"model_name", "supervisor_model", b"supervisor_model"]) -> None: ...
 
 global___DeviceInfo = DeviceInfo
 
