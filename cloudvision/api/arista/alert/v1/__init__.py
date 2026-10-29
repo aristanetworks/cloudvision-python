@@ -1686,8 +1686,7 @@ class BroadcastGroup(aristaproto.Message):
     cv_action: "CvActionEndpoints" = aristaproto.message_field(18)
     """
     cv_action is a set of Cloud Vision Portal Action endpoints to send alerts to as part
-    of this group. If the field is present during a Set call, all the Actions are set
-    to authenticate as the calling user.
+    of this group.
     """
 
     sensor_name: Optional[str] = aristaproto.message_field(19, wraps=aristaproto.TYPE_STRING)
@@ -2221,6 +2220,15 @@ class CvActionEndpoint(aristaproto.Message):
     """
     on_resolving are the CloudVision Actions to be executed sequentially, one after another,
     when an event resolves.
+    """
+
+    run_as_login: Optional[str] = aristaproto.message_field(3, wraps=aristaproto.TYPE_STRING)
+    """run_as_login is the identity to assume for running the actions."""
+
+    run_as_auth_type: Optional[str] = aristaproto.message_field(4, wraps=aristaproto.TYPE_STRING)
+    """
+    run_as_auth_type is the authn type for run_as_login. For now only \"account\" is supported,
+    meaning that the login should belong to a Service Account.
     """
 
 

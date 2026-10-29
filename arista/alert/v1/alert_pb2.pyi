@@ -2451,8 +2451,7 @@ class BroadcastGroup(google.protobuf.message.Message):
     @property
     def cv_action(self) -> global___CvActionEndpoints:
         """cv_action is a set of Cloud Vision Portal Action endpoints to send alerts to as part
-        of this group. If the field is present during a Set call, all the Actions are set
-        to authenticate as the calling user.
+        of this group.
         """
 
     @property
@@ -3447,6 +3446,8 @@ class CvActionEndpoint(google.protobuf.message.Message):
 
     ON_FIRING_FIELD_NUMBER: builtins.int
     ON_RESOLVING_FIELD_NUMBER: builtins.int
+    RUN_AS_LOGIN_FIELD_NUMBER: builtins.int
+    RUN_AS_AUTH_TYPE_FIELD_NUMBER: builtins.int
     @property
     def on_firing(self) -> global___CvActions:
         """on_firing are the CloudVision Actions to be executed sequentially, one after another,
@@ -3459,14 +3460,26 @@ class CvActionEndpoint(google.protobuf.message.Message):
         when an event resolves.
         """
 
+    @property
+    def run_as_login(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """run_as_login is the identity to assume for running the actions."""
+
+    @property
+    def run_as_auth_type(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """run_as_auth_type is the authn type for run_as_login. For now only "account" is supported,
+        meaning that the login should belong to a Service Account.
+        """
+
     def __init__(
         self,
         *,
         on_firing: global___CvActions | None = ...,
         on_resolving: global___CvActions | None = ...,
+        run_as_login: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        run_as_auth_type: google.protobuf.wrappers_pb2.StringValue | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["on_firing", b"on_firing", "on_resolving", b"on_resolving"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["on_firing", b"on_firing", "on_resolving", b"on_resolving"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["on_firing", b"on_firing", "on_resolving", b"on_resolving", "run_as_auth_type", b"run_as_auth_type", "run_as_login", b"run_as_login"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["on_firing", b"on_firing", "on_resolving", b"on_resolving", "run_as_auth_type", b"run_as_auth_type", "run_as_login", b"run_as_login"]) -> None: ...
 
 global___CvActionEndpoint = CvActionEndpoint
 
