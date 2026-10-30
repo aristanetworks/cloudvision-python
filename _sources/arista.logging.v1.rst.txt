@@ -1,0 +1,37 @@
+arista.logging.v1 package
+=========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.logging.v1.services
+
+Submodules
+----------
+
+arista.logging.v1.logging\_pb2 module
+-------------------------------------
+
+.. automodule:: arista.logging.v1.logging_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.logging.v1.logging\_pb2\_grpc module
+-------------------------------------------
+
+.. automodule:: arista.logging.v1.logging_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.logging.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:
