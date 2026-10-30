@@ -405,6 +405,134 @@ to be selected based on any tag label.
 """
 global___TagMatcherFieldMode = TagMatcherFieldMode
 
+class _Type7Algorithm:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _Type7AlgorithmEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Type7Algorithm.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    TYPE7_ALGORITHM_UNSPECIFIED: _Type7Algorithm.ValueType  # 0
+    """TYPE7_ALGORITHM_UNSPECIFIED indicates an unspecified Type 7 algorithm."""
+    TYPE7_ALGORITHM_OBFUSCATION: _Type7Algorithm.ValueType  # 1
+    """TYPE7_ALGORITHM_OBFUSCATION indicates the obfuscation algorithm,
+    which applies a simple reversible XOR-based encoding.
+    """
+    TYPE7_ALGORITHM_DES: _Type7Algorithm.ValueType  # 2
+    """TYPE7_ALGORITHM_DES indicates the DES algorithm,
+    which uses DES encryption with a master key.
+    """
+
+class Type7Algorithm(_Type7Algorithm, metaclass=_Type7AlgorithmEnumTypeWrapper):
+    """Type7Algorithm defines the algorithms supported for Type 7 password encryption."""
+
+TYPE7_ALGORITHM_UNSPECIFIED: Type7Algorithm.ValueType  # 0
+"""TYPE7_ALGORITHM_UNSPECIFIED indicates an unspecified Type 7 algorithm."""
+TYPE7_ALGORITHM_OBFUSCATION: Type7Algorithm.ValueType  # 1
+"""TYPE7_ALGORITHM_OBFUSCATION indicates the obfuscation algorithm,
+which applies a simple reversible XOR-based encoding.
+"""
+TYPE7_ALGORITHM_DES: Type7Algorithm.ValueType  # 2
+"""TYPE7_ALGORITHM_DES indicates the DES algorithm,
+which uses DES encryption with a master key.
+"""
+global___Type7Algorithm = Type7Algorithm
+
+class _TransformationType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _TransformationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TransformationType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    TRANSFORMATION_TYPE_UNSPECIFIED: _TransformationType.ValueType  # 0
+    """TRANSFORMATION_TYPE_UNSPECIFIED indicates that no transformation has been selected."""
+    TRANSFORMATION_TYPE_ENCRYPTION: _TransformationType.ValueType  # 1
+    """TRANSFORMATION_TYPE_ENCRYPTION indicates that the field value is encrypted
+    with Type 8a when Security Profiles Studio enables Type 8a for the device,
+    and with Type 7 otherwise.
+    """
+
+class TransformationType(_TransformationType, metaclass=_TransformationTypeEnumTypeWrapper):
+    """TransformationType defines the type of transformation to apply to a field value."""
+
+TRANSFORMATION_TYPE_UNSPECIFIED: TransformationType.ValueType  # 0
+"""TRANSFORMATION_TYPE_UNSPECIFIED indicates that no transformation has been selected."""
+TRANSFORMATION_TYPE_ENCRYPTION: TransformationType.ValueType  # 1
+"""TRANSFORMATION_TYPE_ENCRYPTION indicates that the field value is encrypted
+with Type 8a when Security Profiles Studio enables Type 8a for the device,
+and with Type 7 otherwise.
+"""
+global___TransformationType = TransformationType
+
+class _PasswordType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _PasswordTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_PasswordType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    PASSWORD_TYPE_UNSPECIFIED: _PasswordType.ValueType  # 0
+    """PASSWORD_TYPE_UNSPECIFIED indicates an unspecified password type."""
+    PASSWORD_TYPE_UNENCRYPTED: _PasswordType.ValueType  # 1
+    """PASSWORD_TYPE_UNENCRYPTED indicates a plaintext password."""
+    PASSWORD_TYPE_7: _PasswordType.ValueType  # 2
+    """PASSWORD_TYPE_7 indicates a Type 7 (DES or OBFUSCATION) encrypted password."""
+    PASSWORD_TYPE_8A: _PasswordType.ValueType  # 3
+    """PASSWORD_TYPE_8A indicates a Type 8a (AES-256-GCM) encrypted password."""
+
+class PasswordType(_PasswordType, metaclass=_PasswordTypeEnumTypeWrapper):
+    """PasswordType defines the password value formats supported by string fields
+    when transformation_type is TRANSFORMATION_TYPE_ENCRYPTION.
+    """
+
+PASSWORD_TYPE_UNSPECIFIED: PasswordType.ValueType  # 0
+"""PASSWORD_TYPE_UNSPECIFIED indicates an unspecified password type."""
+PASSWORD_TYPE_UNENCRYPTED: PasswordType.ValueType  # 1
+"""PASSWORD_TYPE_UNENCRYPTED indicates a plaintext password."""
+PASSWORD_TYPE_7: PasswordType.ValueType  # 2
+"""PASSWORD_TYPE_7 indicates a Type 7 (DES or OBFUSCATION) encrypted password."""
+PASSWORD_TYPE_8A: PasswordType.ValueType  # 3
+"""PASSWORD_TYPE_8A indicates a Type 8a (AES-256-GCM) encrypted password."""
+global___PasswordType = PasswordType
+
+class _DESKeyComponentType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _DESKeyComponentTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DESKeyComponentType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    DES_KEY_COMPONENT_TYPE_UNSPECIFIED: _DESKeyComponentType.ValueType  # 0
+    """DES_KEY_COMPONENT_TYPE_UNSPECIFIED indicates that the component type is not configured."""
+    DES_KEY_COMPONENT_TYPE_LITERAL: _DESKeyComponentType.ValueType  # 1
+    """DES_KEY_COMPONENT_TYPE_LITERAL indicates that component_value contains a literal string
+    used directly as a component of the DES key.
+    """
+    DES_KEY_COMPONENT_TYPE_FIELD_ID: _DESKeyComponentType.ValueType  # 2
+    """DES_KEY_COMPONENT_TYPE_FIELD_ID indicates that component_value contains the
+    ID of an input field whose resolved value supplies one component of the DES
+    key used to encrypt or decrypt the password. Supported fields are string
+    fields, integer fields, and single-interface-tag matchers when they are
+    either a sibling or sibling of an ancestor. A single-interface-tag resolver
+    is supported only when it is an ancestor.
+    """
+
+class DESKeyComponentType(_DESKeyComponentType, metaclass=_DESKeyComponentTypeEnumTypeWrapper):
+    """DESKeyComponentType identifies how a DESKeyComponent value is interpreted."""
+
+DES_KEY_COMPONENT_TYPE_UNSPECIFIED: DESKeyComponentType.ValueType  # 0
+"""DES_KEY_COMPONENT_TYPE_UNSPECIFIED indicates that the component type is not configured."""
+DES_KEY_COMPONENT_TYPE_LITERAL: DESKeyComponentType.ValueType  # 1
+"""DES_KEY_COMPONENT_TYPE_LITERAL indicates that component_value contains a literal string
+used directly as a component of the DES key.
+"""
+DES_KEY_COMPONENT_TYPE_FIELD_ID: DESKeyComponentType.ValueType  # 2
+"""DES_KEY_COMPONENT_TYPE_FIELD_ID indicates that component_value contains the
+ID of an input field whose resolved value supplies one component of the DES
+key used to encrypt or decrypt the password. Supported fields are string
+fields, integer fields, and single-interface-tag matchers when they are
+either a sibling or sibling of an ancestor. A single-interface-tag resolver
+is supported only when it is an ancestor.
+"""
+global___DESKeyComponentType = DESKeyComponentType
+
 class _AutofillProviderType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -1304,6 +1432,7 @@ class StringInputFieldProps(google.protobuf.message.Message):
     FORMAT_FIELD_NUMBER: builtins.int
     IS_SECRET_FIELD_NUMBER: builtins.int
     EXTRA_VALUES_ALLOWED_FIELD_NUMBER: builtins.int
+    TRANSFORMATION_OPTION_FIELD_NUMBER: builtins.int
     @property
     def default_value(self) -> google.protobuf.wrappers_pb2.StringValue:
         """default_value is the default value of the string."""
@@ -1375,6 +1504,12 @@ class StringInputFieldProps(google.protobuf.message.Message):
         addition to what's allowed by static_options/dynamic_options.
         """
 
+    @property
+    def transformation_option(self) -> global___TransformationOption:
+        """transformation_option configures a transformation applied to this field's value when
+        generating device configuration.
+        """
+
     def __init__(
         self,
         *,
@@ -1386,11 +1521,122 @@ class StringInputFieldProps(google.protobuf.message.Message):
         format: google.protobuf.wrappers_pb2.StringValue | None = ...,
         is_secret: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         extra_values_allowed: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        transformation_option: global___TransformationOption | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["default_value", b"default_value", "dynamic_options", b"dynamic_options", "extra_values_allowed", b"extra_values_allowed", "format", b"format", "is_secret", b"is_secret", "length", b"length", "pattern", b"pattern", "static_options", b"static_options"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["default_value", b"default_value", "dynamic_options", b"dynamic_options", "extra_values_allowed", b"extra_values_allowed", "format", b"format", "is_secret", b"is_secret", "length", b"length", "pattern", b"pattern", "static_options", b"static_options"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["default_value", b"default_value", "dynamic_options", b"dynamic_options", "extra_values_allowed", b"extra_values_allowed", "format", b"format", "is_secret", b"is_secret", "length", b"length", "pattern", b"pattern", "static_options", b"static_options", "transformation_option", b"transformation_option"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["default_value", b"default_value", "dynamic_options", b"dynamic_options", "extra_values_allowed", b"extra_values_allowed", "format", b"format", "is_secret", b"is_secret", "length", b"length", "pattern", b"pattern", "static_options", b"static_options", "transformation_option", b"transformation_option"]) -> None: ...
 
 global___StringInputFieldProps = StringInputFieldProps
+
+@typing.final
+class TransformationOption(google.protobuf.message.Message):
+    """TransformationOption defines a transformation applied to a string field's
+    value and the settings required by that transformation.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TRANSFORMATION_TYPE_FIELD_NUMBER: builtins.int
+    PASSWORD_TYPE_FIELD_ID_FIELD_NUMBER: builtins.int
+    DEFAULT_PASSWORD_TYPE_FIELD_NUMBER: builtins.int
+    TYPE7_ALGORITHM_FIELD_NUMBER: builtins.int
+    DES_ENCRYPTION_KEY_COMPONENTS_FIELD_NUMBER: builtins.int
+    transformation_type: global___TransformationType.ValueType
+    """transformation_type specifies the transformation to apply to the string field's value."""
+    default_password_type: global___PasswordType.ValueType
+    """default_password_type specifies the password type to use when
+    password_type_field_id is unset. is_secret may be `false` when
+    default_password_type is `PASSWORD_TYPE_7` or `PASSWORD_TYPE_8A`; when it
+    is `PASSWORD_TYPE_UNENCRYPTED`, is_secret must be `true`.
+    Exactly one of password_type_field_id or default_password_type must be set when
+    transformation_type is TRANSFORMATION_TYPE_ENCRYPTION.
+    """
+    type7_algorithm: global___Type7Algorithm.ValueType
+    """type7_algorithm specifies the algorithm used to encrypt and decrypt Type 7
+    values for this field. It is fixed by the EOS CLI configuration and cannot
+    be changed. It is also used to encrypt plaintext as Type 7 on devices that do not
+    have Type 8a enabled.
+    """
+    @property
+    def password_type_field_id(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """password_type_field_id is the ID of a string field in the same group or an
+        ancestor group whose value selects the password type for this field.
+        Supported values are `0` (plaintext), `7` (Type 7), and `8a` (Type 8a).
+        """
+
+    @property
+    def des_encryption_key_components(self) -> global___DESKeyComponents:
+        """des_encryption_key_components contains the ordered components used to derive the
+        EOS Type 7 DES encryption key.
+
+        Each component may be a literal value or a reference to a field in the
+        same input group or an ancestor group. The order of the components is
+        significant and must match the EOS key format for the corresponding
+        configuration.
+
+        This field is valid only when type7_algorithm is TYPE7_ALGORITHM_DES.
+        """
+
+    def __init__(
+        self,
+        *,
+        transformation_type: global___TransformationType.ValueType = ...,
+        password_type_field_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        default_password_type: global___PasswordType.ValueType = ...,
+        type7_algorithm: global___Type7Algorithm.ValueType = ...,
+        des_encryption_key_components: global___DESKeyComponents | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["des_encryption_key_components", b"des_encryption_key_components", "password_type_field_id", b"password_type_field_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["default_password_type", b"default_password_type", "des_encryption_key_components", b"des_encryption_key_components", "password_type_field_id", b"password_type_field_id", "transformation_type", b"transformation_type", "type7_algorithm", b"type7_algorithm"]) -> None: ...
+
+global___TransformationOption = TransformationOption
+
+@typing.final
+class DESKeyComponent(google.protobuf.message.Message):
+    """DESKeyComponent defines one component of a Type 7 DES encryption key."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    COMPONENT_TYPE_FIELD_NUMBER: builtins.int
+    COMPONENT_VALUE_FIELD_NUMBER: builtins.int
+    component_type: global___DESKeyComponentType.ValueType
+    """component_type specifies how component_value is interpreted."""
+    @property
+    def component_value(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """component_value contains either a literal value or a schema field ID,
+        depending on component_type.
+        """
+
+    def __init__(
+        self,
+        *,
+        component_type: global___DESKeyComponentType.ValueType = ...,
+        component_value: google.protobuf.wrappers_pb2.StringValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["component_value", b"component_value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["component_type", b"component_type", "component_value", b"component_value"]) -> None: ...
+
+global___DESKeyComponent = DESKeyComponent
+
+@typing.final
+class DESKeyComponents(google.protobuf.message.Message):
+    """DESKeyComponents contains the ordered components of a Type 7 DES encryption key."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VALUES_FIELD_NUMBER: builtins.int
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DESKeyComponent]:
+        """values contains the ordered DES key components."""
+
+    def __init__(
+        self,
+        *,
+        values: collections.abc.Iterable[global___DESKeyComponent] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+
+global___DESKeyComponents = DESKeyComponents
 
 @typing.final
 class GroupInputFieldProps(google.protobuf.message.Message):

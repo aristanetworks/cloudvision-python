@@ -15,6 +15,10 @@ __all__ = (
     "ResolverFieldInputMode",
     "ResolverFieldDisplayMode",
     "TagMatcherFieldMode",
+    "Type7Algorithm",
+    "TransformationType",
+    "PasswordType",
+    "DesKeyComponentType",
     "AutofillProviderType",
     "StudioKey",
     "StudioConfig",
@@ -33,6 +37,9 @@ __all__ = (
     "IntegerInputFieldProps",
     "FloatInputFieldProps",
     "StringInputFieldProps",
+    "TransformationOption",
+    "DesKeyComponent",
+    "DesKeyComponents",
     "GroupInputFieldProps",
     "CollectionInputFieldProps",
     "ResolverInputFieldProps",
@@ -467,6 +474,97 @@ class TagMatcherFieldMode(aristaproto.Enum):
     """
     TAG_MATCHER_FIELD_MODE_MULTI_INTERFACE_TAG allows interfaces
     to be selected based on any tag label.
+    """
+
+
+class Type7Algorithm(aristaproto.Enum):
+    """
+    Type7Algorithm defines the algorithms supported for Type 7 password encryption.
+    """
+
+    UNSPECIFIED = 0
+    """
+    TYPE7_ALGORITHM_UNSPECIFIED indicates an unspecified Type 7 algorithm.
+    """
+
+    OBFUSCATION = 1
+    """
+    TYPE7_ALGORITHM_OBFUSCATION indicates the obfuscation algorithm,
+    which applies a simple reversible XOR-based encoding.
+    """
+
+    DES = 2
+    """
+    TYPE7_ALGORITHM_DES indicates the DES algorithm,
+    which uses DES encryption with a master key.
+    """
+
+
+class TransformationType(aristaproto.Enum):
+    """
+    TransformationType defines the type of transformation to apply to a field value.
+    """
+
+    UNSPECIFIED = 0
+    """
+    TRANSFORMATION_TYPE_UNSPECIFIED indicates that no transformation has been selected.
+    """
+
+    ENCRYPTION = 1
+    """
+    TRANSFORMATION_TYPE_ENCRYPTION indicates that the field value is encrypted
+    with Type 8a when Security Profiles Studio enables Type 8a for the device,
+    and with Type 7 otherwise.
+    """
+
+
+class PasswordType(aristaproto.Enum):
+    """
+    PasswordType defines the password value formats supported by string fields
+    when transformation_type is TRANSFORMATION_TYPE_ENCRYPTION.
+    """
+
+    UNSPECIFIED = 0
+    """PASSWORD_TYPE_UNSPECIFIED indicates an unspecified password type."""
+
+    UNENCRYPTED = 1
+    """PASSWORD_TYPE_UNENCRYPTED indicates a plaintext password."""
+
+    _7 = 2
+    """
+    PASSWORD_TYPE_7 indicates a Type 7 (DES or OBFUSCATION) encrypted password.
+    """
+
+    _8A = 3
+    """
+    PASSWORD_TYPE_8A indicates a Type 8a (AES-256-GCM) encrypted password.
+    """
+
+
+class DesKeyComponentType(aristaproto.Enum):
+    """
+    DESKeyComponentType identifies how a DESKeyComponent value is interpreted.
+    """
+
+    UNSPECIFIED = 0
+    """
+    DES_KEY_COMPONENT_TYPE_UNSPECIFIED indicates that the component type is not configured.
+    """
+
+    LITERAL = 1
+    """
+    DES_KEY_COMPONENT_TYPE_LITERAL indicates that component_value contains a literal string
+    used directly as a component of the DES key.
+    """
+
+    FIELD_ID = 2
+    """
+    DES_KEY_COMPONENT_TYPE_FIELD_ID indicates that component_value contains the
+    ID of an input field whose resolved value supplies one component of the DES
+    key used to encrypt or decrypt the password. Supported fields are string
+    fields, integer fields, and single-interface-tag matchers when they are
+    either a sibling or sibling of an ancestor. A single-interface-tag resolver
+    is supported only when it is an ancestor.
     """
 
 
@@ -1109,6 +1207,91 @@ class StringInputFieldProps(aristaproto.Message):
     extra_values_allowed allows adding values to the field in
     addition to what's allowed by static_options/dynamic_options.
     """
+
+    transformation_option: "TransformationOption" = aristaproto.message_field(10)
+    """
+    transformation_option configures a transformation applied to this field's value when
+    generating device configuration.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class TransformationOption(aristaproto.Message):
+    """
+    TransformationOption defines a transformation applied to a string field's
+    value and the settings required by that transformation.
+    """
+
+    transformation_type: "TransformationType" = aristaproto.enum_field(1)
+    """
+    transformation_type specifies the transformation to apply to the string field's value.
+    """
+
+    password_type_field_id: Optional[str] = aristaproto.message_field(
+        2, wraps=aristaproto.TYPE_STRING
+    )
+    """
+    password_type_field_id is the ID of a string field in the same group or an
+    ancestor group whose value selects the password type for this field.
+    Supported values are `0` (plaintext), `7` (Type 7), and `8a` (Type 8a).
+    """
+
+    default_password_type: "PasswordType" = aristaproto.enum_field(3)
+    """
+    default_password_type specifies the password type to use when
+    password_type_field_id is unset. is_secret may be `false` when
+    default_password_type is `PASSWORD_TYPE_7` or `PASSWORD_TYPE_8A`; when it
+    is `PASSWORD_TYPE_UNENCRYPTED`, is_secret must be `true`.
+    Exactly one of password_type_field_id or default_password_type must be set when
+    transformation_type is TRANSFORMATION_TYPE_ENCRYPTION.
+    """
+
+    type7_algorithm: "Type7Algorithm" = aristaproto.enum_field(4)
+    """
+    type7_algorithm specifies the algorithm used to encrypt and decrypt Type 7
+    values for this field. It is fixed by the EOS CLI configuration and cannot
+    be changed. It is also used to encrypt plaintext as Type 7 on devices that do not
+    have Type 8a enabled.
+    """
+
+    des_encryption_key_components: "DesKeyComponents" = aristaproto.message_field(5)
+    """
+    des_encryption_key_components contains the ordered components used to derive the
+    EOS Type 7 DES encryption key.
+
+    Each component may be a literal value or a reference to a field in the
+    same input group or an ancestor group. The order of the components is
+    significant and must match the EOS key format for the corresponding
+    configuration.
+
+    This field is valid only when type7_algorithm is TYPE7_ALGORITHM_DES.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class DesKeyComponent(aristaproto.Message):
+    """
+    DESKeyComponent defines one component of a Type 7 DES encryption key.
+    """
+
+    component_type: "DesKeyComponentType" = aristaproto.enum_field(1)
+    """component_type specifies how component_value is interpreted."""
+
+    component_value: Optional[str] = aristaproto.message_field(2, wraps=aristaproto.TYPE_STRING)
+    """
+    component_value contains either a literal value or a schema field ID,
+    depending on component_type.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class DesKeyComponents(aristaproto.Message):
+    """
+    DESKeyComponents contains the ordered components of a Type 7 DES encryption key.
+    """
+
+    values: List["DesKeyComponent"] = aristaproto.message_field(1)
+    """values contains the ordered DES key components."""
 
 
 @dataclass(eq=False, repr=False)

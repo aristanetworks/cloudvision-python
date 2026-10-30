@@ -10,16 +10,6 @@
 __all__ = (
     "DeleteError",
     "SortDirection",
-    "IpAddress",
-    "RepeatedIpAddress",
-    "IPv4Address",
-    "RepeatedIPv4Address",
-    "IPv6Address",
-    "RepeatedIPv6Address",
-    "IpPrefix",
-    "IPv4Prefix",
-    "IPv6Prefix",
-    "Port",
     "RepeatedDouble",
     "RepeatedFloat",
     "RepeatedInt64",
@@ -85,6 +75,16 @@ __all__ = (
     "MapStringBytes",
     "MacAddress",
     "RepeatedMacAddress",
+    "IpAddress",
+    "RepeatedIpAddress",
+    "IPv4Address",
+    "RepeatedIPv4Address",
+    "IPv6Address",
+    "RepeatedIPv6Address",
+    "IpPrefix",
+    "IPv4Prefix",
+    "IPv6Prefix",
+    "Port",
 )
 
 
@@ -138,56 +138,6 @@ class SortDirection(aristaproto.Enum):
 
     DESCENDING = 2
     """SORT_DIRECTION_DESCENDING sorts in descending order."""
-
-
-@dataclass(eq=False, repr=False)
-class IpAddress(aristaproto.Message):
-    value: str = aristaproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class RepeatedIpAddress(aristaproto.Message):
-    values: List["IpAddress"] = aristaproto.message_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class IPv4Address(aristaproto.Message):
-    value: str = aristaproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class RepeatedIPv4Address(aristaproto.Message):
-    values: List["IPv4Address"] = aristaproto.message_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class IPv6Address(aristaproto.Message):
-    value: str = aristaproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class RepeatedIPv6Address(aristaproto.Message):
-    values: List["IPv6Address"] = aristaproto.message_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class IpPrefix(aristaproto.Message):
-    value: str = aristaproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class IPv4Prefix(aristaproto.Message):
-    value: str = aristaproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class IPv6Prefix(aristaproto.Message):
-    value: str = aristaproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class Port(aristaproto.Message):
-    value: int = aristaproto.uint32_field(1)
 
 
 @dataclass(eq=False, repr=False)
@@ -810,3 +760,53 @@ class MacAddress(aristaproto.Message):
 @dataclass(eq=False, repr=False)
 class RepeatedMacAddress(aristaproto.Message):
     values: List["MacAddress"] = aristaproto.message_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class IpAddress(aristaproto.Message):
+    value: str = aristaproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class RepeatedIpAddress(aristaproto.Message):
+    values: List["IpAddress"] = aristaproto.message_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class IPv4Address(aristaproto.Message):
+    value: str = aristaproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class RepeatedIPv4Address(aristaproto.Message):
+    values: List["IPv4Address"] = aristaproto.message_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class IPv6Address(aristaproto.Message):
+    value: str = aristaproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class RepeatedIPv6Address(aristaproto.Message):
+    values: List["IPv6Address"] = aristaproto.message_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class IpPrefix(aristaproto.Message):
+    value: str = aristaproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class IPv4Prefix(aristaproto.Message):
+    value: str = aristaproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class IPv6Prefix(aristaproto.Message):
+    value: str = aristaproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class Port(aristaproto.Message):
+    value: int = aristaproto.uint32_field(1)
