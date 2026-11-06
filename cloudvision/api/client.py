@@ -161,7 +161,7 @@ class AsyncCVClient:
         """
 
         headers = {
-            "Authorization": f"Basic {b64encode(":".join((username, password)).encode()).decode()}",
+            "Authorization": f"Basic {b64encode(':'.join((username, password)).encode()).decode()}",
         }
         try:
             context = cls._get_ssl_context(host, port, cacert=cacert, insecure=insecure)
