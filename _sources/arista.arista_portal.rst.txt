@@ -1,0 +1,18 @@
+arista.arista\_portal package
+=============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.arista_portal.v1
+
+Module contents
+---------------
+
+.. automodule:: arista.arista_portal
+   :members:
+   :show-inheritance:
+   :undoc-members:

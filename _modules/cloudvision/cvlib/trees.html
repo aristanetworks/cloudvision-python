@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cloudvision.cvlib.trees &mdash; CloudVision Python 1.35.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=f1212888"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            CloudVision Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">cloudvision</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CloudVision Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cloudvision.cvlib.trees</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cloudvision.cvlib.trees</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2026 Arista Networks, Inc.</span>
+<span class="c1"># Use of this source code is governed by the Apache License 2.0</span>
+<span class="c1"># that can be found in the COPYING file.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">anytree</span><span class="w"> </span><span class="kn">import</span> <span class="n">LevelOrderIter</span><span class="p">,</span> <span class="n">LoopError</span><span class="p">,</span> <span class="n">Node</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TreeCycleException</span><span class="p">,</span>
+    <span class="n">TreeParentNotFoundException</span><span class="p">,</span>
+    <span class="n">TreeSelfLoopException</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="merge_into_child">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.trees.merge_into_child">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">merge_into_child</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">child</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">ignore_keys</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Merge values from ``parent`` into ``child`` when they are missing or empty in ``child``.</span>
+
+<span class="sd">    Nested dictionaries are merged recursively. Inherited values are deep-copied</span>
+<span class="sd">    so mutable values are not shared between parent and child. The ``child``</span>
+<span class="sd">    dictionary is modified in place. Keys in ``ignore_keys`` are not merged.</span>
+
+<span class="sd">    :param parent: Dictionary containing fallback values.</span>
+<span class="sd">    :type parent: dict</span>
+<span class="sd">    :param child: Dictionary into which fallback values are merged.</span>
+<span class="sd">    :type child: dict</span>
+<span class="sd">    :param ignore_keys: Keys to exclude from the merge at every nesting level.</span>
+<span class="sd">    :type ignore_keys: list[str]</span>
+<span class="sd">    :param path: Path of keys traversed during a recursive merge.</span>
+<span class="sd">    :type path: list[str] or None</span>
+<span class="sd">    :return: The merged ``child`` dictionary.</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    """</span>
+    <span class="c1"># If falsey, nothing to merge into b (None or empty dict)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">parent</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">child</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">parent</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ignore_keys</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">child</span> <span class="ow">and</span> <span class="n">child</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{}]:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">child</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">merge_into_child</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">child</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">ignore_keys</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">child</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">merge_into_child</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">child</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">ignore_keys</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">child</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">child</span></div>
+
+
+
+<div class="viewcode-block" id="merge_all">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.trees.merge_all">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">merge_all</span><span class="p">(</span><span class="n">roots</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Node</span><span class="p">],</span> <span class="n">ignore_keys</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Merge each parent item's data into its descendants.</span>
+
+<span class="sd">    The returned items are keyed by node name. Keys in ``ignore_keys`` are not</span>
+<span class="sd">    merged. Mutations are performed in place, so each node's data contains the</span>
+<span class="sd">    merged values.</span>
+
+<span class="sd">    :param roots: Root nodes of the trees to merge.</span>
+<span class="sd">    :type roots: list[anytree.Node]</span>
+<span class="sd">    :param ignore_keys: Keys to exclude from the merge at every nesting level.</span>
+<span class="sd">    :type ignore_keys: list[str]</span>
+<span class="sd">    :return: Node data keyed by node name.</span>
+<span class="sd">    :rtype: dict[str, dict]</span>
+<span class="sd">    """</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">root</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">:</span>
+        <span class="c1"># Do a breadth-first traversal from each root and merge the parent into the child</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">LevelOrderIter</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+                <span class="n">merged</span> <span class="o">=</span> <span class="n">merge_into_child</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">ignore_keys</span><span class="p">)</span>
+                <span class="n">items</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">items</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">data</span>
+    <span class="k">return</span> <span class="n">items</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_report_cycle</span><span class="p">(</span><span class="n">child</span><span class="p">:</span> <span class="n">Node</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">Node</span><span class="p">,</span> <span class="n">item_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Report a cycle created by linking ``child`` to ``parent``.</span>
+
+<span class="sd">    :param child: Child node that closes the cycle.</span>
+<span class="sd">    :type child: anytree.Node</span>
+<span class="sd">    :param parent: Proposed parent node in the cycle.</span>
+<span class="sd">    :type parent: anytree.Node</span>
+<span class="sd">    :param item_type: Type name used to describe the items in the error.</span>
+<span class="sd">    :type item_type: str</span>
+<span class="sd">    :raises TreeCycleException: Always, with the complete cycle path.</span>
+<span class="sd">    """</span>
+    <span class="c1"># start at the parent and work towards the child</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">parent</span>
+
+    <span class="c1"># build up the path so we can show the user what the cycle is</span>
+    <span class="n">cycle</span> <span class="o">=</span> <span class="p">[</span><span class="n">child</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">child</span><span class="p">:</span>
+        <span class="n">cycle</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">parent</span>
+
+    <span class="c1"># complete the cycle</span>
+    <span class="n">cycle</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">TreeCycleException</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">item_type</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="to_node">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.trees.to_node">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_node</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">item_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Node</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create a node from an identifier and its associated data.</span>
+
+<span class="sd">    The identifier is used as the node name.</span>
+
+<span class="sd">    :param id: Identifier to use as the node name.</span>
+<span class="sd">    :type id: str</span>
+<span class="sd">    :param data: Data associated with the node.</span>
+<span class="sd">    :type data: dict</span>
+<span class="sd">    :param item_type: Type name used to describe the item in errors.</span>
+<span class="sd">    :type item_type: str</span>
+<span class="sd">    :return: A node containing ``data`` and ``item_type``.</span>
+<span class="sd">    :rtype: anytree.Node</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">Node</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">item_type</span><span class="o">=</span><span class="n">item_type</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="build_trees">
+<a class="viewcode-back" href="../../../cloudvision.cvlib.html#cloudvision.cvlib.trees.build_trees">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_trees</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Node</span><span class="p">],</span> <span class="n">parent_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Node</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Build trees from a flat dictionary of nodes.</span>
+
+<span class="sd">    Each dictionary key is an item identifier, and each value is its node.</span>
+<span class="sd">    The value of ``parent_key`` in a node's data identifies its parent. Nodes</span>
+<span class="sd">    without a parent are returned as roots.</span>
+
+<span class="sd">    The following relationships are rejected:</span>
+
+<span class="sd">    1. An item that is its own parent.</span>
+<span class="sd">    2. An item whose parent does not exist.</span>
+<span class="sd">    3. An item whose parent is one of its descendants.</span>
+
+<span class="sd">    :param items: Nodes keyed by item identifier.</span>
+<span class="sd">    :type items: dict[str, anytree.Node]</span>
+<span class="sd">    :param parent_key: Key in each node's data that identifies its parent.</span>
+<span class="sd">    :type parent_key: str</span>
+<span class="sd">    :return: Root nodes of the resulting trees.</span>
+<span class="sd">    :rtype: list[anytree.Node]</span>
+<span class="sd">    :raises TreeSelfLoopException: If an item identifies itself as its parent.</span>
+<span class="sd">    :raises TreeParentNotFoundException: If an item's parent is absent from ``items``.</span>
+<span class="sd">    :raises TreeCycleException: If a parent-child relationship creates a cycle.</span>
+<span class="sd">    """</span>
+    <span class="c1"># These are the tree roots. There can be more than one.</span>
+    <span class="n">roots</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Node</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">item_id</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">items</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">parent_id</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">parent_key</span><span class="p">)</span>
+
+        <span class="c1"># If the node has no parent, it is a root node</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">parent_id</span><span class="p">:</span>
+            <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># 1. Check for self loop</span>
+        <span class="k">if</span> <span class="n">parent_id</span> <span class="o">==</span> <span class="n">item_id</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TreeSelfLoopException</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">item_type</span><span class="p">)</span>
+
+        <span class="c1"># 2. Check if parent exists</span>
+        <span class="k">if</span> <span class="n">parent_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TreeParentNotFoundException</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">item_type</span><span class="p">)</span>
+
+        <span class="c1"># Link child to the parent, cycle detection is performed</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">parent_id</span><span class="p">]</span>
+        <span class="k">except</span> <span class="n">LoopError</span><span class="p">:</span>
+            <span class="n">_report_cycle</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">parent_id</span><span class="p">],</span> <span class="n">node</span><span class="o">.</span><span class="n">item_type</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">roots</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arista.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
