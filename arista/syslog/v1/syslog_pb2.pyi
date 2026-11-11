@@ -123,6 +123,40 @@ EXPORT_RESULT_FAILURE: ExportResult.ValueType  # 2
 """EXPORT_RESULT_FAILURE indicates an unsuccessful export operation."""
 global___ExportResult = ExportResult
 
+class _BackfillExportState:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _BackfillExportStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_BackfillExportState.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    BACKFILL_EXPORT_STATE_UNSPECIFIED: _BackfillExportState.ValueType  # 0
+    """BACKFILL_EXPORT_STATE_UNSPECIFIED indicates the state is unknown."""
+    BACKFILL_EXPORT_STATE_IN_PROGRESS: _BackfillExportState.ValueType  # 1
+    """BACKFILL_EXPORT_STATE_IN_PROGRESS indicates existing audit logs are being exported."""
+    BACKFILL_EXPORT_STATE_COMPLETED: _BackfillExportState.ValueType  # 2
+    """BACKFILL_EXPORT_STATE_COMPLETED indicates existing audit logs were exported."""
+    BACKFILL_EXPORT_STATE_FAILED: _BackfillExportState.ValueType  # 3
+    """BACKFILL_EXPORT_STATE_FAILED indicates exporting existing audit logs failed.
+    The failure details are provided in last_error.
+    """
+
+class BackfillExportState(_BackfillExportState, metaclass=_BackfillExportStateEnumTypeWrapper):
+    """BackfillExportState defines the possible states of exporting existing
+    audit logs after a syslog server is configured.
+    """
+
+BACKFILL_EXPORT_STATE_UNSPECIFIED: BackfillExportState.ValueType  # 0
+"""BACKFILL_EXPORT_STATE_UNSPECIFIED indicates the state is unknown."""
+BACKFILL_EXPORT_STATE_IN_PROGRESS: BackfillExportState.ValueType  # 1
+"""BACKFILL_EXPORT_STATE_IN_PROGRESS indicates existing audit logs are being exported."""
+BACKFILL_EXPORT_STATE_COMPLETED: BackfillExportState.ValueType  # 2
+"""BACKFILL_EXPORT_STATE_COMPLETED indicates existing audit logs were exported."""
+BACKFILL_EXPORT_STATE_FAILED: BackfillExportState.ValueType  # 3
+"""BACKFILL_EXPORT_STATE_FAILED indicates exporting existing audit logs failed.
+The failure details are provided in last_error.
+"""
+global___BackfillExportState = BackfillExportState
+
 @typing.final
 class ExportKey(google.protobuf.message.Message):
     """ExportKey uniquely identifies a syslog server to which to export logs."""
@@ -330,6 +364,9 @@ class Export(google.protobuf.message.Message):
     STATS_FIELD_NUMBER: builtins.int
     LAST_ERROR_FIELD_NUMBER: builtins.int
     LAST_SUCCESS_FIELD_NUMBER: builtins.int
+    BACKFILL_EXPORT_STATE_FIELD_NUMBER: builtins.int
+    backfill_export_state: global___BackfillExportState.ValueType
+    """backfill_export_state provides the state of exporting existing audit logs."""
     @property
     def key(self) -> global___ExportKey:
         """key uniquely identifies a syslog server."""
@@ -353,8 +390,9 @@ class Export(google.protobuf.message.Message):
         stats: global___ExportStats | None = ...,
         last_error: global___ExportError | None = ...,
         last_success: global___ExportSuccess | None = ...,
+        backfill_export_state: global___BackfillExportState.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["key", b"key", "last_error", b"last_error", "last_success", b"last_success", "stats", b"stats"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["key", b"key", "last_error", b"last_error", "last_success", b"last_success", "stats", b"stats"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["backfill_export_state", b"backfill_export_state", "key", b"key", "last_error", b"last_error", "last_success", b"last_success", "stats", b"stats"]) -> None: ...
 
 global___Export = Export

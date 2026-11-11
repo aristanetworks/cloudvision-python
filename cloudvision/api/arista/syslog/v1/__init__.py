@@ -12,6 +12,7 @@ __all__ = (
     "Format",
     "EndpointType",
     "ExportResult",
+    "BackfillExportState",
     "ExportKey",
     "ExportSuccess",
     "ExportError",
@@ -142,6 +143,32 @@ class ExportResult(aristaproto.Enum):
     """EXPORT_RESULT_FAILURE indicates an unsuccessful export operation."""
 
 
+class BackfillExportState(aristaproto.Enum):
+    """
+    BackfillExportState defines the possible states of exporting existing
+    audit logs after a syslog server is configured.
+    """
+
+    UNSPECIFIED = 0
+    """BACKFILL_EXPORT_STATE_UNSPECIFIED indicates the state is unknown."""
+
+    IN_PROGRESS = 1
+    """
+    BACKFILL_EXPORT_STATE_IN_PROGRESS indicates existing audit logs are being exported.
+    """
+
+    COMPLETED = 2
+    """
+    BACKFILL_EXPORT_STATE_COMPLETED indicates existing audit logs were exported.
+    """
+
+    FAILED = 3
+    """
+    BACKFILL_EXPORT_STATE_FAILED indicates exporting existing audit logs failed.
+    The failure details are provided in last_error.
+    """
+
+
 @dataclass(eq=False, repr=False)
 class ExportKey(aristaproto.Message):
     """
@@ -263,6 +290,11 @@ class Export(aristaproto.Message):
 
     last_success: "ExportSuccess" = aristaproto.message_field(4)
     """last_success provides details of last successful export."""
+
+    backfill_export_state: "BackfillExportState" = aristaproto.enum_field(5)
+    """
+    backfill_export_state provides the state of exporting existing audit logs.
+    """
 
 
 @dataclass(eq=False, repr=False)
