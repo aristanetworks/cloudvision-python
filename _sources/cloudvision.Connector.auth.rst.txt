@@ -1,0 +1,21 @@
+cloudvision.Connector.auth package
+==================================
+
+Submodules
+----------
+
+cloudvision.Connector.auth.cert module
+--------------------------------------
+
+.. automodule:: cloudvision.Connector.auth.cert
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.Connector.auth
+   :members:
+   :show-inheritance:
+   :undoc-members:
