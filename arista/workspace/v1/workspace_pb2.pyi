@@ -886,21 +886,59 @@ class RequestParams(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     REQUEST_ID_FIELD_NUMBER: builtins.int
+    SUBMIT_OPTIONS_FIELD_NUMBER: builtins.int
     @property
     def request_id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """request_id is the unique ID of the request. This is used to identify
         the Response for the request in Responses.
         """
 
+    @property
+    def submit_options(self) -> global___SubmitOptions:
+        """submit_options specifies optional parameters that modify submit behavior.
+        This field is valid only when the request field in the containing WorkspaceConfig
+        is set to REQUEST_SUBMIT or REQUEST_SUBMIT_FORCE.
+        """
+
     def __init__(
         self,
         *,
         request_id: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        submit_options: global___SubmitOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["request_id", b"request_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["request_id", b"request_id"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["request_id", b"request_id", "submit_options", b"submit_options"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["request_id", b"request_id", "submit_options", b"submit_options"]) -> None: ...
 
 global___RequestParams = RequestParams
+
+@typing.final
+class SubmitOptions(google.protobuf.message.Message):
+    """SubmitOptions controls whether a REQUEST_SUBMIT or REQUEST_SUBMIT_FORCE
+    request rebases and/or builds the workspace before submitting it.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    REBASE_IF_NEEDED_FIELD_NUMBER: builtins.int
+    BUILD_IF_NEEDED_FIELD_NUMBER: builtins.int
+    @property
+    def rebase_if_needed(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """rebase_if_needed when true, rebases the workspace before submitting if a rebase is required."""
+
+    @property
+    def build_if_needed(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """build_if_needed when true, builds the workspace before submitting if a build is required."""
+
+    def __init__(
+        self,
+        *,
+        rebase_if_needed: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        build_if_needed: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["build_if_needed", b"build_if_needed", "rebase_if_needed", b"rebase_if_needed"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["build_if_needed", b"build_if_needed", "rebase_if_needed", b"rebase_if_needed"]) -> None: ...
+
+global___SubmitOptions = SubmitOptions
 
 @typing.final
 class Response(google.protobuf.message.Message):
@@ -914,6 +952,7 @@ class Response(google.protobuf.message.Message):
     START_TIME_FIELD_NUMBER: builtins.int
     END_TIME_FIELD_NUMBER: builtins.int
     REQUEST_TYPE_FIELD_NUMBER: builtins.int
+    GENERATED_REQUEST_IDS_FIELD_NUMBER: builtins.int
     status: global___ResponseStatus.ValueType
     """status is the execution status of the response."""
     code: global___ResponseCode.ValueType
@@ -932,6 +971,13 @@ class Response(google.protobuf.message.Message):
     def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """end_time is the time when the request execution completed."""
 
+    @property
+    def generated_request_ids(self) -> fmp.wrappers_pb2.RepeatedString:
+        """generated_request_ids are the IDs of sub-requests created while executing an
+        orchestrated request. The IDs are ordered from the sub-request executed first to
+        the sub-request executed last.
+        """
+
     def __init__(
         self,
         *,
@@ -941,9 +987,10 @@ class Response(google.protobuf.message.Message):
         start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         end_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         request_type: global___Request.ValueType = ...,
+        generated_request_ids: fmp.wrappers_pb2.RepeatedString | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["end_time", b"end_time", "message", b"message", "start_time", b"start_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["code", b"code", "end_time", b"end_time", "message", b"message", "request_type", b"request_type", "start_time", b"start_time", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["end_time", b"end_time", "generated_request_ids", b"generated_request_ids", "message", b"message", "start_time", b"start_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["code", b"code", "end_time", b"end_time", "generated_request_ids", b"generated_request_ids", "message", b"message", "request_type", b"request_type", "start_time", b"start_time", "status", b"status"]) -> None: ...
 
 global___Response = Response
 

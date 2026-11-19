@@ -26,6 +26,7 @@ __all__ = (
     "DiffOp",
     "DiffScope",
     "RequestParams",
+    "SubmitOptions",
     "Response",
     "Responses",
     "WorkspaceKey",
@@ -769,6 +770,31 @@ class RequestParams(aristaproto.Message):
     the Response for the request in Responses.
     """
 
+    submit_options: "SubmitOptions" = aristaproto.message_field(2)
+    """
+    submit_options specifies optional parameters that modify submit behavior.
+    This field is valid only when the request field in the containing WorkspaceConfig
+    is set to REQUEST_SUBMIT or REQUEST_SUBMIT_FORCE.
+    """
+
+
+@dataclass(eq=False, repr=False)
+class SubmitOptions(aristaproto.Message):
+    """
+    SubmitOptions controls whether a REQUEST_SUBMIT or REQUEST_SUBMIT_FORCE
+    request rebases and/or builds the workspace before submitting it.
+    """
+
+    rebase_if_needed: Optional[bool] = aristaproto.message_field(1, wraps=aristaproto.TYPE_BOOL)
+    """
+    rebase_if_needed when true, rebases the workspace before submitting if a rebase is required.
+    """
+
+    build_if_needed: Optional[bool] = aristaproto.message_field(2, wraps=aristaproto.TYPE_BOOL)
+    """
+    build_if_needed when true, builds the workspace before submitting if a build is required.
+    """
+
 
 @dataclass(eq=False, repr=False)
 class Response(aristaproto.Message):
@@ -791,6 +817,13 @@ class Response(aristaproto.Message):
 
     request_type: "Request" = aristaproto.enum_field(6)
     """request_type is the type of request that this response is for."""
+
+    generated_request_ids: "___fmp__.RepeatedString" = aristaproto.message_field(7)
+    """
+    generated_request_ids are the IDs of sub-requests created while executing an
+    orchestrated request. The IDs are ordered from the sub-request executed first to
+    the sub-request executed last.
+    """
 
 
 @dataclass(eq=False, repr=False)

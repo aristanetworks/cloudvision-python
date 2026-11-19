@@ -10,8 +10,6 @@
 __all__ = (
     "DeleteError",
     "SortDirection",
-    "MacAddress",
-    "RepeatedMacAddress",
     "RepeatedDouble",
     "RepeatedFloat",
     "RepeatedInt64",
@@ -85,6 +83,8 @@ __all__ = (
     "IPv4Prefix",
     "IPv6Prefix",
     "Port",
+    "MacAddress",
+    "RepeatedMacAddress",
 )
 
 
@@ -138,16 +138,6 @@ class SortDirection(aristaproto.Enum):
 
     DESCENDING = 2
     """SORT_DIRECTION_DESCENDING sorts in descending order."""
-
-
-@dataclass(eq=False, repr=False)
-class MacAddress(aristaproto.Message):
-    value: str = aristaproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class RepeatedMacAddress(aristaproto.Message):
-    values: List["MacAddress"] = aristaproto.message_field(1)
 
 
 @dataclass(eq=False, repr=False)
@@ -810,3 +800,13 @@ class IPv6Prefix(aristaproto.Message):
 @dataclass(eq=False, repr=False)
 class Port(aristaproto.Message):
     value: int = aristaproto.uint32_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class MacAddress(aristaproto.Message):
+    value: str = aristaproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class RepeatedMacAddress(aristaproto.Message):
+    values: List["MacAddress"] = aristaproto.message_field(1)
