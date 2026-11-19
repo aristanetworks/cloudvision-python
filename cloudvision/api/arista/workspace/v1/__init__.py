@@ -687,6 +687,16 @@ class EntityType(aristaproto.Enum):
     DEPENDENCIES = 14
     """ENTITY_TYPE_DEPENDENCIES indicates the dependencies entity type."""
 
+    FIXTURE_CLASS_GROUP = 15
+    """
+    ENTITY_TYPE_FIXTURE_CLASS_GROUP indicates the FixtureClassGroup entity type.
+    """
+
+    FIXTURE_CLASS_GROUP_MEMBER = 16
+    """
+    ENTITY_TYPE_FIXTURE_CLASS_GROUP_MEMBER indicates the FixtureClassGroupMember entity type.
+    """
+
 
 class DiffType(aristaproto.Enum):
     """DiffType enumerates types of diff."""
@@ -1521,6 +1531,9 @@ class DiffKey(aristaproto.Message):
       hierarchy related entities:
         node: [“node_id”, <id>]
         fixture_class: [“fixture_class_id”, <id>]
+        fixture_class_group: [“fixture_class_group_id”, <id>]
+        fixture_class_group_member:
+          [“fixture_class_group_id”, <group_id>, “fixture_class_id”, <class_id>]
         fixture_instance: [“fixture_instance_id”, <id>]
         processor: [“processor_id”, <id>]
     """

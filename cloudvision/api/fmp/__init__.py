@@ -10,6 +10,8 @@
 __all__ = (
     "DeleteError",
     "SortDirection",
+    "MacAddress",
+    "RepeatedMacAddress",
     "RepeatedDouble",
     "RepeatedFloat",
     "RepeatedInt64",
@@ -73,8 +75,6 @@ __all__ = (
     "MapStringBool",
     "MapStringString",
     "MapStringBytes",
-    "MacAddress",
-    "RepeatedMacAddress",
     "IpAddress",
     "RepeatedIpAddress",
     "IPv4Address",
@@ -138,6 +138,16 @@ class SortDirection(aristaproto.Enum):
 
     DESCENDING = 2
     """SORT_DIRECTION_DESCENDING sorts in descending order."""
+
+
+@dataclass(eq=False, repr=False)
+class MacAddress(aristaproto.Message):
+    value: str = aristaproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class RepeatedMacAddress(aristaproto.Message):
+    values: List["MacAddress"] = aristaproto.message_field(1)
 
 
 @dataclass(eq=False, repr=False)
@@ -750,16 +760,6 @@ class MapStringBytes(aristaproto.Message):
         1, aristaproto.TYPE_STRING, aristaproto.TYPE_BYTES
     )
     """The map<string, bytes> values."""
-
-
-@dataclass(eq=False, repr=False)
-class MacAddress(aristaproto.Message):
-    value: str = aristaproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class RepeatedMacAddress(aristaproto.Message):
-    values: List["MacAddress"] = aristaproto.message_field(1)
 
 
 @dataclass(eq=False, repr=False)
