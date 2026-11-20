@@ -1,0 +1,37 @@
+arista.inventory.v1 package
+===========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.inventory.v1.services
+
+Submodules
+----------
+
+arista.inventory.v1.inventory\_pb2 module
+-----------------------------------------
+
+.. automodule:: arista.inventory.v1.inventory_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.inventory.v1.inventory\_pb2\_grpc module
+-----------------------------------------------
+
+.. automodule:: arista.inventory.v1.inventory_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.inventory.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:

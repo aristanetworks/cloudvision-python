@@ -1,0 +1,37 @@
+arista.arista\_portal.v1 package
+================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.arista_portal.v1.services
+
+Submodules
+----------
+
+arista.arista\_portal.v1.arista\_portal\_pb2 module
+---------------------------------------------------
+
+.. automodule:: arista.arista_portal.v1.arista_portal_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.arista\_portal.v1.arista\_portal\_pb2\_grpc module
+---------------------------------------------------------
+
+.. automodule:: arista.arista_portal.v1.arista_portal_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.arista_portal.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:

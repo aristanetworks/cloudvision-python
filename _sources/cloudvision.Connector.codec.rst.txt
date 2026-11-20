@@ -1,0 +1,37 @@
+cloudvision.Connector.codec package
+===================================
+
+Submodules
+----------
+
+cloudvision.Connector.codec.custom\_types module
+------------------------------------------------
+
+.. automodule:: cloudvision.Connector.codec.custom_types
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cloudvision.Connector.codec.decoder module
+------------------------------------------
+
+.. automodule:: cloudvision.Connector.codec.decoder
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cloudvision.Connector.codec.encoder module
+------------------------------------------
+
+.. automodule:: cloudvision.Connector.codec.encoder
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: cloudvision.Connector.codec
+   :members:
+   :show-inheritance:
+   :undoc-members:

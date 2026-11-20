@@ -1,0 +1,29 @@
+arista.configstatus.v1 package
+==============================
+
+Submodules
+----------
+
+arista.configstatus.v1.configstatus\_pb2 module
+-----------------------------------------------
+
+.. automodule:: arista.configstatus.v1.configstatus_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.configstatus.v1.configstatus\_pb2\_grpc module
+-----------------------------------------------------
+
+.. automodule:: arista.configstatus.v1.configstatus_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.configstatus.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:

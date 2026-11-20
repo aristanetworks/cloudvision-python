@@ -1,0 +1,37 @@
+arista.studio\_topology.v1 package
+==================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   arista.studio_topology.v1.services
+
+Submodules
+----------
+
+arista.studio\_topology.v1.studio\_topology\_pb2 module
+-------------------------------------------------------
+
+.. automodule:: arista.studio_topology.v1.studio_topology_pb2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+arista.studio\_topology.v1.studio\_topology\_pb2\_grpc module
+-------------------------------------------------------------
+
+.. automodule:: arista.studio_topology.v1.studio_topology_pb2_grpc
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: arista.studio_topology.v1
+   :members:
+   :show-inheritance:
+   :undoc-members:
